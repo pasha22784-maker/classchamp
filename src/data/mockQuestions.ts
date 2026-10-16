@@ -3,10 +3,16 @@ import { CLASS_1_MATHS_LESSON_1_QUESTIONS } from './curriculum/class1MathsLesson
 import { CLASS_1_MATHS_LESSON_2_QUESTIONS } from './curriculum/class1MathsLesson2';
 import { CLASS_1_MATHS_LESSON_3_QUESTIONS } from './curriculum/class1MathsLesson3';
 import { CLASS_1_MATHS_LESSON_4_QUESTIONS } from './curriculum/class1MathsLesson4';
+import { CLASS_1_MATHS_LESSON_5_QUESTIONS } from './curriculum/class1MathsLesson5';
+import { CLASS_1_MATHS_LESSON_6_QUESTIONS } from './curriculum/class1MathsLesson6';
 import { CLASS_1_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class1EnglishLesson1';
 import { CLASS_1_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class1EnglishLesson2';
+import { CLASS_1_ENGLISH_LESSON_4_QUESTIONS } from './curriculum/class1EnglishLesson4';
+import { CLASS_1_ENGLISH_LESSON_5_QUESTIONS } from './curriculum/class1EnglishLesson5';
 import { CLASS_1_HINDI_LESSON_1_QUESTIONS } from './curriculum/class1HindiLesson1';
 import { CLASS_1_HINDI_LESSON_2_QUESTIONS } from './curriculum/class1HindiLesson2';
+import { CLASS_1_HINDI_LESSON_3_QUESTIONS } from './curriculum/class1HindiLesson3';
+import { CLASS_1_HINDI_LESSON_4_QUESTIONS } from './curriculum/class1HindiLesson4';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
@@ -34,26 +40,18 @@ export const MOCK_QUESTIONS: Question[] = [
   // All 6 Concepts (Bundle of Ten, Tens & Ones, Teen Names, Order, Comparing, Friends of 10)
   // =========================================================================
   ...CLASS_1_MATHS_LESSON_4_QUESTIONS,
-  {
-    id: 'ncert_c1_m5_001',
-    grade: 1,
-    subject: 'maths',
-    chapter: 'How Many? (Addition up to 9)',
-    concept: 'NCERT Putting Together',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Ramu has 3 balloons 🎈🎈🎈. His mother gives him 2 more 🎈🎈. How many balloons in all?',
-    visualEmoji: '🎈',
-    payload: {
-      options: [
-        { id: 'opt_1', text: '4 Balloons', isCorrect: false },
-        { id: 'opt_2', text: '5 Balloons', isCorrect: true },
-        { id: 'opt_3', text: '6 Balloons', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Addition: 3 + 2 = 5 balloons in all!',
-    points: 10,
-  },
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 5 (How Many? - Addition up to 9)
+  // All 7 Concepts (Putting Together, Count Forward, Symbols, Adding 0, Order, Stories, Bonds)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 6 (Vegetable Farm - Subtraction up to 9)
+  // All 7 Concepts (Taking Away, Count Back, Minus Symbol, Subtracting 0/Self, Stories, Difference)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_6_QUESTIONS,
 
   // =========================================================================
   // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 1 (My Family & Fun with Letters)
@@ -83,6 +81,18 @@ export const MOCK_QUESTIONS: Question[] = [
     explanation: 'NCERT Grammar: When there is more than one, we add "-s": One apple -> Three apples!',
     points: 10,
   },
+
+  // =========================================================================
+  // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 4 (Action Words in Play - Verbs)
+  // All 6 Concepts (Action Recognition, Animal Actions, Verb vs Noun, -ing Words, Rhymes)
+  // =========================================================================
+  ...CLASS_1_ENGLISH_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 5 (Colors & Describing Words - Adjectives)
+  // All 6 Concepts (Colors, Size, Taste/Temp, Touch/Texture, Sentences)
+  // =========================================================================
+  ...CLASS_1_ENGLISH_LESSON_5_QUESTIONS,
 
   // =========================================================================
   // CLASS 2 — NCERT JOYFUL MATHEMATICS 2 & MRIDANG 2
@@ -424,6 +434,18 @@ export const MOCK_QUESTIONS: Question[] = [
   // All 7 Concepts (आ की मात्रा ज्ञान, 2-अक्षर शब्द, दोनों अक्षरों में मात्रा, 3-अक्षर, पाठ बोध, तुकबंदी, वाक्य)
   // =========================================================================
   ...CLASS_1_HINDI_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT सारंगी 1 (HINDI): CHAPTER 3 (रीना का तोता - इ व ई की मात्रा)
+  // All 7 Concepts (छोटी इ, बड़ी ई, ध्वनि अंतर, पाठ बोध, तुकबंदी, वाक्य)
+  // =========================================================================
+  ...CLASS_1_HINDI_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT सारंगी 1 (HINDI): CHAPTER 4 (चंदा मामा - उ व ऊ की मात्रा)
+  // All 7 Concepts (छोटा उ, बड़ा ऊ, र में मात्रा, पाठ बोध, तुकबंदी, वाक्य)
+  // =========================================================================
+  ...CLASS_1_HINDI_LESSON_4_QUESTIONS,
   {
     id: 'ncert_c1_h7_001',
     grade: 1,

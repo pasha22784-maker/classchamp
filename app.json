@@ -2,18 +2,18 @@
   "expo": {
     "name": "ClassChamp",
     "slug": "classchamp",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.classchamp.app",
-      "buildNumber": "5"
+      "buildNumber": "6"
     },
     "android": {
       "package": "com.classchamp.app",
-      "versionCode": 5,
+      "versionCode": 6,
       "adaptiveIcon": {
         "backgroundColor": "#1E40AF",
         "foregroundImage": "./assets/android-icon-foreground.png",
