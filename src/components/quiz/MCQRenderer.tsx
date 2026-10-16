@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { COLORS, BORDER_RADIUS, SPACING, SHADOWS } from '../../constants/theme';
 import { MCQOption } from '../../types';
+import { SpeakerButton } from '../common/SpeakerButton';
 
 interface MCQRendererProps {
   options: MCQOption[];
@@ -64,6 +65,8 @@ export const MCQRenderer: React.FC<MCQRendererProps> = ({
             </View>
 
             <Text style={[styles.optionText, textStyle]}>{opt.text}</Text>
+
+            <SpeakerButton textToSpeak={opt.text} size="sm" style={styles.optionSpeaker} />
 
             {isSubmitted && opt.isCorrect && (
               <Text style={styles.validationIcon}>✅</Text>
@@ -154,6 +157,9 @@ const styles = StyleSheet.create({
   },
   validationIcon: {
     fontSize: 18,
+    marginLeft: SPACING.sm,
+  },
+  optionSpeaker: {
     marginLeft: SPACING.sm,
   },
 });

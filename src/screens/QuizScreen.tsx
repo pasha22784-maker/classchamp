@@ -15,10 +15,12 @@ import {
   ChampButton,
   ChampCard,
   ChampProgressBar,
+  SpeakerButton,
 } from '../components/common';
 import { DynamicQuestionRenderer } from '../components/quiz';
 import { useQuizStore } from '../store/useQuizStore';
 import { triggerHaptic } from '../utils/haptics';
+import { stopSpeaking } from '../utils/speech';
 
 interface QuizScreenProps {
   onFinishQuiz: () => void;
@@ -60,9 +62,18 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
   // When quiz finishes, navigate to celebration
   useEffect(() => {
     if (isQuizComplete) {
+      stopSpeaking();
       onFinishQuiz();
     }
   }, [isQuizComplete]);
+
+  // Stop previous speech on new question or screen exit
+  useEffect(() => {
+    stopSpeaking();
+    return () => {
+      stopSpeaking();
+    };
+  }, [currentQuestionIndex]);
 
   const currentQ = questions[currentQuestionIndex];
 
@@ -184,16 +195,19 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
         {/* Question Header Card */}
         <ChampCard style={styles.questionCard} shadow="medium">
           <View style={styles.badgeRow}>
-            <ChampBadge
-              label={formatQuestionTypeLabel(currentQ.type)}
-              variant="purple"
-              size="sm"
-            />
-            <ChampBadge
-              label={`+${currentQ.points} Points`}
-              variant="gold"
-              size="sm"
-            />
+            <View style={{ flexDirection: 'row', gap: 6, alignItems: 'center' }}>
+              <ChampBadge
+                label={formatQuestionTypeLabel(currentQ.type)}
+                variant="purple"
+                size="sm"
+              />
+              <ChampBadge
+                label={`+${currentQ.points} Points`}
+                variant="gold"
+                size="sm"
+              />
+            </View>
+            <SpeakerButton textToSpeak={currentQ.question} size="md" />
           </View>
 
           <Text style={styles.questionText}>
@@ -221,9 +235,12 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
             style={styles.explanationCard}
             variant={isCorrect ? 'gold' : 'accent'}
           >
-            <Text style={styles.feedbackHeading}>
-              {isCorrect ? '🎉 Super Champ! That’s Right!' : '💡 Good Try! Here’s the Clue:'}
-            </Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+              <Text style={styles.feedbackHeading}>
+                {isCorrect ? '🎉 Super Champ! That’s Right!' : '💡 Good Try! Here’s the Clue:'}
+              </Text>
+              <SpeakerButton textToSpeak={currentQ.explanation} size="sm" />
+            </View>
             <Text style={styles.explanationBody}>{currentQ.explanation}</Text>
           </ChampCard>
         )}

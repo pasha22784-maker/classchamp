@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { COLORS, BORDER_RADIUS, SPACING, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 
+import { SpeakerButton } from '../common/SpeakerButton';
+
 interface FillBlankRendererProps {
   displayTemplate: string;
   wordBank: string[];
@@ -23,6 +25,7 @@ export const FillBlankRenderer: React.FC<FillBlankRendererProps> = ({
   // Split template by [BLANK]
   const parts = displayTemplate.split('[BLANK]');
   const isCorrect = isSubmitted && selectedWord?.trim().toLowerCase() === correctAnswer.trim().toLowerCase();
+  const fullSpokenSentence = displayTemplate.replace('[BLANK]', selectedWord || 'खाली जगह');
 
   const handleWordTap = (word: string) => {
     if (isSubmitted) return;
@@ -44,6 +47,11 @@ export const FillBlankRenderer: React.FC<FillBlankRendererProps> = ({
     <View style={styles.container}>
       {/* Interactive Sentence with Blank Slot */}
       <View style={[styles.sentenceCard, SHADOWS.small]}>
+        <View style={styles.sentenceHeaderRow}>
+          <Text style={styles.sentenceLabel}>Sentence:</Text>
+          <SpeakerButton textToSpeak={fullSpokenSentence} size="sm" />
+        </View>
+
         <Text style={styles.sentenceText}>
           {parts[0]}
           <TouchableOpacity
@@ -74,37 +82,42 @@ export const FillBlankRenderer: React.FC<FillBlankRendererProps> = ({
 
       {/* Word Bank Label */}
       <View style={styles.wordBankHeader}>
-        <Text style={styles.wordBankTitle}>💡 Word Bank (Tap to choose):</Text>
+        <Text style={styles.wordBankTitle}>💡 Word Bank (Tap word to pick, 🔊 to hear):</Text>
         {selectedWord && !isSubmitted && (
           <Text style={styles.tapToUndoText}>Tap blank to remove</Text>
         )}
       </View>
 
-      {/* Word Bank Chips */}
+      {/* Word Bank Chips with Speaker Buttons */}
       <View style={styles.chipsContainer}>
         {wordBank.map((word) => {
           const isSelected = selectedWord === word;
           return (
-            <TouchableOpacity
+            <View
               key={word}
-              activeOpacity={0.8}
-              disabled={isSubmitted}
-              onPress={() => handleWordTap(word)}
               style={[
-                styles.wordChip,
+                styles.wordChipWrapper,
                 isSelected && styles.wordChipUsed,
                 SHADOWS.small,
               ]}
             >
-              <Text
-                style={[
-                  styles.wordChipText,
-                  isSelected && styles.wordChipTextUsed,
-                ]}
+              <TouchableOpacity
+                activeOpacity={0.8}
+                disabled={isSubmitted}
+                onPress={() => handleWordTap(word)}
+                style={styles.wordChipTouch}
               >
-                {word}
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={[
+                    styles.wordChipText,
+                    isSelected && styles.wordChipTextUsed,
+                  ]}
+                >
+                  {word}
+                </Text>
+              </TouchableOpacity>
+              <SpeakerButton textToSpeak={word} size="sm" style={styles.chipSpeakerBtn} />
+            </View>
           );
         })}
       </View>
@@ -128,10 +141,22 @@ const styles = StyleSheet.create({
   sentenceCard: {
     backgroundColor: COLORS.white,
     borderRadius: BORDER_RADIUS.lg,
-    padding: SPACING.xl,
+    padding: SPACING.lg,
     borderWidth: 1.5,
     borderColor: COLORS.border,
     marginBottom: SPACING.xl,
+  },
+  sentenceHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: SPACING.sm,
+  },
+  sentenceLabel: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: COLORS.textMedium,
+    textTransform: 'uppercase',
   },
   sentenceText: {
     fontSize: 18,
@@ -201,13 +226,23 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: SPACING.md,
   },
-  wordChip: {
+  wordChipWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: COLORS.white,
     borderWidth: 2,
     borderColor: COLORS.gold,
     borderRadius: BORDER_RADIUS.round,
-    paddingVertical: SPACING.sm + 2,
-    paddingHorizontal: SPACING.xl,
+    paddingLeft: SPACING.md,
+    paddingRight: 4,
+    paddingVertical: 4,
+    gap: 6,
+  },
+  wordChipTouch: {
+    paddingVertical: SPACING.xs,
+  },
+  chipSpeakerBtn: {
+    borderWidth: 1,
   },
   wordChipUsed: {
     backgroundColor: COLORS.backgroundAlt,

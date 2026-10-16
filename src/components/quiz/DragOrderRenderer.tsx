@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { COLORS, BORDER_RADIUS, SPACING, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
+import { SpeakerButton } from '../common/SpeakerButton';
 
 interface DragOrderRendererProps {
   scrambledTokens: string[];
@@ -65,7 +66,12 @@ export const DragOrderRenderer: React.FC<DragOrderRendererProps> = ({
           SHADOWS.small,
         ]}
       >
-        <Text style={styles.trayLabel}>Your Sentence Order (Tap to remove):</Text>
+        <View style={styles.trayHeaderRow}>
+          <Text style={styles.trayLabel}>Your Sentence Order (Tap to remove):</Text>
+          {currentSequence.length > 0 && (
+            <SpeakerButton textToSpeak={currentSequence.join(' ')} size="sm" />
+          )}
+        </View>
         <View style={styles.trayChipsRow}>
           {currentSequence.length === 0 ? (
             <Text style={styles.placeholderText}>
@@ -100,38 +106,48 @@ export const DragOrderRenderer: React.FC<DragOrderRendererProps> = ({
       </View>
 
       {/* Available Word Bank */}
-      <Text style={styles.bankLabel}>Tap words to arrange them:</Text>
+      <Text style={styles.bankLabel}>Tap words to arrange (🔊 to listen):</Text>
       <View style={styles.bankChipsRow}>
         {availableTokensWithStatus.map((item, idx) => (
-          <TouchableOpacity
+          <View
             key={`${item.token}_${idx}`}
-            activeOpacity={0.8}
-            disabled={isSubmitted || item.isUsed}
-            onPress={() => handleBankTokenTap(item.token, idx)}
             style={[
-              styles.bankChip,
+              styles.bankChipWrapper,
               item.isUsed && styles.bankChipUsed,
               SHADOWS.small,
             ]}
           >
-            <Text
-              style={[
-                styles.bankChipText,
-                item.isUsed && styles.bankChipTextUsed,
-              ]}
+            <TouchableOpacity
+              activeOpacity={0.8}
+              disabled={isSubmitted || item.isUsed}
+              onPress={() => handleBankTokenTap(item.token, idx)}
+              style={styles.bankChipTouch}
             >
-              {item.token}
-            </Text>
-          </TouchableOpacity>
+              <Text
+                style={[
+                  styles.bankChipText,
+                  item.isUsed && styles.bankChipTextUsed,
+                ]}
+              >
+                {item.token}
+              </Text>
+            </TouchableOpacity>
+            {!item.isUsed && (
+              <SpeakerButton textToSpeak={item.token} size="sm" style={styles.chipSpeakerBtn} />
+            )}
+          </View>
         ))}
       </View>
 
       {/* Correct Reveal on Wrong */}
       {isSubmitted && !isCorrect && (
         <View style={styles.solutionBox}>
-          <Text style={styles.solutionText}>
-            Correct Sequence: <Text style={styles.solutionHighlight}>{correctSequence.join(' ')}</Text>
-          </Text>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Text style={styles.solutionText}>
+              Correct Sequence: <Text style={styles.solutionHighlight}>{correctSequence.join(' ')}</Text>
+            </Text>
+            <SpeakerButton textToSpeak={correctSequence.join(' ')} size="sm" />
+          </View>
         </View>
       )}
     </View>
@@ -159,11 +175,16 @@ const styles = StyleSheet.create({
     borderColor: COLORS.error,
     backgroundColor: '#FEF2F2',
   },
+  trayHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: SPACING.sm,
+  },
   trayLabel: {
     fontSize: 12,
     fontWeight: '700',
     color: COLORS.textMedium,
-    marginBottom: SPACING.sm,
   },
   trayChipsRow: {
     flexDirection: 'row',
@@ -215,13 +236,23 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: SPACING.sm,
   },
-  bankChip: {
+  bankChipWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: COLORS.white,
     borderWidth: 2,
     borderColor: COLORS.gold,
     borderRadius: BORDER_RADIUS.round,
-    paddingVertical: SPACING.sm,
-    paddingHorizontal: SPACING.lg,
+    paddingLeft: SPACING.md,
+    paddingRight: 4,
+    paddingVertical: 3,
+    gap: 4,
+  },
+  bankChipTouch: {
+    paddingVertical: SPACING.xs,
+  },
+  chipSpeakerBtn: {
+    borderWidth: 1,
   },
   bankChipUsed: {
     backgroundColor: COLORS.backgroundAlt,

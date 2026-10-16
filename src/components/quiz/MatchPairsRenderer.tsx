@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { COLORS, BORDER_RADIUS, SPACING, SHADOWS } from '../../constants/theme';
 import { MatchPairItem } from '../../types';
 import { triggerHaptic } from '../../utils/haptics';
+import { SpeakerButton } from '../common/SpeakerButton';
 
 interface MatchPairsRendererProps {
   pairs: MatchPairItem[];
@@ -89,15 +90,18 @@ export const MatchPairsRenderer: React.FC<MatchPairsRendererProps> = ({
                   SHADOWS.small,
                 ]}
               >
-                <Text
-                  style={[
-                    styles.cardText,
-                    isLeftActive && styles.cardTextActive,
-                    matchedRight && { color: pairColor, fontWeight: '800' },
-                  ]}
-                >
-                  {pair.left}
-                </Text>
+                <View style={styles.cardContentRow}>
+                  <Text
+                    style={[
+                      styles.cardText,
+                      isLeftActive && styles.cardTextActive,
+                      matchedRight && { color: pairColor, fontWeight: '800' },
+                    ]}
+                  >
+                    {pair.left}
+                  </Text>
+                  <SpeakerButton textToSpeak={pair.left} size="sm" />
+                </View>
                 {matchedRight && !isSubmitted && (
                   <View style={[styles.dotPill, { backgroundColor: pairColor }]} />
                 )}
@@ -137,14 +141,17 @@ export const MatchPairsRenderer: React.FC<MatchPairsRendererProps> = ({
                   SHADOWS.small,
                 ]}
               >
-                <Text
-                  style={[
-                    styles.cardText,
-                    isMatched && { color: pairColor, fontWeight: '800' },
-                  ]}
-                >
-                  {rightVal}
-                </Text>
+                <View style={styles.cardContentRow}>
+                  <Text
+                    style={[
+                      styles.cardText,
+                      isMatched && { color: pairColor, fontWeight: '800' },
+                    ]}
+                  >
+                    {rightVal}
+                  </Text>
+                  <SpeakerButton textToSpeak={rightVal} size="sm" />
+                </View>
                 {isMatched && !isSubmitted && (
                   <View style={[styles.dotPill, { backgroundColor: pairColor }]} />
                 )}
@@ -204,11 +211,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#FEF2F2',
     borderColor: COLORS.error,
   },
+  cardContentRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    gap: 6,
+  },
   cardText: {
     fontSize: 14,
     fontWeight: '700',
     color: COLORS.textDark,
-    textAlign: 'center',
+    textAlign: 'left',
+    flex: 1,
   },
   cardTextActive: {
     color: COLORS.goldDark,

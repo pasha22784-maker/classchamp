@@ -7,3 +7,4 @@ export * from './ParentGateModal';
 export * from './TrophyModal';
 export * from './PaywallModal';
 export * from './AppUpdaterModal';
+export * from './SpeakerButton';
