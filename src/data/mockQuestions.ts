@@ -6,16 +6,26 @@ import { CLASS_1_MATHS_LESSON_4_QUESTIONS } from './curriculum/class1MathsLesson
 import { CLASS_1_MATHS_LESSON_5_QUESTIONS } from './curriculum/class1MathsLesson5';
 import { CLASS_1_MATHS_LESSON_6_QUESTIONS } from './curriculum/class1MathsLesson6';
 import { CLASS_1_MATHS_LESSON_7_QUESTIONS } from './curriculum/class1MathsLesson7';
+import { CLASS_1_MATHS_LESSON_8_QUESTIONS } from './curriculum/class1MathsLesson8';
+import { CLASS_1_MATHS_LESSON_9_QUESTIONS } from './curriculum/class1MathsLesson9';
+import { CLASS_1_MATHS_LESSON_10_QUESTIONS } from './curriculum/class1MathsLesson10';
+import { CLASS_1_MATHS_LESSON_11_QUESTIONS } from './curriculum/class1MathsLesson11';
+import { CLASS_1_MATHS_LESSON_12_QUESTIONS } from './curriculum/class1MathsLesson12';
 import { CLASS_1_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class1EnglishLesson1';
 import { CLASS_1_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class1EnglishLesson2';
 import { CLASS_1_ENGLISH_LESSON_3_QUESTIONS } from './curriculum/class1EnglishLesson3';
 import { CLASS_1_ENGLISH_LESSON_4_QUESTIONS } from './curriculum/class1EnglishLesson4';
 import { CLASS_1_ENGLISH_LESSON_5_QUESTIONS } from './curriculum/class1EnglishLesson5';
+import { CLASS_1_ENGLISH_LESSON_6_QUESTIONS } from './curriculum/class1EnglishLesson6';
+import { CLASS_1_ENGLISH_LESSON_7_QUESTIONS } from './curriculum/class1EnglishLesson7';
+import { CLASS_1_ENGLISH_LESSON_8_QUESTIONS } from './curriculum/class1EnglishLesson8';
 import { CLASS_1_HINDI_LESSON_1_QUESTIONS } from './curriculum/class1HindiLesson1';
 import { CLASS_1_HINDI_LESSON_2_QUESTIONS } from './curriculum/class1HindiLesson2';
 import { CLASS_1_HINDI_LESSON_3_QUESTIONS } from './curriculum/class1HindiLesson3';
 import { CLASS_1_HINDI_LESSON_4_QUESTIONS } from './curriculum/class1HindiLesson4';
 import { CLASS_1_HINDI_LESSON_5_QUESTIONS } from './curriculum/class1HindiLesson5';
+import { CLASS_1_HINDI_LESSON_6_QUESTIONS } from './curriculum/class1HindiLesson6';
+import { CLASS_1_HINDI_LESSON_7_QUESTIONS } from './curriculum/class1HindiLesson7';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
@@ -63,6 +73,36 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_1_MATHS_LESSON_7_QUESTIONS,
 
   // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 8 (Fun with Numbers - Numbers 21 to 99)
+  // All 7 Concepts (Counting in Tens, Tens and Ones, Before/After, Greater/Smaller, Skip 10s)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_8_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 9 (Utsav - Patterns)
+  // All 7 Concepts (Shape Patterns, Color, Size, Skip Counting Patterns, Backwards)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_9_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 10 (How do I Spend My Day? - Time)
+  // All 7 Concepts (Morning, Afternoon, Evening, Night, Routine Sequence, Duration)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_10_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 11 (How Much Can We Spend? - Money)
+  // All 7 Concepts (Coins ₹1, ₹2, ₹5, ₹10, Combining Money, Total Cost, Calculating Change)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_11_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 12 (So Many Toys! - Data Handling)
+  // All 7 Concepts (Sorting & Counting, Most/Least, Difference, Total, Ordering)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_12_QUESTIONS,
+
+  // =========================================================================
   // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 1 (My Family & Fun with Letters)
   // All 7 Concepts (Beginning Phonics, Capital/Small, Vowels, Rhymes, Family, CVC, Sentences)
   // =========================================================================
@@ -89,6 +129,24 @@ export const MOCK_QUESTIONS: Question[] = [
   // All 6 Concepts (Colors, Size, Taste/Temp, Touch/Texture, Sentences)
   // =========================================================================
   ...CLASS_1_ENGLISH_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 6 (Position Words - In, On, Under)
+  // All 6 Concepts (In, On, Under, Behind, In Front, Pairs)
+  // =========================================================================
+  ...CLASS_1_ENGLISH_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 7 (Pronouns - He, She, It, They)
+  // All 6 Concepts (He for boys, She for girls, It for things, They, Story match)
+  // =========================================================================
+  ...CLASS_1_ENGLISH_LESSON_7_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 8 (Sentence Scramble & Story Words)
+  // All 6 Concepts (Capital letter start, Full stop ., Word order, Question mark ?, Sight words)
+  // =========================================================================
+  ...CLASS_1_ENGLISH_LESSON_8_QUESTIONS,
 
   // =========================================================================
   // CLASS 2 — NCERT JOYFUL MATHEMATICS 2 & MRIDANG 2
@@ -448,44 +506,17 @@ export const MOCK_QUESTIONS: Question[] = [
   // All 8 Concepts (ए मात्रा, ऐ मात्रा, ओ मात्रा, औ मात्रा, अंतर, खिलौने, तुकबंदी, वाक्य)
   // =========================================================================
   ...CLASS_1_HINDI_LESSON_5_QUESTIONS,
-  {
-    id: 'ncert_c1_h7_001',
-    grade: 1,
-    subject: 'hindi',
-    chapter: 'उल्टे अर्थ वाले शब्द (विलोम शब्द)',
-    concept: 'NCERT विपरीतार्थक शब्द',
-    difficulty: 'easy',
-    type: 'match_pairs',
-    question: 'उल्टे अर्थ (विलोम शब्द) की सही जोड़ी मिलाइए:',
-    visualEmoji: '↔️',
-    payload: {
-      pairs: [
-        { id: 'h_lr1', left: 'बड़ा 🐘', right: 'छोटा 🐁' },
-        { id: 'h_lr2', left: 'दिन ☀️', right: 'रात 🌙' },
-        { id: 'h_lr3', left: 'ऊपर ⬆️', right: 'नीचे ⬇️' },
-      ],
-    },
-    explanation: 'NCERT सारंगी Ch 7: बड़ा का उल्टा छोटा, दिन का उल्टा रात, ऊपर का नीचे!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c1_h1_002',
-    grade: 1,
-    subject: 'hindi',
-    chapter: 'मीना का परिवार (स्वर, व्यंजन व अमात्रिक शब्द)',
-    concept: 'NCERT शब्द व वाक्य निर्माण',
-    difficulty: 'easy',
-    type: 'drag_order',
-    question: 'शब्दों को सही क्रम में लगाकर सही वाक्य बनाइए:',
-    visualEmoji: '🏠',
-    payload: {
-      tokens: ['अमन', 'घर', 'चल'],
-      scrambled: ['चल', 'अमन', 'घर'],
-      correctSequence: ['अमन', 'घर', 'चल'],
-    },
-    explanation: 'NCERT कक्षा 1: सही वाक्य है: "अमन घर चल"।',
-    points: 10,
-  },
+  // =========================================================================
+  // CLASS 1 — NCERT सारंगी 1 (HINDI): CHAPTER 6 (नाम वाले शब्द - संज्ञा परिचय)
+  // All 7 Concepts (नाम वाले शब्द, व्यक्तियों, पशु-पक्षियों, फलों, वस्तुओं, स्थानों के नाम)
+  // =========================================================================
+  ...CLASS_1_HINDI_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT सारंगी 1 (HINDI): CHAPTER 7 (उल्टे अर्थ वाले शब्द - विलोम शब्द)
+  // All 8 Concepts (बड़ा/छोटा, ऊपर/नीचे, दिन/रात, गरम/ठंडा, अंदर/बाहर, पास/दूर, नया/पुराना)
+  // =========================================================================
+  ...CLASS_1_HINDI_LESSON_7_QUESTIONS,
 
   // =========================================================================
   // CLASS 2 — NCERT सारंगी 2 (HINDI)
