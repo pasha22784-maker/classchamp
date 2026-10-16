@@ -12,13 +12,26 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { COLORS } from '../../constants/theme';
 
 // Current App Version
-export const CURRENT_APP_VERSION = 'v1.0.0';
+export const CURRENT_APP_VERSION = 'v1.0.1';
 const GITHUB_REPO = 'pasha22784-maker/classchamp';
 
 interface ReleaseInfo {
   version: string;
   notes: string;
   downloadUrl: string;
+}
+
+// Check if latest remote version is strictly newer than current app version
+function isNewerVersion(latest: string, current: string): boolean {
+  const cleanL = latest.replace(/^v/, '').split('.').map((n) => parseInt(n, 10) || 0);
+  const cleanC = current.replace(/^v/, '').split('.').map((n) => parseInt(n, 10) || 0);
+  for (let i = 0; i < Math.max(cleanL.length, cleanC.length); i++) {
+    const l = cleanL[i] || 0;
+    const c = cleanC[i] || 0;
+    if (l > c) return true;
+    if (l < c) return false;
+  }
+  return false;
 }
 
 export function AppUpdaterModal() {
@@ -55,8 +68,8 @@ export function AppUpdaterModal() {
         apkAsset?.browser_download_url ||
         `https://github.com/${GITHUB_REPO}/releases/latest/download/ClassChamp.apk`;
 
-      // Compare versions (e.g. v1.0.1 > v1.0.0)
-      if (latestTag && latestTag !== CURRENT_APP_VERSION) {
+      // Check if GitHub has a newer version than this build
+      if (latestTag && isNewerVersion(latestTag, CURRENT_APP_VERSION)) {
         setUpdateAvailable({
           version: latestTag,
           notes: data.body || 'Naye sawaal aur CBSE improvements add kiye gaye hain.',

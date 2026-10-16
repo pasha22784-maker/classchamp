@@ -48,12 +48,18 @@ jobs:
           name: ClassChamp-Release-APK
           path: release-output/ClassChamp.apk
 
+      - name: Extract Version
+        id: pkg_version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=v$VERSION" >> $GITHUB_OUTPUT
+
       - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v2
         if: github.ref == 'refs/heads/main'
         with:
-          tag_name: latest
-          name: "ClassChamp (Latest Release)"
+          tag_name: ${{ steps.pkg_version.outputs.version }}
+          name: "ClassChamp ${{ steps.pkg_version.outputs.version }}"
           body: "Automated Standalone Offline Android Release of ClassChamp. Daily 10-Min CBSE Practice for Class 1 to 6."
           files: release-output/ClassChamp.apk
           draft: false

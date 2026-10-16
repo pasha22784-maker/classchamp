@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,6 +7,7 @@ import {
   StatusBar,
   TouchableOpacity,
   Modal,
+  Animated,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../constants/theme';
@@ -39,10 +40,44 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const { profile, loadProfile, setAvatar } = useUserStore();
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showPaywallModal, setShowPaywallModal] = useState(false);
+  
+  // App-open Streak Greeting (shown once when app opens, then dismissed)
+  const [showStreakWelcome, setShowStreakWelcome] = useState(true);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(-20)).current;
 
   useEffect(() => {
     loadProfile();
+
+    // Animate in the welcome streak banner
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 400,
+        useNativeDriver: true,
+      }),
+      Animated.timing(slideAnim, {
+        toValue: 0,
+        duration: 400,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    // Auto-dismiss the streak greeting after 4 seconds
+    const timer = setTimeout(() => {
+      dismissStreakWelcome();
+    }, 4500);
+
+    return () => clearTimeout(timer);
   }, []);
+
+  const dismissStreakWelcome = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => setShowStreakWelcome(false));
+  };
 
   const todayStr = getTodayDateString();
   const isCompletedToday = profile.historyDatesCompleted.includes(todayStr);
@@ -100,183 +135,250 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
     <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primaryDark} />
 
-      {/* Top Header — Tap Profile / User Icon to open Settings */}
+      {/* Clean & Smart Header: Avatar + Greeting + Stars + Settings Button */}
       <ChampHeader
         title={`Hi, ${profile.name}! 👋`}
         subtitle={`${gradeConfig.label} • NCERT`}
-        streakDays={profile.currentStreak}
         totalStars={profile.totalStars}
         avatarEmoji={currentAvatar.emoji}
         onPressAvatar={() => {
           triggerHaptic('light');
           setShowSettingsModal(true);
         }}
+        rightComponent={
+          <TouchableOpacity
+            style={styles.settingsGearBtn}
+            onPress={() => {
+              triggerHaptic('light');
+              setShowSettingsModal(true);
+            }}
+            activeOpacity={0.8}
+            accessibilityLabel="Settings"
+          >
+            <Text style={styles.settingsGearText}>⚙️</Text>
+          </TouchableOpacity>
+        }
       />
+
+      {/* App Open Streak Welcome Toast (Auto-dismisses, then moves to Settings) */}
+      {showStreakWelcome && (
+        <Animated.View
+          style={[
+            styles.streakToastContainer,
+            {
+              opacity: fadeAnim,
+              transform: [{ translateY: slideAnim }],
+            },
+          ]}
+        >
+          <View style={styles.streakToastContent}>
+            <View style={styles.streakToastFlame}>
+              <Text style={{ fontSize: 24 }}>🔥</Text>
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.streakToastTitle}>
+                {profile.currentStreak > 0
+                  ? `${profile.currentStreak} Day Streak Active!`
+                  : 'Start Your Streak Today!'}
+              </Text>
+              <Text style={styles.streakToastSub}>
+                {isCompletedToday
+                  ? "Today's goal completed! Shabaash 🌟"
+                  : 'Complete 10 min practice to keep it burning!'}
+              </Text>
+            </View>
+            <TouchableOpacity
+              onPress={dismissStreakWelcome}
+              style={styles.streakToastClose}
+              hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+            >
+              <Text style={styles.streakToastCloseText}>✕</Text>
+            </TouchableOpacity>
+          </View>
+        </Animated.View>
+      )}
 
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Top Motivational Streak Card */}
-        <ChampCard variant="gold" style={styles.streakBanner}>
-          <View style={styles.streakRow}>
-            <View style={styles.streakFlameCircle}>
-              <Text style={styles.streakFlameEmoji}>🔥</Text>
+        {/* Clean, Smart Hero Card: "Daily 10-Min Practice" */}
+        <View style={styles.heroCard}>
+          <View style={styles.heroTopRow}>
+            <View style={styles.heroBadge}>
+              <Text style={styles.heroBadgeText}>🎯 DAILY MISSION</Text>
             </View>
-            <View style={styles.streakTextCol}>
-              <View style={styles.streakBadgeRow}>
-                <ChampBadge
-                  label={`${profile.currentStreak} Day Streak`}
-                  variant="gold"
-                  size="sm"
-                />
-                <ChampBadge
-                  label={isCompletedToday ? 'Completed Today! 🌟' : 'Daily Goal: 10 Min'}
-                  variant={isCompletedToday ? 'success' : 'primary'}
-                  size="sm"
-                />
-              </View>
-              <Text style={styles.streakHeading}>
-                {isCompletedToday
-                  ? 'Great Job! Today’s Streak Safe 🌟'
-                  : 'Practice 10 Mins Today! 🚀'}
-              </Text>
-              <Text style={styles.streakSub}>
-                {isCompletedToday
-                  ? 'You’ve practiced today! Continue learning or resume any subject below.'
-                  : 'Complete a quick 10-min quiz in any subject to keep your streak alive!'}
+            <View style={[styles.statusPill, isCompletedToday ? styles.statusPillDone : styles.statusPillPending]}>
+              <Text style={[styles.statusPillText, isCompletedToday ? styles.statusTextDone : styles.statusTextPending]}>
+                {isCompletedToday ? 'Completed 🌟' : '10 Min Goal'}
               </Text>
             </View>
           </View>
-        </ChampCard>
 
-        {/* Section Heading */}
-        <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Your 3 Subjects</Text>
-          <Text style={styles.sectionSubtitle}>
-            100% NCERT • Resumes where you left off
+          <Text style={styles.heroTitle}>
+            {isCompletedToday ? 'Great Job Today! 🎉' : 'Daily 10-Min CBSE Practice'}
           </Text>
+          <Text style={styles.heroSub}>
+            {isCompletedToday
+              ? 'You have finished today’s target. Keep practicing any subject below!'
+              : 'Choose any subject below to master concepts with fun interactive questions.'}
+          </Text>
+
+          {/* Clean Progress Line */}
+          <View style={styles.heroProgressTrack}>
+            <View
+              style={[
+                styles.heroProgressBar,
+                { width: isCompletedToday ? '100%' : '15%' },
+                isCompletedToday ? { backgroundColor: '#10B981' } : { backgroundColor: '#60A5FA' },
+              ]}
+            />
+          </View>
         </View>
 
-        {/* 1. Mathematics Card */}
-        <ChampCard style={styles.subjectCard} shadow="medium">
-          <View style={styles.cardTopRow}>
-            <View style={[styles.subjectIconBox, { backgroundColor: '#DBEAFE' }]}>
-              <Text style={styles.subjectEmoji}>📐</Text>
-            </View>
-            <View style={styles.subjectHeaderInfo}>
-              <View style={styles.pillRow}>
-                <ChampBadge label="Mathematics" variant="primary" size="sm" />
-                <ChampBadge
-                  label={mathsInfo.isResume ? 'Resume Lesson ▶' : 'Lesson 1'}
-                  variant="gold"
-                  size="sm"
-                />
+        {/* Section Heading: Clean & Minimal */}
+        <View style={styles.sectionHeaderRow}>
+          <Text style={styles.sectionTitle}>Select Subject</Text>
+          <Text style={styles.sectionSub}>100% CBSE & NCERT</Text>
+        </View>
+
+        {/* 1. Mathematics Smart Card */}
+        <TouchableOpacity
+          style={styles.cleanSubjectCard}
+          onPress={() => handleSubjectClick('maths', mathsInfo.lesson.title)}
+          activeOpacity={0.85}
+        >
+          <View style={[styles.subjectIconBox, { backgroundColor: '#EFF6FF' }]}>
+            <Text style={styles.subjectEmoji}>📐</Text>
+          </View>
+
+          <View style={styles.subjectTextBox}>
+            <View style={styles.subjectTitleRow}>
+              <Text style={styles.subjectName}>Mathematics</Text>
+              <View style={[styles.lessonBadge, { backgroundColor: '#DBEAFE' }]}>
+                <Text style={[styles.lessonBadgeText, { color: '#1E40AF' }]}>
+                  {mathsInfo.isResume ? 'Resume ▶' : `Ch ${mathsInfo.lesson.number}`}
+                </Text>
               </View>
-              <Text style={styles.bookTitle} numberOfLines={1}>
-                {bookInfo.mathsBook}
-              </Text>
             </View>
-          </View>
-
-          <View style={styles.lessonInfoBox}>
-            <Text style={styles.lessonNumber}>
-              Lesson {mathsInfo.lesson.number} {mathsInfo.lesson.icon}
+            <Text style={styles.lessonName} numberOfLines={1}>
+              {mathsInfo.lesson.title}
             </Text>
-            <Text style={styles.lessonTitle}>{mathsInfo.lesson.title}</Text>
-            <Text style={styles.lessonConcept}>{mathsInfo.lesson.conceptSummary}</Text>
+            <Text style={styles.bookSub} numberOfLines={1}>
+              {bookInfo.mathsBook} • 10 Practice Questions
+            </Text>
           </View>
 
-          <ChampButton
-            title={mathsInfo.isResume ? 'Continue Maths ▶' : 'Start Maths Lesson 1 🚀'}
-            icon="📐"
-            variant="primary"
-            size="md"
-            onPress={() => handleSubjectClick('maths', mathsInfo.lesson.title)}
-            style={styles.actionBtn}
-          />
-        </ChampCard>
+          <View style={[styles.playBtnCircle, { backgroundColor: '#2563EB' }]}>
+            <Text style={styles.playBtnArrow}>▶</Text>
+          </View>
+        </TouchableOpacity>
 
-        {/* 2. English Card */}
-        <ChampCard style={styles.subjectCard} shadow="medium">
-          <View style={styles.cardTopRow}>
-            <View style={[styles.subjectIconBox, { backgroundColor: '#FEF3C7' }]}>
-              <Text style={styles.subjectEmoji}>📚</Text>
-            </View>
-            <View style={styles.subjectHeaderInfo}>
-              <View style={styles.pillRow}>
-                <ChampBadge label="English Grammar" variant="gold" size="sm" />
-                <ChampBadge
-                  label={englishInfo.isResume ? 'Resume Lesson ▶' : 'Lesson 1'}
-                  variant="primary"
-                  size="sm"
-                />
+        {/* 2. English Smart Card */}
+        <TouchableOpacity
+          style={styles.cleanSubjectCard}
+          onPress={() => handleSubjectClick('english', englishInfo.lesson.title)}
+          activeOpacity={0.85}
+        >
+          <View style={[styles.subjectIconBox, { backgroundColor: '#FEF3C7' }]}>
+            <Text style={styles.subjectEmoji}>📚</Text>
+          </View>
+
+          <View style={styles.subjectTextBox}>
+            <View style={styles.subjectTitleRow}>
+              <Text style={styles.subjectName}>English Grammar</Text>
+              <View style={[styles.lessonBadge, { backgroundColor: '#FEF3C7' }]}>
+                <Text style={[styles.lessonBadgeText, { color: '#92400E' }]}>
+                  {englishInfo.isResume ? 'Resume ▶' : `Ch ${englishInfo.lesson.number}`}
+                </Text>
               </View>
-              <Text style={styles.bookTitle} numberOfLines={1}>
-                {bookInfo.englishBook}
-              </Text>
             </View>
-          </View>
-
-          <View style={styles.lessonInfoBox}>
-            <Text style={styles.lessonNumber}>
-              Lesson {englishInfo.lesson.number} {englishInfo.lesson.icon}
+            <Text style={styles.lessonName} numberOfLines={1}>
+              {englishInfo.lesson.title}
             </Text>
-            <Text style={styles.lessonTitle}>{englishInfo.lesson.title}</Text>
-            <Text style={styles.lessonConcept}>{englishInfo.lesson.conceptSummary}</Text>
+            <Text style={styles.bookSub} numberOfLines={1}>
+              {bookInfo.englishBook} • 10 Practice Questions
+            </Text>
           </View>
 
-          <ChampButton
-            title={englishInfo.isResume ? 'Continue English ▶' : 'Start English Lesson 1 ✨'}
-            icon="📚"
-            variant="gold"
-            size="md"
-            onPress={() => handleSubjectClick('english', englishInfo.lesson.title)}
-            style={styles.actionBtn}
-          />
-        </ChampCard>
+          <View style={[styles.playBtnCircle, { backgroundColor: '#D97706' }]}>
+            <Text style={styles.playBtnArrow}>▶</Text>
+          </View>
+        </TouchableOpacity>
 
-        {/* 3. Hindi Card */}
-        <ChampCard style={styles.subjectCard} shadow="medium">
-          <View style={styles.cardTopRow}>
-            <View style={[styles.subjectIconBox, { backgroundColor: '#DCFCE7' }]}>
-              <Text style={styles.subjectEmoji}>🇮🇳</Text>
-            </View>
-            <View style={styles.subjectHeaderInfo}>
-              <View style={styles.pillRow}>
-                <ChampBadge label="हिंदी व्याकरण (Hindi)" variant="success" size="sm" />
-                <ChampBadge
-                  label={hindiInfo.isResume ? 'Resume Lesson ▶' : 'Lesson 1'}
-                  variant="gold"
-                  size="sm"
-                />
+        {/* 3. Hindi Smart Card */}
+        <TouchableOpacity
+          style={styles.cleanSubjectCard}
+          onPress={() => handleSubjectClick('hindi', hindiInfo.lesson.title)}
+          activeOpacity={0.85}
+        >
+          <View style={[styles.subjectIconBox, { backgroundColor: '#ECFDF5' }]}>
+            <Text style={styles.subjectEmoji}>🇮🇳</Text>
+          </View>
+
+          <View style={styles.subjectTextBox}>
+            <View style={styles.subjectTitleRow}>
+              <Text style={styles.subjectName}>हिंदी (Hindi)</Text>
+              <View style={[styles.lessonBadge, { backgroundColor: '#D1FAE5' }]}>
+                <Text style={[styles.lessonBadgeText, { color: '#065F46' }]}>
+                  {hindiInfo.isResume ? 'Resume ▶' : `पाठ ${hindiInfo.lesson.number}`}
+                </Text>
               </View>
-              <Text style={styles.bookTitle} numberOfLines={1}>
-                {bookInfo.hindiBook}
-              </Text>
             </View>
-          </View>
-
-          <View style={styles.lessonInfoBox}>
-            <Text style={styles.lessonNumber}>
-              पाठ {hindiInfo.lesson.number} {hindiInfo.lesson.icon}
+            <Text style={styles.lessonName} numberOfLines={1}>
+              {hindiInfo.lesson.title}
             </Text>
-            <Text style={styles.lessonTitle}>{hindiInfo.lesson.title}</Text>
-            <Text style={styles.lessonConcept}>{hindiInfo.lesson.conceptSummary}</Text>
+            <Text style={styles.bookSub} numberOfLines={1}>
+              {bookInfo.hindiBook} • 10 Practice Questions
+            </Text>
           </View>
 
-          <ChampButton
-            title={hindiInfo.isResume ? 'Continue Hindi ▶' : 'Start Hindi Lesson 1 🪶'}
-            icon="🇮🇳"
-            variant="success"
-            size="md"
-            onPress={() => handleSubjectClick('hindi', hindiInfo.lesson.title)}
-            style={styles.actionBtn}
-          />
-        </ChampCard>
+          <View style={[styles.playBtnCircle, { backgroundColor: '#059669' }]}>
+            <Text style={styles.playBtnArrow}>▶</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* Clean Shortcut Bar: 365 Roadmap, Vault, Parent Zone */}
+        <View style={styles.shortcutsRow}>
+          <TouchableOpacity
+            style={styles.shortcutPill}
+            onPress={() => {
+              triggerHaptic('light');
+              onOpenRoadmap365();
+            }}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.shortcutEmoji}>🗓️</Text>
+            <Text style={styles.shortcutLabel}>365 Plan</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.shortcutPill}
+            onPress={() => {
+              triggerHaptic('light');
+              onOpenChapterVault('maths');
+            }}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.shortcutEmoji}>📚</Text>
+            <Text style={styles.shortcutLabel}>All Chapters</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.shortcutPill}
+            onPress={() => {
+              triggerHaptic('light');
+              onOpenParentZone();
+            }}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.shortcutEmoji}>👨‍👩‍👧</Text>
+            <Text style={styles.shortcutLabel}>Parent Zone</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
 
-      {/* Profile & Settings Modal — Triggered when clicking user avatar / Hi Champ */}
+      {/* Profile & Settings Modal — Holds Streak, Stats, Avatar & Options */}
       <Modal
         visible={showSettingsModal}
         animationType="slide"
@@ -299,11 +401,6 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 <View>
                   <Text style={styles.modalUserName}>{profile.name} 👋</Text>
                   <Text style={styles.modalUserClass}>{gradeConfig.label} (CBSE/NCERT)</Text>
-                  <View style={styles.modalStatsRow}>
-                    <Text style={styles.modalStatItem}>⭐ {profile.totalStars} Stars</Text>
-                    <Text style={styles.modalStatItem}>🔥 {profile.currentStreak} Streak</Text>
-                    <Text style={styles.modalStatItem}>🏆 {profile.totalTrophies} Trophies</Text>
-                  </View>
                 </View>
               </View>
               <TouchableOpacity
@@ -314,8 +411,44 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               </TouchableOpacity>
             </View>
 
-            {/* Avatar Selector */}
-            <Text style={styles.sheetSectionTitle}>Choose Avatar Mascot:</Text>
+            {/* Dedicated Streak & Progress Hub in Settings */}
+            <View style={styles.streakSettingsCard}>
+              <View style={styles.streakCardHeader}>
+                <View style={styles.streakFlameBadge}>
+                  <Text style={{ fontSize: 24 }}>🔥</Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.streakCardDays}>
+                    {profile.currentStreak} Day Practice Streak
+                  </Text>
+                  <Text style={styles.streakCardSubtitle}>
+                    {isCompletedToday
+                      ? 'Streak safe! Today’s 10-min practice completed 🌟'
+                      : 'Practice 10 minutes today to maintain your streak!'}
+                  </Text>
+                </View>
+              </View>
+
+              <View style={styles.streakStatsDivider} />
+
+              <View style={styles.streakStatsRow}>
+                <View style={styles.streakStatCol}>
+                  <Text style={styles.streakStatVal}>⭐ {profile.totalStars}</Text>
+                  <Text style={styles.streakStatLbl}>Stars Won</Text>
+                </View>
+                <View style={styles.streakStatCol}>
+                  <Text style={styles.streakStatVal}>🏆 {profile.totalTrophies}</Text>
+                  <Text style={styles.streakStatLbl}>Trophies</Text>
+                </View>
+                <View style={styles.streakStatCol}>
+                  <Text style={styles.streakStatVal}>📅 {profile.historyDatesCompleted.length}</Text>
+                  <Text style={styles.streakStatLbl}>Days Active</Text>
+                </View>
+              </View>
+            </View>
+
+            {/* Mascot Avatar Selector */}
+            <Text style={styles.sheetSectionTitle}>Change Avatar Mascot:</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.avatarScroll}>
               {KID_AVATARS.map((avatar) => {
                 const isSelected = avatar.id === profile.avatarId;
@@ -338,9 +471,9 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               })}
             </ScrollView>
 
-            {/* Menu Action Items */}
+            {/* Menu Items */}
             <View style={styles.menuItemsList}>
-              {/* Class Switcher (Parent Protected) */}
+              {/* Class Switcher */}
               <TouchableOpacity
                 style={styles.menuItemRow}
                 onPress={() => {
@@ -349,16 +482,16 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 }}
               >
                 <View style={[styles.menuItemIcon, { backgroundColor: '#FEE2E2' }]}>
-                  <Text style={{ fontSize: 20 }}>🔒</Text>
+                  <Text style={{ fontSize: 18 }}>🔒</Text>
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.menuItemTitle}>Change Class ({gradeConfig.label})</Text>
-                  <Text style={styles.menuItemSub}>Protected by Parent Gate</Text>
+                  <Text style={styles.menuItemSub}>Parent Gate protected</Text>
                 </View>
                 <Text style={styles.menuItemArrow}>→</Text>
               </TouchableOpacity>
 
-              {/* 365-Day Annual Roadmap */}
+              {/* 365-Day Plan */}
               <TouchableOpacity
                 style={styles.menuItemRow}
                 onPress={() => {
@@ -367,16 +500,16 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 }}
               >
                 <View style={[styles.menuItemIcon, { backgroundColor: '#FEF3C7' }]}>
-                  <Text style={{ fontSize: 20 }}>🗓️</Text>
+                  <Text style={{ fontSize: 18 }}>🗓️</Text>
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.menuItemTitle}>365-Day Annual Roadmap</Text>
-                  <Text style={styles.menuItemSub}>Full 52-week curriculum plan</Text>
+                  <Text style={styles.menuItemSub}>View all 52 weeks</Text>
                 </View>
                 <Text style={styles.menuItemArrow}>→</Text>
               </TouchableOpacity>
 
-              {/* NCERT Chapter Vault */}
+              {/* Chapter Vault */}
               <TouchableOpacity
                 style={styles.menuItemRow}
                 onPress={() => {
@@ -385,16 +518,16 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 }}
               >
                 <View style={[styles.menuItemIcon, { backgroundColor: '#DBEAFE' }]}>
-                  <Text style={{ fontSize: 20 }}>📚</Text>
+                  <Text style={{ fontSize: 18 }}>📚</Text>
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.menuItemTitle}>NCERT Chapter Vault</Text>
-                  <Text style={styles.menuItemSub}>Browse all textbook chapters</Text>
+                  <Text style={styles.menuItemSub}>Browse all lessons</Text>
                 </View>
                 <Text style={styles.menuItemArrow}>→</Text>
               </TouchableOpacity>
 
-              {/* Parent Zone Settings */}
+              {/* Parent Zone */}
               <TouchableOpacity
                 style={styles.menuItemRow}
                 onPress={() => {
@@ -403,24 +536,23 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 }}
               >
                 <View style={[styles.menuItemIcon, { backgroundColor: '#F3E8FF' }]}>
-                  <Text style={{ fontSize: 20 }}>⚙️</Text>
+                  <Text style={{ fontSize: 18 }}>👨‍👩‍👧</Text>
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.menuItemTitle}>Parent Zone & Settings</Text>
-                  <Text style={styles.menuItemSub}>Sound, notifications & reset</Text>
+                  <Text style={styles.menuItemSub}>Audio, report & reset</Text>
                 </View>
                 <Text style={styles.menuItemArrow}>→</Text>
               </TouchableOpacity>
             </View>
 
             {/* Close Button */}
-            <ChampButton
-              title="Back to Dashboard"
-              variant="outline"
-              size="md"
+            <TouchableOpacity
+              style={styles.modalCloseBtn}
               onPress={() => setShowSettingsModal(false)}
-              style={{ marginTop: SPACING.md }}
-            />
+            >
+              <Text style={styles.modalCloseBtnText}>Done</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>
@@ -441,184 +573,334 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: COLORS.background,
+    backgroundColor: '#F8FAFC',
   },
   scrollContent: {
-    padding: SPACING.md,
-    paddingBottom: SPACING.xxl * 2,
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 40,
   },
-  streakBanner: {
-    marginBottom: SPACING.md,
+
+  // Settings Gear in Header
+  settingsGearBtn: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 6,
   },
-  streakRow: {
+  settingsGearText: {
+    fontSize: 18,
+  },
+
+  // App-open Streak Toast
+  streakToastContainer: {
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    paddingBottom: 4,
+    backgroundColor: '#F8FAFC',
+  },
+  streakToastContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: SPACING.md,
+    backgroundColor: '#FFFBEB',
+    borderRadius: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    borderWidth: 1.5,
+    borderColor: '#FDE68A',
+    shadowColor: '#D97706',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+    gap: 12,
   },
-  streakFlameCircle: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+  streakToastFlame: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
     backgroundColor: '#FEF3C7',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  streakFlameEmoji: {
-    fontSize: 26,
+  streakToastTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: '#92400E',
   },
-  streakTextCol: {
-    flex: 1,
+  streakToastSub: {
+    fontSize: 12,
+    color: '#B45309',
+    marginTop: 1,
   },
-  streakBadgeRow: {
+  streakToastClose: {
+    padding: 6,
+  },
+  streakToastCloseText: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#B45309',
+  },
+
+  // Clean Hero Card: Daily Mission
+  heroCard: {
+    backgroundColor: '#1E293B',
+    borderRadius: 20,
+    padding: 18,
+    marginBottom: 20,
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 6,
+  },
+  heroTopRow: {
     flexDirection: 'row',
-    gap: SPACING.xs,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  heroBadge: {
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  heroBadgeText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#94A3B8',
+    letterSpacing: 0.8,
+  },
+  statusPill: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  statusPillDone: {
+    backgroundColor: '#064E3B',
+  },
+  statusPillPending: {
+    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+  },
+  statusPillText: {
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  statusTextDone: {
+    color: '#34D399',
+  },
+  statusTextPending: {
+    color: '#93C5FD',
+  },
+  heroTitle: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#FFFFFF',
     marginBottom: 4,
   },
-  streakHeading: {
-    fontSize: 15,
-    fontWeight: '800',
-    color: COLORS.textDark,
+  heroSub: {
+    fontSize: 13,
+    color: '#94A3B8',
+    lineHeight: 18,
+    marginBottom: 14,
   },
-  streakSub: {
-    fontSize: 12,
-    color: COLORS.textMedium,
-    marginTop: 2,
-    lineHeight: 16,
+  heroProgressTrack: {
+    height: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: 3,
+    overflow: 'hidden',
   },
-  sectionHeader: {
-    marginTop: SPACING.xs,
-    marginBottom: SPACING.sm,
+  heroProgressBar: {
+    height: '100%',
+    borderRadius: 3,
+  },
+
+  // Section Header
+  sectionHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'baseline',
+    marginBottom: 12,
+    paddingHorizontal: 2,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: '900',
-    color: COLORS.textDark,
+    fontWeight: '800',
+    color: '#0F172A',
   },
-  sectionSubtitle: {
+  sectionSub: {
     fontSize: 12,
-    color: COLORS.textMedium,
-    marginTop: 2,
+    fontWeight: '600',
+    color: '#64748B',
   },
-  subjectCard: {
-    marginBottom: SPACING.md,
-    padding: SPACING.md,
-  },
-  cardTopRow: {
+
+  // Modern Clean Subject Cards
+  cleanSubjectCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: SPACING.md,
-    marginBottom: SPACING.sm,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 18,
+    padding: 16,
+    marginBottom: 12,
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 3,
+    borderWidth: 1,
+    borderColor: '#F1F5F9',
   },
   subjectIconBox: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 52,
+    height: 52,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight: 14,
   },
   subjectEmoji: {
     fontSize: 26,
   },
-  subjectHeaderInfo: {
+  subjectTextBox: {
     flex: 1,
+    marginRight: 10,
   },
-  pillRow: {
+  subjectTitleRow: {
     flexDirection: 'row',
-    gap: 6,
-    marginBottom: 4,
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 3,
   },
-  bookTitle: {
-    fontSize: 13,
+  subjectName: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: '#1E293B',
+  },
+  lessonBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 6,
+  },
+  lessonBadgeText: {
+    fontSize: 11,
     fontWeight: '700',
-    color: COLORS.textMedium,
   },
-  lessonInfoBox: {
-    backgroundColor: '#F8FAFC',
-    borderRadius: BORDER_RADIUS.md,
-    padding: SPACING.sm,
-    marginBottom: SPACING.md,
-    borderLeftWidth: 3,
-    borderLeftColor: COLORS.primary,
-  },
-  lessonNumber: {
-    fontSize: 12,
-    fontWeight: '800',
-    color: COLORS.primary,
+  lessonName: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#334155',
     marginBottom: 2,
   },
-  lessonTitle: {
-    fontSize: 15,
-    fontWeight: '800',
-    color: COLORS.textDark,
-    marginBottom: 2,
+  bookSub: {
+    fontSize: 11,
+    color: '#94A3B8',
   },
-  lessonConcept: {
-    fontSize: 12,
-    color: COLORS.textMedium,
-    lineHeight: 16,
+  playBtnCircle: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 2,
   },
-  actionBtn: {
-    width: '100%',
+  playBtnArrow: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '900',
+    marginLeft: 2,
   },
 
-  // Profile / Settings Modal Styles
+  // Shortcuts Bar
+  shortcutsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 10,
+    marginTop: 10,
+    marginBottom: 8,
+  },
+  shortcutPill: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+    borderRadius: 14,
+    gap: 6,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+    elevation: 1,
+  },
+  shortcutEmoji: {
+    fontSize: 16,
+  },
+  shortcutLabel: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#334155',
+  },
+
+  // Modal Styles
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.55)',
     justifyContent: 'flex-end',
   },
   modalContent: {
-    backgroundColor: COLORS.white,
-    borderTopLeftRadius: BORDER_RADIUS.xl,
-    borderTopRightRadius: BORDER_RADIUS.xl,
-    padding: SPACING.lg,
-    maxHeight: '90%',
+    backgroundColor: '#FFFFFF',
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+    padding: 20,
+    maxHeight: '88%',
   },
   modalHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: SPACING.md,
-    paddingBottom: SPACING.md,
+    alignItems: 'center',
+    marginBottom: 16,
+    paddingBottom: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#E2E8F0',
+    borderBottomColor: '#F1F5F9',
   },
   modalAvatarRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: SPACING.md,
+    gap: 12,
     flex: 1,
   },
   largeAvatarBubble: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
     alignItems: 'center',
     justifyContent: 'center',
   },
   largeAvatarEmoji: {
-    fontSize: 34,
+    fontSize: 30,
   },
   modalUserName: {
     fontSize: 18,
-    fontWeight: '900',
-    color: COLORS.textDark,
+    fontWeight: '800',
+    color: '#0F172A',
   },
   modalUserClass: {
     fontSize: 13,
-    fontWeight: '700',
-    color: COLORS.primary,
+    fontWeight: '600',
+    color: '#2563EB',
     marginTop: 1,
-  },
-  modalStatsRow: {
-    flexDirection: 'row',
-    gap: 8,
-    marginTop: 4,
-  },
-  modalStatItem: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: COLORS.textMedium,
   },
   closeBtn: {
     width: 32,
@@ -629,21 +911,79 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   closeBtnText: {
+    fontSize: 15,
+    fontWeight: '800',
+    color: '#475569',
+  },
+
+  // Dedicated Streak & Stats Hub inside Settings
+  streakSettingsCard: {
+    backgroundColor: '#FFFBEB',
+    borderRadius: 18,
+    padding: 16,
+    borderWidth: 1.5,
+    borderColor: '#FDE68A',
+    marginBottom: 18,
+  },
+  streakCardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  streakFlameBadge: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: '#FEF3C7',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  streakCardDays: {
     fontSize: 16,
     fontWeight: '800',
-    color: COLORS.textDark,
+    color: '#92400E',
   },
-  sheetSectionTitle: {
-    fontSize: 13,
+  streakCardSubtitle: {
+    fontSize: 12,
+    color: '#B45309',
+    marginTop: 2,
+    lineHeight: 16,
+  },
+  streakStatsDivider: {
+    height: 1,
+    backgroundColor: '#FDE68A',
+    marginVertical: 12,
+  },
+  streakStatsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  streakStatCol: {
+    alignItems: 'center',
+  },
+  streakStatVal: {
+    fontSize: 15,
     fontWeight: '800',
-    color: COLORS.textMedium,
-    marginBottom: SPACING.sm,
+    color: '#1E293B',
+  },
+  streakStatLbl: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: '#92400E',
+    marginTop: 2,
+  },
+
+  sheetSectionTitle: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#64748B',
+    marginBottom: 10,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    letterSpacing: 0.6,
   },
   avatarScroll: {
     flexDirection: 'row',
-    marginBottom: SPACING.md,
+    marginBottom: 18,
   },
   avatarOption: {
     width: 46,
@@ -656,43 +996,55 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
   },
   avatarOptionSelected: {
-    borderColor: COLORS.primary,
-    transform: [{ scale: 1.1 }],
+    borderColor: '#2563EB',
+    transform: [{ scale: 1.08 }],
   },
   avatarOptionEmoji: {
     fontSize: 24,
   },
   menuItemsList: {
-    gap: SPACING.sm,
+    gap: 8,
+    marginBottom: 16,
   },
   menuItemRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: SPACING.sm + 2,
+    padding: 12,
     backgroundColor: '#F8FAFC',
-    borderRadius: BORDER_RADIUS.md,
-    gap: SPACING.md,
+    borderRadius: 14,
+    gap: 12,
   },
   menuItemIcon: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     alignItems: 'center',
     justifyContent: 'center',
   },
   menuItemTitle: {
     fontSize: 14,
-    fontWeight: '800',
-    color: COLORS.textDark,
+    fontWeight: '700',
+    color: '#1E293B',
   },
   menuItemSub: {
     fontSize: 11,
-    color: COLORS.textMedium,
+    color: '#64748B',
     marginTop: 1,
   },
   menuItemArrow: {
     fontSize: 16,
-    fontWeight: '800',
-    color: COLORS.textLight,
+    fontWeight: '700',
+    color: '#94A3B8',
+  },
+  modalCloseBtn: {
+    backgroundColor: '#2563EB',
+    borderRadius: 14,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  modalCloseBtnText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '700',
   },
 });
