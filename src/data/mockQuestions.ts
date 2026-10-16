@@ -26,6 +26,28 @@ import { CLASS_1_HINDI_LESSON_4_QUESTIONS } from './curriculum/class1HindiLesson
 import { CLASS_1_HINDI_LESSON_5_QUESTIONS } from './curriculum/class1HindiLesson5';
 import { CLASS_1_HINDI_LESSON_6_QUESTIONS } from './curriculum/class1HindiLesson6';
 import { CLASS_1_HINDI_LESSON_7_QUESTIONS } from './curriculum/class1HindiLesson7';
+import { CLASS_2_MATHS_LESSON_1_QUESTIONS } from './curriculum/class2MathsLesson1';
+import { CLASS_2_MATHS_LESSON_2_QUESTIONS } from './curriculum/class2MathsLesson2';
+import { CLASS_2_MATHS_LESSON_3_QUESTIONS } from './curriculum/class2MathsLesson3';
+import { CLASS_2_MATHS_LESSON_4_QUESTIONS } from './curriculum/class2MathsLesson4';
+import { CLASS_2_MATHS_LESSON_5_QUESTIONS } from './curriculum/class2MathsLesson5';
+import { CLASS_2_MATHS_LESSON_6_QUESTIONS } from './curriculum/class2MathsLesson6';
+import { CLASS_2_MATHS_LESSON_7_QUESTIONS } from './curriculum/class2MathsLesson7';
+import { CLASS_2_MATHS_LESSON_8_QUESTIONS } from './curriculum/class2MathsLesson8';
+import { CLASS_2_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class2EnglishLesson1';
+import { CLASS_2_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class2EnglishLesson2';
+import { CLASS_2_ENGLISH_LESSON_3_QUESTIONS } from './curriculum/class2EnglishLesson3';
+import { CLASS_2_ENGLISH_LESSON_4_QUESTIONS } from './curriculum/class2EnglishLesson4';
+import { CLASS_2_ENGLISH_LESSON_5_QUESTIONS } from './curriculum/class2EnglishLesson5';
+import { CLASS_2_ENGLISH_LESSON_6_QUESTIONS } from './curriculum/class2EnglishLesson6';
+import { CLASS_2_ENGLISH_LESSON_7_QUESTIONS } from './curriculum/class2EnglishLesson7';
+import { CLASS_2_HINDI_LESSON_1_QUESTIONS } from './curriculum/class2HindiLesson1';
+import { CLASS_2_HINDI_LESSON_2_QUESTIONS } from './curriculum/class2HindiLesson2';
+import { CLASS_2_HINDI_LESSON_3_QUESTIONS } from './curriculum/class2HindiLesson3';
+import { CLASS_2_HINDI_LESSON_4_QUESTIONS } from './curriculum/class2HindiLesson4';
+import { CLASS_2_HINDI_LESSON_5_QUESTIONS } from './curriculum/class2HindiLesson5';
+import { CLASS_2_HINDI_LESSON_6_QUESTIONS } from './curriculum/class2HindiLesson6';
+import { CLASS_2_HINDI_LESSON_7_QUESTIONS } from './curriculum/class2HindiLesson7';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
@@ -149,84 +171,79 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_1_ENGLISH_LESSON_8_QUESTIONS,
 
   // =========================================================================
-  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2 & MRIDANG 2
+  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 1 (A Day at the Beach - Counting in Groups)
   // =========================================================================
-  {
-    id: 'ncert_c2_m1_001',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'A Day at the Beach (Counting in Groups)',
-    concept: 'NCERT Counting in Pairs (Twos)',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Children are wearing 4 pairs of shoes 👟👟👟👟. How many individual shoes are there in total?',
-    visualEmoji: '👟',
-    payload: {
-      options: [
-        { id: 'opt_1', text: '6 Shoes', isCorrect: false },
-        { id: 'opt_2', text: '8 Shoes (4 × 2)', isCorrect: true },
-        { id: 'opt_3', text: '10 Shoes', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Joyful Maths 2: 4 pairs of shoes = 4 × 2 = 8 individual shoes!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c2_m3_001',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Fun with Numbers (Numbers up to 100)',
-    concept: 'NCERT Tens and Ones Place Value',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'Find the number from place values:',
-    visualEmoji: '🔢',
-    payload: {
-      correctAnswer: '45',
-      wordBank: ['45', '54', '40', '50'],
-      displayTemplate: '4 Tens and 5 Ones make the number [BLANK].',
-    },
-    explanation: 'NCERT Class 2: 4 Tens = 40, and 5 Ones = 5. So 40 + 5 = 45!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c2_e1_001',
-    grade: 2,
-    subject: 'english',
-    chapter: 'Welcome to School (Rhymes & Phonics)',
-    concept: 'NCERT Rhyming Words',
-    difficulty: 'easy',
-    type: 'match_pairs',
-    question: 'Match the words that have the same ending rhyming sound:',
-    visualEmoji: '🎵',
-    payload: {
-      pairs: [
-        { id: 'rp1', left: 'Bat 🏏', right: 'Cat 🐱' },
-        { id: 'rp2', left: 'Sun ☀️', right: 'Run 🏃' },
-        { id: 'rp3', left: 'Sing 🎤', right: 'Ring 💍' },
-      ],
-    },
-    explanation: 'NCERT Mridang 2: Rhyming words share the same ending sound (Bat-Cat, Sun-Run)!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c2_e3_001',
-    grade: 2,
-    subject: 'english',
-    chapter: 'Action Words & Doing Words (Verbs)',
-    concept: 'NCERT Present Continuous -ing verbs',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'Choose the correct action word:',
-    visualEmoji: '📖',
-    payload: {
-      correctAnswer: 'reading',
-      wordBank: ['reading', 'reader', 'book', 'reads'],
-      displayTemplate: 'Aarav is quietly [BLANK] his storybook.',
-    },
-    explanation: 'NCERT Grammar: "is reading" tells us the action happening right now!',
-    points: 10,
-  },
+  ...CLASS_2_MATHS_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 2 (Shapes Around Us - Rolling & Sliding)
+  // =========================================================================
+  ...CLASS_2_MATHS_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 3 (Fun with Numbers - Numbers up to 100)
+  // =========================================================================
+  ...CLASS_2_MATHS_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 4 (Shadow Story - Addition & Put Together)
+  // =========================================================================
+  ...CLASS_2_MATHS_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 5 (Playing with Lines - Lines & Shapes)
+  // =========================================================================
+  ...CLASS_2_MATHS_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 6 (Decoration for Festival - Subtraction)
+  // =========================================================================
+  ...CLASS_2_MATHS_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 7 (Rani's Gift - Measurement & Length)
+  // =========================================================================
+  ...CLASS_2_MATHS_LESSON_7_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 8 (Which Season is it? - Time & Months)
+  // =========================================================================
+  ...CLASS_2_MATHS_LESSON_8_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT MRIDANG 2 & MARIGOLD 2: CHAPTER 1 (Welcome to School - Rhymes & Phonics)
+  // =========================================================================
+  ...CLASS_2_ENGLISH_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT MRIDANG 2 & MARIGOLD 2: CHAPTER 2 (Picture Fun & Naming Words)
+  // =========================================================================
+  ...CLASS_2_ENGLISH_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT MRIDANG 2 & MARIGOLD 2: CHAPTER 3 (Action Words & Doing Words - Verbs)
+  // =========================================================================
+  ...CLASS_2_ENGLISH_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT MRIDANG 2 & MARIGOLD 2: CHAPTER 4 (Pronouns - I, You, We, They)
+  // =========================================================================
+  ...CLASS_2_ENGLISH_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT MRIDANG 2 & MARIGOLD 2: CHAPTER 5 (Describing Words - Adjectives & Opposites)
+  // =========================================================================
+  ...CLASS_2_ENGLISH_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT MRIDANG 2 & MARIGOLD 2: CHAPTER 6 (Position Words - Behind, In Front, Next)
+  // =========================================================================
+  ...CLASS_2_ENGLISH_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT MRIDANG 2 & MARIGOLD 2: CHAPTER 7 (Sentences & Question Marks)
+  // =========================================================================
+  ...CLASS_2_ENGLISH_LESSON_7_QUESTIONS,
 
   // =========================================================================
   // CLASS 3 — NCERT MATH-MAGIC 3 & SANTOOR 3
@@ -519,66 +536,39 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_1_HINDI_LESSON_7_QUESTIONS,
 
   // =========================================================================
-  // CLASS 2 — NCERT सारंगी 2 (HINDI)
+  // CLASS 2 — NCERT सारंगी 2 (HINDI): CHAPTER 1 (ऊँट चला - संयुक्त व्यंजन व वर्ण ज्ञान)
   // =========================================================================
-  {
-    id: 'ncert_c2_h3_001',
-    grade: 2,
-    subject: 'hindi',
-    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
-    concept: 'NCERT नाम वाले शब्द (संज्ञा)',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'इनमें से किसी वस्तु का "नाम वाला शब्द" (संज्ञा) कौन सा है? 📖',
-    visualEmoji: '📖',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'किताब 📖 (वस्तु का नाम)', isCorrect: true },
-        { id: 'opt_2', text: 'दौड़ना 🏃 (काम)', isCorrect: false },
-        { id: 'opt_3', text: 'हँसना 😄 (काम)', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT सारंगी 2: किसी व्यक्ति, वस्तु या जगह के नाम को संज्ञा कहते हैं (जैसे किताब)।',
-    points: 10,
-  },
-  {
-    id: 'ncert_c2_h6_001',
-    grade: 2,
-    subject: 'hindi',
-    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
-    concept: 'NCERT एकवचन व बहुवचन',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'वाक्य में सही बहुवचन शब्द भरिए:',
-    visualEmoji: '👦👦',
-    payload: {
-      correctAnswer: 'लड़के',
-      wordBank: ['लड़के', 'लड़का', 'लड़कियों'],
-      displayTemplate: 'मैदान में तीन [BLANK] खेल रहे हैं।',
-    },
-    explanation: 'NCERT कक्षा 2: एक के लिए लड़का, और एक से अधिक के लिए "लड़के" आता है!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c2_h7_001',
-    grade: 2,
-    subject: 'hindi',
-    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
-    concept: 'NCERT लिंग भेद',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'पुल्लिंग और स्त्रीलिंग की सही जोड़ी मिलाइए:',
-    visualEmoji: '👫',
-    payload: {
-      pairs: [
-        { id: 'h2_p1', left: 'राजा 👑', right: 'रानी 👸' },
-        { id: 'h2_p2', left: 'मोर 🦚', right: 'मोरनी' },
-        { id: 'h2_p3', left: 'शेर 🦁', right: 'शेरनी' },
-      ],
-    },
-    explanation: 'NCERT सारंगी 2: राजा का रानी, मोर का मोरनी, और शेर का शेरनी!',
-    points: 15,
-  },
+  ...CLASS_2_HINDI_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT सारंगी 2 (HINDI): CHAPTER 2 (भालू ने खेली फुटबॉल - मात्रा पुनरावृत्ति)
+  // =========================================================================
+  ...CLASS_2_HINDI_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT सारंगी 2 (HINDI): CHAPTER 3 (म्याऊँ, म्याऊँ! - नाम वाले शब्द - संज्ञा)
+  // =========================================================================
+  ...CLASS_2_HINDI_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT सारंगी 2 (HINDI): CHAPTER 4 (अधिक बलवान कौन? - विशेषण - कैसा/कितना)
+  // =========================================================================
+  ...CLASS_2_HINDI_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT सारंगी 2 (HINDI): CHAPTER 5 (दोस्त की मदद - काम वाले शब्द - क्रिया)
+  // =========================================================================
+  ...CLASS_2_HINDI_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT सारंगी 2 (HINDI): CHAPTER 6 (एक और अनेक - वचन - लड़का/लड़के)
+  // =========================================================================
+  ...CLASS_2_HINDI_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 2 — NCERT सारंगी 2 (HINDI): CHAPTER 7 (स्त्रीलिंग और पुल्लिंग - लिंग पहचान)
+  // =========================================================================
+  ...CLASS_2_HINDI_LESSON_7_QUESTIONS,
 
   // =========================================================================
   // CLASS 3 — NCERT वीणा 3 / रिमझिम 3 (HINDI)
