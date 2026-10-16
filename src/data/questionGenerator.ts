@@ -21,16 +21,16 @@ export const generateQuestionsForSession = (
   // 1. Gather curated matching questions from MOCK_QUESTIONS
   let matchedQuestions: Question[] = [];
   if (chapterTitle) {
-    const cleanChapter = chapterTitle.toLowerCase().trim();
-    matchedQuestions = MOCK_QUESTIONS.filter(
-      (q) =>
-        q.grade === grade &&
-        q.subject === subject &&
-        (cleanChapter.includes(q.chapter.toLowerCase().slice(0, 7)) ||
-          q.chapter.toLowerCase().includes(cleanChapter.slice(0, 7)) ||
-          cleanChapter.includes('furry cat') && q.chapter.toLowerCase().includes('furry cat') ||
-          cleanChapter.includes('shapes & space') && q.chapter.toLowerCase().includes('shapes'))
-    );
+    const cleanChapter = chapterTitle.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
+    const chapterWords = cleanChapter.split(/\s+/).filter(w => w.length > 2);
+    matchedQuestions = MOCK_QUESTIONS.filter((q) => {
+      if (q.grade !== grade || q.subject !== subject) return false;
+      const qChapter = q.chapter.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
+      if (cleanChapter.includes(qChapter.slice(0, 8)) || qChapter.includes(cleanChapter.slice(0, 8))) return true;
+      const qWords = qChapter.split(/\s+/).filter(w => w.length > 2);
+      const overlap = chapterWords.filter(w => qWords.includes(w));
+      return overlap.length >= 1;
+    });
   }
 
   // Fallback if no chapter match: get all grade and subject questions

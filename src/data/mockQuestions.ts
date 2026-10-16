@@ -1,5 +1,12 @@
 import { Question, Grade, Subject } from '../types';
 import { CLASS_1_MATHS_LESSON_1_QUESTIONS } from './curriculum/class1MathsLesson1';
+import { CLASS_1_MATHS_LESSON_2_QUESTIONS } from './curriculum/class1MathsLesson2';
+import { CLASS_1_MATHS_LESSON_3_QUESTIONS } from './curriculum/class1MathsLesson3';
+import { CLASS_1_MATHS_LESSON_4_QUESTIONS } from './curriculum/class1MathsLesson4';
+import { CLASS_1_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class1EnglishLesson1';
+import { CLASS_1_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class1EnglishLesson2';
+import { CLASS_1_HINDI_LESSON_1_QUESTIONS } from './curriculum/class1HindiLesson1';
+import { CLASS_1_HINDI_LESSON_2_QUESTIONS } from './curriculum/class1HindiLesson2';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
@@ -8,63 +15,25 @@ export const MOCK_QUESTIONS: Question[] = [
   // Nearest/Farthest, On/Under, Above/Below, Shapes, Sorting, Rolling/Sliding)
   // =========================================================================
   ...CLASS_1_MATHS_LESSON_1_QUESTIONS,
-  {
-    id: 'ncert_c1_m2_001',
-    grade: 1,
-    subject: 'maths',
-    chapter: 'What is Long? What is Round?',
-    concept: 'NCERT Shapes Classification',
-    difficulty: 'easy',
-    type: 'match_pairs',
-    question: 'Match the object with its NCERT shape property:',
-    visualEmoji: '🏏',
-    payload: {
-      pairs: [
-        { id: 'lr1', left: 'Cricket Bat 🏏', right: 'It is LONG' },
-        { id: 'lr2', left: 'Lemon 🍋', right: 'It is ROUND' },
-        { id: 'lr3', left: 'Pencil ✏️', right: 'It is LONG' },
-        { id: 'lr4', left: 'Tomato 🍅', right: 'It is ROUND' },
-      ],
-    },
-    explanation: 'NCERT Chapter 2: Bats and pencils are long, while lemons and tomatoes are round!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c1_m3_001',
-    grade: 1,
-    subject: 'maths',
-    chapter: 'Mango Treats (Numbers 1 to 9)',
-    concept: 'NCERT Counting Objects',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'Count the sweet yellow mangoes in the basket: 🥭 🥭 🥭 🥭',
-    visualEmoji: '🥭',
-    payload: {
-      correctAnswer: '4',
-      wordBank: ['4', '2', '6', '5'],
-      displayTemplate: 'There are [BLANK] sweet mangoes in the basket.',
-    },
-    explanation: 'NCERT Mango Treats: 1, 2, 3, 4 mangoes!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c1_m4_001',
-    grade: 1,
-    subject: 'maths',
-    chapter: 'Making Ten (Numbers 10 to 20)',
-    concept: 'NCERT Bundles of Ten',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'Complete the NCERT Ten Bundle rule:',
-    visualEmoji: '🔟',
-    payload: {
-      correctAnswer: '10',
-      wordBank: ['10', '5', '20', '15'],
-      displayTemplate: 'A single complete bundle has [BLANK] sticks.',
-    },
-    explanation: 'NCERT Making Ten: 10 loose sticks tie together to make 1 bundle of Ten!',
-    points: 10,
-  },
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 2 (What is Long? What is Round?)
+  // All 7 Concepts (Long Objects, Round Objects, Meeku Uncle Riddles, Rolling vs Sliding,
+  // Stacking/Towers, Sorting, Tracing/Footprints)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 3 (Mango Treats - Numbers 1 to 9 & Zero)
+  // All 7 Concepts (Counting 1-9, Number Names, Zero, Number Order, Comparing, Backward)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 4 (Making Ten - Numbers 10 to 20)
+  // All 6 Concepts (Bundle of Ten, Tens & Ones, Teen Names, Order, Comparing, Friends of 10)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_4_QUESTIONS,
   {
     id: 'ncert_c1_m5_001',
     grade: 1,
@@ -86,47 +55,16 @@ export const MOCK_QUESTIONS: Question[] = [
     points: 10,
   },
 
-  // Class 1 English
-  {
-    id: 'ncert_c1_e1_001',
-    grade: 1,
-    subject: 'english',
-    chapter: 'My Family & Fun with Letters (Phonics)',
-    concept: 'NCERT Mridang: Beginning Letter Sounds',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'In NCERT Mridang, which letter sound begins the word "SUN" ☀️?',
-    visualEmoji: '☀️',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'Letter S /s/', isCorrect: true },
-        { id: 'opt_2', text: 'Letter M /m/', isCorrect: false },
-        { id: 'opt_3', text: 'Letter T /t/', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Mridang: S makes the /s/ sound as in Sun! ☀️',
-    points: 10,
-  },
-  {
-    id: 'ncert_c1_e2_001',
-    grade: 1,
-    subject: 'english',
-    chapter: 'Picture Reading & Naming Words (Nouns)',
-    concept: 'NCERT Naming Words',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Which of the following is a NAMING WORD (Noun) for a school friend? 🎒',
-    visualEmoji: '🎒',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'Rohan (Name of a boy)', isCorrect: true },
-        { id: 'opt_2', text: 'Jump (Action)', isCorrect: false },
-        { id: 'opt_3', text: 'Fast (Describing)', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT English: Rohan is a naming word (noun) for a person!',
-    points: 10,
-  },
+  // =========================================================================
+  // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 1 (My Family & Fun with Letters)
+  // All 7 Concepts (Beginning Phonics, Capital/Small, Vowels, Rhymes, Family, CVC, Sentences)
+  // =========================================================================
+  ...CLASS_1_ENGLISH_LESSON_1_QUESTIONS,
+  // =========================================================================
+  // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 2 (Picture Reading & Naming Words)
+  // All 6 Concepts (People, Animals/Birds, Places, Things, Categories, Comprehension)
+  // =========================================================================
+  ...CLASS_1_ENGLISH_LESSON_2_QUESTIONS,
   {
     id: 'ncert_c1_e3_001',
     grade: 1,
@@ -477,46 +415,15 @@ export const MOCK_QUESTIONS: Question[] = [
   },
 
   // =========================================================================
-  // CLASS 1 — NCERT सारंगी 1 (HINDI)
+  // CLASS 1 — NCERT सारंगी 1 (HINDI): CHAPTER 1 (मीना का परिवार)
+  // All 8 Concepts (स्वर पहचान, व्यंजन पहचान, 2-अक्षर शब्द, 3-अक्षर शब्द, 4-अक्षर शब्द, रिश्ते, तुकबंदी, वाक्य)
   // =========================================================================
-  {
-    id: 'ncert_c1_h1_001',
-    grade: 1,
-    subject: 'hindi',
-    chapter: 'मीना का परिवार (स्वर, व्यंजन व अमात्रिक शब्द)',
-    concept: 'NCERT वर्णमाला व अमात्रिक शब्द',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'चित्र देखकर बताइए: इनमें से "अ" से शुरू होने वाला शब्द कौन सा है? 🍎',
-    visualEmoji: '🍎',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'अनार 🍎', isCorrect: true },
-        { id: 'opt_2', text: 'कमल 🌸', isCorrect: false },
-        { id: 'opt_3', text: 'पतंग 🪁', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT सारंगी 1: "अ" से अनार होता है! 🍎',
-    points: 10,
-  },
-  {
-    id: 'ncert_c1_h2_001',
-    grade: 1,
-    subject: 'hindi',
-    chapter: 'दादा-दादी (आ की मात्रा - ा)',
-    concept: 'NCERT आ की मात्रा (ा)',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'अक्षर और मात्रा जोड़कर सही शब्द चुनिए:',
-    visualEmoji: '🥭',
-    payload: {
-      correctAnswer: 'आम',
-      wordBank: ['आम', 'कम', 'दम'],
-      displayTemplate: 'आ + म = [BLANK]',
-    },
-    explanation: 'NCERT कक्षा 1: आ और म मिलकर बनता है "आम" 🥭!',
-    points: 10,
-  },
+  ...CLASS_1_HINDI_LESSON_1_QUESTIONS,
+  // =========================================================================
+  // CLASS 1 — NCERT सारंगी 1 (HINDI): CHAPTER 2 (दादा-दादी - आ की मात्रा)
+  // All 7 Concepts (आ की मात्रा ज्ञान, 2-अक्षर शब्द, दोनों अक्षरों में मात्रा, 3-अक्षर, पाठ बोध, तुकबंदी, वाक्य)
+  // =========================================================================
+  ...CLASS_1_HINDI_LESSON_2_QUESTIONS,
   {
     id: 'ncert_c1_h7_001',
     grade: 1,
