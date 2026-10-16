@@ -48,6 +48,29 @@ import { CLASS_2_HINDI_LESSON_4_QUESTIONS } from './curriculum/class2HindiLesson
 import { CLASS_2_HINDI_LESSON_5_QUESTIONS } from './curriculum/class2HindiLesson5';
 import { CLASS_2_HINDI_LESSON_6_QUESTIONS } from './curriculum/class2HindiLesson6';
 import { CLASS_2_HINDI_LESSON_7_QUESTIONS } from './curriculum/class2HindiLesson7';
+import { CLASS_3_MATHS_LESSON_1_QUESTIONS } from './curriculum/class3MathsLesson1';
+import { CLASS_3_MATHS_LESSON_2_QUESTIONS } from './curriculum/class3MathsLesson2';
+import { CLASS_3_MATHS_LESSON_3_QUESTIONS } from './curriculum/class3MathsLesson3';
+import { CLASS_3_MATHS_LESSON_4_QUESTIONS } from './curriculum/class3MathsLesson4';
+import { CLASS_3_MATHS_LESSON_5_QUESTIONS } from './curriculum/class3MathsLesson5';
+import { CLASS_3_MATHS_LESSON_6_QUESTIONS } from './curriculum/class3MathsLesson6';
+import { CLASS_3_MATHS_LESSON_7_QUESTIONS } from './curriculum/class3MathsLesson7';
+import { CLASS_3_MATHS_LESSON_8_QUESTIONS } from './curriculum/class3MathsLesson8';
+import { CLASS_3_MATHS_LESSON_9_QUESTIONS } from './curriculum/class3MathsLesson9';
+import { CLASS_3_MATHS_LESSON_10_QUESTIONS } from './curriculum/class3MathsLesson10';
+import { CLASS_3_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class3EnglishLesson1';
+import { CLASS_3_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class3EnglishLesson2';
+import { CLASS_3_ENGLISH_LESSON_3_QUESTIONS } from './curriculum/class3EnglishLesson3';
+import { CLASS_3_ENGLISH_LESSON_4_QUESTIONS } from './curriculum/class3EnglishLesson4';
+import { CLASS_3_ENGLISH_LESSON_5_QUESTIONS } from './curriculum/class3EnglishLesson5';
+import { CLASS_3_ENGLISH_LESSON_6_QUESTIONS } from './curriculum/class3EnglishLesson6';
+import { CLASS_3_ENGLISH_LESSON_7_QUESTIONS } from './curriculum/class3EnglishLesson7';
+import { CLASS_3_HINDI_LESSON_1_QUESTIONS } from './curriculum/class3HindiLesson1';
+import { CLASS_3_HINDI_LESSON_2_QUESTIONS } from './curriculum/class3HindiLesson2';
+import { CLASS_3_HINDI_LESSON_3_QUESTIONS } from './curriculum/class3HindiLesson3';
+import { CLASS_3_HINDI_LESSON_4_QUESTIONS } from './curriculum/class3HindiLesson4';
+import { CLASS_3_HINDI_LESSON_5_QUESTIONS } from './curriculum/class3HindiLesson5';
+import { CLASS_3_HINDI_LESSON_6_QUESTIONS } from './curriculum/class3HindiLesson6';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
@@ -246,66 +269,89 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_2_ENGLISH_LESSON_7_QUESTIONS,
 
   // =========================================================================
-  // CLASS 3 — NCERT MATH-MAGIC 3 & SANTOOR 3
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 1 (Where to Look From? - 2D Views & Shapes)
   // =========================================================================
-  {
-    id: 'ncert_c3_m1_001',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Where to Look From? (2D Views & Shapes)',
-    concept: 'NCERT Top, Front and Side Views',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'When you look at a railway train 🚆 from the TOP, what shape does it look like?',
-    visualEmoji: '🚆',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'A long rectangle 📄', isCorrect: true },
-        { id: 'opt_2', text: 'A circle ⚪', isCorrect: false },
-        { id: 'opt_3', text: 'A triangle 🔺', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Math-Magic 3 Ch 1: From the top, a train looks like a long continuous rectangle!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c3_m3_001',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Give and Take (Addition & Subtraction)',
-    concept: 'NCERT Mental Addition in Tens',
-    difficulty: 'medium',
-    type: 'fill_blank',
-    question: 'Solve this fast mental math jump:',
-    visualEmoji: '➕',
-    payload: {
-      correctAnswer: '57',
-      wordBank: ['57', '47', '67', '37'],
-      displayTemplate: '37 + 20 = [BLANK].',
-    },
-    explanation: 'NCERT Give and Take: Jump 2 tens forward from 37: 47, 57!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c3_e2_001',
-    grade: 3,
-    subject: 'english',
-    chapter: 'Common & Proper Nouns',
-    concept: 'NCERT Proper Noun Identification',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Which of the following is a PROPER NOUN that must begin with a CAPITAL letter?',
-    visualEmoji: '🏛️',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'New Delhi (Capital city of India)', isCorrect: true },
-        { id: 'opt_2', text: 'city (General place)', isCorrect: false },
-        { id: 'opt_3', text: 'building (General object)', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Santoor 3: Specific names of cities like New Delhi are Proper Nouns!',
-    points: 10,
-  },
+  ...CLASS_3_MATHS_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 2 (Fun with Numbers - Numbers up to 1000)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 3 (Give and Take - Addition & Subtraction)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 4 (Long and Short - Length & Meters)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 5 (Shapes and Designs - Tangrams & Edges)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 6 (Time Goes On - Clocks & Calendars)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 7 (Who is Heavier? - Kilograms & Grams)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_7_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 8 (How Many Times? - Multiplication)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_8_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 9 (Jugs and Mugs - Litres & Millilitres)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_9_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT MATH-MAGIC 3: CHAPTER 10 (Rupees and Paise - Money)
+  // =========================================================================
+  ...CLASS_3_MATHS_LESSON_10_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT SANTOOR 3 & MARIGOLD 3: CHAPTER 1 (Good Morning & Nature Words)
+  // =========================================================================
+  ...CLASS_3_ENGLISH_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT SANTOOR 3 & MARIGOLD 3: CHAPTER 2 (Common & Proper Nouns)
+  // =========================================================================
+  ...CLASS_3_ENGLISH_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT SANTOOR 3 & MARIGOLD 3: CHAPTER 3 (Singular and Plural -s, -es, -ies)
+  // =========================================================================
+  ...CLASS_3_ENGLISH_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT SANTOOR 3 & MARIGOLD 3: CHAPTER 4 (Helping Verbs - Is, Am, Are, Was, Were)
+  // =========================================================================
+  ...CLASS_3_ENGLISH_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT SANTOOR 3 & MARIGOLD 3: CHAPTER 5 (Adjectives & Degrees of Comparison)
+  // =========================================================================
+  ...CLASS_3_ENGLISH_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT SANTOOR 3 & MARIGOLD 3: CHAPTER 6 (Prepositions of Time & Place)
+  // =========================================================================
+  ...CLASS_3_ENGLISH_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT SANTOOR 3 & MARIGOLD 3: CHAPTER 7 (Connecting Words - And, But, Because)
+  // =========================================================================
+  ...CLASS_3_ENGLISH_LESSON_7_QUESTIONS,
 
   // =========================================================================
   // CLASS 4 — NCERT MATH-MAGIC 4 & MARIGOLD 4
@@ -571,67 +617,35 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_2_HINDI_LESSON_7_QUESTIONS,
 
   // =========================================================================
-  // CLASS 3 — NCERT वीणा 3 / रिमझिम 3 (HINDI)
   // =========================================================================
-  {
-    id: 'ncert_c3_h2_001',
-    grade: 3,
-    subject: 'hindi',
-    chapter: 'शेखीबाज़ मक्खी (सर्वनाम शब्द)',
-    concept: 'NCERT सर्वनाम (Pronoun)',
-    difficulty: 'medium',
-    type: 'fill_blank',
-    question: 'संज्ञा की जगह आने वाला सही सर्वनाम चुनिए:',
-    visualEmoji: '🎒',
-    payload: {
-      correctAnswer: 'वह',
-      wordBank: ['वह', 'वे', 'हम'],
-      displayTemplate: 'रोहन अच्छा लड़का है। [BLANK] रोज़ स्कूल जाता है।',
-    },
-    explanation: 'NCERT वीणा 3: रोहन (एकवचन) की जगह सर्वनाम "वह" का प्रयोग होगा!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c3_h4_001',
-    grade: 3,
-    subject: 'hindi',
-    chapter: 'बहादुर बित्तो (विलोम व पर्यायवाची शब्द)',
-    concept: 'NCERT पर्यायवाची शब्द (समान अर्थ)',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'समान अर्थ वाले पर्यायवाची शब्दों का मिलान कीजिए:',
-    visualEmoji: '☀️',
-    payload: {
-      pairs: [
-        { id: 'h3_p1', left: 'सूर्य ☀️', right: 'सूरज' },
-        { id: 'h3_p2', left: 'जल 💧', right: 'पानी' },
-        { id: 'h3_p3', left: 'हवा 💨', right: 'पवन' },
-        { id: 'h3_p4', left: 'नयन 👁️', right: 'आँख' },
-      ],
-    },
-    explanation: 'NCERT कक्षा 3: सूर्य-सूरज, जल-पानी, हवा-पवन, नयन-आँख!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c3_h6_001',
-    grade: 3,
-    subject: 'hindi',
-    chapter: 'बंदर बाँट (विराम चिह्न व वाक्य शुद्धि)',
-    concept: 'NCERT विराम चिह्न (Punctuation)',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: '"तुम्हारा नाम क्या है" वाक्य के अंत में कौन सा विराम चिह्न लगेगा?',
-    visualEmoji: '❓',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'प्रश्नवाचक चिह्न (?)', isCorrect: true },
-        { id: 'opt_2', text: 'पूर्ण विराम (।)', isCorrect: false },
-        { id: 'opt_3', text: 'विस्मयादिबोधक (!)', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT वीणा 3: प्रश्न पूछे जाने वाले वाक्य के अंत में प्रश्नवाचक चिह्न (?) लगता है!',
-    points: 10,
-  },
+  // CLASS 3 — NCERT वीणा 3 / रिमझिम 3: CHAPTER 1 (कक्कू - संज्ञा व उसके भेद)
+  // =========================================================================
+  ...CLASS_3_HINDI_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT वीणा 3 / रिमझिम 3: CHAPTER 2 (शेखीबाज़ मक्खी - सर्वनाम शब्द)
+  // =========================================================================
+  ...CLASS_3_HINDI_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT वीणा 3 / रिमझिम 3: CHAPTER 3 (चाँद वाली अम्मा - क्रिया व काल)
+  // =========================================================================
+  ...CLASS_3_HINDI_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT वीणा 3 / रिमझिम 3: CHAPTER 4 (बहादुर बित्तो - विलोम व पर्यायवाची शब्द)
+  // =========================================================================
+  ...CLASS_3_HINDI_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT वीणा 3 / रिमझिम 3: CHAPTER 5 (हमसे सब कहते - मुहावरे परिचय)
+  // =========================================================================
+  ...CLASS_3_HINDI_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 3 — NCERT वीणा 3 / रिमझिम 3: CHAPTER 6 (बंदर बाँट - विराम चिह्न व वाक्य शुद्धि)
+  // =========================================================================
+  ...CLASS_3_HINDI_LESSON_6_QUESTIONS,
 
   // =========================================================================
   // CLASS 4 — NCERT रिमझिम 4 (HINDI)
