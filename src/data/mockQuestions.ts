@@ -5,14 +5,17 @@ import { CLASS_1_MATHS_LESSON_3_QUESTIONS } from './curriculum/class1MathsLesson
 import { CLASS_1_MATHS_LESSON_4_QUESTIONS } from './curriculum/class1MathsLesson4';
 import { CLASS_1_MATHS_LESSON_5_QUESTIONS } from './curriculum/class1MathsLesson5';
 import { CLASS_1_MATHS_LESSON_6_QUESTIONS } from './curriculum/class1MathsLesson6';
+import { CLASS_1_MATHS_LESSON_7_QUESTIONS } from './curriculum/class1MathsLesson7';
 import { CLASS_1_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class1EnglishLesson1';
 import { CLASS_1_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class1EnglishLesson2';
+import { CLASS_1_ENGLISH_LESSON_3_QUESTIONS } from './curriculum/class1EnglishLesson3';
 import { CLASS_1_ENGLISH_LESSON_4_QUESTIONS } from './curriculum/class1EnglishLesson4';
 import { CLASS_1_ENGLISH_LESSON_5_QUESTIONS } from './curriculum/class1EnglishLesson5';
 import { CLASS_1_HINDI_LESSON_1_QUESTIONS } from './curriculum/class1HindiLesson1';
 import { CLASS_1_HINDI_LESSON_2_QUESTIONS } from './curriculum/class1HindiLesson2';
 import { CLASS_1_HINDI_LESSON_3_QUESTIONS } from './curriculum/class1HindiLesson3';
 import { CLASS_1_HINDI_LESSON_4_QUESTIONS } from './curriculum/class1HindiLesson4';
+import { CLASS_1_HINDI_LESSON_5_QUESTIONS } from './curriculum/class1HindiLesson5';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
@@ -54,6 +57,12 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_1_MATHS_LESSON_6_QUESTIONS,
 
   // =========================================================================
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 7 (Lina's Family - Measurement)
+  // All 7 Concepts (Longer/Shorter, Taller/Shorter, Heavier/Lighter, Thicker/Thinner, Span)
+  // =========================================================================
+  ...CLASS_1_MATHS_LESSON_7_QUESTIONS,
+
+  // =========================================================================
   // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 1 (My Family & Fun with Letters)
   // All 7 Concepts (Beginning Phonics, Capital/Small, Vowels, Rhymes, Family, CVC, Sentences)
   // =========================================================================
@@ -63,24 +72,11 @@ export const MOCK_QUESTIONS: Question[] = [
   // All 6 Concepts (People, Animals/Birds, Places, Things, Categories, Comprehension)
   // =========================================================================
   ...CLASS_1_ENGLISH_LESSON_2_QUESTIONS,
-  {
-    id: 'ncert_c1_e3_001',
-    grade: 1,
-    subject: 'english',
-    chapter: 'One and Many (Singular & Plural)',
-    concept: 'NCERT Adding -s',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'Complete the NCERT One and Many pair:',
-    visualEmoji: '🍎',
-    payload: {
-      correctAnswer: 'apples',
-      wordBank: ['apples', 'apple', 'mangoes', 'fruits'],
-      displayTemplate: 'One apple 🍎, three [BLANK] 🍎🍎🍎.',
-    },
-    explanation: 'NCERT Grammar: When there is more than one, we add "-s": One apple -> Three apples!',
-    points: 10,
-  },
+  // =========================================================================
+  // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 3 (One and Many - Singular & Plural)
+  // All 6 Concepts (One vs Many, Adding -s, Adding -es, Counting, Sentences)
+  // =========================================================================
+  ...CLASS_1_ENGLISH_LESSON_3_QUESTIONS,
 
   // =========================================================================
   // CLASS 1 — NCERT MRIDANG & MARIGOLD: CHAPTER 4 (Action Words in Play - Verbs)
@@ -446,6 +442,12 @@ export const MOCK_QUESTIONS: Question[] = [
   // All 7 Concepts (छोटा उ, बड़ा ऊ, र में मात्रा, पाठ बोध, तुकबंदी, वाक्य)
   // =========================================================================
   ...CLASS_1_HINDI_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 1 — NCERT सारंगी 1 (HINDI): CHAPTER 5 (वाह! मेरे खिलौने - ए, ऐ, ओ, औ की मात्रा)
+  // All 8 Concepts (ए मात्रा, ऐ मात्रा, ओ मात्रा, औ मात्रा, अंतर, खिलौने, तुकबंदी, वाक्य)
+  // =========================================================================
+  ...CLASS_1_HINDI_LESSON_5_QUESTIONS,
   {
     id: 'ncert_c1_h7_001',
     grade: 1,
