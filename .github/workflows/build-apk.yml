@@ -5,6 +5,9 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,8 +37,26 @@ jobs:
         working-directory: android
         run: ./gradlew assembleRelease --no-daemon
 
-      - name: Upload Standalone APK
+      - name: Prepare APK for Release
+        run: |
+          mkdir -p release-output
+          cp android/app/build/outputs/apk/release/*.apk release-output/ClassChamp.apk
+
+      - name: Upload Standalone APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ClassChamp-v1.0.0-Release-APK
-          path: android/app/build/outputs/apk/release/*.apk
+          name: ClassChamp-Release-APK
+          path: release-output/ClassChamp.apk
+
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        if: github.ref == 'refs/heads/main'
+        with:
+          tag_name: latest
+          name: "ClassChamp (Latest Release)"
+          body: "Automated Standalone Offline Android Release of ClassChamp. Daily 10-Min CBSE Practice for Class 1 to 6."
+          files: release-output/ClassChamp.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

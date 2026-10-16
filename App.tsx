@@ -11,7 +11,7 @@ import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import { ParentZoneScreen } from './src/screens/ParentZoneScreen';
 import { QuizScreen } from './src/screens/QuizScreen';
 import { CelebrationScreen } from './src/screens/CelebrationScreen';
-import { ParentGateModal } from './src/components/common';
+import { ParentGateModal, AppUpdaterModal } from './src/components/common';
 import { generateQuestionsForSession } from './src/data/questionGenerator';
 import { getQuestionsForDay, getDayMissionInfo } from './src/data/curriculum365Engine';
 import { getChaptersForGradeSubject } from './src/data/chaptersData';
@@ -144,6 +144,9 @@ export default function App() {
           onSuccess={handleParentGateSuccess}
           onCancel={() => setShowParentGate(false)}
         />
+
+        {/* GitHub In-App Auto Updater */}
+        <AppUpdaterModal />
       </View>
     </SafeAreaProvider>
   );

@@ -6,3 +6,4 @@ export * from './ChampProgressBar';
 export * from './ParentGateModal';
 export * from './TrophyModal';
 export * from './PaywallModal';
+export * from './AppUpdaterModal';
