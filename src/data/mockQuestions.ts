@@ -71,6 +71,28 @@ import { CLASS_3_HINDI_LESSON_3_QUESTIONS } from './curriculum/class3HindiLesson
 import { CLASS_3_HINDI_LESSON_4_QUESTIONS } from './curriculum/class3HindiLesson4';
 import { CLASS_3_HINDI_LESSON_5_QUESTIONS } from './curriculum/class3HindiLesson5';
 import { CLASS_3_HINDI_LESSON_6_QUESTIONS } from './curriculum/class3HindiLesson6';
+import { CLASS_4_MATHS_LESSON_1_QUESTIONS } from './curriculum/class4MathsLesson1';
+import { CLASS_4_MATHS_LESSON_2_QUESTIONS } from './curriculum/class4MathsLesson2';
+import { CLASS_4_MATHS_LESSON_3_QUESTIONS } from './curriculum/class4MathsLesson3';
+import { CLASS_4_MATHS_LESSON_4_QUESTIONS } from './curriculum/class4MathsLesson4';
+import { CLASS_4_MATHS_LESSON_5_QUESTIONS } from './curriculum/class4MathsLesson5';
+import { CLASS_4_MATHS_LESSON_6_QUESTIONS } from './curriculum/class4MathsLesson6';
+import { CLASS_4_MATHS_LESSON_7_QUESTIONS } from './curriculum/class4MathsLesson7';
+import { CLASS_4_MATHS_LESSON_8_QUESTIONS } from './curriculum/class4MathsLesson8';
+import { CLASS_4_MATHS_LESSON_9_QUESTIONS } from './curriculum/class4MathsLesson9';
+import { CLASS_4_MATHS_LESSON_10_QUESTIONS } from './curriculum/class4MathsLesson10';
+import { CLASS_4_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class4EnglishLesson1';
+import { CLASS_4_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class4EnglishLesson2';
+import { CLASS_4_ENGLISH_LESSON_3_QUESTIONS } from './curriculum/class4EnglishLesson3';
+import { CLASS_4_ENGLISH_LESSON_4_QUESTIONS } from './curriculum/class4EnglishLesson4';
+import { CLASS_4_ENGLISH_LESSON_5_QUESTIONS } from './curriculum/class4EnglishLesson5';
+import { CLASS_4_ENGLISH_LESSON_6_QUESTIONS } from './curriculum/class4EnglishLesson6';
+import { CLASS_4_HINDI_LESSON_1_QUESTIONS } from './curriculum/class4HindiLesson1';
+import { CLASS_4_HINDI_LESSON_2_QUESTIONS } from './curriculum/class4HindiLesson2';
+import { CLASS_4_HINDI_LESSON_3_QUESTIONS } from './curriculum/class4HindiLesson3';
+import { CLASS_4_HINDI_LESSON_4_QUESTIONS } from './curriculum/class4HindiLesson4';
+import { CLASS_4_HINDI_LESSON_5_QUESTIONS } from './curriculum/class4HindiLesson5';
+import { CLASS_4_HINDI_LESSON_6_QUESTIONS } from './curriculum/class4HindiLesson6';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
@@ -354,67 +376,84 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_3_ENGLISH_LESSON_7_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT MATH-MAGIC 4 & MARIGOLD 4
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 1 (Building with Bricks - Brick Patterns)
   // =========================================================================
-  {
-    id: 'ncert_c4_m1_001',
-    grade: 4,
-    subject: 'maths',
-    chapter: 'Building with Bricks (Brick Patterns)',
-    concept: 'NCERT Faces of a Brick',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'How many faces does a real building brick 🧱 have in all?',
-    visualEmoji: '🧱',
-    payload: {
-      options: [
-        { id: 'opt_1', text: '4 faces', isCorrect: false },
-        { id: 'opt_2', text: '6 faces', isCorrect: true },
-        { id: 'opt_3', text: '8 faces', isCorrect: false },
-        { id: 'opt_4', text: '12 faces', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Math-Magic 4 Ch 1: A brick is a cuboid and has exactly 6 rectangular faces!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c4_m7_001',
-    grade: 4,
-    subject: 'maths',
-    chapter: 'Carts and Wheels (Circles & Radius)',
-    concept: 'NCERT Circle Anatomy',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match the circle part with its NCERT definition:',
-    visualEmoji: '🎡',
-    payload: {
-      pairs: [
-        { id: 'cp1', left: 'Center Point', right: 'Exact middle of circle' },
-        { id: 'cp2', left: 'Radius', right: 'Line from center to boundary' },
-        { id: 'cp3', left: 'Diameter', right: 'Longest line through center' },
-      ],
-    },
-    explanation: 'NCERT Carts and Wheels: Center is in the middle, radius connects to edge, diameter is 2 × radius!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c4_e2_001',
-    grade: 4,
-    subject: 'english',
-    chapter: 'Collective Nouns (Flock, Herd, Bunch)',
-    concept: 'NCERT Group Nouns',
-    difficulty: 'medium',
-    type: 'fill_blank',
-    question: 'Complete the collective noun phrase:',
-    visualEmoji: '🐑',
-    payload: {
-      correctAnswer: 'flock',
-      wordBank: ['flock', 'herd', 'pack', 'bunch'],
-      displayTemplate: 'A large [BLANK] of sheep was grazing in the green valley.',
-    },
-    explanation: 'NCERT Marigold 4: We call a group of sheep or birds a "flock"!',
-    points: 10,
-  },
+  ...CLASS_4_MATHS_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 2 (Long and Short - Kilometers & Meters)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 3 (A Trip to Bhopal - Word Problems & Estimation)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 4 (Tick-Tick-Tick - 12h vs 24h Clock)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 5 (The Way The World Looks - 3D Perspectives)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 6 (The Junk Seller - Currency & Profit)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 7 (Carts and Wheels - Circles & Radius)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_7_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 8 (Halves and Quarters - Fractions)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_8_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 9 (Tables and Shares - Division)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_9_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MATH-MAGIC 4: CHAPTER 10 (Fields and Fences - Perimeter & Area)
+  // =========================================================================
+  ...CLASS_4_MATHS_LESSON_10_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 1 (Wake Up! & Daily Habits)
+  // =========================================================================
+  ...CLASS_4_ENGLISH_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 2 (Collective Nouns - Flock, Herd, Bunch)
+  // =========================================================================
+  ...CLASS_4_ENGLISH_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 3 (Past Tense & Irregular Verbs - Caught, Flew)
+  // =========================================================================
+  ...CLASS_4_ENGLISH_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 4 (Adverbs of Manner -ly words)
+  // =========================================================================
+  ...CLASS_4_ENGLISH_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 5 (Conjunctions - So, Although, Because)
+  // =========================================================================
+  ...CLASS_4_ENGLISH_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 6 (Animal Homes & Vocabulary)
+  // =========================================================================
+  ...CLASS_4_ENGLISH_LESSON_6_QUESTIONS,
 
   // =========================================================================
   // CLASS 5 — NCERT MATH-MAGIC 5 & MARIGOLD 5
@@ -648,66 +687,34 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_3_HINDI_LESSON_6_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT रिमझिम 4 (HINDI)
+  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 1 (मन के भोले-भाले बादल - विशेषण व भेद)
   // =========================================================================
-  {
-    id: 'ncert_c4_h1_001',
-    grade: 4,
-    subject: 'hindi',
-    chapter: 'मन के भोले-भाले बादल (विशेषण व भेद)',
-    concept: 'NCERT विशेषण (Adjective)',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: '"आसमान में काले बादल छाए हैं।" इस वाक्य में विशेषण शब्द कौन सा है? ☁️',
-    visualEmoji: '☁️',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'काले (रंग बताने वाला विशेषण)', isCorrect: true },
-        { id: 'opt_2', text: 'बादल (संज्ञा)', isCorrect: false },
-        { id: 'opt_3', text: 'आसमान (संज्ञा)', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT रिमझिम 4: "काले" शब्द बादलों की विशेषता बता रहा है, इसलिए यह विशेषण है!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c4_h2_001',
-    grade: 4,
-    subject: 'hindi',
-    chapter: 'जैसा सवाल वैसा जवाब (मुहावरे व लोकोक्तियाँ)',
-    concept: 'NCERT प्रसिद्ध मुहावरा',
-    difficulty: 'medium',
-    type: 'fill_blank',
-    question: 'मुहावरा पूरा कीजिए:',
-    visualEmoji: '🏃💨',
-    payload: {
-      correctAnswer: 'नौ दो ग्यारह',
-      wordBank: ['नौ दो ग्यारह', 'चार पाँच छह', 'एक दो तीन'],
-      displayTemplate: 'पुलिस को देखकर चोर [BLANK] हो गया (भाग गया)।',
-    },
-    explanation: 'NCERT रिमझिम 4: "नौ दो ग्यारह होना" का अर्थ होता है भाग जाना!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c4_h6_001',
-    grade: 4,
-    subject: 'hindi',
-    chapter: 'थप्प रोटी थप्प दाल (अनेक शब्दों के लिए एक शब्द)',
-    concept: 'NCERT वाक्यांश के लिए एक शब्द',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'अनेक शब्दों के लिए एक सही शब्द का मिलान कीजिए:',
-    visualEmoji: '🌾',
-    payload: {
-      pairs: [
-        { id: 'h4_w1', left: 'जो खेती करता है 🌾', right: 'किसान' },
-        { id: 'h4_w2', left: 'जो चित्र बनाता है 🎨', right: 'चित्रकार' },
-        { id: 'h4_w3', left: 'जो देश की रक्षा करे 🎖️', right: 'सैनिक' },
-      ],
-    },
-    explanation: 'NCERT कक्षा 4: खेती करने वाला किसान, चित्र बनाने वाला चित्रकार, रक्षा करने वाला सैनिक!',
-    points: 15,
-  },
+  ...CLASS_4_HINDI_LESSON_1_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 2 (जैसा सवाल वैसा जवाब - मुहावरे व लोकोक्तियाँ)
+  // =========================================================================
+  ...CLASS_4_HINDI_LESSON_2_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 3 (किरमिच की गेंद - काल - भूत, वर्तमान, भविष्य)
+  // =========================================================================
+  ...CLASS_4_HINDI_LESSON_3_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 4 (पापा जब बच्चे थे - लिंग व वचन परिवर्तन)
+  // =========================================================================
+  ...CLASS_4_HINDI_LESSON_4_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 5 (नाव बनाओ - पर्यायवाची शब्द व तुकांत शब्द)
+  // =========================================================================
+  ...CLASS_4_HINDI_LESSON_5_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 6 (थप्प रोटी थप्प दाल - अनेक शब्दों के लिए एक शब्द)
+  // =========================================================================
+  ...CLASS_4_HINDI_LESSON_6_QUESTIONS,
 
   // =========================================================================
   // CLASS 5 — NCERT रिमझिम 5 (HINDI)
