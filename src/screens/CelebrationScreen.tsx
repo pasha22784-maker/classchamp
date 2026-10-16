@@ -17,12 +17,16 @@ import { getChaptersForGradeSubject } from '../data/chaptersData';
 import { shareScorecard } from '../utils/whatsappShare';
 import { triggerHaptic } from '../utils/haptics';
 
+import { Subject } from '../types';
+
 interface CelebrationScreenProps {
   onBackToDashboard: () => void;
+  onStartExtraPractice?: (subject: Subject, chapterTitle?: string) => void;
 }
 
 export const CelebrationScreen: React.FC<CelebrationScreenProps> = ({
   onBackToDashboard,
+  onStartExtraPractice,
 }) => {
   const { getResultSummary, starsEarned } = useQuizStore();
   const { profile, recordQuizCompletion } = useUserStore();
@@ -97,6 +101,35 @@ export const CelebrationScreen: React.FC<CelebrationScreenProps> = ({
             streakDays={earnedStreak}
           />
         </View>
+
+        {/* IXL-Grade: Need Extra Practice on this Topic? */}
+        {onStartExtraPractice && (
+          <ChampCard style={styles.practiceCard} variant="gold">
+            <View style={styles.practiceRow}>
+              <View style={styles.practiceIconBox}>
+                <Text style={{ fontSize: 30 }}>🎯</Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.practiceTitle}>Need Extra Practice on this Topic?</Text>
+                <Text style={styles.practiceDesc}>
+                  Master every concept like a champion! Solve 10 more dynamic questions from {result.chapterTitle || 'this topic'}.
+                </Text>
+              </View>
+            </View>
+
+            <ChampButton
+              title="Practice 10 More Questions 🚀"
+              icon="🔄"
+              variant="gold"
+              size="lg"
+              onPress={() => {
+                triggerHaptic('medium');
+                onStartExtraPractice(result.subject, result.chapterTitle);
+              }}
+              style={styles.practiceBtn}
+            />
+          </ChampCard>
+        )}
 
         {/* 1-Tap WhatsApp Share Card */}
         <ChampCard style={styles.shareCard} variant="white">
@@ -184,6 +217,39 @@ const styles = StyleSheet.create({
   },
   certificateWrapper: {
     marginBottom: SPACING.xl,
+  },
+  practiceCard: {
+    marginBottom: SPACING.lg,
+    borderWidth: 2,
+    borderColor: COLORS.gold,
+  },
+  practiceRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SPACING.md,
+    marginBottom: SPACING.md,
+  },
+  practiceIconBox: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#FEF3C7',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  practiceTitle: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: COLORS.textDark,
+    marginBottom: 2,
+  },
+  practiceDesc: {
+    fontSize: 12,
+    color: COLORS.textMedium,
+    lineHeight: 16,
+  },
+  practiceBtn: {
+    marginTop: SPACING.xs,
   },
   shareCard: {
     marginBottom: SPACING.lg,

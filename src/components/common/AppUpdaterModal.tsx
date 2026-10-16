@@ -12,7 +12,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { COLORS } from '../../constants/theme';
 
 // Current App Version
-export const CURRENT_APP_VERSION = 'v1.0.2';
+export const CURRENT_APP_VERSION = 'v1.0.3';
 const GITHUB_REPO = 'pasha22784-maker/classchamp';
 
 interface ReleaseInfo {

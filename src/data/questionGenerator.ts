@@ -1,6 +1,15 @@
 import { Question, Grade, Subject, QuestionType } from '../types';
 import { MOCK_QUESTIONS } from './mockQuestions';
 
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 // Templates and banks to guarantee every 10-minute quiz session has exactly 10 rich questions
 export const generateQuestionsForSession = (
   grade: Grade,
@@ -18,7 +27,9 @@ export const generateQuestionsForSession = (
         q.grade === grade &&
         q.subject === subject &&
         (cleanChapter.includes(q.chapter.toLowerCase().slice(0, 7)) ||
-          q.chapter.toLowerCase().includes(cleanChapter.slice(0, 7)))
+          q.chapter.toLowerCase().includes(cleanChapter.slice(0, 7)) ||
+          cleanChapter.includes('furry cat') && q.chapter.toLowerCase().includes('furry cat') ||
+          cleanChapter.includes('shapes & space') && q.chapter.toLowerCase().includes('shapes'))
     );
   }
 
@@ -28,6 +39,9 @@ export const generateQuestionsForSession = (
       (q) => q.grade === grade && q.subject === subject
     );
   }
+
+  // Shuffle matched questions to provide dynamic variety for "Need Extra Practice"
+  matchedQuestions = shuffleArray(matchedQuestions);
 
   // 2. Generate supplemental questions tailored to the subject and grade
   const synthesizedQuestions = getSynthesizedBank(grade, subject, chapterTitle);

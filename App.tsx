@@ -131,6 +131,9 @@ export default function App() {
         {currentScreen === 'celebration' && (
           <CelebrationScreen
             onBackToDashboard={() => setCurrentScreen('dashboard')}
+            onStartExtraPractice={(subject, chapterTitle) => {
+              handleStartQuiz(subject, chapterTitle);
+            }}
           />
         )}
 

@@ -1,48 +1,13 @@
 import { Question, Grade, Subject } from '../types';
+import { CLASS_1_MATHS_LESSON_1_QUESTIONS } from './curriculum/class1MathsLesson1';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
-  // CLASS 1 — NCERT JOYFUL MATHEMATICS & MRIDANG 1
+  // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 1 (Shapes & Space / Finding the Furry Cat)
+  // All 11 Concepts (Inside/Outside, Big/Small, Biggest/Smallest, Top/Bottom, Near/Far,
+  // Nearest/Farthest, On/Under, Above/Below, Shapes, Sorting, Rolling/Sliding)
   // =========================================================================
-  {
-    id: 'ncert_c1_m1_001',
-    grade: 1,
-    subject: 'maths',
-    chapter: 'Finding the Furry Cat (Shapes & Space)',
-    concept: 'NCERT Pre-Number: Inside vs Outside',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'The friendly cat 🐱 is resting INSIDE the tent ⛺. Where is the cat?',
-    visualEmoji: '⛺',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'INSIDE the tent ⛺', isCorrect: true },
-        { id: 'opt_2', text: 'OUTSIDE the tent 🌲', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Joyful Maths Ch 1: The cat is inside the cozy tent! 🐱',
-    points: 10,
-  },
-  {
-    id: 'ncert_c1_m1_002',
-    grade: 1,
-    subject: 'maths',
-    chapter: 'Finding the Furry Cat (Shapes & Space)',
-    concept: 'NCERT Concept: Rolling vs Sliding',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Which of these objects will ROLL down a playground slide? 🛝',
-    visualEmoji: '🛝',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'Round Ball ⚽ (Rolls)', isCorrect: true },
-        { id: 'opt_2', text: 'Square Brick 🧱 (Slides)', isCorrect: false },
-        { id: 'opt_3', text: 'Pencil Box 📦 (Slides)', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Chapter 1: Round objects roll, while flat objects slide!',
-    points: 10,
-  },
+  ...CLASS_1_MATHS_LESSON_1_QUESTIONS,
   {
     id: 'ncert_c1_m2_001',
     grade: 1,
