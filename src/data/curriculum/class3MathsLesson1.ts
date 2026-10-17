@@ -3,35 +3,36 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 1: WHERE TO LOOK FROM? (2D VIEWS & SHAPES)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Top View of Everyday 3D Objects (ऊपर से दृश्य)
+  // TIER 1: 5 EASY QUESTIONS (बुनियादी दृश्य व पहचान)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m1_concept_top_01',
+    id: 'c3_m1_q01',
     grade: 3,
     subject: 'maths',
     chapter: 'Where to Look From? (2D Views & Shapes)',
     concept: 'Top View of a Railway Train',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'When you stand on a high foot over-bridge and look straight down at a railway train 🚆 from the TOP, what shape does it appear as?',
+    question: 'When you stand on a high foot over-bridge and look straight down at a railway train from the TOP, what shape does it appear as?',
     visualEmoji: '🚆 ⬇️ 📄',
     payload: {
       options: [
-        { id: 'opt_tv1_1', text: 'A long rectangle ▭', isCorrect: true },
-        { id: 'opt_tv1_2', text: 'A circle ⭕', isCorrect: false },
-        { id: 'opt_tv1_3', text: 'A triangle 🔺', isCorrect: false },
+        { id: 'opt_1', text: 'A long rectangle', isCorrect: true },
+        { id: 'opt_2', text: 'A circle', isCorrect: false },
+        { id: 'opt_3', text: 'A triangle', isCorrect: false },
+        { id: 'opt_4', text: 'A star', isCorrect: false },
       ],
     },
-    explanation: '💡 From the top, only the long flat roofs of the train bogies are visible, forming a **long rectangle**!',
+    explanation: '💡 From straight above, only the long flat rooftops of the train bogies are visible, making it look like a long rectangle!',
     points: 10,
   },
   {
-    id: 'c3_m1_concept_top_02',
+    id: 'c3_m1_q02',
     grade: 3,
     subject: 'maths',
     chapter: 'Where to Look From? (2D Views & Shapes)',
@@ -45,131 +46,146 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
       wordBank: ['circle', 'square', 'triangle', 'cone'],
       displayTemplate: 'From the top, a pressure cooker looks like a [BLANK] with a handle.',
     },
-    explanation: '💡 The lid of a pressure cooker is round, so its top view looks like a **circle** with a handle sticking out!',
+    explanation: '💡 The lid of a pressure cooker is round, so its top view looks like a circle with a handle sticking out!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Side View and Front View
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m1_concept_side_01',
+    id: 'c3_m1_q03',
     grade: 3,
     subject: 'maths',
     chapter: 'Where to Look From? (2D Views & Shapes)',
     concept: 'Side View of a Staircase',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'From which viewpoint does a flight of staircase 🪜 look like a zigzag series of stepping blocks?',
-    visualEmoji: '🪜 👁️',
+    question: 'When you look at a staircase from the SIDE, what pattern do you see?',
+    visualEmoji: '🪜 📐',
     payload: {
       options: [
-        { id: 'opt_sv1_1', text: 'Side view', isCorrect: true },
-        { id: 'opt_sv1_2', text: 'Top view', isCorrect: false },
-        { id: 'opt_sv1_3', text: 'Bottom view', isCorrect: false },
+        { id: 'opt_1', text: 'A zig-zag step ladder going up', isCorrect: true },
+        { id: 'opt_2', text: 'A plain smooth circle', isCorrect: false },
+        { id: 'opt_3', text: 'A single flat square', isCorrect: false },
+        { id: 'opt_4', text: 'A straight horizontal line', isCorrect: false },
       ],
     },
-    explanation: '💡 From the **side view**, the steps go up and across like step blocks!',
+    explanation: '💡 From the side, each rising step and flat tread is visible, creating a step-by-step zig-zag profile!',
     points: 10,
   },
   {
-    id: 'c3_m1_concept_front_01',
+    id: 'c3_m1_q04',
     grade: 3,
     subject: 'maths',
     chapter: 'Where to Look From? (2D Views & Shapes)',
     concept: 'Front View of a Car',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Looking directly at a family car 🚗 from the FRONT, what do you clearly see?',
-    visualEmoji: '🚗 👁️',
+    question: 'Which of these features is clearly visible when you look at a car from the FRONT?',
+    visualEmoji: '🚗 👀',
     payload: {
       options: [
-        { id: 'opt_fv1_1', text: 'Two round headlights and the front windshield glass', isCorrect: true },
-        { id: 'opt_fv1_2', text: 'The flat roof only', isCorrect: false },
-        { id: 'opt_fv1_3', text: 'The back trunk only', isCorrect: false },
+        { id: 'opt_1', text: 'Two headlights and the number plate', isCorrect: true },
+        { id: 'opt_2', text: 'The flat roof only', isCorrect: false },
+        { id: 'opt_3', text: 'All four wheels in a line', isCorrect: false },
+        { id: 'opt_4', text: 'The exhaust pipe and boot', isCorrect: false },
       ],
     },
-    explanation: '💡 The **front view** shows the front bumper, headlights, and windshield!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Mirror Halves (Line of Symmetry - दर्पण में आधा हिस्सा)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m1_concept_symm_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Where to Look From? (2D Views & Shapes)',
-    concept: 'Mirror Halves of Letters',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'If you place a mirror 🪞 along the dotted vertical line down the middle, which capital letter can be divided into two identical mirror halves?',
-    visualEmoji: '🔤 🪞 🅰️',
-    payload: {
-      options: [
-        { id: 'opt_sm1_1', text: 'Letter "A"', isCorrect: true },
-        { id: 'opt_sm1_2', text: 'Letter "F"', isCorrect: false },
-        { id: 'opt_sm1_3', text: 'Letter "P"', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Letter **A** is symmetrical! A vertical line down the center divides it into two exact mirror halves.',
+    explanation: '💡 From the front view, you see the windshield, grille, two headlights, and the front number plate!',
     points: 10,
   },
   {
-    id: 'c3_m1_concept_symm_02',
+    id: 'c3_m1_q05',
     grade: 3,
     subject: 'maths',
     chapter: 'Where to Look From? (2D Views & Shapes)',
-    concept: 'Mirror Halves in Nature',
-    difficulty: 'medium',
-    type: 'fill_blank',
-    question: 'A beautiful butterfly 🦋 has two identical colorful wings. A vertical line dividing it gives two [BLANK] halves.',
-    visualEmoji: '🦋 🪞',
-    payload: {
-      correctAnswer: 'mirror',
-      wordBank: ['mirror', 'crooked', 'different', 'broken'],
-      displayTemplate: 'A butterfly can be divided into two [BLANK] halves.',
-    },
-    explanation: '💡 When the left and right sides match identically, they are **mirror** halves! 🦋',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Asymmetric Objects (Non-Mirror Halves)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m1_concept_asymm_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Where to Look From? (2D Views & Shapes)',
-    concept: 'Non-Symmetric Teapot',
+    concept: 'Top View of a Study Table',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'A tea kettle 🫖 has a spout on one side and a handle on the other. Can it be divided into two identical mirror halves?',
+    question: 'When you look at a rectangular dining or study table directly from the top, can you see its four legs?',
+    visualEmoji: '🪑 ⬇️',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'No, the legs are completely hidden under the tabletop', isCorrect: true },
+        { id: 'opt_2', text: 'Yes, all 4 legs are clearly visible from above', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Exactly! The wide flat rectangular tabletop covers the legs completely when viewed from straight above!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 2: 5 MEDIUM QUESTIONS (सममिति रेखाएँ व दृश्य मिलान)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_m1_q06',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Where to Look From? (2D Views & Shapes)',
+    concept: 'Mirror Halves of English Capital Letters',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Can the English letter "M" be divided into two identical mirror halves by drawing a straight dotted line down the middle?',
+    visualEmoji: '🔤 🪞',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Yes, with a vertical line down the middle', isCorrect: true },
+        { id: 'opt_2', text: 'No, it has no symmetry', isCorrect: false },
+        { id: 'opt_3', text: 'Yes, only with a horizontal line across', isCorrect: false },
+        { id: 'opt_4', text: 'Yes, with any random curved line', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Drawing a vertical line straight through the center of "M" splits it into two identical mirror halves!',
+    points: 15,
+  },
+  {
+    id: 'c3_m1_q07',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Where to Look From? (2D Views & Shapes)',
+    concept: 'Letters Without Line of Symmetry',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which of the following English letters CANNOT be divided into two identical mirror halves by any single straight line?',
+    visualEmoji: '🪞 ❓',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'F', isCorrect: true },
+        { id: 'opt_2', text: 'A', isCorrect: false },
+        { id: 'opt_3', text: 'H', isCorrect: false },
+        { id: 'opt_4', text: 'O', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "F" is asymmetrical; neither a horizontal nor a vertical line can divide it into equal mirror halves!',
+    points: 15,
+  },
+  {
+    id: 'c3_m1_q08',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Where to Look From? (2D Views & Shapes)',
+    concept: 'Asymmetry of a Teapot',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Can a tea kettle with a pouring spout on the left and a handle on the right be divided into two identical mirror halves?',
     visualEmoji: '🫖 🪞',
     payload: {
       options: [
-        { id: 'opt_as1_1', text: 'No, because one side has a spout and the other has a handle', isCorrect: true },
-        { id: 'opt_as1_2', text: 'Yes, always', isCorrect: false },
+        { id: 'opt_1', text: 'No, because the spout and handle are different on both sides', isCorrect: true },
+        { id: 'opt_2', text: 'Yes, always with a vertical line', isCorrect: false },
+        { id: 'opt_3', text: 'Yes, with a horizontal cut', isCorrect: false },
+        { id: 'opt_4', text: 'Yes, if the kettle is full of tea', isCorrect: false },
       ],
     },
-    explanation: '💡 Because the spout and handle are on opposite sides, a kettle **cannot** be divided into identical mirror halves!',
-    points: 10,
+    explanation: '💡 Because one side has a spout and the opposite side has a handle, a kettle cannot be divided into identical mirror halves!',
+    points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Dot Grid Rangoli Patterns (Drag Order)
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m1_concept_order_01',
+    id: 'c3_m1_q09',
     grade: 3,
     subject: 'maths',
     chapter: 'Where to Look From? (2D Views & Shapes)',
-    concept: 'Rangoli Drawing Order on Dot Grid',
+    concept: 'Dot Grid Rangoli Pattern Order',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Put these steps in order to draw a symmetric flower rangoli on a dot grid:',
+    question: 'Put these steps in the correct order to draw a symmetric rangoli on a dot grid:',
     visualEmoji: '✨ 🌸 📐',
     payload: {
       tokens: [
@@ -194,29 +210,134 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     explanation: '💡 Center dot -> Inner petals -> Outer lines -> Fill colors!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Object to its View
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m1_concept_match_01',
+    id: 'c3_m1_q10',
     grade: 3,
     subject: 'maths',
     chapter: 'Where to Look From? (2D Views & Shapes)',
-    concept: 'View Perspective Match',
+    concept: 'Matching Object Views',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each object to how it looks from that specific angle:',
+    question: 'Match each object to how it appears from that specific viewpoint:',
     visualEmoji: '👁️ 📐',
     payload: {
       pairs: [
-        { id: 'v_p1', left: 'Study table from TOP 🪑', right: 'Plain flat rectangle' },
-        { id: 'v_p2', left: 'Staircase from SIDE 🪜', right: 'Stepping step blocks' },
-        { id: 'v_p3', left: 'Bus from SIDE 🚌', right: 'Row of passenger windows' },
-        { id: 'v_p4', left: 'Pencil from FRONT tip ✏️', right: 'Circle with a dot center' },
+        { id: 'm1_p1', left: 'Table from top', right: 'Plain flat rectangle' },
+        { id: 'm1_p2', left: 'Staircase from side', right: 'Stepping step blocks' },
+        { id: 'm1_p3', left: 'Bus from side', right: 'Row of passenger windows' },
+        { id: 'm1_p4', left: 'Pencil from sharp tip', right: 'Circle with a center dot' },
       ],
     },
     explanation: '💡 Different viewpoints show different 2D faces of a 3D object!',
     points: 15,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 3: 5 HARD QUESTIONS (गहन सममिति, 3D दृष्टिकोण व निर्देशांक)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_m1_q11',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Where to Look From? (2D Views & Shapes)',
+    concept: 'Lines of Symmetry in a Square',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'How many lines of symmetry does a flat square sheet of origami paper have?',
+    visualEmoji: '🟩 ✂️ 🪞',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '4 lines', isCorrect: true },
+        { id: 'opt_2', text: '2 lines', isCorrect: false },
+        { id: 'opt_3', text: '1 line', isCorrect: false },
+        { id: 'opt_4', text: '8 lines', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A square has 4 lines of symmetry: 1 vertical, 1 horizontal, and 2 diagonal lines from corner to corner!',
+    points: 20,
+  },
+  {
+    id: 'c3_m1_q12',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Where to Look From? (2D Views & Shapes)',
+    concept: 'Side View of a Standing Cylinder',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'A round water bottle or cylindrical tin can is standing upright on a table. If you look at it straight from the SIDE at eye level, what 2D shape does it appear as?',
+    visualEmoji: '🥫 👁️ 📏',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'A rectangle', isCorrect: true },
+        { id: 'opt_2', text: 'A perfect circle', isCorrect: false },
+        { id: 'opt_3', text: 'A triangle', isCorrect: false },
+        { id: 'opt_4', text: 'An oval', isCorrect: false },
+      ],
+    },
+    explanation: '💡 When viewed directly at eye level from the side, a standing cylinder projects as a 2D rectangle (height × diameter)!',
+    points: 20,
+  },
+  {
+    id: 'c3_m1_q13',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Where to Look From? (2D Views & Shapes)',
+    concept: 'Mirror Half Letter Completion',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'If you place a mirror exactly on the dotted line along the left straight side of the letter "B", which complete shape will you see in reflection?',
+    visualEmoji: '🪞 🔤',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'A shape with 4 round loops (butterfly shape)', isCorrect: true },
+        { id: 'opt_2', text: 'The letter C', isCorrect: false },
+        { id: 'opt_3', text: 'A straight line only', isCorrect: false },
+        { id: 'opt_4', text: 'The letter D', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Reflecting the curved loops of B over its straight back creates a symmetrical figure with 4 rounded wings like a butterfly!',
+    points: 20,
+  },
+  {
+    id: 'c3_m1_q14',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Where to Look From? (2D Views & Shapes)',
+    concept: 'Dot Grid Polygon Corners',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'On a dot grid, you join 5 dots to form a closed pentagon. How many corners (vertices) and straight edges does this shape have?',
+    visualEmoji: '⬟ 📐 ✍️',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '5 corners and 5 edges', isCorrect: true },
+        { id: 'opt_2', text: '4 corners and 5 edges', isCorrect: false },
+        { id: 'opt_3', text: '5 corners and 6 edges', isCorrect: false },
+        { id: 'opt_4', text: '6 corners and 5 edges', isCorrect: false },
+      ],
+    },
+    explanation: '💡 In any polygon, the number of vertices (corners) equals the number of straight sides (edges). A pentagon has 5 of each!',
+    points: 20,
+  },
+  {
+    id: 'c3_m1_q15',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Where to Look From? (2D Views & Shapes)',
+    concept: 'Top View of a Conical Birthday Cap',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'When you look at a conical party birthday cap straight from the TOP looking down at its pointed tip, what shape do you see?',
+    visualEmoji: '🥳 🎩 ⬇️',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'A circle with a dot in the exact center', isCorrect: true },
+        { id: 'opt_2', text: 'A sharp triangle', isCorrect: false },
+        { id: 'opt_3', text: 'A square', isCorrect: false },
+        { id: 'opt_4', text: 'A straight line', isCorrect: false },
+      ],
+    },
+    explanation: '💡 The circular base forms the outer rim, and the pointed apex appears as a dot right at the center of the circle!',
+    points: 20,
   },
 ];

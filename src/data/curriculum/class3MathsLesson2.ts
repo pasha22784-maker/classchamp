@@ -3,15 +3,15 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 2: FUN WITH NUMBERS (NUMBERS UP TO 1000)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_2_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: 3-Digit Place Value (Hundreds, Tens, Ones)
+  // TIER 1: 5 EASY QUESTIONS (स्थानीय मान व शतक)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m2_concept_place_01',
+    id: 'c3_m2_q01',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
@@ -22,16 +22,17 @@ export const CLASS_3_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🔢 6️⃣4️⃣8️⃣',
     payload: {
       options: [
-        { id: 'opt_pv1_1', text: '6 Hundreds = 600', isCorrect: true },
-        { id: 'opt_pv1_2', text: '6 Tens = 60', isCorrect: false },
-        { id: 'opt_pv1_3', text: '6 Ones = 6', isCorrect: false },
+        { id: 'opt_1', text: '600', isCorrect: true },
+        { id: 'opt_2', text: '60', isCorrect: false },
+        { id: 'opt_3', text: '6', isCorrect: false },
+        { id: 'opt_4', text: '64', isCorrect: false },
       ],
     },
-    explanation: '💡 In a 3-digit number (HTO), the leftmost digit is Hundreds. 6 in Hundreds place = **600**!',
+    explanation: '💡 In a 3-digit number (HTO), the digit 6 is in the Hundreds place, so its value is 6 × 100 = 600!',
     points: 10,
   },
   {
-    id: 'c3_m2_concept_place_02',
+    id: 'c3_m2_q02',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
@@ -39,172 +40,282 @@ export const CLASS_3_MATHS_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: '5 Hundreds, 3 Tens, and 7 Ones make the number [BLANK].',
-    visualEmoji: '500 + 30 + 7',
+    visualEmoji: '5️⃣0️⃣0️⃣ ➕ 3️⃣0️⃣ ➕ 7️⃣',
     payload: {
       correctAnswer: '537',
       wordBank: ['537', '573', '357', '5037'],
       displayTemplate: '5 Hundreds, 3 Tens, and 7 Ones make [BLANK].',
     },
-    explanation: '💡 500 + 30 + 7 = **537**!',
+    explanation: '💡 500 + 30 + 7 = 537!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Expanded Form of 3-Digit Numbers
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m2_concept_exp_01',
+    id: 'c3_m2_q03',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
-    concept: 'Expanded Form 3-Digit',
+    concept: 'Expanded Form of 3-Digit Number',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'What is the correct expanded form of the number 894?',
-    visualEmoji: '8️⃣9️⃣4️⃣',
+    question: 'What is the correct expanded form of the number 872?',
+    visualEmoji: '📐 8️⃣7️⃣2️⃣',
     payload: {
       options: [
-        { id: 'opt_ex1_1', text: '800 + 90 + 4', isCorrect: true },
-        { id: 'opt_ex1_2', text: '80 + 90 + 4', isCorrect: false },
-        { id: 'opt_ex1_3', text: '800 + 9 + 4', isCorrect: false },
+        { id: 'opt_1', text: '800 + 70 + 2', isCorrect: true },
+        { id: 'opt_2', text: '80 + 70 + 2', isCorrect: false },
+        { id: 'opt_3', text: '800 + 7 + 2', isCorrect: false },
+        { id: 'opt_4', text: '800 + 72', isCorrect: false },
       ],
     },
-    explanation: '💡 8 Hundreds (800) + 9 Tens (90) + 4 Ones (4) = **800 + 90 + 4**!',
+    explanation: '💡 8 Hundreds + 7 Tens + 2 Ones = 800 + 70 + 2!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Century & Cricket Scores
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m2_concept_cent_01',
+    id: 'c3_m2_q04',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
-    concept: 'Runs Needed for a Century',
+    concept: 'Cricket Century Concept',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Dhoni is batting at 96 runs in a cricket match 🏏. A Century is 100 runs. How many more runs does he need to complete his Century?',
-    visualEmoji: '🏏 9️⃣6️⃣ ➡️ 💯',
+    question: 'In a cricket match, a batsman has scored 93 runs. How many more runs does he need to complete a century (100 runs)?',
+    visualEmoji: '🏏 💯 🏃',
     payload: {
       options: [
-        { id: 'opt_cn1_1', text: '4 runs', isCorrect: true },
-        { id: 'opt_cn1_2', text: '6 runs', isCorrect: false },
-        { id: 'opt_cn1_3', text: '10 runs', isCorrect: false },
+        { id: 'opt_1', text: '7 runs', isCorrect: true },
+        { id: 'opt_2', text: '13 runs', isCorrect: false },
+        { id: 'opt_3', text: '3 runs', isCorrect: false },
+        { id: 'opt_4', text: '17 runs', isCorrect: false },
       ],
     },
-    explanation: '💡 100 - 96 = **4 runs** needed for a Century!',
+    explanation: '💡 A century equals 100 runs. 100 - 93 = 7 more runs needed!',
     points: 10,
   },
   {
-    id: 'c3_m2_concept_cent_02',
+    id: 'c3_m2_q05',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
-    concept: 'Double Century',
+    concept: 'Successor of 299',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'One Century is 100 runs. A DOUBLE Century is [BLANK] runs.',
-    visualEmoji: '🏏 💯 + 💯',
+    question: 'The number that comes immediately after 299 is [BLANK].',
+    visualEmoji: '2️⃣9️⃣9️⃣ ➡️ ❓',
     payload: {
-      correctAnswer: '200',
-      wordBank: ['200', '150', '300', '250'],
-      displayTemplate: 'A double century is [BLANK] runs.',
+      correctAnswer: '300',
+      wordBank: ['300', '298', '399', '200'],
+      displayTemplate: 'The number immediately after 299 is [BLANK].',
     },
-    explanation: '💡 Double Century = 2 × 100 = **200 runs**!',
+    explanation: '💡 Adding 1 to 299 gives 300!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: Skip Counting by 50s and 100s
+  // TIER 2: 5 MEDIUM QUESTIONS (छलांग गिनती, तुलना व आरोही क्रम)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m2_concept_skip_01',
+    id: 'c3_m2_q06',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
-    concept: 'Counting in 50s',
+    concept: 'Skip Counting by 10s',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Find the missing number in the jump sequence: 310, 320, 330, [BLANK], 350',
+    visualEmoji: '🐸 🔟 🔟',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '340', isCorrect: true },
+        { id: 'opt_2', text: '335', isCorrect: false },
+        { id: 'opt_3', text: '345', isCorrect: false },
+        { id: 'opt_4', text: '360', isCorrect: false },
+      ],
+    },
+    explanation: '💡 The pattern increases by 10 at each step: 330 + 10 = 340!',
+    points: 15,
+  },
+  {
+    id: 'c3_m2_q07',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 1000)',
+    concept: 'Skip Counting by 50s',
     difficulty: 'medium',
     type: 'fill_blank',
-    question: 'Jump by fifties: 200, 250, 300, 350, [BLANK], 450.',
-    visualEmoji: '🔢 2️⃣0️⃣0️⃣ ➡️ 2️⃣5️⃣0️⃣ ➡️ 3️⃣0️⃣0️⃣',
+    question: 'Complete the pattern of jumping by 50s: 200, 250, 300, 350, [BLANK].',
+    visualEmoji: '🦘 5️⃣0️⃣',
     payload: {
       correctAnswer: '400',
-      wordBank: ['400', '360', '500', '390'],
-      displayTemplate: '300, 350, [BLANK], 450',
+      wordBank: ['400', '375', '450', '500'],
+      displayTemplate: '200, 250, 300, 350, [BLANK].',
     },
-    explanation: '💡 Adding 50 to 350 gives **400**!',
-    points: 10,
+    explanation: '💡 Adding 50 to 350: 350 + 50 = 400!',
+    points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: What Comes Just Before / After (999 and 1000)
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m2_concept_thous_01',
+    id: 'c3_m2_q08',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
-    concept: 'Smallest 4-Digit Number',
-    difficulty: 'easy',
+    concept: 'Comparing 3-Digit Numbers',
+    difficulty: 'medium',
     type: 'mcq',
-    question: 'What number comes just after the biggest 3-digit number 999?',
-    visualEmoji: '9️⃣9️⃣9️⃣ ➡️ ❓',
+    question: 'Which comparison between 789 and 798 is correct?',
+    visualEmoji: '⚖️ 7️⃣8️⃣9️⃣ 🆚 7️⃣9️⃣8️⃣',
     payload: {
       options: [
-        { id: 'opt_th1_1', text: '1000', isCorrect: true },
-        { id: 'opt_th1_2', text: '990', isCorrect: false },
-        { id: 'opt_th1_3', text: '100', isCorrect: false },
+        { id: 'opt_1', text: '789 < 798', isCorrect: true },
+        { id: 'opt_2', text: '789 > 798', isCorrect: false },
+        { id: 'opt_3', text: '789 = 798', isCorrect: false },
+        { id: 'opt_4', text: '789 + 798 = 1000', isCorrect: false },
       ],
     },
-    explanation: '💡 999 + 1 = **1000 (One Thousand)**!',
-    points: 10,
+    explanation: '💡 Both start with 7 Hundreds, but 798 has 9 Tens while 789 has 8 Tens. Therefore, 789 < 798!',
+    points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Order 3-Digit Numbers (Drag Order)
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m2_concept_order_01',
+    id: 'c3_m2_q09',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
     concept: 'Ascending Order of 3-Digit Numbers',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Arrange these three-digit numbers in order from SMALLEST to GREATEST:',
-    visualEmoji: '🔢 📈',
+    question: 'Arrange these numbers in ascending order from smallest to greatest:',
+    visualEmoji: '📈 🔢',
     payload: {
-      tokens: ['125', '340', '678', '999'],
-      scrambled: ['678', '125', '999', '340'],
-      correctSequence: ['125', '340', '678', '999'],
+      tokens: ['145', '230', '412', '608'],
+      scrambled: ['412', '145', '608', '230'],
+      correctSequence: ['145', '230', '412', '608'],
     },
-    explanation: '💡 Compare the Hundreds place: 125 < 340 < 678 < 999!',
+    explanation: '💡 Smallest to greatest: 145 < 230 < 412 < 608!',
+    points: 15,
+  },
+  {
+    id: 'c3_m2_q10',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 1000)',
+    concept: 'Number Words Matching',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each 3-digit numeral with its correct word form:',
+    visualEmoji: '🔢 ✍️',
+    payload: {
+      pairs: [
+        { id: 'm2_p1', left: '105', right: 'One hundred five' },
+        { id: 'm2_p2', left: '450', right: 'Four hundred fifty' },
+        { id: 'm2_p3', left: '999', right: 'Nine hundred ninety-nine' },
+        { id: 'm2_p4', left: '606', right: 'Six hundred six' },
+      ],
+    },
+    explanation: '💡 Match the digits in hundreds, tens and ones to their English spelling!',
     points: 15,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 7: Match Numerals to Word Names
+  // TIER 3: 5 HARD QUESTIONS (संख्या निर्माण, अंतर व दोहरा शतक)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m2_concept_match_01',
+    id: 'c3_m2_q11',
     grade: 3,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 1000)',
-    concept: '3-Digit Number Name Match',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each numeral to its correct number name:',
-    visualEmoji: '🔢 🔤',
+    concept: 'Smallest 3-Digit Number Using Given Digits',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'What is the SMALLEST 3-digit number you can form using the digits 4, 0, and 9 without repeating any digit?',
+    visualEmoji: '4️⃣ 0️⃣ 9️⃣ 🔀',
     payload: {
-      pairs: [
-        { id: 'c3_n1', left: '105', right: 'One hundred five' },
-        { id: 'c3_n2', left: '350', right: 'Three hundred fifty' },
-        { id: 'c3_n3', left: '608', right: 'Six hundred eight' },
-        { id: 'c3_n4', left: '1000', right: 'One thousand' },
+      options: [
+        { id: 'opt_1', text: '409', isCorrect: true },
+        { id: 'opt_2', text: '049', isCorrect: false },
+        { id: 'opt_3', text: '490', isCorrect: false },
+        { id: 'opt_4', text: '904', isCorrect: false },
       ],
     },
-    explanation: '💡 105 = One hundred five, 350 = Three hundred fifty, 608 = Six hundred eight, 1000 = One thousand!',
-    points: 15,
+    explanation: '💡 A 3-digit number cannot start with 0 (as 049 is a 2-digit number). The smallest non-zero digit is 4, followed by 0 and 9: 409!',
+    points: 20,
+  },
+  {
+    id: 'c3_m2_q12',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 1000)',
+    concept: 'Difference Between Extremes',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'What is the difference between the GREATEST 3-digit number and the SMALLEST 3-digit number?',
+    visualEmoji: '9️⃣9️⃣9️⃣ ➖ 1️⃣0️⃣0️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '899', isCorrect: true },
+        { id: 'opt_2', text: '900', isCorrect: false },
+        { id: 'opt_3', text: '890', isCorrect: false },
+        { id: 'opt_4', text: '998', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Greatest 3-digit number = 999; Smallest 3-digit number = 100. 999 - 100 = 899!',
+    points: 20,
+  },
+  {
+    id: 'c3_m2_q13',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 1000)',
+    concept: 'Double Century Calculation',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'A batsman is batting on 194 runs. How many more runs does he need to complete a double century (200 runs)? Answer: [BLANK] runs.',
+    visualEmoji: '🏏 2️⃣0️⃣0️⃣ 🏃',
+    payload: {
+      correctAnswer: '6',
+      wordBank: ['6', '16', '4', '8'],
+      displayTemplate: 'He needs [BLANK] more runs to reach 200.',
+    },
+    explanation: '💡 Double century = 200 runs. 200 - 194 = 6 runs!',
+    points: 20,
+  },
+  {
+    id: 'c3_m2_q14',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 1000)',
+    concept: 'Place Value vs Face Value Difference',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In the number 752, what is the difference between the PLACE VALUE of 7 and the FACE VALUE of 7?',
+    visualEmoji: '7️⃣5️⃣2️⃣ 🧮',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '693', isCorrect: true },
+        { id: 'opt_2', text: '700', isCorrect: false },
+        { id: 'opt_3', text: '7', isCorrect: false },
+        { id: 'opt_4', text: '707', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Place value of 7 is 700; Face value of 7 is 7. Difference = 700 - 7 = 693!',
+    points: 20,
+  },
+  {
+    id: 'c3_m2_q15',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 1000)',
+    concept: 'Counting Backwards by Tens',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'If you start at 820 and count backwards by tens 4 times, which number do you land on?',
+    visualEmoji: '⬅️ 🔟 🔟 🔟 🔟',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '780', isCorrect: true },
+        { id: 'opt_2', text: '790', isCorrect: false },
+        { id: 'opt_3', text: '760', isCorrect: false },
+        { id: 'opt_4', text: '800', isCorrect: false },
+      ],
+    },
+    explanation: '💡 820 -> 810 (1) -> 800 (2) -> 790 (3) -> 780 (4). You land on 780!',
+    points: 20,
   },
 ];

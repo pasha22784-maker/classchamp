@@ -3,172 +3,325 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 7: WHO IS HEAVIER? (KILOGRAMS & GRAMS)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_7_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Kilograms and Grams Conversion (1 kg = 1000 g)
+  // TIER 1: 5 EASY QUESTIONS (किलोग्राम, ग्राम व तराज़ू परिचय)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m7_concept_conv_01',
+    id: 'c3_m7_q01',
     grade: 3,
     subject: 'maths',
     chapter: 'Who is Heavier? (Kilograms & Grams)',
-    concept: 'Grams in a Kilogram',
+    concept: 'Standard Weight Conversion',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'How many grams (g) make exactly 1 kilogram (kg)?',
-    visualEmoji: '⚖️ 1️⃣ kg = ❓ g',
+    question: 'How many grams are there in 1 kilogram (kg)?',
+    visualEmoji: '⚖️ 1️⃣ 🧺',
     payload: {
       options: [
-        { id: 'opt_kg1_1', text: '1000 grams', isCorrect: true },
-        { id: 'opt_kg1_2', text: '100 grams', isCorrect: false },
-        { id: 'opt_kg1_3', text: '10 grams', isCorrect: false },
+        { id: 'opt_1', text: '1000 grams', isCorrect: true },
+        { id: 'opt_2', text: '100 grams', isCorrect: false },
+        { id: 'opt_3', text: '10 grams', isCorrect: false },
+        { id: 'opt_4', text: '500 grams', isCorrect: false },
       ],
     },
-    explanation: '💡 Remember this weight rule: **1 Kilogram (kg) = 1000 Grams (g)**!',
+    explanation: '💡 Standard metric weight rule: 1 kilogram (kg) = 1000 grams (g)!',
     points: 10,
   },
   {
-    id: 'c3_m7_concept_conv_02',
+    id: 'c3_m7_q02',
     grade: 3,
     subject: 'maths',
     chapter: 'Who is Heavier? (Kilograms & Grams)',
-    concept: 'Half Kilogram in Grams',
+    concept: 'Appropriate Unit for Light Objects',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Which unit is most suitable to weigh a pencil, an apple, or a small coin?',
+    visualEmoji: '🍎 🪙 ⚖️',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Grams (g)', isCorrect: true },
+        { id: 'opt_2', text: 'Kilograms (kg)', isCorrect: false },
+        { id: 'opt_3', text: 'Meters (m)', isCorrect: false },
+        { id: 'opt_4', text: 'Litres (L)', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Light objects are weighed in grams (g), while heavy bulk items are weighed in kilograms (kg)!',
+    points: 10,
+  },
+  {
+    id: 'c3_m7_q03',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Appropriate Unit for Heavy Objects',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Which unit is used to measure the weight of a sack of wheat flour (atta) or your classmate\'s body weight?',
+    visualEmoji: '🌾 🏋️',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Kilograms (kg)', isCorrect: true },
+        { id: 'opt_2', text: 'Centimeters (cm)', isCorrect: false },
+        { id: 'opt_3', text: 'Millilitres (mL)', isCorrect: false },
+        { id: 'opt_4', text: 'Seconds (s)', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Heavy objects and human body weight are measured in kilograms (kg)!',
+    points: 10,
+  },
+  {
+    id: 'c3_m7_q04',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Beam Balance Pan Reading',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'On a two-pan vegetable balance, when one pan goes DOWN lower than the other, what does that mean?',
+    visualEmoji: '⚖️ ⬇️ 🥔',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'The lower pan is heavier', isCorrect: true },
+        { id: 'opt_2', text: 'The higher pan is heavier', isCorrect: false },
+        { id: 'opt_3', text: 'Both pans are completely equal', isCorrect: false },
+        { id: 'opt_4', text: 'The balance scale is broken', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Gravity pulls the heavier side down; so the pan that dips down is the heavier one!',
+    points: 10,
+  },
+  {
+    id: 'c3_m7_q05',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Half a Kilogram',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'Half a kilogram (1/2 kg) of fresh butter 🧈 is equal to [BLANK] grams.',
-    visualEmoji: '🧈 ½ kg = ❓ g',
+    question: 'Half a kilogram (1/2 kg) is equal to [BLANK] grams.',
+    visualEmoji: '½ ⚖️ 🟰 ❓ 🧺',
     payload: {
       correctAnswer: '500',
       wordBank: ['500', '250', '100', '750'],
-      displayTemplate: 'Half a kilogram = [BLANK] grams.',
+      displayTemplate: 'Half a kilogram is [BLANK] grams.',
     },
-    explanation: '💡 Half of 1000 is **500 grams**!',
+    explanation: '💡 1 kg = 1000 grams, so half of it is 1000 ÷ 2 = 500 grams!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 2: Reading a Two-Pan Balance Scale ⚖️ (तराज़ू)
+  // TIER 2: 5 MEDIUM QUESTIONS (गुड़-मूँगफली, तराज़ू संतुलन व खरीददारी)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m7_concept_scale_01',
+    id: 'c3_m7_q06',
     grade: 3,
     subject: 'maths',
     chapter: 'Who is Heavier? (Kilograms & Grams)',
-    concept: 'Balance Scale Pan Movement',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'On a vegetable seller\'s balance scale ⚖️, a big pumpkin 🎃 is on pan A and a small tomato 🍅 is on pan B. Which pan goes DOWN?',
-    visualEmoji: '⚖️ 🎃 vs 🍅',
-    payload: {
-      options: [
-        { id: 'opt_sc1_1', text: 'Pan A with the pumpkin', isCorrect: true },
-        { id: 'opt_sc1_2', text: 'Pan B with the tomato', isCorrect: false },
-        { id: 'opt_sc1_3', text: 'Both stay exactly level', isCorrect: false },
-      ],
-    },
-    explanation: '💡 On a balance scale, gravity pulls the **heavier pan DOWN** while the lighter side tilts UP! ⚖️',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Choosing Between Grams (g) and Kilograms (kg)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m7_concept_choose_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Who is Heavier? (Kilograms & Grams)',
-    concept: 'Sack of Wheat Flour Unit',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'A heavy family sack of wheat flour (atta) 🌾 is measured in which unit?',
-    visualEmoji: '🌾 ⚖️ 🏋️',
-    payload: {
-      options: [
-        { id: 'opt_ch1_1', text: 'Kilograms', isCorrect: true },
-        { id: 'opt_ch1_2', text: 'Grams', isCorrect: false },
-        { id: 'opt_ch1_3', text: 'Milliliters', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Heavy grocery items like sacks of wheat and rice are measured in **Kilograms (kg)**!',
-    points: 10,
-  },
-  {
-    id: 'c3_m7_concept_choose_02',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Who is Heavier? (Kilograms & Grams)',
-    concept: 'Pencil Weight in Grams',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'A single writing pencil ✏️ weighs about 10 [BLANK].',
-    visualEmoji: '✏️ ⚖️',
-    payload: {
-      correctAnswer: 'grams',
-      wordBank: ['grams', 'kilograms', 'litres', 'meters'],
-      displayTemplate: 'A pencil weighs about 10 [BLANK].',
-    },
-    explanation: '💡 Light objects are weighed in **grams (g)**! ✏️',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Order Objects from Lightest to Heaviest (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m7_concept_order_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Who is Heavier? (Kilograms & Grams)',
-    concept: 'Weight Sequence from Lightest to Heaviest',
+    concept: 'Jaggery and Groundnuts Concept',
     difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange these items in order from LIGHTEST to HEAVIEST:',
-    visualEmoji: '🪶 🍎 🍉 🐘',
+    type: 'mcq',
+    question: 'A vegetable vendor places 1 kg of solid jaggery (gur) on one pan and 1 kg of puffed groundnuts on the other pan. Which is heavier?',
+    visualEmoji: '⚖️ 🥜 🆚 🍯',
     payload: {
-      tokens: ['Bird Feather (1 g) 🪶', 'Apple (150 g) 🍎', 'Watermelon (5 kg) 🍉', 'Elephant (4000 kg) 🐘'],
-      scrambled: [
-        'Watermelon (5 kg) 🍉',
-        'Bird Feather (1 g) 🪶',
-        'Elephant (4000 kg) 🐘',
-        'Apple (150 g) 🍎',
-      ],
-      correctSequence: [
-        'Bird Feather (1 g) 🪶',
-        'Apple (150 g) 🍎',
-        'Watermelon (5 kg) 🍉',
-        'Elephant (4000 kg) 🐘',
+      options: [
+        { id: 'opt_1', text: 'Both have the exact same weight (1 kg each)', isCorrect: true },
+        { id: 'opt_2', text: 'Jaggery is heavier because it is small and hard', isCorrect: false },
+        { id: 'opt_3', text: 'Groundnuts are heavier because they need a bigger bag', isCorrect: false },
+        { id: 'opt_4', text: 'Neither can be weighed', isCorrect: false },
       ],
     },
-    explanation: '💡 Lightest to heaviest: **Feather < Apple < Watermelon < Elephant**!',
+    explanation: '💡 1 kg of anything has the exact same weight as 1 kg of anything else, even if groundnuts occupy a much bigger bag!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Match Object to Typical Weight
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m7_concept_match_01',
+    id: 'c3_m7_q07',
     grade: 3,
     subject: 'maths',
     chapter: 'Who is Heavier? (Kilograms & Grams)',
-    concept: 'Object to Weight Match',
+    concept: 'Converting Kilograms and Grams to Grams',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'A packet of basmati rice weighs 3 kg and 250 g. In grams, its total weight is [BLANK] g.',
+    visualEmoji: '🍚 3️⃣ kg 2️⃣5️⃣0️⃣ g',
+    payload: {
+      correctAnswer: '3250',
+      wordBank: ['3250', '325', '30250', '550'],
+      displayTemplate: 'Its total weight is [BLANK] g.',
+    },
+    explanation: '💡 3 kg = 3000 g. 3000 g + 250 g = 3250 grams!',
+    points: 15,
+  },
+  {
+    id: 'c3_m7_q08',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Balancing a 1 kg Weight with 250g Packets',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'How many 250-gram packets of tea powder are needed to balance a 1 kg iron weight on a scale?',
+    visualEmoji: '☕ ⚖️ 1️⃣ kg',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '4 packets', isCorrect: true },
+        { id: 'opt_2', text: '2 packets', isCorrect: false },
+        { id: 'opt_3', text: '5 packets', isCorrect: false },
+        { id: 'opt_4', text: '10 packets', isCorrect: false },
+      ],
+    },
+    explanation: '💡 1 kg = 1000 grams. 250 + 250 + 250 + 250 = 1000 g. So 4 packets of 250 g are needed!',
+    points: 15,
+  },
+  {
+    id: 'c3_m7_q09',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Grocery Basket Total Weight',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'In a shopping bag, Amit puts 2 kg potatoes, 1 kg onions, and 500 g tomatoes. What is the total weight of vegetables in his bag?',
+    visualEmoji: '🥔 🧅 🍅 🛍️',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '3 kg 500 g', isCorrect: true },
+        { id: 'opt_2', text: '2 kg 500 g', isCorrect: false },
+        { id: 'opt_3', text: '4 kg', isCorrect: false },
+        { id: 'opt_4', text: '350 g', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Kilograms: 2 + 1 = 3 kg. Grams: 500 g. Total = 3 kg 500 g!',
+    points: 15,
+  },
+  {
+    id: 'c3_m7_q10',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Matching Items to Metric Weight Units',
     difficulty: 'medium',
     type: 'match_pairs',
     question: 'Match each item to its typical weight category:',
-    visualEmoji: '⚖️ 🎯',
+    visualEmoji: '⚖️ 🏷️',
     payload: {
       pairs: [
-        { id: 'wt_p1', left: 'Packet of potato chips 🥔', right: '50 grams (g)' },
-        { id: 'wt_p2', left: 'School child\'s backpack 🎒', right: '3 kilograms (kg)' },
-        { id: 'wt_p3', left: 'Gold ring 💍', right: '5 grams (g)' },
-        { id: 'wt_p4', left: 'Adult cow 🐄', right: '400 kilograms (kg)' },
+        { id: 'm7_p1', left: 'Watermelon', right: 'Around 3 kilograms' },
+        { id: 'm7_p2', left: 'Gold ear-ring', right: 'Around 5 grams' },
+        { id: 'm7_p3', left: 'Adult dairy cow', right: 'Around 400 kilograms' },
+        { id: 'm7_p4', left: 'Packet of potato chips', right: 'Around 50 grams' },
       ],
     },
-    explanation: '💡 Small snacks and rings = grams; backpacks and animals = kilograms!',
+    explanation: '💡 Match large vs tiny items to realistic kilogram and gram quantities!',
     points: 15,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 3: 5 HARD QUESTIONS (संतुलन पहेली, लड्डू डिब्बे, अनुपात व बस्ते का भार)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_m7_q11',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Equalizing Scale Weight Difference',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'On a balance scale, the left pan has a 2 kg weight, and the right pan has a 750 g packet of salt. How much more weight must be placed on the right pan to make both sides balance evenly?',
+    visualEmoji: '⚖️ 2️⃣ kg 🆚 7️⃣5️⃣0️⃣ g',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '1 kg 250 g (1250 g)', isCorrect: true },
+        { id: 'opt_2', text: '1 kg 750 g', isCorrect: false },
+        { id: 'opt_3', text: '250 g', isCorrect: false },
+        { id: 'opt_4', text: '1 kg 500 g', isCorrect: false },
+      ],
+    },
+    explanation: '💡 2 kg = 2000 g. Needed = 2000 g - 750 g = 1250 g = 1 kg 250 g!',
+    points: 20,
+  },
+  {
+    id: 'c3_m7_q12',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Sweet Box Packaging Multi-Step',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'A halwai has a large tray containing 5 kg of fresh besan laddus. He packs them into small gift boxes holding 250 g each. He can pack exactly [BLANK] boxes.',
+    visualEmoji: '🍬 5️⃣ kg ➡️ 2️⃣5️⃣0️⃣ g',
+    payload: {
+      correctAnswer: '20',
+      wordBank: ['20', '10', '25', '15'],
+      displayTemplate: 'He can pack [BLANK] boxes.',
+    },
+    explanation: '💡 5 kg = 5000 g. Number of boxes = 5000 ÷ 250 = 20 boxes!',
+    points: 20,
+  },
+  {
+    id: 'c3_m7_q13',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Weight Multiple Comparison',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'An elephant weighs 4000 kg and a big pumpkin weighs 4 kg. How many times heavier is the elephant than the pumpkin?',
+    visualEmoji: '🐘 4️⃣0️⃣0️⃣0️⃣ kg 🆚 🎃 4️⃣ kg',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '1000 times heavier', isCorrect: true },
+        { id: 'opt_2', text: '100 times heavier', isCorrect: false },
+        { id: 'opt_3', text: '10 times heavier', isCorrect: false },
+        { id: 'opt_4', text: '3996 times heavier', isCorrect: false },
+      ],
+    },
+    explanation: '💡 4000 ÷ 4 = 1000. The elephant is 1000 times heavier than the pumpkin!',
+    points: 20,
+  },
+  {
+    id: 'c3_m7_q14',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Converting Grams to Kilograms and Grams',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'A sack containing 2750 grams of sugar is equal to:',
+    visualEmoji: '🧺 2️⃣7️⃣5️⃣0️⃣ g',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '2 kg 750 g', isCorrect: true },
+        { id: 'opt_2', text: '27 kg 50 g', isCorrect: false },
+        { id: 'opt_3', text: '20 kg 750 g', isCorrect: false },
+        { id: 'opt_4', text: '2 kg 75 g', isCorrect: false },
+      ],
+    },
+    explanation: '💡 2750 g = 2000 g + 750 g = 2 kg 750 g!',
+    points: 20,
+  },
+  {
+    id: 'c3_m7_q15',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Who is Heavier? (Kilograms & Grams)',
+    concept: 'Safe School Bag Weight Limit',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Doctors advise that a child\'s school bag should not weigh more than one-tenth (1/10) of their body weight. If Kabir weighs 30 kg, what is the maximum safe weight for his school bag?',
+    visualEmoji: '🎒 👦 ⚖️ 🩺',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '3 kg', isCorrect: true },
+        { id: 'opt_2', text: '5 kg', isCorrect: false },
+        { id: 'opt_3', text: '2 kg', isCorrect: false },
+        { id: 'opt_4', text: '10 kg', isCorrect: false },
+      ],
+    },
+    explanation: '💡 One-tenth of 30 kg = 30 ÷ 10 = 3 kg safe limit!',
+    points: 20,
   },
 ];

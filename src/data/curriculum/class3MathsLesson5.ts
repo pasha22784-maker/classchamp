@@ -3,163 +3,325 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 5: SHAPES AND DESIGNS (TANGRAMS & EDGES)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_5_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Edges and Corners of Shapes (किनारे और कोने)
+  // TIER 1: 5 EASY QUESTIONS (किनारे, कोने व सरल आकृतियाँ)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m5_concept_edges_01',
+    id: 'c3_m5_q01',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Edges and Corners of a Rectangle',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'How many straight edges and how many corners does a rectangular blackboard have?',
+    visualEmoji: '📋 📐 🏫',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '4 straight edges and 4 corners', isCorrect: true },
+        { id: 'opt_2', text: '3 straight edges and 3 corners', isCorrect: false },
+        { id: 'opt_3', text: '4 straight edges and 0 corners', isCorrect: false },
+        { id: 'opt_4', text: '6 straight edges and 6 corners', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A rectangle has 4 straight sides (edges) and 4 vertices (corners)!',
+    points: 10,
+  },
+  {
+    id: 'c3_m5_q02',
     grade: 3,
     subject: 'maths',
     chapter: 'Shapes and Designs (Tangrams & Edges)',
     concept: 'Corners of a Circle',
     difficulty: 'easy',
-    type: 'mcq',
-    question: 'How many corners does a smooth circular bangle or wheel ⭕ have?',
-    visualEmoji: '⭕ 🛞',
+    type: 'fill_blank',
+    question: 'A round Indian coin or circular bangle has [BLANK] sharp corners.',
+    visualEmoji: '🪙 ⭕ 0️⃣',
     payload: {
-      options: [
-        { id: 'opt_ed1_1', text: '0 corners', isCorrect: true },
-        { id: 'opt_ed1_2', text: '1 corner', isCorrect: false },
-        { id: 'opt_ed1_3', text: '4 corners', isCorrect: false },
-      ],
+      correctAnswer: '0',
+      wordBank: ['0', '1', '2', '4'],
+      displayTemplate: 'A circular coin has [BLANK] sharp corners.',
     },
-    explanation: '💡 A circle has a round curved boundary and **ZERO corners**!',
+    explanation: '💡 A circle has a smooth continuous curved edge and has zero corners!',
     points: 10,
   },
   {
-    id: 'c3_m5_concept_edges_02',
+    id: 'c3_m5_q03',
     grade: 3,
     subject: 'maths',
     chapter: 'Shapes and Designs (Tangrams & Edges)',
-    concept: 'Corners of a Triangle',
+    concept: 'Rolling vs Sliding Objects',
     difficulty: 'easy',
+    type: 'mcq',
+    question: 'Which of the following objects will ROLL smoothly down a playground slide?',
+    visualEmoji: '🛝 ⚽ 📦',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'A round football', isCorrect: true },
+        { id: 'opt_2', text: 'A rectangular pencil box', isCorrect: false },
+        { id: 'opt_3', text: 'A square textbook', isCorrect: false },
+        { id: 'opt_4', text: 'A wooden cube block', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Objects with curved surfaces roll, while objects with flat faces slide!',
+    points: 10,
+  },
+  {
+    id: 'c3_m5_q04',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Standard Tangram Puzzle Pieces',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'A traditional NCERT tangram puzzle discussed in Math-Magic is made up of either 5 pieces or:',
+    visualEmoji: '🧩 📐 ✂️',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '7 pieces', isCorrect: true },
+        { id: 'opt_2', text: '12 pieces', isCorrect: false },
+        { id: 'opt_3', text: '3 pieces', isCorrect: false },
+        { id: 'opt_4', text: '10 pieces', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Tangram puzzles commonly come in 5-piece or 7-piece sets!',
+    points: 10,
+  },
+  {
+    id: 'c3_m5_q05',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Shape of a Notebook Sheet',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'A standard page torn from a school notebook has opposite sides equal and 4 right angles. What 2D shape is it?',
+    visualEmoji: '📄 📐',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'A rectangle', isCorrect: true },
+        { id: 'opt_2', text: 'A triangle', isCorrect: false },
+        { id: 'opt_3', text: 'A circle', isCorrect: false },
+        { id: 'opt_4', text: 'An oval', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Yes, notebook pages are rectangular sheets with 4 straight edges and 4 right angles!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 2: 5 MEDIUM QUESTIONS (टैंग्राम रचना, टाइलिंग व 3D कोने)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_m5_q06',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Corners of a Playing Cube',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'How many corners (vertices) does a cubic playing dice have?',
+    visualEmoji: '🎲 📐 8️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '8 corners', isCorrect: true },
+        { id: 'opt_2', text: '6 corners', isCorrect: false },
+        { id: 'opt_3', text: '12 corners', isCorrect: false },
+        { id: 'opt_4', text: '4 corners', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A cube has 6 flat faces, 12 straight edges, and exactly 8 corners (4 on top and 4 on bottom)!',
+    points: 15,
+  },
+  {
+    id: 'c3_m5_q07',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Triangles in 5-Piece Tangram',
+    difficulty: 'medium',
     type: 'fill_blank',
-    question: 'A crunchy samosa or triangle 🔺 has [BLANK] straight edges and 3 corners.',
-    visualEmoji: '🔺 🥟',
+    question: 'In a standard 5-piece tangram set, exactly [BLANK] of the pieces are triangles.',
+    visualEmoji: '🧩 🔺 📐',
     payload: {
       correctAnswer: '3',
-      wordBank: ['3', '4', '2', '0'],
-      displayTemplate: 'A triangle has [BLANK] straight edges.',
+      wordBank: ['3', '2', '4', '5'],
+      displayTemplate: 'Exactly [BLANK] pieces are triangles.',
     },
-    explanation: '💡 A triangle has **3 straight edges and 3 corners**! 🔺',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: The Tangram Puzzle (7-Piece Chinese Puzzle)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m5_concept_tangram_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Shapes and Designs (Tangrams & Edges)',
-    concept: 'Pieces in a Traditional Tangram',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'The traditional ancient geometric puzzle "Tangram" is cut into how many geometric pieces?',
-    visualEmoji: '🧩 📐 🟩',
-    payload: {
-      options: [
-        { id: 'opt_tg1_1', text: '7 pieces', isCorrect: true },
-        { id: 'opt_tg1_2', text: '12 pieces', isCorrect: false },
-        { id: 'opt_tg1_3', text: '3 pieces', isCorrect: false },
-      ],
-    },
-    explanation: '💡 The classic Tangram has **7 pieces**: 5 triangles of different sizes, 1 square, and 1 parallelogram!',
-    points: 10,
-  },
-  {
-    id: 'c3_m5_concept_tangram_02',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Shapes and Designs (Tangrams & Edges)',
-    concept: 'Shapes inside a 5-piece Tangram',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'In a 5-piece tangram, which shape is the MOST common?',
-    visualEmoji: '🔺 🧩',
-    payload: {
-      options: [
-        { id: 'opt_tg2_1', text: 'Triangles 🔺', isCorrect: true },
-        { id: 'opt_tg2_2', text: 'Circles ⭕', isCorrect: false },
-        { id: 'opt_tg2_3', text: 'Stars ⭐', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Both 5-piece and 7-piece tangrams are mostly made of **triangles**! 🔺',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Tiling Patterns (Tessellations without Gaps)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m5_concept_tiling_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Shapes and Designs (Tangrams & Edges)',
-    concept: 'Tiling Floor Without Gaps',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'Which shape fits together perfectly on bathroom and kitchen floors WITHOUT leaving any empty gaps?',
-    visualEmoji: '🧱 ⏹️ ⭕',
-    payload: {
-      options: [
-        { id: 'opt_tl1_1', text: 'Squares and Rectangles ⏹️', isCorrect: true },
-        { id: 'opt_tl1_2', text: 'Circles ⭕', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Squares and rectangles fit edge-to-edge seamlessly without gaps. Circles leave gaps when placed side-by-side!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Order Tangram Pieces by Size (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m5_concept_order_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Shapes and Designs (Tangrams & Edges)',
-    concept: 'Ordering Tangram Triangles by Size',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange the three sizes of triangles in a 7-piece tangram from SMALLEST to LARGEST:',
-    visualEmoji: '🔺 📐',
-    payload: {
-      tokens: ['2 Small Triangles', '1 Medium Triangle', '2 Big Triangles'],
-      scrambled: ['2 Big Triangles', '2 Small Triangles', '1 Medium Triangle'],
-      correctSequence: ['2 Small Triangles', '1 Medium Triangle', '2 Big Triangles'],
-    },
-    explanation: '💡 From smallest to largest: **Small Triangles < Medium Triangle < Big Triangles**!',
+    explanation: '💡 A 5-piece tangram consists of 3 triangles, 1 square, and 1 parallelogram!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Match Shapes to Number of Corners
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m5_concept_match_01',
+    id: 'c3_m5_q08',
     grade: 3,
     subject: 'maths',
     chapter: 'Shapes and Designs (Tangrams & Edges)',
-    concept: 'Shape to Corners Count Match',
+    concept: 'Curved Edge Identification',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which of the following objects has a CURVED edge rather than straight edges?',
+    visualEmoji: '⭕ 📏 🔍',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'A glass drinking tumbler rim', isCorrect: true },
+        { id: 'opt_2', text: 'A wooden ruler', isCorrect: false },
+        { id: 'opt_3', text: 'A brick', isCorrect: false },
+        { id: 'opt_4', text: 'A postage stamp', isCorrect: false },
+      ],
+    },
+    explanation: '💡 The circular rim of a glass tumbler is curved, whereas rulers, bricks, and stamps have straight edges!',
+    points: 15,
+  },
+  {
+    id: 'c3_m5_q09',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Tiling Floor Pattern Without Gaps',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which shape can tile a floor completely without leaving any gaps or overlapping?',
+    visualEmoji: '🧱 🏡 📐',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Square tiles', isCorrect: true },
+        { id: 'opt_2', text: 'Round circular plates', isCorrect: false },
+        { id: 'opt_3', text: 'Star-shaped badges', isCorrect: false },
+        { id: 'opt_4', text: 'Heart shapes', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Squares and rectangles fit together perfectly at 90° corners to cover a surface with zero gaps!',
+    points: 15,
+  },
+  {
+    id: 'c3_m5_q10',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Matching 3D Objects to Flat Faces',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each 2D shape to its number of corners:',
-    visualEmoji: '📐 🎯',
+    question: 'Match each 3D solid to its number of flat faces:',
+    visualEmoji: '🧊 📐 🏷️',
     payload: {
       pairs: [
-        { id: 'sh_p1', left: 'Triangle 🔺', right: '3 corners' },
-        { id: 'sh_p2', left: 'Square ⏹️', right: '4 corners' },
-        { id: 'sh_p3', left: 'Rectangle ▭', right: '4 corners' },
-        { id: 'sh_p4', left: 'Circle ⭕', right: '0 corners' },
+        { id: 'm5_p1', left: 'Cube', right: '6 flat faces' },
+        { id: 'm5_p2', left: 'Cylinder', right: '2 flat circular faces' },
+        { id: 'm5_p3', left: 'Cone', right: '1 flat circular face' },
+        { id: 'm5_p4', left: 'Sphere', right: '0 flat faces' },
       ],
     },
-    explanation: '💡 Triangle = 3 corners, Square = 4 corners, Rectangle = 4 corners, Circle = 0 corners!',
+    explanation: '💡 A sphere is entirely curved; a cone has 1 flat circle; a cylinder has 2 flat circles; a cube has 6 flat squares!',
     points: 15,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 3: 5 HARD QUESTIONS (माचिस के किनारे, ज्यामितीय संयोजन व टाइलिंग विश्लेषण)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_m5_q11',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Edges of a Matchbox (Cuboid)',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'A matchbox is in the shape of a cuboid. How many straight edges does it have in total?',
+    visualEmoji: '📦 📐 1️⃣2️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '12 edges', isCorrect: true },
+        { id: 'opt_2', text: '8 edges', isCorrect: false },
+        { id: 'opt_3', text: '6 edges', isCorrect: false },
+        { id: 'opt_4', text: '16 edges', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A cuboid (like a matchbox, book, or brick) has 12 straight edges: 4 top, 4 bottom, and 4 vertical standing edges!',
+    points: 20,
+  },
+  {
+    id: 'c3_m5_q12',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Forming a Square from Two Triangles',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'From a tangram set, if you take two identical small triangles and join them along their longest sides, what shape do they create?',
+    visualEmoji: '🔺 ➕ 🔺 🟰 ❓',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'A square', isCorrect: true },
+        { id: 'opt_2', text: 'A circle', isCorrect: false },
+        { id: 'opt_3', text: 'A hexagon', isCorrect: false },
+        { id: 'opt_4', text: 'An oval', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Joining two identical right-angled isosceles triangles along their hypotenuses forms a perfect square!',
+    points: 20,
+  },
+  {
+    id: 'c3_m5_q13',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Cutting a Rectangle Along Diagonal',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'If you cut a rectangular sheet of cardboard straight from one corner to the opposite corner along its diagonal, what two shapes do you get?',
+    visualEmoji: '✂️ 📄 📐',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '2 identical triangles', isCorrect: true },
+        { id: 'opt_2', text: '2 smaller rectangles', isCorrect: false },
+        { id: 'opt_3', text: '2 squares', isCorrect: false },
+        { id: 'opt_4', text: '1 triangle and 1 square', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A diagonal line splits a rectangle into two identical right-angled triangles!',
+    points: 20,
+  },
+  {
+    id: 'c3_m5_q14',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Why Circles Cannot Tessellate',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Why can round circular tiles NOT completely cover a flat bathroom floor without gaps?',
+    visualEmoji: '⭕ ⭕ 🕳️',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Their curved edges leave open gaps between touching circles', isCorrect: true },
+        { id: 'opt_2', text: 'Circles are too heavy', isCorrect: false },
+        { id: 'opt_3', text: 'Circles have 4 corners', isCorrect: false },
+        { id: 'opt_4', text: 'Circles cannot be colored', isCorrect: false },
+      ],
+    },
+    explanation: '💡 When round circles touch each other, curved spaces (diamond-like gaps) remain between them, preventing full tessellation!',
+    points: 20,
+  },
+  {
+    id: 'c3_m5_q15',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Shapes and Designs (Tangrams & Edges)',
+    concept: 'Corners of an Octagonal Sign',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'A red traffic STOP sign is a regular octagon with 8 straight edges. It has exactly [BLANK] vertices (corners).',
+    visualEmoji: '🛑 8️⃣ 📐',
+    payload: {
+      correctAnswer: '8',
+      wordBank: ['8', '6', '10', '4'],
+      displayTemplate: 'It has exactly [BLANK] vertices.',
+    },
+    explanation: '💡 Every polygon has the same number of vertices as it has straight sides. An octagon has 8 edges and 8 vertices!',
+    points: 20,
   },
 ];

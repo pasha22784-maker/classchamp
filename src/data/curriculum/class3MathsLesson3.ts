@@ -3,201 +3,325 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 3: GIVE AND TAKE (ADDITION & SUBTRACTION)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_3_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: 3-Digit Addition with Regrouping / Carry Over (हासिल का जोड़)
+  // TIER 1: 5 EASY QUESTIONS (बुनियादी जोड़-घटाव व 10 की छलांग)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m3_concept_add_01',
+    id: 'c3_m3_q01',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Adding 10 to a 2-Digit Number',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'What is 37 + 10?',
+    visualEmoji: '➕ 🔟 🔢',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '47', isCorrect: true },
+        { id: 'opt_2', text: '38', isCorrect: false },
+        { id: 'opt_3', text: '48', isCorrect: false },
+        { id: 'opt_4', text: '57', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Adding 10 increases the Tens digit by 1: 37 + 10 = 47!',
+    points: 10,
+  },
+  {
+    id: 'c3_m3_q02',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: '100-Chart Jump Strategy',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'On a 1 to 100 number grid, if you stand on 45 and jump 2 rows straight up (each row is 10 steps), you land on [BLANK].',
+    visualEmoji: '🧗 4️⃣5️⃣ ⬆️',
+    payload: {
+      correctAnswer: '65',
+      wordBank: ['65', '55', '75', '47'],
+      displayTemplate: 'You land on [BLANK].',
+    },
+    explanation: '💡 Jumping 2 rows of 10 steps each = 45 + 20 = 65!',
+    points: 10,
+  },
+  {
+    id: 'c3_m3_q03',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Simple 2-Digit Subtraction',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Subtract: 68 - 25 = ?',
+    visualEmoji: '➖ 🔢',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '43', isCorrect: true },
+        { id: 'opt_2', text: '45', isCorrect: false },
+        { id: 'opt_3', text: '33', isCorrect: false },
+        { id: 'opt_4', text: '42', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Subtract ones: 8 - 5 = 3; Subtract tens: 6 - 2 = 4. Result = 43!',
+    points: 10,
+  },
+  {
+    id: 'c3_m3_q04',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Adding Multiples of 100',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Calculate: 200 + 300 = ?',
+    visualEmoji: '💯 ➕ 💯',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '500', isCorrect: true },
+        { id: 'opt_2', text: '600', isCorrect: false },
+        { id: 'opt_3', text: '400', isCorrect: false },
+        { id: 'opt_4', text: '550', isCorrect: false },
+      ],
+    },
+    explanation: '💡 2 Hundreds + 3 Hundreds = 5 Hundreds (500)!',
+    points: 10,
+  },
+  {
+    id: 'c3_m3_q05',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: '10 Less Than a Number',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: '10 less than 85 is [BLANK].',
+    visualEmoji: '8️⃣5️⃣ ➖ 🔟',
+    payload: {
+      correctAnswer: '75',
+      wordBank: ['75', '80', '65', '95'],
+      displayTemplate: '10 less than 85 is [BLANK].',
+    },
+    explanation: '💡 85 - 10 = 75!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 2: 5 MEDIUM QUESTIONS (हासिल जोड़, घटाव व व्यावहारिक समस्याएं)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_m3_q06',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Breaking Numbers Method',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'To solve 33 + 56 by breaking them into tens and ones: (30 + 50) + (3 + 6) = ?',
+    visualEmoji: '🧩 ➕ 🧩',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '89', isCorrect: true },
+        { id: 'opt_2', text: '86', isCorrect: false },
+        { id: 'opt_3', text: '99', isCorrect: false },
+        { id: 'opt_4', text: '79', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Tens: 30 + 50 = 80; Ones: 3 + 6 = 9; Total: 80 + 9 = 89!',
+    points: 15,
+  },
+  {
+    id: 'c3_m3_q07',
     grade: 3,
     subject: 'maths',
     chapter: 'Give and Take (Addition & Subtraction)',
     concept: '3-Digit Addition with Regrouping',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Solve: 237 + 145. (Hint: 7 + 5 = 12, carry 1 to tens place)',
-    visualEmoji: '➕ 2️⃣3️⃣7️⃣ + 1️⃣4️⃣5️⃣',
+    question: 'Add the 3-digit numbers: 147 + 235 = ?',
+    visualEmoji: '➕ 1️⃣4️⃣7️⃣ ➕ 2️⃣3️⃣5️⃣',
     payload: {
       options: [
-        { id: 'opt_ad1_1', text: '382', isCorrect: true },
-        { id: 'opt_ad1_2', text: '372', isCorrect: false },
-        { id: 'opt_ad1_3', text: '381', isCorrect: false },
+        { id: 'opt_1', text: '382', isCorrect: true },
+        { id: 'opt_2', text: '372', isCorrect: false },
+        { id: 'opt_3', text: '381', isCorrect: false },
+        { id: 'opt_4', text: '482', isCorrect: false },
       ],
     },
-    explanation: '💡 Step 1: Ones: 7 + 5 = 12 (Write 2, carry 1). Step 2: Tens: 1 + 3 + 4 = 8. Step 3: Hundreds: 2 + 1 = 3. Total: **382**!',
-    points: 10,
+    explanation: '💡 Ones: 7 + 5 = 12 (write 2, carry 1); Tens: 1 + 4 + 3 = 8; Hundreds: 1 + 2 = 3. Sum = 382!',
+    points: 15,
   },
   {
-    id: 'c3_m3_concept_add_02',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Give and Take (Addition & Subtraction)',
-    concept: 'Adding Hundreds and Tens Mentally',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'Break and add: 400 + 350 = [BLANK].',
-    visualEmoji: '4️⃣0️⃣0️⃣ + 3️⃣5️⃣0️⃣',
-    payload: {
-      correctAnswer: '750',
-      wordBank: ['750', '700', '850', '650'],
-      displayTemplate: '400 + 350 = [BLANK]',
-    },
-    explanation: '💡 400 + 300 = 700, and 700 + 50 = **750**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: 3-Digit Subtraction with Borrowing (उधार लेकर घटाना)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m3_concept_sub_01',
+    id: 'c3_m3_q08',
     grade: 3,
     subject: 'maths',
     chapter: 'Give and Take (Addition & Subtraction)',
     concept: '3-Digit Subtraction with Regrouping',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Solve: 452 - 238. (Hint: Borrow 1 Ten into Ones: 12 - 8 = 4)',
-    visualEmoji: '➖ 4️⃣5️⃣2️⃣ - 2️⃣3️⃣8️⃣',
+    question: 'Subtract: 253 - 128 = ?',
+    visualEmoji: '➖ 2️⃣5️⃣3️⃣ ➖ 1️⃣2️⃣8️⃣',
     payload: {
       options: [
-        { id: 'opt_sb1_1', text: '214', isCorrect: true },
-        { id: 'opt_sb1_2', text: '224', isCorrect: false },
-        { id: 'opt_sb1_3', text: '314', isCorrect: false },
+        { id: 'opt_1', text: '125', isCorrect: true },
+        { id: 'opt_2', text: '135', isCorrect: false },
+        { id: 'opt_3', text: '124', isCorrect: false },
+        { id: 'opt_4', text: '115', isCorrect: false },
       ],
     },
-    explanation: '💡 Borrow from 5 tens: 12 - 8 = 4 (ones), 4 - 3 = 1 (tens), 4 - 2 = 2 (hundreds). Answer: **214**!',
-    points: 10,
-  },
-  {
-    id: 'c3_m3_concept_sub_02',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Give and Take (Addition & Subtraction)',
-    concept: 'Subtracting from Round Hundreds',
-    difficulty: 'medium',
-    type: 'fill_blank',
-    question: 'A shopkeeper had 500 light bulbs 💡. He sold 160 bulbs. How many are left? 500 - 160 = [BLANK].',
-    visualEmoji: '💡 5️⃣0️⃣0️⃣ - 1️⃣6️⃣0️⃣',
-    payload: {
-      correctAnswer: '340',
-      wordBank: ['340', '440', '360', '300'],
-      displayTemplate: '500 - 160 = [BLANK]',
-    },
-    explanation: '💡 500 - 100 = 400, and 400 - 60 = **340 bulbs left**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Checking Subtraction with Addition
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m3_concept_check_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Give and Take (Addition & Subtraction)',
-    concept: 'Checking Subtraction Fact',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'If 340 - 120 = 220, which addition sentence checks if this answer is right?',
-    visualEmoji: '🔄 ➕ ➖',
-    payload: {
-      options: [
-        { id: 'opt_ck1_1', text: '220 + 120 = 340', isCorrect: true },
-        { id: 'opt_ck1_2', text: '340 + 220 = 560', isCorrect: false },
-        { id: 'opt_ck1_3', text: '220 - 120 = 100', isCorrect: false },
-      ],
-    },
-    explanation: '💡 To check your subtraction: Add the answer to the number you subtracted! **220 + 120 = 340**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Word Problems (Bird Migration & Animal Stories)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m3_concept_story_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Give and Take (Addition & Subtraction)',
-    concept: 'Migratory Birds Story Problem',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'A bird sanctuary 🦩 had 125 resident flamingos. In winter, 180 migratory cranes arrived. How many birds are there now?',
-    visualEmoji: '🦩 (125) + 🦢 (180)',
-    payload: {
-      options: [
-        { id: 'opt_st1_1', text: '305 birds', isCorrect: true },
-        { id: 'opt_st1_2', text: '295 birds', isCorrect: false },
-        { id: 'opt_st1_3', text: '315 birds', isCorrect: false },
-      ],
-    },
-    explanation: '💡 125 + 180 = 5 + 0 = 5, 2 + 8 = 10 (carry 1), 1 + 1 + 1 = 3. Total = **305 birds**! 🦩',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Steps of 3-Digit Addition with Regrouping (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m3_concept_order_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Give and Take (Addition & Subtraction)',
-    concept: 'Order of Column Addition',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange the correct sequence of steps to add two 3-digit numbers with carrying:',
-    visualEmoji: '➕ 📝 🔢',
-    payload: {
-      tokens: [
-        '1. Align digits vertically under Hundreds, Tens, Ones',
-        '2. Add the Ones column and carry over if sum is 10 or more',
-        '3. Add the Tens column including the carried-over digit',
-        '4. Add the Hundreds column and write the final total',
-      ],
-      scrambled: [
-        '3. Add the Tens column including the carried-over digit',
-        '1. Align digits vertically under Hundreds, Tens, Ones',
-        '4. Add the Hundreds column and write the final total',
-        '2. Add the Ones column and carry over if sum is 10 or more',
-      ],
-      correctSequence: [
-        '1. Align digits vertically under Hundreds, Tens, Ones',
-        '2. Add the Ones column and carry over if sum is 10 or more',
-        '3. Add the Tens column including the carried-over digit',
-        '4. Add the Hundreds column and write the final total',
-      ],
-    },
-    explanation: '💡 Always calculate from right to left: **Ones -> Tens -> Hundreds**!',
+    explanation: '💡 Borrow from 5 tens: 13 - 8 = 5; 4 tens - 2 tens = 2; 2 hundreds - 1 hundred = 1. Result = 125!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Sums and Differences
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m3_concept_match_01',
+    id: 'c3_m3_q09',
     grade: 3,
     subject: 'maths',
     chapter: 'Give and Take (Addition & Subtraction)',
-    concept: 'Calculation Match Pairs',
+    concept: 'School Garden Word Problem',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'In a school garden, there are 134 rose plants and 148 marigold plants. How many flowering plants are there in total?',
+    visualEmoji: '🌹 🌼 🏫',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '282 plants', isCorrect: true },
+        { id: 'opt_2', text: '272 plants', isCorrect: false },
+        { id: 'opt_3', text: '292 plants', isCorrect: false },
+        { id: 'opt_4', text: '284 plants', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Total = 134 + 148 = 282 plants!',
+    points: 15,
+  },
+  {
+    id: 'c3_m3_q10',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Matching Expressions to Results',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each math problem to its exact answer:',
-    visualEmoji: '➕ ➖ 🎯',
+    question: 'Match each addition or subtraction expression to its correct answer:',
+    visualEmoji: '🧮 🎯',
     payload: {
       pairs: [
-        { id: 'gt_p1', left: '250 + 150', right: '400' },
-        { id: 'gt_p2', left: '600 - 250', right: '350' },
-        { id: 'gt_p3', left: '175 + 125', right: '300' },
-        { id: 'gt_p4', left: '800 - 300', right: '500' },
+        { id: 'm3_p1', left: '45 + 35', right: '80' },
+        { id: 'm3_p2', left: '100 - 35', right: '65' },
+        { id: 'm3_p3', left: '150 + 50', right: '200' },
+        { id: 'm3_p4', left: '90 - 45', right: '45' },
       ],
     },
-    explanation: '💡 250+150=400, 600-250=350, 175+125=300, 800-300=500!',
+    explanation: '💡 Calculate each pair: 45+35=80, 100-35=65, 150+50=200, 90-45=45!',
     points: 15,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 3: 5 HARD QUESTIONS (उत्तर की जांच, अज्ञात अंक व बहु-चरणीय समस्याएं)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_m3_q11',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Verifying Subtraction by Addition',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'If 542 - 219 = 323, which addition fact proves this calculation is correct?',
+    visualEmoji: '🔍 ⚖️ 🧮',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '323 + 219 = 542', isCorrect: true },
+        { id: 'opt_2', text: '542 + 219 = 761', isCorrect: false },
+        { id: 'opt_3', text: '542 + 323 = 865', isCorrect: false },
+        { id: 'opt_4', text: '323 - 219 = 104', isCorrect: false },
+      ],
+    },
+    explanation: '💡 To verify subtraction (Difference + Subtrahend = Minuend): 323 + 219 = 542!',
+    points: 20,
+  },
+  {
+    id: 'c3_m3_q12',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Missing Digit in Column Addition',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In the column addition: 2 [?] 4 + 135 = 379, what digit must replace the box [?]?',
+    visualEmoji: '❓ 🔢 ➕',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '4', isCorrect: true },
+        { id: 'opt_2', text: '3', isCorrect: false },
+        { id: 'opt_3', text: '5', isCorrect: false },
+        { id: 'opt_4', text: '2', isCorrect: false },
+      ],
+    },
+    explanation: '💡 In the Tens column: [?] + 3 = 7, so [?] = 7 - 3 = 4!',
+    points: 20,
+  },
+  {
+    id: 'c3_m3_q13',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Library Books Multi-Step Problem',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'A library has 450 storybooks. Students borrowed 125 books on Monday and 75 books on Tuesday. How many books remain in the library? Answer: [BLANK] books.',
+    visualEmoji: '📚 🏫 📖',
+    payload: {
+      correctAnswer: '250',
+      wordBank: ['250', '200', '325', '350'],
+      displayTemplate: '[BLANK] books remain in the library.',
+    },
+    explanation: '💡 Total borrowed = 125 + 75 = 200 books. Remaining = 450 - 200 = 250 books!',
+    points: 20,
+  },
+  {
+    id: 'c3_m3_q14',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Difference Between Two Sums',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'What is the difference between (350 + 150) and (280 + 120)?',
+    visualEmoji: '⚖️ (➕) ➖ (➕)',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '100', isCorrect: true },
+        { id: 'opt_2', text: '80', isCorrect: false },
+        { id: 'opt_3', text: '120', isCorrect: false },
+        { id: 'opt_4', text: '50', isCorrect: false },
+      ],
+    },
+    explanation: '💡 First sum: 350 + 150 = 500. Second sum: 280 + 120 = 400. Difference = 500 - 400 = 100!',
+    points: 20,
+  },
+  {
+    id: 'c3_m3_q15',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Give and Take (Addition & Subtraction)',
+    concept: 'Train Passengers Multi-Step Problem',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'A train starts with 318 passengers. At station A, 82 passengers get down and 114 new passengers board. How many passengers are on the train now?',
+    visualEmoji: '🚆 👥 🚉',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '350', isCorrect: true },
+        { id: 'opt_2', text: '340', isCorrect: false },
+        { id: 'opt_3', text: '360', isCorrect: false },
+        { id: 'opt_4', text: '400', isCorrect: false },
+      ],
+    },
+    explanation: '💡 318 - 82 = 236 passengers; 236 + 114 = 350 passengers on the train now!',
+    points: 20,
   },
 ];

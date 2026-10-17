@@ -43,7 +43,7 @@ export default function App() {
   const completedDaysList = profile.historyDatesCompleted.map((_, idx) => idx + 1);
 
   // Handle Quick Daily Quiz Start — Resumes where student left off with full 10-question drill!
-  const handleStartQuiz = (subject: Subject, specificChapter?: string) => {
+  const handleStartQuiz = (subject: Subject, specificChapter?: string, isExtraPractice: boolean = false) => {
     const chapters = getChaptersForGradeSubject(profile.grade, subject);
     const targetChapter = specificChapter || profile.lastLessonBySubject?.[subject] || (chapters[0] ? chapters[0].title : undefined);
     
@@ -51,7 +51,7 @@ export default function App() {
       setLastSubjectLesson(subject, targetChapter);
     }
 
-    const sessionQuestions = generateQuestionsForSession(profile.grade, subject, targetChapter);
+    const sessionQuestions = generateQuestionsForSession(profile.grade, subject, targetChapter, isExtraPractice);
     startQuiz(profile.grade, subject, sessionQuestions, targetChapter);
     setCurrentScreen('quiz');
   };
@@ -132,7 +132,7 @@ export default function App() {
           <CelebrationScreen
             onBackToDashboard={() => setCurrentScreen('dashboard')}
             onStartExtraPractice={(subject, chapterTitle) => {
-              handleStartQuiz(subject, chapterTitle);
+              handleStartQuiz(subject, chapterTitle, true);
             }}
           />
         )}

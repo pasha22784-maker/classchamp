@@ -1,6 +1,7 @@
 import { Question, Grade, Subject, QuestionType } from '../types';
 import { MOCK_QUESTIONS } from './mockQuestions';
 
+// Utility helper to shuffle any array
 function shuffleArray<T>(array: T[]): T[] {
   const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
@@ -10,28 +11,969 @@ function shuffleArray<T>(array: T[]): T[] {
   return arr;
 }
 
-// Templates and banks to guarantee every 10-minute quiz session has exactly 10 rich questions
-// Structured Pedagogical Question Selector following IXL learning progression ladder:
-// Stage 1 (Foundation / Easy): Basic concept understanding & identification
-// Stage 2 (Application / Medium): Interactive practice (fill_blank, match_pairs)
-// Stage 3 (Mastery / Hard): Multi-step reasoning, word problems & drag_order
+// Random integer between min and max inclusive
+function randomInt(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Random item from array
+function randomChoice<T>(arr: T[]): T {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// ============================================================================
+// DYNAMIC INFINITE QUESTION GENERATOR (MATHS, ENGLISH GRAMMAR & HINDI VYAKARAN)
+// Generates unlimited randomized supporting practice questions for Class 1 to 6
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// 1. DYNAMIC MATHEMATICS GENERATOR (Class 1 to 6)
+// ----------------------------------------------------------------------------
+export function generateDynamicMathQuestion(grade: Grade, chapterTitle?: string): Question {
+  const qId = `dyn_math_${grade}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+  const ch = chapterTitle || `Mathematics Practice (Class ${grade})`;
+
+  // CLASS 1 MATHEMATICS
+  if (grade === 1) {
+    const type = randomChoice(['add', 'sub', 'compare', 'count']);
+    if (type === 'add') {
+      const a = randomInt(1, 9);
+      const b = randomInt(1, 10 - a);
+      const ans = a + b;
+      const wrong1 = ans + 1;
+      const wrong2 = Math.max(1, ans - 1);
+      const wrong3 = ans + 2;
+      return {
+        id: qId,
+        grade: 1,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Addition within 10',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `What is ${a} + ${b}?`,
+        visualEmoji: '➕ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${wrong1}`, isCorrect: false },
+            { id: 'opt_3', text: `${wrong2}`, isCorrect: false },
+            { id: 'opt_4', text: `${wrong3}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${a} + ${b} = ${ans}! Count forward from ${a} by ${b} steps.`,
+        points: 10,
+      };
+    } else if (type === 'sub') {
+      const a = randomInt(3, 10);
+      const b = randomInt(1, a - 1);
+      const ans = a - b;
+      return {
+        id: qId,
+        grade: 1,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Subtraction within 10',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `Rohan had ${a} balloons. ${b} balloons burst. How many balloons are left? (${a} - ${b} = ?)`,
+        visualEmoji: '🎈 💥',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans} balloons`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + 1} balloons`, isCorrect: false },
+            { id: 'opt_3', text: `${Math.max(1, ans - 1)} balloons`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${a} minus ${b} leaves ${ans} balloons!`,
+        points: 10,
+      };
+    } else {
+      const a = randomInt(1, 15);
+      const b = randomInt(1, 15);
+      const bigger = Math.max(a, b);
+      const smaller = Math.min(a, b);
+      return {
+        id: qId,
+        grade: 1,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Comparing Numbers',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `Which number is BIGGER between ${a} and ${b}?`,
+        visualEmoji: '⚖️ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${bigger}`, isCorrect: true },
+            { id: 'opt_2', text: `${smaller}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${bigger} is greater than ${smaller}!`,
+        points: 10,
+      };
+    }
+  }
+
+  // CLASS 2 MATHEMATICS
+  if (grade === 2) {
+    const type = randomChoice(['add2', 'sub2', 'tens_ones', 'skip_count', 'pairs']);
+    if (type === 'add2') {
+      const a = randomInt(15, 55);
+      const b = randomInt(10, 40);
+      const ans = a + b;
+      return {
+        id: qId,
+        grade: 2,
+        subject: 'maths',
+        chapter: ch,
+        concept: '2-Digit Addition',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `Solve the addition: ${a} + ${b} = ?`,
+        visualEmoji: '➕ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + 10}`, isCorrect: false },
+            { id: 'opt_3', text: `${ans - 1}`, isCorrect: false },
+            { id: 'opt_4', text: `${ans + 2}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Add ones and tens: ${a} + ${b} = ${ans}!`,
+        points: 10,
+      };
+    } else if (type === 'sub2') {
+      const a = randomInt(40, 95);
+      const b = randomInt(11, a - 10);
+      const ans = a - b;
+      return {
+        id: qId,
+        grade: 2,
+        subject: 'maths',
+        chapter: ch,
+        concept: '2-Digit Subtraction',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `Calculate: ${a} - ${b} = ?`,
+        visualEmoji: '➖ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + 10}`, isCorrect: false },
+            { id: 'opt_3', text: `${ans - 2}`, isCorrect: false },
+            { id: 'opt_4', text: `${ans + 5}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Subtract ones and tens: ${a} - ${b} = ${ans}!`,
+        points: 10,
+      };
+    } else if (type === 'tens_ones') {
+      const t = randomInt(2, 9);
+      const o = randomInt(1, 9);
+      const ans = t * 10 + o;
+      return {
+        id: qId,
+        grade: 2,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Tens and Ones Place Value',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `What number is formed by ${t} Tens and ${o} Ones?`,
+        visualEmoji: '📦 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${o}${t}`, isCorrect: false },
+            { id: 'opt_3', text: `${t + o}`, isCorrect: false },
+            { id: 'opt_4', text: `${t}0${o}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${t} Tens = ${t * 10}, and ${o} Ones = ${o}. ${t * 10} + ${o} = ${ans}!`,
+        points: 10,
+      };
+    } else {
+      const pairs = randomInt(3, 9);
+      const total = pairs * 2;
+      return {
+        id: qId,
+        grade: 2,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Counting in Pairs',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `If there are ${pairs} pairs of shoes, how many individual shoes are there in total?`,
+        visualEmoji: '👟👟 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${total} shoes`, isCorrect: true },
+            { id: 'opt_2', text: `${pairs} shoes`, isCorrect: false },
+            { id: 'opt_3', text: `${total + 2} shoes`, isCorrect: false },
+            { id: 'opt_4', text: `${pairs + 2} shoes`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 1 pair = 2 items. ${pairs} pairs × 2 = ${total} shoes!`,
+        points: 10,
+      };
+    }
+  }
+
+  // CLASS 3 MATHEMATICS
+  if (grade === 3) {
+    const type = randomChoice(['mult', 'div', 'add3', 'money', 'measurement']);
+    if (type === 'mult') {
+      const a = randomInt(2, 9);
+      const b = randomInt(3, 9);
+      const ans = a * b;
+      return {
+        id: qId,
+        grade: 3,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Multiplication Tables',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `Multiply: ${a} × ${b} = ?`,
+        visualEmoji: '✖️ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + a}`, isCorrect: false },
+            { id: 'opt_3', text: `${ans - 2}`, isCorrect: false },
+            { id: 'opt_4', text: `${ans + 3}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${a} times ${b} equals ${ans}!`,
+        points: 10,
+      };
+    } else if (type === 'div') {
+      const b = randomInt(2, 8);
+      const ans = randomInt(2, 9);
+      const a = b * ans;
+      return {
+        id: qId,
+        grade: 3,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Division Facts',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `Divide: ${a} ÷ ${b} = ?`,
+        visualEmoji: '➗ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + 1}`, isCorrect: false },
+            { id: 'opt_3', text: `${Math.max(1, ans - 1)}`, isCorrect: false },
+            { id: 'opt_4', text: `${ans + 2}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Because ${b} × ${ans} = ${a}, ${a} ÷ ${b} = ${ans}!`,
+        points: 10,
+      };
+    } else if (type === 'money') {
+      const note1 = randomChoice([50, 100, 200]);
+      const note2 = randomChoice([20, 50, 100]);
+      const total = note1 + note2;
+      return {
+        id: qId,
+        grade: 3,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Indian Currency (Rupees)',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `A student has a ₹${note1} note and a ₹${note2} note. How much total money does the student have?`,
+        visualEmoji: '💵 🪙',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `₹${total}`, isCorrect: true },
+            { id: 'opt_2', text: `₹${total + 10}`, isCorrect: false },
+            { id: 'opt_3', text: `₹${total - 10}`, isCorrect: false },
+            { id: 'opt_4', text: `₹${total + 50}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ₹${note1} + ₹${note2} = ₹${total}!`,
+        points: 10,
+      };
+    } else {
+      const a = randomInt(120, 480);
+      const b = randomInt(110, 390);
+      const ans = a + b;
+      return {
+        id: qId,
+        grade: 3,
+        subject: 'maths',
+        chapter: ch,
+        concept: '3-Digit Addition',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `Add: ${a} + ${b} = ?`,
+        visualEmoji: '➕ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + 10}`, isCorrect: false },
+            { id: 'opt_3', text: `${ans - 10}`, isCorrect: false },
+            { id: 'opt_4', text: `${ans + 100}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${a} + ${b} = ${ans}!`,
+        points: 10,
+      };
+    }
+  }
+
+  // CLASS 4 MATHEMATICS
+  if (grade === 4) {
+    const type = randomChoice(['fractions', 'perimeter', 'mult2', 'factors']);
+    if (type === 'fractions') {
+      const denom = randomChoice([5, 7, 8, 9, 10]);
+      const n1 = randomInt(1, Math.floor(denom / 2));
+      const n2 = randomInt(1, denom - n1 - 1);
+      const numSum = n1 + n2;
+      return {
+        id: qId,
+        grade: 4,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Addition of Like Fractions',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `Add the like fractions: ${n1}/${denom} + ${n2}/${denom} = ?`,
+        visualEmoji: '🍰 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${numSum}/${denom}`, isCorrect: true },
+            { id: 'opt_2', text: `${numSum}/${denom * 2}`, isCorrect: false },
+            { id: 'opt_3', text: `${numSum + 1}/${denom}`, isCorrect: false },
+            { id: 'opt_4', text: `1/${denom}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 When denominators are identical, add the numerators: ${n1} + ${n2} = ${numSum}/${denom}!`,
+        points: 15,
+      };
+    } else if (type === 'perimeter') {
+      const l = randomInt(5, 15);
+      const w = randomInt(3, l - 1);
+      const perimeter = 2 * (l + w);
+      return {
+        id: qId,
+        grade: 4,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Perimeter of a Rectangle',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `A rectangular playground has length = ${l} m and breadth = ${w} m. What is its perimeter?`,
+        visualEmoji: '📐 🏞️',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${perimeter} m`, isCorrect: true },
+            { id: 'opt_2', text: `${l * w} m`, isCorrect: false },
+            { id: 'opt_3', text: `${l + w} m`, isCorrect: false },
+            { id: 'opt_4', text: `${perimeter + 4} m`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Perimeter of rectangle = 2 × (Length + Breadth) = 2 × (${l} + ${w}) = ${perimeter} m!`,
+        points: 15,
+      };
+    } else {
+      const a = randomInt(12, 25);
+      const b = randomInt(11, 19);
+      const ans = a * b;
+      return {
+        id: qId,
+        grade: 4,
+        subject: 'maths',
+        chapter: ch,
+        concept: '2-Digit by 2-Digit Multiplication',
+        difficulty: 'hard',
+        type: 'mcq',
+        question: `Calculate: ${a} × ${b} = ?`,
+        visualEmoji: '✖️ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + 10}`, isCorrect: false },
+            { id: 'opt_3', text: `${ans - 10}`, isCorrect: false },
+            { id: 'opt_4', text: `${ans + 20}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${a} × ${b} = ${ans}!`,
+        points: 15,
+      };
+    }
+  }
+
+  // CLASS 5 MATHEMATICS
+  if (grade === 5) {
+    const type = randomChoice(['decimals', 'angles', 'percentage', 'area']);
+    if (type === 'decimals') {
+      const a = (randomInt(20, 80) / 10).toFixed(1);
+      const b = (randomInt(10, 50) / 10).toFixed(1);
+      const ans = (parseFloat(a) + parseFloat(b)).toFixed(1);
+      return {
+        id: qId,
+        grade: 5,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Addition of Decimals',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `Add the decimals: ${a} + ${b} = ?`,
+        visualEmoji: '🔢 🧮',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${(parseFloat(ans) + 0.2).toFixed(1)}`, isCorrect: false },
+            { id: 'opt_3', text: `${(parseFloat(ans) - 0.1).toFixed(1)}`, isCorrect: false },
+            { id: 'opt_4', text: `${(parseFloat(ans) + 1.0).toFixed(1)}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Align the decimal points: ${a} + ${b} = ${ans}!`,
+        points: 15,
+      };
+    } else if (type === 'angles') {
+      const angle = randomChoice([45, 60, 90, 120, 150]);
+      let kind = 'Acute angle';
+      if (angle === 90) kind = 'Right angle';
+      else if (angle > 90) kind = 'Obtuse angle';
+      return {
+        id: qId,
+        grade: 5,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Classification of Angles',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `An angle measuring ${angle}° is classified as what type of angle?`,
+        visualEmoji: '📐 📐',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${kind}`, isCorrect: true },
+            { id: 'opt_2', text: kind === 'Acute angle' ? 'Obtuse angle' : 'Acute angle', isCorrect: false },
+            { id: 'opt_3', text: 'Reflex angle', isCorrect: false },
+            { id: 'opt_4', text: 'Straight angle', isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Less than 90° = Acute; Exactly 90° = Right; Between 90° and 180° = Obtuse! So ${angle}° is a ${kind}.`,
+        points: 10,
+      };
+    } else {
+      const pct = randomChoice([25, 50, 10]);
+      const val = randomChoice([40, 80, 100, 200]);
+      const ans = (pct / 100) * val;
+      return {
+        id: qId,
+        grade: 5,
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Percentage Calculation',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `What is ${pct}% of ${val}?`,
+        visualEmoji: '💯 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans}`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + 10}`, isCorrect: false },
+            { id: 'opt_3', text: `${ans / 2}`, isCorrect: false },
+            { id: 'opt_4', text: `${ans * 2}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${pct}% of ${val} = (${pct} / 100) × ${val} = ${ans}!`,
+        points: 15,
+      };
+    }
+  }
+
+  // CLASS 6 MATHEMATICS
+  const type = randomChoice(['integers', 'algebra', 'ratio']);
+  if (type === 'integers') {
+    const a = -randomInt(3, 12);
+    const b = randomInt(5, 20);
+    const ans = a + b;
+    return {
+      id: qId,
+      grade: 6,
+      subject: 'maths',
+      chapter: ch,
+      concept: 'Addition of Integers',
+      difficulty: 'medium',
+      type: 'mcq',
+      question: `Calculate: (${a}) + (${b}) = ?`,
+      visualEmoji: '➖ ➕ 🔢',
+      payload: {
+        options: shuffleArray([
+          { id: 'opt_1', text: `${ans}`, isCorrect: true },
+          { id: 'opt_2', text: `${-ans}`, isCorrect: false },
+          { id: 'opt_3', text: `${a - b}`, isCorrect: false },
+          { id: 'opt_4', text: `${ans + 2}`, isCorrect: false },
+        ]),
+      },
+      explanation: `💡 Adding positive ${b} to negative ${a}: ${b} - ${Math.abs(a)} = ${ans}!`,
+      points: 15,
+    };
+  } else if (type === 'algebra') {
+    const x = randomInt(4, 15);
+    const add = randomInt(5, 20);
+    const total = x + add;
+    return {
+      id: qId,
+      grade: 6,
+      subject: 'maths',
+      chapter: ch,
+      concept: 'Simple Linear Equation',
+      difficulty: 'medium',
+      type: 'mcq',
+      question: `Solve for x: x + ${add} = ${total}`,
+      visualEmoji: '🧮 ❓',
+      payload: {
+        options: shuffleArray([
+          { id: 'opt_1', text: `x = ${x}`, isCorrect: true },
+          { id: 'opt_2', text: `x = ${x + 2}`, isCorrect: false },
+          { id: 'opt_3', text: `x = ${total + add}`, isCorrect: false },
+          { id: 'opt_4', text: `x = ${x - 1}`, isCorrect: false },
+        ]),
+      },
+      explanation: `💡 Subtract ${add} from both sides: x = ${total} - ${add} = ${x}!`,
+      points: 15,
+    };
+  } else {
+    const common = randomChoice([3, 4, 5, 6]);
+    const a = 1 * common;
+    const b = 3 * common;
+    return {
+      id: qId,
+      grade: 6,
+      subject: 'maths',
+      chapter: ch,
+      concept: 'Simplest Form of Ratio',
+      difficulty: 'medium',
+      type: 'mcq',
+      question: `Find the simplest form of the ratio ${a} : ${b}:`,
+      visualEmoji: '⚖️ 🔢',
+      payload: {
+        options: shuffleArray([
+          { id: 'opt_1', text: '1 : 3', isCorrect: true },
+          { id: 'opt_2', text: '2 : 3', isCorrect: false },
+          { id: 'opt_3', text: '1 : 4', isCorrect: false },
+          { id: 'opt_4', text: `${a} : 1`, isCorrect: false },
+        ]),
+      },
+      explanation: `💡 Divide both terms by their common factor ${common}: ${a}÷${common} : ${b}÷${common} = 1 : 3!`,
+      points: 15,
+    };
+  }
+}
+
+// ----------------------------------------------------------------------------
+// 2. DYNAMIC UNIVERSAL ENGLISH GRAMMAR GENERATOR (Class 1 to 6)
+// Focuses 100% on English Grammar rules that apply across all school boards
+// ----------------------------------------------------------------------------
+export function generateDynamicEnglishGrammarQuestion(grade: Grade, chapterTitle?: string): Question {
+  const qId = `dyn_eng_${grade}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+  const ch = chapterTitle || `English Grammar Mastery (Class ${grade})`;
+
+  const grammarBank = [
+    // Articles (A, An, The)
+    {
+      concept: 'Articles (A / An / The)',
+      question: 'Choose the correct article: "She saw [BLANK] owl perched on the roof."',
+      correct: 'an',
+      wrongs: ['a', 'the', 'no article needed'],
+      expl: '💡 We use "an" before vowel sounds (a, e, i, o, u): an owl!',
+    },
+    {
+      concept: 'Articles (A / An / The)',
+      question: 'Choose the correct article: "He is [BLANK] honest and hardworking man."',
+      correct: 'an',
+      wrongs: ['a', 'the', 'no article needed'],
+      expl: '💡 "Honest" begins with a silent "h" and an "o" vowel sound, so we use "an honest man"!',
+    },
+    {
+      concept: 'Articles (A / An / The)',
+      question: 'Choose the correct article: "[BLANK] Sun is the center of our solar system."',
+      correct: 'The',
+      wrongs: ['A', 'An', 'Any'],
+      expl: '💡 We use "The" before unique universal celestial bodies: The Sun, The Moon, The Earth!',
+    },
+
+    // Nouns & Types
+    {
+      concept: 'Proper Noun Identification',
+      question: 'Which of the following is a PROPER NOUN that must begin with a capital letter?',
+      correct: 'Mumbai',
+      wrongs: ['city', 'building', 'street'],
+      expl: '💡 Mumbai is the specific name of a city, so it is a Proper Noun!',
+    },
+    {
+      concept: 'Collective Nouns',
+      question: 'What is the collective noun for a group of lions?',
+      correct: 'A pride of lions',
+      wrongs: ['A flock of lions', 'A herd of lions', 'A swarm of lions'],
+      expl: '💡 A family group of lions is called a PRIDE of lions!',
+    },
+    {
+      concept: 'Collective Nouns',
+      question: 'A group of birds flying together in the sky is called a [BLANK] of birds.',
+      correct: 'flock',
+      wrongs: ['pack', 'swarm', 'fleet'],
+      expl: '💡 A group of birds or sheep is called a FLOCK!',
+    },
+    {
+      concept: 'Abstract Nouns',
+      question: 'Which word is an ABSTRACT NOUN representing a quality or feeling?',
+      correct: 'Honesty',
+      wrongs: ['Table', 'Apple', 'Doctor'],
+      expl: '💡 Honesty cannot be touched or seen with eyes; it is a quality, making it an Abstract Noun!',
+    },
+
+    // Pronouns
+    {
+      concept: 'Pronoun Agreement',
+      question: 'Choose the correct pronoun: "Riya and Aman are good dancers. [BLANK] won the competition."',
+      correct: 'They',
+      wrongs: ['He', 'She', 'It'],
+      expl: '💡 For multiple people (plural), we use the pronoun "They"!',
+    },
+    {
+      concept: 'Pronouns (Subject vs Object)',
+      question: 'Father bought a new bicycle for Aryan and [BLANK].',
+      correct: 'me',
+      wrongs: ['I', 'he', 'we'],
+      expl: '💡 In the object position after a preposition ("for"), we use the object pronoun "me" (not "I")!',
+    },
+
+    // Subject-Verb Agreement
+    {
+      concept: 'Subject-Verb Agreement',
+      question: 'Choose the correct verb: "The team of players [BLANK] ready for the final match."',
+      correct: 'is',
+      wrongs: ['are', 'were', 'have'],
+      expl: '💡 "Team" is a collective singular noun, so it takes the singular verb "is"!',
+    },
+    {
+      concept: 'Subject-Verb Agreement',
+      question: 'Choose the correct verb: "Neither the teacher nor the students [BLANK] in the room."',
+      correct: 'were',
+      wrongs: ['was', 'is', 'has'],
+      expl: '💡 In "neither... nor", the verb agrees with the closer subject ("students", which is plural): "were"!',
+    },
+
+    // Tenses
+    {
+      concept: 'Irregular Past Tense',
+      question: 'What is the past tense form of the verb "CATCH"?',
+      correct: 'caught',
+      wrongs: ['catched', 'cought', 'catches'],
+      expl: '💡 Catch is an irregular verb: catch -> caught!',
+    },
+    {
+      concept: 'Irregular Past Tense',
+      question: 'What is the past tense form of the verb "WRITE"?',
+      correct: 'wrote',
+      wrongs: ['writed', 'written', 'writes'],
+      expl: '💡 Write -> wrote -> written. The simple past tense is "wrote"!',
+    },
+
+    // Adjectives & Degrees of Comparison
+    {
+      concept: 'Degrees of Comparison',
+      question: 'Mount Everest is the [BLANK] mountain peak in the world.',
+      correct: 'highest',
+      wrongs: ['higher', 'high', 'most high'],
+      expl: '💡 With "the" for the topmost among all, we use the Superlative degree: "highest"!',
+    },
+    {
+      concept: 'Degrees of Comparison',
+      question: 'A car travels [BLANK] than a bicycle.',
+      correct: 'faster',
+      wrongs: ['fast', 'fastest', 'more fast'],
+      expl: '💡 When comparing two things with "than", we use the Comparative degree: "faster"!',
+    },
+
+    // Prepositions
+    {
+      concept: 'Prepositions of Time',
+      question: 'School begins punctually [BLANK] 8:00 AM.',
+      correct: 'at',
+      wrongs: ['on', 'in', 'by'],
+      expl: '💡 We use "at" for specific clock times: at 8:00 AM!',
+    },
+    {
+      concept: 'Prepositions (Between vs Among)',
+      question: 'The prize was distributed [BLANK] all forty students in the class.',
+      correct: 'among',
+      wrongs: ['between', 'with', 'along'],
+      expl: '💡 We use "between" for two people/things, and "among" for more than two!',
+    },
+
+    // Conjunctions
+    {
+      concept: 'Conjunctions (Connecting Words)',
+      question: 'Rohan worked hard, [BLANK] he could not win the first prize.',
+      correct: 'but',
+      wrongs: ['and', 'because', 'so'],
+      expl: '💡 We use "but" to connect contrasting or opposing ideas!',
+    },
+  ];
+
+  const item = randomChoice(grammarBank);
+  return {
+    id: qId,
+    grade,
+    subject: 'english',
+    chapter: ch,
+    concept: item.concept,
+    difficulty: grade <= 2 ? 'easy' : grade <= 4 ? 'medium' : 'hard',
+    type: 'mcq',
+    question: item.question,
+    visualEmoji: '🔤 ✍️',
+    payload: {
+      options: shuffleArray([
+        { id: 'opt_1', text: item.correct, isCorrect: true },
+        { id: 'opt_2', text: item.wrongs[0], isCorrect: false },
+        { id: 'opt_3', text: item.wrongs[1], isCorrect: false },
+        ...(item.wrongs[2] ? [{ id: 'opt_4', text: item.wrongs[2], isCorrect: false }] : []),
+      ]),
+    },
+    explanation: item.expl,
+    points: 10,
+  };
+}
+
+// ----------------------------------------------------------------------------
+// 3. DYNAMIC UNIVERSAL HINDI VYAKARAN GENERATOR (Class 1 to 6)
+// Focuses 100% on Hindi Grammar rules common across CBSE, ICSE & all State Boards
+// ----------------------------------------------------------------------------
+export function generateDynamicHindiVyakaranQuestion(grade: Grade, chapterTitle?: string): Question {
+  const qId = `dyn_hin_${grade}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
+  const ch = chapterTitle || `हिंदी व्याकरण अभ्यास (कक्षा ${grade})`;
+
+  const vyakaranBank = [
+    // संज्ञा व उसके भेद
+    {
+      concept: 'भाववाचक संज्ञा की पहचान',
+      question: 'इनमें से कौन सा शब्द \'भाववाचक संज्ञा\' है जिसे छुआ नहीं जा सकता, केवल अनुभव किया जाता है?',
+      correct: 'मित्रता',
+      wrongs: ['लड़का', 'किताब', 'दिल्ली'],
+      expl: '💡 लड़का जातिवाचक है, किताब वस्तु है, दिल्ली व्यक्तिवाचक है। "मित्रता" एक गुण/भाव है, अतः भाववाचक संज्ञा है!',
+    },
+    {
+      concept: 'व्यक्तिवाचक संज्ञा की पहचान',
+      question: 'इनमें से कौन सा शब्द \'व्यक्तिवाचक संज्ञा\' (किसी विशेष व्यक्ति, स्थान या पर्वत का नाम) है?',
+      correct: 'हिमालय',
+      wrongs: ['पहाड़', 'नदी', 'पेड़'],
+      expl: '💡 पहाड़ और नदी सामान्य जाति हैं; "हिमालय" एक विशेष पर्वत का नाम है, इसलिए यह व्यक्तिवाचक संज्ञा है!',
+    },
+
+    // सर्वनाम
+    {
+      concept: 'सर्वनाम शब्द पहचान',
+      question: 'वाक्य में संज्ञा के स्थान पर प्रयुक्त होने वाला \'सर्वनाम शब्द\' कौन सा है: "रोहन ने कहा कि वह कल स्कूल जाएगा।"',
+      correct: 'वह',
+      wrongs: ['रोहन', 'स्कूल', 'जाएगा'],
+      expl: '💡 रोहन के नाम के स्थान पर "वह" का प्रयोग हुआ है, इसलिए "वह" सर्वनाम है!',
+    },
+    {
+      concept: 'पुरुषवाचक सर्वनाम (उत्तम पुरुष)',
+      question: 'जब बोलने वाला व्यक्ति अपने लिए बात करता है (जैसे मैं, हम), तो उसे कौन सा सर्वनाम कहते हैं?',
+      correct: 'उत्तम पुरुष',
+      wrongs: ['मध्यम पुरुष', 'अन्य पुरुष', 'निजवाचक'],
+      expl: '💡 बोलने वाला = उत्तम पुरुष (मैं/हम); सुनने वाला = मध्यम पुरुष (तुम/आप); जिसके बारे में बात हो = अन्य पुरुष (वह/वे)!',
+    },
+
+    // क्रिया व काल
+    {
+      concept: 'काल की पहचान (भविष्यत् काल)',
+      question: 'वाक्य का काल पहचानिए: "हम सब कल शाम को चिड़ियाघर देखने जाएँगे।"',
+      correct: 'भविष्यत् काल',
+      wrongs: ['भूतकाल', 'वर्तमानकाल'],
+      expl: '💡 "जाएँगे" आने वाले समय (कल) का बोध कराता है, इसलिए यह भविष्यत् काल है!',
+    },
+    {
+      concept: 'सकर्मक क्रिया की पहचान',
+      question: 'जिस क्रिया के साथ \'कर्म\' जुड़ा होता है (जैसे: बच्चा दूध पी रहा है), उसे क्या कहते हैं?',
+      correct: 'सकर्मक क्रिया',
+      wrongs: ['अकर्मक क्रिया', 'सहायक क्रिया', 'प्रेरणार्थक क्रिया'],
+      expl: '💡 "क्या पी रहा है? दूध" — कर्म साथ में होने के कारण यह सकर्मक क्रिया है!',
+    },
+
+    // लिंग परिवर्तन
+    {
+      concept: 'स्त्रीलिंग रूप',
+      question: '\'विद्वान\' शब्द का सही स्त्रीलिंग रूप कौन सा है?',
+      correct: 'विदुषी',
+      wrongs: ['विद्वानी', 'विद्वाती', 'विदुषा'],
+      expl: '💡 विद्वान (पुल्लिंग) का सही स्त्रीलिंग रूप "विदुषी" होता है!',
+    },
+    {
+      concept: 'कवि का स्त्रीलिंग',
+      question: '\'कवि\' शब्द का सही और शुद्ध वर्तनी वाला स्त्रीलिंग रूप कौन सा है?',
+      correct: 'कवयित्री',
+      wrongs: ['कविइत्री', 'कवयत्री', 'कवित्री'],
+      expl: '💡 शुद्ध वर्तनी नियम: कवि का स्त्रीलिंग "कवयित्री" होता है!',
+    },
+
+    // वचन परिवर्तन
+    {
+      concept: 'वचन परिवर्तन नियम',
+      question: '\'दवाई\' शब्द का सही बहुवचन रूप कौन सा है?',
+      correct: 'दवाइयाँ',
+      wrongs: ['दवाईयाँ', 'दवाइयें', 'दवाइयों'],
+      expl: '💡 नियम: अंत की बड़ी \'ई\' छोटी \'इ\' में बदलती है: दवाई -> दवाइयाँ!',
+    },
+    {
+      concept: 'आकारांत स्त्रीलिंग बहुवचन',
+      question: '\'महिला\' शब्द का सही बहुवचन रूप कौन सा है?',
+      correct: 'महिलाएँ',
+      wrongs: ['महिलायें', 'महिलाओं', 'महिलियाँ'],
+      expl: '💡 महिला (एक) -> महिलाएँ (अनेक)!',
+    },
+
+    // विलोम शब्द
+    {
+      concept: 'विलोम शब्द (विपरीतार्थक)',
+      question: '\'अमृत\' शब्द का सही विलोम (उलटा अर्थ वाला) शब्द क्या है?',
+      correct: 'विष',
+      wrongs: ['जल', 'दूध', 'मधु'],
+      expl: '💡 अमृत का विपरीतार्थक शब्द "विष" होता है!',
+    },
+    {
+      concept: 'विलोम शब्द',
+      question: '\'वरदान\' शब्द का सही विलोम शब्द क्या है?',
+      correct: 'अभिशाप',
+      wrongs: ['उपहार', 'प्रसाद', 'आशीर्वाद'],
+      expl: '💡 वरदान का उलटा शब्द "अभिशाप" या "शाप" होता है!',
+    },
+
+    // पर्यायवाची शब्द
+    {
+      concept: 'पर्यायवाची शब्द (समानार्थक)',
+      question: '\'सूर्य\' (सूरज) का पर्यायवाची शब्द इनमें से कौन सा है?',
+      correct: 'दिनकर',
+      wrongs: ['निशाकर', 'जलधर', 'पवन'],
+      expl: '💡 सूर्य के पर्यायवाची हैं: दिनकर, रवि, भानु, भास्कर!',
+    },
+    {
+      concept: 'पर्यायवाची शब्द',
+      question: '\'नेत्र\', \'नयन\', और \'चक्षु\' किसके पर्यायवाची शब्द हैं?',
+      correct: 'आँख',
+      wrongs: ['कान', 'नाक', 'हाथ'],
+      expl: '💡 नयन, नेत्र, चक्षु, लोचन सब "आँख" के पर्यायवाची शब्द हैं!',
+    },
+
+    // मुहावरे
+    {
+      concept: 'मुहावरे का अर्थ',
+      question: '\'ईद का चाँद होना\' मुहावरे का सही अर्थ क्या है?',
+      correct: 'बहुत दिनों बाद दिखाई देना',
+      wrongs: ['त्योहार मनाना', 'चाँद पर जाना', 'उपवास रखना'],
+      expl: '💡 जैसे ईद का चाँद बहुत प्रतीक्षा के बाद दिखता है, वैसे ही बहुत दिनों बाद मिलने वाले को कहते हैं!',
+    },
+    {
+      concept: 'मुहावरे का अर्थ',
+      question: '\'अँगूठा दिखाना\' मुहावरे का सही अर्थ क्या है?',
+      correct: 'साफ़ मना कर देना',
+      wrongs: ['मदद करना', 'ताली बजाना', 'हाथ मिलाना'],
+      expl: '💡 ज़रूरत के समय किसी चीज़ को देने से साफ़ इनकार कर देना "अँगूठा दिखाना" कहलाता है!',
+    },
+
+    // अनेक शब्दों के लिए एक शब्द
+    {
+      concept: 'अनेक शब्दों के लिए एक शब्द',
+      question: '\'जो ईश्वर में विश्वास रखता हो\', उसे एक शब्द में क्या कहते हैं?',
+      correct: 'आस्तिक',
+      wrongs: ['नास्तिक', 'साधु', 'पुजारी'],
+      expl: '💡 ईश्वर को मानने वाला = आस्तिक; न मानने वाला = नास्तिक!',
+    },
+    {
+      concept: 'अनेक शब्दों के लिए एक शब्द',
+      question: '\'जो कभी न मरे\', उसे एक शब्द में क्या कहते हैं?',
+      correct: 'अमर',
+      wrongs: ['अजर', 'अमरूद', 'अदृश्य'],
+      expl: '💡 जिसकी कभी मृत्यु न हो, उसे "अमर" कहते हैं!',
+    },
+  ];
+
+  const item = randomChoice(vyakaranBank);
+  return {
+    id: qId,
+    grade,
+    subject: 'hindi',
+    chapter: ch,
+    concept: item.concept,
+    difficulty: grade <= 2 ? 'easy' : grade <= 4 ? 'medium' : 'hard',
+    type: 'mcq',
+    question: item.question,
+    visualEmoji: '🇮🇳 ✍️',
+    payload: {
+      options: shuffleArray([
+        { id: 'opt_1', text: item.correct, isCorrect: true },
+        { id: 'opt_2', text: item.wrongs[0], isCorrect: false },
+        { id: 'opt_3', text: item.wrongs[1], isCorrect: false },
+        ...(item.wrongs[2] ? [{ id: 'opt_4', text: item.wrongs[2], isCorrect: false }] : []),
+      ]),
+    },
+    explanation: item.expl,
+    points: 10,
+  };
+}
+
+// ----------------------------------------------------------------------------
+// 4. GENERATE EXTRA SUPPORTING PRACTICE QUESTIONS
+// Generates fresh, dynamic questions for limitless practice on any topic
+// ----------------------------------------------------------------------------
+export function generateExtraPracticeQuestions(
+  grade: Grade,
+  subject: Subject,
+  chapterTitle?: string,
+  count: number = 10
+): Question[] {
+  const list: Question[] = [];
+  for (let i = 0; i < count; i++) {
+    if (subject === 'maths') {
+      list.push(generateDynamicMathQuestion(grade, chapterTitle));
+    } else if (subject === 'english') {
+      list.push(generateDynamicEnglishGrammarQuestion(grade, chapterTitle));
+    } else {
+      list.push(generateDynamicHindiVyakaranQuestion(grade, chapterTitle));
+    }
+  }
+  return list;
+}
+
+// ----------------------------------------------------------------------------
+// 5. MAIN SESSION QUESTION SELECTOR (with Extra Practice Support)
+// ----------------------------------------------------------------------------
 export const generateQuestionsForSession = (
   grade: Grade,
   subject: Subject,
-  chapterTitle?: string
+  chapterTitle?: string,
+  isExtraPractice: boolean = false
 ): Question[] => {
+  // If explicitly requested as Extra Practice (e.g. from Celebration screen "Practice Again"):
+  // Instantly generate fresh, dynamic supporting questions!
+  if (isExtraPractice) {
+    return generateExtraPracticeQuestions(grade, subject, chapterTitle, 10);
+  }
+
   // 1. Gather curated matching questions from MOCK_QUESTIONS for the specific chapter
   let matchedQuestions: Question[] = [];
   if (chapterTitle) {
     const cleanChapter = chapterTitle.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
-    const chapterWords = cleanChapter.split(/\s+/).filter(w => w.length > 2);
+    const chapterWords = cleanChapter.split(/\s+/).filter((w) => w.length > 2);
     matchedQuestions = MOCK_QUESTIONS.filter((q) => {
       if (q.grade !== grade || q.subject !== subject) return false;
       const qChapter = q.chapter.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
       if (cleanChapter === qChapter) return true;
       if (cleanChapter.includes(qChapter) || qChapter.includes(cleanChapter)) return true;
-      const qWords = qChapter.split(/\s+/).filter(w => w.length > 2);
-      const overlap = chapterWords.filter(w => qWords.includes(w));
+      const qWords = qChapter.split(/\s+/).filter((w) => w.length > 2);
+      const overlap = chapterWords.filter((w) => qWords.includes(w));
       return overlap.length >= 2 || (chapterWords.length === 1 && overlap.length >= 1);
     });
   }
@@ -41,6 +983,13 @@ export const generateQuestionsForSession = (
     matchedQuestions = MOCK_QUESTIONS.filter(
       (q) => q.grade === grade && q.subject === subject
     );
+  }
+
+  // If still no questions or less than 5 questions available, synthesize dynamic questions
+  if (matchedQuestions.length < 5) {
+    const needed = 10 - matchedQuestions.length;
+    const dynamicFill = generateExtraPracticeQuestions(grade, subject, chapterTitle, Math.max(needed, 5));
+    matchedQuestions = [...matchedQuestions, ...dynamicFill];
   }
 
   // 2. PEDAGOGICAL LEARNING LADDER (सीखने का निश्चित पैटर्न)
@@ -60,820 +1009,3 @@ export const generateQuestionsForSession = (
 
   return sortedQuestions;
 };
-
-// Comprehensive curriculum bank providing full 10 questions for any grade and subject
-function getSynthesizedBank(
-  grade: Grade,
-  subject: Subject,
-  chapterTitle?: string
-): Question[] {
-  const ch = chapterTitle || `Class ${grade} NCERT ${subject}`;
-
-  if (subject === 'maths') {
-    return getMathsQuestionBank(grade, ch);
-  } else if (subject === 'english') {
-    return getEnglishQuestionBank(grade, ch);
-  } else {
-    return getHindiQuestionBank(grade, ch);
-  }
-}
-
-// ============================================================================
-// MATHEMATICS EXPANSION BANK (10 questions per grade/topic)
-// ============================================================================
-function getMathsQuestionBank(grade: Grade, chapter: string): Question[] {
-  if (grade === 1) {
-    return [
-      {
-        id: 'gen_m1_01',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Counting & Numbers 1-10',
-        difficulty: 'easy',
-        type: 'mcq',
-        question: 'Count the red apples: 🍎 🍎 🍎 🍎 🍎. How many apples are there?',
-        visualEmoji: '🍎',
-        payload: {
-          options: [
-            { id: 'o1', text: '5 Apples', isCorrect: true },
-            { id: 'o2', text: '4 Apples', isCorrect: false },
-            { id: 'o3', text: '6 Apples', isCorrect: false },
-          ],
-        },
-        explanation: 'Count one by one: 1, 2, 3, 4, 5 apples! 🍎',
-        points: 10,
-      },
-      {
-        id: 'gen_m1_02',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Shapes & Space: Bigger vs Smaller',
-        difficulty: 'easy',
-        type: 'mcq',
-        question: 'Which of these animals is BIGGER? 🐘 or 🐁',
-        visualEmoji: '🐘',
-        payload: {
-          options: [
-            { id: 'o1', text: 'Elephant 🐘', isCorrect: true },
-            { id: 'o2', text: 'Mouse 🐁', isCorrect: false },
-          ],
-        },
-        explanation: 'NCERT Ch 1: An elephant 🐘 is much bigger than a tiny mouse 🐁!',
-        points: 10,
-      },
-      {
-        id: 'gen_m1_03',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Addition up to 9',
-        difficulty: 'easy',
-        type: 'fill_blank',
-        question: 'Add the stars together:',
-        visualEmoji: '⭐',
-        payload: {
-          correctAnswer: '7',
-          wordBank: ['7', '6', '8', '5'],
-          displayTemplate: '3 stars + 4 stars = [BLANK] stars.',
-        },
-        explanation: '3 + 4 = 7! Count forward: 4, 5, 6, 7! ⭐',
-        points: 10,
-      },
-      {
-        id: 'gen_m1_04',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Number Matching',
-        difficulty: 'easy',
-        type: 'match_pairs',
-        question: 'Match the number digits with their word names:',
-        visualEmoji: '🔢',
-        payload: {
-          pairs: [
-            { id: 'p1', left: '3', right: 'Three' },
-            { id: 'p2', left: '7', right: 'Seven' },
-            { id: 'p3', left: '9', right: 'Nine' },
-          ],
-        },
-        explanation: '3 is Three, 7 is Seven, and 9 is Nine!',
-        points: 15,
-      },
-      {
-        id: 'gen_m1_05',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Subtraction (Taking away)',
-        difficulty: 'easy',
-        type: 'mcq',
-        question: 'You have 6 balloons 🎈. 2 balloons fly away 💨. How many balloons are left?',
-        visualEmoji: '🎈',
-        payload: {
-          options: [
-            { id: 'o1', text: '4 balloons', isCorrect: true },
-            { id: 'o2', text: '5 balloons', isCorrect: false },
-            { id: 'o3', text: '8 balloons', isCorrect: false },
-          ],
-        },
-        explanation: '6 - 2 = 4 balloons left in hand! 🎈',
-        points: 10,
-      },
-      {
-        id: 'gen_m1_06',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Patterns: What comes next?',
-        difficulty: 'easy',
-        type: 'mcq',
-        question: 'Look at the pattern: 🟡 🔵 🟡 🔵 🟡. What comes next?',
-        visualEmoji: '🔵',
-        payload: {
-          options: [
-            { id: 'o1', text: 'Blue Circle 🔵', isCorrect: true },
-            { id: 'o2', text: 'Yellow Circle 🟡', isCorrect: false },
-            { id: 'o3', text: 'Red Square 🟥', isCorrect: false },
-          ],
-        },
-        explanation: 'The color pattern alternates: Yellow, Blue, Yellow, Blue, Yellow, BLUE! 🔵',
-        points: 10,
-      },
-      {
-        id: 'gen_m1_07',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Number Ordering',
-        difficulty: 'easy',
-        type: 'drag_order',
-        question: 'Arrange the numbers from smallest to biggest:',
-        visualEmoji: '📏',
-        payload: {
-          tokens: ['2', '5', '8'],
-          scrambled: ['8', '2', '5'],
-          correctSequence: ['2', '5', '8'],
-        },
-        explanation: 'Smallest to biggest order is: 2, then 5, then 8!',
-        points: 10,
-      },
-      {
-        id: 'gen_m1_08',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Measurement: Heavier vs Lighter',
-        difficulty: 'easy',
-        type: 'mcq',
-        question: 'Which item is HEAVIER? 🍉 Watermelon or 🍓 Strawberry?',
-        visualEmoji: '🍉',
-        payload: {
-          options: [
-            { id: 'o1', text: 'Watermelon 🍉', isCorrect: true },
-            { id: 'o2', text: 'Strawberry 🍓', isCorrect: false },
-          ],
-        },
-        explanation: 'A big watermelon 🍉 is much heavier than a small strawberry 🍓!',
-        points: 10,
-      },
-      {
-        id: 'gen_m1_09',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Indian Currency: Money',
-        difficulty: 'easy',
-        type: 'fill_blank',
-        question: 'Add the rupee coins:',
-        visualEmoji: '🪙',
-        payload: {
-          correctAnswer: '₹7',
-          wordBank: ['₹7', '₹6', '₹8', '₹10'],
-          displayTemplate: '₹5 coin + ₹2 coin = [BLANK]',
-        },
-        explanation: 'NCERT Ch 11 Money: 5 + 2 = ₹7! 🪙',
-        points: 10,
-      },
-      {
-        id: 'gen_m1_10',
-        grade: 1,
-        subject: 'maths',
-        chapter,
-        concept: 'Zero Concept',
-        difficulty: 'easy',
-        type: 'mcq',
-        question: 'A basket had 3 mangoes 🥭. You ate all 3 mangoes! How many are left?',
-        visualEmoji: '🥭',
-        payload: {
-          options: [
-            { id: 'o1', text: '0', isCorrect: true },
-            { id: 'o2', text: '1 mango left', isCorrect: false },
-            { id: 'o3', text: '3 mangoes left', isCorrect: false },
-          ],
-        },
-        explanation: '3 - 3 = 0. When nothing remains, it is ZERO (शून्य)!',
-        points: 10,
-      },
-    ];
-  }
-
-  // Higher Grades Maths (Classes 2 to 6)
-  return [
-    {
-      id: `gen_m_${grade}_01`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Place Value & Number Systems',
-      difficulty: 'medium',
-      type: 'mcq',
-      question: `In the number ${grade * 123}, what place is the digit "${grade}" in?`,
-      visualEmoji: '🔢',
-      payload: {
-        options: [
-          { id: 'o1', text: grade >= 4 ? 'Hundreds / Thousands place' : 'Tens / Hundreds place', isCorrect: true },
-          { id: 'o2', text: 'Ones place', isCorrect: false },
-          { id: 'o3', text: 'Tenths place', isCorrect: false },
-        ],
-      },
-      explanation: 'Place value increases by 10x moving left: Ones, Tens, Hundreds, Thousands!',
-      points: 10,
-    },
-    {
-      id: `gen_m_${grade}_02`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Multiplication & Tables',
-      difficulty: 'medium',
-      type: 'fill_blank',
-      question: `Calculate: ${grade + 2} × 4 = ?`,
-      visualEmoji: '✖️',
-      payload: {
-        correctAnswer: `${(grade + 2) * 4}`,
-        wordBank: [`${(grade + 2) * 4}`, `${(grade + 2) * 3}`, `${(grade + 2) * 5}`, '20'],
-        displayTemplate: `${grade + 2} × 4 = [BLANK]`,
-      },
-      explanation: `Multiplication is repeated addition: ${(grade + 2) * 4}!`,
-      points: 10,
-    },
-    {
-      id: `gen_m_${grade}_03`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Shapes & Geometry',
-      difficulty: 'easy',
-      type: 'match_pairs',
-      question: 'Match the geometric shape with the number of its sides:',
-      visualEmoji: '📐',
-      payload: {
-        pairs: [
-          { id: 'p1', left: 'Triangle 🔺', right: '3 Sides' },
-          { id: 'p2', left: 'Rectangle 🟦', right: '4 Sides' },
-          { id: 'p3', left: 'Circle ⭕', right: '0 Straight Sides' },
-        ],
-      },
-      explanation: 'Triangle has 3 sides, rectangle has 4 sides, circle has curved boundary!',
-      points: 15,
-    },
-    {
-      id: `gen_m_${grade}_04`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Fractions & Division',
-      difficulty: 'medium',
-      type: 'mcq',
-      question: 'A pizza 🍕 is cut into 4 equal slices. You eat 1 slice. What fraction did you eat?',
-      visualEmoji: '🍕',
-      payload: {
-        options: [
-          { id: 'o1', text: '1/4', isCorrect: true },
-          { id: 'o2', text: '1/2', isCorrect: false },
-          { id: 'o3', text: '3/4', isCorrect: false },
-        ],
-      },
-      explanation: '1 slice out of 4 total equal slices = 1/4 fraction!',
-      points: 10,
-    },
-    {
-      id: `gen_m_${grade}_05`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Measurement & Unit Conversions',
-      difficulty: 'medium',
-      type: 'fill_blank',
-      question: 'Complete the NCERT measurement conversion:',
-      visualEmoji: '📏',
-      payload: {
-        correctAnswer: '100',
-        wordBank: ['100', '10', '1000', '50'],
-        displayTemplate: '1 Meter = [BLANK] Centimeters (cm).',
-      },
-      explanation: 'Standard metric measurement: 1 m = 100 cm, 1 km = 1000 m!',
-      points: 10,
-    },
-    {
-      id: `gen_m_${grade}_06`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Time & Clocks',
-      difficulty: 'medium',
-      type: 'mcq',
-      question: 'How many minutes are there in 2 full hours? ⏰',
-      visualEmoji: '⏰',
-      payload: {
-        options: [
-          { id: 'o1', text: '120 Minutes', isCorrect: true },
-          { id: 'o2', text: '60 Minutes', isCorrect: false },
-          { id: 'o3', text: '100 Minutes', isCorrect: false },
-        ],
-      },
-      explanation: '1 hour = 60 minutes. Therefore, 2 hours = 60 × 2 = 120 minutes! ⏰',
-      points: 10,
-    },
-    {
-      id: `gen_m_${grade}_07`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Money & Word Problems',
-      difficulty: 'medium',
-      type: 'mcq',
-      question: 'A pencil costs ₹5 and a notebook costs ₹25. What is the total cost? 📓',
-      visualEmoji: '💰',
-      payload: {
-        options: [
-          { id: 'o1', text: '₹30', isCorrect: true },
-          { id: 'o2', text: '₹20', isCorrect: false },
-          { id: 'o3', text: '₹35', isCorrect: false },
-        ],
-      },
-      explanation: '₹25 + ₹5 = ₹30 total bill!',
-      points: 10,
-    },
-    {
-      id: `gen_m_${grade}_08`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Perimeter & Boundaries',
-      difficulty: 'hard',
-      type: 'fill_blank',
-      question: 'Calculate perimeter of a square with side 5 cm:',
-      visualEmoji: '⏹️',
-      payload: {
-        correctAnswer: '20',
-        wordBank: ['20', '25', '15', '10'],
-        displayTemplate: 'Perimeter = 4 × 5 cm = [BLANK] cm.',
-      },
-      explanation: 'Perimeter is total boundary length = 4 × side = 4 × 5 = 20 cm!',
-      points: 15,
-    },
-    {
-      id: `gen_m_${grade}_09`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Weight & Capacity',
-      difficulty: 'medium',
-      type: 'match_pairs',
-      question: 'Match the quantity with its correct metric unit:',
-      visualEmoji: '⚖️',
-      payload: {
-        pairs: [
-          { id: 'w1', left: 'Bag of Rice 🌾', right: 'Kilograms (kg)' },
-          { id: 'w2', left: 'Bottle of Milk 🥛', right: 'Litres (L)' },
-          { id: 'w3', left: 'Medicine Drops 💧', right: 'Millilitres (mL)' },
-        ],
-      },
-      explanation: 'Solids weighed in kg/g, liquids measured in L/mL!',
-      points: 15,
-    },
-    {
-      id: `gen_m_${grade}_10`,
-      grade,
-      subject: 'maths',
-      chapter,
-      concept: 'Number Patterns & Logic',
-      difficulty: 'medium',
-      type: 'drag_order',
-      question: 'Arrange the pattern sequence in correct order:',
-      visualEmoji: '🔢',
-      payload: {
-        tokens: ['10', '20', '30', '40'],
-        scrambled: ['30', '10', '40', '20'],
-        correctSequence: ['10', '20', '30', '40'],
-      },
-      explanation: 'Skip counting by 10s: 10, 20, 30, 40!',
-      points: 10,
-    },
-  ];
-}
-
-// ============================================================================
-// ENGLISH EXPANSION BANK (10 questions per grade/topic)
-// ============================================================================
-function getEnglishQuestionBank(grade: Grade, chapter: string): Question[] {
-  return [
-    {
-      id: `gen_e_${grade}_01`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Nouns (Naming Words)',
-      difficulty: 'easy',
-      type: 'mcq',
-      question: 'Which word in this sentence is a NOUN (naming word): "The cute puppy barked happily."? 🐶',
-      visualEmoji: '🐶',
-      payload: {
-        options: [
-          { id: 'o1', text: 'Puppy', isCorrect: true },
-          { id: 'o2', text: 'Happily', isCorrect: false },
-          { id: 'o3', text: 'Barked', isCorrect: false },
-        ],
-      },
-      explanation: 'A noun is a naming word for a person, place, animal, or thing (puppy)!',
-      points: 10,
-    },
-    {
-      id: `gen_e_${grade}_02`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Singular & Plural',
-      difficulty: 'easy',
-      type: 'fill_blank',
-      question: 'Convert singular to plural:',
-      visualEmoji: '📚',
-      payload: {
-        correctAnswer: 'Boxes',
-        wordBank: ['Boxes', 'Boxs', 'Boxies'],
-        displayTemplate: 'One Box 📦 -> Three [BLANK].',
-      },
-      explanation: 'Words ending in -x, -ch, -sh take "-es" in plural: Box -> Boxes!',
-      points: 10,
-    },
-    {
-      id: `gen_e_${grade}_03`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Opposites (Antonyms)',
-      difficulty: 'easy',
-      type: 'match_pairs',
-      question: 'Match each word with its correct opposite:',
-      visualEmoji: '↔️',
-      payload: {
-        pairs: [
-          { id: 'ep1', left: 'Hot ☀️', right: 'Cold ❄️' },
-          { id: 'ep2', left: 'Fast 🐆', right: 'Slow 🐢' },
-          { id: 'ep3', left: 'Happy 😊', right: 'Sad 😢' },
-        ],
-      },
-      explanation: 'Hot opposite is Cold, Fast is Slow, and Happy is Sad!',
-      points: 15,
-    },
-    {
-      id: `gen_e_${grade}_04`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Action Words (Verbs)',
-      difficulty: 'easy',
-      type: 'mcq',
-      question: 'Identify the ACTION WORD (Verb): "Rohan dances on the stage." 🕺',
-      visualEmoji: '🕺',
-      payload: {
-        options: [
-          { id: 'o1', text: 'dances', isCorrect: true },
-          { id: 'o2', text: 'stage', isCorrect: false },
-          { id: 'o3', text: 'Rohan', isCorrect: false },
-        ],
-      },
-      explanation: '"Dances" is the action that Rohan is performing!',
-      points: 10,
-    },
-    {
-      id: `gen_e_${grade}_05`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Pronouns',
-      difficulty: 'medium',
-      type: 'fill_blank',
-      question: 'Choose the correct pronoun for a girl:',
-      visualEmoji: '👧',
-      payload: {
-        correctAnswer: 'She',
-        wordBank: ['She', 'He', 'It'],
-        displayTemplate: 'Ananya is reading a book. [BLANK] loves fairy tales.',
-      },
-      explanation: 'We use the pronoun "She" for girls and women!',
-      points: 10,
-    },
-    {
-      id: `gen_e_${grade}_06`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Prepositions of Place',
-      difficulty: 'medium',
-      type: 'mcq',
-      question: 'The bird is sitting [BLANK] the tree branch. 🐦',
-      visualEmoji: '🌳',
-      payload: {
-        options: [
-          { id: 'o1', text: 'on the branch', isCorrect: true },
-          { id: 'o2', text: 'under the branch', isCorrect: false },
-          { id: 'o3', text: 'between the branch', isCorrect: false },
-        ],
-      },
-      explanation: 'The bird rests ON top of the tree branch!',
-      points: 10,
-    },
-    {
-      id: `gen_e_${grade}_07`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Sentence Scramble',
-      difficulty: 'medium',
-      type: 'drag_order',
-      question: 'Arrange the scrambled words to form a correct sentence:',
-      visualEmoji: '🎒',
-      payload: {
-        tokens: ['I', 'love', 'my', 'school'],
-        scrambled: ['school', 'my', 'love', 'I'],
-        correctSequence: ['I', 'love', 'my', 'school'],
-      },
-      explanation: 'Subject + Verb + Object: "I love my school."',
-      points: 10,
-    },
-    {
-      id: `gen_e_${grade}_08`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Adjectives (Describing Words)',
-      difficulty: 'easy',
-      type: 'mcq',
-      question: '"The giant elephant drank cold water." Which word is an ADJECTIVE describing the water? 💧',
-      visualEmoji: '🐘',
-      payload: {
-        options: [
-          { id: 'o1', text: 'cold', isCorrect: true },
-          { id: 'o2', text: 'drank', isCorrect: false },
-          { id: 'o3', text: 'elephant', isCorrect: false },
-        ],
-      },
-      explanation: '"Cold" describes how the water feels!',
-      points: 10,
-    },
-    {
-      id: `gen_e_${grade}_09`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Connecting Words (Conjunctions)',
-      difficulty: 'medium',
-      type: 'fill_blank',
-      question: 'Join the two ideas using the correct conjunction:',
-      visualEmoji: '🌧️',
-      payload: {
-        correctAnswer: 'because',
-        wordBank: ['because', 'or', 'but'],
-        displayTemplate: 'I carried an umbrella [BLANK] it was raining heavily.',
-      },
-      explanation: '"Because" shows the reason why the umbrella was carried!',
-      points: 10,
-    },
-    {
-      id: `gen_e_${grade}_10`,
-      grade,
-      subject: 'english',
-      chapter,
-      concept: 'Punctuation Marks',
-      difficulty: 'easy',
-      type: 'match_pairs',
-      question: 'Match the punctuation mark with its purpose:',
-      visualEmoji: '✍️',
-      payload: {
-        pairs: [
-          { id: 'pm1', left: 'Full Stop (.)', right: 'Ends a normal sentence' },
-          { id: 'pm2', left: 'Question Mark (?)', right: 'Asks a question' },
-          { id: 'pm3', left: 'Exclamation (!)', right: 'Shows surprise or excitement' },
-        ],
-      },
-      explanation: 'Full stop (.) ends statements, (?) asks, (!) shows emotion!',
-      points: 15,
-    },
-  ];
-}
-
-// ============================================================================
-// HINDI EXPANSION BANK (10 questions per grade/topic)
-// ============================================================================
-function getHindiQuestionBank(grade: Grade, chapter: string): Question[] {
-  return [
-    {
-      id: `gen_h_${grade}_01`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'संज्ञा (नाम वाले शब्द)',
-      difficulty: 'easy',
-      type: 'mcq',
-      question: 'इनमें से किसी व्यक्ति, वस्तु या स्थान का "नाम वाला शब्द" (संज्ञा) कौन सा है? 🏫',
-      visualEmoji: '🏫',
-      payload: {
-        options: [
-          { id: 'o1', text: 'विद्यालय 🏫', isCorrect: true },
-          { id: 'o2', text: 'दौड़ना 🏃', isCorrect: false },
-          { id: 'o3', text: 'सुंदर 🌸', isCorrect: false },
-        ],
-      },
-      explanation: 'किसी व्यक्ति, वस्तु, प्राणी या स्थान के नाम को संज्ञा कहते हैं (जैसे विद्यालय)!',
-      points: 10,
-    },
-    {
-      id: `gen_h_${grade}_02`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'विलोम शब्द (उलटे अर्थ)',
-      difficulty: 'easy',
-      type: 'match_pairs',
-      question: 'परस्पर उल्टे अर्थ वाले (विलोम) शब्दों की सही जोड़ी मिलाइए:',
-      visualEmoji: '↔️',
-      payload: {
-        pairs: [
-          { id: 'hp1', left: 'दिन ☀️', right: 'रात 🌙' },
-          { id: 'hp2', left: 'सच्चा 😇', right: 'झूठा 🤥' },
-          { id: 'hp3', left: 'मित्र 🤝', right: 'शत्रु ⚔️' },
-        ],
-      },
-      explanation: 'दिन का उल्टा रात, सच्चा का झूठा, और मित्र का शत्रु होता है!',
-      points: 15,
-    },
-    {
-      id: `gen_h_${grade}_03`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'वचन (एक और अनेक)',
-      difficulty: 'easy',
-      type: 'fill_blank',
-      question: 'सही बहुवचन शब्द भरकर वाक्य पूरा कीजिए:',
-      visualEmoji: '📚',
-      payload: {
-        correctAnswer: 'पुस्तकें',
-        wordBank: ['पुस्तकें', 'पुस्तकों', 'पुस्तके'],
-        displayTemplate: 'मेज पर चार [BLANK] रखी हैं।',
-      },
-      explanation: 'एक पुस्तक, चार पुस्तकें (स्त्रीलिंग अकारांत शब्द में -ें जुड़ता है)!',
-      points: 10,
-    },
-    {
-      id: `gen_h_${grade}_04`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'विशेषण (कैसा या कितना)',
-      difficulty: 'medium',
-      type: 'mcq',
-      question: '"पेड़ पर मीठे आम लगे हैं।" इस वाक्य में विशेषण शब्द कौन सा है? 🥭',
-      visualEmoji: '🥭',
-      payload: {
-        options: [
-          { id: 'o1', text: 'मीठे', isCorrect: true },
-          { id: 'o2', text: 'आम', isCorrect: false },
-          { id: 'o3', text: 'पेड़', isCorrect: false },
-        ],
-      },
-      explanation: '"मीठे" शब्द आम के स्वाद व गुण की विशेषता बता रहा है!',
-      points: 10,
-    },
-    {
-      id: `gen_h_${grade}_05`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'लिंग (स्त्रीलिंग व पुल्लिंग)',
-      difficulty: 'easy',
-      type: 'match_pairs',
-      question: 'पुल्लिंग और स्त्रीलिंग की सही जोड़ी मिलाइए:',
-      visualEmoji: '👫',
-      payload: {
-        pairs: [
-          { id: 'hl1', left: 'राजा 👑', right: 'रानी 👸' },
-          { id: 'hl2', left: 'मोर 🦚', right: 'मोरनी' },
-          { id: 'hl3', left: 'बालक 👦', right: 'बालिका 👧' },
-        ],
-      },
-      explanation: 'राजा-रानी, मोर-मोरनी, बालक-बालिका!',
-      points: 15,
-    },
-    {
-      id: `gen_h_${grade}_06`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'पर्यायवाची शब्द (समान अर्थ)',
-      difficulty: 'medium',
-      type: 'mcq',
-      question: '"सूर्य" का सही पर्यायवाची (समान अर्थ वाला) शब्द कौन सा है? ☀️',
-      visualEmoji: '☀️',
-      payload: {
-        options: [
-          { id: 'o1', text: 'रवि / दिनकर ☀️', isCorrect: true },
-          { id: 'o2', text: 'शशि / चंद्रमा 🌙', isCorrect: false },
-          { id: 'o3', text: 'पवन / हवा 💨', isCorrect: false },
-        ],
-      },
-      explanation: 'सूर्य के पर्यायवाची हैं: रवि, दिनकर, भानु, भास्कर!',
-      points: 10,
-    },
-    {
-      id: `gen_h_${grade}_07`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'मुहावरे',
-      difficulty: 'medium',
-      type: 'fill_blank',
-      question: 'मुहावरे का सही अर्थ भरिए:',
-      visualEmoji: '🏃',
-      payload: {
-        correctAnswer: 'भाग गया',
-        wordBank: ['भाग गया', 'सो गया', 'नाच उठा'],
-        displayTemplate: '"नौ दो ग्यारह होना" का सही अर्थ है [BLANK]।',
-      },
-      explanation: 'नौ दो ग्यारह होना का अर्थ होता है भाग जाना या चंपत हो जाना!',
-      points: 10,
-    },
-    {
-      id: `gen_h_${grade}_08`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'वाक्य रचना (Sentence Scramble)',
-      difficulty: 'easy',
-      type: 'drag_order',
-      question: 'शब्दों को सही क्रम में लगाकर सार्थक वाक्य बनाइए:',
-      visualEmoji: '🇮🇳',
-      payload: {
-        tokens: ['भारत', 'हमारा', 'देश', 'है'],
-        scrambled: ['है', 'भारत', 'देश', 'हमारा'],
-        correctSequence: ['भारत', 'हमारा', 'देश', 'है'],
-      },
-      explanation: 'सही वाक्य रचना: "भारत हमारा देश है।"',
-      points: 10,
-    },
-    {
-      id: `gen_h_${grade}_09`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'विराम चिह्न',
-      difficulty: 'easy',
-      type: 'mcq',
-      question: '"अरे वाह! कितना सुंदर दृश्य है!" में "!" कौन सा चिह्न है? 🌸',
-      visualEmoji: '🌸',
-      payload: {
-        options: [
-          { id: 'o1', text: 'विस्मयादिबोधक चिह्न', isCorrect: true },
-          { id: 'o2', text: 'पूर्ण विराम', isCorrect: false },
-          { id: 'o3', text: 'प्रश्नवाचक चिह्न', isCorrect: false },
-        ],
-      },
-      explanation: 'हर्ष, आश्चर्य या शोक प्रकट करने वाले शब्दों के आगे विस्मयादिबोधक चिह्न (!) लगता है!',
-      points: 10,
-    },
-    {
-      id: `gen_h_${grade}_10`,
-      grade,
-      subject: 'hindi',
-      chapter,
-      concept: 'अनेक शब्दों के लिए एक शब्द',
-      difficulty: 'medium',
-      type: 'match_pairs',
-      question: 'अनेक शब्दों के स्थान पर एक सही शब्द का मिलान कीजिए:',
-      visualEmoji: '💡',
-      payload: {
-        pairs: [
-          { id: 'ho1', left: 'जो पढ़ाता है 👨‍🏫', right: 'शिक्षक (अध्यापक)' },
-          { id: 'ho2', left: 'जो बीमारों का इलाज करे 🩺', right: 'चिकित्सक (डॉक्टर)' },
-          { id: 'ho3', left: 'जो देश की सीमा पर लड़े 🎖️', right: 'सैनिक' },
-        ],
-      },
-      explanation: 'पढ़ाने वाला शिक्षक, इलाज करने वाला डॉक्टर, रक्षा करने वाला सैनिक!',
-      points: 15,
-    },
-  ];
-}

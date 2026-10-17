@@ -100,13 +100,13 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c3_m_09', number: 9, title: 'Jugs and Mugs (Litres & Millilitres)', grade: 3, subject: 'maths', icon: '🥛', conceptSummary: 'NCERT: Liquid volume capacity measurement' },
   { id: 'c3_m_10', number: 10, title: 'Rupees and Paise (Money)', grade: 3, subject: 'maths', icon: '🪙', conceptSummary: 'NCERT: Notes, coins, adding money bills' },
 
-  { id: 'c3_e_01', number: 1, title: 'Good Morning & Nature Words', grade: 3, subject: 'english', icon: '🌅', conceptSummary: 'NCERT: Rhyming words, vocabulary in poems' },
-  { id: 'c3_e_02', number: 2, title: 'Common & Proper Nouns', grade: 3, subject: 'english', icon: '🏛️', conceptSummary: 'NCERT: Names of specific cities, monuments & persons' },
-  { id: 'c3_e_03', number: 3, title: 'Singular and Plural (-s, -es, -ies)', grade: 3, subject: 'english', icon: '📚', conceptSummary: 'NCERT: Box -> Boxes, Baby -> Babies' },
-  { id: 'c3_e_04', number: 4, title: 'Helping Verbs (Is, Am, Are, Was, Were)', grade: 3, subject: 'english', icon: '⚙️', conceptSummary: 'NCERT: Agreement with singular & plural subjects' },
-  { id: 'c3_e_05', number: 5, title: 'Adjectives & Degrees of Comparison', grade: 3, subject: 'english', icon: '🌟', conceptSummary: 'NCERT: Sweet, sweeter, sweetest' },
-  { id: 'c3_e_06', number: 6, title: 'Prepositions of Time & Place', grade: 3, subject: 'english', icon: '⏳', conceptSummary: 'NCERT: At, in, on, under, between' },
-  { id: 'c3_e_07', number: 7, title: 'Connecting Words (And, But, Because)', grade: 3, subject: 'english', icon: '🔗', conceptSummary: 'NCERT: Joining simple sentences' },
+  { id: 'c3_e_01', number: 1, title: 'Rhyming Words & Phonics', grade: 3, subject: 'english', icon: '🔤', conceptSummary: 'Universal: Rhyming words, vowel sounds & phonics' },
+  { id: 'c3_e_02', number: 2, title: 'Common & Proper Nouns', grade: 3, subject: 'english', icon: '🏛️', conceptSummary: 'Universal: Names of specific cities, monuments, persons & capitalization' },
+  { id: 'c3_e_03', number: 3, title: 'Singular and Plural (-s, -es, -ies)', grade: 3, subject: 'english', icon: '📚', conceptSummary: 'Universal: Box -> Boxes, Baby -> Babies, Leaf -> Leaves' },
+  { id: 'c3_e_04', number: 4, title: 'Helping Verbs (Is, Am, Are, Was, Were)', grade: 3, subject: 'english', icon: '⚙️', conceptSummary: 'Universal: Subject-verb agreement with singular & plural subjects' },
+  { id: 'c3_e_05', number: 5, title: 'Adjectives & Degrees of Comparison', grade: 3, subject: 'english', icon: '🌟', conceptSummary: 'Universal: Sweet, sweeter, sweetest & describing words' },
+  { id: 'c3_e_06', number: 6, title: 'Prepositions of Time & Place', grade: 3, subject: 'english', icon: '⏳', conceptSummary: 'Universal: At, in, on, under, between, behind' },
+  { id: 'c3_e_07', number: 7, title: 'Connecting Words (And, But, Because)', grade: 3, subject: 'english', icon: '🔗', conceptSummary: 'Universal: Conjunctions joining simple sentences' },
 
   // =========================================================================
   // CLASS 4 — NCERT MATH-MAGIC 4 & MARIGOLD 4
@@ -196,14 +196,14 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c2_h_07', number: 7, title: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)', grade: 2, subject: 'hindi', icon: '👫', conceptSummary: 'NCERT: राजा/रानी, मोर/मोरनी, लड़का/लड़की' },
 
   // =========================================================================
-  // CLASS 3 — NCERT वीणा 3 (VEENA 3 / RIMJHIM 3)
+  // CLASS 3 — HINDI VYAKARAN & NCERT वीणा 3 / रिमझिम 3
   // =========================================================================
-  { id: 'c3_h_01', number: 1, title: 'कक्कू (संज्ञा व उसके भेद)', grade: 3, subject: 'hindi', icon: '👦', conceptSummary: 'NCERT वीणा 3: व्यक्तिवाचक व जातिवाचक संज्ञा' },
-  { id: 'c3_h_02', number: 2, title: 'शेखीबाज़ मक्खी (सर्वनाम शब्द)', grade: 3, subject: 'hindi', icon: '🪰', conceptSummary: 'NCERT: मैं, हम, तुम, वह, वे, उसका' },
-  { id: 'c3_h_03', number: 3, title: 'चाँद वाली अम्मा (क्रिया व काल)', grade: 3, subject: 'hindi', icon: '👵', conceptSummary: 'NCERT: काम हो चुका (था), हो रहा है (है), होगा (गा)' },
-  { id: 'c3_h_04', number: 4, title: 'बहादुर बित्तो (विलोम व पर्यायवाची शब्द)', grade: 3, subject: 'hindi', icon: '🦁', conceptSummary: 'NCERT: सूर्य/सूरज, जल/पानी, डरपोक/बहादुर' },
-  { id: 'c3_h_05', number: 5, title: 'हमसे सब कहते (मुहावरे परिचय)', grade: 3, subject: 'hindi', icon: '💭', conceptSummary: 'NCERT: कान भरना, आँख लगना, फूला न समाना' },
-  { id: 'c3_h_06', number: 6, title: 'बंदर बाँट (विराम चिह्न व वाक्य शुद्धि)', grade: 3, subject: 'hindi', icon: '⚖️', conceptSummary: 'NCERT: पूर्ण विराम (।), प्रश्नवाचक (?), विस्मयादिबोधक (!)' },
+  { id: 'c3_h_01', number: 1, title: 'संज्ञा व उसके भेद (व्यक्तिवाचक व जातिवाचक)', grade: 3, subject: 'hindi', icon: '👦', conceptSummary: 'व्याकरण: व्यक्तिवाचक, जातिवाचक व भाववाचक संज्ञा पहचान' },
+  { id: 'c3_h_02', number: 2, title: 'सर्वनाम शब्द (मैं, हम, तुम, वह, वे)', grade: 3, subject: 'hindi', icon: '👥', conceptSummary: 'व्याकरण: पुरुषवाचक सर्वनाम (उत्तम, मध्यम, अन्य पुरुष)' },
+  { id: 'c3_h_03', number: 3, title: 'क्रिया व काल (भूत, वर्तमान, भविष्य)', grade: 3, subject: 'hindi', icon: '⏰', conceptSummary: 'व्याकरण: काम बताने वाले शब्द व तीनों काल (था, है, होगा)' },
+  { id: 'c3_h_04', number: 4, title: 'विलोम व पर्यायवाची शब्द', grade: 3, subject: 'hindi', icon: '🔄', conceptSummary: 'व्याकरण: विपरीतार्थक (उलटे) व समानार्थक (पर्याय) शब्द' },
+  { id: 'c3_h_05', number: 5, title: 'मुहावरे व लोकोक्तियाँ', grade: 3, subject: 'hindi', icon: '💭', conceptSummary: 'व्याकरण: कान भरना, आँख लगना, फूला न समाना, अँगूठा दिखाना' },
+  { id: 'c3_h_06', number: 6, title: 'विराम चिह्न व शुद्ध वर्तनी', grade: 3, subject: 'hindi', icon: '✍️', conceptSummary: 'व्याकरण: पूर्ण विराम (।), प्रश्नवाचक (?), विस्मयादिबोधक (!) व शुद्ध शब्द' },
 
   // =========================================================================
   // CLASS 4 — NCERT रिमझिम 4 (RIMJHIM 4)

@@ -1,142 +1,321 @@
 import { Question } from '../../types';
 
 // ============================================================================
-// NCERT CLASS 3 ENGLISH (SANTOOR 3 / MARIGOLD 3)
+// UNIVERSAL ENGLISH GRAMMAR (CLASS 3)
 // CHAPTER 5: ADJECTIVES & DEGREES OF COMPARISON
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Positive Degree (Describing One Item)
+  // TIER 1: 5 EASY QUESTIONS (विशेषण परिभाषा, पहचान व तीन अवस्थाएं)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_e5_concept_pos_01',
+    id: 'c3_e5_q01',
     grade: 3,
     subject: 'english',
     chapter: 'Adjectives & Degrees of Comparison',
-    concept: 'Describing Adjective',
+    concept: 'Definition of an Adjective',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Identify the adjective (describing word) in this sentence:\n"The giraffe has a long neck."',
-    visualEmoji: '🦒 🌿',
+    question: 'What is an ADJECTIVE in English grammar?',
+    visualEmoji: '🌟 🎨 📏',
     payload: {
       options: [
-        { id: 'opt_adj1', text: 'long', isCorrect: true },
-        { id: 'opt_adj2', text: 'giraffe', isCorrect: false },
-        { id: 'opt_adj3', text: 'neck', isCorrect: false },
+        { id: 'opt_1', text: 'A describing word that gives more details about a noun', isCorrect: true },
+        { id: 'opt_2', text: 'An action word like run or eat', isCorrect: false },
+        { id: 'opt_3', text: 'A person\'s name', isCorrect: false },
+        { id: 'opt_4', text: 'A punctuation mark', isCorrect: false },
       ],
     },
-    explanation: '💡 An **adjective** describes a noun. "Long" tells us what kind of neck the giraffe has!',
+    explanation: '💡 An adjective describes a noun by telling its color, size, shape, number, or quality!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Comparative Degree (-er with "than")
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_e5_concept_comp_01',
+    id: 'c3_e5_q02',
     grade: 3,
     subject: 'english',
     chapter: 'Adjectives & Degrees of Comparison',
-    concept: 'Comparative Form with "than"',
+    concept: 'Identifying Adjectives in a Sentence',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'In the sentence: "Rohan wore a bright yellow shirt to the party", which word is an ADJECTIVE describing the shirt?',
+    visualEmoji: '👕 💛 ✨',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'yellow', isCorrect: true },
+        { id: 'opt_2', text: 'shirt', isCorrect: false },
+        { id: 'opt_3', text: 'party', isCorrect: false },
+        { id: 'opt_4', text: 'wore', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "Yellow" describes the color of the noun "shirt", so it is an adjective!',
+    points: 10,
+  },
+  {
+    id: 'c3_e5_q03',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Positive Degree of Adjective',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'A rabbit 🐇 runs fast, but a cheetah 🐆 runs [BLANK] than a rabbit.',
-    visualEmoji: '🐇 ➔ 🐆 💨',
+    question: 'A giraffe is a very [BLANK] animal. (Use the base positive form of TALL)',
+    visualEmoji: '🦒 📏',
     payload: {
-      correctAnswer: 'faster',
-      wordBank: ['faster', 'fastest', 'fast', 'more fast'],
-      displayTemplate: 'A cheetah runs [BLANK] than a rabbit.',
+      correctAnswer: 'tall',
+      wordBank: ['tall', 'taller', 'tallest', 'more tall'],
+      displayTemplate: 'A giraffe is a very [BLANK] animal.',
     },
-    explanation: '💡 When comparing **two** animals, we use the comparative degree with **-er** (fast ➔ **faster than**) !',
+    explanation: '💡 When not comparing with another animal, we use the simple Positive degree: "tall"!',
     points: 10,
   },
   {
-    id: 'c3_e5_concept_comp_02',
+    id: 'c3_e5_q04',
     grade: 3,
     subject: 'english',
     chapter: 'Adjectives & Degrees of Comparison',
-    concept: 'Comparing Two Objects',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'Which sentence correctly compares two books?',
-    visualEmoji: '📚 📖',
-    payload: {
-      options: [
-        { id: 'opt_deg1', text: 'This storybook is thicker than my diary.', isCorrect: true },
-        { id: 'opt_deg2', text: 'This storybook is thickest than my diary.', isCorrect: false },
-        { id: 'opt_deg3', text: 'This storybook is more thick my diary.', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Comparing 2 things uses **-er + than**: **thicker than**.',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Superlative Degree (-est with "the")
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_e5_concept_sup_01',
-    grade: 3,
-    subject: 'english',
-    chapter: 'Adjectives & Degrees of Comparison',
-    concept: 'Superlative Form with "the"',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'Mount Everest 🏔️ is the [_____] mountain in the world.',
-    visualEmoji: '🏔️ 🗻 ⛰️',
-    payload: {
-      options: [
-        { id: 'opt_sup1', text: 'highest', isCorrect: true },
-        { id: 'opt_sup2', text: 'higher', isCorrect: false },
-        { id: 'opt_sup3', text: 'high', isCorrect: false },
-      ],
-    },
-    explanation: '💡 When comparing **more than two** (or all in the world), we use **the + -est**: **the highest**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Degrees Sequence & Matching
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_e5_concept_order_01',
-    grade: 3,
-    subject: 'english',
-    chapter: 'Adjectives & Degrees of Comparison',
-    concept: 'Three Degrees of Comparison Sequence',
+    concept: 'Comparative Degree with "than"',
     difficulty: 'easy',
-    type: 'drag_order',
-    question: 'Arrange the three degrees of comparison in order (Positive ➔ Comparative ➔ Superlative):',
-    visualEmoji: '📏 ➔ 📐 ➔ 🏔️',
+    type: 'mcq',
+    question: 'Choose the correct form: "A rabbit runs [BLANK] than a tortoise."',
+    visualEmoji: '🐇 🆚 🐢 🏃',
     payload: {
-      tokens: ['sweet', 'sweeter', 'sweetest'],
-      scrambled: ['sweetest', 'sweet', 'sweeter'],
-      correctSequence: ['sweet', 'sweeter', 'sweetest'],
+      options: [
+        { id: 'opt_1', text: 'faster', isCorrect: true },
+        { id: 'opt_2', text: 'fast', isCorrect: false },
+        { id: 'opt_3', text: 'fastest', isCorrect: false },
+        { id: 'opt_4', text: 'more fast', isCorrect: false },
+      ],
     },
-    explanation: '💡 Sequence: Positive (**sweet**) ➔ Comparative (**sweeter**) ➔ Superlative (**sweetest**)!',
+    explanation: '💡 When comparing two things with the word "than", use the Comparative degree ending in "-er": faster!',
+    points: 10,
+  },
+  {
+    id: 'c3_e5_q05',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Superlative Degree with "the"',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'Mount Everest is the [BLANK] mountain peak in the world. (Use the superlative form of HIGH)',
+    visualEmoji: '🏔️ 🥇 🌍',
+    payload: {
+      correctAnswer: 'highest',
+      wordBank: ['highest', 'higher', 'high', 'most high'],
+      displayTemplate: 'Mount Everest is the [BLANK] peak.',
+    },
+    explanation: '💡 When comparing among all things (preceded by "the"), use the Superlative degree ending in "-est": highest!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 2: 5 MEDIUM QUESTIONS (द्वित्व व्यंजन नियम, y ➡️ i नियम व Good/Better)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_e5_q06',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Double Consonant Rule in Comparative',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'What is the correct comparative spelling of "BIG"?',
+    visualEmoji: '🐘 🆚 🐕',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'bigger', isCorrect: true },
+        { id: 'opt_2', text: 'biger', isCorrect: false },
+        { id: 'opt_3', text: 'bigest', isCorrect: false },
+        { id: 'opt_4', text: 'more big', isCorrect: false },
+      ],
+    },
+    explanation: '💡 In short words with one vowel + one consonant (CVC pattern), double the last letter before adding "-er": big -> bigger!',
     points: 15,
   },
   {
-    id: 'c3_e5_concept_match_01',
+    id: 'c3_e5_q07',
     grade: 3,
     subject: 'english',
     chapter: 'Adjectives & Degrees of Comparison',
-    concept: 'Match Degrees of Adjectives',
+    concept: 'Adjectives Ending in -y Rule',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'Change "y" to "i" before adding -er/-est: happy ➡️ happier ➡️ [BLANK].',
+    visualEmoji: '😊 😃 🥳',
+    payload: {
+      correctAnswer: 'happiest',
+      wordBank: ['happiest', 'happyest', 'most happy', 'happir'],
+      displayTemplate: 'happy ➡️ happier ➡️ [BLANK].',
+    },
+    explanation: '💡 For adjectives ending in consonant + "y", change "y" to "i" and add "-est": happiest!',
+    points: 15,
+  },
+  {
+    id: 'c3_e5_q08',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Irregular Comparison of "Good"',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'What is the correct comparative form of the irregular adjective "GOOD"?',
+    visualEmoji: '👍 ⭐ 🏆',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'better', isCorrect: true },
+        { id: 'opt_2', text: 'gooder', isCorrect: false },
+        { id: 'opt_3', text: 'best', isCorrect: false },
+        { id: 'opt_4', text: 'more good', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "Good" is an irregular adjective: good -> better -> best (gooder does not exist)!',
+    points: 15,
+  },
+  {
+    id: 'c3_e5_q09',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Superlative Choice in Group',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Complete the sentence: "Of all the forty students in the class, Aarav is the [BLANK] runner."',
+    visualEmoji: '🏃 🥇 🏫',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'fastest', isCorrect: true },
+        { id: 'opt_2', text: 'faster', isCorrect: false },
+        { id: 'opt_3', text: 'fast', isCorrect: false },
+        { id: 'opt_4', text: 'more fast', isCorrect: false },
+      ],
+    },
+    explanation: '💡 When comparing more than two students (the entire class), use the superlative degree: "the fastest"!',
+    points: 15,
+  },
+  {
+    id: 'c3_e5_q10',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Matching Positive to Superlative',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match the positive adjective with its superlative form:',
-    visualEmoji: '🌟 ➔ 🏆',
+    question: 'Match each positive adjective with its correct superlative form:',
+    visualEmoji: '🌟 🎯 🏷️',
     payload: {
       pairs: [
-        { id: 'e5_p1', left: 'cold', right: 'coldest' },
-        { id: 'e5_p2', left: 'bright', right: 'brightest' },
-        { id: 'e5_p3', left: 'heavy', right: 'heaviest' },
-        { id: 'e5_p4', left: 'tall', right: 'tallest' },
+        { id: 'e5_p1', left: 'Sweet', right: 'Sweetest' },
+        { id: 'e5_p2', left: 'Cold', right: 'Coldest' },
+        { id: 'e5_p3', left: 'Warm', right: 'Warmest' },
+        { id: 'e5_p4', left: 'Bright', right: 'Brightest' },
       ],
     },
-    explanation: '💡 cold ➔ coldest, bright ➔ brightest, heavy ➔ heaviest, tall ➔ tallest.',
+    explanation: '💡 Add "-est" to regular one-syllable adjectives for the superlative degree!',
     points: 15,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 3: 5 HARD QUESTIONS (बहु-अक्षरीय विशेषण, Bad/Worst, दोहरा विशेषण दोष)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_e5_q11',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Long Adjectives with More and Most',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'For longer adjectives like "BEAUTIFUL", how do we form the comparative degree?',
+    visualEmoji: '🌺 🦚 ✨',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'more beautiful', isCorrect: true },
+        { id: 'opt_2', text: 'beautifuller', isCorrect: false },
+        { id: 'opt_3', text: 'beautifulest', isCorrect: false },
+        { id: 'opt_4', text: 'most beautiful', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Adjectives with 3 or more syllables take "more" in comparative: more beautiful, more intelligent!',
+    points: 20,
+  },
+  {
+    id: 'c3_e5_q12',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Superlative Form of "Bad"',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'The irregular comparison sequence is: bad ➡️ worse ➡️ [BLANK].',
+    visualEmoji: '👎 🌧️ ⛈️',
+    payload: {
+      correctAnswer: 'worst',
+      wordBank: ['worst', 'baddest', 'more bad', 'badder'],
+      displayTemplate: 'bad ➡️ worse ➡️ [BLANK].',
+    },
+    explanation: '💡 Bad is an irregular adjective: bad -> worse -> worst!',
+    points: 20,
+  },
+  {
+    id: 'c3_e5_q13',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Double Comparative Error Spotting',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'What is grammatically WRONG in this sentence: "An airplane is more faster than a bullet train"?',
+    visualEmoji: '✈️ 🚅 ❌',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '"more faster" is a double comparative; it should be simply "faster"', isCorrect: true },
+        { id: 'opt_2', text: '"airplane" is misspelled', isCorrect: false },
+        { id: 'opt_3', text: '"than" should be "then"', isCorrect: false },
+        { id: 'opt_4', text: 'The sentence has no error', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Never use "more" and "-er" together! "Faster" already expresses the comparison!',
+    points: 20,
+  },
+  {
+    id: 'c3_e5_q14',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Adjective of Quality vs Quantity',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In the sentence: "The thirsty crow found some water in the pitcher", classify the adjectives "thirsty" and "some":',
+    visualEmoji: '🦅 🏺 💧',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '"thirsty" is an adjective of quality; "some" is an adjective of quantity', isCorrect: true },
+        { id: 'opt_2', text: 'Both are adjectives of quality', isCorrect: false },
+        { id: 'opt_3', text: 'Both are adjectives of quantity', isCorrect: false },
+        { id: 'opt_4', text: '"thirsty" is a verb; "some" is a noun', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "Thirsty" describes what kind of crow (quality); "some" describes how much water (quantity)!',
+    points: 20,
+  },
+  {
+    id: 'c3_e5_q15',
+    grade: 3,
+    subject: 'english',
+    chapter: 'Adjectives & Degrees of Comparison',
+    concept: 'Three Degrees Progression Order',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these three degrees of comparison in order from base to highest: (Positive ➡️ Comparative ➡️ Superlative)',
+    visualEmoji: '🌱 🌿 🌳',
+    payload: {
+      tokens: ['1. Small (Positive)', '2. Smaller (Comparative)', '3. Smallest (Superlative)'],
+      scrambled: ['3. Smallest (Superlative)', '1. Small (Positive)', '2. Smaller (Comparative)'],
+      correctSequence: ['1. Small (Positive)', '2. Smaller (Comparative)', '3. Smallest (Superlative)'],
+    },
+    explanation: '💡 Proper order of degrees: Positive (small) -> Comparative (smaller) -> Superlative (smallest)!',
+    points: 20,
   },
 ];

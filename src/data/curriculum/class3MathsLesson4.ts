@@ -3,196 +3,325 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 4: LONG AND SHORT (LENGTH & METERS)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_4_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Standard Unit Conversion (1 Meter = 100 Centimeters)
+  // TIER 1: 5 EASY QUESTIONS (मीटर, सेंटीमीटर व पैमाना परिचय)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m4_concept_conv_01',
+    id: 'c3_m4_q01',
     grade: 3,
     subject: 'maths',
     chapter: 'Long and Short (Length & Meters)',
-    concept: 'Centimeters in a Meter',
+    concept: 'Standard Unit Conversion (Meter to Centimeter)',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'How many centimeters (cm) are there in exactly 1 meter (m)?',
-    visualEmoji: '📏 1️⃣ m = ❓ cm',
+    question: 'How many centimeters are there in 1 meter?',
+    visualEmoji: '📏 1️⃣ Ⓜ️',
     payload: {
       options: [
-        { id: 'opt_cv1_1', text: '100 centimeters', isCorrect: true },
-        { id: 'opt_cv1_2', text: '10 centimeters', isCorrect: false },
-        { id: 'opt_cv1_3', text: '1000 centimeters', isCorrect: false },
+        { id: 'opt_1', text: '100 centimeters', isCorrect: true },
+        { id: 'opt_2', text: '10 centimeters', isCorrect: false },
+        { id: 'opt_3', text: '1000 centimeters', isCorrect: false },
+        { id: 'opt_4', text: '50 centimeters', isCorrect: false },
       ],
     },
-    explanation: '💡 Remember this important rule: **1 Meter = 100 Centimeters (1 m = 100 cm)**!',
+    explanation: '💡 Standard metric rule: 1 meter (m) = 100 centimeters (cm)!',
     points: 10,
   },
   {
-    id: 'c3_m4_concept_conv_02',
+    id: 'c3_m4_q02',
     grade: 3,
     subject: 'maths',
     chapter: 'Long and Short (Length & Meters)',
-    concept: 'Converting Meters to Centimeters',
+    concept: 'Appropriate Unit for Small Objects',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Which unit is most suitable to measure the length of a pencil or rubber eraser?',
+    visualEmoji: '✏️ 🔍',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Centimeters (cm)', isCorrect: true },
+        { id: 'opt_2', text: 'Meters (m)', isCorrect: false },
+        { id: 'opt_3', text: 'Kilometers (km)', isCorrect: false },
+        { id: 'opt_4', text: 'Kilograms (kg)', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Small handheld items like pencils, sharpeners, and books are measured in centimeters (cm)!',
+    points: 10,
+  },
+  {
+    id: 'c3_m4_q03',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Appropriate Unit for Tall Objects',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Which unit is best suited to measure the height of a coconut tree or a classroom wall?',
+    visualEmoji: '🌴 🏫',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Meters (m)', isCorrect: true },
+        { id: 'opt_2', text: 'Millimeters (mm)', isCorrect: false },
+        { id: 'opt_3', text: 'Grams (g)', isCorrect: false },
+        { id: 'opt_4', text: 'Litres (L)', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Large lengths and heights like trees, classrooms, and buildings are measured in meters (m)!',
+    points: 10,
+  },
+  {
+    id: 'c3_m4_q04',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Reading a Ruler from Zero',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'A tailor cuts 3 meters of cloth 🧵. In centimeters, this is 3 × 100 = [BLANK] cm.',
-    visualEmoji: '🧵 3️⃣ m',
+    question: 'A paper strip is placed along a ruler starting at 0 cm and ending at 7 cm. Its length is [BLANK] cm.',
+    visualEmoji: '📏 0️⃣ ➡️ 7️⃣',
     payload: {
-      correctAnswer: '300',
-      wordBank: ['300', '30', '3000', '130'],
-      displayTemplate: '3 meters = [BLANK] cm',
+      correctAnswer: '7',
+      wordBank: ['7', '6', '8', '14'],
+      displayTemplate: 'The strip length is [BLANK] cm.',
     },
-    explanation: '💡 3 meters = 3 × 100 = **300 cm**!',
+    explanation: '💡 Starting from 0 cm to 7 cm mark gives exactly 7 cm!',
+    points: 10,
+  },
+  {
+    id: 'c3_m4_q05',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Half a Meter',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Half of a meter (1/2 meter) is equal to how many centimeters?',
+    visualEmoji: '½ Ⓜ️ 🟰 ❓ 📏',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '50 cm', isCorrect: true },
+        { id: 'opt_2', text: '25 cm', isCorrect: false },
+        { id: 'opt_3', text: '10 cm', isCorrect: false },
+        { id: 'opt_4', text: '75 cm', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Since 1 meter = 100 cm, half of a meter is 100 ÷ 2 = 50 cm!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 2: Reading a Ruler Correctly (Starting from Zero)
+  // TIER 2: 5 MEDIUM QUESTIONS (टूटा स्केल, मीटर-सेंटीमीटर रूपांतरण व तुलना)
   // --------------------------------------------------------------------------
   {
-    id: 'c3_m4_concept_ruler_01',
+    id: 'c3_m4_q06',
     grade: 3,
     subject: 'maths',
     chapter: 'Long and Short (Length & Meters)',
-    concept: 'Measuring from Zero Mark',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'When measuring the exact length of a crayon with a ruler 📏, at which mark must you align the left edge of the crayon?',
-    visualEmoji: '🖍️ 📏 0️⃣',
-    payload: {
-      options: [
-        { id: 'opt_rl1_1', text: 'At the "0" mark', isCorrect: true },
-        { id: 'opt_rl1_2', text: 'At the "1" mark', isCorrect: false },
-        { id: 'opt_rl1_3', text: 'At the very corner of the plastic', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Always start measuring from the **0 (Zero) mark** on the ruler to get the true length!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Kilometers (km) for Long Distances
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m4_concept_km_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Long and Short (Length & Meters)',
-    concept: 'Kilometer for Road Trips',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'The distance between two big cities (like Delhi and Agra 🚗) is measured in which unit?',
-    visualEmoji: '🚗 🛣️ 🏙️',
-    payload: {
-      options: [
-        { id: 'opt_km1_1', text: 'Kilometers', isCorrect: true },
-        { id: 'opt_km1_2', text: 'Centimeters', isCorrect: false },
-        { id: 'opt_km1_3', text: 'Millimeters', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Long travel distances on highways and roads are measured in **Kilometers (km)**!',
-    points: 10,
-  },
-  {
-    id: 'c3_m4_concept_km_02',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Long and Short (Length & Meters)',
-    concept: 'Meters in a Kilometer',
+    concept: 'Reading a Scale not Starting from Zero',
     difficulty: 'medium',
-    type: 'fill_blank',
-    question: '1 Kilometer is equal to [BLANK] meters.',
-    visualEmoji: '🛣️ 1️⃣ km = ❓ m',
-    payload: {
-      correctAnswer: '1000',
-      wordBank: ['1000', '100', '10', '500'],
-      displayTemplate: '1 km = [BLANK] meters',
-    },
-    explanation: '💡 **1 km = 1000 meters**! 🏃',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Choosing the Appropriate Unit (mm, cm, m, km)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m4_concept_choose_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Long and Short (Length & Meters)',
-    concept: 'Unit for Flagpole Height',
-    difficulty: 'easy',
     type: 'mcq',
-    question: 'Which unit is best suited to measure the height of the school flag pole 🚩?',
-    visualEmoji: '🚩 🏫',
+    question: 'A pencil is placed on a ruler. Its back end is at the 2 cm mark and its pointed tip is at the 11 cm mark. What is the length of the pencil?',
+    visualEmoji: '✏️ 2️⃣ ➡️ 1️⃣1️⃣',
     payload: {
       options: [
-        { id: 'opt_ch1_1', text: 'Meters', isCorrect: true },
-        { id: 'opt_ch1_2', text: 'Kilometers', isCorrect: false },
-        { id: 'opt_ch1_3', text: 'Millimeters', isCorrect: false },
+        { id: 'opt_1', text: '9 cm', isCorrect: true },
+        { id: 'opt_2', text: '11 cm', isCorrect: false },
+        { id: 'opt_3', text: '13 cm', isCorrect: false },
+        { id: 'opt_4', text: '8 cm', isCorrect: false },
       ],
     },
-    explanation: '💡 A school flag pole is several meters tall (e.g. 6 meters), so **meters (m)** is the best unit!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Order Units by Size (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c3_m4_concept_order_01',
-    grade: 3,
-    subject: 'maths',
-    chapter: 'Long and Short (Length & Meters)',
-    concept: 'Ordering Metric Units of Length',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange the metric units of length from SHORTEST to LONGEST:',
-    visualEmoji: '📏 📐 🛣️',
-    payload: {
-      tokens: ['1. Millimeter (mm)', '2. Centimeter (cm)', '3. Meter (m)', '4. Kilometer (km)'],
-      scrambled: [
-        '3. Meter (m)',
-        '1. Millimeter (mm)',
-        '4. Kilometer (km)',
-        '2. Centimeter (cm)',
-      ],
-      correctSequence: [
-        '1. Millimeter (mm)',
-        '2. Centimeter (cm)',
-        '3. Meter (m)',
-        '4. Kilometer (km)',
-      ],
-    },
-    explanation: '💡 Smallest to largest: **Millimeter < Centimeter < Meter < Kilometer**!',
+    explanation: '💡 When not starting at 0, subtract start from end: 11 - 2 = 9 cm!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Object to Ideal Unit of Length
-  // --------------------------------------------------------------------------
   {
-    id: 'c3_m4_concept_match_01',
+    id: 'c3_m4_q07',
     grade: 3,
     subject: 'maths',
     chapter: 'Long and Short (Length & Meters)',
-    concept: 'Real Object to Length Unit Match',
+    concept: 'Converting Meters and Centimeters to Centimeters',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'A curtain cloth is 3 meters and 25 centimeters long. In centimeters, its total length is [BLANK] cm.',
+    visualEmoji: '🧵 3️⃣ m 2️⃣5️⃣ cm',
+    payload: {
+      correctAnswer: '325',
+      wordBank: ['325', '3025', '350', '28'],
+      displayTemplate: 'Its total length is [BLANK] cm.',
+    },
+    explanation: '💡 3 meters = 300 cm. 300 + 25 = 325 cm!',
+    points: 15,
+  },
+  {
+    id: 'c3_m4_q08',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Comparing Heights',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Rohan is 135 cm tall and his sister Riya is 120 cm tall. Who is taller and by how much?',
+    visualEmoji: '👦 👧 📏',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Rohan is taller by 15 cm', isCorrect: true },
+        { id: 'opt_2', text: 'Riya is taller by 15 cm', isCorrect: false },
+        { id: 'opt_3', text: 'Rohan is taller by 25 cm', isCorrect: false },
+        { id: 'opt_4', text: 'Both are of equal height', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Rohan is 135 cm and Riya is 120 cm. 135 - 120 = 15 cm. Rohan is taller by 15 cm!',
+    points: 15,
+  },
+  {
+    id: 'c3_m4_q09',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Tailor Cloth Measurement',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'A tailor needs 2 meters of cloth to stitch a school uniform shirt. How many centimeters of cloth is that?',
+    visualEmoji: '👔 ✂️ 🧵',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '200 cm', isCorrect: true },
+        { id: 'opt_2', text: '20 cm', isCorrect: false },
+        { id: 'opt_3', text: '2000 cm', isCorrect: false },
+        { id: 'opt_4', text: '250 cm', isCorrect: false },
+      ],
+    },
+    explanation: '💡 1 meter = 100 cm, so 2 meters = 2 × 100 = 200 cm!',
+    points: 15,
+  },
+  {
+    id: 'c3_m4_q10',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Appropriate Unit Matching',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each real-world item to the unit used to measure it:',
-    visualEmoji: '🐜 ✏️ 🥻 🚆',
+    question: 'Match each item to the most appropriate metric measuring unit:',
+    visualEmoji: '📏 🏷️',
     payload: {
       pairs: [
-        { id: 'lu_p1', left: 'Length of a tiny ant 🐜', right: 'Millimeter (mm)' },
-        { id: 'lu_p2', left: 'Length of a pencil ✏️', right: 'Centimeter (cm)' },
-        { id: 'lu_p3', left: 'Length of mother\'s saree 🥻', right: 'Meter (m)' },
-        { id: 'lu_p4', left: 'Distance to another town 🛣️', right: 'Kilometer (km)' },
+        { id: 'm4_p1', left: 'Length of a toothbrush', right: 'Centimeters' },
+        { id: 'm4_p2', left: 'Length of a cricket pitch', right: 'Meters' },
+        { id: 'm4_p3', left: 'Distance between Delhi and Agra', right: 'Kilometers' },
+        { id: 'm4_p4', left: 'Thickness of a 5 rupee coin', right: 'Millimeters' },
       ],
     },
-    explanation: '💡 Ant = mm, Pencil = cm, Saree = m, City distance = km!',
+    explanation: '💡 Tiny thickness = mm; Handheld length = cm; Playground length = m; Long travel distance = km!',
     points: 15,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 3: 5 HARD QUESTIONS (बहु-चरणीय समस्याएं, बगीचे का घेरा व रूपांतरण)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c3_m4_q11',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Cloth Roll Subtraction Problem',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'A shopkeeper has a roll of 10 meters of cloth. He cuts 3 m 40 cm for Priya and 2 m 50 cm for Neha. How much cloth is left on the roll?',
+    visualEmoji: '🧵 ✂️ 🏪',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '4 m 10 cm', isCorrect: true },
+        { id: 'opt_2', text: '5 m 10 cm', isCorrect: false },
+        { id: 'opt_3', text: '4 m 90 cm', isCorrect: false },
+        { id: 'opt_4', text: '3 m 80 cm', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Total sold: 3 m 40 cm + 2 m 50 cm = 5 m 90 cm. Cloth left: 10 m 00 cm - 5 m 90 cm = 4 m 10 cm!',
+    points: 20,
+  },
+  {
+    id: 'c3_m4_q12',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Boundary Distance of Square Garden',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'A square park has each side of length 25 meters. If an athlete runs around its outer boundary exactly once, the total distance run is [BLANK] meters.',
+    visualEmoji: '🏃 🟩 2️⃣5️⃣ m',
+    payload: {
+      correctAnswer: '100',
+      wordBank: ['100', '50', '75', '125'],
+      displayTemplate: 'Total distance run is [BLANK] meters.',
+    },
+    explanation: '💡 A square has 4 equal sides: 25 m + 25 m + 25 m + 25 m = 100 meters (or 100 m = 1 full lap)!',
+    points: 20,
+  },
+  {
+    id: 'c3_m4_q13',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Decimal Scale Reading',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'On a broken scale, an eraser begins at the 3.5 cm mark and ends at the 8.5 cm mark. What is the actual length of the eraser?',
+    visualEmoji: '📐 3️⃣.5️⃣ ➡️ 8️⃣.5️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '5 cm', isCorrect: true },
+        { id: 'opt_2', text: '4.5 cm', isCorrect: false },
+        { id: 'opt_3', text: '5.5 cm', isCorrect: false },
+        { id: 'opt_4', text: '6 cm', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Length = End mark - Start mark = 8.5 cm - 3.5 cm = 5.0 cm!',
+    points: 20,
+  },
+  {
+    id: 'c3_m4_q14',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'Decomposing Centimeters into Meters and Centimeters',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: '485 centimeters is equal to:',
+    visualEmoji: '🧮 4️⃣8️⃣5️⃣ cm',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '4 meters and 85 centimeters', isCorrect: true },
+        { id: 'opt_2', text: '48 meters and 5 centimeters', isCorrect: false },
+        { id: 'opt_3', text: '40 meters and 85 centimeters', isCorrect: false },
+        { id: 'opt_4', text: '4 meters and 8 centimeters', isCorrect: false },
+      ],
+    },
+    explanation: '💡 485 cm = 400 cm + 85 cm = 4 meters and 85 centimeters!',
+    points: 20,
+  },
+  {
+    id: 'c3_m4_q15',
+    grade: 3,
+    subject: 'maths',
+    chapter: 'Long and Short (Length & Meters)',
+    concept: 'High Jump Competition Difference',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In a school sports high-jump competition, Gurjit jumped 1 m 45 cm high, and Aman jumped 1 m 20 cm high. How much higher did Gurjit jump?',
+    visualEmoji: '🏆 🏃 🥇',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '25 cm', isCorrect: true },
+        { id: 'opt_2', text: '15 cm', isCorrect: false },
+        { id: 'opt_3', text: '35 cm', isCorrect: false },
+        { id: 'opt_4', text: '20 cm', isCorrect: false },
+      ],
+    },
+    explanation: '💡 1 m 45 cm - 1 m 20 cm: Meters cancel out (1 - 1 = 0), centimeters: 45 - 20 = 25 cm!',
+    points: 20,
   },
 ];
