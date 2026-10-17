@@ -757,6 +757,113 @@ export function generateDynamicEnglishGrammarQuestion(grade: Grade, chapterTitle
   const qId = `dyn_eng_${grade}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
   const ch = chapterTitle || `English Grammar Mastery (Class ${grade})`;
 
+  // LKG & UKG FOUNDATIONAL ENGLISH (Ages 3-5)
+  if (grade === 'LKG' || grade === 'UKG') {
+    const earlyEnglishBank = [
+      {
+        concept: 'Letter Recognition',
+        question: 'Which letter comes after A in the alphabet? A, [?]',
+        correct: 'B',
+        wrongs: ['C', 'D'],
+        expl: '💡 A, B, C! B comes right after A.',
+        emoji: '🔤 🅰️',
+      },
+      {
+        concept: 'Phonics Sounds',
+        question: 'Which object starts with letter "A"? 🍎',
+        correct: 'Apple 🍎',
+        wrongs: ['Ball ⚽', 'Cat 🐱'],
+        expl: '💡 A is for Apple! Crisp and sweet.',
+        emoji: '🍎 🔤',
+      },
+      {
+        concept: 'Phonics Sounds',
+        question: 'Which object starts with letter "B"? ⚽',
+        correct: 'Ball ⚽',
+        wrongs: ['Fish 🐟', 'Egg 🥚'],
+        expl: '💡 B is for Ball! Great job!',
+        emoji: '⚽ 🔤',
+      },
+      {
+        concept: 'Animal Sounds',
+        question: 'What sound does a friendly dog 🐶 make?',
+        correct: 'Woof Woof! 🐶',
+        wrongs: ['Meow Meow! 🐱', 'Moo Moo! 🐮'],
+        expl: '💡 A dog says "Woof! Woof!"',
+        emoji: '🐶 🎵',
+      },
+      {
+        concept: 'Animal Sounds',
+        question: 'What sound does a cute cat 🐱 make?',
+        correct: 'Meow Meow! 🐱',
+        wrongs: ['Quack Quack! 🦆', 'Roar! 🦁'],
+        expl: '💡 A cat says "Meow! Meow!"',
+        emoji: '🐱 🎵',
+      },
+      {
+        concept: 'CVC Phonics',
+        question: 'Blend these sounds together: C + A + T = [?]',
+        correct: 'CAT 🐱',
+        wrongs: ['BAT 🦇', 'RAT 🐀'],
+        expl: '💡 C-A-T spells CAT! Meow!',
+        emoji: '🐱 🔤',
+      },
+      {
+        concept: 'Everyday Opposites',
+        question: 'Hot fire 🔥 is opposite to cold [?]:',
+        correct: 'Ice ❄️',
+        wrongs: ['Tea ☕', 'Soup 🥣'],
+        expl: '💡 Hot and Cold are opposites!',
+        emoji: '🔥 ❄️',
+      },
+      {
+        concept: 'Everyday Opposites',
+        question: 'What is the opposite of UP ⬆️?',
+        correct: 'DOWN ⬇️',
+        wrongs: ['IN 📥', 'OUT 📤'],
+        expl: '💡 Up and Down are opposites!',
+        emoji: '⬆️ ⬇️',
+      },
+      {
+        concept: 'Sight Words & Colors',
+        question: 'The bright Sun ☀️ in the sky is [BLANK] in color.',
+        correct: 'Yellow 🟡',
+        wrongs: ['Blue 🔵', 'Green 🟢'],
+        expl: '💡 The sun is yellow and bright!',
+        emoji: '☀️ 🟡',
+      },
+      {
+        concept: 'Capital and Small Letters',
+        question: 'Which small letter matches the capital letter "A"?',
+        correct: 'a',
+        wrongs: ['b', 'd'],
+        expl: '💡 Capital A and small a make "Aa"!',
+        emoji: '🅰️ 🔡',
+      },
+    ];
+    const item = randomChoice(earlyEnglishBank);
+    return {
+      id: qId,
+      grade,
+      subject: 'english',
+      chapter: ch,
+      concept: item.concept,
+      difficulty: 'easy',
+      type: 'mcq',
+      question: item.question,
+      visualEmoji: item.emoji,
+      payload: {
+        options: shuffleArray([
+          { id: 'opt_1', text: item.correct, isCorrect: true },
+          { id: 'opt_2', text: item.wrongs[0], isCorrect: false },
+          { id: 'opt_3', text: item.wrongs[1], isCorrect: false },
+        ]),
+      },
+      explanation: item.expl,
+      points: 10,
+    };
+  }
+
   const grammarBank = [
     // Articles (A, An, The)
     {
@@ -908,7 +1015,7 @@ export function generateDynamicEnglishGrammarQuestion(grade: Grade, chapterTitle
     subject: 'english',
     chapter: ch,
     concept: item.concept,
-    difficulty: (grade === 'LKG' || grade === 'UKG' || grade <= 2) ? 'easy' : grade <= 4 ? 'medium' : 'hard',
+    difficulty: grade <= 2 ? 'easy' : grade <= 4 ? 'medium' : 'hard',
     type: 'mcq',
     question: item.question,
     visualEmoji: '🔤 ✍️',
@@ -932,6 +1039,113 @@ export function generateDynamicEnglishGrammarQuestion(grade: Grade, chapterTitle
 export function generateDynamicHindiVyakaranQuestion(grade: Grade, chapterTitle?: string): Question {
   const qId = `dyn_hin_${grade}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
   const ch = chapterTitle || `हिंदी व्याकरण अभ्यास (कक्षा ${grade})`;
+
+  // LKG & UKG FOUNDATIONAL HINDI (Ages 3-5)
+  if (grade === 'LKG' || grade === 'UKG') {
+    const earlyHindiBank = [
+      {
+        concept: 'स्वर पहचान (अ से अनार)',
+        question: 'लाल-लाल मीठे दानों वाला अनार 🍎 किस स्वर से शुरू होता है?',
+        correct: 'अ',
+        wrongs: ['आ', 'इ'],
+        expl: '💡 अ से अनार! बहुत बढ़िया!',
+        emoji: '🍎 🔤',
+      },
+      {
+        concept: 'स्वर पहचान (आ से आम)',
+        question: 'फलों का राजा पीला-पीला आम 🥭 किस स्वर से शुरू होता है?',
+        correct: 'आ',
+        wrongs: ['अ', 'ई'],
+        expl: '💡 आ से आम! रसीला और मीठा आम।',
+        emoji: '🥭 👑',
+      },
+      {
+        concept: 'व्यंजन पहचान (क से कबूतर)',
+        question: 'आसमान में उड़ने वाला कबूतर 🕊️ किस अक्षर से शुरू होता है?',
+        correct: 'क',
+        wrongs: ['ख', 'ग'],
+        expl: '💡 क से कबूतर! गुटरगूँ कबूतर।',
+        emoji: '🕊️ 🔤',
+      },
+      {
+        concept: 'व्यंजन पहचान (ख से खरगोश)',
+        question: 'गाजर खाने वाला प्यारा खरगोश 🐇 किस अक्षर से शुरू होता है?',
+        correct: 'ख',
+        wrongs: ['क', 'घ'],
+        expl: '💡 ख से खरगोश!',
+        emoji: '🐇 🥕',
+      },
+      {
+        concept: 'दो अक्षर वाले शब्द (घर)',
+        question: 'अक्षरों को जोड़कर पढ़ो: घ + र = [?]',
+        correct: 'घर 🏠',
+        wrongs: ['जल 💧', 'बस 🚌'],
+        expl: '💡 घ + र मिलकर "घर" बनता है!',
+        emoji: '🏠 ➕',
+      },
+      {
+        concept: 'दो अक्षर वाले शब्द (जल)',
+        question: 'अक्षरों को जोड़कर पढ़ो: ज + ल = [?]',
+        correct: 'जल 💧',
+        wrongs: ['नल 🚰', 'फल 🍎'],
+        expl: '💡 ज + ल = जल (पानी)!',
+        emoji: '💧 ➕',
+      },
+      {
+        concept: 'सरल विलोम शब्द (दिन और रात)',
+        question: 'सूरज निकलता है तो "दिन" ☀️ होता है, इसका उल्टा क्या है?',
+        correct: 'रात 🌙',
+        wrongs: ['सुबह 🌅', 'शाम 🌇'],
+        expl: '💡 दिन का विलोम रात होता है!',
+        emoji: '☀️ ↔️ 🌙',
+      },
+      {
+        concept: 'सरल विलोम शब्द (बड़ा और छोटा)',
+        question: 'हाथी 🐘 बहुत "बड़ा" है, तो नन्हा चूहा 🐭 कैसा है?',
+        correct: 'छोटा',
+        wrongs: ['मोटा', 'लंबा'],
+        expl: '💡 बड़ा का उल्टा छोटा होता है!',
+        emoji: '🐘 ↔️ 🐭',
+      },
+      {
+        concept: 'पशु-पक्षी पहचान',
+        question: 'हमारा राष्ट्रीय पक्षी "मोर" 🦚 किस अक्षर से शुरू होता है?',
+        correct: 'म',
+        wrongs: ['न', 'प'],
+        expl: '💡 म से मोर! सुंदर पंखों वाला मोर।',
+        emoji: '🦚 🔤',
+      },
+      {
+        concept: 'रंग पहचान',
+        question: 'टमाटर 🍅 और सेब 🍎 किस रंग के होते हैं?',
+        correct: 'लाल 🔴',
+        wrongs: ['पीला 🟡', 'नीला 🔵'],
+        expl: '💡 टमाटर और सेब लाल रंग के होते हैं!',
+        emoji: '🍅 🔴',
+      },
+    ];
+    const item = randomChoice(earlyHindiBank);
+    return {
+      id: qId,
+      grade,
+      subject: 'hindi',
+      chapter: ch,
+      concept: item.concept,
+      difficulty: 'easy',
+      type: 'mcq',
+      question: item.question,
+      visualEmoji: item.emoji,
+      payload: {
+        options: shuffleArray([
+          { id: 'opt_1', text: item.correct, isCorrect: true },
+          { id: 'opt_2', text: item.wrongs[0], isCorrect: false },
+          { id: 'opt_3', text: item.wrongs[1], isCorrect: false },
+        ]),
+      },
+      explanation: item.expl,
+      points: 10,
+    };
+  }
 
   const vyakaranBank = [
     // संज्ञा व उसके भेद
@@ -1086,7 +1300,7 @@ export function generateDynamicHindiVyakaranQuestion(grade: Grade, chapterTitle?
     subject: 'hindi',
     chapter: ch,
     concept: item.concept,
-    difficulty: (grade === 'LKG' || grade === 'UKG' || grade <= 2) ? 'easy' : grade <= 4 ? 'medium' : 'hard',
+    difficulty: grade <= 2 ? 'easy' : grade <= 4 ? 'medium' : 'hard',
     type: 'mcq',
     question: item.question,
     visualEmoji: '🇮🇳 ✍️',

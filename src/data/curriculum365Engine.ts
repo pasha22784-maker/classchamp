@@ -41,7 +41,7 @@ export const getDayMissionInfo = (grade: Grade, dayNumber: number): DayMission =
     grade,
     subject,
     icon: subject === 'maths' ? '📐' : subject === 'english' ? '📚' : '🇮🇳',
-    conceptSummary: `Official NCERT syllabus for Class ${grade}`,
+    conceptSummary: typeof grade === 'number' ? `Official NCERT syllabus for Class ${grade}` : `Foundational syllabus for ${grade}`,
   };
 
   const subjectLabel = subject === 'maths' ? 'Maths' : subject === 'english' ? 'English' : 'Hindi';
