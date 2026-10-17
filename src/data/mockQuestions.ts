@@ -93,6 +93,52 @@ import { CLASS_4_HINDI_LESSON_3_QUESTIONS } from './curriculum/class4HindiLesson
 import { CLASS_4_HINDI_LESSON_4_QUESTIONS } from './curriculum/class4HindiLesson4';
 import { CLASS_4_HINDI_LESSON_5_QUESTIONS } from './curriculum/class4HindiLesson5';
 import { CLASS_4_HINDI_LESSON_6_QUESTIONS } from './curriculum/class4HindiLesson6';
+import { CLASS_5_MATHS_LESSON_1_QUESTIONS } from './curriculum/class5MathsLesson1';
+import { CLASS_5_MATHS_LESSON_2_QUESTIONS } from './curriculum/class5MathsLesson2';
+import { CLASS_5_MATHS_LESSON_3_QUESTIONS } from './curriculum/class5MathsLesson3';
+import { CLASS_5_MATHS_LESSON_4_QUESTIONS } from './curriculum/class5MathsLesson4';
+import { CLASS_5_MATHS_LESSON_5_QUESTIONS } from './curriculum/class5MathsLesson5';
+import { CLASS_5_MATHS_LESSON_6_QUESTIONS } from './curriculum/class5MathsLesson6';
+import { CLASS_5_MATHS_LESSON_7_QUESTIONS } from './curriculum/class5MathsLesson7';
+import { CLASS_5_MATHS_LESSON_8_QUESTIONS } from './curriculum/class5MathsLesson8';
+import { CLASS_5_MATHS_LESSON_9_QUESTIONS } from './curriculum/class5MathsLesson9';
+import { CLASS_5_MATHS_LESSON_10_QUESTIONS } from './curriculum/class5MathsLesson10';
+import { CLASS_5_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class5EnglishLesson1';
+import { CLASS_5_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class5EnglishLesson2';
+import { CLASS_5_ENGLISH_LESSON_3_QUESTIONS } from './curriculum/class5EnglishLesson3';
+import { CLASS_5_ENGLISH_LESSON_4_QUESTIONS } from './curriculum/class5EnglishLesson4';
+import { CLASS_5_ENGLISH_LESSON_5_QUESTIONS } from './curriculum/class5EnglishLesson5';
+import { CLASS_5_ENGLISH_LESSON_6_QUESTIONS } from './curriculum/class5EnglishLesson6';
+import { CLASS_5_HINDI_LESSON_1_QUESTIONS } from './curriculum/class5HindiLesson1';
+import { CLASS_5_HINDI_LESSON_2_QUESTIONS } from './curriculum/class5HindiLesson2';
+import { CLASS_5_HINDI_LESSON_3_QUESTIONS } from './curriculum/class5HindiLesson3';
+import { CLASS_5_HINDI_LESSON_4_QUESTIONS } from './curriculum/class5HindiLesson4';
+import { CLASS_5_HINDI_LESSON_5_QUESTIONS } from './curriculum/class5HindiLesson5';
+import { CLASS_5_HINDI_LESSON_6_QUESTIONS } from './curriculum/class5HindiLesson6';
+import { CLASS_6_MATHS_LESSON_1_QUESTIONS } from './curriculum/class6MathsLesson1';
+import { CLASS_6_MATHS_LESSON_2_QUESTIONS } from './curriculum/class6MathsLesson2';
+import { CLASS_6_MATHS_LESSON_3_QUESTIONS } from './curriculum/class6MathsLesson3';
+import { CLASS_6_MATHS_LESSON_4_QUESTIONS } from './curriculum/class6MathsLesson4';
+import { CLASS_6_MATHS_LESSON_5_QUESTIONS } from './curriculum/class6MathsLesson5';
+import { CLASS_6_MATHS_LESSON_6_QUESTIONS } from './curriculum/class6MathsLesson6';
+import { CLASS_6_MATHS_LESSON_7_QUESTIONS } from './curriculum/class6MathsLesson7';
+import { CLASS_6_MATHS_LESSON_8_QUESTIONS } from './curriculum/class6MathsLesson8';
+import { CLASS_6_MATHS_LESSON_9_QUESTIONS } from './curriculum/class6MathsLesson9';
+import { CLASS_6_MATHS_LESSON_10_QUESTIONS } from './curriculum/class6MathsLesson10';
+import { CLASS_6_MATHS_LESSON_11_QUESTIONS } from './curriculum/class6MathsLesson11';
+import { CLASS_6_ENGLISH_LESSON_1_QUESTIONS } from './curriculum/class6EnglishLesson1';
+import { CLASS_6_ENGLISH_LESSON_2_QUESTIONS } from './curriculum/class6EnglishLesson2';
+import { CLASS_6_ENGLISH_LESSON_3_QUESTIONS } from './curriculum/class6EnglishLesson3';
+import { CLASS_6_ENGLISH_LESSON_4_QUESTIONS } from './curriculum/class6EnglishLesson4';
+import { CLASS_6_ENGLISH_LESSON_5_QUESTIONS } from './curriculum/class6EnglishLesson5';
+import { CLASS_6_ENGLISH_LESSON_6_QUESTIONS } from './curriculum/class6EnglishLesson6';
+import { CLASS_6_ENGLISH_LESSON_7_QUESTIONS } from './curriculum/class6EnglishLesson7';
+import { CLASS_6_HINDI_LESSON_1_QUESTIONS } from './curriculum/class6HindiLesson1';
+import { CLASS_6_HINDI_LESSON_2_QUESTIONS } from './curriculum/class6HindiLesson2';
+import { CLASS_6_HINDI_LESSON_3_QUESTIONS } from './curriculum/class6HindiLesson3';
+import { CLASS_6_HINDI_LESSON_4_QUESTIONS } from './curriculum/class6HindiLesson4';
+import { CLASS_6_HINDI_LESSON_5_QUESTIONS } from './curriculum/class6HindiLesson5';
+import { CLASS_6_HINDI_LESSON_6_QUESTIONS } from './curriculum/class6HindiLesson6';
 
 export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
@@ -717,128 +763,74 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_4_HINDI_LESSON_6_QUESTIONS,
 
   // =========================================================================
-  // CLASS 5 — NCERT रिमझिम 5 (HINDI)
+  // CLASS 5 — MATHEMATICS (CHAPTERS 1 TO 10)
   // =========================================================================
-  {
-    id: 'ncert_c5_h1_001',
-    grade: 5,
-    subject: 'hindi',
-    chapter: 'राख की रस्सी (कारक और उनके विभक्ति चिह्न)',
-    concept: 'NCERT कारक विभक्ति',
-    difficulty: 'hard',
-    type: 'mcq',
-    question: '"लोनपो गार ने अपने बेटे को बुलाया।" इस वाक्य में "ने" कौन सा कारक चिह्न है?',
-    visualEmoji: '👑',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'कर्ता कारक (काम करने वाला)', isCorrect: true },
-        { id: 'opt_2', text: 'कर्म कारक', isCorrect: false },
-        { id: 'opt_3', text: 'करण कारक', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT रिमझिम 5 Ch 1: कर्ता कारक का विभक्ति चिह्न "ने" होता है!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c5_h5_001',
-    grade: 5,
-    subject: 'hindi',
-    chapter: 'जहाँ चाह वहाँ राह (प्रसिद्ध मुहावरे व वाक्य प्रयोग)',
-    concept: 'NCERT मुहावरा अर्थ',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'मुहावरों को उनके सही अर्थ से मिलाइए:',
-    visualEmoji: '💡',
-    payload: {
-      pairs: [
-        { id: 'h5_m1', left: 'दाँतों तले उँगली दबाना', right: 'दंग या हैरान रह जाना' },
-        { id: 'h5_m2', left: 'कमर कसना', right: 'कठिन परिश्रम के लिए तैयार होना' },
-        { id: 'h5_m3', left: 'आँखों का तारा', right: 'बहुत प्यारा होना' },
-      ],
-    },
-    explanation: 'NCERT रिमझिम 5: दाँतों तले उँगली दबाना = हैरान होना, कमर कसना = तैयार होना!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c5_h2_001',
-    grade: 5,
-    subject: 'hindi',
-    chapter: 'फसलों के त्योहार (उपसर्ग और प्रत्यय)',
-    concept: 'NCERT उपसर्ग व प्रत्यय',
-    difficulty: 'hard',
-    type: 'fill_blank',
-    question: 'रिक्त स्थान में सही व्याकरणिक पद पहचानिए:',
-    visualEmoji: '🌾',
-    payload: {
-      correctAnswer: 'उपसर्ग',
-      wordBank: ['उपसर्ग', 'प्रत्यय', 'समास'],
-      displayTemplate: '"अनहोनी" शब्द में "अन-" मूल शब्द के पहले जुड़ा है, अतः यह [BLANK] है।',
-    },
-    explanation: 'NCERT कक्षा 5: शब्द के आरंभ में जुड़ने वाले शब्दांश को "उपसर्ग" कहते हैं!',
-    points: 10,
-  },
+  ...CLASS_5_MATHS_LESSON_1_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_2_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_3_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_4_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_5_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_6_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_7_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_8_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_9_QUESTIONS,
+  ...CLASS_5_MATHS_LESSON_10_QUESTIONS,
 
   // =========================================================================
-  // CLASS 6 — NCERT मल्हार 6 (HINDI)
+  // CLASS 5 — ENGLISH (CHAPTERS 1 TO 6)
   // =========================================================================
-  {
-    id: 'ncert_c6_h3_001',
-    grade: 6,
-    subject: 'hindi',
-    chapter: 'नादान दोस्त (संधि परिचय - स्वर संधि)',
-    concept: 'NCERT दीर्घ स्वर संधि',
-    difficulty: 'hard',
-    type: 'fill_blank',
-    question: 'सही संधि युक्त शब्द भरिए:',
-    visualEmoji: '🏫',
-    payload: {
-      correctAnswer: 'विद्यालय',
-      wordBank: ['विद्यालय', 'विद्यालयी', 'विद्याआलय'],
-      displayTemplate: 'विद्या + आलय = [BLANK]',
-    },
-    explanation: 'NCERT मल्हार 6: आ + आ = आ (दीर्घ स्वर संधि: विद्या + आलय = विद्यालय)!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c6_h1_001',
-    grade: 6,
-    subject: 'hindi',
-    chapter: 'वह चिड़िया जो (भाववाचक संज्ञा व पद परिचय)',
-    concept: 'NCERT भाववाचक संज्ञा निर्माण',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: '"सुंदर" विशेषण से कौन सी भाववाचक संज्ञा बनती है?',
-    visualEmoji: '🌸',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'सुंदरता (भाववाचक संज्ञा)', isCorrect: true },
-        { id: 'opt_2', text: 'सुंदरी (स्त्रीलिंग)', isCorrect: false },
-        { id: 'opt_3', text: 'सुंदरतम (उत्तमावस्था)', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT कक्षा 6: सुंदर में "-ता" प्रत्यय जुड़कर भाववाचक संज्ञा "सुंदरता" बनती है!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c6_h5_001',
-    grade: 6,
-    subject: 'hindi',
-    chapter: 'संसार पुस्तक है (विराम चिह्न व अशुद्ध वाक्य शोधन)',
-    concept: 'NCERT कारक पहचान (अपादान)',
-    difficulty: 'hard',
-    type: 'mcq',
-    question: '"पेड़ से पत्ता गिरा।" इस वाक्य में रेखांकित शब्द "से" (अलग होने के भाव में) कौन सा कारक है? 🍃',
-    visualEmoji: '🍃',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'अपादान कारक (अलग होने का भाव)', isCorrect: true },
-        { id: 'opt_2', text: 'करण कारक (साधन का भाव)', isCorrect: false },
-        { id: 'opt_3', text: 'कर्म कारक', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT व्याकरण 6: जब किसी वस्तु का किसी स्थान या वस्तु से अलग होने का भाव हो, वहाँ अपादान कारक होता है!',
-    points: 15,
-  },
+  ...CLASS_5_ENGLISH_LESSON_1_QUESTIONS,
+  ...CLASS_5_ENGLISH_LESSON_2_QUESTIONS,
+  ...CLASS_5_ENGLISH_LESSON_3_QUESTIONS,
+  ...CLASS_5_ENGLISH_LESSON_4_QUESTIONS,
+  ...CLASS_5_ENGLISH_LESSON_5_QUESTIONS,
+  ...CLASS_5_ENGLISH_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 5 — HINDI (CHAPTERS 1 TO 6)
+  // =========================================================================
+  ...CLASS_5_HINDI_LESSON_1_QUESTIONS,
+  ...CLASS_5_HINDI_LESSON_2_QUESTIONS,
+  ...CLASS_5_HINDI_LESSON_3_QUESTIONS,
+  ...CLASS_5_HINDI_LESSON_4_QUESTIONS,
+  ...CLASS_5_HINDI_LESSON_5_QUESTIONS,
+  ...CLASS_5_HINDI_LESSON_6_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 6 — MATHEMATICS (CHAPTERS 1 TO 11)
+  // =========================================================================
+  ...CLASS_6_MATHS_LESSON_1_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_2_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_3_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_4_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_5_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_6_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_7_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_8_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_9_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_10_QUESTIONS,
+  ...CLASS_6_MATHS_LESSON_11_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 6 — ENGLISH (CHAPTERS 1 TO 7)
+  // =========================================================================
+  ...CLASS_6_ENGLISH_LESSON_1_QUESTIONS,
+  ...CLASS_6_ENGLISH_LESSON_2_QUESTIONS,
+  ...CLASS_6_ENGLISH_LESSON_3_QUESTIONS,
+  ...CLASS_6_ENGLISH_LESSON_4_QUESTIONS,
+  ...CLASS_6_ENGLISH_LESSON_5_QUESTIONS,
+  ...CLASS_6_ENGLISH_LESSON_6_QUESTIONS,
+  ...CLASS_6_ENGLISH_LESSON_7_QUESTIONS,
+
+  // =========================================================================
+  // CLASS 6 — HINDI (CHAPTERS 1 TO 6)
+  // =========================================================================
+  ...CLASS_6_HINDI_LESSON_1_QUESTIONS,
+  ...CLASS_6_HINDI_LESSON_2_QUESTIONS,
+  ...CLASS_6_HINDI_LESSON_3_QUESTIONS,
+  ...CLASS_6_HINDI_LESSON_4_QUESTIONS,
+  ...CLASS_6_HINDI_LESSON_5_QUESTIONS,
+  ...CLASS_6_HINDI_LESSON_6_QUESTIONS,
 ];
 
 export const getQuestionsForSession = (
