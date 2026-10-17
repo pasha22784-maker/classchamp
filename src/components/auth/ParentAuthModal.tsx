@@ -23,16 +23,18 @@ import {
   isSupabaseConfigured,
   syncProfileToCloud,
 } from '../../services/supabase';
+import { checkUserIsAdmin } from '../../services/adminConfig';
 import { triggerHaptic } from '../../utils/haptics';
 
 interface ParentAuthModalProps {
   visible: boolean;
   onClose: () => void;
+  onAdminLogin?: (adminEmail: string) => void;
 }
 
 type AuthMode = 'phone' | 'email_login' | 'email_signup';
 
-export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClose }) => {
+export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClose, onAdminLogin }) => {
   const { profile, setProStatus } = useUserStore();
   const monetization = getMonetizationInfo(profile);
 
@@ -106,6 +108,16 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
 
     if (res.success) {
       triggerHaptic('success');
+
+      // Check if logged-in user is an Admin
+      const isAdmin = await checkUserIsAdmin(res.user?.id || '', email);
+      if (isAdmin && onAdminLogin) {
+        onClose();
+        Alert.alert('👑 Admin Login Successful', `Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.`);
+        onAdminLogin(email);
+        return;
+      }
+
       Alert.alert('Safal!', 'Aapka account login ho chuka hai.');
       await syncProfileToCloud(profile);
       onClose();

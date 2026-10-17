@@ -21,7 +21,8 @@ import {
 } from '../components/common';
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
 import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
-import { Subject, Grade, ChapterLesson } from '../types';
+import { fetchGlobalConfig } from '../services/adminConfig';
+import { Subject, Grade, ChapterLesson, AppGlobalConfig } from '../types';
 import { triggerHaptic } from '../utils/haptics';
 
 interface DashboardScreenProps {
@@ -40,6 +41,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const { profile, loadProfile, setAvatar } = useUserStore();
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showPaywallModal, setShowPaywallModal] = useState(false);
+  const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
   
   // App-open Streak Greeting (shown once when app opens, then dismissed)
   const [showStreakWelcome, setShowStreakWelcome] = useState(true);
@@ -48,6 +50,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
   useEffect(() => {
     loadProfile();
+    fetchGlobalConfig().then((cfg) => setGlobalConfig(cfg));
 
     // Animate in the welcome streak banner
     Animated.parallel([
@@ -189,6 +192,51 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
+        {/* Dynamic Global Announcement Banner */}
+        {globalConfig?.announcement?.isActive && (
+          <View
+            style={[
+              styles.announcementBanner,
+              globalConfig.announcement.type === 'festive'
+                ? styles.announcementFestive
+                : globalConfig.announcement.type === 'alert'
+                ? styles.announcementAlert
+                : styles.announcementInfo,
+            ]}
+          >
+            <Text style={{ fontSize: 16, marginRight: 8 }}>
+              {globalConfig.announcement.type === 'festive' ? '🎉' : globalConfig.announcement.type === 'alert' ? '🚨' : '📢'}
+            </Text>
+            <Text style={styles.announcementText}>{globalConfig.announcement.text}</Text>
+          </View>
+        )}
+
+        {/* Dynamic Special Festive Offer Banner */}
+        {globalConfig?.specialOffer?.isActive && (
+          <TouchableOpacity
+            activeOpacity={0.9}
+            onPress={() => setShowPaywallModal(true)}
+            style={styles.offerBannerContainer}
+          >
+            <View style={styles.offerBadge}>
+              <Text style={styles.offerBadgeText}>{globalConfig.specialOffer.badgeText}</Text>
+            </View>
+            <View style={{ flex: 1, marginLeft: 8 }}>
+              <Text style={styles.offerTitle}>{globalConfig.specialOffer.title}</Text>
+              <Text style={styles.offerPrice}>
+                <Text style={{ textDecorationLine: 'line-through', color: '#94A3B8' }}>
+                  {globalConfig.specialOffer.originalPrice}
+                </Text>{' '}
+                <Text style={{ fontWeight: '900', color: COLORS.gold }}>
+                  {globalConfig.specialOffer.discountedPrice}
+                </Text>{' '}
+                • Code: {globalConfig.specialOffer.couponCode}
+              </Text>
+            </View>
+            <Text style={{ fontSize: 14, color: COLORS.gold, fontWeight: '900' }}>GET ›</Text>
+          </TouchableOpacity>
+        )}
+
         {/* Kid-Friendly Vibrant Hero Card: "Daily 10-Min Mission" */}
         <View
           style={[
@@ -1063,5 +1111,66 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 15,
     fontWeight: '700',
+  },
+  announcementBanner: {
+    borderRadius: BORDER_RADIUS.md,
+    paddingHorizontal: SPACING.md,
+    paddingVertical: 10,
+    marginBottom: SPACING.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  announcementFestive: {
+    backgroundColor: '#FEF3C7',
+    borderWidth: 1,
+    borderColor: COLORS.gold,
+  },
+  announcementInfo: {
+    backgroundColor: '#EFF6FF',
+    borderWidth: 1,
+    borderColor: '#93C5FD',
+  },
+  announcementAlert: {
+    backgroundColor: '#ECFDF5',
+    borderWidth: 1,
+    borderColor: '#10B981',
+  },
+  announcementText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: COLORS.textDark,
+    lineHeight: 18,
+    flex: 1,
+  },
+  offerBannerContainer: {
+    backgroundColor: COLORS.primaryDark,
+    borderRadius: BORDER_RADIUS.lg,
+    padding: SPACING.md,
+    marginBottom: SPACING.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1.5,
+    borderColor: COLORS.gold,
+  },
+  offerBadge: {
+    backgroundColor: COLORS.gold,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 6,
+  },
+  offerBadgeText: {
+    color: COLORS.textDark,
+    fontWeight: '900',
+    fontSize: 11,
+  },
+  offerTitle: {
+    color: COLORS.white,
+    fontWeight: '800',
+    fontSize: 13,
+  },
+  offerPrice: {
+    color: '#E2E8F0',
+    fontSize: 11,
+    marginTop: 2,
   },
 });

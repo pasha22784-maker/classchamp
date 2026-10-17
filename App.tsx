@@ -11,10 +11,13 @@ import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import { ParentZoneScreen } from './src/screens/ParentZoneScreen';
 import { QuizScreen } from './src/screens/QuizScreen';
 import { CelebrationScreen } from './src/screens/CelebrationScreen';
+import { AdminScreen } from './src/screens/AdminScreen';
 import { ParentGateModal, AppUpdaterModal } from './src/components/common';
 import { generateQuestionsForSession } from './src/data/questionGenerator';
 import { getQuestionsForDay, getDayMissionInfo } from './src/data/curriculum365Engine';
 import { getChaptersForGradeSubject } from './src/data/chaptersData';
+import { fetchGlobalConfig } from './src/services/adminConfig';
+import { setGlobalFreeAccess } from './src/utils/monetization';
 import { Subject, Grade, ScreenType } from './src/types';
 
 export default function App() {
@@ -23,9 +26,15 @@ export default function App() {
   const [currentScreen, setCurrentScreen] = useState<ScreenType>('dashboard');
   const [vaultSubject, setVaultSubject] = useState<Subject>('maths');
   const [showParentGate, setShowParentGate] = useState(false);
+  const [adminEmail, setAdminEmail] = useState<string>('');
 
   useEffect(() => {
     loadProfile();
+    fetchGlobalConfig().then((cfg) => {
+      if (cfg?.isAppFreeForAll) {
+        setGlobalFreeAccess(true);
+      }
+    });
   }, []);
 
   if (!isHydrated) {
@@ -138,7 +147,20 @@ export default function App() {
         )}
 
         {currentScreen === 'parent_zone' && (
-          <ParentZoneScreen onBack={() => setCurrentScreen('dashboard')} />
+          <ParentZoneScreen
+            onBack={() => setCurrentScreen('dashboard')}
+            onOpenAdmin={(email) => {
+              setAdminEmail(email);
+              setCurrentScreen('admin');
+            }}
+          />
+        )}
+
+        {currentScreen === 'admin' && (
+          <AdminScreen
+            adminEmail={adminEmail}
+            onBackToApp={() => setCurrentScreen('dashboard')}
+          />
         )}
 
         {/* Google Play Families Security Challenge Modal */}

@@ -28,16 +28,25 @@ export function getTrialDaysRemaining(profile: UserProfile): number {
   return Math.max(0, TRIAL_DURATION_DAYS - elapsed);
 }
 
+// Global Admin Override: Free for All Mode
+let _isAppFreeForAll = false;
+export function setGlobalFreeAccess(isFree: boolean) {
+  _isAppFreeForAll = isFree;
+}
+export function getIsAppFreeForAll(): boolean {
+  return _isAppFreeForAll;
+}
+
 // Check if 30-day VIP free trial is still valid
 export function isTrialActive(profile: UserProfile): boolean {
-  if (profile.isPro) return true;
+  if (profile.isPro || _isAppFreeForAll) return true;
   return getTrialDaysRemaining(profile) > 0;
 }
 
 // Determine if ads should be displayed
 export function shouldShowAds(profile: UserProfile): boolean {
-  // Pro subscribers never see ads
-  if (profile.isPro) return false;
+  // Pro subscribers or Free for All mode never see ads
+  if (profile.isPro || _isAppFreeForAll) return false;
   // During first 30 days trial, completely ad-free!
   if (isTrialActive(profile)) return false;
   // After 30 days, free tier users see safe educational ads
@@ -51,6 +60,19 @@ export function getMonetizationInfo(profile: UserProfile): MonetizationInfo {
   const daysRemaining = getTrialDaysRemaining(profile);
   const trialActive = isTrialActive(profile);
   const showAds = shouldShowAds(profile);
+
+  if (_isAppFreeForAll) {
+    return {
+      isPro: true,
+      isTrialActive: false,
+      daysRemaining: 999,
+      daysElapsed,
+      shouldShowAds: false,
+      statusBadge: 'FREE ALL ACCESS 🎁',
+      statusLabel: 'Community Free Pass Active',
+      statusColor: '#10B981',
+    };
+  }
 
   if (isPro) {
     return {

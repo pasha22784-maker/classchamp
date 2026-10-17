@@ -83,8 +83,27 @@ export interface UserProfile {
   userId?: string;
   parentPhone?: string;
   parentEmail?: string;
+  role?: 'admin' | 'user';
   subscriptionPlan?: 'monthly' | 'yearly' | null;
   subscriptionExpiresAt?: string; // ISO string
+}
+
+export interface AppGlobalConfig {
+  isAppFreeForAll: boolean;
+  trialDurationDays: number;
+  specialOffer: {
+    isActive: boolean;
+    badgeText: string;
+    title: string;
+    originalPrice: string;
+    discountedPrice: string;
+    couponCode: string;
+  };
+  announcement: {
+    isActive: boolean;
+    text: string;
+    type: 'info' | 'festive' | 'alert';
+  };
 }
 
 export interface UserAnswerRecord {
@@ -116,4 +135,5 @@ export type ScreenType =
   | 'quiz'
   | 'celebration'
   | 'parent_zone'
-  | 'paywall';
+  | 'paywall'
+  | 'admin';

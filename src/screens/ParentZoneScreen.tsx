@@ -20,9 +20,10 @@ import { triggerHaptic } from '../utils/haptics';
 
 interface ParentZoneScreenProps {
   onBack: () => void;
+  onOpenAdmin?: (email: string) => void;
 }
 
-export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack }) => {
+export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack, onOpenAdmin }) => {
   const { profile, updateName, setGrade, setProStatus, resetProgress } = useUserStore();
   const [editingName, setEditingName] = useState(profile.name);
   const [isSaved, setIsSaved] = useState(false);
@@ -268,6 +269,10 @@ export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack }) =>
       <ParentAuthModal
         visible={showAuthModal}
         onClose={() => setShowAuthModal(false)}
+        onAdminLogin={(adminEmail) => {
+          setShowAuthModal(false);
+          onOpenAdmin?.(adminEmail);
+        }}
       />
     </SafeAreaView>
   );
