@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 1: A DAY AT THE BEACH (COUNTING IN GROUPS)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Counting in Pairs (जोड़ों में गिनना - Groups of 2)
+  // EASY LEVEL (5 Questions) — Direct Recognition, Pairs & Visual Grouping
   // --------------------------------------------------------------------------
   {
     id: 'c2_m1_concept_pairs_01',
@@ -18,8 +19,8 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Counting Shoes in Pairs',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Children leave 5 pairs of sandals 🩴🩴🩴🩴🩴 on the warm beach sand. How many individual sandals are there in total?',
-    visualEmoji: '🩴 (5 pairs)',
+    question: 'Children leave 5 pairs of sandals on the beach sand. How many individual sandals are there in total?',
+    visualEmoji: '🩴🩴🩴🩴🩴',
     payload: {
       options: [
         { id: 'opt_pr1_1', text: '10 sandals', isCorrect: true },
@@ -27,7 +28,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_pr1_3', text: '5 sandals', isCorrect: false },
       ],
     },
-    explanation: '💡 1 pair = 2 sandals. Counting in twos for 5 pairs: 2, 4, 6, 8, **10 sandals**!',
+    explanation: '💡 1 pair = 2 sandals. Counting in twos for 5 pairs: 2, 4, 6, 8, 10 sandals!',
     points: 10,
   },
   {
@@ -35,43 +36,19 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'maths',
     chapter: 'A Day at the Beach (Counting in Groups)',
-    concept: 'Counting Earrings in Pairs',
+    concept: 'Counting Bangles in Pairs',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'A mother wears 3 pairs of golden bangles on both hands. Total bangles = 2 + 2 + 2 = [BLANK].',
-    visualEmoji: '💍 (3 pairs)',
+    question: 'A mother wears 3 pairs of golden bangles on her hands. Total bangles = 2 + 2 + 2 = [BLANK].',
+    visualEmoji: '💍💍💍',
     payload: {
       correctAnswer: '6',
       wordBank: ['6', '5', '8', '3'],
       displayTemplate: '2 + 2 + 2 = [BLANK] bangles',
     },
-    explanation: '💡 3 pairs of 2 = 2 + 2 + 2 = **6 bangles**!',
+    explanation: '💡 3 pairs of 2 = 2 + 2 + 2 = 6 bangles!',
     points: 10,
   },
-  {
-    id: 'c2_m1_concept_pairs_03',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'A Day at the Beach (Counting in Groups)',
-    concept: 'Counting Birds in Pairs',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'There are 4 pairs of seagulls flying together over the sea 🕊️🕊️. How many seagulls are flying?',
-    visualEmoji: '🕊️🕊️ 🕊️🕊️ 🕊️🕊️ 🕊️🕊️',
-    payload: {
-      options: [
-        { id: 'opt_pr3_1', text: '8 seagulls', isCorrect: true },
-        { id: 'opt_pr3_2', text: '6 seagulls', isCorrect: false },
-        { id: 'opt_pr3_3', text: '12 seagulls', isCorrect: false },
-      ],
-    },
-    explanation: '💡 4 pairs of 2 = **8 seagulls**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Counting in Groups of 5s and 10s
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m1_concept_fives_01',
     grade: 2,
@@ -80,8 +57,8 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Counting Sea Shells in Fives',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Aman collects sea shells 🐚 and puts them into small bowls of 5 shells each. If he fills 4 bowls, how many shells did he collect?',
-    visualEmoji: '🥣🐚 (4 bowls of 5)',
+    question: 'Aman collects sea shells and puts them into small bowls of 5 shells each. If he fills 4 bowls, how many shells did he collect?',
+    visualEmoji: '🐚🐚🐚🐚🐚 × 4',
     payload: {
       options: [
         { id: 'opt_fv1_1', text: '20 shells', isCorrect: true },
@@ -89,31 +66,9 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_fv1_3', text: '25 shells', isCorrect: false },
       ],
     },
-    explanation: '💡 Count in fives: 5, 10, 15, **20 shells** in total!',
+    explanation: '💡 Count in fives: 5, 10, 15, 20 shells in total!',
     points: 10,
   },
-  {
-    id: 'c2_m1_concept_tens_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'A Day at the Beach (Counting in Groups)',
-    concept: 'Counting Marbles in Tens',
-    difficulty: 'medium',
-    type: 'fill_blank',
-    question: 'A beach stall has packets of 10 shiny glass marbles 🔮. If the shopkeeper has 3 packets of 10, there are [BLANK] marbles in total.',
-    visualEmoji: '🔮🔮🔮 (3 packets of 10)',
-    payload: {
-      correctAnswer: '30',
-      wordBank: ['30', '13', '40', '20'],
-      displayTemplate: 'There are [BLANK] marbles in total.',
-    },
-    explanation: '💡 3 groups of 10 = 10 + 10 + 10 = **30 marbles**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Estimation - More Than or Less Than (अंदाज़ा लगाना)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m1_concept_est_01',
     grade: 2,
@@ -131,7 +86,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_es1_3', text: 'More than 500', isCorrect: false },
       ],
     },
-    explanation: '💡 Children have 20 milk teeth and grown-ups have up to 32 teeth. Both are **less than 40**!',
+    explanation: '💡 Children have 20 milk teeth and grown-ups have up to 32 teeth. Both are less than 40!',
     points: 10,
   },
   {
@@ -142,7 +97,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Seeds in an Apple',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'How many seeds are inside a fresh sweet apple 🍎?',
+    question: 'How many seeds are inside a fresh sweet apple?',
     visualEmoji: '🍎 🫘',
     payload: {
       options: [
@@ -151,13 +106,51 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_es2_3', text: 'More than 200 seeds', isCorrect: false },
       ],
     },
-    explanation: '💡 An apple usually has around 5 to 8 tiny seeds inside, which is **less than 10**!',
+    explanation: '💡 An apple usually has around 5 to 8 tiny seeds inside, which is less than 10!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: Skip Counting Sequences in Beach Stories
+  // MEDIUM LEVEL (5 Questions) — Groups of 10s, Skip Counting & Matching
   // --------------------------------------------------------------------------
+  {
+    id: 'c2_m1_concept_pairs_03',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'A Day at the Beach (Counting in Groups)',
+    concept: 'Counting Birds in Pairs',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'There are 4 pairs of seagulls flying together over the sea. How many seagulls are flying?',
+    visualEmoji: '🕊️🕊️ 🕊️🕊️ 🕊️🕊️ 🕊️🕊️',
+    payload: {
+      options: [
+        { id: 'opt_pr3_1', text: '8 seagulls', isCorrect: true },
+        { id: 'opt_pr3_2', text: '6 seagulls', isCorrect: false },
+        { id: 'opt_pr3_3', text: '12 seagulls', isCorrect: false },
+      ],
+    },
+    explanation: '💡 4 pairs of 2 = 2 + 2 + 2 + 2 = 8 seagulls!',
+    points: 10,
+  },
+  {
+    id: 'c2_m1_concept_tens_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'A Day at the Beach (Counting in Groups)',
+    concept: 'Counting Marbles in Tens',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'A beach stall has packets of 10 shiny glass marbles. If the shopkeeper has 3 packets of 10, there are [BLANK] marbles in total.',
+    visualEmoji: '🔮🔮🔮',
+    payload: {
+      correctAnswer: '30',
+      wordBank: ['30', '13', '40', '20'],
+      displayTemplate: 'There are [BLANK] marbles in total.',
+    },
+    explanation: '💡 3 groups of 10 = 10 + 10 + 10 = 30 marbles!',
+    points: 10,
+  },
   {
     id: 'c2_m1_concept_seq_01',
     grade: 2,
@@ -166,20 +159,16 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Skip Counting by 2s Sequence',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Arrange the pairs of flip-flops in skip counting by 2s:',
+    question: 'Arrange the pairs of flip-flops in skip counting by 2s from least to greatest:',
     visualEmoji: '🩴 2️⃣ 4️⃣ 6️⃣ 8️⃣ 🔟',
     payload: {
       tokens: ['2', '4', '6', '8', '10'],
       scrambled: ['6', '2', '10', '4', '8'],
       correctSequence: ['2', '4', '6', '8', '10'],
     },
-    explanation: '💡 Counting by 2s: **2 -> 4 -> 6 -> 8 -> 10**!',
+    explanation: '💡 Counting by 2s: 2 -> 4 -> 6 -> 8 -> 10!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Matching Pairs to Total Count
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m1_concept_match_01',
     grade: 2,
@@ -192,19 +181,15 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🤝 🔢',
     payload: {
       pairs: [
-        { id: 'm1_p1', left: '2 pairs of socks 🧦', right: '4 socks' },
-        { id: 'm1_p2', left: '3 pairs of gloves 🧤', right: '6 gloves' },
-        { id: 'm1_p3', left: '4 pairs of shoes 👟', right: '8 shoes' },
-        { id: 'm1_p4', left: '5 pairs of hands ✋', right: '10 hands' },
+        { id: 'm1_p1', left: '2 pairs of socks', right: '4 socks' },
+        { id: 'm1_p2', left: '3 pairs of gloves', right: '6 gloves' },
+        { id: 'm1_p3', left: '4 pairs of shoes', right: '8 shoes' },
+        { id: 'm1_p4', left: '5 pairs of hands', right: '10 hands' },
       ],
     },
     explanation: '💡 Multiply by 2 for each pair: 2 pairs = 4, 3 pairs = 6, 4 pairs = 8, 5 pairs = 10!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Groups of Coconut Bunches on Palm Trees
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m1_concept_coco_01',
     grade: 2,
@@ -213,7 +198,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Repeated Groups of 3',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'On a tall coconut tree 🌴, there are 3 bunches with 3 coconuts in each bunch 🥥🥥🥥. Total coconuts = ?',
+    question: 'On a tall coconut tree, there are 3 bunches with 3 coconuts in each bunch. Total coconuts = ?',
     visualEmoji: '🌴 🥥🥥🥥 × 3',
     payload: {
       options: [
@@ -222,7 +207,110 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_cc1_3', text: '12 coconuts', isCorrect: false },
       ],
     },
-    explanation: '💡 3 bunches of 3 = 3 + 3 + 3 = **9 coconuts** in total!',
+    explanation: '💡 3 bunches of 3 = 3 + 3 + 3 = 9 coconuts in total!',
     points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — Multi-step Grouping, Tens & Ones, Word Problems
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_m1_hard_bundles_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'A Day at the Beach (Counting in Groups)',
+    concept: 'Bundles of Ten and Loose Ones',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Ria gathers driftwood sticks on the beach. She ties them into 4 bundles of 10 sticks each, and has 6 loose sticks. How many sticks does Ria have in total?',
+    visualEmoji: '🪵 4 Bundles + 6 Sticks',
+    payload: {
+      options: [
+        { id: 'opt_bd1_1', text: '46 sticks', isCorrect: true },
+        { id: 'opt_bd1_2', text: '40 sticks', isCorrect: false },
+        { id: 'opt_bd1_3', text: '64 sticks', isCorrect: false },
+        { id: 'opt_bd1_4', text: '56 sticks', isCorrect: false },
+      ],
+    },
+    explanation: '💡 4 bundles of 10 = 40. Adding 6 loose sticks: 40 + 6 = 46 sticks!',
+    points: 15,
+  },
+  {
+    id: 'c2_m1_hard_shoes_02',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'A Day at the Beach (Counting in Groups)',
+    concept: 'Multi-Child Pair Calculation',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'There are 7 children building sandcastles. Each child has 1 pair of shoes. How many shoes are there in total? 7 pairs of shoes = [BLANK] shoes.',
+    visualEmoji: '🏰 👟👟 × 7',
+    payload: {
+      correctAnswer: '14',
+      wordBank: ['14', '7', '21', '12'],
+      displayTemplate: '7 pairs of shoes = [BLANK] shoes.',
+    },
+    explanation: '💡 Each child has 2 shoes. 7 children × 2 shoes = 14 shoes in total!',
+    points: 15,
+  },
+  {
+    id: 'c2_m1_hard_drag_fives',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'A Day at the Beach (Counting in Groups)',
+    concept: 'Skip Counting by 5s Sequence',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these counts of shiny sea pebbles in skip counting by 5s from smallest to biggest:',
+    visualEmoji: '🐚 5️⃣ 🔟 1️⃣5️⃣ 2️⃣0️⃣ 2️⃣5️⃣',
+    payload: {
+      tokens: ['5', '10', '15', '20', '25'],
+      scrambled: ['20', '5', '25', '10', '15'],
+      correctSequence: ['5', '10', '15', '20', '25'],
+    },
+    explanation: '💡 Skip counting by 5s: 5 -> 10 -> 15 -> 20 -> 25!',
+    points: 15,
+  },
+  {
+    id: 'c2_m1_hard_riddle_03',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'A Day at the Beach (Counting in Groups)',
+    concept: 'Number Riddle with Groups',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I am a number between 20 and 30. If you count me in pairs of 2, nothing is left over. I have 4 ones. Who am I?',
+    visualEmoji: '❓ 2️⃣0️⃣-3️⃣0️⃣',
+    payload: {
+      options: [
+        { id: 'opt_rd1_1', text: '24', isCorrect: true },
+        { id: 'opt_rd1_2', text: '25', isCorrect: false },
+        { id: 'opt_rd1_3', text: '23', isCorrect: false },
+        { id: 'opt_rd1_4', text: '14', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Between 20 and 30 with 4 ones means 24. Since 24 is even, it divides into pairs of 2 with none left over!',
+    points: 15,
+  },
+  {
+    id: 'c2_m1_hard_match_tens',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'A Day at the Beach (Counting in Groups)',
+    concept: 'Tens and Ones Matching',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each group of tens and ones to its correct number:',
+    visualEmoji: '📦 🔢',
+    payload: {
+      pairs: [
+        { id: 'm1_t1', left: '2 tens and 5 ones', right: '25' },
+        { id: 'm1_t2', left: '4 tens and 0 ones', right: '40' },
+        { id: 'm1_t3', left: '3 tens and 8 ones', right: '38' },
+        { id: 'm1_t4', left: '5 tens and 2 ones', right: '52' },
+      ],
+    },
+    explanation: '💡 2 tens + 5 ones = 25; 4 tens = 40; 3 tens + 8 ones = 38; 5 tens + 2 ones = 52!',
+    points: 15,
   },
 ];

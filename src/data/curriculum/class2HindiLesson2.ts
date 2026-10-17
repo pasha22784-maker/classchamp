@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 HINDI (सारंगी 2 / RIMJHIM 2)
 // CHAPTER 2: भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: कहानी बोध (भालू व शेर का बच्चा)
+  // EASY LEVEL (5 Questions) — कहानी के मुख्य पात्र, घटनाएँ व मात्राएँ
   // --------------------------------------------------------------------------
   {
     id: 'c2_h2_concept_story_01',
@@ -18,16 +19,16 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
     concept: 'कहानी की घटना',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'सर्दियों के मौसम में भालू साहब सुबह सैर पर निकले। उन्होंने जामुन के पेड़ के नीचे गोल-मटोल सिमटे हुए किसे देखा जिसे उन्होंने फुटबॉल समझ लिया?',
+    question: 'सर्दियों के मौसम में भालू साहब सुबह सैर पर निकले। उन्होंने जामुन के पेड़ के नीचे गोल-मटोल सिमटे हुए किसे देखा जिसे फुटबॉल समझ लिया?',
     visualEmoji: '🐻 ⚽ 🦁',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: 'शेर के बच्चे को 🦁', isCorrect: true },
+        { id: 'opt_st1_1', text: 'शेर के बच्चे को', isCorrect: true },
         { id: 'opt_st1_2', text: 'सच्ची फुटबॉल को', isCorrect: false },
         { id: 'opt_st1_3', text: 'एक बड़े तरबूज को', isCorrect: false },
       ],
     },
-    explanation: '💡 भालू दादा ने ठंड में सिकुड़कर बैठे **शेर के बच्चे 🦁** को फुटबॉल समझकर पैर से उछाल दिया था!',
+    explanation: '💡 भालू दादा ने ठंड में सिकुड़कर बैठे शेर के बच्चे को फुटबॉल समझकर पैर से उछाल दिया था!',
     points: 10,
   },
   {
@@ -45,13 +46,9 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
       wordBank: ['मज़ा', 'दुख', 'रोना', 'गुस्सा'],
       displayTemplate: 'शेर के बच्चे को बहुत [BLANK] आया।',
     },
-    explanation: '💡 शेर के बच्चे को बार-बार हवा में उछलने में बहुत **मज़ा** आया! 😄',
+    explanation: '💡 शेर के बच्चे को बार-बार हवा में उछलने में बहुत मज़ा आया!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: शुद्ध वर्तनी व मात्रा ज्ञान
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h2_concept_matra_01',
     grade: 2,
@@ -64,12 +61,12 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🐻 🔤',
     payload: {
       options: [
-        { id: 'opt_mt1_1', text: 'भा में आ और लू में बड़ा ऊ की मात्रा', isCorrect: true },
+        { id: 'opt_mt1_1', text: 'भा में आ (ा) और लू में बड़ा ऊ (ू) की मात्रा', isCorrect: true },
         { id: 'opt_mt1_2', text: 'छोटी इ की मात्रा', isCorrect: false },
         { id: 'opt_mt1_3', text: 'ए की मात्रा', isCorrect: false },
       ],
     },
-    explanation: '💡 भ् + **ा** = भा, ल् + **ू** = लू -> **भालू**! 🐻',
+    explanation: '💡 भ् + ा = भा, ल् + ू = लू -> भालू!',
     points: 10,
   },
   {
@@ -77,90 +74,255 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'hindi',
     chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
-    concept: 'सही वर्तनी पहचान',
+    concept: 'शुद्ध वर्तनी पहचान',
     difficulty: 'easy',
     type: 'mcq',
     question: 'इनमें से कौन सा शब्द सही वर्तनी (शुद्ध रूप) में लिखा है?',
     visualEmoji: '☀️ ❄️ 🌫️',
     payload: {
       options: [
-        { id: 'opt_vr2_1', text: 'मौसम ⛅', isCorrect: true },
+        { id: 'opt_vr2_1', text: 'मौसम', isCorrect: true },
         { id: 'opt_vr2_2', text: 'मोसम', isCorrect: false },
         { id: 'opt_vr2_3', text: 'मूसम', isCorrect: false },
       ],
     },
-    explanation: '💡 शुद्ध वर्तनी है: **मौसम**! ⛅',
+    explanation: '💡 शुद्ध वर्तनी है: मौसम (औ की मात्रा)!',
+    points: 10,
+  },
+  {
+    id: 'c2_h2_concept_tree_name',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
+    concept: 'कहानी का पेड़',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'शेर का बच्चा किस पेड़ के नीचे गोल-मटोल सिमटा हुआ सो रहा था? [BLANK] के पेड़ के नीचे।',
+    visualEmoji: '🌳 🦁',
+    payload: {
+      correctAnswer: 'जामुन',
+      wordBank: ['जामुन', 'आम', 'नीम', 'केला'],
+      displayTemplate: 'शेर का बच्चा [BLANK] के पेड़ के नीचे था।',
+    },
+    explanation: '💡 शेर का बच्चा जामुन के पेड़ के नीचे गोल-मटोल सो रहा था!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 3: 'र' के विभिन्न रूप (रेफ़ र्)
+  // MEDIUM LEVEL (5 Questions) — मुहावरे, कहानी का क्रम व मात्रा मिलान
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h2_concept_ref_01',
+    id: 'c2_h2_concept_muhavara',
     grade: 2,
     subject: 'hindi',
     chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
-    concept: 'रेफ़ (र्) का प्रयोग',
+    concept: 'मुहावरा: नौ दो ग्यारह होना',
     difficulty: 'medium',
     type: 'mcq',
-    question: '"सर्दी" और "सूर्य" शब्द में अक्षर के ऊपर लगा चिह्न (  ँ  नहीं, बल्कि  र्  ) क्या कहलाता है?',
-    visualEmoji: '☀️ ❄️',
+    question: 'जब भालू शेर के बच्चे को उछालते-उछालते बुरी तरह थक गया, तो वह \'नौ दो ग्यारह हो गया\'। इस मुहावरे का क्या अर्थ है?',
+    visualEmoji: '🏃‍♂️ 💨 🐻',
     payload: {
       options: [
-        { id: 'opt_rf1_1', text: 'रेफ़', isCorrect: true },
-        { id: 'opt_rf1_2', text: 'चन्द्रबिन्दु', isCorrect: false },
-        { id: 'opt_rf1_3', text: 'विसर्ग', isCorrect: false },
+        { id: 'opt_mh2_1', text: 'वहाँ से भाग जाना', isCorrect: true },
+        { id: 'opt_mh2_2', text: 'गिनती सीखना', isCorrect: false },
+        { id: 'opt_mh2_3', text: 'सो जाना', isCorrect: false },
       ],
     },
-    explanation: '💡 जब आधा \'र\' किसी व्यंजन के ऊपर लगता है (जैसे सूर्य ☀️, सर्दी ❄️, पार्क 🏞️), उसे **रेफ़** कहते हैं!',
+    explanation: '💡 "नौ दो ग्यारह होना" एक प्रसिद्ध मुहावरा है जिसका अर्थ होता है "भाग जाना"!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: वाक्य निर्माण (Drag Order)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_h2_concept_order_01',
+    id: 'c2_h2_concept_gardener_ask',
     grade: 2,
     subject: 'hindi',
     chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
-    concept: 'कहानी का वाक्य क्रम',
+    concept: 'माली का हरजाना',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'पेड़ की डाल टूटने पर बगीचे के [BLANK] ने आकर शेर के बच्चे से हरजाना माँगा।',
+    visualEmoji: '👨‍🌾 🌳',
+    payload: {
+      correctAnswer: 'माली',
+      wordBank: ['माली', 'भालू', 'बंदर', 'चौकीदार'],
+      displayTemplate: 'बगीचे के [BLANK] ने हरजाना माँगा।',
+    },
+    explanation: '💡 बगीचे की देखभाल करने वाले माली ने डाल टूटने पर हरजाना माँगा!',
+    points: 10,
+  },
+  {
+    id: 'c2_h2_concept_drag_story_flow',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
+    concept: 'कहानी के घटनाक्रम का सही क्रम',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'कहानी के शब्दों को सही क्रम में लगाकर सही वाक्य बनाइए:',
-    visualEmoji: '🐻 🏃‍♂️ 🌳',
+    question: 'कहानी \'भालू ने खेली फुटबॉल\' की घटनाओं को सही क्रम में लगाइए:',
+    visualEmoji: '📖 🐻 🦁 🏃',
     payload: {
-      tokens: ['भालू', 'साहब', 'सुबह', 'सैर', 'पर', 'निकले।'],
-      scrambled: ['सैर', 'निकले।', 'भालू', 'सुबह', 'साहब', 'पर'],
-      correctSequence: ['भालू', 'साहब', 'सुबह', 'सैर', 'पर', 'निकले।'],
+      tokens: [
+        'भालू सुबह सैर पर निकले',
+        'भालू ने शेर के बच्चे को फुटबॉल समझकर उछाला',
+        'शेर के बच्चे ने जामुन की डाल पकड़ी',
+        'भालू थककर अपने घर की ओर भाग गया',
+      ],
+      scrambled: [
+        'भालू थककर अपने घर की ओर भाग गया',
+        'भालू सुबह सैर पर निकले',
+        'शेर के बच्चे ने जामुन की डाल पकड़ी',
+        'भालू ने शेर के बच्चे को फुटबॉल समझकर उछाला',
+      ],
+      correctSequence: [
+        'भालू सुबह सैर पर निकले',
+        'भालू ने शेर के बच्चे को फुटबॉल समझकर उछाला',
+        'शेर के बच्चे ने जामुन की डाल पकड़ी',
+        'भालू थककर अपने घर की ओर भाग गया',
+      ],
     },
-    explanation: '💡 सही वाक्य: "**भालू साहब सुबह सैर पर निकले।**" 🐻',
+    explanation: '💡 सही क्रम: सैर पर निकले -> बच्चे को उछाला -> डाल पकड़ी -> थककर भाग गए!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: मात्राओं का शब्दों से सही मिलान
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_h2_concept_match_01',
+    id: 'c2_h2_concept_match_pairs',
     grade: 2,
     subject: 'hindi',
     chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
-    concept: 'मात्रा और शब्द मिलान',
+    concept: 'शब्द और मुख्य मात्रा का मिलान',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'मात्रा को उसके सही शब्द से मिलाइए:',
+    question: 'प्रत्येक शब्द को उसमें लगी मुख्य मात्रा से मिलाइए:',
     visualEmoji: '🔤 🎯',
     payload: {
       pairs: [
-        { id: 'mt_p1', left: 'बड़ा ऊ की मात्रा ( ू )', right: 'भालू 🐻' },
-        { id: 'mt_p2', left: 'बड़ी ई की मात्रा ( ी )', right: 'सर्दियों ❄️' },
-        { id: 'mt_p3', left: 'ओ की मात्रा ( ो )', right: 'कोहरा 🌫️' },
-        { id: 'mt_p4', left: 'ऐ की मात्रा ( ै )', right: 'सैर 🚶' },
+        { id: 'm_h2_p1', left: 'शेर', right: '\'ए\' की मात्रा (े)' },
+        { id: 'm_h2_p2', left: 'भालू', right: '\'ऊ\' की मात्रा (ू)' },
+        { id: 'm_h2_p3', left: 'माली', right: '\'ई\' की मात्रा (ी)' },
+        { id: 'm_h2_p4', left: 'पैर', right: '\'ऐ\' की मात्रा (ै)' },
       ],
     },
-    explanation: '💡 ू = भालू, ी = सर्दी, ो = कोहरा, ै = सैर!',
+    explanation: '💡 शेर = ए; भालू = बड़ा ऊ; माली = बड़ी ई; पैर = ऐ!',
+    points: 15,
+  },
+  {
+    id: 'c2_h2_concept_sports_name',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
+    concept: 'पैरों से खेला जाने वाला खेल',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'इनमें से कौन सा खेल मैदान में पैरों से गेंद को मारकर खेला जाता है?',
+    visualEmoji: '⚽ 🏏 🏑',
+    payload: {
+      options: [
+        { id: 'opt_sp2_1', text: 'फुटबॉल', isCorrect: true },
+        { id: 'opt_sp2_2', text: 'क्रिकेट (बल्ले से)', isCorrect: false },
+        { id: 'opt_sp2_3', text: 'कैरम (उंगलियों से)', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "फुट" का अर्थ होता है पैर और "बॉल" का अर्थ गेंद, इसलिए फुटबॉल पैरों से खेला जाता है!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — वाक्य पुनर्गठन, जानवरों की बोलियाँ व पहेलियाँ
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_h2_hard_sentence_order',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
+    concept: 'उलटे-पुलटे शब्दों से सही वाक्य बनाना',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: '"सर्दियों / में / निकला / सुबह / भालू" — इन शब्दों को जोड़कर सही अर्थपूर्ण वाक्य चुनिए:',
+    visualEmoji: '✍️ ❄️ 🐻',
+    payload: {
+      options: [
+        { id: 'opt_so2_1', text: 'भालू सर्दियों में सुबह निकला।', isCorrect: true },
+        { id: 'opt_so2_2', text: 'निकला सुबह भालू में सर्दियों।', isCorrect: false },
+        { id: 'opt_so2_3', text: 'सर्दियों भालू निकला सुबह में।', isCorrect: false },
+      ],
+    },
+    explanation: '💡 सही वाक्य विन्यास: कर्ता (भालू) + समय (सर्दियों में सुबह) + क्रिया (निकला)!',
+    points: 15,
+  },
+  {
+    id: 'c2_h2_hard_fill_catch',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
+    concept: 'कहानी का त्वरित कार्य',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'जैसे ही शेर का बच्चा पेड़ की डाल टूटने पर नीचे गिरने लगा, भालू दादा ने फुर्ती से दोनों हाथ फैलाकर उसे [BLANK] लिया।',
+    visualEmoji: '🤲 🦁',
+    payload: {
+      correctAnswer: 'पकड़',
+      wordBank: ['पकड़', 'छोड़', 'गिरा', 'सुला'],
+      displayTemplate: 'भालू ने फुर्ती से उसे [BLANK] लिया।',
+    },
+    explanation: '💡 भालू ने फुर्ती से लपककर शेर के बच्चे को पकड़ लिया ताकि उसे चोट न लगे!',
+    points: 15,
+  },
+  {
+    id: 'c2_h2_hard_drag_sports',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
+    concept: 'खेलों के नामों का वर्णमाला क्रम',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'इन लोकप्रिय खेलों को हिंदी वर्णमाला क्रम (क, ख, फ, ह) के अनुसार लगाइए:',
+    visualEmoji: '🏏 🏃 ⚽ 🏑',
+    payload: {
+      tokens: ['क्रिकेट (क)', 'खो-खो (ख)', 'फुटबॉल (फ)', 'हॉकी (ह)'],
+      scrambled: ['हॉकी (ह)', 'खो-खो (ख)', 'क्रिकेट (क)', 'फुटबॉल (फ)'],
+      correctSequence: ['क्रिकेट (क)', 'खो-खो (ख)', 'फुटबॉल (फ)', 'हॉकी (ह)'],
+    },
+    explanation: '💡 वर्णमाला क्रम: क (क्रिकेट) -> ख (खो-खो) -> फ (फुटबॉल) -> ह (हॉकी)!',
+    points: 15,
+  },
+  {
+    id: 'c2_h2_hard_match_sounds',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
+    concept: 'पशुओं की बोलियों का मिलान',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'प्रत्येक जीव को उसकी स्वाभाविक बोली/आवाज़ से मिलाइए:',
+    visualEmoji: '🦁 🐕 🐱 🐸',
+    payload: {
+      pairs: [
+        { id: 'm_h2_s1', left: 'शेर', right: 'दहाड़ना / गुर्राना' },
+        { id: 'm_h2_s2', left: 'कुत्ता', right: 'भौंकना' },
+        { id: 'm_h2_s3', left: 'बिल्ली', right: 'म्याऊँ-म्याऊँ करना' },
+        { id: 'm_h2_s4', left: 'मेंढक', right: 'टर्र-टर्र करना' },
+      ],
+    },
+    explanation: '💡 शेर दहाड़ता है, कुत्ता भौंकता है, बिल्ली म्याऊँ करती है, मेंढक टर्राता है!',
+    points: 15,
+  },
+  {
+    id: 'c2_h2_hard_story_riddle',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति)',
+    concept: 'कहानी का पात्र पहेली',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'सर्दियों की सुबह कोहरे में मैं जामुन के पेड़ के नीचे गोल-मटोल सिमटकर सो रहा था। भालू दादा ने मुझे फुटबॉल समझकर पैर से उछाल दिया। मैं कौन हूँ?',
+    visualEmoji: '🦁 ❄️ ❓',
+    payload: {
+      options: [
+        { id: 'opt_hr2_1', text: 'शेर का बच्चा', isCorrect: true },
+        { id: 'opt_hr2_2', text: 'भालू का बच्चा', isCorrect: false },
+        { id: 'opt_hr2_3', text: 'नन्हा खरगोश', isCorrect: false },
+        { id: 'opt_hr2_4', text: 'हिरण का छौना', isCorrect: false },
+      ],
+    },
+    explanation: '💡 कहानी में शेर का बच्चा जामुन के पेड़ के नीचे गोल-मटोल सो रहा था जिसे भालू ने उछाला!',
     points: 15,
   },
 ];

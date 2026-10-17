@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 HINDI (सारंगी 2 / RIMJHIM 2)
 // CHAPTER 4: अधिक बलवान कौन? (विशेषण - कैसा/कितना)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: विशेषता बताने वाले शब्द (विशेषण परिचय)
+  // EASY LEVEL (5 Questions) — विशेषण की पहचान व कहानी के मूल तथ्य
   // --------------------------------------------------------------------------
   {
     id: 'c2_h4_concept_vishesh_01',
@@ -18,7 +19,7 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     concept: 'विशेषण की पहचान',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'वाक्य पढ़िए: "सूरज की तेज धूप ☀️ से आदमी को बहुत पसीना आने लगा।" इसमें धूप \'कैसी\' है?',
+    question: 'वाक्य पढ़िए: "सूरज की तेज धूप से आदमी को बहुत पसीना आने लगा।" इसमें धूप \'कैसी\' है?',
     visualEmoji: '☀️ 🥵',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
         { id: 'opt_vs1_3', text: 'सूरज', isCorrect: false },
       ],
     },
-    explanation: '💡 जो शब्द संज्ञा की विशेषता (कैसा/कितना) बताते हैं, उन्हें **विशेषण** कहते हैं। यहाँ धूप \'तेज\' है!',
+    explanation: '💡 जो शब्द संज्ञा की विशेषता (कैसा/कितना) बताते हैं, उन्हें विशेषण कहते हैं। यहाँ धूप "तेज" है!',
     points: 10,
   },
   {
@@ -38,20 +39,16 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     concept: 'रंग रूप का विशेषण',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'यात्री ने अपने शरीर पर एक भारी [BLANK] (काला) कोट पहन रखा था।',
+    question: 'सड़क पर जा रहे यात्री ने अपने शरीर पर एक भारी [BLANK] कोट पहन रखा था।',
     visualEmoji: '🧥 🚶',
     payload: {
       correctAnswer: 'काला',
       wordBank: ['काला', 'दौड़ना', 'उड़ना', 'हँसना'],
       displayTemplate: 'यात्री ने [BLANK] कोट पहना था।',
     },
-    explanation: '💡 कोट कैसा था? **काला** कोट! काला एक विशेषण शब्द है। 🧥',
+    explanation: '💡 कोट कैसा था? काला कोट! काला एक विशेषण शब्द है।',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: कहानी बोध (हवा और सूरज की शर्त)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h4_concept_story_01',
     grade: 2,
@@ -60,16 +57,16 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     concept: 'हवा और सूरज में बहस',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'हवा 💨 और सूरज ☀️ में किस बात पर बहस छिड़ गई थी?',
+    question: 'हवा और सूरज में किस बात पर बहस छिड़ गई थी?',
     visualEmoji: '💨 vs ☀️',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: 'कि हम दोनों में से अधिक बलवान कौन है!', isCorrect: true },
+        { id: 'opt_st1_1', text: 'कि हम दोनों में से अधिक बलवान (ताकतवर) कौन है!', isCorrect: true },
         { id: 'opt_st1_2', text: 'कि कौन तेज दौड़ सकता है', isCorrect: false },
-        { id: 'opt_st1_3', text: 'कि कौन खाना खाएगा', isCorrect: false },
+        { id: 'opt_st1_3', text: 'कि कौन ज्यादा भोजन करेगा', isCorrect: false },
       ],
     },
-    explanation: '💡 हवा और सूरज में इस बात पर बहस हुई कि **अधिक बलवान (ताकतवर) कौन है**!',
+    explanation: '💡 हवा और सूरज में इस बात पर बहस हुई कि अधिक बलवान कौन है!',
     points: 10,
   },
   {
@@ -80,87 +77,253 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     concept: 'सूरज की जीत',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'जब सूरज बहुत तेज तपने और चमकने लगा, तो आदमी ने गर्मी के कारण क्या किया?',
+    question: 'जब सूरज बहुत तेज तपने और चमकने लगा, तो यात्री ने अत्यधिक गर्मी के कारण क्या किया?',
     visualEmoji: '☀️ 🥵 🧥',
     payload: {
       options: [
-        { id: 'opt_st2_1', text: 'अपना कोट उतार दिया 🧥', isCorrect: true },
-        { id: 'opt_st2_2', text: 'कोट और कसकर पहन लिया', isCorrect: false },
-        { id: 'opt_st2_3', text: 'दौड़ने लगा', isCorrect: false },
+        { id: 'opt_st2_1', text: 'अपना कोट उतारकर हाथ में ले लिया', isCorrect: true },
+        { id: 'opt_st2_2', text: 'कोट को और कसकर बाँध लिया', isCorrect: false },
+        { id: 'opt_st2_3', text: 'पेड़ पर चढ़ गया', isCorrect: false },
       ],
     },
-    explanation: '💡 तेज धूप और गर्मी से आदमी ने अपना कोट उतार दिया, जिससे सूरज की जीत हुई! ☀️',
+    explanation: '💡 तेज धूप और गर्मी से परेशान होकर आदमी ने अपना कोट उतार दिया, जिससे सूरज जीत गया!',
+    points: 10,
+  },
+  {
+    id: 'c2_h4_concept_taste_fill',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'स्वाद बताने वाला विशेषण',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'पेड़ की डाल पर लगा पका हुआ पीला आम बहुत [BLANK] और रसीला था।',
+    visualEmoji: '🥭 😋',
+    payload: {
+      correctAnswer: 'मीठा',
+      wordBank: ['मीठा', 'खारा', 'कड़वा', 'तीखा'],
+      displayTemplate: 'पका हुआ आम बहुत [BLANK] था।',
+    },
+    explanation: '💡 "मीठा" आम के स्वाद की विशेषता बताता है!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 3: विपरीत विशेषण (Antonym Adjectives)
+  // MEDIUM LEVEL (5 Questions) — हवा का प्रयास, विलोम शब्द व विशेषण मिलान
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h4_concept_opp_01',
+    id: 'c2_h4_concept_wind_fail',
     grade: 2,
     subject: 'hindi',
     chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
-    concept: 'बलवान का विलोम',
-    difficulty: 'easy',
+    concept: 'हवा का ज़ोर और आदमी का व्यवहार',
+    difficulty: 'medium',
     type: 'mcq',
-    question: '"बलवान" (ताकतवर) का उल्टा अर्थ वाला शब्द क्या होगा?',
-    visualEmoji: '💪 ↔️ 🍂',
+    question: 'जब हवा बहुत ज़ोर से आँधी की तरह चलने लगी, तो आदमी ने अपने कोट के साथ क्या किया?',
+    visualEmoji: '💨 🧥 🥶',
     payload: {
       options: [
-        { id: 'opt_op1_1', text: 'कमज़ोर / दुर्बल', isCorrect: true },
-        { id: 'opt_op1_2', text: 'बड़ा', isCorrect: false },
-        { id: 'opt_op1_3', text: 'सुंदर', isCorrect: false },
+        { id: 'opt_wf4_1', text: 'कोट को दोनों हाथों से शरीर पर और कसकर लपेट लिया', isCorrect: true },
+        { id: 'opt_wf4_2', text: 'कोट तुरंत हवा में फेंक दिया', isCorrect: false },
+        { id: 'opt_wf4_3', text: 'कोट को फाड़ दिया', isCorrect: false },
       ],
     },
-    explanation: '💡 बलवान का उल्टा शब्द **कमज़ोर (निर्बल)** होता है! 💪 ↔️ 🍂',
+    explanation: '💡 तेज़ और ठंडी हवा चलने से ठंड बढ़ गई, इसलिए आदमी ने कोट को और कसकर पकड़ लिया!',
+    points: 10,
+  },
+  {
+    id: 'c2_h4_concept_opp_balwan',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'बलवान का विलोम शब्द',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: '\'बलवान\' (ताकतवर) शब्द का उलटा (विलोम) शब्द [BLANK] होता है।',
+    visualEmoji: '💪 ↔️ ❓',
+    payload: {
+      correctAnswer: 'कमज़ोर',
+      wordBank: ['कमज़ोर', 'सुंदर', 'तेज़', 'बड़ा'],
+      displayTemplate: 'बलवान का विलोम [BLANK] है।',
+    },
+    explanation: '💡 बलवान का विपरीतार्थक शब्द "कमज़ोर" होता है!',
+    points: 10,
+  },
+  {
+    id: 'c2_h4_concept_drag_story_order',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'कहानी का कालक्रम',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'कहानी \'अधिक बलवान कौन?\' की घटनाओं को सही क्रम में लगाइए:',
+    visualEmoji: '📖 💨 ☀️ 🧥',
+    payload: {
+      tokens: [
+        'हवा और सूरज में बहस हुई',
+        'हवा ज़ोर से चलने लगी',
+        'आदमी ने कोट कसकर पकड़ लिया',
+        'सूरज तपा और आदमी ने कोट उतार दिया',
+      ],
+      scrambled: [
+        'सूरज तपा और आदमी ने कोट उतार दिया',
+        'हवा ज़ोर से चलने लगी',
+        'हवा और सूरज में बहस हुई',
+        'आदमी ने कोट कसकर पकड़ लिया',
+      ],
+      correctSequence: [
+        'हवा और सूरज में बहस हुई',
+        'हवा ज़ोर से चलने लगी',
+        'आदमी ने कोट कसकर पकड़ लिया',
+        'सूरज तपा और आदमी ने कोट उतार दिया',
+      ],
+    },
+    explanation: '💡 सही क्रम: बहस हुई -> हवा चली -> कोट पकड़ा -> सूरज तपा और कोट उतर गया!',
+    points: 15,
+  },
+  {
+    id: 'c2_h4_concept_match_pairs',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'संज्ञा और विशेषण का सही मिलान',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'प्रत्येक संज्ञा शब्द को उसकी सही विशेषता (विशेषण) से मिलाइए:',
+    visualEmoji: '🎯 ☕ 🧊 🍋 🐘',
+    payload: {
+      pairs: [
+        { id: 'm_h4_p1', left: 'गरम', right: 'चाय' },
+        { id: 'm_h4_p2', left: 'ठंडी', right: 'बर्फ़' },
+        { id: 'm_h4_p3', left: 'खट्टी', right: 'इमली' },
+        { id: 'm_h4_p4', left: 'भारी', right: 'हाथी' },
+      ],
+    },
+    explanation: '💡 चाय = गरम; बर्फ़ = ठंडी; इमली = खट्टी; हाथी = भारी!',
+    points: 15,
+  },
+  {
+    id: 'c2_h4_concept_how_many',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'संख्यावाचक विशेषण',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'वाक्य में संख्या (गिनती) बताने वाला विशेषण कौन सा है: "बगीचे में चार रंग-बिरंगी तितलियाँ उड़ रही हैं।"',
+    visualEmoji: '🦋🦋🦋🦋 🌺',
+    payload: {
+      options: [
+        { id: 'opt_hm4_1', text: 'चार', isCorrect: true },
+        { id: 'opt_hm4_2', text: 'तितलियाँ', isCorrect: false },
+        { id: 'opt_hm4_3', text: 'उड़ रही हैं', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "चार" तितलियों की संख्या बता रहा है, इसलिए यह संख्यावाचक विशेषण है!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: वाक्य क्रम (Drag Order)
+  // HARD LEVEL (5 Questions) — वाक्य में विशेषणों की गिनती, तापमान क्रम व पहेली
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h4_concept_order_01',
+    id: 'c2_h4_hard_count_vishesh',
     grade: 2,
     subject: 'hindi',
     chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
-    concept: 'विशेषण वाक्य क्रम',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'शब्दों को सही क्रम में लगाकर कहानी का वाक्य बनाइए:',
-    visualEmoji: '☀️ 💨 🤝',
+    concept: 'वाक्य में विशेषणों की कुल संख्या',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'वाक्य पढ़िए: "एक नन्हे बालक ने लाल मीठा सेब खाया।" इस वाक्य में कुल कितने विशेषण (कैसा/कितना बताने वाले शब्द) हैं?',
+    visualEmoji: '👦 🍎 😋',
     payload: {
-      tokens: ['हवा', 'ने', 'सूरज', 'की', 'ताकत', 'मान', 'ली।'],
-      scrambled: ['सूरज', 'ली।', 'की', 'हवा', 'मान', 'ताकत', 'ने'],
-      correctSequence: ['हवा', 'ने', 'सूरज', 'की', 'ताकत', 'मान', 'ली।'],
-    },
-    explanation: '💡 सही क्रम: "**हवा ने सूरज की ताकत मान ली।**" ☀️',
-    points: 15,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: विशेषण और विशेष्य (संज्ञा) का मिलान
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_h4_concept_match_01',
-    grade: 2,
-    subject: 'hindi',
-    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
-    concept: 'विशेषण और संज्ञा मिलान',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'कैसा/कितना बताने वाले विशेषण को सही संज्ञा से मिलाइए:',
-    visualEmoji: '🏷️ 🎯',
-    payload: {
-      pairs: [
-        { id: 'vs_p1', left: 'ठंडी ❄️', right: 'हवा 💨' },
-        { id: 'vs_p2', left: 'तेज ☀️', right: 'धूप' },
-        { id: 'vs_p3', left: 'मीठा 🥭', right: 'आम' },
-        { id: 'vs_p4', left: 'हरा 🍃', right: 'पत्ता' },
+      options: [
+        { id: 'opt_cv4_1', text: '3 विशेषण (नन्हे, लाल, मीठा)', isCorrect: true },
+        { id: 'opt_cv4_2', text: '1 विशेषण', isCorrect: false },
+        { id: 'opt_cv4_3', text: '2 विशेषण', isCorrect: false },
+        { id: 'opt_cv4_4', text: '4 विशेषण', isCorrect: false },
       ],
     },
-    explanation: '💡 ठंडी हवा, तेज धूप, मीठा आम, हरा पत्ता!',
+    explanation: '💡 नन्हे (बालक की विशेषता), लाल (रंग) और मीठा (स्वाद) — कुल 3 विशेषण शब्द हैं!',
+    points: 15,
+  },
+  {
+    id: 'c2_h4_hard_fill_moral',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'कहानी की सीख',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'क्रोध, घमंड और ज़ोर-ज़बरदस्ती की तुलना में शांति और समझदारी से काम लेना कहीं अधिक [BLANK] होता है।',
+    visualEmoji: '🕊️ 💡 ☀️',
+    payload: {
+      correctAnswer: 'उत्तम',
+      wordBank: ['उत्तम', 'बुरा', 'कमज़ोर', 'बेकार'],
+      displayTemplate: 'शांति से काम लेना अधिक [BLANK] होता है।',
+    },
+    explanation: '💡 कहानी से सीख मिलती है कि घमंड करने के बजाय धैर्य और बुद्धिमानी अधिक उत्तम है!',
+    points: 15,
+  },
+  {
+    id: 'c2_h4_hard_drag_temp',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'तापमान विशेषणों का क्रम (शीतल से तप्त)',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'मौसम की स्थिति को सबसे ठंडे से सबसे गरम के क्रम में लगाइए:',
+    visualEmoji: '❄️ ➡️ ⛅ ➡️ ☀️ ➡️ 🔥',
+    payload: {
+      tokens: ['बर्फीली ठंड', 'सुहावना मौसम', 'चटक धूप', 'भीषण गर्मी'],
+      scrambled: ['भीषण गर्मी', 'सुहावना मौसम', 'बर्फीली ठंड', 'चटक धूप'],
+      correctSequence: ['बर्फीली ठंड', 'सुहावना मौसम', 'चटक धूप', 'भीषण गर्मी'],
+    },
+    explanation: '💡 ठंडे से गरम क्रम: बर्फीली ठंड -> सुहावना मौसम -> चटक धूप -> भीषण गर्मी!',
+    points: 15,
+  },
+  {
+    id: 'c2_h4_hard_match_antonyms',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'विशेषण विलोम युग्म मिलान',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'प्रत्येक विशेषण को उसके ठीक उलटे (विलोम) शब्द से मिलाइए:',
+    visualEmoji: '🔄 ⚖️',
+    payload: {
+      pairs: [
+        { id: 'm_h4_a1', left: 'अधिक', right: 'कम' },
+        { id: 'm_h4_a2', left: 'भारी', right: 'हल्का' },
+        { id: 'm_h4_a3', left: 'गरम', right: 'ठंडा' },
+        { id: 'm_h4_a4', left: 'बलवान', right: 'कमज़ोर' },
+      ],
+    },
+    explanation: '💡 अधिक ↔️ कम; भारी ↔️ हल्का; गरम ↔️ ठंडा; बलवान ↔️ कमज़ोर!',
+    points: 15,
+  },
+  {
+    id: 'c2_h4_hard_vishesh_riddle',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'अधिक बलवान कौन? (विशेषण - कैसा/कितना)',
+    concept: 'विशेषण की परिभाषा पहेली',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'मैं संज्ञा और सर्वनाम का रंग, रूप, आकार, गुण, दोष और संख्या बताता हूँ। जैसे \'सुंदर फूल\' में \'सुंदर\'। व्याकरण में मेरा क्या नाम है?',
+    visualEmoji: '🌹 🎨 ❓',
+    payload: {
+      options: [
+        { id: 'opt_vr4_1', text: 'विशेषण', isCorrect: true },
+        { id: 'opt_vr4_2', text: 'संज्ञा', isCorrect: false },
+        { id: 'opt_vr4_3', text: 'क्रिया', isCorrect: false },
+        { id: 'opt_vr4_4', text: 'वचन', isCorrect: false },
+      ],
+    },
+    explanation: '💡 जो शब्द संज्ञा या सर्वनाम की विशेषता बताते हैं, उन्हें विशेषण कहते हैं!',
     points: 15,
   },
 ];

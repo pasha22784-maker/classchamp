@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 8: WHICH SEASON IS IT? (TIME & MONTHS)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Days of the Week (सप्ताह के सात दिन)
+  // EASY LEVEL (5 Questions) — Days of Week, Months & Basic Calendar
   // --------------------------------------------------------------------------
   {
     id: 'c2_m8_concept_days_01',
@@ -27,7 +28,7 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
         { id: 'opt_dw1_3', text: '12 days', isCorrect: false },
       ],
     },
-    explanation: '💡 There are **7 days** in every week: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday!',
+    explanation: '💡 There are 7 days in every week: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday!',
     points: 10,
   },
   {
@@ -35,7 +36,7 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'maths',
     chapter: 'Which Season is it? (Time & Months)',
-    concept: 'Yesterday and Tomorrow',
+    concept: 'Tomorrow Concept',
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'If TODAY is Wednesday, then TOMORROW will be [BLANK].',
@@ -45,7 +46,7 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
       wordBank: ['Thursday', 'Tuesday', 'Friday', 'Sunday'],
       displayTemplate: 'If today is Wednesday, tomorrow will be [BLANK].',
     },
-    explanation: '💡 Wednesday comes before **Thursday**! Tomorrow is Thursday.',
+    explanation: '💡 In weekly order, Thursday comes right after Wednesday!',
     points: 10,
   },
   {
@@ -53,10 +54,10 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'maths',
     chapter: 'Which Season is it? (Time & Months)',
-    concept: 'Weekend Holiday Day',
+    concept: 'Weekly Holiday',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Which day of the week is usually a fun school holiday for children everywhere?',
+    question: 'Which day of the week is the weekly school holiday for children everywhere?',
     visualEmoji: '☀️ 🎈 🏫',
     payload: {
       options: [
@@ -65,13 +66,9 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
         { id: 'opt_dw3_3', text: 'Wednesday', isCorrect: false },
       ],
     },
-    explanation: '💡 **Sunday (रविवार)** is the weekly holiday!',
+    explanation: '💡 Sunday (रविवार) is the universal weekly school holiday!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Months of the Year (साल के 12 महीने)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m8_concept_months_01',
     grade: 2,
@@ -89,7 +86,7 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
         { id: 'opt_mn1_3', text: 'December', isCorrect: false },
       ],
     },
-    explanation: '💡 **January** is the 1st month of the year!',
+    explanation: '💡 January is the 1st month of the year!',
     points: 10,
   },
   {
@@ -98,127 +95,220 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
     subject: 'maths',
     chapter: 'Which Season is it? (Time & Months)',
     concept: 'Shortest Month',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'Which month has the fewest number of days (28 or 29 days)?',
-    visualEmoji: '❄️ 2️⃣8️⃣ 📅',
-    payload: {
-      options: [
-        { id: 'opt_mn2_1', text: 'February', isCorrect: true },
-        { id: 'opt_mn2_2', text: 'July', isCorrect: false },
-        { id: 'opt_mn2_3', text: 'August', isCorrect: false },
-      ],
-    },
-    explanation: '💡 **February** is the shortest month with 28 days (and 29 in a Leap Year)!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: The Four Seasons in India (ऋतुएँ)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m8_concept_seasons_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Which Season is it? (Time & Months)',
-    concept: 'Summer Season Features',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'During May and June, the sun shines very hot ☀️, schools have vacations, and we eat sweet mangoes 🥭. Which season is this?',
-    visualEmoji: '☀️ 🥭 🏖️',
-    payload: {
-      options: [
-        { id: 'opt_sn1_1', text: 'Summer Season', isCorrect: true },
-        { id: 'opt_sn1_2', text: 'Winter Season', isCorrect: false },
-        { id: 'opt_sn1_3', text: 'Rainy Season', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Hot sunny days and sweet mangoes happen during the **Summer season**!',
-    points: 10,
-  },
-  {
-    id: 'c2_m8_concept_seasons_02',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Which Season is it? (Time & Months)',
-    concept: 'Rainy Monsoon Season',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'When dark clouds bring heavy rain 🌧️, we carry an umbrella ☂️ in the [BLANK] season.',
-    visualEmoji: '🌧️ ☂️ 🌈',
+    question: 'The shortest month of the year with only 28 or 29 days is [BLANK].',
+    visualEmoji: '❄️ 2️⃣8️⃣ 📅',
     payload: {
-      correctAnswer: 'rainy',
-      wordBank: ['rainy', 'winter', 'dry', 'snowy'],
-      displayTemplate: 'We carry an umbrella in the [BLANK] season.',
+      correctAnswer: 'February',
+      wordBank: ['February', 'May', 'August', 'December'],
+      displayTemplate: 'The shortest month is [BLANK].',
     },
-    explanation: '💡 In the **rainy (monsoon)** season, we need raincoats and umbrellas! 🌧️',
+    explanation: '💡 February usually has 28 days (and 29 days in a leap year)!',
     points: 10,
   },
+
+  // --------------------------------------------------------------------------
+  // MEDIUM LEVEL (5 Questions) — Clock Reading, Seasons & Day Sequences
+  // --------------------------------------------------------------------------
   {
-    id: 'c2_m8_concept_seasons_03',
+    id: 'c2_m8_concept_clock_oclock',
     grade: 2,
     subject: 'maths',
     chapter: 'Which Season is it? (Time & Months)',
-    concept: 'Winter Warm Clothes',
-    difficulty: 'easy',
+    concept: 'Reading O Clock Time',
+    difficulty: 'medium',
     type: 'mcq',
-    question: 'In December and January, mornings are chilly cold ❄️. What do we wear to stay warm?',
-    visualEmoji: '❄️ 🧣 🧤 🧥',
+    question: 'On an analog clock, the short hour hand points to 4 and the long minute hand points straight up at 12. What time is it?',
+    visualEmoji: '⏰ 4️⃣:0️⃣0️⃣',
     payload: {
       options: [
-        { id: 'opt_sn3_1', text: 'Woolen sweaters, jackets, and caps 🧥', isCorrect: true },
-        { id: 'opt_sn3_2', text: 'Swimsuits', isCorrect: false },
-        { id: 'opt_sn3_3', text: 'Raincoat', isCorrect: false },
+        { id: 'opt_ck8_1', text: '4 o\'clock', isCorrect: true },
+        { id: 'opt_ck8_2', text: '12 o\'clock', isCorrect: false },
+        { id: 'opt_ck8_3', text: '5 o\'clock', isCorrect: false },
       ],
     },
-    explanation: '💡 In **Winter (सर्दी)**, we wear cozy woolen clothes to protect against the cold wind!',
+    explanation: '💡 When the minute hand points to 12, the hour hand shows the exact hour: 4 o\'clock!',
+    points: 10,
+  },
+  {
+    id: 'c2_m8_concept_yesterday',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Which Season is it? (Time & Months)',
+    concept: 'Yesterday Concept',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'If TODAY is Sunday, then YESTERDAY was [BLANK].',
+    visualEmoji: '⏮️ 📅',
+    payload: {
+      correctAnswer: 'Saturday',
+      wordBank: ['Saturday', 'Friday', 'Monday', 'Thursday'],
+      displayTemplate: 'If today is Sunday, yesterday was [BLANK].',
+    },
+    explanation: '💡 Yesterday is the day before today. Before Sunday comes Saturday!',
+    points: 10,
+  },
+  {
+    id: 'c2_m8_concept_drag_days',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Which Season is it? (Time & Months)',
+    concept: 'School Days Order',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'Arrange these weekdays in correct calendar order from the start of the school week:',
+    visualEmoji: '📅 1️⃣ ➡️ 5️⃣',
+    payload: {
+      tokens: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      scrambled: ['Wednesday', 'Monday', 'Friday', 'Tuesday', 'Thursday'],
+      correctSequence: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    },
+    explanation: '💡 School week order: Monday -> Tuesday -> Wednesday -> Thursday -> Friday!',
+    points: 15,
+  },
+  {
+    id: 'c2_m8_concept_match_seasons',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Which Season is it? (Time & Months)',
+    concept: 'Seasons and Clothes Association',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each season to its typical weather and clothing:',
+    visualEmoji: '☀️ 🌧️ ❄️ 🌸',
+    payload: {
+      pairs: [
+        { id: 'm8_s1', left: 'Summer (गर्मी)', right: 'Hot sunny days, cotton clothes & mangoes' },
+        { id: 'm8_s2', left: 'Monsoon (वर्षा)', right: 'Raincoats, umbrellas & puddles' },
+        { id: 'm8_s3', left: 'Winter (सर्दी)', right: 'Woolen sweaters, jackets & hot soup' },
+        { id: 'm8_s4', left: 'Spring (बसंत)', right: 'Pleasant breeze & colorful blooming flowers' },
+      ],
+    },
+    explanation: '💡 Summer = hot/cotton; Monsoon = rain/umbrella; Winter = cold/woolens; Spring = pleasant/flowers!',
+    points: 15,
+  },
+  {
+    id: 'c2_m8_concept_last_month',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Which Season is it? (Time & Months)',
+    concept: 'Final Month of the Year',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which month is the 12th and final month of the year, when Christmas and New Year\'s Eve are celebrated?',
+    visualEmoji: '🎄 1️⃣2️⃣ 📅',
+    payload: {
+      options: [
+        { id: 'opt_lm8_1', text: 'December', isCorrect: true },
+        { id: 'opt_lm8_2', text: 'November', isCorrect: false },
+        { id: 'opt_lm8_3', text: 'January', isCorrect: false },
+      ],
+    },
+    explanation: '💡 December is the 12th and last month of the year!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: Order the Days of the Week (Drag Order)
+  // HARD LEVEL (5 Questions) — Calendar Logic Riddles, Days in Months & Time Problems
   // --------------------------------------------------------------------------
   {
-    id: 'c2_m8_concept_order_01',
+    id: 'c2_m8_hard_riddle_day',
     grade: 2,
     subject: 'maths',
     chapter: 'Which Season is it? (Time & Months)',
-    concept: 'Days of the Week Sequence',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange the first 5 weekdays in correct sequential order:',
-    visualEmoji: '📅 🗓️',
+    concept: 'Day After Tomorrow Logic',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'The day after tomorrow is Friday. What day is TODAY?',
+    visualEmoji: '❓ ➡️ Tomorrow ➡️ Friday',
     payload: {
-      tokens: ['1. Monday', '2. Tuesday', '3. Wednesday', '4. Thursday', '5. Friday'],
-      scrambled: ['3. Wednesday', '1. Monday', '5. Friday', '2. Tuesday', '4. Thursday'],
-      correctSequence: ['1. Monday', '2. Tuesday', '3. Wednesday', '4. Thursday', '5. Friday'],
-    },
-    explanation: '💡 Sequence of school weekdays: **Monday -> Tuesday -> Wednesday -> Thursday -> Friday**!',
-    points: 15,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Match Season to Clothes and Food
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m8_concept_match_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Which Season is it? (Time & Months)',
-    concept: 'Season Match Pairs',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each season to its typical item or activity:',
-    visualEmoji: '🌦️ 👗 🍉',
-    payload: {
-      pairs: [
-        { id: 'sn_p1', left: 'Summer ☀️', right: 'Watermelon & Cotton clothes 🍉' },
-        { id: 'sn_p2', left: 'Rainy / Monsoon 🌧️', right: 'Umbrella & Paper boats ⛵' },
-        { id: 'sn_p3', left: 'Winter ❄️', right: 'Woolen sweater & Warm milk 🧣' },
-        { id: 'sn_p4', left: 'Spring 🌸', right: 'Blooming flowers & Pleasant breeze 🌺' },
+      options: [
+        { id: 'opt_rd8_1', text: 'Wednesday', isCorrect: true },
+        { id: 'opt_rd8_2', text: 'Thursday', isCorrect: false },
+        { id: 'opt_rd8_3', text: 'Tuesday', isCorrect: false },
+        { id: 'opt_rd8_4', text: 'Saturday', isCorrect: false },
       ],
     },
-    explanation: '💡 Summer = Watermelon, Monsoon = Umbrella, Winter = Woolens, Spring = Flowers!',
+    explanation: '💡 Count backward 2 days from Friday: 1 day before Friday is Thursday, 2 days before Friday is Wednesday!',
+    points: 15,
+  },
+  {
+    id: 'c2_m8_hard_month_days',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Which Season is it? (Time & Months)',
+    concept: 'Months with 30 Days',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'Four special calendar months: April, June, September, and November each have exactly [BLANK] days.',
+    visualEmoji: '📅 3️⃣0️⃣',
+    payload: {
+      correctAnswer: '30',
+      wordBank: ['30', '31', '28', '29'],
+      displayTemplate: 'They each have exactly [BLANK] days.',
+    },
+    explanation: '💡 Knuckle rhyme: Thirty days hath September, April, June, and November!',
+    points: 15,
+  },
+  {
+    id: 'c2_m8_hard_drag_months',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Which Season is it? (Time & Months)',
+    concept: 'Ordering Consecutive Months',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these five consecutive months in correct calendar order:',
+    visualEmoji: '📅 3️⃣ ➡️ 7️⃣',
+    payload: {
+      tokens: ['March', 'April', 'May', 'June', 'July'],
+      scrambled: ['May', 'March', 'July', 'April', 'June'],
+      correctSequence: ['March', 'April', 'May', 'June', 'July'],
+    },
+    explanation: '💡 In calendar order: March -> April -> May -> June -> July!',
+    points: 15,
+  },
+  {
+    id: 'c2_m8_hard_match_time',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Which Season is it? (Time & Months)',
+    concept: 'Daily Routine Clock Association',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each daily routine activity to its appropriate time of day:',
+    visualEmoji: '🌅 ☀️ 🌇 🌙',
+    payload: {
+      pairs: [
+        { id: 'm8_tm1', left: 'Morning breakfast and school assembly', right: '7:30 AM' },
+        { id: 'm8_tm2', left: 'School tiffin and lunch break', right: '12:30 PM' },
+        { id: 'm8_tm3', left: 'Evening playtime in the park', right: '5:00 PM' },
+        { id: 'm8_tm4', left: 'Night bedtime sleep', right: '9:00 PM' },
+      ],
+    },
+    explanation: '💡 Routine order: Morning = 7:30 AM; Noon = 12:30 PM; Evening = 5:00 PM; Bedtime = 9:00 PM!',
+    points: 15,
+  },
+  {
+    id: 'c2_m8_hard_clock_logic',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Which Season is it? (Time & Months)',
+    concept: 'Elapsed Time Problem',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'School starts at 8 o\'clock in the morning. The lunch bell rings exactly 4 hours later. At what time does the lunch bell ring?',
+    visualEmoji: '🔔 8️⃣ + 4️⃣ hours = ❓',
+    payload: {
+      options: [
+        { id: 'opt_el8_1', text: '12 o\'clock (Noon)', isCorrect: true },
+        { id: 'opt_el8_2', text: '11 o\'clock', isCorrect: false },
+        { id: 'opt_el8_3', text: '1 o\'clock', isCorrect: false },
+        { id: 'opt_el8_4', text: '2 o\'clock', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Start at 8 and count forward 4 hours: 9, 10, 11, 12 o\'clock!',
     points: 15,
   },
 ];

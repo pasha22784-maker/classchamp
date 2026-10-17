@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 5: PLAYING WITH LINES (LINES & SHAPES)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Standing Lines (खड़ी रेखाएँ - Vertical)
+  // EASY LEVEL (5 Questions) — Identifying Standing, Sleeping, Slanting & Curved Lines
   // --------------------------------------------------------------------------
   {
     id: 'c2_m5_concept_stand_01',
@@ -18,22 +19,18 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     concept: 'Standing Lines Identification',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'A tall electricity pole 💈 standing straight up from the ground is an example of what kind of line?',
+    question: 'A tall electricity pole or flag post standing straight up from the ground is an example of what kind of line?',
     visualEmoji: '💈 ⬆️ ⬇️',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: 'A Standing line', isCorrect: true },
+        { id: 'opt_st1_1', text: 'A Standing line (vertical)', isCorrect: true },
         { id: 'opt_st1_2', text: 'A Curved line', isCorrect: false },
         { id: 'opt_st1_3', text: 'A Sleeping line', isCorrect: false },
       ],
     },
-    explanation: '💡 A line that goes straight up and down like a tree trunk or lamp post is called a **Standing line (खड़ी रेखा)**!',
+    explanation: '💡 A line that goes straight up and down is called a Standing line!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Sleeping Lines (लेटी रेखाएँ - Horizontal)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m5_concept_sleep_01',
     grade: 2,
@@ -42,22 +39,18 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     concept: 'Sleeping Lines Identification',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'A pencil lying flat on the study desk ✏️ goes straight across from left to right. What line is this?',
+    question: 'A pencil lying flat on the desk goes straight across from left to right. What kind of line is this?',
     visualEmoji: '✏️ ⬅️ ➡️',
     payload: {
       options: [
-        { id: 'opt_sp1_1', text: 'A Sleeping line', isCorrect: true },
+        { id: 'opt_sp1_1', text: 'A Sleeping line (horizontal)', isCorrect: true },
         { id: 'opt_sp1_2', text: 'A Standing line', isCorrect: false },
         { id: 'opt_sp1_3', text: 'A Zigzag line', isCorrect: false },
       ],
     },
-    explanation: '💡 A line that runs flat from side to side is called a **Sleeping line (लेटी/पड़ी रेखा)**!',
+    explanation: '💡 A line that runs flat from side to side is called a Sleeping line!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Slanting Lines (तिरछी रेखाएँ - Diagonal)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m5_concept_slant_01',
     grade: 2,
@@ -66,22 +59,18 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     concept: 'Slanting Lines in Everyday Life',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Raindrops falling in windy monsoon weather 🌧️ or a ladder leaning against a wall 🪜 form what kind of line?',
-    visualEmoji: '🌧️ 🪜 ╱ ╲',
+    question: 'A ladder leaning against a wall or raindrops falling in the wind form what kind of line?',
+    visualEmoji: '🪜 🌧️ ╱ ╲',
     payload: {
       options: [
-        { id: 'opt_sl1_1', text: 'A Slanting line', isCorrect: true },
+        { id: 'opt_sl1_1', text: 'A Slanting line (diagonal)', isCorrect: true },
         { id: 'opt_sl1_2', text: 'A Standing line', isCorrect: false },
         { id: 'opt_sl1_3', text: 'A Sleeping line', isCorrect: false },
       ],
     },
-    explanation: '💡 A line that leans sideways is called a **Slanting line (तिरछी रेखा)**!',
+    explanation: '💡 A line that leans to one side is called a Slanting line!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Curved Lines (घुमावदार रेखाएँ)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m5_concept_curv_01',
     grade: 2,
@@ -90,105 +79,242 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     concept: 'Curved Lines in Rainbow and Waves',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'A colorful rainbow across the sky 🌈 is drawn using a [BLANK] line.',
+    question: 'A colorful rainbow across the sky is drawn using a [BLANK] line.',
     visualEmoji: '🌈 〰️',
     payload: {
       correctAnswer: 'curved',
       wordBank: ['curved', 'straight', 'standing', 'broken'],
       displayTemplate: 'A rainbow across the sky is made of a [BLANK] line.',
     },
-    explanation: '💡 A rainbow bends smoothly in an arc, so it is a **curved line (घुमावदार रेखा)**! 🌈',
+    explanation: '💡 A rainbow bends smoothly in an arc, so it is a curved line!',
+    points: 10,
+  },
+  {
+    id: 'c2_m5_concept_ruler_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Playing with Lines (Lines & Shapes)',
+    concept: 'Drawing Straight Lines',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Which tool from your geometry or pencil box helps you draw straight lines neatly?',
+    visualEmoji: '📏 ✏️',
+    payload: {
+      options: [
+        { id: 'opt_rl1_1', text: 'A Ruler (Scale)', isCorrect: true },
+        { id: 'opt_rl1_2', text: 'An Eraser', isCorrect: false },
+        { id: 'opt_rl1_3', text: 'A Sharpener', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A straight ruler (scale) or the straight edge of a book helps draw perfect straight lines!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 5: Lines in English Alphabet Letters
+  // MEDIUM LEVEL (5 Questions) — Shapes with Lines, Letters & Line Types
   // --------------------------------------------------------------------------
   {
-    id: 'c2_m5_concept_alpha_01',
+    id: 'c2_m5_concept_letter_straight',
     grade: 2,
     subject: 'maths',
     chapter: 'Playing with Lines (Lines & Shapes)',
-    concept: 'Lines in Letter H',
+    concept: 'Letters Made of Straight Lines',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Look closely at the capital English letter "H". What lines are used to draw it?',
-    visualEmoji: '🔤 🇭',
+    question: 'Which English capital letter is drawn using ONLY straight lines?',
+    visualEmoji: '🔤 🅷 🅲 🅾 🆂',
     payload: {
       options: [
-        { id: 'opt_lh1_1', text: '2 Standing lines and 1 Sleeping line', isCorrect: true },
-        { id: 'opt_lh1_2', text: '3 Slanting lines', isCorrect: false },
-        { id: 'opt_lh1_3', text: 'Curved lines only', isCorrect: false },
+        { id: 'opt_ls1_1', text: 'Letter H', isCorrect: true },
+        { id: 'opt_ls1_2', text: 'Letter C', isCorrect: false },
+        { id: 'opt_ls1_3', text: 'Letter O', isCorrect: false },
+        { id: 'opt_ls1_4', text: 'Letter S', isCorrect: false },
       ],
     },
-    explanation: '💡 Letter "**H**" has two vertical standing lines joined in the middle by one horizontal sleeping line!',
+    explanation: '💡 Letter H is made of 2 standing lines and 1 sleeping line in the middle!',
     points: 10,
   },
   {
-    id: 'c2_m5_concept_alpha_02',
+    id: 'c2_m5_concept_letter_curved',
     grade: 2,
     subject: 'maths',
     chapter: 'Playing with Lines (Lines & Shapes)',
-    concept: 'Lines in Letter A',
+    concept: 'Letters Made of Curved Lines',
     difficulty: 'medium',
-    type: 'mcq',
-    question: 'Which lines are used to build the capital letter "A"?',
-    visualEmoji: '🔤 🇦',
+    type: 'fill_blank',
+    question: 'The English capital letter [BLANK] is formed using only one continuous curved circular line.',
+    visualEmoji: '⭕ 🔤',
     payload: {
-      options: [
-        { id: 'opt_la2_1', text: '2 Slanting lines and 1 Sleeping line', isCorrect: true },
-        { id: 'opt_la2_2', text: 'Only standing lines', isCorrect: false },
-        { id: 'opt_la2_3', text: 'Only curved lines', isCorrect: false },
-      ],
+      correctAnswer: 'O',
+      wordBank: ['O', 'T', 'L', 'K'],
+      displayTemplate: 'The letter [BLANK] is made of a curved line.',
     },
-    explanation: '💡 Letter "**A**" has two slanting lines that meet at the tip, tied by a sleeping line!',
+    explanation: '💡 The letter O is a round curve with no straight sides or corners!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Drawing Shapes Using Lines (Triangle and Rectangle)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m5_concept_shape_01',
+    id: 'c2_m5_concept_triangle_lines',
     grade: 2,
     subject: 'maths',
     chapter: 'Playing with Lines (Lines & Shapes)',
     concept: 'Lines in a Triangle',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'To draw a roof-top triangle 🔺, you need 2 slanting lines and 1 [BLANK] line at the bottom.',
-    visualEmoji: '🔺 🏠',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'How many straight lines do you need to connect together to draw a closed triangle?',
+    visualEmoji: '🔺 📐',
     payload: {
-      correctAnswer: 'sleeping',
-      wordBank: ['sleeping', 'curved', 'circular', 'curly'],
-      displayTemplate: 'You need 2 slanting lines and 1 [BLANK] line.',
+      options: [
+        { id: 'opt_tl1_1', text: '3 straight lines', isCorrect: true },
+        { id: 'opt_tl1_2', text: '4 straight lines', isCorrect: false },
+        { id: 'opt_tl1_3', text: '2 straight lines', isCorrect: false },
+      ],
     },
-    explanation: '💡 The base of a triangle resting flat is a **sleeping line**! 🔺',
+    explanation: '💡 A triangle is a 3-sided polygon formed by 3 straight lines!',
+    points: 10,
+  },
+  {
+    id: 'c2_m5_concept_match_lines',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Playing with Lines (Lines & Shapes)',
+    concept: 'Real-World Line Associations',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each line type with its real-world example:',
+    visualEmoji: '🌳 🚂 🪜 😊',
+    payload: {
+      pairs: [
+        { id: 'm5_l1', left: 'Standing line', right: 'Straight tree trunk reaching up' },
+        { id: 'm5_l2', left: 'Sleeping line', right: 'Railway sleeper on the flat track' },
+        { id: 'm5_l3', left: 'Slanting line', right: 'Playground slide ramp' },
+        { id: 'm5_l4', left: 'Curved line', right: 'Smile on a happy face' },
+      ],
+    },
+    explanation: '💡 Tree trunk = Standing; Track sleeper = Sleeping; Slide = Slanting; Smile = Curved!',
+    points: 15,
+  },
+  {
+    id: 'c2_m5_concept_both_lines',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Playing with Lines (Lines & Shapes)',
+    concept: 'Letters with Both Straight and Curved Lines',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which capital letter is made of BOTH a straight line and a curved line?',
+    visualEmoji: '🅿️ 🔤',
+    payload: {
+      options: [
+        { id: 'opt_bl1_1', text: 'Letter P', isCorrect: true },
+        { id: 'opt_bl1_2', text: 'Letter I', isCorrect: false },
+        { id: 'opt_bl1_3', text: 'Letter O', isCorrect: false },
+        { id: 'opt_bl1_4', text: 'Letter X', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Letter P has 1 standing straight line and 1 curved semi-circle loop at the top!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 7: Match Line Names to Examples
+  // HARD LEVEL (5 Questions) — Geometric Line Analysis, Clock Digits & Riddles
   // --------------------------------------------------------------------------
   {
-    id: 'c2_m5_concept_match_01',
+    id: 'c2_m5_hard_square_lines',
     grade: 2,
     subject: 'maths',
     chapter: 'Playing with Lines (Lines & Shapes)',
-    concept: 'Line Type to Real Example Match',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each type of line to its real-world example:',
-    visualEmoji: '✏️ 📐',
+    concept: 'Lines That Form a Square',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'To draw a square in your notebook, what combination of straight lines do you need?',
+    visualEmoji: '⏹️ 📐',
     payload: {
-      pairs: [
-        { id: 'ln_p1', left: 'Standing line |', right: 'Flag post 🚩' },
-        { id: 'ln_p2', left: 'Sleeping line —', right: 'Railway track sleeper 🛤️' },
-        { id: 'ln_p3', left: 'Slanting line ╱', right: 'Slide in park 🛝' },
-        { id: 'ln_p4', left: 'Curved line 〰️', right: 'Sea wave 🌊' },
+      options: [
+        { id: 'opt_sq1_1', text: '2 standing lines and 2 sleeping lines of equal length', isCorrect: true },
+        { id: 'opt_sq1_2', text: '4 slanting lines of different lengths', isCorrect: false },
+        { id: 'opt_sq1_3', text: '4 curved lines connected at corners', isCorrect: false },
+        { id: 'opt_sq1_4', text: '3 standing lines and 1 curved line', isCorrect: false },
       ],
     },
-    explanation: '💡 Flag post = Standing, Railway sleeper = Sleeping, Slide = Slanting, Sea wave = Curved!',
+    explanation: '💡 A square has 4 equal sides: 2 vertical (standing) sides and 2 horizontal (sleeping) sides!',
+    points: 15,
+  },
+  {
+    id: 'c2_m5_hard_digit_lines',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Playing with Lines (Lines & Shapes)',
+    concept: 'Straight Line Digits',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'On a digital clock display, the digits 1, 4, and 7 are drawn with [BLANK] lines only.',
+    visualEmoji: '⏰ 1️⃣ 4️⃣ 7️⃣',
+    payload: {
+      correctAnswer: 'straight',
+      wordBank: ['straight', 'curved', 'circular', 'wavy'],
+      displayTemplate: 'The digits 1, 4, and 7 are drawn with [BLANK] lines only.',
+    },
+    explanation: '💡 1, 4, and 7 are made completely from straight line segments with no curves!',
+    points: 15,
+  },
+  {
+    id: 'c2_m5_hard_drag_letters',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Playing with Lines (Lines & Shapes)',
+    concept: 'Classifying Letters by Line Composition',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these letters in order: Only Straight Lines -> Both Lines -> Only Curved Lines:',
+    visualEmoji: '🔤 🆃 ➡️ 🅱 ➡️ 🅾',
+    payload: {
+      tokens: ['Letter T (Straight)', 'Letter B (Both)', 'Letter O (Curved)'],
+      scrambled: ['Letter O (Curved)', 'Letter T (Straight)', 'Letter B (Both)'],
+      correctSequence: ['Letter T (Straight)', 'Letter B (Both)', 'Letter O (Curved)'],
+    },
+    explanation: '💡 T uses straight lines; B uses 1 straight and 2 curved lines; O uses only a curved line!',
+    points: 15,
+  },
+  {
+    id: 'c2_m5_hard_match_letters',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Playing with Lines (Lines & Shapes)',
+    concept: 'Detailed Letter Line Breakdown',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each letter to the exact types of lines used to draw it:',
+    visualEmoji: '🔤 🅴 🆇 🅳 🆂',
+    payload: {
+      pairs: [
+        { id: 'm5_lt1', left: 'Letter E', right: '1 standing line and 3 sleeping lines' },
+        { id: 'm5_lt2', left: 'Letter X', right: '2 crossing slanting lines' },
+        { id: 'm5_lt3', left: 'Letter D', right: '1 standing line and 1 curved line' },
+        { id: 'm5_lt4', left: 'Letter S', right: 'Only curved lines bending both ways' },
+      ],
+    },
+    explanation: '💡 E = standing + sleeping; X = slanting; D = straight + curved; S = curved!',
+    points: 15,
+  },
+  {
+    id: 'c2_m5_hard_riddle_lines',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Playing with Lines (Lines & Shapes)',
+    concept: 'Letter Riddle with Slanting Lines',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I am an English capital letter. I am drawn with 2 slanting lines that meet at a sharp point at the bottom, like a victory sign. What letter am I?',
+    visualEmoji: '✌️ ╲ ╱',
+    payload: {
+      options: [
+        { id: 'opt_rd5_1', text: 'Letter V', isCorrect: true },
+        { id: 'opt_rd5_2', text: 'Letter H', isCorrect: false },
+        { id: 'opt_rd5_3', text: 'Letter T', isCorrect: false },
+        { id: 'opt_rd5_4', text: 'Letter O', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Letter V is formed by two slanting lines joining at the bottom vertex!',
     points: 15,
   },
 ];

@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 HINDI (सारंगी 2 / RIMJHIM 2)
 // CHAPTER 6: एक और अनेक (वचन - लड़का/लड़के)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_HINDI_LESSON_6_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: एक और अनेक (एकवचन व बहुवचन परिचय)
+  // EASY LEVEL (5 Questions) — एकवचन व बहुवचन पहचान, लड़के, तितलियाँ व किताबें
   // --------------------------------------------------------------------------
   {
     id: 'c2_h6_concept_vachan_01',
@@ -18,7 +19,7 @@ export const CLASS_2_HINDI_LESSON_6_QUESTIONS: Question[] = [
     concept: 'वचन की परिभाषा',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'जब कोई शब्द किसी वस्तु के \'एक\' या \'एक से अधिक\' (अनेक) होने का बोध कराता है, तो उसे क्या कहते हैं?',
+    question: 'जब कोई शब्द किसी वस्तु के \'एक\' या \'एक से अधिक\' (अनेक) होने का बोध कराता है, तो उसे व्याकरण में क्या कहते हैं?',
     visualEmoji: '🍎 vs 🍎🍎🍎',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_HINDI_LESSON_6_QUESTIONS: Question[] = [
         { id: 'opt_vc1_3', text: 'क्रिया', isCorrect: false },
       ],
     },
-    explanation: '💡 एक वस्तु का बोध = **एकवचन** (जैसे तारा ⭐), एक से अधिक = **बहुवचन** (जैसे तारे ✨✨)!',
+    explanation: '💡 एक वस्तु का बोध = एकवचन (जैसे तारा); एक से अधिक = बहुवचन (जैसे तारे)!',
     points: 10,
   },
   {
@@ -35,41 +36,37 @@ export const CLASS_2_HINDI_LESSON_6_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'hindi',
     chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
-    concept: 'आ से ए का नियम (लड़का -> लड़के)',
+    concept: 'लड़का का बहुवचन रूप',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'मैदान में एक लड़का दौड़ रहा है। जब दो या तीन हो जाएँ, तो वे [BLANK] कहलाते हैं।',
-    visualEmoji: '👦 ➡️ 👦👦',
+    question: 'मैदान में एक लड़का गेंद खेल रहा है। जब कई आ जाएँ, तो वे [BLANK] कहलाते हैं।',
+    visualEmoji: '👦 ➡️ 👦👦👦',
     payload: {
       correctAnswer: 'लड़के',
       wordBank: ['लड़के', 'लड़की', 'लड़कों', 'बच्ची'],
       displayTemplate: 'मैदान में कई [BLANK] खेल रहे हैं।',
     },
-    explanation: '💡 लड़का (एक) -> **लड़के** (अनेक)! 👦👦',
+    explanation: '💡 लड़का (एकवचन) -> लड़के (बहुवचन)!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: ई से 'ियाँ' का नियम (तितली -> तितलियाँ)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h6_concept_iyan_01',
     grade: 2,
     subject: 'hindi',
     chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
-    concept: 'तितली का बहुवचन',
+    concept: 'तितली का बहुवचन रूप',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'बगीचे में एक "तितली" 🦋 उड़ रही थी। कुछ देर बाद चार [BLANK] फूलों पर आ बैठीं।',
+    question: 'बगीचे में एक "तितली" उड़ रही थी। कुछ देर बाद चार [BLANK] फूलों पर आ बैठीं।',
     visualEmoji: '🦋 ➡️ 🦋🦋🦋',
     payload: {
       options: [
-        { id: 'opt_iy1_1', text: 'तितलियाँ 🦋', isCorrect: true },
+        { id: 'opt_iy1_1', text: 'तितलियाँ', isCorrect: true },
         { id: 'opt_iy1_2', text: 'तितलिये', isCorrect: false },
         { id: 'opt_iy1_3', text: 'तितलों', isCorrect: false },
       ],
     },
-    explanation: '💡 याद रखें: अंत की बड़ी \'ई\' बदलकर छोटी \'इ\' बन जाती है और \'याँ\' जुड़ता है: तितली -> **तितलियाँ**! 🦋',
+    explanation: '💡 तितली (एकवचन) -> तितलियाँ (बहुवचन)!',
     points: 10,
   },
   {
@@ -77,88 +74,241 @@ export const CLASS_2_HINDI_LESSON_6_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'hindi',
     chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
-    concept: 'मछली का बहुवचन',
+    concept: 'मछली का बहुवचन रूप',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'तालाब में एक मछली 🐟 और नदी में बहुत सारी [BLANK] तैर रही हैं।',
+    question: 'तालाब में एक मछली और नदी में बहुत सारी [BLANK] तैर रही हैं।',
     visualEmoji: '🐟 ➡️ 🐟🐟🐟',
     payload: {
       correctAnswer: 'मछलियाँ',
-      wordBank: ['मछलियाँ', 'मछले', 'मछली', 'मछलियां'],
+      wordBank: ['मछलियाँ', 'मछले', 'मछली', 'मछलों'],
       displayTemplate: 'नदी में बहुत सारी [BLANK] हैं।',
     },
-    explanation: '💡 मछली -> **मछलियाँ**! 🐟',
+    explanation: '💡 मछली -> मछलियाँ!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: बिन्दु लगाकर बहुवचन (किताब -> किताबें, आँख -> आँखें)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_h6_concept_bindu_01',
+    id: 'c2_h6_concept_kitab_01',
     grade: 2,
     subject: 'hindi',
     chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
-    concept: 'आँख का बहुवचन',
+    concept: 'किताब का बहुवचन रूप',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'हमारे चेहरे पर देखने के लिए दो [BLANK] 👁️👁️ होती हैं।',
-    visualEmoji: '👁️ 👁️',
+    question: '\'किताब\' शब्द का सही बहुवचन रूप कौन सा है?',
+    visualEmoji: '📖 ➡️ 📚',
     payload: {
       options: [
-        { id: 'opt_bd1_1', text: 'आँखें', isCorrect: true },
-        { id: 'opt_bd1_2', text: 'आँखा', isCorrect: false },
-        { id: 'opt_bd1_3', text: 'आँखों', isCorrect: false },
+        { id: 'opt_kb1_1', text: 'किताबें', isCorrect: true },
+        { id: 'opt_kb1_2', text: 'किताबियाँ', isCorrect: false },
+        { id: 'opt_kb1_3', text: 'किताबाँ', isCorrect: false },
       ],
     },
-    explanation: '💡 एक आँख 👁️, दो **आँखें** 👁️👁️!',
+    explanation: '💡 किताब (एक) -> किताबें (अनेक)!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: वाक्य में वचन की संगति (Drag Order)
+  // MEDIUM LEVEL (5 Questions) — आँखें, आदरार्थक बहुवचन व वचन मिलान
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h6_concept_order_01',
+    id: 'c2_h6_concept_ankh_plural',
     grade: 2,
     subject: 'hindi',
     chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
-    concept: 'बहुवचन वाक्य विन्यास',
+    concept: 'आँख का बहुवचन रूप',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'हमारे चेहरे पर देखने के लिए दो सुंदर [BLANK] होती हैं।',
+    visualEmoji: '👁️ 👁️',
+    payload: {
+      correctAnswer: 'आँखें',
+      wordBank: ['आँखें', 'आँख', 'आँखों', 'आँखिया'],
+      displayTemplate: 'चेहरे पर दो [BLANK] होती हैं।',
+    },
+    explanation: '💡 एक आँख -> दो आँखें!',
+    points: 10,
+  },
+  {
+    id: 'c2_h6_concept_respect_plural',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
+    concept: 'आदर के लिए बहुवचन का प्रयोग',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: '"दादाजी कमरे में बैठकर अख़बार पढ़ रहे हैं।" दादाजी अकेले (एक) हैं, फिर भी \'रहे हैं\' क्यों लिखा गया?',
+    visualEmoji: '👴 📰',
+    payload: {
+      options: [
+        { id: 'opt_rp6_1', text: 'बड़ों के आदर और सम्मान के लिए बहुवचन क्रिया का प्रयोग होता है', isCorrect: true },
+        { id: 'opt_rp6_2', text: 'क्योंकि कमरे में बहुत सारे दादाजी हैं', isCorrect: false },
+        { id: 'opt_rp6_3', text: 'क्योंकि अख़बार बहुत बड़ा है', isCorrect: false },
+      ],
+    },
+    explanation: '💡 हिंदी व्याकरण में अपने से बड़ों (माता-पिता, शिक्षक, दादा-दादी) को आदर देने के लिए बहुवचन क्रिया लगाई जाती है!',
+    points: 10,
+  },
+  {
+    id: 'c2_h6_concept_drag_vachan',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
+    concept: 'विभिन्न वचन नियमों के जोड़े',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'शब्दों को सही क्रम में लगाकर बहुवचन का सही वाक्य बनाइए:',
-    visualEmoji: '✨ 🌌 🌙',
+    question: 'इन एकवचन से बहुवचन के शब्दों को क्रम से लगाइए:',
+    visualEmoji: '⭐ 🍃 🐦 📿',
     payload: {
-      tokens: ['रात', 'में', 'आकाश', 'में', 'तारे', 'चमकते', 'हैं।'],
-      scrambled: ['तारे', 'रात', 'हैं।', 'चमकते', 'में', 'में', 'आकाश'],
-      correctSequence: ['रात', 'में', 'आकाश', 'में', 'तारे', 'चमकते', 'हैं।'],
+      tokens: ['तारा -> तारे', 'पत्ता -> पत्ते', 'चिड़िया -> चिड़ियाँ', 'माला -> मालाएँ'],
+      scrambled: ['माला -> मालाएँ', 'पत्ता -> पत्ते', 'तारा -> तारे', 'चिड़िया -> चिड़ियाँ'],
+      correctSequence: ['तारा -> तारे', 'पत्ता -> पत्ते', 'चिड़िया -> चिड़ियाँ', 'माला -> मालाएँ'],
     },
-    explanation: '💡 सही वाक्य: "**रात में आकाश में तारे चमकते हैं।**" (तारे = बहुवचन) ✨',
+    explanation: '💡 आ->ए (तारे, पत्ते), या->याँ (चिड़ियाँ), आ->एँ (मालाएँ)!',
     points: 15,
+  },
+  {
+    id: 'c2_h6_concept_match_pairs',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
+    concept: 'एकवचन और बहुवचन का सही मिलान',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'प्रत्येक एकवचन शब्द को उसके सही बहुवचन शब्द से मिलाइए:',
+    visualEmoji: '🎯 📝',
+    payload: {
+      pairs: [
+        { id: 'm_h6_v1', left: 'पंखा', right: 'पंखे' },
+        { id: 'm_h6_v2', left: 'नदी', right: 'नदियाँ' },
+        { id: 'm_h6_v3', left: 'रात', right: 'रातें' },
+        { id: 'm_h6_v4', left: 'गुड़िया', right: 'गुड़ियाँ' },
+      ],
+    },
+    explanation: '💡 पंखा = पंखे; नदी = नदियाँ; रात = रातें; गुड़िया = गुड़ियाँ!',
+    points: 15,
+  },
+  {
+    id: 'c2_h6_concept_always_single',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
+    concept: 'सदा एकवचन शब्द',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'इनमें से कौन सा शब्द हमेशा \'एकवचन\' रूप में ही बोला जाता है?',
+    visualEmoji: '💧 🥛',
+    payload: {
+      options: [
+        { id: 'opt_as6_1', text: 'पानी', isCorrect: true },
+        { id: 'opt_as6_2', text: 'लड़का', isCorrect: false },
+        { id: 'opt_as6_3', text: 'केला', isCorrect: false },
+        { id: 'opt_as6_4', text: 'तारा', isCorrect: false },
+      ],
+    },
+    explanation: '💡 पानी, दूध, हवा जैसी द्रव्यवाचक संज्ञाएँ हमेशा एकवचन रूप में प्रयुक्त होती हैं!',
+    points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 5: एकवचन और बहुवचन का मिलान
+  // HARD LEVEL (5 Questions) — वर्तनी परिवर्तन नियम, वाक्य परिवर्तन व पहेली
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h6_concept_match_01',
+    id: 'c2_h6_hard_identify_rule',
     grade: 2,
     subject: 'hindi',
     chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
-    concept: 'एकवचन बहुवचन मिलान',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'एकवचन शब्द को उसके सही बहुवचन रूप से मिलाइए:',
-    visualEmoji: '📚 🚪 🪟 🪁',
+    concept: 'ईकारांत बहुवचन का मात्रा नियम',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'जब \'ई\' (बड़ी ई) की मात्रा वाले शब्द का बहुवचन बनाते हैं (जैसे लड़की -> लड़कियाँ), तो मात्रा में क्या नियम लागू होता है?',
+    visualEmoji: '👧 ➡️ 👧👧 ✍️',
     payload: {
-      pairs: [
-        { id: 'vc_p1', left: 'किताब 📖', right: 'किताबें 📚' },
-        { id: 'vc_p2', left: 'पतंग 🪁', right: 'पतंगें' },
-        { id: 'vc_p3', left: 'कमरा 🚪', right: 'कमरे' },
-        { id: 'vc_p4', left: 'चिड़िया 🐦', right: 'चिड़ियाँ' },
+      options: [
+        { id: 'opt_ir6_1', text: 'अंतिम बड़ी \'ई\' बदलकर छोटी \'इ\' बन जाती है और \'याँ\' जुड़ता है', isCorrect: true },
+        { id: 'opt_ir6_2', text: 'बड़ी ई वैसी ही रहती है और केवल बिंदी लगती है', isCorrect: false },
+        { id: 'opt_ir6_3', text: 'मात्रा हटकर उ की मात्रा लग जाती है', isCorrect: false },
       ],
     },
-    explanation: '💡 किताब=किताबें, पतंग=पतंगें, कमरा=कमरे, चिड़िया=चिड़ियाँ!',
+    explanation: '💡 नियम: लड़की -> लड़कियाँ, रोटी -> रोटियाँ (बड़ी ई छोटी इ में बदलती है और याँ जुड़ता है)!',
+    points: 15,
+  },
+  {
+    id: 'c2_h6_hard_fill_sentence',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
+    concept: 'बहुवचन के अनुसार क्रिया रूप',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'पेड़ की हरी डाली पर तीन सुंदर तोते [BLANK] हैं।',
+    visualEmoji: '🦜🦜🦜 🌳',
+    payload: {
+      correctAnswer: 'बैठे',
+      wordBank: ['बैठे', 'बैठा', 'बैठी', 'सोता'],
+      displayTemplate: 'तीन तोते डाली पर [BLANK] हैं।',
+    },
+    explanation: '💡 एक तोता बैठा है; तीन तोते "बैठे" हैं (बहुवचन क्रिया)!',
+    points: 15,
+  },
+  {
+    id: 'c2_h6_hard_drag_counts',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
+    concept: 'संख्या के आधार पर वचन क्रम',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'इन संज्ञा रूपों को एक (१) से अनेक (४) के बढ़ते क्रम में लगाइए:',
+    visualEmoji: '1️⃣ ➡️ 2️⃣ ➡️ 3️⃣ ➡️ 4️⃣',
+    payload: {
+      tokens: ['एक तारा', 'दो तारे', 'तीन तितलियाँ', 'चार चिड़ियाँ'],
+      scrambled: ['चार चिड़ियाँ', 'एक तारा', 'तीन तितलियाँ', 'दो तारे'],
+      correctSequence: ['एक तारा', 'दो तारे', 'तीन तितलियाँ', 'चार चिड़ियाँ'],
+    },
+    explanation: '💡 संख्या क्रम: एक -> दो -> तीन -> चार!',
+    points: 15,
+  },
+  {
+    id: 'c2_h6_hard_match_sentences',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
+    concept: 'एकवचन वाक्य का बहुवचन वाक्य से मिलान',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'एकवचन वाक्य का उसके सही बहुवचन वाक्य से मिलान कीजिए:',
+    visualEmoji: '🔄 📖',
+    payload: {
+      pairs: [
+        { id: 'm_h6_s1', left: 'चूहा दौड़ रहा है', right: 'चूहे दौड़ रहे हैं' },
+        { id: 'm_h6_s2', left: 'चिड़िया गा रही है', right: 'चिड़ियाँ गा रही हैं' },
+        { id: 'm_h6_s3', left: 'बच्चा खेल रहा है', right: 'बच्चे खेल रहे हैं' },
+        { id: 'm_h6_s4', left: 'पत्ता गिर रहा है', right: 'पत्ते गिर रहे हैं' },
+      ],
+    },
+    explanation: '💡 चूहा -> चूहे; चिड़िया -> चिड़ियाँ; बच्चा -> बच्चे; पत्ता -> पत्ते!',
+    points: 15,
+  },
+  {
+    id: 'c2_h6_hard_vachan_riddle',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'एक और अनेक (वचन - लड़का/लड़के)',
+    concept: 'वचन परिवर्तन पहेली',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'जब मैं अकेला (एक) होता हूँ, तो कहलाता हूँ \'कमरा\'। जब मकान में मेरे जैसे चार बन जाते हैं, तो मुझे सब क्या पुकारते हैं?',
+    visualEmoji: '🚪 🏠 ❓',
+    payload: {
+      options: [
+        { id: 'opt_vr6_1', text: 'कमरे', isCorrect: true },
+        { id: 'opt_vr6_2', text: 'कमरों', isCorrect: false },
+        { id: 'opt_vr6_3', text: 'कमरियाँ', isCorrect: false },
+        { id: 'opt_vr6_4', text: 'कमराएँ', isCorrect: false },
+      ],
+    },
+    explanation: '💡 कमरा का बहुवचन "कमरे" होता है!',
     points: 15,
   },
 ];

@@ -3,22 +3,23 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
 // CHAPTER 5: DESCRIBING WORDS (ADJECTIVES & OPPOSITES)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: What is a Describing Word (Adjective)?
+  // EASY LEVEL (5 Questions) — Identifying Adjectives & Common Opposites
   // --------------------------------------------------------------------------
   {
     id: 'c2_e5_concept_adj_01',
     grade: 2,
     subject: 'english',
     chapter: 'Describing Words (Adjectives & Opposites)',
-    concept: 'Identifying Describing Word',
+    concept: 'Identifying Describing Words',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Read the sentence: "Ravi eats a sweet red apple 🍎." Which words DESCRIBE the apple?',
+    question: 'Read the sentence: "Ravi eats a sweet red apple." Which words DESCRIBE what the apple is like?',
     visualEmoji: '🍎 ✨',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
         { id: 'opt_dj1_3', text: 'Eats', isCorrect: false },
       ],
     },
-    explanation: '💡 Words that tell about the color, size, taste, or feel of a noun are **describing words (adjectives)**!',
+    explanation: '💡 Words that tell about the color, taste, size, or quality of a noun are describing words (adjectives)!',
     points: 10,
   },
   {
@@ -38,20 +39,16 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     concept: 'Taste Adjective',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'A ripe lemon 🍋 tastes sharp and [BLANK].',
+    question: 'A ripe yellow lemon tastes sharp and [BLANK].',
     visualEmoji: '🍋 😖',
     payload: {
       correctAnswer: 'sour',
       wordBank: ['sour', 'sweet', 'soft', 'hot'],
       displayTemplate: 'A yellow lemon tastes [BLANK].',
     },
-    explanation: '💡 Lemons taste **sour (खट्टा)**! 🍋',
+    explanation: '💡 Lemons taste sour!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Touch and Texture Describing Words (छूने पर कैसा लगता है)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e5_concept_touch_01',
     grade: 2,
@@ -60,22 +57,18 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     concept: 'Soft vs Hard Texture',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'A bird\'s little feather 🪶 feels very [BLANK], but a river rock 🪨 feels very hard.',
+    question: 'A bird\'s feather feels very [BLANK], but a heavy river rock feels hard.',
     visualEmoji: '🪶 vs 🪨',
     payload: {
       options: [
-        { id: 'opt_tc1_1', text: 'Soft 🪶', isCorrect: true },
+        { id: 'opt_tc1_1', text: 'Soft', isCorrect: true },
         { id: 'opt_tc1_2', text: 'Heavy', isCorrect: false },
         { id: 'opt_tc1_3', text: 'Sour', isCorrect: false },
       ],
     },
-    explanation: '💡 A feather feels delicate and **soft**! 🪶',
+    explanation: '💡 Feathers are light and soft to touch!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Opposite Pairs of Describing Words
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e5_concept_opp_01',
     grade: 2,
@@ -84,105 +77,239 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     concept: 'Fast vs Slow Opposite',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'A cheetah 🐆 runs very FAST. What is the opposite describing word for a slow tortoise 🐢?',
+    question: 'A cheetah runs very FAST. What is the opposite describing word for a crawling tortoise?',
     visualEmoji: '🐆 💨 vs 🐢 ⏳',
     payload: {
       options: [
-        { id: 'opt_op1_1', text: 'SLOW 🐢', isCorrect: true },
-        { id: 'opt_op1_2', text: 'QUICK', isCorrect: false },
-        { id: 'opt_op1_3', text: 'LONG', isCorrect: false },
+        { id: 'opt_op1_1', text: 'Slow', isCorrect: true },
+        { id: 'opt_op1_2', text: 'Quick', isCorrect: false },
+        { id: 'opt_op1_3', text: 'Long', isCorrect: false },
       ],
     },
-    explanation: '💡 The opposite of **fast** is **slow**! 🐆 ↔️ 🐢',
+    explanation: '💡 The opposite of fast is slow!',
     points: 10,
   },
   {
-    id: 'c2_e5_concept_opp_02',
+    id: 'c2_e5_concept_opp_hot',
     grade: 2,
     subject: 'english',
     chapter: 'Describing Words (Adjectives & Opposites)',
     concept: 'Hot vs Cold Opposite',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'Fresh tea is hot ☕, but an ice cube is [BLANK] 🧊.',
-    visualEmoji: '☕ ↔️ 🧊',
+    question: 'Hot soup is steaming warm, while an ice cube feels freezing [BLANK].',
+    visualEmoji: '🍲 ↔️ 🧊',
     payload: {
       correctAnswer: 'cold',
-      wordBank: ['cold', 'warm', 'fast', 'dark'],
-      displayTemplate: 'Tea is hot, but an ice cube is [BLANK].',
+      wordBank: ['cold', 'tall', 'dry', 'sweet'],
+      displayTemplate: 'An ice cube feels freezing [BLANK].',
     },
-    explanation: '💡 The opposite of hot is **cold**! 🧊',
+    explanation: '💡 The opposite of hot is cold!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: Animal Describing Sentences
+  // MEDIUM LEVEL (5 Questions) — Shape/Size Adjectives, Number Words & Matching
   // --------------------------------------------------------------------------
   {
-    id: 'c2_e5_concept_anim_01',
+    id: 'c2_e5_concept_size_tall',
     grade: 2,
     subject: 'english',
     chapter: 'Describing Words (Adjectives & Opposites)',
-    concept: 'Giraffe Neck Description',
-    difficulty: 'easy',
+    concept: 'Size Adjective for Giraffe',
+    difficulty: 'medium',
     type: 'mcq',
-    question: 'A tall giraffe 🦒 has a very [BLANK] neck to reach high green tree leaves.',
+    question: 'Which describing word best tells about the height of a giraffe eating leaves from treetops?',
     visualEmoji: '🦒 🌳',
     payload: {
       options: [
-        { id: 'opt_gf1_1', text: 'LONG neck 🦒', isCorrect: true },
-        { id: 'opt_gf1_2', text: 'Short neck', isCorrect: false },
-        { id: 'opt_gf1_3', text: 'Round neck', isCorrect: false },
+        { id: 'opt_sz5_1', text: 'Tall', isCorrect: true },
+        { id: 'opt_sz5_2', text: 'Short', isCorrect: false },
+        { id: 'opt_sz5_3', text: 'Flat', isCorrect: false },
+        { id: 'opt_sz5_4', text: 'Tiny', isCorrect: false },
       ],
     },
-    explanation: '💡 Giraffes have famously **long** necks! 🦒',
+    explanation: '💡 A giraffe has a long neck and high legs, making it a tall animal!',
+    points: 10,
+  },
+  {
+    id: 'c2_e5_concept_color_shape',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Describing Words (Adjectives & Opposites)',
+    concept: 'Shape Describing Word',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'The full moon glowing in the night sky looks bright and [BLANK].',
+    visualEmoji: '🌕 ✨',
+    payload: {
+      correctAnswer: 'round',
+      wordBank: ['round', 'square', 'triangular', 'narrow'],
+      displayTemplate: 'The full moon looks bright and [BLANK].',
+    },
+    explanation: '💡 The full moon is circular and round in shape!',
+    points: 10,
+  },
+  {
+    id: 'c2_e5_concept_drag_opposites',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Describing Words (Adjectives & Opposites)',
+    concept: 'Ordering Sizes from Smallest to Largest',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'Arrange these creatures in order of size from smallest to largest:',
+    visualEmoji: '🐜 🐭 🐕 🐘',
+    payload: {
+      tokens: ['Tiny ant', 'Small mouse', 'Big dog', 'Huge elephant'],
+      scrambled: ['Big dog', 'Tiny ant', 'Huge elephant', 'Small mouse'],
+      correctSequence: ['Tiny ant', 'Small mouse', 'Big dog', 'Huge elephant'],
+    },
+    explanation: '💡 Tiny ant -> Small mouse -> Big dog -> Huge elephant!',
+    points: 15,
+  },
+  {
+    id: 'c2_e5_concept_match_pairs',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Describing Words (Adjectives & Opposites)',
+    concept: 'Opposite Pairs Match',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each describing word with its exact opposite partner:',
+    visualEmoji: '⚖️ 🔤',
+    payload: {
+      pairs: [
+        { id: 'm_e5_o1', left: 'Heavy', right: 'Light' },
+        { id: 'm_e5_o2', left: 'Clean', right: 'Dirty' },
+        { id: 'm_e5_o3', left: 'Happy', right: 'Sad' },
+        { id: 'm_e5_o4', left: 'Wide', right: 'Narrow' },
+      ],
+    },
+    explanation: '💡 Heavy ↔️ Light; Clean ↔️ Dirty; Happy ↔️ Sad; Wide ↔️ Narrow!',
+    points: 15,
+  },
+  {
+    id: 'c2_e5_concept_how_many',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Describing Words (Adjectives & Opposites)',
+    concept: 'Number as Describing Word',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'In the phrase "three playful kittens", which word is an adjective telling HOW MANY?',
+    visualEmoji: '🐱🐱🐱 🧶',
+    payload: {
+      options: [
+        { id: 'opt_hm5_1', text: 'three', isCorrect: true },
+        { id: 'opt_hm5_2', text: 'kittens', isCorrect: false },
+        { id: 'opt_hm5_3', text: 'playful', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Number words like "three" describe the quantity of nouns, so "three" is a number adjective!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 5: Build a Descriptive Sentence (Drag Order)
+  // HARD LEVEL (5 Questions) — Counting Adjectives, Sensory Perception & Riddles
   // --------------------------------------------------------------------------
   {
-    id: 'c2_e5_concept_order_01',
+    id: 'c2_e5_hard_find_adjectives',
     grade: 2,
     subject: 'english',
     chapter: 'Describing Words (Adjectives & Opposites)',
-    concept: 'Describing Sentence Construction',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange the words to make a descriptive story sentence:',
-    visualEmoji: '🌺 🦋 ✨',
+    concept: 'Counting Multiple Adjectives in a Sentence',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In the sentence: "The clever fox saw four juicy purple grapes hanging high", how many describing words (adjectives) describe the fox and grapes?',
+    visualEmoji: '🦊 🍇',
     payload: {
-      tokens: ['A', 'colorful', 'butterfly', 'sits', 'on', 'the', 'flower.'],
-      scrambled: ['butterfly', 'flower.', 'A', 'sits', 'on', 'colorful', 'the'],
-      correctSequence: ['A', 'colorful', 'butterfly', 'sits', 'on', 'the', 'flower.'],
-    },
-    explanation: '💡 "**A colorful butterfly sits on the flower.**" (Colorful describes the butterfly!) 🦋',
-    points: 15,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Opposite Describing Words
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_e5_concept_match_01',
-    grade: 2,
-    subject: 'english',
-    chapter: 'Describing Words (Adjectives & Opposites)',
-    concept: 'Adjective Opposites Match',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each describing word to its exact opposite:',
-    visualEmoji: '↔️ 🎯',
-    payload: {
-      pairs: [
-        { id: 'op_p1', left: 'Hot ☀️', right: 'Cold ❄️' },
-        { id: 'op_p2', left: 'Happy 😄', right: 'Sad 😢' },
-        { id: 'op_p3', left: 'Clean 🧼', right: 'Dirty 🐾' },
-        { id: 'op_p4', left: 'Tall 🦒', right: 'Short 🐁' },
+      options: [
+        { id: 'opt_ca5_1', text: '4 adjectives (clever, four, juicy, purple)', isCorrect: true },
+        { id: 'opt_ca5_2', text: '2 adjectives', isCorrect: false },
+        { id: 'opt_ca5_3', text: '3 adjectives', isCorrect: false },
+        { id: 'opt_ca5_4', text: '1 adjective', isCorrect: false },
       ],
     },
-    explanation: '💡 Hot ↔️ Cold, Happy ↔️ Sad, Clean ↔️ Dirty, Tall ↔️ Short!',
+    explanation: '💡 Clever describes the fox; four (number), juicy (taste/feel), and purple (color) describe the grapes!',
+    points: 15,
+  },
+  {
+    id: 'c2_e5_hard_fill_comparative',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Describing Words (Adjectives & Opposites)',
+    concept: 'Comparative Adjective Form',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'A sweet red apple is tasty, but pure bee honey is even [BLANK] than the apple.',
+    visualEmoji: '🍎 🍯',
+    payload: {
+      correctAnswer: 'sweeter',
+      wordBank: ['sweeter', 'sweet', 'sweetest', 'sweetly'],
+      displayTemplate: 'Honey is even [BLANK] than the apple.',
+    },
+    explanation: '💡 When comparing two things, we add "-er": sweet becomes sweeter!',
+    points: 15,
+  },
+  {
+    id: 'c2_e5_hard_drag_degrees',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Describing Words (Adjectives & Opposites)',
+    concept: 'Ordering Degrees of Temperature',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these temperature describing words from warmest to coldest:',
+    visualEmoji: '🌡️ ☀️ ➡️ ❄️',
+    payload: {
+      tokens: ['Warm', 'Cool', 'Cold', 'Freezing'],
+      scrambled: ['Freezing', 'Warm', 'Cold', 'Cool'],
+      correctSequence: ['Warm', 'Cool', 'Cold', 'Freezing'],
+    },
+    explanation: '💡 In order of temperature: Warm -> Cool -> Cold -> Freezing!',
+    points: 15,
+  },
+  {
+    id: 'c2_e5_hard_match_sense',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Describing Words (Adjectives & Opposites)',
+    concept: 'Sensory Adjectives Match',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each pair of describing words to the human sense used to notice them:',
+    visualEmoji: '👅 🖐️ 👂 👀',
+    payload: {
+      pairs: [
+        { id: 'm_e5_s1', left: 'Sweet and sour', right: 'Sense of Taste' },
+        { id: 'm_e5_s2', left: 'Soft and rough', right: 'Sense of Touch' },
+        { id: 'm_e5_s3', left: 'Loud and quiet', right: 'Sense of Hearing' },
+        { id: 'm_e5_s4', left: 'Bright and dark', right: 'Sense of Sight' },
+      ],
+    },
+    explanation: '💡 Taste = sweet/sour; Touch = soft/rough; Hearing = loud/quiet; Sight = bright/dark!',
+    points: 15,
+  },
+  {
+    id: 'c2_e5_hard_adjective_riddle',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Describing Words (Adjectives & Opposites)',
+    concept: 'Describing Word Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I describe sunny summer afternoons when children drink chilled water, fans whirl fast, and ice cream melts rapidly. What describing word am I?',
+    visualEmoji: '☀️ 🍦 🥵 ❓',
+    payload: {
+      options: [
+        { id: 'opt_ar5_1', text: 'Hot', isCorrect: true },
+        { id: 'opt_ar5_2', text: 'Freezing', isCorrect: false },
+        { id: 'opt_ar5_3', text: 'Rainy', isCorrect: false },
+        { id: 'opt_ar5_4', text: 'Dark', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "Hot" describes the high temperature of sunny summer afternoons!',
     points: 15,
   },
 ];

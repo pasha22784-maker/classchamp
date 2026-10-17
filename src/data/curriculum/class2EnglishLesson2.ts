@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
 // CHAPTER 2: PICTURE FUN & NAMING WORDS (NOUNS)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Naming Words for People & Community Helpers (लोग)
+  // EASY LEVEL (5 Questions) — Identifying People, Places, Animals & Things
   // --------------------------------------------------------------------------
   {
     id: 'c2_e2_concept_helper_01',
@@ -18,16 +19,16 @@ export const CLASS_2_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Community Helper Nouns',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Who flies large aeroplanes high up in the blue sky ✈️?',
+    question: 'Who flies large aeroplanes high up in the blue sky?',
     visualEmoji: '✈️ 👨‍✈️',
     payload: {
       options: [
-        { id: 'opt_hp1_1', text: 'A Pilot 👨‍✈️', isCorrect: true },
-        { id: 'opt_hp1_2', text: 'A Baker 👨‍🍳', isCorrect: false },
-        { id: 'opt_hp1_3', text: 'A Carpenter 🪚', isCorrect: false },
+        { id: 'opt_hp1_1', text: 'A Pilot', isCorrect: true },
+        { id: 'opt_hp1_2', text: 'A Baker', isCorrect: false },
+        { id: 'opt_hp1_3', text: 'A Carpenter', isCorrect: false },
       ],
     },
-    explanation: '💡 A **Pilot 👨‍✈️** is the person who flies planes!',
+    explanation: '💡 A Pilot is the person who flies planes and helicopters!',
     points: 10,
   },
   {
@@ -38,20 +39,16 @@ export const CLASS_2_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Farmer Growing Crops',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'A hardworking [BLANK] grows wheat, rice, and fresh vegetables in the farm field 🌾.',
+    question: 'A hardworking [BLANK] grows wheat, rice, and fresh vegetables in the farm field.',
     visualEmoji: '👨‍🌾 🌾 🚜',
     payload: {
       correctAnswer: 'farmer',
       wordBank: ['farmer', 'tailor', 'painter', 'barber'],
-      displayTemplate: 'A hardworking [BLANK] grows fresh food in fields.',
+      displayTemplate: 'A hardworking [BLANK] grows crops.',
     },
-    explanation: '💡 A **farmer (किसान)** grows food crops for everyone!',
+    explanation: '💡 A farmer grows food crops in fields for everyone!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Naming Words for Places (जगहें)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e2_concept_place_01',
     grade: 2,
@@ -60,22 +57,18 @@ export const CLASS_2_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Hospital Place Noun',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Where do doctors and nurses take care of sick and injured patients?',
+    question: 'Where do doctors and nurses take care of sick and injured people?',
     visualEmoji: '🏥 🩺 🚑',
     payload: {
       options: [
-        { id: 'opt_pl1_1', text: 'Hospital 🏥', isCorrect: true },
-        { id: 'opt_pl1_2', text: 'Railway Station 🚉', isCorrect: false },
-        { id: 'opt_pl1_3', text: 'Cinema Hall 🍿', isCorrect: false },
+        { id: 'opt_pl1_1', text: 'Hospital', isCorrect: true },
+        { id: 'opt_pl1_2', text: 'Railway Station', isCorrect: false },
+        { id: 'opt_pl1_3', text: 'Cinema Hall', isCorrect: false },
       ],
     },
-    explanation: '💡 A **Hospital 🏥** is the place where sick people are healed!',
+    explanation: '💡 A Hospital is the place where sick people are healed!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Animals and Their Cute Babies
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e2_concept_baby_01',
     grade: 2,
@@ -84,105 +77,239 @@ export const CLASS_2_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Baby of a Cat',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'What is the baby of a cat called?',
+    question: 'What is the young baby of a cat called?',
     visualEmoji: '🐱 🐾',
     payload: {
       options: [
-        { id: 'opt_bb1_1', text: 'Kitten 🐱', isCorrect: true },
-        { id: 'opt_bb1_2', text: 'Puppy 🐶', isCorrect: false },
-        { id: 'opt_bb1_3', text: 'Calf 🐮', isCorrect: false },
+        { id: 'opt_bb1_1', text: 'Kitten', isCorrect: true },
+        { id: 'opt_bb1_2', text: 'Puppy', isCorrect: false },
+        { id: 'opt_bb1_3', text: 'Calf', isCorrect: false },
       ],
     },
-    explanation: '💡 A baby cat is called a **Kitten**! 🐱',
+    explanation: '💡 A baby cat is called a Kitten!',
     points: 10,
   },
   {
-    id: 'c2_e2_concept_baby_02',
+    id: 'c2_e2_concept_thing_01',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Picture Fun & Naming Words',
+    concept: 'School Thing Noun',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'We write our school homework neatly in our notebook with a sharp [BLANK].',
+    visualEmoji: '✏️ 📓',
+    payload: {
+      correctAnswer: 'pencil',
+      wordBank: ['pencil', 'shoe', 'spoon', 'pillow'],
+      displayTemplate: 'We write neatly with a [BLANK].',
+    },
+    explanation: '💡 A pencil is a thing used for writing and drawing!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // MEDIUM LEVEL (5 Questions) — Proper Nouns, Animal Babies, Plural 'es' & Sorting
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_e2_concept_proper_noun',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Picture Fun & Naming Words',
+    concept: 'Proper Noun Identification',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which naming word is a special name (Proper Noun) that always begins with a capital letter?',
+    visualEmoji: '🇮🇳 🔤',
+    payload: {
+      options: [
+        { id: 'opt_pn1_1', text: 'India', isCorrect: true },
+        { id: 'opt_pn1_2', text: 'country', isCorrect: false },
+        { id: 'opt_pn1_3', text: 'river', isCorrect: false },
+        { id: 'opt_pn1_4', text: 'city', isCorrect: false },
+      ],
+    },
+    explanation: '💡 India is the specific special name of our country, so it is a Proper Noun and begins with a capital letter!',
+    points: 10,
+  },
+  {
+    id: 'c2_e2_concept_baby_dog',
     grade: 2,
     subject: 'english',
     chapter: 'Picture Fun & Naming Words',
     concept: 'Baby of a Dog',
-    difficulty: 'easy',
+    difficulty: 'medium',
     type: 'fill_blank',
-    question: 'The loving pet dog wagged its tail as its playful little [BLANK] ran around.',
+    question: 'The playful little baby of a dog is called a [BLANK].',
     visualEmoji: '🐶 🐾',
     payload: {
       correctAnswer: 'puppy',
-      wordBank: ['puppy', 'duckling', 'cub', 'lamb'],
-      displayTemplate: 'The dog played with its cute [BLANK].',
+      wordBank: ['puppy', 'cub', 'lamb', 'foal'],
+      displayTemplate: 'The baby of a dog is a [BLANK].',
     },
-    explanation: '💡 A baby dog is called a **puppy**! 🐶',
+    explanation: '💡 A young baby dog is called a puppy!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Spotting the Noun in a Picture Sentence
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e2_concept_spot_01',
+    id: 'c2_e2_concept_drag_nouns',
     grade: 2,
     subject: 'english',
     chapter: 'Picture Fun & Naming Words',
-    concept: 'Spotting the Naming Word',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'Read the sentence: "The shiny bicycle 🚲 has two rubber wheels." Which word is a THING (naming word)?',
-    visualEmoji: '🚲 🚴',
-    payload: {
-      options: [
-        { id: 'opt_sp1_1', text: 'Bicycle 🚲', isCorrect: true },
-        { id: 'opt_sp1_2', text: 'Shiny', isCorrect: false },
-        { id: 'opt_sp1_3', text: 'Has', isCorrect: false },
-      ],
-    },
-    explanation: '💡 **Bicycle** is the name of an object/vehicle, so it is a naming word (noun)!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Build a Complete Sentence with Nouns (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_e2_concept_order_01',
-    grade: 2,
-    subject: 'english',
-    chapter: 'Picture Fun & Naming Words',
-    concept: 'Noun Sentence Builder',
+    concept: 'Noun Classification Sorting',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Order the words to create a meaningful sentence about an animal:',
-    visualEmoji: '🐘 🍌 🌳',
+    question: 'Arrange these nouns in order: Person -> Place -> Animal -> Thing:',
+    visualEmoji: '👩‍🏫 🏫 🐰 🧼',
     payload: {
-      tokens: ['The', 'big', 'elephant', 'eats', 'bananas.'],
-      scrambled: ['bananas.', 'elephant', 'The', 'eats', 'big'],
-      correctSequence: ['The', 'big', 'elephant', 'eats', 'bananas.'],
+      tokens: ['Teacher (Person)', 'School (Place)', 'Rabbit (Animal)', 'Eraser (Thing)'],
+      scrambled: ['Rabbit (Animal)', 'Eraser (Thing)', 'Teacher (Person)', 'School (Place)'],
+      correctSequence: ['Teacher (Person)', 'School (Place)', 'Rabbit (Animal)', 'Eraser (Thing)'],
     },
-    explanation: '💡 Correct order: "**The big elephant eats bananas.**" (Elephant and bananas are naming words!)',
+    explanation: '💡 Teacher is a Person, School is a Place, Rabbit is an Animal, and Eraser is a Thing!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Animals to Their Babies
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e2_concept_match_01',
+    id: 'c2_e2_concept_match_pairs',
     grade: 2,
     subject: 'english',
     chapter: 'Picture Fun & Naming Words',
-    concept: 'Animal and Baby Match',
+    concept: 'Animals and Babies Match',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each mother animal to her baby:',
-    visualEmoji: '🦁 🐥 🐮 🐶',
+    question: 'Match each mother animal to its correct young baby:',
+    visualEmoji: '🐮 🦆 🦁 🐑',
     payload: {
       pairs: [
-        { id: 'an_p1', left: 'Cow 🐮', right: 'Calf' },
-        { id: 'an_p2', left: 'Hen 🐔', right: 'Chick 🐥' },
-        { id: 'an_p3', left: 'Lion 🦁', right: 'Cub' },
-        { id: 'an_p4', left: 'Duck 🦆', right: 'Duckling' },
+        { id: 'm_e2_a1', left: 'Cow', right: 'Calf' },
+        { id: 'm_e2_a2', left: 'Duck', right: 'Duckling' },
+        { id: 'm_e2_a3', left: 'Lion', right: 'Cub' },
+        { id: 'm_e2_a4', left: 'Sheep', right: 'Lamb' },
       ],
     },
-    explanation: '💡 Cow-Calf, Hen-Chick, Lion-Cub, Duck-Duckling!',
+    explanation: '💡 Cow has a Calf, Duck has a Duckling, Lion has a Cub, Sheep has a Lamb!',
+    points: 15,
+  },
+  {
+    id: 'c2_e2_concept_plural_es',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Picture Fun & Naming Words',
+    concept: 'Plural Ending with -es',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'What is the correct plural naming word when there is more than one "box"?',
+    visualEmoji: '📦 📦📦',
+    payload: {
+      options: [
+        { id: 'opt_bx1_1', text: 'Boxes', isCorrect: true },
+        { id: 'opt_bx1_2', text: 'Boxs', isCorrect: false },
+        { id: 'opt_bx1_3', text: 'Boxies', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Words ending in -x take "-es" in the plural form: one box, two boxes!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — Irregular Plurals, Counting Nouns & Helper Tools
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_e2_hard_find_nouns',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Picture Fun & Naming Words',
+    concept: 'Counting Nouns in a Sentence',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In the sentence: "The brave firefighter saved the little rabbit from the burning barn", how many naming words (nouns) are there?',
+    visualEmoji: '🚒 🐰 🏚️',
+    payload: {
+      options: [
+        { id: 'opt_cn_1', text: '3 nouns (firefighter, rabbit, barn)', isCorrect: true },
+        { id: 'opt_cn_2', text: '2 nouns', isCorrect: false },
+        { id: 'opt_cn_3', text: '5 nouns', isCorrect: false },
+        { id: 'opt_cn_4', text: '1 noun', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Firefighter (person), rabbit (animal), and barn (place) are the 3 nouns!',
+    points: 15,
+  },
+  {
+    id: 'c2_e2_hard_irregular_plural',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Picture Fun & Naming Words',
+    concept: 'Irregular Plural of Child',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'One child is building a toy tower. Many [BLANK] are playing together in the park.',
+    visualEmoji: '🧒 👧 👦',
+    payload: {
+      correctAnswer: 'children',
+      wordBank: ['children', 'childs', 'childres', 'childrens'],
+      displayTemplate: 'Many [BLANK] are playing.',
+    },
+    explanation: '💡 Child is an irregular noun: the plural of child is children (never "childs")!',
+    points: 15,
+  },
+  {
+    id: 'c2_e2_hard_drag_animals',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Picture Fun & Naming Words',
+    concept: 'Alphabetical Order of Animal Young',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these five animal babies in alphabetical (ABC) order:',
+    visualEmoji: '🐮 🦁 🦆 🐱 🐶',
+    payload: {
+      tokens: ['Calf', 'Cub', 'Duckling', 'Kitten', 'Puppy'],
+      scrambled: ['Kitten', 'Duckling', 'Puppy', 'Cub', 'Calf'],
+      correctSequence: ['Calf', 'Cub', 'Duckling', 'Kitten', 'Puppy'],
+    },
+    explanation: '💡 In ABC order: Calf (Ca) -> Cub (Cu) -> Duckling (D) -> Kitten (K) -> Puppy (P)!',
+    points: 15,
+  },
+  {
+    id: 'c2_e2_hard_match_helpers',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Picture Fun & Naming Words',
+    concept: 'Community Helpers and Their Tools',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each community helper to the tool they work with:',
+    visualEmoji: '🩺 🪚 🎨 ✂️',
+    payload: {
+      pairs: [
+        { id: 'm_e2_h1', left: 'Doctor', right: 'Stethoscope and thermometer' },
+        { id: 'm_e2_h2', left: 'Carpenter', right: 'Hammer and wooden saw' },
+        { id: 'm_e2_h3', left: 'Painter', right: 'Paintbrush and color palette' },
+        { id: 'm_e2_h4', left: 'Tailor', right: 'Measuring tape, needle and scissors' },
+      ],
+    },
+    explanation: '💡 Doctor uses stethoscope; Carpenter uses saw; Painter uses paintbrush; Tailor uses needle and scissors!',
+    points: 15,
+  },
+  {
+    id: 'c2_e2_hard_noun_riddle',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Picture Fun & Naming Words',
+    concept: 'Place Noun Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I am a quiet place noun. I have thousands of wonderful books on shelves. Children visit me to read stories and borrow books. What place am I?',
+    visualEmoji: '📚 🤫 🏫',
+    payload: {
+      options: [
+        { id: 'opt_nr1_1', text: 'Library', isCorrect: true },
+        { id: 'opt_nr1_2', text: 'Bakery', isCorrect: false },
+        { id: 'opt_nr1_3', text: 'Cinema Hall', isCorrect: false },
+        { id: 'opt_nr1_4', text: 'Stadium', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A Library is a special place where books are kept for reading and borrowing!',
     points: 15,
   },
 ];

@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 HINDI (सारंगी 2 / RIMJHIM 2)
 // CHAPTER 3: म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: नाम वाले शब्द (संज्ञा) की पहचान
+  // EASY LEVEL (5 Questions) — नाम वाले शब्द (संज्ञा), कविता के पात्र व अंग
   // --------------------------------------------------------------------------
   {
     id: 'c2_h3_concept_sangya_01',
@@ -18,7 +19,7 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     concept: 'संज्ञा शब्द पहचान',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'वाक्य पढ़िए: "सोती हुई लड़की 👧 को चुहिया 🐭 ने काट लिया।" इस वाक्य में प्राणियों (जीवों) के नाम कौन से हैं?',
+    question: 'वाक्य पढ़िए: "सोती हुई लड़की को चुहिया ने काट लिया।" इस वाक्य में प्राणियों (जीवों) के नाम कौन से हैं?',
     visualEmoji: '👧 🐭 🛌',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
         { id: 'opt_sg1_3', text: 'काट लिया', isCorrect: false },
       ],
     },
-    explanation: '💡 **लड़की** और **चुहिया** प्राणियों के नाम हैं, इसलिए ये नाम वाले शब्द (संज्ञा) हैं!',
+    explanation: '💡 लड़की और चुहिया प्राणियों के नाम हैं, इसलिए ये नाम वाले शब्द (संज्ञा) हैं!',
     points: 10,
   },
   {
@@ -38,20 +39,16 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     concept: 'वस्तु का नाम',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'लड़की अपने सोने वाले [BLANK] (बिस्तर) पर चादर ओढ़कर सोई थी।',
+    question: 'रात के समय लड़की अपने सोने वाले [BLANK] पर आराम से सोई हुई थी।',
     visualEmoji: '🛏️ 😴',
     payload: {
       correctAnswer: 'बिस्तर',
       wordBank: ['बिस्तर', 'दौड़ना', 'हँसना', 'जाना'],
       displayTemplate: 'लड़की अपने [BLANK] पर सोई थी।',
     },
-    explanation: '💡 **बिस्तर** एक वस्तु का नाम है! 🛏️',
+    explanation: '💡 "बिस्तर" एक वस्तु का नाम है!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: शरीर के अंगों के नाम (वस्तु/अंग संज्ञा)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h3_concept_ang_01',
     grade: 2,
@@ -64,18 +61,14 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '👃 🐭',
     payload: {
       options: [
-        { id: 'opt_ag1_1', text: 'नाक की नोक पर 👃', isCorrect: true },
+        { id: 'opt_ag1_1', text: 'नाक की नोक पर', isCorrect: true },
         { id: 'opt_ag1_2', text: 'पैर के अँगूठे पर', isCorrect: false },
-        { id: 'opt_ag1_3', text: 'कान पर', isCorrect: false },
+        { id: 'opt_ag1_3', text: 'कान के पीछे', isCorrect: false },
       ],
     },
-    explanation: '💡 चुहिया ने लड़की की **नाक (शरीर का अंग)** की नोक पर काट लिया था! 👃',
+    explanation: '💡 चुहिया ने लड़की की नाक की नोक पर चूटी काटी थी!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: जानवरों की बोलियाँ (पशु आवाज़)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h3_concept_sound_01',
     grade: 2,
@@ -88,83 +81,250 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🐱 🐭 🔊',
     payload: {
       options: [
-        { id: 'opt_sd1_1', text: 'बिल्ली 🐱 की आवाज़', isCorrect: true },
+        { id: 'opt_sd1_1', text: 'बिल्ली की आवाज़', isCorrect: true },
         { id: 'opt_sd1_2', text: 'शेर की दहाड़', isCorrect: false },
         { id: 'opt_sd1_3', text: 'कुत्ते का भौंकना', isCorrect: false },
       ],
     },
-    explanation: '💡 चुहिया बिल्ली से बहुत डरती है, इसलिए लड़की ने **बिल्ली 🐱** की आवाज़ निकाली!',
+    explanation: '💡 चुहिया बिल्ली से बहुत डरती है, इसलिए लड़की ने बिल्ली की आवाज़ निकाली!',
+    points: 10,
+  },
+  {
+    id: 'c2_h3_concept_place_name',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'स्थान का नाम संज्ञा',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'हम रोज़ सुबह तैयार होकर विद्या प्राप्त करने [BLANK] जाते हैं।',
+    visualEmoji: '🏫 🎒',
+    payload: {
+      correctAnswer: 'विद्यालय',
+      wordBank: ['विद्यालय', 'किताब', 'लिखना', 'सुंदर'],
+      displayTemplate: 'हम विद्या प्राप्त करने [BLANK] जाते हैं।',
+    },
+    explanation: '💡 विद्यालय (स्कूल) एक स्थान का नाम है!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: संज्ञा पहचान अभ्यास (वाक्य में वस्तु ढूँढना)
+  // MEDIUM LEVEL (5 Questions) — स्थान संज्ञा, अंग संज्ञा व भेद मिलान
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h3_concept_spot_01',
+    id: 'c2_h3_concept_find_sangya',
     grade: 2,
     subject: 'hindi',
     chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
-    concept: 'स्थान का नाम',
+    concept: 'स्थान संज्ञा शब्द पहचान',
     difficulty: 'medium',
     type: 'mcq',
-    question: '"माँ रसोईघर में स्वादिष्ट खीर बना रही हैं।" इस वाक्य में स्थान (जगह) का नाम कौन सा है?',
-    visualEmoji: '🍲 🏠 👩',
+    question: 'इनमें से कौन सा शब्द किसी \'स्थान\' (जगह) का नाम है?',
+    visualEmoji: '🌳 🌺 🦋',
     payload: {
       options: [
-        { id: 'opt_sp1_1', text: 'रसोईघर', isCorrect: true },
-        { id: 'opt_sp1_2', text: 'स्वादिष्ट', isCorrect: false },
-        { id: 'opt_sp1_3', text: 'बना रही हैं', isCorrect: false },
+        { id: 'opt_fs3_1', text: 'बगीचा', isCorrect: true },
+        { id: 'opt_fs3_2', text: 'मीठा', isCorrect: false },
+        { id: 'opt_fs3_3', text: 'हँसना', isCorrect: false },
+        { id: 'opt_fs3_4', text: 'तेज़', isCorrect: false },
       ],
     },
-    explanation: '💡 **रसोईघर** एक स्थान (कमरे) का नाम है, इसलिए यह स्थानवाचक संज्ञा है!',
+    explanation: '💡 बगीचा एक जगह (स्थान) का नाम है!',
+    points: 10,
+  },
+  {
+    id: 'c2_h3_concept_body_part_fill',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'शरीर के अंग का नाम',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'हम अपनी दोनों प्यारी [BLANK] से सुंदर संसार को देखते हैं।',
+    visualEmoji: '👀 🌍',
+    payload: {
+      correctAnswer: 'आँखों',
+      wordBank: ['आँखों', 'कानों', 'हाथों', 'पैरों'],
+      displayTemplate: 'हम अपनी [BLANK] से देखते हैं।',
+    },
+    explanation: '💡 आँखें शरीर का अंग हैं जिससे हम देखते हैं!',
+    points: 10,
+  },
+  {
+    id: 'c2_h3_concept_drag_sangya_types',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'संज्ञा के चार मुख्य वर्ग',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'संज्ञा शब्दों को उनके सही वर्ग में क्रम से लगाइए: व्यक्ति -> वस्तु -> स्थान -> पशु:',
+    visualEmoji: '👦 📖 🏛️ 🐘',
+    payload: {
+      tokens: ['अमन (व्यक्ति)', 'किताब (वस्तु)', 'दिल्ली (स्थान)', 'हाथी (पशु)'],
+      scrambled: ['दिल्ली (स्थान)', 'अमन (व्यक्ति)', 'हाथी (पशु)', 'किताब (वस्तु)'],
+      correctSequence: ['अमन (व्यक्ति)', 'किताब (वस्तु)', 'दिल्ली (स्थान)', 'हाथी (पशु)'],
+    },
+    explanation: '💡 अमन = व्यक्ति; किताब = वस्तु; दिल्ली = स्थान; हाथी = पशु!',
+    points: 15,
+  },
+  {
+    id: 'c2_h3_concept_match_pairs',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'संज्ञा शब्द और उनके भेद का मिलान',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'प्रत्येक नाम वाले शब्द को उसके सही वर्ग से मिलाइए:',
+    visualEmoji: '🎯 📝',
+    payload: {
+      pairs: [
+        { id: 'm_h3_s1', left: 'रोहन', right: 'व्यक्ति का नाम' },
+        { id: 'm_h3_s2', left: 'कुर्सी', right: 'वस्तु का नाम' },
+        { id: 'm_h3_s3', left: 'जयपुर', right: 'स्थान का नाम' },
+        { id: 'm_h3_s4', left: 'मोर', right: 'पक्षी का नाम' },
+      ],
+    },
+    explanation: '💡 रोहन = व्यक्ति; कुर्सी = वस्तु; जयपुर = स्थान; मोर = पक्षी!',
+    points: 15,
+  },
+  {
+    id: 'c2_h3_concept_fear_reason',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'कविता का भावार्थ',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'लड़की के मुँह से "म्याऊँ" की आवाज़ सुनते ही चुहिया थर-थर काँपते हुए क्यों भागी?',
+    visualEmoji: '🐭 😱 🐱',
+    payload: {
+      options: [
+        { id: 'opt_fr3_1', text: 'क्योंकि चुहिया बिल्ली को अपना शत्रु मानती है और उससे बहुत डरती है', isCorrect: true },
+        { id: 'opt_fr3_2', text: 'क्योंकि उसे भूख लगी थी', isCorrect: false },
+        { id: 'opt_fr3_3', text: 'क्योंकि सुबह हो गई थी', isCorrect: false },
+      ],
+    },
+    explanation: '💡 चुहिया को लगा कि सचमुच कोई बिल्ली आ गई है, इसलिए वह डरकर भाग गई!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 5: वाक्य विन्यास (Drag Order)
+  // HARD LEVEL (5 Questions) — वाक्य में संज्ञा की गिनती, कविता क्रम व पहेली
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h3_concept_order_01',
+    id: 'c2_h3_hard_count_nouns',
     grade: 2,
     subject: 'hindi',
     chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
-    concept: 'संज्ञा वाक्य क्रम',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'शब्दों को सही क्रम में लगाकर कविता का वाक्य बनाइए:',
-    visualEmoji: '🐱 🐭 👧',
+    concept: 'वाक्य में संज्ञा शब्दों की कुल संख्या',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'वाक्य पढ़िए: "रोहित ने बाज़ार से एक सुंदर गेंद खरीदी।" इस वाक्य में कुल कितने नाम वाले शब्द (संज्ञा) हैं?',
+    visualEmoji: '👦 🏪 ⚽',
     payload: {
-      tokens: ['लड़की', 'ने', 'बिल्ली', 'की', 'आवाज़', 'निकाली।'],
-      scrambled: ['बिल्ली', 'निकाली।', 'की', 'लड़की', 'आवाज़', 'ने'],
-      correctSequence: ['लड़की', 'ने', 'बिल्ली', 'की', 'आवाज़', 'निकाली।'],
-    },
-    explanation: '💡 सही क्रम: "**लड़की ने बिल्ली की आवाज़ निकाली।**" 🐱',
-    points: 15,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: जानवरों और उनकी बोलियों का मिलान
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_h3_concept_match_01',
-    grade: 2,
-    subject: 'hindi',
-    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
-    concept: 'जानवर और आवाज़ मिलान',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'जानवर को उसकी सही बोली (आवाज़) से मिलाइए:',
-    visualEmoji: '🐱 🐶 🐸 🐦',
-    payload: {
-      pairs: [
-        { id: 'an_v1', left: 'बिल्ली 🐱', right: 'म्याऊँ-म्याऊँ' },
-        { id: 'an_v2', left: 'कुत्ता 🐶', right: 'भौं-भौं' },
-        { id: 'an_v3', left: 'मेंढक 🐸', right: 'टर्र-टर्र' },
-        { id: 'an_v4', left: 'चिड़िया 🐦', right: 'चीं-चीं' },
+      options: [
+        { id: 'opt_cn3_1', text: '3 संज्ञा शब्द (रोहित, बाज़ार, गेंद)', isCorrect: true },
+        { id: 'opt_cn3_2', text: '2 संज्ञा शब्द', isCorrect: false },
+        { id: 'opt_cn3_3', text: '4 संज्ञा शब्द', isCorrect: false },
+        { id: 'opt_cn3_4', text: '1 संज्ञा शब्द', isCorrect: false },
       ],
     },
-    explanation: '💡 बिल्ली=म्याऊँ, कुत्ता=भौं-भौं, मेंढक=टर्र-टर्र, चिड़िया=चीं-चीं!',
+    explanation: '💡 रोहित (व्यक्ति), बाज़ार (स्थान), और गेंद (वस्तु) — कुल 3 संज्ञा शब्द हैं!',
+    points: 15,
+  },
+  {
+    id: 'c2_h3_hard_fill_trick',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'उपाय / तरकीब शब्द',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'चुहिया को डराकर भगाने के लिए लड़की के मन में एक चतुर [BLANK] सूझी।',
+    visualEmoji: '💡 👧',
+    payload: {
+      correctAnswer: 'तरकीब',
+      wordBank: ['तरकीब', 'रोटी', 'दवा', 'गेंद'],
+      displayTemplate: 'लड़की को एक चतुर [BLANK] सूझी।',
+    },
+    explanation: '💡 लड़की को तरकीब (उपाय) सूझी कि बिल्ली बनकर म्याऊँ बोला जाए!',
+    points: 15,
+  },
+  {
+    id: 'c2_h3_hard_drag_poem_lines',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'कविता की पंक्तियों का सही क्रम',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'कविता \'म्याऊँ, म्याऊँ!\' की इन चार पंक्तियों को सही क्रम में लगाइए:',
+    visualEmoji: '📜 👧 🐭 👃',
+    payload: {
+      tokens: [
+        'सोई-सोई एक रात में',
+        'एकाएक बिलख कर रोई',
+        'रोती क्यों ना मुझे नाक पर',
+        'चुहिया काट गई थी चूटी',
+      ],
+      scrambled: [
+        'चुहिया काट गई थी चूटी',
+        'सोई-सोई एक रात में',
+        'रोती क्यों ना मुझे नाक पर',
+        'एकाएक बिलख कर रोई',
+      ],
+      correctSequence: [
+        'सोई-सोई एक रात में',
+        'एकाएक बिलख कर रोई',
+        'रोती क्यों ना मुझे नाक पर',
+        'चुहिया काट गई थी चूटी',
+      ],
+    },
+    explanation: '💡 कविता का सही क्रम: सोई-सोई एक रात में -> एकाएक बिलख कर रोई -> रोती क्यों ना मुझे नाक पर -> चुहिया काट गई थी चूटी!',
+    points: 15,
+  },
+  {
+    id: 'c2_h3_hard_match_organs',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'ज्ञानेंद्रिय अंगों और कार्यों का मिलान',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'प्रत्येक अंग (संज्ञा) को उसके कार्य से मिलाइए:',
+    visualEmoji: '👀 👂 👃 👅',
+    payload: {
+      pairs: [
+        { id: 'm_h3_o1', left: 'आँखें', right: 'देखना' },
+        { id: 'm_h3_o2', left: 'कान', right: 'सुनना' },
+        { id: 'm_h3_o3', left: 'नाक', right: 'सूँघना' },
+        { id: 'm_h3_o4', left: 'जीभ', right: 'स्वाद चखना' },
+      ],
+    },
+    explanation: '💡 आँखें देखती हैं, कान सुनते हैं, नाक सूँघती है, जीभ स्वाद चखती है!',
+    points: 15,
+  },
+  {
+    id: 'c2_h3_hard_noun_riddle',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)',
+    concept: 'संज्ञा की परिभाषा पहेली',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'मैं किसी भी व्यक्ति, वस्तु, प्राणी या स्थान की पहचान कराता हूँ। व्याकरण में मुझे \'नाम वाला शब्द\' कहते हैं। मेरा व्याकरणिक नाम क्या है?',
+    visualEmoji: '🏷️ ❓',
+    payload: {
+      options: [
+        { id: 'opt_nr3_1', text: 'संज्ञा', isCorrect: true },
+        { id: 'opt_nr3_2', text: 'क्रिया (काम)', isCorrect: false },
+        { id: 'opt_nr3_3', text: 'विशेषण (गुण)', isCorrect: false },
+        { id: 'opt_nr3_4', text: 'वचन', isCorrect: false },
+      ],
+    },
+    explanation: '💡 किसी भी व्यक्ति, प्राणी, वस्तु या स्थान के नाम को संज्ञा कहते हैं!',
     points: 15,
   },
 ];

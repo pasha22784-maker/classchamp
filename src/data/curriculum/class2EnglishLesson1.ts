@@ -3,31 +3,32 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
 // CHAPTER 1: WELCOME TO SCHOOL (RHYMES & PHONICS)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Rhyming Words (समान ध्वनि वाले तुकबंदी शब्द)
+  // EASY LEVEL (5 Questions) — Rhyming Words & Common Consonant Blends
   // --------------------------------------------------------------------------
   {
     id: 'c2_e1_concept_rhyme_01',
     grade: 2,
     subject: 'english',
     chapter: 'Welcome to School (Rhymes & Phonics)',
-    concept: 'Finding the Rhyming Word',
+    concept: 'Rhyming Word Recognition',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'In the fun school poem: "The golden sun ☀️ is bright and hot, we run and play and have great [BLANK]!" Which word rhymes with "SUN"?',
+    question: 'The golden sun is bright and hot, we run and play and have great fun! Which word rhymes with "SUN"?',
     visualEmoji: '☀️ 🏃 🎵',
     payload: {
       options: [
-        { id: 'opt_rh1_1', text: 'FUN 🎈', isCorrect: true },
+        { id: 'opt_rh1_1', text: 'FUN', isCorrect: true },
         { id: 'opt_rh1_2', text: 'BOOK', isCorrect: false },
         { id: 'opt_rh1_3', text: 'DESK', isCorrect: false },
       ],
     },
-    explanation: '💡 **Sun** and **Fun** end with the exact same "-un" sound, making them rhyming partners! 🎵',
+    explanation: '💡 Sun and Fun end with the exact same "-un" sound, making them rhyming words!',
     points: 10,
   },
   {
@@ -35,23 +36,19 @@ export const CLASS_2_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'english',
     chapter: 'Welcome to School (Rhymes & Phonics)',
-    concept: 'School Rhyming Partner',
+    concept: 'Pool Rhyme Pair',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'The water in the swimming pool is refreshing and [BLANK]. (Hint: rhymes with "pool" and "school")',
+    question: 'On a hot summer day, the water in the swimming pool feels fresh and [BLANK].',
     visualEmoji: '🏊 ❄️',
     payload: {
       correctAnswer: 'cool',
       wordBank: ['cool', 'hot', 'warm', 'far'],
       displayTemplate: 'The water in the pool is [BLANK].',
     },
-    explanation: '💡 School, pool, and **cool** rhyme together! 🌊',
+    explanation: '💡 Pool and cool rhyme because both end with the "-ool" sound!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Initial Consonant Blends (bl, cl, fl, st, sp)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e1_concept_blend_01',
     grade: 2,
@@ -60,7 +57,7 @@ export const CLASS_2_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Blend "CL" in Classroom',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'When the students finish a good recitation, they warmly [BLANK] their hands 👏. Which word begins with the "CL-" blend?',
+    question: 'When the students finish reciting the poem, they happily [BLANK] their hands. Which word begins with the "CL" blend?',
     visualEmoji: '👏 🔤',
     payload: {
       options: [
@@ -69,7 +66,7 @@ export const CLASS_2_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_bl1_3', text: 'TRAP', isCorrect: false },
       ],
     },
-    explanation: '💡 The letters "c" and "l" blend together to make the sound in **CLAP** 👏 and **CLASS** 🏫!',
+    explanation: '💡 "c" and "l" blend together to form the initial blend in CLAP and CLASS!',
     points: 10,
   },
   {
@@ -80,109 +77,239 @@ export const CLASS_2_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Blend "ST" in Star',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'The teacher draws a golden [BLANK] ⭐ on Rohan\'s notebook for good handwriting.',
+    question: 'The teacher draws a golden [BLANK] on Rohan\'s notebook for neat handwriting.',
     visualEmoji: '⭐ 📓',
     payload: {
       correctAnswer: 'star',
       wordBank: ['star', 'moon', 'circle', 'dot'],
-      displayTemplate: 'The teacher draws a golden [BLANK] ⭐.',
+      displayTemplate: 'The teacher draws a golden [BLANK].',
     },
-    explanation: '💡 "st" + "ar" = **STAR** ⭐!',
+    explanation: '💡 "st" + "ar" = STAR! It starts with the consonant blend "st".',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Short vs Long Vowels (Phonics Sound)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e1_concept_vowel_01',
+    id: 'c2_e1_concept_rhyme_tree',
     grade: 2,
     subject: 'english',
     chapter: 'Welcome to School (Rhymes & Phonics)',
-    concept: 'Magic "e" Long Vowel Rule',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'When silent letter "e" is added to the short word "HOP", what new word with a long "O" sound is formed?',
-    visualEmoji: '🐰 HOP ➡️ HOP + E = ❓',
-    payload: {
-      options: [
-        { id: 'opt_vw1_1', text: 'HOPE', isCorrect: true },
-        { id: 'opt_vw1_2', text: 'HOLE', isCorrect: false },
-        { id: 'opt_vw1_3', text: 'HOMES', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Adding silent "e" turns short "hop" into long-vowel **HOPE**! 🌟',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: School Classroom Vocabulary
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_e1_concept_vocab_01',
-    grade: 2,
-    subject: 'english',
-    chapter: 'Welcome to School (Rhymes & Phonics)',
-    concept: 'Classroom Objects',
+    concept: 'Bee and Tree Rhyme',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'The teacher writes sums on the green board using white [BLANK].',
-    visualEmoji: '👩‍🏫 ⬛ 🖍️',
+    question: 'Which word rhymes with "TREE"?',
+    visualEmoji: '🌳 🐝',
     payload: {
       options: [
-        { id: 'opt_vc1_1', text: 'Chalk 🖍️', isCorrect: true },
-        { id: 'opt_vc1_2', text: 'Crayon', isCorrect: false },
-        { id: 'opt_vc1_3', text: 'Paintbrush', isCorrect: false },
+        { id: 'opt_rt1_1', text: 'BEE', isCorrect: true },
+        { id: 'opt_rt1_2', text: 'BIRD', isCorrect: false },
+        { id: 'opt_rt1_3', text: 'LEAF', isCorrect: false },
       ],
     },
-    explanation: '💡 Teachers use **chalk** to write clearly on the classroom blackboard!',
+    explanation: '💡 Tree and Bee both end with the long "-ee" sound!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 5: Sight Words Sentence Construction (Drag Order)
+  // MEDIUM LEVEL (5 Questions) — Digraphs, Magic 'e' & Alphabetical Ordering
   // --------------------------------------------------------------------------
   {
-    id: 'c2_e1_concept_order_01',
+    id: 'c2_e1_concept_digraph_sh',
     grade: 2,
     subject: 'english',
     chapter: 'Welcome to School (Rhymes & Phonics)',
-    concept: 'Welcome to School Sentence',
+    concept: 'Digraph "SH" Sound',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which word begins with the "SH" sound as in "ship"?',
+    visualEmoji: '🚢 👟',
+    payload: {
+      options: [
+        { id: 'opt_dg1_1', text: 'SHOES', isCorrect: true },
+        { id: 'opt_dg1_2', text: 'CHAIR', isCorrect: false },
+        { id: 'opt_dg1_3', text: 'THUMB', isCorrect: false },
+        { id: 'opt_dg1_4', text: 'WHALE', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "s" and "h" together make the quiet "sh" sound in shoes and ship!',
+    points: 10,
+  },
+  {
+    id: 'c2_e1_concept_digraph_ch',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Welcome to School (Rhymes & Phonics)',
+    concept: 'Digraph "CH" Sound',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'The teacher writes on the blackboard using white [BLANK].',
+    visualEmoji: '🏫 🖍️',
+    payload: {
+      correctAnswer: 'chalk',
+      wordBank: ['chalk', 'pen', 'paper', 'brush'],
+      displayTemplate: 'The teacher writes using white [BLANK].',
+    },
+    explanation: '💡 Chalk begins with the "ch" digraph sound, like chair and child!',
+    points: 10,
+  },
+  {
+    id: 'c2_e1_concept_drag_abc',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Welcome to School (Rhymes & Phonics)',
+    concept: 'Alphabetical Order of Words',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Unscramble the words to make a polite classroom sentence:',
-    visualEmoji: '🏫 👧 👦',
+    question: 'Arrange these school words in alphabetical (ABC) dictionary order:',
+    visualEmoji: '🔤 📚',
     payload: {
-      tokens: ['Welcome', 'to', 'our', 'happy', 'school!'],
-      scrambled: ['school!', 'Welcome', 'happy', 'to', 'our'],
-      correctSequence: ['Welcome', 'to', 'our', 'happy', 'school!'],
+      tokens: ['Bag', 'Chalk', 'Desk', 'Pencil'],
+      scrambled: ['Desk', 'Bag', 'Pencil', 'Chalk'],
+      correctSequence: ['Bag', 'Chalk', 'Desk', 'Pencil'],
     },
-    explanation: '💡 Correct order: "**Welcome to our happy school!**" 🏫',
+    explanation: '💡 Look at the first letters: B comes before C, C before D, and D before P!',
     points: 15,
+  },
+  {
+    id: 'c2_e1_concept_match_rhymes',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Welcome to School (Rhymes & Phonics)',
+    concept: 'Rhyming Word Pairs Match',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each word to its rhyming partner:',
+    visualEmoji: '🎵 🔤',
+    payload: {
+      pairs: [
+        { id: 'm_e1_p1', left: 'Sing', right: 'Ring' },
+        { id: 'm_e1_p2', left: 'Play', right: 'Day' },
+        { id: 'm_e1_p3', left: 'Book', right: 'Look' },
+        { id: 'm_e1_p4', left: 'Wall', right: 'Ball' },
+      ],
+    },
+    explanation: '💡 Sing/Ring, Play/Day, Book/Look, and Wall/Ball have the same ending sound!',
+    points: 15,
+  },
+  {
+    id: 'c2_e1_concept_magic_e',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Welcome to School (Rhymes & Phonics)',
+    concept: 'Magic E Long Vowel Transformation',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'When you add the silent letter "e" to the short vowel word "CAP", what new word is formed?',
+    visualEmoji: '🧢 ➡️ 🦸',
+    payload: {
+      options: [
+        { id: 'opt_me1_1', text: 'CAPE', isCorrect: true },
+        { id: 'opt_me1_2', text: 'CUP', isCorrect: false },
+        { id: 'opt_me1_3', text: 'COPE', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Magic "e" changes the short "a" sound in CAP to the long "A" sound in CAPE!',
+    points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Rhyming Word Pairs
+  // HARD LEVEL (5 Questions) — Advanced Blends, Phonics Riddles & Word Building
   // --------------------------------------------------------------------------
   {
-    id: 'c2_e1_concept_match_01',
+    id: 'c2_e1_hard_riddle_rhyme',
     grade: 2,
     subject: 'english',
     chapter: 'Welcome to School (Rhymes & Phonics)',
-    concept: 'Rhyming Pairs Match',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each word to its rhyming companion:',
-    visualEmoji: '🎵 🧩',
+    concept: 'Phonics Riddle with Rhymes',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I rhyme with "LIGHT" and "BRIGHT". I appear in the sky when the sun sets and the stars shine. What word am I?',
+    visualEmoji: '🌙 ✨ ❓',
     payload: {
-      pairs: [
-        { id: 'rh_p1', left: 'Ring 💍', right: 'Sing 🎤' },
-        { id: 'rh_p2', left: 'Book 📖', right: 'Look 👀' },
-        { id: 'rh_p3', left: 'Play ⚽', right: 'Day ☀️' },
-        { id: 'rh_p4', left: 'Tree 🌳', right: 'Free 🕊️' },
+      options: [
+        { id: 'opt_hr1_1', text: 'NIGHT', isCorrect: true },
+        { id: 'opt_hr1_2', text: 'MOON', isCorrect: false },
+        { id: 'opt_hr1_3', text: 'DARK', isCorrect: false },
+        { id: 'opt_hr1_4', text: 'SIGHT', isCorrect: false },
       ],
     },
-    explanation: '💡 Ring-Sing, Book-Look, Play-Day, Tree-Free rhyme with the same ending sound!',
+    explanation: '💡 Night rhymes with light and bright (-ight family) and is when the stars come out!',
+    points: 15,
+  },
+  {
+    id: 'c2_e1_hard_triple_blend',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Welcome to School (Rhymes & Phonics)',
+    concept: 'Three-Letter Blend "STR"',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'Water flows peacefully down the mountain [BLANK]. (Starts with "str-")',
+    visualEmoji: '🏞️ 💧',
+    payload: {
+      correctAnswer: 'stream',
+      wordBank: ['stream', 'river', 'lake', 'pond'],
+      displayTemplate: 'Water flows down the mountain [BLANK].',
+    },
+    explanation: '💡 "s-t-r" blend forms STREAM, street, and string!',
+    points: 15,
+  },
+  {
+    id: 'c2_e1_hard_drag_vowel',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Welcome to School (Rhymes & Phonics)',
+    concept: 'Ordering by Vowel Sounds',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these five words in order of their middle vowels (A, E, I, O, U):',
+    visualEmoji: '🅰️ 🅴 🅸 🅾️ 🆄',
+    payload: {
+      tokens: ['Bat (A)', 'Bed (E)', 'Bin (I)', 'Box (O)', 'Bus (U)'],
+      scrambled: ['Bin (I)', 'Bus (U)', 'Bat (A)', 'Box (O)', 'Bed (E)'],
+      correctSequence: ['Bat (A)', 'Bed (E)', 'Bin (I)', 'Box (O)', 'Bus (U)'],
+    },
+    explanation: '💡 In standard vowel order: A (Bat) -> E (Bed) -> I (Bin) -> O (Box) -> U (Bus)!',
+    points: 15,
+  },
+  {
+    id: 'c2_e1_hard_match_blends',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Welcome to School (Rhymes & Phonics)',
+    concept: 'Initial Blend Matching',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each consonant blend with the word it begins:',
+    visualEmoji: '🔤 🎯',
+    payload: {
+      pairs: [
+        { id: 'm_e1_b1', left: 'FL blend', right: 'Flag flying in the wind' },
+        { id: 'm_e1_b2', left: 'BR blend', right: 'Brown tree branches' },
+        { id: 'm_e1_b3', left: 'SP blend', right: 'Spider spinning a web' },
+        { id: 'm_e1_b4', left: 'TR blend', right: 'Train running on rails' },
+      ],
+    },
+    explanation: '💡 FL = Flag; BR = Brown; SP = Spider; TR = Train!',
+    points: 15,
+  },
+  {
+    id: 'c2_e1_hard_odd_one',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Welcome to School (Rhymes & Phonics)',
+    concept: 'Identifying Non-Rhyming Word',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Which word does NOT belong to the "-ake" rhyming family?',
+    visualEmoji: '🎂 🐍 🦆',
+    payload: {
+      options: [
+        { id: 'opt_nw1_1', text: 'DUCK', isCorrect: true },
+        { id: 'opt_nw1_2', text: 'CAKE', isCorrect: false },
+        { id: 'opt_nw1_3', text: 'BAKE', isCorrect: false },
+        { id: 'opt_nw1_4', text: 'LAKE', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Cake, Bake, and Lake all rhyme with "-ake". Duck ends with "-uck", so it does not rhyme!',
     points: 15,
   },
 ];

@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 HINDI (सारंगी 2 / RIMJHIM 2)
 // CHAPTER 7: स्त्रीलिंग और पुल्लिंग (लिंग पहचान)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: लिंग की पहचान (पुल्लिंग व स्त्रीलिंग)
+  // EASY LEVEL (5 Questions) — लिंग परिभाषा, माता-पिता, मोर-मोरनी, बैल-गाय व शेर-शेरनी
   // --------------------------------------------------------------------------
   {
     id: 'c2_h7_concept_ling_01',
@@ -18,7 +19,7 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     concept: 'लिंग की परिभाषा',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'जो शब्द पुरुष जाति (लड़का, पिता, शेर) का बोध कराते हैं, उन्हें क्या कहते हैं?',
+    question: 'जो शब्द पुरुष जाति (जैसे लड़का, पिता, शेर) का बोध कराते हैं, उन्हें क्या कहते हैं?',
     visualEmoji: '👦 👨 🦁',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
         { id: 'opt_lg1_3', text: 'वचन', isCorrect: false },
       ],
     },
-    explanation: '💡 पुरुष जाति का बोध कराने वाले शब्द **पुल्लिंग** और स्त्री जाति का बोध कराने वाले शब्द **स्त्रीलिंग** कहलाते हैं!',
+    explanation: '💡 पुरुष जाति का बोध कराने वाले शब्द पुल्लिंग और स्त्री जाति का बोध कराने वाले शब्द स्त्रीलिंग कहलाते हैं!',
     points: 10,
   },
   {
@@ -35,23 +36,19 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'hindi',
     chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
-    concept: 'माता का पुल्लिंग',
+    concept: 'माता का पुल्लिंग रूप',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'माता जी 👩 घर संभालती हैं और [BLANK] जी 👨 कार्यालय में काम करते हैं।',
+    question: 'माता जी घर का ध्यान रखती हैं और [BLANK] जी कार्यालय में काम करते हैं।',
     visualEmoji: '👩 👨 🏠',
     payload: {
       correctAnswer: 'पिता',
       wordBank: ['पिता', 'भाई', 'बेटा', 'मामा'],
       displayTemplate: 'माता जी और [BLANK] जी घर में हैं।',
     },
-    explanation: '💡 माता (स्त्रीलिंग) का पुल्लिंग जोड़ीदार **पिता** है! 👨',
+    explanation: '💡 माता (स्त्रीलिंग) का पुल्लिंग जोड़ीदार पिता है!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: पक्षियों में लिंग पहचान (मोर और मोरनी)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h7_concept_pakshi_01',
     grade: 2,
@@ -60,7 +57,7 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     concept: 'मोर का स्त्रीलिंग रूप',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'सावन की घटा देखकर सुंदर पंखों वाला "मोर" 🦚 नाचने लगा। मोर का स्त्रीलिंग शब्द क्या है?',
+    question: 'सावन में सुंदर पंखों वाला मोर नाचने लगा। \'मोर\' शब्द का स्त्रीलिंग रूप क्या है?',
     visualEmoji: '🦚 🌧️',
     payload: {
       options: [
@@ -69,31 +66,27 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
         { id: 'opt_pk1_3', text: 'मुर्गी', isCorrect: false },
       ],
     },
-    explanation: '💡 मोर (पुल्लिंग) का स्त्रीलिंग रूप **मोरनी** होता है! 🦚',
+    explanation: '💡 मोर (पुल्लिंग) का स्त्रीलिंग रूप मोरनी होता है!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: पशुओं में लिंग पहचान (शेर, बैल, चूहा)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h7_concept_pashu_01',
     grade: 2,
     subject: 'hindi',
     chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
-    concept: 'बैल का स्त्रीलिंग',
+    concept: 'बैल का स्त्रीलिंग रूप',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'बैल 🐂 खेत जोतने के काम आता है, और [BLANK] 🐄 हमें मीठा व पौष्टिक दूध देती है। बैल का स्त्रीलिंग क्या है?',
+    question: 'बैल खेत जोतने के काम आता है, और [BLANK] हमें मीठा दूध देती है। बैल का स्त्रीलिंग क्या है?',
     visualEmoji: '🐂 vs 🐄',
     payload: {
       options: [
-        { id: 'opt_ps1_1', text: 'गाय 🐄', isCorrect: true },
+        { id: 'opt_ps1_1', text: 'गाय', isCorrect: true },
         { id: 'opt_ps1_2', text: 'बैलनी', isCorrect: false },
         { id: 'opt_ps1_3', text: 'भैंस', isCorrect: false },
       ],
     },
-    explanation: '💡 बैल (पुल्लिंग) का स्त्रीलिंग **गाय** होता है! 🐄',
+    explanation: '💡 बैल (पुल्लिंग) का स्त्रीलिंग गाय होता है!',
     points: 10,
   },
   {
@@ -101,88 +94,232 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'hindi',
     chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
-    concept: 'चूहा का स्त्रीलिंग रूप',
+    concept: 'शेर का स्त्रीलिंग रूप',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'बिल में मोटा चूहा 🐭 और नटखट [BLANK] (चुहिया) रहते हैं।',
+    question: 'घने जंगल का राजा शेर और उसकी संगिनी [BLANK] गुफ़ा में रहते हैं।',
+    visualEmoji: '🦁 👑',
+    payload: {
+      correctAnswer: 'शेरनी',
+      wordBank: ['शेरनी', 'बाघिन', 'हथिनी', 'बिल्ली'],
+      displayTemplate: 'शेर और [BLANK] गुफ़ा में रहते हैं।',
+    },
+    explanation: '💡 शेर (पुल्लिंग) का स्त्रीलिंग रूप शेरनी होता है!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // MEDIUM LEVEL (5 Questions) — राजा-रानी, चुहिया, रिश्ते व नदियों का लिंग
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_h7_concept_king_queen',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
+    concept: 'राजा का स्त्रीलिंग रूप',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'सिंहासन पर राजा बैठे थे। राजा शब्द का सही स्त्रीलिंग रूप कौन सा है?',
+    visualEmoji: '👑 🤴 👸',
+    payload: {
+      options: [
+        { id: 'opt_kq7_1', text: 'रानी', isCorrect: true },
+        { id: 'opt_kq7_2', text: 'राजकुमारी', isCorrect: false },
+        { id: 'opt_kq7_3', text: 'महारानीनी', isCorrect: false },
+      ],
+    },
+    explanation: '💡 राजा (पुल्लिंग) का स्त्रीलिंग रूप रानी होता है!',
+    points: 10,
+  },
+  {
+    id: 'c2_h7_concept_iya_rule',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
+    concept: 'चूहा का स्त्रीलिंग रूप',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: '\'चूहा\' (पुल्लिंग) शब्द का सही स्त्रीलिंग रूप [BLANK] होता है।',
     visualEmoji: '🐭 🧀',
     payload: {
       correctAnswer: 'चुहिया',
-      wordBank: ['चुहिया', 'चूहनी', 'चूहे', 'बिल्ली'],
-      displayTemplate: 'बिल में चूहा और [BLANK] रहते हैं।',
+      wordBank: ['चुहिया', 'चूहानी', 'चूही', 'बिल्ली'],
+      displayTemplate: 'चूहा का स्त्रीलिंग [BLANK] है।',
     },
-    explanation: '💡 चूहा (पुल्लिंग) का स्त्रीलिंग रूप **चुहिया** है! 🐭',
+    explanation: '💡 चूहा -> चुहिया; बंदर -> बंदरिया; डिब्बा -> डिबिया!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: वाक्य में क्रिया का लिंग के साथ रूप बदलना
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_h7_concept_vakya_01',
+    id: 'c2_h7_concept_drag_pairs',
     grade: 2,
     subject: 'hindi',
     chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
-    concept: 'क्रिया लिंग संगति',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: '"लड़का गाना गाता है।" यदि कर्ता बदलकर \'लड़की\' हो जाए, तो सही वाक्य क्या बनेगा?',
-    visualEmoji: '👦 🎶 ➡️ 👧 🎶',
-    payload: {
-      options: [
-        { id: 'opt_vk1_1', text: 'लड़की गाना गाती है।', isCorrect: true },
-        { id: 'opt_vk1_2', text: 'लड़की गाना गाता है।', isCorrect: false },
-        { id: 'opt_vk1_3', text: 'लड़की गाना गाते हैं।', isCorrect: false },
-      ],
-    },
-    explanation: '💡 स्त्रीलिंग कर्ता के साथ क्रिया भी स्त्रीलिंग हो जाती है: लड़का गाता है -> **लड़की गाती है**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: वाक्य क्रम (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_h7_concept_order_01',
-    grade: 2,
-    subject: 'hindi',
-    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
-    concept: 'राजमहल लिंग वाक्य क्रम',
+    concept: 'परिवार के लिंग जोड़ों का क्रम',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'शब्दों को सही क्रम में लगाकर राजमहल का वाक्य बनाइए:',
-    visualEmoji: '👑 🤴 👸',
+    question: 'पुल्लिंग और स्त्रीलिंग के इन पारिवारिक जोड़ों को क्रम से लगाइए:',
+    visualEmoji: '👦👧 👴👵 👨‍🦳👩‍🦳 👨‍🦰👩‍🦰',
     payload: {
-      tokens: ['राजा', 'और', 'रानी', 'सिंहासन', 'पर', 'बैठे', 'थे।'],
-      scrambled: ['रानी', 'राजा', 'बैठे', 'पर', 'और', 'थे।', 'सिंहासन'],
-      correctSequence: ['राजा', 'और', 'रानी', 'सिंहासन', 'पर', 'बैठे', 'थे।'],
+      tokens: ['लड़का -> लड़की', 'दादा -> दादी', 'नाना -> नानी', 'चाचा -> चाची'],
+      scrambled: ['चाचा -> चाची', 'लड़का -> लड़की', 'नाना -> नानी', 'दादा -> दादी'],
+      correctSequence: ['लड़का -> लड़की', 'दादा -> दादी', 'नाना -> नानी', 'चाचा -> चाची'],
     },
-    explanation: '💡 सही वाक्य: "**राजा और रानी सिंहासन पर बैठे थे।**" 👑',
+    explanation: '💡 लड़का/लड़की -> दादा/दादी -> नाना/नानी -> चाचा/चाची!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: पुल्लिंग और स्त्रीलिंग का मिलान
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_h7_concept_match_01',
+    id: 'c2_h7_concept_match_pairs',
     grade: 2,
     subject: 'hindi',
     chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
-    concept: 'पुल्लिंग स्त्रीलिंग मिलान',
+    concept: 'पशुओं के लिंग युग्म मिलान',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'पुल्लिंग शब्द को उसके सही स्त्रीलिंग रूप से मिलाइए:',
-    visualEmoji: '👫 👑 🦁 🦚',
+    question: 'प्रत्येक पुल्लिंग शब्द को उसके सही स्त्रीलिंग शब्द से मिलाइए:',
+    visualEmoji: '🐎 🐪 🐒 🐕',
     payload: {
       pairs: [
-        { id: 'lg_p1', left: 'राजा 🤴', right: 'रानी 👸' },
-        { id: 'lg_p2', left: 'शेर 🦁', right: 'शेरनी' },
-        { id: 'lg_p3', left: 'मोर 🦚', right: 'मोरनी' },
-        { id: 'lg_p4', left: 'दादा 👴', right: 'दादी 👵' },
+        { id: 'm_h7_p1', left: 'घोड़ा', right: 'घोड़ी' },
+        { id: 'm_h7_p2', left: 'ऊँट', right: 'ऊँटनी' },
+        { id: 'm_h7_p3', left: 'बंदर', right: 'बंदरिया' },
+        { id: 'm_h7_p4', left: 'कुत्ता', right: 'कुतिया' },
       ],
     },
-    explanation: '💡 राजा=रानी, शेर=शेरनी, मोर=मोरनी, दादा=दादी!',
+    explanation: '💡 घोड़ा = घोड़ी; ऊँट = ऊँटनी; बंदर = बंदरिया; कुत्ता = कुतिया!',
+    points: 15,
+  },
+  {
+    id: 'c2_h7_concept_river_gender',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
+    concept: 'नदियों के नाम का लिंग',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: '"गंगा भारत की सबसे पवित्र नदी है और यह हिमालय से निकलती है।" सभी नदियों के नाम व्याकरण में किस लिंग में आते हैं?',
+    visualEmoji: '🌊 🏔️',
+    payload: {
+      options: [
+        { id: 'opt_rg7_1', text: 'स्त्रीलिंग', isCorrect: true },
+        { id: 'opt_rg7_2', text: 'पुल्लिंग', isCorrect: false },
+        { id: 'opt_rg7_3', text: 'वचन', isCorrect: false },
+      ],
+    },
+    explanation: '💡 गंगा, यमुना, गोदावरी जैसी सभी नदियों के नाम हमेशा स्त्रीलिंग होते हैं (नदी बहती है)!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — क्रिया तालमेल, निर्जीव वस्तुओं का लिंग व पहेली
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_h7_hard_sentence_verb',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
+    concept: 'लिंग के अनुसार सही क्रिया का प्रयोग',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'लिंग के अनुसार सही क्रिया वाला व्याकरणसम्मत वाक्य चुनिए:',
+    visualEmoji: '🦚 🌧️ ✍️',
+    payload: {
+      options: [
+        { id: 'opt_sv7_1', text: 'मोरनी बादलों को देखकर नाच रही है।', isCorrect: true },
+        { id: 'opt_sv7_2', text: 'मोरनी बादलों को देखकर नाच रहा है।', isCorrect: false },
+        { id: 'opt_sv7_3', text: 'मोर बादलों को देखकर नाचती है।', isCorrect: false },
+      ],
+    },
+    explanation: '💡 मोरनी स्त्रीलिंग है, इसलिए क्रिया "नाच रही है" होगी; मोर पुल्लिंग होता तो "नाच रहा है" होता!',
+    points: 15,
+  },
+  {
+    id: 'c2_h7_hard_fill_object_gender',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
+    concept: 'सूरज शब्द का लिंग',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: '\'सूरज\' पूर्व दिशा में उगता है और चमकता है। वाक्य प्रयोग से स्पष्ट है कि \'सूरज\' [BLANK] शब्द है।',
+    visualEmoji: '☀️ 🌅',
+    payload: {
+      correctAnswer: 'पुल्लिंग',
+      wordBank: ['पुल्लिंग', 'स्त्रीलिंग', 'वचन', 'संज्ञा'],
+      displayTemplate: 'सूरज [BLANK] शब्द है।',
+    },
+    explanation: '💡 सूरज उगता है (पुल्लिंग); यदि स्त्रीलिंग होता तो "उगती है" कहा जाता!',
+    points: 15,
+  },
+  {
+    id: 'c2_h7_hard_drag_generations',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
+    concept: 'पीढ़ी क्रम में लिंग जोड़े',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'परिवार के इन जोड़ों को बड़े से छोटे (पीढ़ी के अनुसार) क्रम में लगाइए:',
+    visualEmoji: '👴👵 ➡️ 👨👩 ➡️ 👦👧',
+    payload: {
+      tokens: [
+        'दादा जी और दादी जी',
+        'पिता जी और माता जी',
+        'भाई और बहन',
+      ],
+      scrambled: [
+        'भाई और बहन',
+        'दादा जी और दादी जी',
+        'पिता जी और माता जी',
+      ],
+      correctSequence: [
+        'दादा जी और दादी जी',
+        'पिता जी और माता जी',
+        'भाई और बहन',
+      ],
+    },
+    explanation: '💡 पहली पीढ़ी: दादा-दादी -> दूसरी पीढ़ी: माता-पिता -> तीसरी पीढ़ी: भाई-बहन!',
+    points: 15,
+  },
+  {
+    id: 'c2_h7_hard_match_occupations',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
+    concept: 'व्यवसायों के पुल्लिंग-स्त्रीलिंग रूप',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'व्यवसाय और कार्यों से जुड़े पुल्लिंग शब्दों को उनके सही स्त्रीलिंग शब्दों से मिलाइए:',
+    visualEmoji: '👨‍🏫👩‍🏫 👨‍🎤👩‍🎤 ✍️',
+    payload: {
+      pairs: [
+        { id: 'm_h7_o1', left: 'अध्यापक', right: 'अध्यापिका' },
+        { id: 'm_h7_o2', left: 'गायक', right: 'गायिका' },
+        { id: 'm_h7_o3', left: 'लेखक', right: 'लेखिका' },
+        { id: 'm_h7_o4', left: 'धोबी', right: 'धोबिन' },
+      ],
+    },
+    explanation: '💡 अध्यापक = अध्यापिका; गायक = गायिका; लेखक = लेखिका; धोबी = धोबिन!',
+    points: 15,
+  },
+  {
+    id: 'c2_h7_hard_ling_riddle',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'स्त्रीलिंग और पुल्लिंग (लिंग पहचान)',
+    concept: 'लिंग की परिभाषा पहेली',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'मैं संज्ञा शब्द का वह रूप हूँ जो यह बताता हूँ कि कोई प्राणी या वस्तु पुरुष जाति की है या स्त्री जाति की। व्याकरण में मेरा क्या नाम है?',
+    visualEmoji: '🚻 💡 ❓',
+    payload: {
+      options: [
+        { id: 'opt_lr7_1', text: 'लिंग', isCorrect: true },
+        { id: 'opt_lr7_2', text: 'वचन (एक-अनेक)', isCorrect: false },
+        { id: 'opt_lr7_3', text: 'क्रिया (काम)', isCorrect: false },
+        { id: 'opt_lr7_4', text: 'विशेषण (गुण)', isCorrect: false },
+      ],
+    },
+    explanation: '💡 शब्द के जिस रूप से स्त्री या पुरुष जाति का बोध हो, उसे लिंग कहते हैं!',
     points: 15,
   },
 ];

@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 7: RANI'S GIFT (MEASUREMENT & LENGTH)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Non-Standard Body Units: Handspan and Paces (बित्ता व कदम)
+  // EASY LEVEL (5 Questions) — Non-standard Units (Handspan, Paces) & Standard Units (cm, m)
   // --------------------------------------------------------------------------
   {
     id: 'c2_m7_concept_hand_01',
@@ -18,16 +19,16 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Handspan Measurement',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'When Rani measures the length of her school table using her stretched hand from thumb to little finger, what body unit is she using?',
+    question: 'When Rani measures the length of her notebook using her outstretched hand from thumb to little finger, what body unit is she using?',
     visualEmoji: '🖐️ 📏',
     payload: {
       options: [
-        { id: 'opt_hs1_1', text: 'Handspan', isCorrect: true },
+        { id: 'opt_hs1_1', text: 'Handspan (बित्ता)', isCorrect: true },
         { id: 'opt_hs1_2', text: 'Footstep', isCorrect: false },
         { id: 'opt_hs1_3', text: 'Kilogram', isCorrect: false },
       ],
     },
-    explanation: '💡 The distance between the tip of the thumb and little finger of an outstretched hand is called a **Handspan (बित्ता)**!',
+    explanation: '💡 The distance between the tip of the thumb and the little finger of an outstretched hand is called a Handspan!',
     points: 10,
   },
   {
@@ -35,22 +36,81 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'maths',
     chapter: "Rani's Gift (Measurement & Length)",
-    concept: 'Paces for Measuring Playground',
+    concept: 'Paces for Measuring Distances',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'To measure the length of the school cricket pitch or corridor, children walk and count their [BLANK].',
+    question: 'To measure the length of the school playground or corridor, children walk and count their [BLANK].',
     visualEmoji: '🚶 🦶',
     payload: {
       correctAnswer: 'paces',
       wordBank: ['paces', 'fingers', 'rulers', 'hours'],
       displayTemplate: 'Children count their walking [BLANK] (कदम).',
     },
-    explanation: '💡 For long floor distances, we count our walking steps or **paces (कदम)**! 🚶',
+    explanation: '💡 For long floor distances, we count our walking steps or paces (कदम)!',
+    points: 10,
+  },
+  {
+    id: 'c2_m7_concept_cm_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Centimeter Unit for Small Objects',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Which of these small school objects is measured using a 15-centimeter plastic ruler?',
+    visualEmoji: '📏 ✏️ 🧼',
+    payload: {
+      options: [
+        { id: 'opt_cm1_1', text: 'A pencil and eraser', isCorrect: true },
+        { id: 'opt_cm1_2', text: 'The highway road between two cities', isCorrect: false },
+        { id: 'opt_cm1_3', text: 'A two-story school building', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Small objects like pencils, erasers, and crayons are measured in centimeters (cm)!',
+    points: 10,
+  },
+  {
+    id: 'c2_m7_concept_meter_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Meters for Cloth and Large Distances',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'The cloth for a mother\'s saree or curtains is measured in [BLANK] (m).',
+    visualEmoji: '👗 🧵 📏',
+    payload: {
+      correctAnswer: 'meters',
+      wordBank: ['meters', 'grams', 'seconds', 'liters'],
+      displayTemplate: 'Cloth length is measured in [BLANK].',
+    },
+    explanation: '💡 Long lengths like cloth, room walls, and flagpoles are measured in meters (m)!',
+    points: 10,
+  },
+  {
+    id: 'c2_m7_concept_cap_more',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Comparing Liquid Capacity',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Which container holds the MOST amount of water when completely filled?',
+    visualEmoji: '🪣 ☕ 🥄 🥛',
+    payload: {
+      options: [
+        { id: 'opt_cp7_1', text: 'A large bathroom bucket', isCorrect: true },
+        { id: 'opt_cp7_2', text: 'A porcelain tea cup', isCorrect: false },
+        { id: 'opt_cp7_3', text: 'A steel spoon', isCorrect: false },
+        { id: 'opt_cp7_4', text: 'A drinking glass', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A bucket has the greatest capacity and can hold several liters of water!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 2: Why Handspans Differ (Standard Units)
+  // MEDIUM LEVEL (5 Questions) — Capacity Calculations, Non-Standard Variation & Balancing
   // --------------------------------------------------------------------------
   {
     id: 'c2_m7_concept_diff_01',
@@ -64,129 +124,192 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '👩‍🏫🖐️ vs 👧🖐️',
     payload: {
       options: [
-        { id: 'opt_hd1_1', text: 'Teacher\'s hand is bigger, so she needs fewer handspans', isCorrect: true },
-        { id: 'opt_hd1_2', text: 'The table shrank', isCorrect: false },
-        { id: 'opt_hd1_3', text: 'The teacher measured wrong', isCorrect: false },
+        { id: 'opt_hd1_1', text: 'Teacher\'s hand is larger, so fewer handspans are needed', isCorrect: true },
+        { id: 'opt_hd1_2', text: 'The table shrank while measuring', isCorrect: false },
+        { id: 'opt_hd1_3', text: 'Handspans are always exactly identical for everyone', isCorrect: false },
       ],
     },
-    explanation: '💡 Different people have different hand sizes! That is why we use a standard **ruler or measuring tape** with meters and centimeters.',
+    explanation: '💡 People have different hand sizes. Because the teacher\'s hand is bigger, her count is smaller. That is why standard rulers are used!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Centimeters (cm) for Small Objects
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m7_concept_cm_01',
+    id: 'c2_m7_concept_jug_glass',
     grade: 2,
     subject: 'maths',
     chapter: "Rani's Gift (Measurement & Length)",
-    concept: 'Centimeter Unit for Small Objects',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Which of these small school objects is measured using a 15-centimeter plastic ruler 📏?',
-    visualEmoji: '📏 ✏️ 🧼',
-    payload: {
-      options: [
-        { id: 'opt_cm1_1', text: 'A drawing pencil and eraser ✏️', isCorrect: true },
-        { id: 'opt_cm1_2', text: 'The road from Delhi to Mumbai', isCorrect: false },
-        { id: 'opt_cm1_3', text: 'A two-story school building', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Small objects like pencils ✏️, erasers, and keys are measured in **centimeters (cm)**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Meters (m) for Large Objects
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m7_concept_m_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: "Rani's Gift (Measurement & Length)",
-    concept: 'Meter Unit for Large Objects',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Mother buys a long traditional cotton saree 🥻 at the cloth store. How is cloth length measured?',
-    visualEmoji: '🥻 📏',
-    payload: {
-      options: [
-        { id: 'opt_mt1_1', text: 'In Meters', isCorrect: true },
-        { id: 'opt_mt1_2', text: 'In Centimeters only', isCorrect: false },
-        { id: 'opt_mt1_3', text: 'In Minutes', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Long lengths of cloth, walls, and rooms are measured in **meters (m)**! 1 meter = 100 cm.',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Choosing Centimeter (cm) vs Meter (m)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m7_concept_choose_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: "Rani's Gift (Measurement & Length)",
-    concept: 'Choosing Correct Unit',
+    concept: 'Capacity Unit Multiplication',
     difficulty: 'medium',
     type: 'fill_blank',
-    question: 'The height of a tall sugarcane stalk in the farm is about 2 [BLANK].',
-    visualEmoji: '🎋 📐',
+    question: '1 big jug of mango juice fills 6 glasses. To fill 2 identical big jugs, Rani needs [BLANK] glasses.',
+    visualEmoji: '🥭 🫖 ➡️ 🥛🥛🥛🥛🥛🥛',
     payload: {
-      correctAnswer: 'meters',
-      wordBank: ['meters', 'centimeters', 'grams', 'litres'],
-      displayTemplate: 'The sugarcane stalk is about 2 [BLANK] tall.',
+      correctAnswer: '12',
+      wordBank: ['12', '8', '16', '6'],
+      displayTemplate: '2 big jugs = [BLANK] glasses of juice.',
     },
-    explanation: '💡 A person or tall sugarcane is measured in **meters (m)**!',
+    explanation: '💡 1 jug = 6 glasses. 2 jugs = 6 + 6 = 12 glasses!',
+    points: 10,
+  },
+  {
+    id: 'c2_m7_concept_drag_units',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Arranging Lengths from Shortest to Longest',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'Arrange these objects from shortest length to longest length:',
+    visualEmoji: '📏 🧼 ✏️ 🪑 🏫',
+    payload: {
+      tokens: ['5 cm (Eraser)', '15 cm (Pencil)', '1 meter (Desk)', '10 meters (Classroom)'],
+      scrambled: ['1 meter (Desk)', '5 cm (Eraser)', '10 meters (Classroom)', '15 cm (Pencil)'],
+      correctSequence: ['5 cm (Eraser)', '15 cm (Pencil)', '1 meter (Desk)', '10 meters (Classroom)'],
+    },
+    explanation: '💡 In order of length: 5 cm < 15 cm < 1 meter (100 cm) < 10 meters!',
+    points: 15,
+  },
+  {
+    id: 'c2_m7_concept_match_pairs',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Matching Measurement Attributes',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each item to the appropriate standard unit:',
+    visualEmoji: '📏 ⚖️ 🚰',
+    payload: {
+      pairs: [
+        { id: 'm7_u1', left: 'Length of a pencil', right: 'Centimeters (cm)' },
+        { id: 'm7_u2', left: 'Length of a running track', right: 'Meters (m)' },
+        { id: 'm7_u3', left: 'Petrol in a car tank', right: 'Liters (L)' },
+        { id: 'm7_u4', left: 'Sack of rice', right: 'Kilograms (kg)' },
+      ],
+    },
+    explanation: '💡 Pencil = cm; Running track = m; Petrol = Liters; Rice sack = kg!',
+    points: 15,
+  },
+  {
+    id: 'c2_m7_concept_scale_pan',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Balance Scale Mechanics',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'On a two-pan vegetable balance scale, what happens to the pan containing a heavy pumpkin compared to an apple?',
+    visualEmoji: '⚖️ 🎃 vs 🍎',
+    payload: {
+      options: [
+        { id: 'opt_sc7_1', text: 'The pan with the heavy pumpkin goes DOWN', isCorrect: true },
+        { id: 'opt_sc7_2', text: 'The pan with the heavy pumpkin goes UP', isCorrect: false },
+        { id: 'opt_sc7_3', text: 'Both pans float away', isCorrect: false },
+      ],
+    },
+    explanation: '💡 The heavier side always pushes the pan DOWN, while the lighter side rises UP!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 6: Order Objects from Shortest to Longest (Drag Order)
+  // HARD LEVEL (5 Questions) — Multi-Step Capacity, Meter Conversion & Ribbon Logic
   // --------------------------------------------------------------------------
   {
-    id: 'c2_m7_concept_order_01',
+    id: 'c2_m7_hard_capacity_riddle',
     grade: 2,
     subject: 'maths',
     chapter: "Rani's Gift (Measurement & Length)",
-    concept: 'Length Order Sequence',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange these objects from SHORTEST to LONGEST:',
-    visualEmoji: '📏 🧼 ✏️ 🏏 🚆',
+    concept: 'Capacity Remaining Problem',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'A water bucket holds 15 mugs of water. So far, Rani has poured in 8 mugs. How many more mugs of water does she need to pour to fill the bucket completely?',
+    visualEmoji: '🪣 8 Mugs + ❓ = 15 Mugs',
     payload: {
-      tokens: ['Small Eraser 🧼', 'Writing Pencil ✏️', 'Cricket Bat 🏏', 'Railway Train 🚆'],
-      scrambled: ['Cricket Bat 🏏', 'Small Eraser 🧼', 'Railway Train 🚆', 'Writing Pencil ✏️'],
-      correctSequence: ['Small Eraser 🧼', 'Writing Pencil ✏️', 'Cricket Bat 🏏', 'Railway Train 🚆'],
-    },
-    explanation: '💡 Shortest to longest: Eraser (3 cm) < Pencil (15 cm) < Bat (80 cm) < Train (hundreds of meters)!',
-    points: 15,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 7: Match Object to Ideal Measurement Unit
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m7_concept_match_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: "Rani's Gift (Measurement & Length)",
-    concept: 'Unit Selection Match Pairs',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each item to the best unit for measuring its length:',
-    visualEmoji: '📏 🏷️',
-    payload: {
-      pairs: [
-        { id: 'u_p1', left: 'Length of a leaf 🍃', right: 'Centimeters (cm)' },
-        { id: 'u_p2', left: 'Length of classroom 🏫', right: 'Meters (m)' },
-        { id: 'u_p3', left: 'Thickness of coin 🪙', right: 'Millimeters (mm)' },
-        { id: 'u_p4', left: 'Length of skipping rope 🪢', right: 'Meters (m)' },
+      options: [
+        { id: 'opt_cr7_1', text: '7 mugs', isCorrect: true },
+        { id: 'opt_cr7_2', text: '8 mugs', isCorrect: false },
+        { id: 'opt_cr7_3', text: '23 mugs', isCorrect: false },
+        { id: 'opt_cr7_4', text: '5 mugs', isCorrect: false },
       ],
     },
-    explanation: '💡 Small objects take cm/mm; large ropes and rooms take meters (m)!',
+    explanation: '💡 15 mugs - 8 mugs = 7 more mugs needed!',
+    points: 15,
+  },
+  {
+    id: 'c2_m7_hard_meter_cm',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Meter to Centimeter Equivalence',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'A tailor uses a 1-meter measuring tape. 1 meter is equal to [BLANK] centimeters.',
+    visualEmoji: '📏 1️⃣ m = ❓ cm',
+    payload: {
+      correctAnswer: '100',
+      wordBank: ['100', '10', '1000', '50'],
+      displayTemplate: '1 meter = [BLANK] centimeters.',
+    },
+    explanation: '💡 Standard unit fact: 1 meter = 100 centimeters (1 m = 100 cm)!',
+    points: 15,
+  },
+  {
+    id: 'c2_m7_hard_ribbon_add',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Length Addition Word Problem',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Rani has a 35 cm red ribbon and a 28 cm blue ribbon. If she joins them together, what is the total length of the ribbon?',
+    visualEmoji: '🎀 3️⃣5️⃣ cm + 2️⃣8️⃣ cm',
+    payload: {
+      options: [
+        { id: 'opt_rb7_1', text: '63 cm', isCorrect: true },
+        { id: 'opt_rb7_2', text: '53 cm', isCorrect: false },
+        { id: 'opt_rb7_3', text: '65 cm', isCorrect: false },
+        { id: 'opt_rb7_4', text: '73 cm', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Add 35 cm + 28 cm: 5 + 8 = 13 (carry 1 ten), 1 + 3 + 2 = 6 tens. Total = 63 cm!',
+    points: 15,
+  },
+  {
+    id: 'c2_m7_hard_drag_capacity',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Liquid Capacity Ordering',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these containers in order of water capacity from smallest to largest:',
+    visualEmoji: '💧 ➡️ 🫖 ➡️ 🪣 ➡️ 🛢️',
+    payload: {
+      tokens: ['Medicine dropper', 'Tea cup', 'Water bottle', 'Kitchen bucket', 'Water storage tank'],
+      scrambled: ['Kitchen bucket', 'Medicine dropper', 'Water storage tank', 'Tea cup', 'Water bottle'],
+      correctSequence: ['Medicine dropper', 'Tea cup', 'Water bottle', 'Kitchen bucket', 'Water storage tank'],
+    },
+    explanation: '💡 Dropper holds a few drops -> cup holds 150 ml -> bottle holds 1 liter -> bucket holds 15 liters -> tank holds 500 liters!',
+    points: 15,
+  },
+  {
+    id: 'c2_m7_hard_match_comparison',
+    grade: 2,
+    subject: 'maths',
+    chapter: "Rani's Gift (Measurement & Length)",
+    concept: 'Measurement Real-World Comparisons',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match the measurement pairs to their correct comparison:',
+    visualEmoji: '🦒 🥥 🪣 🚌',
+    payload: {
+      pairs: [
+        { id: 'm7_cmp1', left: 'Giraffe vs Rabbit', right: 'Giraffe is much taller' },
+        { id: 'm7_cmp2', left: 'Bird feather vs Coconut', right: 'Coconut is much heavier' },
+        { id: 'm7_cmp3', left: 'Teaspoon vs Water jug', right: 'Water jug holds much more' },
+        { id: 'm7_cmp4', left: 'Pencil eraser vs School bus', right: 'School bus is much longer' },
+      ],
+    },
+    explanation: '💡 Real-world attributes: Giraffe is taller; Coconut is heavier; Jug holds more; Bus is longer!',
     points: 15,
   },
 ];

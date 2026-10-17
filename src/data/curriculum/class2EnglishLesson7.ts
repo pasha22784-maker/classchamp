@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
 // CHAPTER 7: SENTENCES & QUESTION MARKS
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Telling Sentence (Statement with Full Stop .)
+  // EASY LEVEL (5 Questions) — Sentence Endings, Question Words & Capitalization
   // --------------------------------------------------------------------------
   {
     id: 'c2_e7_concept_tell_01',
@@ -18,22 +19,18 @@ export const CLASS_2_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Telling Sentence Ends with Full Stop',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'A sentence that gives us facts or tells information (like "Cows give sweet milk") is a TELLING sentence. How does it end?',
+    question: 'A sentence that gives information or states a fact (like "Cows give milk") is a telling sentence. How does it end?',
     visualEmoji: '🐄 🥛 🛑',
     payload: {
       options: [
-        { id: 'opt_tl1_1', text: 'With a Full Stop', isCorrect: true },
-        { id: 'opt_tl1_2', text: 'With a Question Mark', isCorrect: false },
-        { id: 'opt_tl1_3', text: 'With a Comma', isCorrect: false },
+        { id: 'opt_tl1_1', text: 'With a Full Stop ( . )', isCorrect: true },
+        { id: 'opt_tl1_2', text: 'With a Question Mark ( ? )', isCorrect: false },
+        { id: 'opt_tl1_3', text: 'With a Hyphen ( - )', isCorrect: false },
       ],
     },
-    explanation: '💡 A statement or telling sentence always ends with a **full stop ( . )**! 🛑',
+    explanation: '💡 A statement or telling sentence always ends with a full stop ( . )!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Asking Sentence (Questions with ?)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e7_concept_ask_01',
     grade: 2,
@@ -46,12 +43,12 @@ export const CLASS_2_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '❓ 🤔 🎒',
     payload: {
       options: [
-        { id: 'opt_ak1_1', text: 'Where is your classroom? ❓', isCorrect: true },
+        { id: 'opt_ak1_1', text: 'Where is your classroom?', isCorrect: true },
         { id: 'opt_ak1_2', text: 'My classroom is upstairs.', isCorrect: false },
-        { id: 'opt_ak1_3', text: 'I have a bag.', isCorrect: false },
+        { id: 'opt_ak1_3', text: 'I have a heavy school bag.', isCorrect: false },
       ],
     },
-    explanation: '💡 "Where is your classroom?" is asking for information, so it is a question and ends with **?**!',
+    explanation: '💡 "Where is your classroom?" is asking for information, so it is a question and ends with ?!',
     points: 10,
   },
   {
@@ -62,19 +59,57 @@ export const CLASS_2_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Choosing Correct Question Word',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'Complete the question: "[BLANK] is your favourite colour?" (Hint: Asking for choice)',
+    question: 'Complete the question: "[BLANK] is your favourite colour?"',
     visualEmoji: '🎨 ❓',
     payload: {
       correctAnswer: 'What',
       wordBank: ['What', 'Where', 'Why', 'When'],
       displayTemplate: '[BLANK] is your favourite colour?',
     },
-    explanation: '💡 "**What** is your favourite colour?" 🎨',
+    explanation: '💡 We use "What" to ask about things, choices, and names: "What is your favourite colour?"',
+    points: 10,
+  },
+  {
+    id: 'c2_e7_concept_first_cap',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Sentence Starts with Capital Letter',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'What kind of letter must ALWAYS be used to start the very first word of every sentence?',
+    visualEmoji: '🔤 🅰️',
+    payload: {
+      options: [
+        { id: 'opt_fc7_1', text: 'A Capital letter', isCorrect: true },
+        { id: 'opt_fc7_2', text: 'A small lowercase letter', isCorrect: false },
+        { id: 'opt_fc7_3', text: 'A number', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Rule: Every English sentence begins with a Capital letter!',
+    points: 10,
+  },
+  {
+    id: 'c2_e7_concept_who_ask',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Question Word WHO for People',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'To ask about a person, we ask: "[BLANK] is knocking at the front door?"',
+    visualEmoji: '🚪 ✊ ❓',
+    payload: {
+      correctAnswer: 'Who',
+      wordBank: ['Who', 'What', 'Where', 'Why'],
+      displayTemplate: '[BLANK] is knocking at the door?',
+    },
+    explanation: '💡 "Who" is the question word used when asking about a person!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 3: Exclamation Mark (!) for Surprises and Feelings
+  // MEDIUM LEVEL (5 Questions) — Exclamations, Jumbled Words & Sentence Logic
   // --------------------------------------------------------------------------
   {
     id: 'c2_e7_concept_excl_01',
@@ -84,87 +119,212 @@ export const CLASS_2_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Exclamation Mark for Excitement',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'When you are super excited or surprised ("Wow, look at that giant peacock dance!"), which mark is used at the end?',
-    visualEmoji: '🦚 🤩 ❗',
+    question: 'When expressing sudden surprise or wonder ("Wow, look at that brilliant rainbow!"), which punctuation mark is used?',
+    visualEmoji: '🌈 🤩 ❗',
     payload: {
       options: [
-        { id: 'opt_ex1_1', text: 'Exclamation Mark', isCorrect: true },
-        { id: 'opt_ex1_2', text: 'Question Mark', isCorrect: false },
-        { id: 'opt_ex1_3', text: 'Hyphen', isCorrect: false },
+        { id: 'opt_ex1_1', text: 'Exclamation Mark ( ! )', isCorrect: true },
+        { id: 'opt_ex1_2', text: 'Question Mark ( ? )', isCorrect: false },
+        { id: 'opt_ex1_3', text: 'Full Stop ( . )', isCorrect: false },
       ],
     },
-    explanation: '💡 An **exclamation mark ( ! )** shows sudden excitement, joy, or surprise! 🤩',
+    explanation: '💡 An exclamation mark ( ! ) shows sudden joy, excitement, or surprise!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Capitalizing Names of People and Places (Special Naming Words)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e7_concept_cap_01',
+    id: 'c2_e7_concept_jumbled_drag',
     grade: 2,
     subject: 'english',
     chapter: 'Sentences & Question Marks',
-    concept: 'Capitalizing Proper Nouns',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'Special names of people, cities, and countries must ALWAYS start with a capital letter. Which sentence is written CORRECTLY?',
-    visualEmoji: '🇮🇳 ✍️',
-    payload: {
-      options: [
-        { id: 'opt_cp1_1', text: 'Rohan lives in India with his family.', isCorrect: true },
-        { id: 'opt_cp1_2', text: 'rohan lives in india with his family.', isCorrect: false },
-        { id: 'opt_cp1_3', text: 'Rohan lives in india with his family.', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Both "**Rohan**" (person\'s name) and "**India**" (country name) must begin with a **CAPITAL letter**! 🇮🇳',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Unscramble Question Sentence (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_e7_concept_order_01',
-    grade: 2,
-    subject: 'english',
-    chapter: 'Sentences & Question Marks',
-    concept: 'Question Sentence Order',
+    concept: 'Arranging Jumbled Words into Sentence',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Arrange the words to make a polite asking sentence:',
-    visualEmoji: '📖 ❓ 👧',
+    question: 'Arrange these jumbled words to form a correct, meaningful sentence:',
+    visualEmoji: '🧩 ➡️ 📝',
     payload: {
-      tokens: ['May', 'I', 'read', 'this', 'story', 'book?'],
-      scrambled: ['book?', 'read', 'this', 'May', 'story', 'I'],
-      correctSequence: ['May', 'I', 'read', 'this', 'story', 'book?'],
+      tokens: ['The', 'sun', 'rises', 'in', 'the', 'east.'],
+      scrambled: ['in', 'rises', 'east.', 'The', 'the', 'sun'],
+      correctSequence: ['The', 'sun', 'rises', 'in', 'the', 'east.'],
     },
-    explanation: '💡 "**May I read this story book?**" (Starts with capital "May" and ends with "?") 📖',
+    explanation: '💡 Meaningful order: "The sun rises in the east."',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Sentences to Punctuation Marks
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e7_concept_match_01',
+    id: 'c2_e7_concept_match_pairs',
     grade: 2,
     subject: 'english',
     chapter: 'Sentences & Question Marks',
-    concept: 'Sentence to Terminal Punctuation Match',
+    concept: 'Question Words Function Match',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each sentence type to its correct ending punctuation mark:',
-    visualEmoji: '✍️ 🛑 ❓ ❗',
+    question: 'Match each question word to what it asks about:',
+    visualEmoji: '❓ 🎯',
     payload: {
       pairs: [
-        { id: 'pc_p1', left: 'The sun shines brightly', right: 'Full Stop ( . )' },
-        { id: 'pc_p2', left: 'What is your pet dog\'s name', right: 'Question Mark ( ? )' },
-        { id: 'pc_p3', left: 'Hurray, we won the game', right: 'Exclamation Mark ( ! )' },
-        { id: 'pc_p4', left: 'Where do birds fly', right: 'Question Mark ( ? )' },
+        { id: 'm_e7_q1', left: 'Who', right: 'Asks about a person' },
+        { id: 'm_e7_q2', left: 'Where', right: 'Asks about a place' },
+        { id: 'm_e7_q3', left: 'When', right: 'Asks about a time' },
+        { id: 'm_e7_q4', left: 'Why', right: 'Asks about a reason' },
       ],
     },
-    explanation: '💡 Telling sentences get ".", questions get "?", excitement gets "!"!',
+    explanation: '💡 Who = person; Where = place; When = time; Why = reason!',
+    points: 15,
+  },
+  {
+    id: 'c2_e7_concept_complete_sentence',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Identifying a Complete Sentence',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which group of words forms a COMPLETE sentence that expresses a full thought?',
+    visualEmoji: '🦅 ☁️',
+    payload: {
+      options: [
+        { id: 'opt_cs7_1', text: 'Birds fly high in the sky.', isCorrect: true },
+        { id: 'opt_cs7_2', text: 'high in the sky', isCorrect: false },
+        { id: 'opt_cs7_3', text: 'flying quickly', isCorrect: false },
+        { id: 'opt_cs7_4', text: 'the blue sky and', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "Birds fly high in the sky." has a naming subject (birds) and an action (fly high) making complete sense!',
+    points: 10,
+  },
+  {
+    id: 'c2_e7_concept_where_fill',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Question Word WHERE for Location',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'To find the location of an object, we ask: "[BLANK] did you put the library book?"',
+    visualEmoji: '📖 🔍 ❓',
+    payload: {
+      correctAnswer: 'Where',
+      wordBank: ['Where', 'Who', 'How', 'Which'],
+      displayTemplate: '[BLANK] did you put the book?',
+    },
+    explanation: '💡 "Where" asks about position or place!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — Capitalization Rules, Dialogue Flow & Punctuation Riddles
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_e7_hard_capital_detect',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Capitalization Rules in Practice',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Which sentence has all capital letters and punctuation marks used 100% CORRECTLY?',
+    visualEmoji: '✅ ✍️',
+    payload: {
+      options: [
+        { id: 'opt_cr7_1', text: 'Rohan and Tina play cricket on Sunday.', isCorrect: true },
+        { id: 'opt_cr7_2', text: 'rohan and tina play cricket on sunday.', isCorrect: false },
+        { id: 'opt_cr7_3', text: 'Rohan and Tina play cricket on sunday?', isCorrect: false },
+        { id: 'opt_cr7_4', text: 'Rohan and tina Play cricket on Sunday.', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Rohan, Tina, and Sunday are Proper Nouns (names of people and days) and must be capitalized, ending with a full stop!',
+    points: 15,
+  },
+  {
+    id: 'c2_e7_hard_fill_punct',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Identifying Sentence Type',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: '"May I please drink some water, teacher?" is an [BLANK] sentence.',
+    visualEmoji: '🙋 💧 ❓',
+    payload: {
+      correctAnswer: 'asking',
+      wordBank: ['asking', 'telling', 'exclamation', 'unfinished'],
+      displayTemplate: 'It is an [BLANK] sentence.',
+    },
+    explanation: '💡 It asks for permission and ends with a question mark, so it is an asking sentence (question)!',
+    points: 15,
+  },
+  {
+    id: 'c2_e7_hard_drag_dialogue',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Conversation Flow Ordering',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange this two-person classroom conversation in correct sequence:',
+    visualEmoji: '💬 👧 🧒',
+    payload: {
+      tokens: [
+        '"Hello, what is your name?"',
+        '"My name is Ananya."',
+        '"Which class do you study in?"',
+        '"I study in Class 2."',
+      ],
+      scrambled: [
+        '"I study in Class 2."',
+        '"Hello, what is your name?"',
+        '"Which class do you study in?"',
+        '"My name is Ananya."',
+      ],
+      correctSequence: [
+        '"Hello, what is your name?"',
+        '"My name is Ananya."',
+        '"Which class do you study in?"',
+        '"I study in Class 2."',
+      ],
+    },
+    explanation: '💡 Ask name -> give name -> ask class -> give class!',
+    points: 15,
+  },
+  {
+    id: 'c2_e7_hard_match_punct',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Sentence to Punctuation Mark Match',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each sentence type to its correct ending mark:',
+    visualEmoji: '🛑 ❓ ❗ 🎯',
+    payload: {
+      pairs: [
+        { id: 'm_e7_p1', left: 'The earth goes around the sun', right: 'Full Stop ( . )' },
+        { id: 'm_e7_p2', left: 'How many crayons are in the box', right: 'Question Mark ( ? )' },
+        { id: 'm_e7_p3', left: 'Hurray, we won the game', right: 'Exclamation Mark ( ! )' },
+        { id: 'm_e7_p4', left: 'Apples, oranges, and bananas', right: 'Separated by Comma ( , )' },
+      ],
+    },
+    explanation: '💡 Statement = Full stop; Question = Question mark; Emotion = Exclamation mark; List = Comma!',
+    points: 15,
+  },
+  {
+    id: 'c2_e7_hard_sentence_riddle',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Sentences & Question Marks',
+    concept: 'Sentence Definition Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I start with a capital letter, arrange words that make complete sense, and end with a full stop or question mark. What am I?',
+    visualEmoji: '📝 💡 ❓',
+    payload: {
+      options: [
+        { id: 'opt_sr7_1', text: 'A Sentence', isCorrect: true },
+        { id: 'opt_sr7_2', text: 'A Single Letter', isCorrect: false },
+        { id: 'opt_sr7_3', text: 'A Comma', isCorrect: false },
+        { id: 'opt_sr7_4', text: 'A Number', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A sentence is a group of words arranged to make complete sense, starting with a capital letter and ending with punctuation!',
     points: 15,
   },
 ];

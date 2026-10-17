@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 HINDI (सारंगी 2 / RIMJHIM 2)
 // CHAPTER 1: ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: संयुक्त व्यंजन की पहचान (क्ष, त्र, ज्ञ, श्र)
+  // EASY LEVEL (5 Questions) — संयुक्त व्यंजन, द्वित्व व्यंजन व चन्द्रबिन्दु
   // --------------------------------------------------------------------------
   {
     id: 'c2_h1_concept_sanyukta_01',
@@ -18,7 +19,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     concept: 'संयुक्त व्यंजन पहचान',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'हिंदी वर्णमाला में दो व्यंजनों के मेल से बनने वाले संयुक्त व्यंजन कौन से हैं?',
+    question: 'हिंदी वर्णमाला में दो व्यंजनों के मेल से बनने वाले चार मुख्य संयुक्त व्यंजन कौन से हैं?',
     visualEmoji: '🔤 ✍️',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_sy1_3', text: 'अ, आ, इ, ई', isCorrect: false },
       ],
     },
-    explanation: '💡 हिंदी में चार मुख्य संयुक्त व्यंजन होते हैं: **क्ष** (क्+ष), **त्र** (त्+र), **ज्ञ** (ज्+ञ), और **श्र** (श्+र)!',
+    explanation: '💡 हिंदी में चार मुख्य संयुक्त व्यंजन हैं: क्ष (क्+ष), त्र (त्+र), ज्ञ (ज्+ञ), और श्र (श्+र)!',
     points: 10,
   },
   {
@@ -35,29 +36,25 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'hindi',
     chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
-    concept: 'चित्र व संयुक्त व्यंजन शब्द',
+    concept: 'संयुक्त व्यंजन शब्द',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'विद्यालय में सभी विद्यार्थी [BLANK] (कक्षा) में बैठकर पढ़ते हैं।',
+    question: 'विद्यालय में सभी विद्यार्थी अपनी [BLANK] में बैठकर ध्यानपूर्वक पढ़ते हैं।',
     visualEmoji: '🏫 👧👦',
     payload: {
       correctAnswer: 'कक्षा',
       wordBank: ['कक्षा', 'घर', 'पेड़', 'पानी'],
-      displayTemplate: 'विद्यार्थी [BLANK] में बैठकर पढ़ते हैं।',
+      displayTemplate: 'विद्यार्थी अपनी [BLANK] में पढ़ते हैं।',
     },
-    explanation: '💡 "कक्षा" में **क्ष** एक संयुक्त व्यंजन है! 🏫',
+    explanation: '💡 "कक्षा" में "क्ष" एक संयुक्त व्यंजन है!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: द्वित्व व्यंजन (एक आधा व एक पूरा समान व्यंजन)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h1_concept_dvitva_01',
     grade: 2,
     subject: 'hindi',
     chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
-    concept: 'द्वित्व व्यंजन पहचान',
+    concept: 'द्वित्व व्यंजन परिभाषा',
     difficulty: 'easy',
     type: 'mcq',
     question: 'जब एक ही व्यंजन दो बार आए (पहला आधा और दूसरा पूरा, जैसे- त्त, च्च, ल्ल), तो उसे क्या कहते हैं?',
@@ -69,7 +66,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_dv1_3', text: 'मात्रा हीन शब्द', isCorrect: false },
       ],
     },
-    explanation: '💡 जब एक ही व्यंजन साथ-साथ दो बार आए (जैसे पत्ता 🍃, बिल्ली 🐱), उसे **द्वित्व व्यंजन** कहते हैं!',
+    explanation: '💡 जब एक ही व्यंजन साथ-साथ दो बार आए (जैसे पत्ता, बिल्ली), उसे द्वित्व व्यंजन कहते हैं!',
     points: 10,
   },
   {
@@ -84,127 +81,252 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🍃 💧 🚗',
     payload: {
       options: [
-        { id: 'opt_dv2_1', text: 'पत्ता 🍃', isCorrect: true },
+        { id: 'opt_dv2_1', text: 'पत्ता', isCorrect: true },
         { id: 'opt_dv2_2', text: 'पानी', isCorrect: false },
         { id: 'opt_dv2_3', text: 'कमल', isCorrect: false },
       ],
     },
-    explanation: '💡 **पत्ता** में \'त्त\' दो बार \'त\' के मिलने से बना द्वित्व व्यंजन है! 🍃',
+    explanation: '💡 "पत्ता" में \'त्त\' दो बार \'त\' के मिलने से बना द्वित्व व्यंजन है!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: चन्द्रबिन्दु (ँ) व अनुस्वार (ं)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h1_concept_chand_01',
     grade: 2,
     subject: 'hindi',
     chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
-    concept: 'ऊँट में चन्द्रबिन्दु',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: '"ऊँट" शब्द में कौन सा चिह्न लगा है?',
-    visualEmoji: '🐪 🌙',
-    payload: {
-      options: [
-        { id: 'opt_ch1_1', text: 'चन्द्रबिन्दु', isCorrect: true },
-        { id: 'opt_ch1_2', text: 'अनुस्वार', isCorrect: false },
-        { id: 'opt_ch1_3', text: 'विसर्ग', isCorrect: false },
-      ],
-    },
-    explanation: '💡 ऊँट, चाँद, आँख, और दाँत में **चन्द्रबिन्दु ( ँ )** का प्रयोग होता है! 🐪',
-    points: 10,
-  },
-  {
-    id: 'c2_h1_concept_chand_02',
-    grade: 2,
-    subject: 'hindi',
-    chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
-    concept: 'चन्द्रबिन्दु शब्द',
+    concept: 'चन्द्रबिन्दु पहचान',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'रात के आकाश में सुंदर [BLANK] (चाँद) चमकता है।',
-    visualEmoji: '🌙 ✨',
+    question: '\'ऊँट\' शब्द में \'ऊ\' के ऊपर कौन सा चिह्न लगा है? [BLANK] (ँ)',
+    visualEmoji: '🐪 🌙',
     payload: {
-      correctAnswer: 'चाँद',
-      wordBank: ['चाँद', 'सूरज', 'दिन', 'धूप'],
-      displayTemplate: 'रात के आकाश में सुंदर [BLANK] चमकता है।',
+      correctAnswer: 'चन्द्रबिन्दु',
+      wordBank: ['चन्द्रबिन्दु', 'अनुस्वार', 'विसर्ग', 'हलंत'],
+      displayTemplate: '\'ऊँट\' में लगा चिह्न [BLANK] है।',
     },
-    explanation: '💡 **चाँद** पर चन्द्रबिन्दु ( ँ ) आता है! 🌙',
+    explanation: '💡 ऊँट, चाँद, आँख में चन्द्रबिन्दु (ँ) लगता है!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: ऊँट की विशेषताएँ (कविता बोध)
+  // MEDIUM LEVEL (5 Questions) — कविता समझ, रेफ़/पदेन व शब्द मिलान
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h1_concept_oont_01',
+    id: 'c2_h1_concept_poem_unt',
     grade: 2,
     subject: 'hindi',
     chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
-    concept: 'रेगिस्तान का जहाज - ऊँट',
-    difficulty: 'easy',
+    concept: 'कविता आधारित प्रश्न',
+    difficulty: 'medium',
     type: 'mcq',
-    question: 'ऊँट किस जगह आसानी से दौड़ और चल सकता है जहाँ दूसरे जानवर नहीं चल पाते?',
-    visualEmoji: '🐪 🏜️',
+    question: 'कविता \'ऊँट चला\' के अनुसार, ऊँट कहाँ बिना धँसे मजे से चल सकता है?',
+    visualEmoji: '🐪 🏖️',
     payload: {
       options: [
-        { id: 'opt_on1_1', text: 'रेत में 🏜️', isCorrect: true },
-        { id: 'opt_on1_2', text: 'बर्फ में ❄️', isCorrect: false },
-        { id: 'opt_on1_3', text: 'नदी के गहरे पानी में', isCorrect: false },
+        { id: 'opt_pu1_1', text: 'बालू (रेत) में', isCorrect: true },
+        { id: 'opt_pu1_2', text: 'पानी के अंदर', isCorrect: false },
+        { id: 'opt_pu1_3', text: 'पेड़ की डाल पर', isCorrect: false },
       ],
     },
-    explanation: '💡 ऊँट के गद्दीदार पैर **रेत (बालू)** में नहीं धँसते, इसलिए वह रेगिस्तान में आसानी से चलता है! 🏜️',
+    explanation: '💡 ऊँट के पैर गद्दीदार होते हैं, इसलिए वह बालू (रेत) में बिना फँसे आसानी से चलता है!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: तुकबंदी शब्द (Rhyming Words in Hindi)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_h1_concept_tuk_01',
+    id: 'c2_h1_concept_ref_prap',
     grade: 2,
     subject: 'hindi',
     chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
-    concept: 'बालू का तुकबंदी शब्द',
-    difficulty: 'easy',
+    concept: 'रेफ़ (र्) की पहचान',
+    difficulty: 'medium',
     type: 'mcq',
-    question: 'कविता के अनुसार "बालू" शब्द का सही तुकबंदी (समान लय वाला) शब्द क्या है?',
-    visualEmoji: '🏜️ 🐻 🎵',
+    question: '\'सूर्य\' शब्द में \'य\' के ऊपर जो चिह्न (र्) लगा है, उसे क्या कहते हैं?',
+    visualEmoji: '☀️ ✍️',
     payload: {
       options: [
-        { id: 'opt_tk1_1', text: 'भालू 🐻', isCorrect: true },
-        { id: 'opt_tk1_2', text: 'हाथी', isCorrect: false },
-        { id: 'opt_tk1_3', text: 'चिड़िया', isCorrect: false },
+        { id: 'opt_rf1_1', text: 'रेफ़ (र्)', isCorrect: true },
+        { id: 'opt_rf1_2', text: 'पदेन', isCorrect: false },
+        { id: 'opt_rf1_3', text: 'अनुस्वार', isCorrect: false },
       ],
     },
-    explanation: '💡 **बालू** और **भालू** दोनों के अंत में समान ध्वनि है! 🐻',
+    explanation: '💡 जब आधा \'र\' वर्ण के ऊपर लगता है (जैसे सूर्य, वर्षा, कर्म), उसे रेफ़ कहते हैं!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: द्वित्व व्यंजन शब्दों का मिलान
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_h1_concept_match_01',
+    id: 'c2_h1_concept_drag_varn',
     grade: 2,
     subject: 'hindi',
     chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
-    concept: 'द्वित्व व्यंजन मिलान',
+    concept: 'संयुक्त व्यंजन वर्ण विच्छेद क्रम',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'संयुक्त व्यंजनों को उनके सही निर्माण क्रम में लगाइए:',
+    visualEmoji: '🔤 🧩',
+    payload: {
+      tokens: ['क् + ष = क्ष', 'त् + र = त्र', 'ज् + ञ = ज्ञ', 'श् + र = श्र'],
+      scrambled: ['ज् + ञ = ज्ञ', 'क् + ष = क्ष', 'श् + र = श्र', 'त् + र = त्र'],
+      correctSequence: ['क् + ष = क्ष', 'त् + र = त्र', 'ज् + ञ = ज्ञ', 'श् + र = श्र'],
+    },
+    explanation: '💡 सही क्रम: क्ष -> त्र -> ज्ञ -> श्र!',
+    points: 15,
+  },
+  {
+    id: 'c2_h1_concept_match_pairs',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
+    concept: 'संयुक्त व्यंजन से बने शब्द मिलान',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'द्वित्व व्यंजन को उनके सही शब्द से मिलाइए:',
-    visualEmoji: '🧩 🔤',
+    question: 'प्रत्येक संयुक्त व्यंजन को उससे बनने वाले सही शब्द से मिलाइए:',
+    visualEmoji: '🎯 🔤',
     payload: {
       pairs: [
-        { id: 'dv_p1', left: 'ल्ल', right: 'बिल्ली 🐱' },
-        { id: 'dv_p2', left: 'त्त', right: 'पत्ता 🍃' },
-        { id: 'dv_p3', left: 'च्च', right: 'बच्चा 👶' },
-        { id: 'dv_p4', left: 'म्म', right: 'चम्मच 🥄' },
+        { id: 'm_h1_p1', left: 'क्ष', right: 'वृक्ष (पेड़)' },
+        { id: 'm_h1_p2', left: 'त्र', right: 'मित्र (दोस्त)' },
+        { id: 'm_h1_p3', left: 'ज्ञ', right: 'ज्ञानी (बुद्धिमान)' },
+        { id: 'm_h1_p4', left: 'श्र', right: 'श्रमिक (मजदूर)' },
       ],
     },
-    explanation: '💡 ल्ल = बिल्ली, त्त = पत्ता, च्च = बच्चा, म्म = चम्मच!',
+    explanation: '💡 क्ष = वृक्ष; त्र = मित्र; ज्ञ = ज्ञानी; श्र = श्रमिक!',
+    points: 15,
+  },
+  {
+    id: 'c2_h1_concept_anuswar_fill',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
+    concept: 'अनुस्वार (ं) शब्द प्रयोग',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'आसमान में रंग-बिरंगी [BLANK] हवा के झोंकों के साथ उड़ रही है।',
+    visualEmoji: '🪁 ⛅',
+    payload: {
+      correctAnswer: 'पतंग',
+      wordBank: ['पतंग', 'पत्ता', 'पानी', 'पंखा'],
+      displayTemplate: 'आसमान में [BLANK] उड़ रही है।',
+    },
+    explanation: '💡 "पतंग" शब्द में \'त\' पर अनुस्वार (ं) की बिंदी लगी है!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — वाक्य में द्वित्व व्यंजन, पदेन व पहेलियाँ
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_h1_hard_identify_dvitva',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
+    concept: 'वाक्य में द्वित्व व्यंजन शब्द पहचान',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'दिए गए वाक्य में द्वित्व व्यंजन वाला शब्द कौन सा है: "नटखट बिल्ली सारा मीठा दूध पी गई।"',
+    visualEmoji: '🐱 🥛',
+    payload: {
+      options: [
+        { id: 'opt_hd1_1', text: 'बिल्ली (ल् + ल)', isCorrect: true },
+        { id: 'opt_hd1_2', text: 'नटखट', isCorrect: false },
+        { id: 'opt_hd1_3', text: 'मीठा', isCorrect: false },
+        { id: 'opt_hd1_4', text: 'दूध', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "बिल्ली" में आधा \'ल\' और पूरा \'ल\' मिलकर द्वित्व व्यंजन (ल्ल) बनाते हैं!',
+    points: 15,
+  },
+  {
+    id: 'c2_h1_hard_ref_paden',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
+    concept: 'पदेन र (्र) की पहचान',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'इनमें से किस शब्द में \'पदेन र\' (्र) का प्रयोग हुआ है?',
+    visualEmoji: '💡 ☀️',
+    payload: {
+      options: [
+        { id: 'opt_pd1_1', text: 'प्रकाश', isCorrect: true },
+        { id: 'opt_pd1_2', text: 'सूर्य', isCorrect: false },
+        { id: 'opt_pd1_3', text: 'वर्षा', isCorrect: false },
+        { id: 'opt_pd1_4', text: 'कर्म', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "प्रकाश" में \'प\' के पैर में पदेन र (्र) लगा है; बाकी शब्दों में रेफ़ (र्) है!',
+    points: 15,
+  },
+  {
+    id: 'c2_h1_hard_drag_unt_story',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
+    concept: 'कविता की पंक्तियों का सही क्रम',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'कविता \'ऊँट चला\' की पंक्तियों को सही क्रम में लगाइए:',
+    visualEmoji: '📜 🐪',
+    payload: {
+      tokens: [
+        'ऊँट चला भाई ऊँट चला',
+        'हिलता डुलता ऊँट चला',
+        'इतना ऊँचा ऊँट चला',
+        'ऊँट चला भई ऊँट चला',
+      ],
+      scrambled: [
+        'इतना ऊँचा ऊँट चला',
+        'हिलता डुलता ऊँट चला',
+        'ऊँट चला भाई ऊँट चला',
+        'ऊँट चला भई ऊँट चला',
+      ],
+      correctSequence: [
+        'ऊँट चला भाई ऊँट चला',
+        'हिलता डुलता ऊँट चला',
+        'इतना ऊँचा ऊँट चला',
+        'ऊँट चला भई ऊँट चला',
+      ],
+    },
+    explanation: '💡 कविता का सही क्रम: ऊँट चला भाई ऊँट चला -> हिलता डुलता ऊँट चला -> इतना ऊँचा ऊँट चला!',
+    points: 15,
+  },
+  {
+    id: 'c2_h1_hard_match_matra',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
+    concept: 'वर्ण व मात्रा भेदों का मिलान',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'प्रत्येक व्याकरणिक विशेषता को उसके सही शब्द से मिलाइए:',
+    visualEmoji: '🎯 📝',
+    payload: {
+      pairs: [
+        { id: 'm_h1_m1', left: 'अनुस्वार (ं)', right: 'बंदर' },
+        { id: 'm_h1_m2', left: 'चन्द्रबिन्दु (ँ)', right: 'चाँद' },
+        { id: 'm_h1_m3', left: 'द्वित्व व्यंजन', right: 'चम्मच' },
+        { id: 'm_h1_m4', left: 'संयुक्त व्यंजन', right: 'क्षत्रिय' },
+      ],
+    },
+    explanation: '💡 बंदर = अनुस्वार; चाँद = चन्द्रबिन्दु; चम्मच = द्वित्व (म्म); क्षत्रिय = संयुक्त (क्ष, त्र)!',
+    points: 15,
+  },
+  {
+    id: 'c2_h1_hard_riddle_unt',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान)',
+    concept: 'ऊँट पर आधारित पहेली',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'मेरी पीठ पर ऊँचा कूबड़ होता है। मैं रेगिस्तान में बिना पानी पिए कई दिन रह सकता हूँ और बालू पर दौड़ता हूँ। मुझे क्या कहते हैं?',
+    visualEmoji: '🐪 🏜️ ❓',
+    payload: {
+      options: [
+        { id: 'opt_ru1_1', text: 'ऊँट (रेगिस्तान का जहाज़)', isCorrect: true },
+        { id: 'opt_ru1_2', text: 'हाथी', isCorrect: false },
+        { id: 'opt_ru1_3', text: 'घोड़ा', isCorrect: false },
+        { id: 'opt_ru1_4', text: 'शेर', isCorrect: false },
+      ],
+    },
+    explanation: '💡 ऊँट को "रेगिस्तान का जहाज़" कहा जाता है!',
     points: 15,
   },
 ];

@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
 // CHAPTER 3: ACTION WORDS & DOING WORDS (VERBS)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Action Words (Doing Words) Recognition
+  // EASY LEVEL (5 Questions) — Identifying Doing Words & Common Actions
   // --------------------------------------------------------------------------
   {
     id: 'c2_e3_concept_action_01',
@@ -18,7 +19,7 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     concept: 'Identifying Doing Words',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Read the sentence: "Rohan drinks 🥛 fresh milk every morning." Which word tells what Rohan DOES (the action)?',
+    question: 'Read the sentence: "Rohan drinks fresh milk every morning." Which word tells what Rohan DOES (the action)?',
     visualEmoji: '🥛 😋',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
         { id: 'opt_ac1_3', text: 'morning', isCorrect: false },
       ],
     },
-    explanation: '💡 "**Drinks**" is what Rohan is physically doing, so it is an action word (verb)!',
+    explanation: '💡 "drinks" is the physical action that Rohan performs, so it is a verb (doing word)!',
     points: 10,
   },
   {
@@ -38,20 +39,16 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     concept: 'Bird Action',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'Birds use their colorful wings to [BLANK] across the clear blue sky 🕊️.',
+    question: 'Birds use their colorful wings to [BLANK] across the clear blue sky.',
     visualEmoji: '🕊️ 🪽',
     payload: {
       correctAnswer: 'fly',
       wordBank: ['fly', 'crawl', 'read', 'dig'],
       displayTemplate: 'Birds use their wings to [BLANK] high.',
     },
-    explanation: '💡 Birds **fly** in the sky! 🕊️',
+    explanation: '💡 Flying is the action performed by birds in the sky!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Present Continuous Tense (-ing Words)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e3_concept_ing_01',
     grade: 2,
@@ -60,7 +57,7 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     concept: 'Adding -ing for Ongoing Action',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'The boys are currently in the playground. "The boys are [BLANK] football right now." ⚽',
+    question: 'The children are in the playground right now. "The children are [BLANK] football in the field."',
     visualEmoji: '⚽ 🏃‍♂️',
     payload: {
       options: [
@@ -69,7 +66,7 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
         { id: 'opt_ng1_3', text: 'played', isCorrect: false },
       ],
     },
-    explanation: '💡 When an action is happening right now with "are", we add **-ing**: "**playing**"! ⚽',
+    explanation: '💡 When an action is ongoing right now with "are", we use the -ing form: "playing"!',
     points: 10,
   },
   {
@@ -77,112 +74,242 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'english',
     chapter: 'Action Words & Doing Words (Verbs)',
-    concept: 'Adding -ing to Dance',
-    difficulty: 'medium',
+    concept: 'Dancing to Music',
+    difficulty: 'easy',
     type: 'fill_blank',
-    question: 'Priya loves music. Look, she is [BLANK] gracefully to the tune! 💃',
+    question: 'Priya loves music. Look, she is [BLANK] gracefully to the rhythm.',
     visualEmoji: '💃 🎶',
     payload: {
       correctAnswer: 'dancing',
       wordBank: ['dancing', 'sleeping', 'barking', 'swimming'],
-      displayTemplate: 'She is [BLANK] to the tune.',
+      displayTemplate: 'She is [BLANK] to the rhythm.',
     },
-    explanation: '💡 Dance -> **dancing**! 💃',
+    explanation: '💡 Dance -> dancing! She is performing the action of dancing.',
+    points: 10,
+  },
+  {
+    id: 'c2_e3_concept_animal_act',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Action Words & Doing Words (Verbs)',
+    concept: 'Frog Movement Action',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'What action do little green frogs do when moving from one water lily leaf to another?',
+    visualEmoji: '🐸 🪷',
+    payload: {
+      options: [
+        { id: 'opt_fr3_1', text: 'They hop', isCorrect: true },
+        { id: 'opt_fr3_2', text: 'They fly', isCorrect: false },
+        { id: 'opt_fr3_3', text: 'They cook', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Frogs hop and jump with their long back legs!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 3: Subject-Verb Agreement (One vs Many)
+  // MEDIUM LEVEL (5 Questions) — Subject-Verb Agreement, Action Opposites & Routines
   // --------------------------------------------------------------------------
   {
     id: 'c2_e3_concept_agree_01',
     grade: 2,
     subject: 'english',
     chapter: 'Action Words & Doing Words (Verbs)',
-    concept: 'Singular Subject Action (+s)',
+    concept: 'Singular Subject Verb Agreement',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Which sentence has the correct action word agreement for ONE dog 🐶?',
-    visualEmoji: '🐶 🐕',
+    question: 'Choose the correct doing word: "The little baby [BLANK] happily whenever her father plays peek-a-boo."',
+    visualEmoji: '👶 😊',
     payload: {
       options: [
-        { id: 'opt_ag1_1', text: 'The dog barks at strangers.', isCorrect: true },
-        { id: 'opt_ag1_2', text: 'The dog bark at strangers.', isCorrect: false },
-        { id: 'opt_ag1_3', text: 'The dog barking without is.', isCorrect: false },
+        { id: 'opt_ag3_1', text: 'smiles', isCorrect: true },
+        { id: 'opt_ag3_2', text: 'smile', isCorrect: false },
+        { id: 'opt_ag3_3', text: 'smiling', isCorrect: false },
       ],
     },
-    explanation: '💡 For ONE person or animal (singular), we add "-s" to the action verb: "The dog **barks**"!',
+    explanation: '💡 For one person (singular like "the baby"), we add "s" to the verb: "The baby smiles"!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Animal Action Verbs
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e3_concept_animal_01',
+    id: 'c2_e3_concept_agree_plural',
     grade: 2,
     subject: 'english',
     chapter: 'Action Words & Doing Words (Verbs)',
-    concept: 'Frog Action Verb',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'What special action do green frogs 🐸 do on grass and pond stones?',
-    visualEmoji: '🐸 🍃',
+    concept: 'Plural Subject Verb Agreement',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'At night, countless stars [BLANK] brightly in the dark sky.',
+    visualEmoji: '✨ 🌌',
     payload: {
-      options: [
-        { id: 'opt_an1_1', text: 'Hop and Jump 🐸', isCorrect: true },
-        { id: 'opt_an1_2', text: 'Fly in clouds', isCorrect: false },
-        { id: 'opt_an1_3', text: 'Gallop like horses', isCorrect: false },
-      ],
+      correctAnswer: 'shine',
+      wordBank: ['shine', 'shines', 'shining', 'shined'],
+      displayTemplate: 'Stars [BLANK] brightly.',
     },
-    explanation: '💡 Frogs love to **hop** and leap! 🐸',
+    explanation: '💡 With plural nouns like "stars", we use the base form "shine" (not "shines")!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Sentence Builder with Action Words (Drag Order)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e3_concept_order_01',
+    id: 'c2_e3_concept_drag_actions',
     grade: 2,
     subject: 'english',
     chapter: 'Action Words & Doing Words (Verbs)',
-    concept: 'Action Sentence Unscramble',
+    concept: 'Daily Routine Actions Sequence',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Arrange the words to make an active sentence about monkeys:',
-    visualEmoji: '🐒 🌴',
+    question: 'Arrange these morning routine actions in the order you do them:',
+    visualEmoji: '🌅 ⏰ 🪥 🚿 🥪',
     payload: {
-      tokens: ['Monkeys', 'swing', 'from', 'tree', 'branches.'],
-      scrambled: ['tree', 'Monkeys', 'branches.', 'from', 'swing'],
-      correctSequence: ['Monkeys', 'swing', 'from', 'tree', 'branches.'],
+      tokens: ['Wake up', 'Brush teeth', 'Take bath', 'Eat breakfast'],
+      scrambled: ['Eat breakfast', 'Take bath', 'Wake up', 'Brush teeth'],
+      correctSequence: ['Wake up', 'Brush teeth', 'Take bath', 'Eat breakfast'],
     },
-    explanation: '💡 "**Monkeys swing from tree branches.**" (Swing is the action!) 🐒',
+    explanation: '💡 First wake up -> then brush teeth -> take bath -> and eat breakfast!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Animals to Their Specific Doing Words
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e3_concept_match_01',
+    id: 'c2_e3_concept_match_pairs',
     grade: 2,
     subject: 'english',
     chapter: 'Action Words & Doing Words (Verbs)',
-    concept: 'Animal to Action Match',
+    concept: 'Animal Movement Verbs Match',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each creature to its special movement action:',
-    visualEmoji: '🐟 🐎 🦆 🐍',
+    question: 'Match each animal to its characteristic movement action:',
+    visualEmoji: '🐟 🐸 🐍 🦘',
     payload: {
       pairs: [
-        { id: 'act_p1', left: 'Fish 🐟', right: 'Swim in water' },
-        { id: 'act_p2', left: 'Horse 🐎', right: 'Gallop fast' },
-        { id: 'act_p3', left: 'Duck 🦆', right: 'Waddle on land' },
-        { id: 'act_p4', left: 'Snake 🐍', right: 'Slither quietly' },
+        { id: 'm_e3_v1', left: 'Fish', right: 'Swims in water' },
+        { id: 'm_e3_v2', left: 'Frog', right: 'Hops on lily pads' },
+        { id: 'm_e3_v3', left: 'Snake', right: 'Slithers across the ground' },
+        { id: 'm_e3_v4', left: 'Kangaroo', right: 'Jumps on strong legs' },
       ],
     },
-    explanation: '💡 Fish swim, horses gallop, ducks waddle, and snakes slither!',
+    explanation: '💡 Fish swims, frog hops, snake slithers, kangaroo jumps!',
+    points: 15,
+  },
+  {
+    id: 'c2_e3_concept_action_opposite',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Action Words & Doing Words (Verbs)',
+    concept: 'Opposite Action Words',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which doing word is the exact OPPOSITE action of "laugh"?',
+    visualEmoji: '😂 ↔️ ❓',
+    payload: {
+      options: [
+        { id: 'opt_op3_1', text: 'Cry', isCorrect: true },
+        { id: 'opt_op3_2', text: 'Smile', isCorrect: false },
+        { id: 'opt_op3_3', text: 'Play', isCorrect: false },
+        { id: 'opt_op3_4', text: 'Run', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Laughing is the opposite action of crying!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — Verb vs Noun Distinction, Spelling Rules & Riddles
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_e3_hard_verb_noun',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Action Words & Doing Words (Verbs)',
+    concept: 'Distinguishing Verb from Noun',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In the sentence: "The talented painter painted a colorful picture", which word is the ACTION WORD (verb)?',
+    visualEmoji: '🎨 🖼️',
+    payload: {
+      options: [
+        { id: 'opt_vn3_1', text: 'painted', isCorrect: true },
+        { id: 'opt_vn3_2', text: 'painter', isCorrect: false },
+        { id: 'opt_vn3_3', text: 'picture', isCorrect: false },
+        { id: 'opt_vn3_4', text: 'colorful', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "painter" is a person (noun), "picture" is a thing (noun), and "painted" is the action performed (verb)!',
+    points: 15,
+  },
+  {
+    id: 'c2_e3_hard_double_consonant',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Action Words & Doing Words (Verbs)',
+    concept: 'Spelling Rule: Doubling Final Consonant',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'When adding -ing to the short-vowel word "run", the final letter "n" doubles: The runner is [BLANK] towards the finish line.',
+    visualEmoji: '🏃 🏁',
+    payload: {
+      correctAnswer: 'running',
+      wordBank: ['running', 'runing', 'runed', 'runns'],
+      displayTemplate: 'The runner is [BLANK] fast.',
+    },
+    explanation: '💡 Short vowel words ending with consonant (run, hop, swim) double the final letter: running, hopping, swimming!',
+    points: 15,
+  },
+  {
+    id: 'c2_e3_hard_drag_tense',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Action Words & Doing Words (Verbs)',
+    concept: 'Time Sequence of Action (Past, Present, Future)',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these action phrases in chronological order: Past -> Present -> Future:',
+    visualEmoji: '⏳ ⏪ ⏺️ ⏩',
+    payload: {
+      tokens: ['Yesterday I played', 'Today I play', 'Tomorrow I will play'],
+      scrambled: ['Tomorrow I will play', 'Yesterday I played', 'Today I play'],
+      correctSequence: ['Yesterday I played', 'Today I play', 'Tomorrow I will play'],
+    },
+    explanation: '💡 Chronological sequence: Yesterday I played (Past) -> Today I play (Present) -> Tomorrow I will play (Future)!',
+    points: 15,
+  },
+  {
+    id: 'c2_e3_hard_match_actions',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Action Words & Doing Words (Verbs)',
+    concept: 'Body Parts and Their Actions',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each body part with the special action verb it performs:',
+    visualEmoji: '👀 👂 🦵 👅',
+    payload: {
+      pairs: [
+        { id: 'm_e3_b1', left: 'Eyes', right: 'See and watch' },
+        { id: 'm_e3_b2', left: 'Ears', right: 'Hear and listen' },
+        { id: 'm_e3_b3', left: 'Legs and Feet', right: 'Walk and jump' },
+        { id: 'm_e3_b4', left: 'Tongue', right: 'Taste delicious food' },
+      ],
+    },
+    explanation: '💡 Eyes see, ears hear, legs walk/jump, tongue tastes!',
+    points: 15,
+  },
+  {
+    id: 'c2_e3_hard_riddle_verb',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Action Words & Doing Words (Verbs)',
+    concept: 'Action Verb Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I am a water action word. Ducks and swans do me on lakes, and children love doing me in the swimming pool. What action am I?',
+    visualEmoji: '🏊 🦆 🌊 ❓',
+    payload: {
+      options: [
+        { id: 'opt_rv3_1', text: 'Swim', isCorrect: true },
+        { id: 'opt_rv3_2', text: 'Fly', isCorrect: false },
+        { id: 'opt_rv3_3', text: 'Gallop', isCorrect: false },
+        { id: 'opt_rv3_4', text: 'Roar', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Swimming is the action performed by humans and water creatures in water!',
     points: 15,
   },
 ];

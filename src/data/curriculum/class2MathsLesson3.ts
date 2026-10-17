@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 3: FUN WITH NUMBERS (NUMBERS UP TO 100)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Place Value: Tens and Ones (दहाई और इकाई)
+  // EASY LEVEL (5 Questions) — Place Value Basics, Expanded Form & Successor
   // --------------------------------------------------------------------------
   {
     id: 'c2_m3_concept_place_01',
@@ -18,7 +19,7 @@ export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
     concept: 'Place Value Identification',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'In the number 84, what does the digit 8 stand for?',
+    question: 'In the number 84, what is the place value of the digit 8?',
     visualEmoji: '🔢 8️⃣4️⃣',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
         { id: 'opt_pv1_3', text: '8 Hundreds', isCorrect: false },
       ],
     },
-    explanation: '💡 In a 2-digit number, the left digit is in the Tens place. So 8 in the tens place equals **80**!',
+    explanation: '💡 In 84, 8 is in the tens place, so its value is 8 tens = 80!',
     points: 10,
   },
   {
@@ -45,13 +46,9 @@ export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
       wordBank: ['59', '95', '509', '14'],
       displayTemplate: '5 Tens and 9 Ones make [BLANK].',
     },
-    explanation: '💡 5 Tens (50) + 9 Ones (9) = **59**!',
+    explanation: '💡 5 Tens (50) + 9 Ones (9) = 59!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Expanded Form of Numbers (प्रसारित रूप)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m3_concept_exp_01',
     grade: 2,
@@ -69,7 +66,7 @@ export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
         { id: 'opt_ex1_3', text: '700 + 3', isCorrect: false },
       ],
     },
-    explanation: '💡 73 is made of 7 tens (70) and 3 ones (3): **70 + 3 = 73**!',
+    explanation: '💡 73 is made of 7 tens (70) and 3 ones (3): 70 + 3 = 73!',
     points: 10,
   },
   {
@@ -87,144 +84,232 @@ export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
       wordBank: ['96', '69', '906', '15'],
       displayTemplate: '90 + 6 = [BLANK]',
     },
-    explanation: '💡 90 + 6 = **96** (Ninety-six)!',
+    explanation: '💡 90 + 6 = 96 (Ninety-six)!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: What Comes Before, After, and Between
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m3_concept_ba_01',
     grade: 2,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 100)',
-    concept: 'Number Just Before 90',
+    concept: 'Before and After Numbers',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'What number comes just BEFORE 90 on the number chart?',
-    visualEmoji: '❓ ⬅️ 9️⃣0️⃣',
+    question: 'Which number comes just BEFORE 50 in counting?',
+    visualEmoji: '❓ ➡️ 5️⃣0️⃣',
     payload: {
       options: [
-        { id: 'opt_ba1_1', text: '89', isCorrect: true },
-        { id: 'opt_ba1_2', text: '91', isCorrect: false },
-        { id: 'opt_ba1_3', text: '80', isCorrect: false },
+        { id: 'opt_ba1_1', text: '49', isCorrect: true },
+        { id: 'opt_ba1_2', text: '51', isCorrect: false },
+        { id: 'opt_ba1_3', text: '40', isCorrect: false },
       ],
     },
-    explanation: '💡 Subtract 1: 90 - 1 = **89**!',
-    points: 10,
-  },
-  {
-    id: 'c2_m3_concept_ba_02',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Fun with Numbers (Numbers up to 100)',
-    concept: 'Number Between 69 and 71',
-    difficulty: 'easy',
-    type: 'fill_blank',
-    question: 'Find the number between 69 and 71: 69, [BLANK], 71.',
-    visualEmoji: '6️⃣9️⃣ ➡️ ❓ ➡️ 7️⃣1️⃣',
-    payload: {
-      correctAnswer: '70',
-      wordBank: ['70', '68', '72', '80'],
-      displayTemplate: '69, [BLANK], 71',
-    },
-    explanation: '💡 After 69 comes **70**, followed by 71!',
+    explanation: '💡 Counting backwards by one from 50 gives 49!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: Comparing Numbers (> , < , =)
+  // MEDIUM LEVEL (5 Questions) — Between, Comparing, Ordering & Number Names
   // --------------------------------------------------------------------------
   {
-    id: 'c2_m3_concept_comp_01',
+    id: 'c2_m3_concept_between',
     grade: 2,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 100)',
-    concept: 'Comparing Greater Number',
+    concept: 'Number Between',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'Which number lies between 68 and 70? 68, [BLANK], 70.',
+    visualEmoji: '6️⃣8️⃣ ➡️ ❓ ➡️ 7️⃣0️⃣',
+    payload: {
+      correctAnswer: '69',
+      wordBank: ['69', '71', '67', '79'],
+      displayTemplate: '68, [BLANK], 70',
+    },
+    explanation: '💡 69 comes right after 68 and before 70!',
+    points: 10,
+  },
+  {
+    id: 'c2_m3_concept_compare',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 100)',
+    concept: 'Comparing 2-Digit Numbers',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Which comparison statement is TRUE?',
-    visualEmoji: '⚖️ 🔢',
+    question: 'Which comparison between 64 and 46 is TRUE?',
+    visualEmoji: '6️⃣4️⃣ ⚖️ 4️⃣6️⃣',
     payload: {
       options: [
-        { id: 'opt_cp1_1', text: '65 > 56', isCorrect: true },
-        { id: 'opt_cp1_2', text: '42 > 84', isCorrect: false },
-        { id: 'opt_cp1_3', text: '99 < 19', isCorrect: false },
+        { id: 'opt_cp1_1', text: '64 is greater than 46', isCorrect: true },
+        { id: 'opt_cp1_2', text: '64 is less than 46', isCorrect: false },
+        { id: 'opt_cp1_3', text: '64 is equal to 46', isCorrect: false },
       ],
     },
-    explanation: '💡 65 has 6 tens while 56 only has 5 tens. Therefore, **65 > 56** is true!',
+    explanation: '💡 Compare the tens place first: 6 tens is greater than 4 tens, so 64 > 46!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Ordering Numbers: Ascending (Smallest to Largest)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m3_concept_ord_01',
+    id: 'c2_m3_concept_drag_asc',
     grade: 2,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 100)',
-    concept: 'Ascending Order Sequence',
+    concept: 'Ascending Order (Smallest to Largest)',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Arrange these four numbers from SMALLEST to LARGEST:',
-    visualEmoji: '🔢 📈',
+    question: 'Arrange these numbers in ascending order from smallest to largest:',
+    visualEmoji: '📈 2️⃣9️⃣ 4️⃣5️⃣ 6️⃣2️⃣ 7️⃣8️⃣ 9️⃣1️⃣',
     payload: {
-      tokens: ['28', '45', '71', '93'],
-      scrambled: ['71', '28', '93', '45'],
-      correctSequence: ['28', '45', '71', '93'],
+      tokens: ['29', '45', '62', '78', '91'],
+      scrambled: ['62', '29', '91', '45', '78'],
+      correctSequence: ['29', '45', '62', '78', '91'],
     },
-    explanation: '💡 Comparing tens place: 28 (2 tens) < 45 (4 tens) < 71 (7 tens) < 93 (9 tens)!',
+    explanation: '💡 Smallest to largest: 29 -> 45 -> 62 -> 78 -> 91!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Century! (What is 100?)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m3_concept_cent_01',
+    id: 'c2_m3_concept_match_pairs',
     grade: 2,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 100)',
-    concept: 'A Century in Cricket and Numbers',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'A cricket batsman scores a full "CENTURY" 🏏! How many runs did he make?',
-    visualEmoji: '🏏 💯',
+    concept: 'Number Names to Numerals',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each number name with its correct numeral digits:',
+    visualEmoji: '🔤 ➡️ 🔢',
     payload: {
-      options: [
-        { id: 'opt_ct1_1', text: '100 runs', isCorrect: true },
-        { id: 'opt_ct1_2', text: '50 runs', isCorrect: false },
-        { id: 'opt_ct1_3', text: '10 runs', isCorrect: false },
+      pairs: [
+        { id: 'm3_w1', left: 'Forty-two', right: '42' },
+        { id: 'm3_w2', left: 'Sixty-seven', right: '67' },
+        { id: 'm3_w3', left: 'Eighty-one', right: '81' },
+        { id: 'm3_w4', left: 'Ninety-five', right: '95' },
       ],
     },
-    explanation: '💡 In cricket and numbers, a **Century means 100**! 💯',
+    explanation: '💡 Forty-two = 42, Sixty-seven = 67, Eighty-one = 81, Ninety-five = 95!',
+    points: 15,
+  },
+  {
+    id: 'c2_m3_concept_even_odd',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 100)',
+    concept: 'Even Numbers (Pairs)',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which of these numbers can be paired up completely with none left over (Even number)?',
+    visualEmoji: '👥 🔢',
+    payload: {
+      options: [
+        { id: 'opt_ev1_1', text: '18', isCorrect: true },
+        { id: 'opt_ev1_2', text: '15', isCorrect: false },
+        { id: 'opt_ev1_3', text: '23', isCorrect: false },
+        { id: 'opt_ev1_4', text: '31', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Even numbers end with 0, 2, 4, 6, or 8. So 18 is an even number!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 7: Match Numerals to Words
+  // HARD LEVEL (5 Questions) — Number Riddles, Bead Counting & Place Value Logic
   // --------------------------------------------------------------------------
   {
-    id: 'c2_m3_concept_match_01',
+    id: 'c2_m3_hard_riddle_01',
     grade: 2,
     subject: 'maths',
     chapter: 'Fun with Numbers (Numbers up to 100)',
-    concept: 'Number to Word Match',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each 2-digit numeral to its correct written English name:',
-    visualEmoji: '🔢 🔤',
+    concept: 'Tens and Ones Number Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I am a 2-digit number. My tens digit is 6. My ones digit is 3 more than my tens digit. What number am I?',
+    visualEmoji: '🤔 6️⃣_ ❓',
     payload: {
-      pairs: [
-        { id: 'c2_p1', left: '42', right: 'Forty-two' },
-        { id: 'c2_p2', left: '67', right: 'Sixty-seven' },
-        { id: 'c2_p3', left: '89', right: 'Eighty-nine' },
-        { id: 'c2_p4', left: '100', right: 'One hundred' },
+      options: [
+        { id: 'opt_rd2_1', text: '69', isCorrect: true },
+        { id: 'opt_rd2_2', text: '63', isCorrect: false },
+        { id: 'opt_rd2_3', text: '96', isCorrect: false },
+        { id: 'opt_rd2_4', text: '66', isCorrect: false },
       ],
     },
-    explanation: '💡 42 = Forty-two, 67 = Sixty-seven, 89 = Eighty-nine, 100 = One hundred!',
+    explanation: '💡 Tens digit = 6. Ones digit = 6 + 3 = 9. Combining them gives 69!',
+    points: 15,
+  },
+  {
+    id: 'c2_m3_hard_beads_02',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 100)',
+    concept: 'Bead Strings and Loose Beads',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'Meena made 7 necklaces with 10 beads in each. She also has 8 loose beads on the tray. How many total beads does she have? 7 tens + 8 ones = [BLANK].',
+    visualEmoji: '📿 (7 tens + 8 ones)',
+    payload: {
+      correctAnswer: '78',
+      wordBank: ['78', '87', '708', '15'],
+      displayTemplate: '7 tens + 8 ones = [BLANK] beads',
+    },
+    explanation: '💡 7 tens = 70. 70 + 8 ones = 78 beads in total!',
+    points: 15,
+  },
+  {
+    id: 'c2_m3_hard_desc_drag',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 100)',
+    concept: 'Descending Order (Greatest to Smallest)',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these numbers in descending order from greatest to smallest:',
+    visualEmoji: '📉 9️⃣9️⃣ 8️⃣4️⃣ 5️⃣7️⃣ 3️⃣6️⃣ 1️⃣9️⃣',
+    payload: {
+      tokens: ['99', '84', '57', '36', '19'],
+      scrambled: ['36', '99', '19', '84', '57'],
+      correctSequence: ['99', '84', '57', '36', '19'],
+    },
+    explanation: '💡 Greatest to smallest: 99 -> 84 -> 57 -> 36 -> 19!',
+    points: 15,
+  },
+  {
+    id: 'c2_m3_hard_match_place',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 100)',
+    concept: 'Place Value Logic Match',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each description to the correct number:',
+    visualEmoji: '🎯 🔢',
+    payload: {
+      pairs: [
+        { id: 'm3_p1', left: 'Largest 2-digit number', right: '99' },
+        { id: 'm3_p2', left: 'Smallest 2-digit number', right: '10' },
+        { id: 'm3_p3', left: '8 tens and 4 ones', right: '84' },
+        { id: 'm3_p4', left: 'Equal tens and ones between 50 and 60', right: '55' },
+      ],
+    },
+    explanation: '💡 Largest 2-digit = 99; Smallest 2-digit = 10; 8 tens + 4 ones = 84; 55 has identical 5 tens and 5 ones!',
+    points: 15,
+  },
+  {
+    id: 'c2_m3_hard_word_problem',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Fun with Numbers (Numbers up to 100)',
+    concept: 'Decomposing Larger Number',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In a cricket match, Rohit scored 48 runs and Virat scored 62 runs. How many tens and ones are there in the larger score (62)?',
+    visualEmoji: '🏏 4️⃣8️⃣ vs 6️⃣2️⃣',
+    payload: {
+      options: [
+        { id: 'opt_wp1_1', text: '6 tens and 2 ones', isCorrect: true },
+        { id: 'opt_wp1_2', text: '4 tens and 8 ones', isCorrect: false },
+        { id: 'opt_wp1_3', text: '2 tens and 6 ones', isCorrect: false },
+        { id: 'opt_wp1_4', text: '60 tens and 2 ones', isCorrect: false },
+      ],
+    },
+    explanation: '💡 The larger score is 62. In 62, there are 6 tens (60) and 2 ones (2)!',
     points: 15,
   },
 ];

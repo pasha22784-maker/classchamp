@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 4: SHADOW STORY (ADDITION & PUT TOGETHER)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: 2-Digit Addition Without Regrouping (जोड़ना)
+  // EASY LEVEL (5 Questions) — Basic 2-Digit Addition & Adding Tens
   // --------------------------------------------------------------------------
   {
     id: 'c2_m4_concept_add2_01',
@@ -18,7 +19,7 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
     concept: '2-Digit Column Addition',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'In a shadow puppet play 🎭: 24 deer puppets and 15 rabbit puppets perform on the screen. What is 24 + 15?',
+    question: 'In a shadow puppet play: 24 deer puppets and 15 rabbit puppets perform on the screen. What is 24 + 15?',
     visualEmoji: '🦌 (24) + 🐇 (15)',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
         { id: 'opt_ad1_3', text: '35', isCorrect: false },
       ],
     },
-    explanation: '💡 Step 1: Add Ones: 4 + 5 = 9. Step 2: Add Tens: 2 + 1 = 3. Together: **39**!',
+    explanation: '💡 Step 1: Add Ones: 4 + 5 = 9. Step 2: Add Tens: 2 + 1 = 3. Together: 39!',
     points: 10,
   },
   {
@@ -45,13 +46,9 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
       wordBank: ['58', '56', '60', '526'],
       displayTemplate: '52 + 6 = [BLANK]',
     },
-    explanation: '💡 Add 6 to the ones digit: 2 + 6 = 8. Tens remains 5. Answer is **58**!',
+    explanation: '💡 Add 6 to the ones place: 2 + 6 = 8. Tens remains 5, so the answer is 58!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Adding Tens (दहाई का जोड़)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m4_concept_tens_01',
     grade: 2,
@@ -69,7 +66,7 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
         { id: 'opt_at1_3', text: '80', isCorrect: false },
       ],
     },
-    explanation: '💡 4 tens + 3 tens = 7 tens = **70**!',
+    explanation: '💡 4 tens + 3 tens = 7 tens = 70!',
     points: 10,
   },
   {
@@ -87,135 +84,231 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
       wordBank: ['73', '64', '83', '630'],
       displayTemplate: '63 + 10 = [BLANK]',
     },
-    explanation: '💡 Adding 10 increases the tens digit by 1: 6 tens becomes 7 tens, so **73**!',
+    explanation: '💡 Adding 10 increases the tens digit by 1: 6 tens becomes 7 tens, so 73!',
+    points: 10,
+  },
+  {
+    id: 'c2_m4_concept_zero_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shadow Story (Addition & Put Together)',
+    concept: 'Adding Zero Property',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'If you add 0 to any number like 45 + 0, what is the answer?',
+    visualEmoji: '4️⃣5️⃣ + 0️⃣',
+    payload: {
+      options: [
+        { id: 'opt_zr1_1', text: '45 (Number stays the same)', isCorrect: true },
+        { id: 'opt_zr1_2', text: '0', isCorrect: false },
+        { id: 'opt_zr1_3', text: '50', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Adding zero to any number does not change its value: 45 + 0 = 45!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 3: Story Word Problems (इबारती सवाल)
+  // MEDIUM LEVEL (5 Questions) — Story Problems, Missing Addends & Sum Ordering
   // --------------------------------------------------------------------------
   {
     id: 'c2_m4_concept_story_01',
     grade: 2,
     subject: 'maths',
     chapter: 'Shadow Story (Addition & Put Together)',
-    concept: 'Story Addition in Library',
+    concept: 'Leaves Collection Story Problem',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'A village library has 32 Hindi fairy tale books 📚 and 23 English story books 📖. How many story books are there in total?',
-    visualEmoji: '📚 (32) + 📖 (23)',
+    question: 'Aarav collected 32 red leaves and Simran collected 26 golden leaves for an art project. How many leaves did they collect altogether?',
+    visualEmoji: '🍁 (32) + 🍂 (26)',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: '55 books', isCorrect: true },
-        { id: 'opt_st1_2', text: '45 books', isCorrect: false },
-        { id: 'opt_st1_3', text: '50 books', isCorrect: false },
+        { id: 'opt_st1_1', text: '58 leaves', isCorrect: true },
+        { id: 'opt_st1_2', text: '48 leaves', isCorrect: false },
+        { id: 'opt_st1_3', text: '68 leaves', isCorrect: false },
       ],
     },
-    explanation: '💡 32 + 23: Add ones (2+3=5), Add tens (3+2=5). Total is **55 books**!',
+    explanation: '💡 Add 32 + 26: Ones (2 + 6 = 8) and Tens (3 + 2 = 5) = 58 leaves!',
     points: 10,
   },
   {
-    id: 'c2_m4_concept_story_02',
+    id: 'c2_m4_concept_missing_addend',
     grade: 2,
     subject: 'maths',
     chapter: 'Shadow Story (Addition & Put Together)',
-    concept: 'Bird Shadows in Garden',
+    concept: 'Missing Addend to Make Number',
     difficulty: 'medium',
     type: 'fill_blank',
-    question: 'In the morning sun, 41 sparrows 🐦 and 17 pigeons 🕊️ sit on the telephone wire. Total birds = [BLANK].',
-    visualEmoji: '🐦 (41) + 🕊️ (17)',
+    question: 'What number must be added to 40 to make 48? 40 + [BLANK] = 48.',
+    visualEmoji: '4️⃣0️⃣ + ❓ = 4️⃣8️⃣',
     payload: {
-      correctAnswer: '58',
-      wordBank: ['58', '57', '48', '60'],
-      displayTemplate: '41 + 17 = [BLANK] birds',
+      correctAnswer: '8',
+      wordBank: ['8', '18', '4', '80'],
+      displayTemplate: '40 + [BLANK] = 48',
     },
-    explanation: '💡 41 + 17 = 1 + 7 = 8 (ones), 4 + 1 = 5 (tens) = **58 birds**!',
+    explanation: '💡 48 minus 40 leaves 8. So 40 + 8 = 48!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Commutative Order Property (क्रम बदलने पर जोड़)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m4_concept_comm_01',
+    id: 'c2_m4_concept_drag_sum',
     grade: 2,
     subject: 'maths',
     chapter: 'Shadow Story (Addition & Put Together)',
-    concept: 'Changing Order Does Not Change Sum',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'If 25 + 14 = 39, then what is 14 + 25?',
-    visualEmoji: '🔄 2️⃣5️⃣ + 1️⃣4️⃣',
-    payload: {
-      options: [
-        { id: 'opt_cm1_1', text: '39', isCorrect: true },
-        { id: 'opt_cm1_2', text: '29', isCorrect: false },
-        { id: 'opt_cm1_3', text: '49', isCorrect: false },
-      ],
-    },
-    explanation: '💡 In addition, swapping the order of numbers keeps the sum the same! 25 + 14 = 14 + 25 = **39**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Steps of Column Addition (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m4_concept_steps_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Shadow Story (Addition & Put Together)',
-    concept: 'Order of Addition Steps',
+    concept: 'Ordering Addition Sums',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Arrange the correct steps to add two 2-digit numbers (like 34 + 25):',
-    visualEmoji: '➕ 📝',
+    question: 'Arrange these addition sums in order of their answers from smallest to largest:',
+    visualEmoji: '➕ 1️⃣5️⃣ ➡️ 3️⃣0️⃣ ➡️ 4️⃣5️⃣ ➡️ 6️⃣0️⃣',
     payload: {
-      tokens: [
-        '1. Write numbers in Tens and Ones columns',
-        '2. Add the Ones column digits first (4 + 5 = 9)',
-        '3. Add the Tens column digits next (3 + 2 = 5)',
-        '4. Write the final total answer (59)',
-      ],
-      scrambled: [
-        '3. Add the Tens column digits next (3 + 2 = 5)',
-        '1. Write numbers in Tens and Ones columns',
-        '4. Write the final total answer (59)',
-        '2. Add the Ones column digits first (4 + 5 = 9)',
-      ],
-      correctSequence: [
-        '1. Write numbers in Tens and Ones columns',
-        '2. Add the Ones column digits first (4 + 5 = 9)',
-        '3. Add the Tens column digits next (3 + 2 = 5)',
-        '4. Write the final total answer (59)',
-      ],
+      tokens: ['10 + 5 (= 15)', '20 + 10 (= 30)', '30 + 15 (= 45)', '40 + 20 (= 60)'],
+      scrambled: ['30 + 15 (= 45)', '10 + 5 (= 15)', '40 + 20 (= 60)', '20 + 10 (= 30)'],
+      correctSequence: ['10 + 5 (= 15)', '20 + 10 (= 30)', '30 + 15 (= 45)', '40 + 20 (= 60)'],
     },
-    explanation: '💡 Always add the **Ones place first**, then the **Tens place**!',
+    explanation: '💡 In order of sums: 15 < 30 < 45 < 60!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Sums to Equations
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m4_concept_match_01',
+    id: 'c2_m4_concept_match_pairs',
     grade: 2,
     subject: 'maths',
     chapter: 'Shadow Story (Addition & Put Together)',
-    concept: 'Addition Match Pairs',
+    concept: 'Addition Facts Match',
     difficulty: 'medium',
     type: 'match_pairs',
     question: 'Match each addition expression to its correct total sum:',
-    visualEmoji: '➕ 🎯',
+    visualEmoji: '🎯 ➕',
     payload: {
       pairs: [
-        { id: 'ad_p1', left: '20 + 30', right: '50' },
-        { id: 'ad_p2', left: '42 + 15', right: '57' },
-        { id: 'ad_p3', left: '61 + 24', right: '85' },
-        { id: 'ad_p4', left: '50 + 49', right: '99' },
+        { id: 'm4_a1', left: '25 + 12', right: '37' },
+        { id: 'm4_a2', left: '43 + 21', right: '64' },
+        { id: 'm4_a3', left: '50 + 25', right: '75' },
+        { id: 'm4_a4', left: '62 + 16', right: '78' },
       ],
     },
-    explanation: '💡 20+30=50, 42+15=57, 61+24=85, 50+49=99!',
+    explanation: '💡 25 + 12 = 37; 43 + 21 = 64; 50 + 25 = 75; 62 + 16 = 78!',
+    points: 15,
+  },
+  {
+    id: 'c2_m4_concept_order_prop',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shadow Story (Addition & Put Together)',
+    concept: 'Commutative Property of Addition',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'If 17 + 23 = 40, what is 23 + 17?',
+    visualEmoji: '🔄 1️⃣7️⃣ + 2️⃣3️⃣',
+    payload: {
+      options: [
+        { id: 'opt_cm1_1', text: '40', isCorrect: true },
+        { id: 'opt_cm1_2', text: '50', isCorrect: false },
+        { id: 'opt_cm1_3', text: '34', isCorrect: false },
+      ],
+    },
+    explanation: '💡 In addition, changing the order of the numbers does not change the sum: 17 + 23 = 23 + 17 = 40!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — Regrouping Addition, 3 Addends & Word Logic
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_m4_hard_regroup_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shadow Story (Addition & Put Together)',
+    concept: '2-Digit Addition with Regrouping (Carryover)',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In a botanical garden, there are 28 red roses and 16 yellow roses. How many roses are there altogether? (28 + 16 = ?)',
+    visualEmoji: '🌹 (28) + 🌼 (16)',
+    payload: {
+      options: [
+        { id: 'opt_rg1_1', text: '44 roses', isCorrect: true },
+        { id: 'opt_rg1_2', text: '34 roses', isCorrect: false },
+        { id: 'opt_rg1_3', text: '42 roses', isCorrect: false },
+        { id: 'opt_rg1_4', text: '54 roses', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Step 1: Add ones: 8 + 6 = 14 (write 4, carry 1 ten). Step 2: Add tens: 1 + 2 + 1 = 4 tens. Total = 44 roses!',
+    points: 15,
+  },
+  {
+    id: 'c2_m4_hard_three_num',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shadow Story (Addition & Put Together)',
+    concept: 'Adding Three Numbers Mentally',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'Pooja counted 12 birds on a branch, 20 birds on the grass, and 8 birds in the sky. Total birds = 12 + 20 + 8 = [BLANK].',
+    visualEmoji: '🐦 (12 + 20 + 8)',
+    payload: {
+      correctAnswer: '40',
+      wordBank: ['40', '32', '38', '50'],
+      displayTemplate: '12 + 20 + 8 = [BLANK] birds',
+    },
+    explanation: '💡 Tip: Add 12 + 8 first to make 20! Then 20 + 20 = 40 birds!',
+    points: 15,
+  },
+  {
+    id: 'c2_m4_hard_riddle',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shadow Story (Addition & Put Together)',
+    concept: 'Addition Number Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I am a secret number. If you add 25 to me, you get 60. What secret number am I?',
+    visualEmoji: '❓ + 2️⃣5️⃣ = 6️⃣0️⃣',
+    payload: {
+      options: [
+        { id: 'opt_rd4_1', text: '35', isCorrect: true },
+        { id: 'opt_rd4_2', text: '45', isCorrect: false },
+        { id: 'opt_rd4_3', text: '25', isCorrect: false },
+        { id: 'opt_rd4_4', text: '85', isCorrect: false },
+      ],
+    },
+    explanation: '💡 60 - 25 = 35. Check: 35 + 25 = 60!',
+    points: 15,
+  },
+  {
+    id: 'c2_m4_hard_drag_sums',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shadow Story (Addition & Put Together)',
+    concept: 'Multi-Step Sum Sorting',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these addition sums from smallest result to largest result:',
+    visualEmoji: '📊 3️⃣3️⃣ ➡️ 4️⃣0️⃣ ➡️ 5️⃣2️⃣ ➡️ 6️⃣5️⃣ ➡️ 8️⃣5️⃣',
+    payload: {
+      tokens: ['22 + 11 (= 33)', '25 + 15 (= 40)', '30 + 22 (= 52)', '45 + 20 (= 65)', '50 + 35 (= 85)'],
+      scrambled: ['30 + 22 (= 52)', '50 + 35 (= 85)', '22 + 11 (= 33)', '45 + 20 (= 65)', '25 + 15 (= 40)'],
+      correctSequence: ['22 + 11 (= 33)', '25 + 15 (= 40)', '30 + 22 (= 52)', '45 + 20 (= 65)', '50 + 35 (= 85)'],
+    },
+    explanation: '💡 Sums in order: 33 < 40 < 52 < 65 < 85!',
+    points: 15,
+  },
+  {
+    id: 'c2_m4_hard_match_regroup',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shadow Story (Addition & Put Together)',
+    concept: '2-Digit Regrouping Sum Match',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each 2-digit addition problem with its correct sum:',
+    visualEmoji: '➕ 🔢',
+    payload: {
+      pairs: [
+        { id: 'm4_rg1', left: '36 + 17', right: '53' },
+        { id: 'm4_rg2', left: '48 + 24', right: '72' },
+        { id: 'm4_rg3', left: '59 + 21', right: '80' },
+        { id: 'm4_rg4', left: '27 + 38', right: '65' },
+      ],
+    },
+    explanation: '💡 36 + 17 = 53; 48 + 24 = 72; 59 + 21 = 80; 27 + 38 = 65!',
     points: 15,
   },
 ];

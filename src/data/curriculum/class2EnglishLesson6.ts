@@ -2,13 +2,14 @@ import { Question } from '../../types';
 
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
-// CHAPTER 6: POSITION WORDS (BEHIND, IN FRONT, NEXT TO, BETWEEN)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// CHAPTER 6: POSITION WORDS (BEHIND, IN FRONT, NEXT TO, BETWEEN, OVER, UNDER)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Position Word: "BEHIND" (पीछे)
+  // EASY LEVEL (5 Questions) — Behind, In Front Of, Between & Under
   // --------------------------------------------------------------------------
   {
     id: 'c2_e6_concept_behind_01',
@@ -18,7 +19,7 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     concept: 'Position Word BEHIND',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'In a game of hide and seek 🙈, Rohan hides [BLANK] the thick banyan tree trunk so nobody can see him from the front.',
+    question: 'In a game of hide and seek, Rohan hides [BLANK] the thick banyan tree trunk so nobody can see him from the front.',
     visualEmoji: '🌳 👦 🙈',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
         { id: 'opt_bh1_3', text: 'INSIDE the bark', isCorrect: false },
       ],
     },
-    explanation: '💡 When you are hidden at the back of an object, you are **BEHIND** it! 🌳',
+    explanation: '💡 When you are hidden at the back of an object, you are BEHIND it!',
     points: 10,
   },
   {
@@ -38,20 +39,16 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     concept: 'Sun Behind Clouds',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'The bright golden sun hid [BLANK] the dark rainy clouds ⛅.',
+    question: 'The golden sun hid quietly [BLANK] the dark rainy clouds.',
     visualEmoji: '⛅ ☀️ ☁️',
     payload: {
       correctAnswer: 'behind',
       wordBank: ['behind', 'under', 'into', 'with'],
-      displayTemplate: 'The sun hid [BLANK] the dark clouds.',
+      displayTemplate: 'The sun hid [BLANK] the clouds.',
     },
-    explanation: '💡 The sun is hidden **behind** the clouds! ⛅',
+    explanation: '💡 The clouds are in front and the sun is hidden behind them!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Position Word: "IN FRONT OF" (सामने)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e6_concept_front_01',
     grade: 2,
@@ -64,18 +61,14 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '👩‍🏫 ⬛ 👧👦',
     payload: {
       options: [
-        { id: 'opt_fr1_1', text: 'IN FRONT OF the students 👩‍🏫', isCorrect: true },
+        { id: 'opt_fr1_1', text: 'IN FRONT OF the students', isCorrect: true },
         { id: 'opt_fr1_2', text: 'Behind the school building', isCorrect: false },
-        { id: 'opt_fr1_3', text: 'Under the floor', isCorrect: false },
+        { id: 'opt_fr1_3', text: 'Under the classroom floor', isCorrect: false },
       ],
     },
-    explanation: '💡 The teacher stands **in front of** the class so all students can see and hear clearly!',
+    explanation: '💡 The teacher stands in front of the students so all children can see and hear clearly!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Position Word: "BETWEEN" (बीच में - Two things)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e6_concept_between_01',
     grade: 2,
@@ -84,7 +77,7 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     concept: 'Position Word BETWEEN',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Look at the lunch bench: Ali 👦 is sitting on the left, Tina 👧 is sitting on the right, and Ravi 🧒 is sitting in the middle. Where is Ravi sitting?',
+    question: 'Ali sits on the left, Tina sits on the right, and Ravi sits in the middle. Where is Ravi sitting?',
     visualEmoji: '👦 🧒 👧',
     payload: {
       options: [
@@ -93,96 +86,245 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
         { id: 'opt_bw1_3', text: 'Under the ground', isCorrect: false },
       ],
     },
-    explanation: '💡 When something is in the middle of two people or objects, it is **BETWEEN** them!',
+    explanation: '💡 When an object is in the middle of two things or persons, it is BETWEEN them!',
     points: 10,
   },
   {
-    id: 'c2_e6_concept_between_02',
+    id: 'c2_e6_concept_under_01',
     grade: 2,
     subject: 'english',
     chapter: 'Position Words (Behind, In Front, Next)',
-    concept: 'Letter Between A and C',
+    concept: 'Position Word UNDER',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'In the English alphabet, letter B sits [BLANK] letters A and C.',
-    visualEmoji: '🅰️ 🅱️ 🅲',
+    question: 'On a sunny afternoon, the tired puppy slept [BLANK] the cool shade of the green mango tree.',
+    visualEmoji: '🐶 🌳 💤',
     payload: {
-      correctAnswer: 'between',
-      wordBank: ['between', 'behind', 'under', 'over'],
-      displayTemplate: 'Letter B is [BLANK] A and C.',
+      correctAnswer: 'under',
+      wordBank: ['under', 'over', 'between', 'into'],
+      displayTemplate: 'The puppy slept [BLANK] the tree shade.',
     },
-    explanation: '💡 Letter B is **between** A and C! 🅰️ ➡️ 🅱️ ➡️ 🅲',
+    explanation: '💡 Sleeping beneath the branches is being under the tree shade!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: Position Word: "NEXT TO" / "BESIDE" (बगल में)
+  // MEDIUM LEVEL (5 Questions) — Next To, Over, Across & Sentence Matching
   // --------------------------------------------------------------------------
   {
-    id: 'c2_e6_concept_next_01',
+    id: 'c2_e6_concept_next_to',
     grade: 2,
     subject: 'english',
     chapter: 'Position Words (Behind, In Front, Next)',
     concept: 'Position Word NEXT TO',
-    difficulty: 'easy',
+    difficulty: 'medium',
     type: 'mcq',
-    question: 'My study lamp 💡 is placed right beside my notebook 📖 on the table. The lamp is [BLANK] my notebook.',
-    visualEmoji: '💡 📖',
+    question: 'Priya sits on the bench right by the side of Meera. Which position word describes where Priya sits?',
+    visualEmoji: '👧 👧 🎒',
     payload: {
       options: [
-        { id: 'opt_nx1_1', text: 'NEXT TO', isCorrect: true },
-        { id: 'opt_nx1_2', text: 'INSIDE', isCorrect: false },
-        { id: 'opt_nx1_3', text: 'UNDER', isCorrect: false },
+        { id: 'opt_nx6_1', text: 'NEXT TO Meera', isCorrect: true },
+        { id: 'opt_nx6_2', text: 'Under Meera', isCorrect: false },
+        { id: 'opt_nx6_3', text: 'Behind the wall', isCorrect: false },
       ],
     },
-    explanation: '💡 Right at the side means **next to** (or beside)!',
+    explanation: '💡 By the side of someone means NEXT TO (or beside) them!',
+    points: 10,
+  },
+  {
+    id: 'c2_e6_concept_over_bridge',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Position Words (Behind, In Front, Next)',
+    concept: 'Position Word OVER',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'The long passenger train chugged smoothly [BLANK] the wide river bridge.',
+    visualEmoji: '🚂 🌉 🌊',
+    payload: {
+      correctAnswer: 'over',
+      wordBank: ['over', 'under', 'between', 'inside'],
+      displayTemplate: 'The train chugged [BLANK] the river bridge.',
+    },
+    explanation: '💡 The train crosses on top of the bridge across the river, moving over it!',
+    points: 10,
+  },
+  {
+    id: 'c2_e6_concept_drag_positions',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Position Words (Behind, In Front, Next)',
+    concept: 'Ordering Vertical Positions',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'Arrange these vertical positions from lowest down to highest up:',
+    visualEmoji: '⬇️ ➡️ ⬆️',
+    payload: {
+      tokens: ['Under the table', 'On top of the table', 'Above the table ceiling fan', 'High up in the clouds'],
+      scrambled: ['Above the table ceiling fan', 'High up in the clouds', 'Under the table', 'On top of the table'],
+      correctSequence: ['Under the table', 'On top of the table', 'Above the table ceiling fan', 'High up in the clouds'],
+    },
+    explanation: '💡 Lowest to highest: Under -> On top -> Above -> High up in the clouds!',
+    points: 15,
+  },
+  {
+    id: 'c2_e6_concept_match_pairs',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Position Words (Behind, In Front, Next)',
+    concept: 'Position Word Sentences Match',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each position word to the correct sentence example:',
+    visualEmoji: '🎯 📍',
+    payload: {
+      pairs: [
+        { id: 'm_e6_p1', left: 'In front of', right: 'The guard stands at the school entrance' },
+        { id: 'm_e6_p2', left: 'Behind', right: 'The kitten hid at the back of the curtain' },
+        { id: 'm_e6_p3', left: 'Between', right: 'The red ball stopped in the middle of two boots' },
+        { id: 'm_e6_p4', left: 'Next to', right: 'The pencil box is placed beside the notebook' },
+      ],
+    },
+    explanation: '💡 In front of = entrance; Behind = back of curtain; Between = middle of boots; Next to = beside notebook!',
+    points: 15,
+  },
+  {
+    id: 'c2_e6_concept_across_road',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Position Words (Behind, In Front, Next)',
+    concept: 'Position Word ACROSS',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which position word describes walking from one side of the street to the other side using the zebra crossing?',
+    visualEmoji: '🚶 🦓 🛣️',
+    payload: {
+      options: [
+        { id: 'opt_ac6_1', text: 'ACROSS the road', isCorrect: true },
+        { id: 'opt_ac6_2', text: 'Under the road', isCorrect: false },
+        { id: 'opt_ac6_3', text: 'Between the road', isCorrect: false },
+        { id: 'opt_ac6_4', text: 'Behind the road', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Moving from one side to the other side of an area means moving ACROSS!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 5: Unscramble Position Sentence (Drag Order)
+  // HARD LEVEL (5 Questions) — Multi-Preposition Contexts, Story Flow & Riddles
   // --------------------------------------------------------------------------
   {
-    id: 'c2_e6_concept_order_01',
+    id: 'c2_e6_hard_multi_position',
     grade: 2,
     subject: 'english',
     chapter: 'Position Words (Behind, In Front, Next)',
-    concept: 'Position Sentence Builder',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange the words to make a clear preposition sentence:',
-    visualEmoji: '🐕 🚪 🏡',
+    concept: 'Dual Prepositions in Complex Sentence',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'In the sentence: "An airplane soared high OVER the white mountain, while hikers walked slowly THROUGH the dark tunnel", which two position words are used?',
+    visualEmoji: '✈️ 🏔️ 🚶 🚇',
     payload: {
-      tokens: ['The', 'puppy', 'waits', 'in', 'front', 'of', 'the', 'door.'],
-      scrambled: ['front', 'door.', 'of', 'The', 'puppy', 'the', 'waits', 'in'],
-      correctSequence: ['The', 'puppy', 'waits', 'in', 'front', 'of', 'the', 'door.'],
-    },
-    explanation: '💡 "**The puppy waits in front of the door.**" 🐕',
-    points: 15,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Position Words to Meanings
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_e6_concept_match_01',
-    grade: 2,
-    subject: 'english',
-    chapter: 'Position Words (Behind, In Front, Next)',
-    concept: 'Preposition Meaning Match',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each position word to what it shows:',
-    visualEmoji: '📍 🧩',
-    payload: {
-      pairs: [
-        { id: 'pos_p1', left: 'Behind 🔙', right: 'At the back' },
-        { id: 'pos_p2', left: 'In front of 🔜', right: 'Directly ahead' },
-        { id: 'pos_p3', left: 'Between ↔️', right: 'In the middle of two' },
-        { id: 'pos_p4', left: 'Over ✈️', right: 'Higher above' },
+      options: [
+        { id: 'opt_dp6_1', text: 'over and through', isCorrect: true },
+        { id: 'opt_dp6_2', text: 'high and dark', isCorrect: false },
+        { id: 'opt_dp6_3', text: 'soared and walked', isCorrect: false },
+        { id: 'opt_dp6_4', text: 'mountain and tunnel', isCorrect: false },
       ],
     },
-    explanation: '💡 Behind = at back, In front = ahead, Between = in the middle, Over = above!',
+    explanation: '💡 "over" describes the plane\'s position relative to the mountain; "through" describes the path inside the tunnel!',
+    points: 15,
+  },
+  {
+    id: 'c2_e6_hard_fill_inside_out',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Position Words (Behind, In Front, Next)',
+    concept: 'Position Word INSIDE',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'When the heavy monsoon rain began to pour, the mother bird and her chicks stayed warm and dry [BLANK] their cozy nest.',
+    visualEmoji: '🌧️ 🪺 🐣',
+    payload: {
+      correctAnswer: 'inside',
+      wordBank: ['inside', 'outside', 'between', 'under'],
+      displayTemplate: 'They stayed dry [BLANK] their nest.',
+    },
+    explanation: '💡 Being protected within the interior of the nest means being INSIDE!',
+    points: 15,
+  },
+  {
+    id: 'c2_e6_hard_drag_journey',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Position Words (Behind, In Front, Next)',
+    concept: 'Story Sequence with Position Words',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange the stages of a little frog\'s journey using position clues:',
+    visualEmoji: '🐸 🌊 🌿 🪨 🍄',
+    payload: {
+      tokens: [
+        'Leaped out of the pond',
+        'Hopped across the green grass',
+        'Sat between two round pebbles',
+        'Rested under a giant mushroom',
+      ],
+      scrambled: [
+        'Sat between two round pebbles',
+        'Leaped out of the pond',
+        'Rested under a giant mushroom',
+        'Hopped across the green grass',
+      ],
+      correctSequence: [
+        'Leaped out of the pond',
+        'Hopped across the green grass',
+        'Sat between two round pebbles',
+        'Rested under a giant mushroom',
+      ],
+    },
+    explanation: '💡 Logical journey: Out of pond -> Across grass -> Between pebbles -> Under mushroom!',
+    points: 15,
+  },
+  {
+    id: 'c2_e6_hard_match_opposites',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Position Words (Behind, In Front, Next)',
+    concept: 'Opposite Position Word Pairs',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each position word with its exact opposite position:',
+    visualEmoji: '🔄 🧭',
+    payload: {
+      pairs: [
+        { id: 'm_e6_op1', left: 'In front of', right: 'Behind' },
+        { id: 'm_e6_op2', left: 'Over / Above', right: 'Under / Below' },
+        { id: 'm_e6_op3', left: 'Inside', right: 'Outside' },
+        { id: 'm_e6_op4', left: 'Near', right: 'Far' },
+      ],
+    },
+    explanation: '💡 In front of ↔️ Behind; Above ↔️ Below; Inside ↔️ Outside; Near ↔️ Far!',
+    points: 15,
+  },
+  {
+    id: 'c2_e6_hard_position_riddle',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Position Words (Behind, In Front, Next)',
+    concept: 'Position Word Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I am a position word. You use me when an object has one friend on its left and another friend on its right, right in the center. What position word am I?',
+    visualEmoji: '⬅️ ❓ ➡️',
+    payload: {
+      options: [
+        { id: 'opt_pr6_1', text: 'Between', isCorrect: true },
+        { id: 'opt_pr6_2', text: 'Behind', isCorrect: false },
+        { id: 'opt_pr6_3', text: 'Under', isCorrect: false },
+        { id: 'opt_pr6_4', text: 'Over', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "Between" means right in the middle between two things!',
     points: 15,
   },
 ];

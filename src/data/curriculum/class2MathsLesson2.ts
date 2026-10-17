@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 2: SHAPES AROUND US (ROLLING & SLIDING)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Objects That Roll (लुढ़कने वाली वस्तुएँ - Curved Surface)
+  // EASY LEVEL (5 Questions) — Identifying Rolling vs Sliding, Basic Stacking
   // --------------------------------------------------------------------------
   {
     id: 'c2_m2_concept_roll_01',
@@ -18,16 +19,16 @@ export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Identifying Rolling Objects',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'If you push these objects down a children\'s playground slide 🛝, which one will ROLL smoothly?',
-    visualEmoji: '🛝 ⚽ vs 📦',
+    question: 'If you push these objects down a playground slide, which one will ROLL smoothly?',
+    visualEmoji: '🛝 ⚽ 📦 📏',
     payload: {
       options: [
-        { id: 'opt_rl1_1', text: 'A round football ⚽', isCorrect: true },
-        { id: 'opt_rl1_2', text: 'A flat cardboard box 📦', isCorrect: false },
-        { id: 'opt_rl1_3', text: 'A flat pencil box 📏', isCorrect: false },
+        { id: 'opt_rl1_1', text: 'A round football', isCorrect: true },
+        { id: 'opt_rl1_2', text: 'A flat cardboard box', isCorrect: false },
+        { id: 'opt_rl1_3', text: 'A flat wooden ruler', isCorrect: false },
       ],
     },
-    explanation: '💡 Objects with curved, round surfaces (like balls ⚽ and oranges 🍊) **ROLL** smoothly!',
+    explanation: '💡 Objects with curved, round surfaces (like balls and oranges) ROLL smoothly!',
     points: 10,
   },
   {
@@ -38,20 +39,16 @@ export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Roll in Fruits',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'A round juicy orange 🍊 will [BLANK] down an inclined wooden plank.',
+    question: 'A round juicy orange will [BLANK] down an inclined wooden plank.',
     visualEmoji: '🍊 📐',
     payload: {
       correctAnswer: 'roll',
       wordBank: ['roll', 'slide', 'stop', 'break'],
       displayTemplate: 'A round orange will [BLANK] down the slope.',
     },
-    explanation: '💡 Because the orange is round, it will **roll**! 🍊',
+    explanation: '💡 Because the orange has a curved round surface, it will roll!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Objects That Slide (सरकने वाली वस्तुएँ - Flat Surface)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m2_concept_slide_01',
     grade: 2,
@@ -60,40 +57,77 @@ export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Identifying Sliding Objects',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Which of these objects has flat faces and will SLIDE across the tiled floor?',
-    visualEmoji: '📖 🧱 ⚽',
+    question: 'Which of these objects has flat faces and will SLIDE across the floor without rolling?',
+    visualEmoji: '📖 🎾 🔮',
     payload: {
       options: [
-        { id: 'opt_sl1_1', text: 'A heavy storybook 📖', isCorrect: true },
-        { id: 'opt_sl1_2', text: 'A cricket tennis ball 🎾', isCorrect: false },
-        { id: 'opt_sl1_3', text: 'A round glass marble 🔮', isCorrect: false },
+        { id: 'opt_sl1_1', text: 'A flat storybook', isCorrect: true },
+        { id: 'opt_sl1_2', text: 'A cricket tennis ball', isCorrect: false },
+        { id: 'opt_sl1_3', text: 'A round glass marble', isCorrect: false },
       ],
     },
-    explanation: '💡 Objects with flat surfaces (like books 📖 and erasers 🧼) **SLIDE** without spinning!',
+    explanation: '💡 Objects with flat surfaces (like books, bricks, and pencil boxes) SLIDE without spinning!',
+    points: 10,
+  },
+  {
+    id: 'c2_m2_concept_slide_02',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: 'Sliding Eraser',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'When you push a flat rectangular eraser across the notebook, it will [BLANK] smoothly.',
+    visualEmoji: '🧼 📓',
+    payload: {
+      correctAnswer: 'slide',
+      wordBank: ['slide', 'roll', 'bounce', 'fly'],
+      displayTemplate: 'The eraser will [BLANK] smoothly.',
+    },
+    explanation: '💡 Flat surfaces slide across other flat surfaces!',
+    points: 10,
+  },
+  {
+    id: 'c2_m2_concept_tower_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: 'Can Round Objects Make Towers?',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Can you stack 4 round tennis balls one on top of another to build a tall tower?',
+    visualEmoji: '🎾 🎾 🎾 🎾',
+    payload: {
+      options: [
+        { id: 'opt_tw1_1', text: 'No, they have curved surfaces and will roll off', isCorrect: true },
+        { id: 'opt_tw1_2', text: 'Yes, they make a perfectly straight tower', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Round objects have no flat surfaces, so they roll and cannot be stacked into a tower!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 3: Objects That Can Both Roll AND Slide! (दोनों करने वाले)
+  // MEDIUM LEVEL (5 Questions) — Both Roll & Slide, Shape Properties & Stacking
   // --------------------------------------------------------------------------
   {
     id: 'c2_m2_concept_both_01',
     grade: 2,
     subject: 'maths',
     chapter: 'Shapes Around Us (Rolling & Sliding)',
-    concept: 'Both Rolling and Sliding',
+    concept: 'Both Rolling and Sliding - Coin',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'A ₹5 shiny coin 🪙 can slide on its flat side. If you stand it on its round edge and flick it, what will it do?',
+    question: 'A coin can slide on its flat side. If you roll it along its circular edge, what happens?',
     visualEmoji: '🪙 🔄',
     payload: {
       options: [
-        { id: 'opt_bt1_1', text: 'It will ROLL on its curved circular edge 🪙', isCorrect: true },
-        { id: 'opt_bt1_2', text: 'It cannot move at all', isCorrect: false },
-        { id: 'opt_bt1_3', text: 'It only flies', isCorrect: false },
+        { id: 'opt_bt1_1', text: 'It can BOTH roll and slide', isCorrect: true },
+        { id: 'opt_bt1_2', text: 'It can only slide', isCorrect: false },
+        { id: 'opt_bt1_3', text: 'It can never roll', isCorrect: false },
       ],
     },
-    explanation: '💡 A coin 🪙 has both flat faces and a round curved rim, so it can **BOTH roll and slide**!',
+    explanation: '💡 A coin has both flat circular faces and a curved round edge, so it can BOTH roll and slide!',
     points: 10,
   },
   {
@@ -103,132 +137,180 @@ export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
     chapter: 'Shapes Around Us (Rolling & Sliding)',
     concept: 'Cylinder Rolling and Sliding',
     difficulty: 'medium',
-    type: 'mcq',
-    question: 'A drinking steel glass or soup tin can 🥫: Can it both roll and slide?',
-    visualEmoji: '🥫 🥤',
-    payload: {
-      options: [
-        { id: 'opt_bt2_1', text: 'Yes, it rolls on its curved side and slides on its flat base', isCorrect: true },
-        { id: 'opt_bt2_2', text: 'No, it only rolls', isCorrect: false },
-        { id: 'opt_bt2_3', text: 'No, it only slides', isCorrect: false },
-      ],
-    },
-    explanation: '💡 On its flat bottom it **slides**, and on its curved body it **rolls**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Building Towers (Stacking Objects - मीनार बनाना)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m2_concept_stack_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Shapes Around Us (Rolling & Sliding)',
-    concept: 'Stacking to Build a Tower',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Ria wants to build a tall toy tower 🏰. Which items can be stacked one on top of another without tumbling down?',
-    visualEmoji: '🧱 📦 ⚽',
-    payload: {
-      options: [
-        { id: 'opt_st1_1', text: 'Wooden building blocks with flat tops 🧱', isCorrect: true },
-        { id: 'opt_st1_2', text: 'Round cricket balls 🎾', isCorrect: false },
-        { id: 'opt_st1_3', text: 'Round glass marbles 🔮', isCorrect: false },
-      ],
-    },
-    explanation: '💡 You can only stack objects with **flat surfaces** (like blocks 🧱, books 📚, and matchboxes 📦)!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Tracing Faces to Discover 2D Shapes (छाप लगाना)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m2_concept_trace_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Shapes Around Us (Rolling & Sliding)',
-    concept: 'Tracing Base of a Glass',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'If you place a round water glass 🥛 on a sheet of paper and trace along its circular bottom with a pencil, what shape do you get?',
-    visualEmoji: '🥛 ✏️ 📄 ➡️ ⭕',
-    payload: {
-      options: [
-        { id: 'opt_tr1_1', text: 'A Circle ⭕', isCorrect: true },
-        { id: 'opt_tr1_2', text: 'A Triangle 🔺', isCorrect: false },
-        { id: 'opt_tr1_3', text: 'A Square ⏹️', isCorrect: false },
-      ],
-    },
-    explanation: '💡 The bottom base of a drinking glass is round, so tracing it makes a **Circle ⭕**!',
-    points: 10,
-  },
-  {
-    id: 'c2_m2_concept_trace_02',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Shapes Around Us (Rolling & Sliding)',
-    concept: 'Tracing a Matchbox',
-    difficulty: 'easy',
     type: 'fill_blank',
-    question: 'Tracing around the flat base of an eraser or matchbox gives a [BLANK] shape.',
-    visualEmoji: '📦 ✏️ 📄 ➡️ ▭',
+    question: 'A round pencil battery cell or tin can rolls on its curved body, but it can [BLANK] on its flat circular ends.',
+    visualEmoji: '🔋 🥫',
     payload: {
-      correctAnswer: 'rectangle',
-      wordBank: ['rectangle', 'circle', 'sphere', 'cone'],
-      displayTemplate: 'Tracing a matchbox gives a [BLANK] shape.',
+      correctAnswer: 'slide',
+      wordBank: ['slide', 'fly', 'bounce', 'melt'],
+      displayTemplate: 'It can [BLANK] on its flat circular ends.',
     },
-    explanation: '💡 A matchbox face has two long sides and two short sides, forming a **rectangle**! ▭',
+    explanation: '💡 Cylindrical objects slide on their flat circular faces and roll along their curved surface!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Edges and Corners (किनारे और कोने)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m2_concept_corners_01',
+    id: 'c2_m2_concept_tower_02',
     grade: 2,
     subject: 'maths',
     chapter: 'Shapes Around Us (Rolling & Sliding)',
-    concept: 'Corners of a Square',
-    difficulty: 'easy',
-    type: 'mcq',
-    question: 'Look at a square piece of origami craft paper ⏹️. How many straight corners does it have?',
-    visualEmoji: '⏹️ (Corners)',
-    payload: {
-      options: [
-        { id: 'opt_cn1_1', text: '4 corners and 4 straight edges', isCorrect: true },
-        { id: 'opt_cn1_2', text: '3 corners', isCorrect: false },
-        { id: 'opt_cn1_3', text: '0 corners', isCorrect: false },
-      ],
-    },
-    explanation: '💡 A square has **4 corners and 4 straight sides**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 7: Match Objects to Movement Property
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m2_concept_match_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Shapes Around Us (Rolling & Sliding)',
-    concept: 'Movement Property Match',
+    concept: 'Objects That Can Stack into Towers',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each everyday object to how it moves when pushed:',
-    visualEmoji: '🔄 📐',
+    question: 'Match each object to whether it can be stacked into a tower or not:',
+    visualEmoji: '🏗️ 🧱 vs ⚽',
     payload: {
       pairs: [
-        { id: 'mv1', left: 'Tennis Ball 🎾', right: 'Rolls only' },
-        { id: 'mv2', left: 'Wooden Ruler 📏', right: 'Slides only' },
-        { id: 'mv3', left: 'Five-Rupee Coin 🪙', right: 'Rolls AND Slides' },
-        { id: 'mv4', left: 'Soup Tin Can 🥫', right: 'Rolls AND Slides' },
+        { id: 'm2_tw1', left: 'Matchboxes', right: 'Can stack (Flat faces)' },
+        { id: 'm2_tw2', left: 'Playing Dice', right: 'Can stack (Flat faces)' },
+        { id: 'm2_tw3', left: 'Glass Marbles', right: 'Cannot stack (Rolls off)' },
+        { id: 'm2_tw4', left: 'Ladoo sweets', right: 'Cannot stack (Rolls off)' },
       ],
     },
-    explanation: '💡 Round objects roll, flat objects slide, objects with both flat and curved surfaces do both!',
+    explanation: '💡 Objects with flat surfaces can be stacked safely; round spherical objects roll off!',
+    points: 15,
+  },
+  {
+    id: 'c2_m2_concept_shape_names',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: '2D Shape Properties',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Which 2D flat shape has exactly 3 straight sides and 3 sharp corners?',
+    visualEmoji: '🔺 📐',
+    payload: {
+      options: [
+        { id: 'opt_sh1_1', text: 'Triangle', isCorrect: true },
+        { id: 'opt_sh1_2', text: 'Circle', isCorrect: false },
+        { id: 'opt_sh1_3', text: 'Square', isCorrect: false },
+        { id: 'opt_sh1_4', text: 'Rectangle', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A triangle has 3 sides and 3 corners (vertices)!',
+    points: 10,
+  },
+  {
+    id: 'c2_m2_concept_sort_drag',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: 'Order Shapes by Number of Sides',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'Arrange these shapes in order of number of straight sides (from least 0 to most 4):',
+    visualEmoji: '⚪ 🔺 🟦',
+    payload: {
+      tokens: ['Circle (0 sides)', 'Triangle (3 sides)', 'Square (4 sides)'],
+      scrambled: ['Square (4 sides)', 'Circle (0 sides)', 'Triangle (3 sides)'],
+      correctSequence: ['Circle (0 sides)', 'Triangle (3 sides)', 'Square (4 sides)'],
+    },
+    explanation: '💡 Circle has 0 straight sides -> Triangle has 3 sides -> Square has 4 sides!',
+    points: 15,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — 3D Geometrical Shapes, Riddles & Problem Solving
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_m2_hard_cone_riddle',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: '3D Cone Shape Recognition',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I have 1 pointy vertex at the top, 1 flat circular base at the bottom, and a curved side. Birthday party hats and ice-cream cones look just like me. What 3D shape am I?',
+    visualEmoji: '🎉 🍦 ❓',
+    payload: {
+      options: [
+        { id: 'opt_cn1_1', text: 'Cone', isCorrect: true },
+        { id: 'opt_cn1_2', text: 'Cube', isCorrect: false },
+        { id: 'opt_cn1_3', text: 'Cylinder', isCorrect: false },
+        { id: 'opt_cn1_4', text: 'Sphere', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A Cone has 1 circular flat base, 1 curved surface, and 1 point at the top!',
+    points: 15,
+  },
+  {
+    id: 'c2_m2_hard_dice_cube',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: 'Cube Properties',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Look at a playing Ludo dice. It has 6 identical flat square faces, 8 corners, and 12 straight edges. What 3D shape is it?',
+    visualEmoji: '🎲 📦',
+    payload: {
+      options: [
+        { id: 'opt_cb1_1', text: 'Cube', isCorrect: true },
+        { id: 'opt_cb1_2', text: 'Sphere', isCorrect: false },
+        { id: 'opt_cb1_3', text: 'Cylinder', isCorrect: false },
+        { id: 'opt_cb1_4', text: 'Cone', isCorrect: false },
+      ],
+    },
+    explanation: '💡 A Cube is a 3D box with 6 equal square faces, like a playing dice!',
+    points: 15,
+  },
+  {
+    id: 'c2_m2_hard_cylinder_stack',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: 'Stacking Rule for Shapes',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'You can place one tin can on top of another because both have flat circular bases. Only objects with [BLANK] surfaces can be safely stacked to build a tower.',
+    visualEmoji: '🥫🥫 🏢',
+    payload: {
+      correctAnswer: 'flat',
+      wordBank: ['flat', 'round', 'slanted', 'pointed'],
+      displayTemplate: 'Only objects with [BLANK] surfaces can be stacked.',
+    },
+    explanation: '💡 Flat surfaces provide stability so objects do not slip or roll off!',
+    points: 15,
+  },
+  {
+    id: 'c2_m2_hard_match_3d_real',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: 'Real-World 3D Shape Association',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each real-world object to its correct 3D geometrical shape name:',
+    visualEmoji: '🌍 🧱 🥫 🍦',
+    payload: {
+      pairs: [
+        { id: 'm2_3d1', left: 'Cricket ball / Globe', right: 'Sphere' },
+        { id: 'm2_3d2', left: 'Shoe box / Brick', right: 'Cuboid' },
+        { id: 'm2_3d3', left: 'Pencil cell / Steel can', right: 'Cylinder' },
+        { id: 'm2_3d4', left: 'Birthday party hat', right: 'Cone' },
+      ],
+    },
+    explanation: '💡 Ball = Sphere, Brick = Cuboid, Steel can = Cylinder, Party hat = Cone!',
+    points: 15,
+  },
+  {
+    id: 'c2_m2_hard_multi_step',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Shapes Around Us (Rolling & Sliding)',
+    concept: 'Tower Stability Logic',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Anish wants to build a tower. He has 3 matchboxes, 2 flat erasers, and 1 round cricket ball. Which object will make the tower fall down if he puts it in the middle?',
+    visualEmoji: '🧱 🎾 💥',
+    payload: {
+      options: [
+        { id: 'opt_ms1_1', text: 'The round cricket ball', isCorrect: true },
+        { id: 'opt_ms1_2', text: 'The matchbox', isCorrect: false },
+        { id: 'opt_ms1_3', text: 'The flat eraser', isCorrect: false },
+      ],
+    },
+    explanation: '💡 The round ball rolls when anything is placed on top of it, causing the whole tower to tumble!',
     points: 15,
   },
 ];

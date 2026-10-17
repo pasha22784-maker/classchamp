@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 HINDI (सारंगी 2 / RIMJHIM 2)
 // CHAPTER 5: दोस्त की मदद (काम वाले शब्द - क्रिया)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: काम बताने वाले शब्द (क्रिया की पहचान)
+  // EASY LEVEL (5 Questions) — क्रिया की पहचान, कहानी के मुख्य पात्र व खोल
   // --------------------------------------------------------------------------
   {
     id: 'c2_h5_concept_kriya_01',
@@ -18,7 +19,7 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     concept: 'क्रिया शब्द पहचान',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'वाक्य पढ़िए: "तेंदुआ झपटकर कछुए को मुँह में दबाकर ले भागा।" इस वाक्य में \'काम बताने वाले शब्द\' (क्रिया) कौन से हैं?',
+    question: 'वाक्य पढ़िए: "तेंदुआ झपटकर कछुए को मुँह में दबाकर ले भागा।" इस वाक्य में काम बताने वाले शब्द (क्रिया) कौन से हैं?',
     visualEmoji: '🐆 🐢 🏃‍♂️',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
         { id: 'opt_kr1_3', text: 'मुँह', isCorrect: false },
       ],
     },
-    explanation: '💡 जिन शब्दों से किसी काम के करने या होने का पता चले, उन्हें **क्रिया (काम वाले शब्द)** कहते हैं!',
+    explanation: '💡 जिन शब्दों से किसी काम के करने या होने का बोध होता है, उन्हें क्रिया कहते हैं!',
     points: 10,
   },
   {
@@ -38,20 +39,16 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     concept: 'तैरने की क्रिया',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'पानी में कछुआ अपने पैरों से आसानी से [BLANK] (तैरता) है।',
+    question: 'तालाब के गहरे पानी में कछुआ अपने पैरों से आसानी से [BLANK] है।',
     visualEmoji: '🐢 🌊',
     payload: {
       correctAnswer: 'तैरता',
       wordBank: ['तैरता', 'उड़ता', 'दौड़ता', 'सोता'],
       displayTemplate: 'पानी में कछुआ आसानी से [BLANK] है।',
     },
-    explanation: '💡 पानी में जीव **तैरते** हैं! 🐢 🌊',
+    explanation: '💡 पानी के अंदर तैरना कछुए की स्वाभाविक क्रिया है!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: कहानी बोध (सच्ची दोस्ती व मदद)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_h5_concept_story_01',
     grade: 2,
@@ -60,16 +57,16 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     concept: 'लोमड़ी की समझदारी',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'कछुए की जान बचाने के लिए उसकी समझदार दोस्त लोमड़ी 🦊 ने तेंदुए को क्या तरकीब बताई?',
+    question: 'कछुए की जान बचाने के लिए उसकी समझदार दोस्त लोमड़ी ने तेंदुए को क्या तरकीब बताई?',
     visualEmoji: '🦊 💡 🐆 🐢',
     payload: {
       options: [
         { id: 'opt_st1_1', text: 'कछुए को पानी में फेंकने की', isCorrect: true },
-        { id: 'opt_st1_2', text: 'पेड़ पर चढ़ने की', isCorrect: false },
-        { id: 'opt_st1_3', text: 'कछुए को ज़मीन में गाड़ने की', isCorrect: false },
+        { id: 'opt_st1_2', text: 'पेड़ पर चढ़ाने की', isCorrect: false },
+        { id: 'opt_st1_3', text: 'कछुए को धूप में सुखाने की', isCorrect: false },
       ],
     },
-    explanation: '💡 लोमड़ी ने तेंदुए को मूर्ख बनाकर कछुए को **पानी में फिंकवा दिया**, और कछुआ तैरकर अपनी जान बचा गया! 🦊🐢',
+    explanation: '💡 लोमड़ी ने तेंदुए को मूर्ख बनाकर कछुए को पानी में फिंकवा दिया और कछुआ तैरकर बच निकला!',
     points: 10,
   },
   {
@@ -80,7 +77,7 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     concept: 'कछुए का खोल',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'कछुए की पीठ पर जो सख्त ढाल जैसा आवरण होता है जो उसे दुश्मनों से बचाता है, उसे क्या कहते हैं?',
+    question: 'कछुए की पीठ पर जो सख्त और कठोर ढाल जैसा आवरण होता है, उसे क्या कहते हैं?',
     visualEmoji: '🐢 🛡️',
     payload: {
       options: [
@@ -89,78 +86,245 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
         { id: 'opt_kh1_3', text: 'सींग', isCorrect: false },
       ],
     },
-    explanation: '💡 कछुए की पीठ पर बहुत सख्त **खोल** होता है! 🐢',
+    explanation: '💡 कछुए की पीठ पर बहुत कठोर खोल होता है जो उसकी रक्षा करता है!',
+    points: 10,
+  },
+  {
+    id: 'c2_h5_concept_fox_home',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'लोमड़ी का घर',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'तेंदुए को देखते ही लोमड़ी सरपट दौड़कर अपनी सुरक्षित [BLANK] (गुफ़ा) में छिप गई।',
+    visualEmoji: '🦊 🏃 ⛰️',
+    payload: {
+      correctAnswer: 'माँद',
+      wordBank: ['माँद', 'घोंसला', 'छत', 'पेड़'],
+      displayTemplate: 'लोमड़ी अपनी [BLANK] में छिप गई।',
+    },
+    explanation: '💡 लोमड़ी और शेर के रहने के स्थान को माँद कहते हैं!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 3: चाल और गति (धीमी चाल vs तेज दौड़)
+  // MEDIUM LEVEL (5 Questions) — कछुए की चाल, जानवरों के घर व कहानी क्रम
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h5_concept_speed_01',
+    id: 'c2_h5_concept_tortoise_speed',
     grade: 2,
     subject: 'hindi',
     chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
-    concept: 'कछुए की धीमी चाल',
-    difficulty: 'easy',
+    concept: 'कछुए की धीमी गति',
+    difficulty: 'medium',
     type: 'mcq',
-    question: 'कछुआ ज़मीन पर कैसे चलता है?',
-    visualEmoji: '🐢 ⏳ vs 🐆 ⚡',
+    question: 'तेंदुए के आने पर कछुआ समय रहते अपने तालाब तक क्यों नहीं पहुँच सका?',
+    visualEmoji: '🐢 ⏳ 🐆',
     payload: {
       options: [
-        { id: 'opt_sp1_1', text: 'बहुत धीमी चाल से 🐢', isCorrect: true },
-        { id: 'opt_sp1_2', text: 'बिजली जैसी तेज रफ्तार से', isCorrect: false },
-        { id: 'opt_sp1_3', text: 'फुदक-फुदक कर', isCorrect: false },
+        { id: 'opt_ts5_1', text: 'क्योंकि कछुआ बहुत धीमी चाल से चलता है', isCorrect: true },
+        { id: 'opt_ts5_2', text: 'क्योंकि वह रास्ता भूल गया था', isCorrect: false },
+        { id: 'opt_ts5_3', text: 'क्योंकि उसे नींद आ रही थी', isCorrect: false },
       ],
     },
-    explanation: '💡 कछुआ अपनी **धीमी चाल** के लिए जाना जाता है! 🐢',
+    explanation: '💡 कछुआ अपनी धीमी चाल के कारण एक छलाँग में तालाब तक नहीं पहुँच सका!',
+    points: 10,
+  },
+  {
+    id: 'c2_h5_concept_soft_fill',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'मुलायम होने का बहाना',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'लोमड़ी ने तेंदुए से कहा: इसे पानी में फेंक दो, थोड़ी देर में इसका सख्त खोल [BLANK] हो जाएगा।',
+    visualEmoji: '🦊 🗣️ 🐢',
+    payload: {
+      correctAnswer: 'मुलायम',
+      wordBank: ['मुलायम', 'पत्थर', 'कठोर', 'खट्टा'],
+      displayTemplate: 'कछुए का खोल [BLANK] हो जाएगा।',
+    },
+    explanation: '💡 लोमड़ी ने चालाकी से कहा कि पानी में डालने से खोल नरम (मुलायम) हो जाएगा!',
+    points: 10,
+  },
+  {
+    id: 'c2_h5_concept_drag_story',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'कहानी के घटनाक्रम का क्रम',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'कहानी \'दोस्त की मदद\' की घटनाओं को सही क्रम में लगाइए:',
+    visualEmoji: '📖 🦊 🐢 🐆',
+    payload: {
+      tokens: [
+        'कछुआ और लोमड़ी गपशप कर रहे थे',
+        'अचानक एक भूखा तेंदुआ वहाँ आ धमका',
+        'तेंदुए ने कछुए को मुँह में पकड़ लिया',
+        'लोमड़ी की तरकीब से कछुआ पानी में चला गया',
+      ],
+      scrambled: [
+        'तेंदुए ने कछुए को मुँह में पकड़ लिया',
+        'कछुआ और लोमड़ी गपशप कर रहे थे',
+        'लोमड़ी की तरकीब से कछुआ पानी में चला गया',
+        'अचानक एक भूखा तेंदुआ वहाँ आ धमका',
+      ],
+      correctSequence: [
+        'कछुआ और लोमड़ी गपशप कर रहे थे',
+        'अचानक एक भूखा तेंदुआ वहाँ आ धमका',
+        'तेंदुए ने कछुए को मुँह में पकड़ लिया',
+        'लोमड़ी की तरकीब से कछुआ पानी में चला गया',
+      ],
+    },
+    explanation: '💡 सही क्रम: गपशप -> तेंदुआ आया -> कछुए को पकड़ा -> तरकीब से पानी में चला गया!',
+    points: 15,
+  },
+  {
+    id: 'c2_h5_concept_match_pairs',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'जीवों और उनके आवास का मिलान',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'प्रत्येक जीव को उसके रहने के स्थान (घर) से मिलाइए:',
+    visualEmoji: '🏠 🦁 🐦 🐟 🐇',
+    payload: {
+      pairs: [
+        { id: 'm_h5_h1', left: 'शेर और लोमड़ी', right: 'माँद (गुफ़ा)' },
+        { id: 'm_h5_h2', left: 'पक्षी', right: 'घोंसला' },
+        { id: 'm_h5_h3', left: 'मछली और कछुआ', right: 'जल / तालाब' },
+        { id: 'm_h5_h4', left: 'खरगोश और चूहा', right: 'बिल' },
+      ],
+    },
+    explanation: '💡 शेर/लोमड़ी = माँद; पक्षी = घोंसला; मछली/कछुआ = जल; खरगोश/चूहा = बिल!',
+    points: 15,
+  },
+  {
+    id: 'c2_h5_concept_action_diff',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'क्रिया और संज्ञा में भेद',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'इनमें से कौन सा शब्द कोई काम (क्रिया) नहीं है, बल्कि एक प्राणी का नाम (संज्ञा) है?',
+    visualEmoji: '🐢 🏃 🏊',
+    payload: {
+      options: [
+        { id: 'opt_ad5_1', text: 'कछुआ', isCorrect: true },
+        { id: 'opt_ad5_2', text: 'तैरना', isCorrect: false },
+        { id: 'opt_ad5_3', text: 'दौड़ना', isCorrect: false },
+        { id: 'opt_ad5_4', text: 'छिपना', isCorrect: false },
+      ],
+    },
+    explanation: '💡 तैरना, दौड़ना और छिपना काम (क्रियाएँ) हैं; "कछुआ" एक जीव का नाम (संज्ञा) है!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: वाक्य क्रम (Drag Order)
+  // HARD LEVEL (5 Questions) — वाक्य में क्रियाओं की गिनती, मित्रता की सीख व पहेली
   // --------------------------------------------------------------------------
   {
-    id: 'c2_h5_concept_order_01',
+    id: 'c2_h5_hard_count_verbs',
     grade: 2,
     subject: 'hindi',
     chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
-    concept: 'दोस्ती वाक्य क्रम',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'शब्दों को सही क्रम में लगाकर सच्ची दोस्ती की सीख का वाक्य बनाइए:',
-    visualEmoji: '🤝 🦊 🐢',
+    concept: 'वाक्य में क्रिया शब्दों की कुल संख्या',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'वाक्य पढ़िए: "रोहन मैदान में दौड़ता है, ऊँचा उछलता है और गेंद फेंकता है।" इस वाक्य में कुल कितने क्रिया (काम वाले) शब्द हैं?',
+    visualEmoji: '🏃‍♂️ 🤸 ⚾',
     payload: {
-      tokens: ['सच्चे', 'दोस्त', 'मुसीबत', 'में', 'मदद', 'करते', 'हैं।'],
-      scrambled: ['मदद', 'सच्चे', 'हैं।', 'में', 'दोस्त', 'करते', 'मुसीबत'],
-      correctSequence: ['सच्चे', 'दोस्त', 'मुसीबत', 'में', 'मदद', 'करते', 'हैं।'],
-    },
-    explanation: '💡 सही वाक्य: "**सच्चे दोस्त मुसीबत में मदद करते हैं।**" 🤝',
-    points: 15,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: काम वाले शब्दों का जानवरों से मिलान
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_h5_concept_match_01',
-    grade: 2,
-    subject: 'hindi',
-    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
-    concept: 'जीव और उनकी क्रिया का मिलान',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'प्रत्येक जीव को उसके स्वाभाविक काम (क्रिया) से मिलाइए:',
-    visualEmoji: '🐟 🐦 🐆 🐢',
-    payload: {
-      pairs: [
-        { id: 'kr_p1', left: 'मछली 🐟', right: 'जल में तैरना' },
-        { id: 'kr_p2', left: 'चिड़िया 🐦', right: 'आकाश में उड़ना' },
-        { id: 'kr_p3', left: 'तेंदुआ 🐆', right: 'तेज छलाँग लगाना' },
-        { id: 'kr_p4', left: 'कछुआ 🐢', right: 'धीमे-धीमे रेंगना' },
+      options: [
+        { id: 'opt_cv5_1', text: '3 क्रिया शब्द (दौड़ता, उछलता, फेंकता)', isCorrect: true },
+        { id: 'opt_cv5_2', text: '1 क्रिया शब्द', isCorrect: false },
+        { id: 'opt_cv5_3', text: '2 क्रिया शब्द', isCorrect: false },
+        { id: 'opt_cv5_4', text: '4 क्रिया शब्द', isCorrect: false },
       ],
     },
-    explanation: '💡 मछली तैरती है, चिड़िया उड़ती है, तेंदुआ छलाँग लगाता है, कछुआ रेंगता है!',
+    explanation: '💡 दौड़ता, उछलता, और फेंकता — ये तीनों शारीरिक काम बताने वाली क्रियाएँ हैं!',
+    points: 15,
+  },
+  {
+    id: 'c2_h5_hard_fill_moral',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'सच्ची मित्रता की सीख',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'सच्चा मित्र वही होता है जो संकट और मुसीबत के समय अपने मित्र की पूरी समझदारी से [BLANK] करता है।',
+    visualEmoji: '🤝 🦊 🐢',
+    payload: {
+      correctAnswer: 'मदद',
+      wordBank: ['मदद', 'हँसी', 'उपेक्षा', 'शिकायत'],
+      displayTemplate: 'सच्चा मित्र संकट में [BLANK] करता है।',
+    },
+    explanation: '💡 "दोस्त की मदद" कहानी हमें सिखाती है कि मित्र की विपत्ति में सूझबूझ से मदद करनी चाहिए!',
+    points: 15,
+  },
+  {
+    id: 'c2_h5_hard_drag_movements',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'जीवों की चाल का गति क्रम',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'जीवों की चलने की गति को सबसे धीमी से सबसे तेज के क्रम में लगाइए:',
+    visualEmoji: '🐢 ➡️ 🐸 ➡️ 🐎 ➡️ 🐆',
+    payload: {
+      tokens: ['कछुआ (धीमी चाल)', 'मेंढक (फुदकना)', 'घोड़ा (दौड़ना)', 'चीता (सरपट रफ्तार)'],
+      scrambled: ['घोड़ा (दौड़ना)', 'चीता (सरपट रफ्तार)', 'कछुआ (धीमी चाल)', 'मेंढक (फुदकना)'],
+      correctSequence: ['कछुआ (धीमी चाल)', 'मेंढक (फुदकना)', 'घोड़ा (दौड़ना)', 'चीता (सरपट रफ्तार)'],
+    },
+    explanation: '💡 गति क्रम: कछुआ -> मेंढक -> घोड़ा -> चीता!',
+    points: 15,
+  },
+  {
+    id: 'c2_h5_hard_match_actions',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'जीव और उनकी स्वाभाविक क्रिया',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'प्रत्येक जीव को उसकी विशेष क्रिया से मिलाइए:',
+    visualEmoji: '🐒 🐢 🐸 🦅',
+    payload: {
+      pairs: [
+        { id: 'm_h5_a1', left: 'बंदर', right: 'पेड़ की डालियों पर झूलना' },
+        { id: 'm_h5_a2', left: 'कछुआ', right: 'जल में तैरना' },
+        { id: 'm_h5_a3', left: 'मेंढक', right: 'फुदक-फुदक कर उछलना' },
+        { id: 'm_h5_a4', left: 'चील', right: 'आकाश में ऊँचा उड़ना' },
+      ],
+    },
+    explanation: '💡 बंदर झूलता है, कछुआ तैरता है, मेंढक फुदकता है, चील उड़ती है!',
+    points: 15,
+  },
+  {
+    id: 'c2_h5_hard_kriya_riddle',
+    grade: 2,
+    subject: 'hindi',
+    chapter: 'दोस्त की मदद (काम वाले शब्द - क्रिया)',
+    concept: 'क्रिया की परिभाषा पहेली',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'मैं बताता हूँ कि वाक्य में कौन सा काम हो रहा है — जैसे पढ़ना, लिखना, खेलना, हँसना या तैरना। व्याकरण में मुझे क्या कहते हैं?',
+    visualEmoji: '🏊 ✍️ 🏃 ❓',
+    payload: {
+      options: [
+        { id: 'opt_kr5_1', text: 'क्रिया (काम वाले शब्द)', isCorrect: true },
+        { id: 'opt_kr5_2', text: 'संज्ञा (नाम)', isCorrect: false },
+        { id: 'opt_kr5_3', text: 'विशेषण (गुण)', isCorrect: false },
+        { id: 'opt_kr5_4', text: 'वचन', isCorrect: false },
+      ],
+    },
+    explanation: '💡 जिस शब्द से किसी कार्य के होने या करने का पता चलता है, उसे क्रिया कहते हैं!',
     points: 15,
   },
 ];

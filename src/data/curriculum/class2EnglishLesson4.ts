@@ -2,13 +2,14 @@ import { Question } from '../../types';
 
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
-// CHAPTER 4: PRONOUNS (I, YOU, WE, THEY)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// CHAPTER 4: PRONOUNS (I, YOU, WE, THEY, HE, SHE, IT)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Pronoun "WE" (You + Someone Else)
+  // EASY LEVEL (5 Questions) — Identifying We, They, and It
   // --------------------------------------------------------------------------
   {
     id: 'c2_e4_concept_we_01',
@@ -18,7 +19,7 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     concept: 'Pronoun WE Identification',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Read the sentence: "My brother and I 👦👧 love drawing pictures. [BLANK] use bright crayons." What word replaces "My brother and I"?',
+    question: 'Read the sentence: "My brother and I love drawing pictures. [BLANK] use bright crayons." What pronoun replaces "My brother and I"?',
     visualEmoji: '👦👧 🖍️',
     payload: {
       options: [
@@ -27,7 +28,7 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
         { id: 'opt_we1_3', text: 'HE', isCorrect: false },
       ],
     },
-    explanation: '💡 When you are included with another person ("Me + Someone"), use **WE**! 👦👧',
+    explanation: '💡 When you are included with another person (I + someone else), use the pronoun WE!',
     points: 10,
   },
   {
@@ -45,13 +46,9 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
       wordBank: ['We', 'He', 'It', 'She'],
       displayTemplate: '[BLANK] are best friends.',
     },
-    explanation: '💡 Aman and I = **We**! 🤝',
+    explanation: '💡 Aman and I = We!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Pronoun "THEY" (A Group of Other People or Animals)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_e4_concept_they_01',
     grade: 2,
@@ -60,7 +57,7 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     concept: 'Pronoun THEY for Multiple People',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Look at the children in the garden: "Riya, Mohan, and Kabir are laughing 😄. [BLANK] are playing hide and seek."',
+    question: 'Look at the children in the garden: "Riya and Mohan are laughing. [BLANK] are playing hide and seek."',
     visualEmoji: '👥 🌳',
     payload: {
       options: [
@@ -69,7 +66,7 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
         { id: 'opt_th1_3', text: 'IT', isCorrect: false },
       ],
     },
-    explanation: '💡 When talking about a group of other people, use **THEY**!',
+    explanation: '💡 When talking about a group of other people, use the pronoun THEY!',
     points: 10,
   },
   {
@@ -77,112 +74,256 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     grade: 2,
     subject: 'english',
     chapter: 'Pronouns (I, You, We, They)',
-    concept: 'They for Animals',
+    concept: 'They for Plural Animals',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'The three cute ducks swam across the lake 🦆🦆🦆. [BLANK] quacked happily.',
+    question: 'The three ducks swam across the blue lake. [BLANK] quacked happily in the water.',
     visualEmoji: '🦆🦆🦆 🌊',
     payload: {
       correctAnswer: 'They',
       wordBank: ['They', 'He', 'It', 'She'],
       displayTemplate: '[BLANK] quacked happily.',
     },
-    explanation: '💡 For more than one animal (plural), we use **They**! 🦆',
+    explanation: '💡 For more than one animal or thing, we use the pronoun They!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Pronoun "YOU" (Speaking directly to someone)
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_e4_concept_you_01',
+    id: 'c2_e4_concept_it_01',
     grade: 2,
     subject: 'english',
     chapter: 'Pronouns (I, You, We, They)',
-    concept: 'Pronoun YOU in Dialogue',
+    concept: 'Pronoun IT for Objects',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'The teacher smiles and asks Rohan: "[BLANK] are doing wonderful work today, Rohan!"',
-    visualEmoji: '👩‍🏫 👉 👦',
+    question: 'Which pronoun replaces the non-living object "The shiny red bicycle"?',
+    visualEmoji: '🚲 ✨',
     payload: {
       options: [
-        { id: 'opt_yu1_1', text: 'YOU', isCorrect: true },
-        { id: 'opt_yu1_2', text: 'THEY', isCorrect: false },
-        { id: 'opt_yu1_3', text: 'WE', isCorrect: false },
+        { id: 'opt_it1_1', text: 'IT', isCorrect: true },
+        { id: 'opt_it1_2', text: 'HE', isCorrect: false },
+        { id: 'opt_it1_3', text: 'SHE', isCorrect: false },
       ],
     },
-    explanation: '💡 When talking directly to the person in front of you, use **YOU**!',
+    explanation: '💡 We use "IT" for single objects, things, and animals!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 4: Helping Verbs Agreement (I AM vs WE/THEY/YOU ARE)
+  // MEDIUM LEVEL (5 Questions) — He, She, You, Matching & Capital I
   // --------------------------------------------------------------------------
   {
-    id: 'c2_e4_concept_verb_01',
+    id: 'c2_e4_concept_he_she',
     grade: 2,
     subject: 'english',
     chapter: 'Pronouns (I, You, We, They)',
-    concept: 'Agreement with "AM" and "ARE"',
+    concept: 'Pronoun SHE for Female Person',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Which pronoun ALWAYS pairs with the helping word "AM"?',
-    visualEmoji: '💡 🔤',
+    question: 'Mrs. Sharma is our kind science teacher. [BLANK] explains lessons with fun experiments.',
+    visualEmoji: '👩‍🏫 🔬',
     payload: {
       options: [
-        { id: 'opt_am1_1', text: 'I', isCorrect: true },
-        { id: 'opt_am1_2', text: 'We am', isCorrect: false },
-        { id: 'opt_am1_3', text: 'They am', isCorrect: false },
+        { id: 'opt_sh4_1', text: 'She', isCorrect: true },
+        { id: 'opt_sh4_2', text: 'He', isCorrect: false },
+        { id: 'opt_sh4_3', text: 'It', isCorrect: false },
       ],
     },
-    explanation: '💡 "AM" is ONLY used with "**I**": "I am ready!" 🌟',
+    explanation: '💡 Mrs. Sharma is a woman/female teacher, so we use the pronoun "She"!',
+    points: 10,
+  },
+  {
+    id: 'c2_e4_concept_fill_he',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Pronouns (I, You, We, They)',
+    concept: 'Pronoun HE for Male Person',
+    difficulty: 'medium',
+    type: 'fill_blank',
+    question: 'Rahul loves reading books in the library. [BLANK] likes adventure stories.',
+    visualEmoji: '👦 📖',
+    payload: {
+      correctAnswer: 'He',
+      wordBank: ['He', 'She', 'It', 'They'],
+      displayTemplate: '[BLANK] likes adventure stories.',
+    },
+    explanation: '💡 Rahul is a boy, so the correct pronoun is "He"!',
+    points: 10,
+  },
+  {
+    id: 'c2_e4_concept_drag_pronouns',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Pronouns (I, You, We, They)',
+    concept: 'Pronoun Person Classification',
+    difficulty: 'medium',
+    type: 'drag_order',
+    question: 'Arrange these pronouns in grammatical order: 1st Person -> 2nd Person -> 3rd Person -> Plural Group:',
+    visualEmoji: '1️⃣ ➡️ 2️⃣ ➡️ 3️⃣ 👥',
+    payload: {
+      tokens: ['I (1st Person)', 'You (2nd Person)', 'He / She (3rd Person)', 'They (Plural Group)'],
+      scrambled: ['He / She (3rd Person)', 'They (Plural Group)', 'I (1st Person)', 'You (2nd Person)'],
+      correctSequence: ['I (1st Person)', 'You (2nd Person)', 'He / She (3rd Person)', 'They (Plural Group)'],
+    },
+    explanation: '💡 I = 1st person; You = 2nd person; He/She = 3rd person; They = 3rd person plural!',
+    points: 15,
+  },
+  {
+    id: 'c2_e4_concept_match_pairs',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Pronouns (I, You, We, They)',
+    concept: 'Nouns to Pronouns Replacement Match',
+    difficulty: 'medium',
+    type: 'match_pairs',
+    question: 'Match each naming word with the correct pronoun that replaces it:',
+    visualEmoji: '👴 👵 ⏰ 👧👦',
+    payload: {
+      pairs: [
+        { id: 'm_e4_p1', left: 'Grandfather', right: 'He' },
+        { id: 'm_e4_p2', left: 'Mother', right: 'She' },
+        { id: 'm_e4_p3', left: 'Clock on the wall', right: 'It' },
+        { id: 'm_e4_p4', left: 'Children in the park', right: 'They' },
+      ],
+    },
+    explanation: '💡 Grandfather = He; Mother = She; Clock = It; Children = They!',
+    points: 15,
+  },
+  {
+    id: 'c2_e4_concept_capital_i',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Pronouns (I, You, We, They)',
+    concept: 'Capitalization of Pronoun I',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'What is the golden spelling rule for the pronoun "I" when talking about yourself in English?',
+    visualEmoji: 'ℹ️ 🔤',
+    payload: {
+      options: [
+        { id: 'opt_ci4_1', text: 'It is ALWAYS written as a capital letter "I"', isCorrect: true },
+        { id: 'opt_ci4_2', text: 'It is always written in lowercase "i"', isCorrect: false },
+        { id: 'opt_ci4_3', text: 'It can only be used on Sundays', isCorrect: false },
+      ],
+    },
+    explanation: '💡 The pronoun "I" is always capitalized, no matter where it appears in a sentence!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 5: Unscramble Pronoun Sentence (Drag Order)
+  // HARD LEVEL (5 Questions) — Contextual Replacement, Direct Address & Riddles
   // --------------------------------------------------------------------------
   {
-    id: 'c2_e4_concept_order_01',
+    id: 'c2_e4_hard_replace_both',
     grade: 2,
     subject: 'english',
     chapter: 'Pronouns (I, You, We, They)',
-    concept: 'Pronoun Sentence Structure',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Put these words in order to form a friendly sentence with "We":',
-    visualEmoji: '👫 ⚽ 🏞️',
+    concept: 'Contextual Pronoun Replacement',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Which sentence replaces repeated nouns properly: "Aryan found a stray puppy. Aryan brought the puppy home."',
+    visualEmoji: '👦 🐶 🏡',
     payload: {
-      tokens: ['We', 'play', 'together', 'every', 'evening.'],
-      scrambled: ['every', 'play', 'We', 'evening.', 'together'],
-      correctSequence: ['We', 'play', 'together', 'every', 'evening.'],
-    },
-    explanation: '💡 Correct order: "**We play together every evening.**" 👫',
-    points: 15,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Match Groups of Nouns to Correct Pronouns
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_e4_concept_match_01',
-    grade: 2,
-    subject: 'english',
-    chapter: 'Pronouns (I, You, We, They)',
-    concept: 'Noun to Pronoun Match',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match each naming group to the single pronoun that can replace it:',
-    visualEmoji: '🔄 🏷️',
-    payload: {
-      pairs: [
-        { id: 'pn_p1', left: 'My mother and I 👩‍👧', right: 'We' },
-        { id: 'pn_p2', left: 'The noisy monkeys 🐒🐒', right: 'They' },
-        { id: 'pn_p3', left: 'Grandfather 👴', right: 'He' },
-        { id: 'pn_p4', left: 'The little princess 👸', right: 'She' },
+      options: [
+        { id: 'opt_rb4_1', text: 'Aryan found a stray puppy. He brought it home.', isCorrect: true },
+        { id: 'opt_rb4_2', text: 'Aryan found a stray puppy. She brought they home.', isCorrect: false },
+        { id: 'opt_rb4_3', text: 'Aryan found a stray puppy. It brought he home.', isCorrect: false },
+        { id: 'opt_rb4_4', text: 'Aryan found a stray puppy. They brought we home.', isCorrect: false },
       ],
     },
-    explanation: '💡 Me + mother = We, Monkeys = They, Grandfather = He, Princess = She!',
+    explanation: '💡 "Aryan" is replaced by "He", and "the puppy" is replaced by "it"!',
+    points: 15,
+  },
+  {
+    id: 'c2_e4_hard_fill_we_they',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Pronouns (I, You, We, They)',
+    concept: 'Direct Address Pronoun YOU',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: '"Will [BLANK] come to my birthday party?" asked Kabir directly to his friend Rohan.',
+    visualEmoji: '🎂 🎁 ❓',
+    payload: {
+      correctAnswer: 'you',
+      wordBank: ['you', 'they', 'it', 'she'],
+      displayTemplate: '"Will [BLANK] come to my party?"',
+    },
+    explanation: '💡 When speaking directly to the person in front of you, use the pronoun "you"!',
+    points: 15,
+  },
+  {
+    id: 'c2_e4_hard_drag_replace',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Pronouns (I, You, We, They)',
+    concept: 'Story Flow with Pronouns',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these story sentences so the pronouns flow logically:',
+    visualEmoji: '📖 👦 🥞 🍽️',
+    payload: {
+      tokens: [
+        'Rohan woke up early.',
+        'He brushed his teeth.',
+        'His mother made warm pancakes.',
+        'They ate breakfast happily together.',
+      ],
+      scrambled: [
+        'They ate breakfast happily together.',
+        'His mother made warm pancakes.',
+        'Rohan woke up early.',
+        'He brushed his teeth.',
+      ],
+      correctSequence: [
+        'Rohan woke up early.',
+        'He brushed his teeth.',
+        'His mother made warm pancakes.',
+        'They ate breakfast happily together.',
+      ],
+    },
+    explanation: '💡 Rohan (noun) -> He (pronoun) -> Mother introduces second character -> They (both eating together)!',
+    points: 15,
+  },
+  {
+    id: 'c2_e4_hard_match_pronoun_groups',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Pronouns (I, You, We, They)',
+    concept: 'Complex Noun Groups to Pronouns',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each subject group with the single pronoun that can replace it:',
+    visualEmoji: '👨‍👩‍👧 🐕🐕 🌳 👨‍🦳',
+    payload: {
+      pairs: [
+        { id: 'm_e4_g1', left: 'My family and I', right: 'We' },
+        { id: 'm_e4_g2', left: 'Two barking street dogs', right: 'They' },
+        { id: 'm_e4_g3', left: 'The tall banyan tree', right: 'It' },
+        { id: 'm_e4_g4', left: 'Uncle Suresh', right: 'He' },
+      ],
+    },
+    explanation: '💡 My family and I = We; Plural animals = They; Single tree = It; Uncle Suresh = He!',
+    points: 15,
+  },
+  {
+    id: 'c2_e4_hard_pronoun_riddle',
+    grade: 2,
+    subject: 'english',
+    chapter: 'Pronouns (I, You, We, They)',
+    concept: 'Pronoun Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'I am a short two-letter pronoun. You use me when you are talking about yourself together with your friends or classmates. What pronoun am I?',
+    visualEmoji: '🤝 👦👧 ❓',
+    payload: {
+      options: [
+        { id: 'opt_pr4_1', text: 'We', isCorrect: true },
+        { id: 'opt_pr4_2', text: 'He', isCorrect: false },
+        { id: 'opt_pr4_3', text: 'It', isCorrect: false },
+        { id: 'opt_pr4_4', text: 'Me', isCorrect: false },
+      ],
+    },
+    explanation: '💡 "We" is the subject pronoun used for yourself and your companions together!',
     points: 15,
   },
 ];

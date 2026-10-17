@@ -3,12 +3,13 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 6: DECORATION FOR FESTIVAL (SUBTRACTION)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
 export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: 2-Digit Subtraction Without Regrouping (घटाना)
+  // EASY LEVEL (5 Questions) — 2-Digit Subtraction Without Regrouping & Subtracting Tens
   // --------------------------------------------------------------------------
   {
     id: 'c2_m6_concept_sub_01',
@@ -18,8 +19,8 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
     concept: '2-Digit Column Subtraction',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'For Diwali decoration 🪔, grandmother bought 48 earthen diyas. She placed 25 diyas on the terrace. How many diyas are left to place?',
-    visualEmoji: '🪔 4️⃣8️⃣ - 2️⃣5️⃣ = ❓',
+    question: 'For festival decoration, grandmother bought 48 earthen diyas. She placed 25 diyas on the terrace. How many diyas are left?',
+    visualEmoji: '🪔 4️⃣8️⃣ - 2️⃣5️⃣',
     payload: {
       options: [
         { id: 'opt_sb1_1', text: '23 diyas', isCorrect: true },
@@ -27,7 +28,7 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
         { id: 'opt_sb1_3', text: '25 diyas', isCorrect: false },
       ],
     },
-    explanation: '💡 Step 1: Subtract Ones: 8 - 5 = 3. Step 2: Subtract Tens: 4 - 2 = 2. Answer: **23 diyas**!',
+    explanation: '💡 Step 1: Subtract Ones: 8 - 5 = 3. Step 2: Subtract Tens: 4 - 2 = 2. Total left: 23 diyas!',
     points: 10,
   },
   {
@@ -45,22 +46,18 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
       wordBank: ['52', '51', '66', '42'],
       displayTemplate: '59 - 7 = [BLANK]',
     },
-    explanation: '💡 Subtract 7 from the ones digit: 9 - 7 = 2. Tens digit stays 5. So **52**!',
+    explanation: '💡 Subtract 7 from the ones place: 9 - 7 = 2. Tens digit stays 5, so 52!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Subtracting Tens (दहाई को घटाना)
-  // --------------------------------------------------------------------------
   {
     id: 'c2_m6_concept_tens_01',
     grade: 2,
     subject: 'maths',
     chapter: 'Decoration for Festival (Subtraction)',
-    concept: 'Subtracting Tens',
+    concept: 'Subtracting Multiples of Ten',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'A shopkeeper had 80 festive marigold garlands 🏵️. He sold 30 garlands. How many are left?',
+    question: 'A florist had 80 festive marigold garlands. He sold 30 garlands. How many garlands are left in his shop?',
     visualEmoji: '🏵️ 8️⃣0️⃣ - 3️⃣0️⃣',
     payload: {
       options: [
@@ -69,7 +66,7 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
         { id: 'opt_st1_3', text: '110 garlands', isCorrect: false },
       ],
     },
-    explanation: '💡 8 tens - 3 tens = 5 tens = **50 garlands**!',
+    explanation: '💡 8 tens - 3 tens = 5 tens = 50 garlands!',
     points: 10,
   },
   {
@@ -87,124 +84,231 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
       wordBank: ['65', '74', '85', '60'],
       displayTemplate: '75 - 10 = [BLANK]',
     },
-    explanation: '💡 Subtracting 10 decreases the tens digit by 1: 7 tens becomes 6 tens, so **65**!',
+    explanation: '💡 Subtracting 10 decreases the tens digit by 1: 7 tens becomes 6 tens, giving 65!',
+    points: 10,
+  },
+  {
+    id: 'c2_m6_concept_zero',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Decoration for Festival (Subtraction)',
+    concept: 'Subtracting Zero Property',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'If you subtract zero from 64, what is the answer (64 - 0 = ?)?',
+    visualEmoji: '6️⃣4️⃣ - 0️⃣',
+    payload: {
+      options: [
+        { id: 'opt_zr6_1', text: '64 (Number remains unchanged)', isCorrect: true },
+        { id: 'opt_zr6_2', text: '0', isCorrect: false },
+        { id: 'opt_zr6_3', text: '60', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Subtracting zero leaves the number unchanged: 64 - 0 = 64!',
     points: 10,
   },
 
   // --------------------------------------------------------------------------
-  // CONCEPT 3: Festival Balloon Word Problems
+  // MEDIUM LEVEL (5 Questions) — Festival Stories, Inverse Operations & Matching
   // --------------------------------------------------------------------------
   {
     id: 'c2_m6_concept_story_01',
     grade: 2,
     subject: 'maths',
     chapter: 'Decoration for Festival (Subtraction)',
-    concept: 'Balloons Popping Story',
+    concept: 'Festival Balloons Story Problem',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'For an Eid party 🌙, Ali inflated 67 balloons 🎈. 14 balloons burst with a pop. How many balloons are still floating?',
-    visualEmoji: '🎈 6️⃣7️⃣ - 💥 1️⃣4️⃣',
+    question: 'Rahim had 56 colorful balloons for festival celebration. 24 balloons were given to children. How many balloons are left with Rahim?',
+    visualEmoji: '🎈 5️⃣6️⃣ - 2️⃣4️⃣',
     payload: {
       options: [
-        { id: 'opt_bl1_1', text: '53 balloons', isCorrect: true },
-        { id: 'opt_bl1_2', text: '51 balloons', isCorrect: false },
-        { id: 'opt_bl1_3', text: '81 balloons', isCorrect: false },
+        { id: 'opt_bl6_1', text: '32 balloons', isCorrect: true },
+        { id: 'opt_bl6_2', text: '30 balloons', isCorrect: false },
+        { id: 'opt_bl6_3', text: '42 balloons', isCorrect: false },
       ],
     },
-    explanation: '💡 67 - 14: Ones: 7 - 4 = 3, Tens: 6 - 1 = 5. Total = **53 balloons**! 🎈',
+    explanation: '💡 56 - 24: Ones (6 - 4 = 2) and Tens (5 - 2 = 3). Answer: 32 balloons!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Difference Between Two Amounts ("How Many More?")
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m6_concept_diff_01',
+    id: 'c2_m6_concept_inverse',
     grade: 2,
     subject: 'maths',
     chapter: 'Decoration for Festival (Subtraction)',
-    concept: 'Difference in Rangoli Colors',
+    concept: 'Inverse Relation of Addition and Subtraction',
     difficulty: 'medium',
     type: 'fill_blank',
-    question: 'Kiran made 46 clay lamps and Sunita made 31 clay lamps 🪔. Kiran made [BLANK] more lamps than Sunita.',
-    visualEmoji: '🪔 4️⃣6️⃣ - 3️⃣1️⃣',
+    question: 'Since 25 + 15 = 40, what is 40 - 15? 40 - 15 = [BLANK].',
+    visualEmoji: '🔄 4️⃣0️⃣ - 1️⃣5️⃣',
     payload: {
-      correctAnswer: '15',
-      wordBank: ['15', '12', '77', '14'],
-      displayTemplate: 'Kiran made [BLANK] more lamps than Sunita.',
+      correctAnswer: '25',
+      wordBank: ['25', '15', '35', '55'],
+      displayTemplate: '40 - 15 = [BLANK]',
     },
-    explanation: '💡 Subtract 31 from 46: 46 - 31 = **15 more lamps**!',
+    explanation: '💡 Subtraction is the opposite of addition. If 25 + 15 = 40, then 40 - 15 = 25!',
     points: 10,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 5: Checking Subtraction with Addition
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m6_concept_check_01',
+    id: 'c2_m6_concept_drag_diff',
     grade: 2,
     subject: 'maths',
     chapter: 'Decoration for Festival (Subtraction)',
-    concept: 'Inverse Relation of Subtraction and Addition',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'If 60 - 20 = 40, which addition fact checks and proves your answer?',
-    visualEmoji: '🔄 ➕ ➖',
-    payload: {
-      options: [
-        { id: 'opt_ck1_1', text: '40 + 20 = 60', isCorrect: true },
-        { id: 'opt_ck1_2', text: '60 + 20 = 80', isCorrect: false },
-        { id: 'opt_ck1_3', text: '40 + 40 = 80', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Subtraction undoes addition: **40 + 20 = 60** proves that 60 - 20 = 40!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 6: Decreasing Number Track by 10s (Drag Order)
-  // --------------------------------------------------------------------------
-  {
-    id: 'c2_m6_concept_order_01',
-    grade: 2,
-    subject: 'maths',
-    chapter: 'Decoration for Festival (Subtraction)',
-    concept: 'Subtracting 10s in Sequence',
+    concept: 'Ordering Subtraction Differences',
     difficulty: 'medium',
     type: 'drag_order',
-    question: 'Arrange the countdown numbers from LARGEST to SMALLEST by subtracting 10:',
-    visualEmoji: '📉 🔟 9️⃣0️⃣ ➡️ 5️⃣0️⃣',
+    question: 'Arrange these subtraction expressions in order of their answers from smallest to largest:',
+    visualEmoji: '📉 1️⃣5️⃣ ➡️ 2️⃣5️⃣ ➡️ 4️⃣0️⃣ ➡️ 5️⃣5️⃣',
     payload: {
-      tokens: ['90', '80', '70', '60', '50'],
-      scrambled: ['70', '90', '50', '80', '60'],
-      correctSequence: ['90', '80', '70', '60', '50'],
+      tokens: ['20 - 5 (= 15)', '50 - 25 (= 25)', '60 - 20 (= 40)', '70 - 15 (= 55)'],
+      scrambled: ['60 - 20 (= 40)', '20 - 5 (= 15)', '70 - 15 (= 55)', '50 - 25 (= 25)'],
+      correctSequence: ['20 - 5 (= 15)', '50 - 25 (= 25)', '60 - 20 (= 40)', '70 - 15 (= 55)'],
     },
-    explanation: '💡 Subtracting 10 repeatedly: **90 -> 80 -> 70 -> 60 -> 50**!',
+    explanation: '💡 In order of answers: 15 < 25 < 40 < 55!',
     points: 15,
   },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 7: Match Differences to Equations
-  // --------------------------------------------------------------------------
   {
-    id: 'c2_m6_concept_match_01',
+    id: 'c2_m6_concept_match_pairs',
     grade: 2,
     subject: 'maths',
     chapter: 'Decoration for Festival (Subtraction)',
-    concept: 'Subtraction Match Pairs',
+    concept: '2-Digit Subtraction Facts Match',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each subtraction problem to its correct answer:',
+    question: 'Match each subtraction problem with its correct answer:',
+    visualEmoji: '🎯 ➖',
+    payload: {
+      pairs: [
+        { id: 'm6_s1', left: '38 - 14', right: '24' },
+        { id: 'm6_s2', left: '65 - 32', right: '33' },
+        { id: 'm6_s3', left: '87 - 45', right: '42' },
+        { id: 'm6_s4', left: '99 - 50', right: '49' },
+      ],
+    },
+    explanation: '💡 38 - 14 = 24; 65 - 32 = 33; 87 - 45 = 42; 99 - 50 = 49!',
+    points: 15,
+  },
+  {
+    id: 'c2_m6_concept_self_sub',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Decoration for Festival (Subtraction)',
+    concept: 'Subtracting a Number from Itself',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'Ananya baked 36 festive cookies. She shared all 36 cookies with her classmates. How many cookies are left with Ananya?',
+    visualEmoji: '🍪 3️⃣6️⃣ - 3️⃣6️⃣',
+    payload: {
+      options: [
+        { id: 'opt_ss6_1', text: '0 cookies', isCorrect: true },
+        { id: 'opt_ss6_2', text: '1 cookie', isCorrect: false },
+        { id: 'opt_ss6_3', text: '36 cookies', isCorrect: false },
+      ],
+    },
+    explanation: '💡 When you subtract a number from itself, the answer is always zero: 36 - 36 = 0!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // HARD LEVEL (5 Questions) — Regrouping Subtraction (Borrowing) & Multi-Step Logic
+  // --------------------------------------------------------------------------
+  {
+    id: 'c2_m6_hard_regroup_01',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Decoration for Festival (Subtraction)',
+    concept: '2-Digit Subtraction with Regrouping (Borrowing)',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Grandfather made 52 decorative paper lanterns. He distributed 18 to neighbors. How many lanterns remain? (52 - 18 = ?)',
+    visualEmoji: '🏮 5️⃣2️⃣ - 1️⃣8️⃣',
+    payload: {
+      options: [
+        { id: 'opt_lt6_1', text: '34 lanterns', isCorrect: true },
+        { id: 'opt_lt6_2', text: '44 lanterns', isCorrect: false },
+        { id: 'opt_lt6_3', text: '36 lanterns', isCorrect: false },
+        { id: 'opt_lt6_4', text: '24 lanterns', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Borrow 1 ten: 12 ones - 8 ones = 4 ones. Remaining tens: 4 tens - 1 ten = 3 tens. Total = 34 lanterns!',
+    points: 15,
+  },
+  {
+    id: 'c2_m6_hard_fill_borrow',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Decoration for Festival (Subtraction)',
+    concept: 'Subtracting from a Multiple of Ten',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'A sweet shop prepared 70 laddus for the festival. 25 laddus were sold in the morning. How many laddus are left? 70 - 25 = [BLANK].',
+    visualEmoji: '🍬 7️⃣0️⃣ - 2️⃣5️⃣',
+    payload: {
+      correctAnswer: '45',
+      wordBank: ['45', '55', '35', '50'],
+      displayTemplate: '70 - 25 = [BLANK] laddus',
+    },
+    explanation: '💡 70 - 20 = 50, and 50 - 5 = 45 laddus left!',
+    points: 15,
+  },
+  {
+    id: 'c2_m6_hard_riddle',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Decoration for Festival (Subtraction)',
+    concept: 'Reverse Subtraction Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'A gardener had some flower pots for the flower show. After 16 pots were damaged, he still had 34 good flower pots left. How many flower pots did he have originally?',
+    visualEmoji: '🪴 ❓ - 1️⃣6️⃣ = 3️⃣4️⃣',
+    payload: {
+      options: [
+        { id: 'opt_fp6_1', text: '50 flower pots', isCorrect: true },
+        { id: 'opt_fp6_2', text: '48 flower pots', isCorrect: false },
+        { id: 'opt_fp6_3', text: '18 flower pots', isCorrect: false },
+        { id: 'opt_fp6_4', text: '52 flower pots', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Add the remaining pots to the damaged pots: 34 + 16 = 50 flower pots originally!',
+    points: 15,
+  },
+  {
+    id: 'c2_m6_hard_drag_diffs',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Decoration for Festival (Subtraction)',
+    concept: 'Ordering Multi-Digit Subtractions',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange these subtraction problems from smallest remaining answer to largest remaining answer:',
+    visualEmoji: '📊 2️⃣0️⃣ ➡️ 3️⃣2️⃣ ➡️ 5️⃣0️⃣ ➡️ 6️⃣8️⃣ ➡️ 8️⃣0️⃣',
+    payload: {
+      tokens: ['45 - 25 (= 20)', '62 - 30 (= 32)', '75 - 25 (= 50)', '88 - 20 (= 68)', '95 - 15 (= 80)'],
+      scrambled: ['88 - 20 (= 68)', '45 - 25 (= 20)', '95 - 15 (= 80)', '62 - 30 (= 32)', '75 - 25 (= 50)'],
+      correctSequence: ['45 - 25 (= 20)', '62 - 30 (= 32)', '75 - 25 (= 50)', '88 - 20 (= 68)', '95 - 15 (= 80)'],
+    },
+    explanation: '💡 Differences in order: 20 < 32 < 50 < 68 < 80!',
+    points: 15,
+  },
+  {
+    id: 'c2_m6_hard_match_regroup',
+    grade: 2,
+    subject: 'maths',
+    chapter: 'Decoration for Festival (Subtraction)',
+    concept: 'Regrouping Subtraction Match',
+    difficulty: 'hard',
+    type: 'match_pairs',
+    question: 'Match each subtraction problem with regrouping to its correct answer:',
     visualEmoji: '➖ 🎯',
     payload: {
       pairs: [
-        { id: 'sb_p1', left: '50 - 20', right: '30' },
-        { id: 'sb_p2', left: '76 - 12', right: '64' },
-        { id: 'sb_p3', left: '88 - 44', right: '44' },
-        { id: 'sb_p4', left: '99 - 10', right: '89' },
+        { id: 'm6_rg1', left: '43 - 18', right: '25' },
+        { id: 'm6_rg2', left: '61 - 27', right: '34' },
+        { id: 'm6_rg3', left: '82 - 35', right: '47' },
+        { id: 'm6_rg4', left: '94 - 46', right: '48' },
       ],
     },
-    explanation: '💡 50-20=30, 76-12=64, 88-44=44, 99-10=89!',
+    explanation: '💡 43 - 18 = 25; 61 - 27 = 34; 82 - 35 = 47; 94 - 46 = 48!',
     points: 15,
   },
 ];
