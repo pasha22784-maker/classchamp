@@ -165,13 +165,13 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c6_m_10', number: 10, title: 'Algebra (Variables & Expressions)', grade: 6, subject: 'maths', icon: '💡', conceptSummary: 'NCERT: Matchstick patterns, x and y variables' },
   { id: 'c6_m_11', number: 11, title: 'Ratio and Proportion (Unitary Method)', grade: 6, subject: 'maths', icon: '⚖️', conceptSummary: 'NCERT: Comparing quantities, unitary calculations' },
 
-  { id: 'c6_e_01', number: 1, title: 'A Tale of Two Birds & Sentences', grade: 6, subject: 'english', icon: '🦅', conceptSummary: 'NCERT: Story comprehension & moral reflection' },
-  { id: 'c6_e_02', number: 2, title: 'Kinds of Sentences (Declarative, Question, Exclamatory)', grade: 6, subject: 'english', icon: '📝', conceptSummary: 'NCERT: 4 sentence types and terminal punctuation' },
-  { id: 'c6_e_03', number: 3, title: 'Subject-Verb Agreement', grade: 6, subject: 'english', icon: '🤝', conceptSummary: 'NCERT: Singular/Plural subjects matching verbs' },
-  { id: 'c6_e_04', number: 4, title: 'Verb Tenses (Simple, Continuous, Perfect)', grade: 6, subject: 'english', icon: '⏳', conceptSummary: 'NCERT: Present, Past, Future perfect tenses' },
-  { id: 'c6_e_05', number: 5, title: 'Prepositions and Phrasal Verbs', grade: 6, subject: 'english', icon: '📍', conceptSummary: 'NCERT: Give up, look after, turn off' },
-  { id: 'c6_e_06', number: 6, title: 'Direct and Indirect Speech', grade: 6, subject: 'english', icon: '💬', conceptSummary: 'NCERT: Converting dialogue into reported speech' },
-  { id: 'c6_e_07', number: 7, title: 'Formal and Informal Letters', grade: 6, subject: 'english', icon: '✉️', conceptSummary: 'NCERT: Leave applications, friendly letters' },
+  { id: 'c6_e_01', number: 1, title: 'Nouns & Pronouns (Advanced Cases & Relative Pronouns)', grade: 6, subject: 'english', icon: '💎', conceptSummary: 'Universal: Nominative, objective, possessive cases & relative pronouns (who, which, that)' },
+  { id: 'c6_e_02', number: 2, title: 'Kinds of Sentences (Declarative, Question, Exclamatory)', grade: 6, subject: 'english', icon: '📝', conceptSummary: 'Universal: Declarative, Interrogative, Imperative, Exclamatory & transformation' },
+  { id: 'c6_e_03', number: 3, title: 'Subject-Verb Agreement', grade: 6, subject: 'english', icon: '🤝', conceptSummary: 'Universal: Singular/Plural subjects, collective subjects, either/neither rules' },
+  { id: 'c6_e_04', number: 4, title: 'Verb Tenses (Simple, Continuous, Perfect)', grade: 6, subject: 'english', icon: '⏳', conceptSummary: 'Universal: Present, Past, Future simple, continuous, and perfect tenses' },
+  { id: 'c6_e_05', number: 5, title: 'Prepositions and Phrasal Verbs', grade: 6, subject: 'english', icon: '📍', conceptSummary: 'Universal: Prepositions of place/time/direction & common phrasal verbs' },
+  { id: 'c6_e_06', number: 6, title: 'Direct and Indirect Speech', grade: 6, subject: 'english', icon: '💬', conceptSummary: 'Universal: Reporting verbs, tense backshift, pronoun changes in reported speech' },
+  { id: 'c6_e_07', number: 7, title: 'Active and Passive Voice & Conjunctions', grade: 6, subject: 'english', icon: '🔄', conceptSummary: 'Universal: Active to passive transformation across tenses & coordinating/subordinating conjunctions' },
 
   // =========================================================================
   // CLASS 1 — NCERT सारंगी 1 (SARANGI 1 / RIMJHIM 1)
@@ -226,14 +226,14 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c5_h_06', number: 6, title: 'विराम चिह्न, वर्तनी शुद्धि व वाक्य रचना', grade: 5, subject: 'hindi', icon: '✉️', conceptSummary: 'व्याकरण: अल्पविराम, पूर्णविराम, उद्धरण चिह्न, शुद्ध वर्तनी व वाक्य रचना' },
 
   // =========================================================================
-  // CLASS 6 — NCERT मल्हार 6 (MALHAR 6 / VASANT 1)
+  // CLASS 6 — HINDI VYAKARAN & NCERT मल्हार 6
   // =========================================================================
-  { id: 'c6_h_01', number: 1, title: 'वह चिड़िया जो (भाववाचक संज्ञा व पद परिचय)', grade: 6, subject: 'hindi', icon: '🐦', conceptSummary: 'NCERT मल्हार 6: शब्दों के व्याकरणिक भेद पहचानना' },
-  { id: 'c6_h_02', number: 2, title: 'बचपन (सर्वनाम के भेद व विशेषण रचना)', grade: 6, subject: 'hindi', icon: '🕰️', conceptSummary: 'NCERT: निजवाचक, निश्चयवाचक, अनिश्चयवाचक सर्वनाम' },
-  { id: 'c6_h_03', number: 3, title: 'नादान दोस्त (संधि परिचय - स्वर संधि)', grade: 6, subject: 'hindi', icon: '🥚', conceptSummary: 'NCERT: दीर्घ संधि (विद्या + आलय = विद्यालय)' },
-  { id: 'c6_h_04', number: 4, title: 'चाँद से थोड़ी सी गप्पें (उपसर्ग, प्रत्यय व मूल शब्द)', grade: 6, subject: 'hindi', icon: '🌕', conceptSummary: 'NCERT: अनु + शासन, ज्ञान + ई' },
-  { id: 'c6_h_05', number: 5, title: 'संसार पुस्तक है (विराम चिह्न व अशुद्ध वाक्य शोधन)', grade: 6, subject: 'hindi', icon: '📖', conceptSummary: 'NCERT: लिंग/वचन संबंधी अशुद्धियों को ठीक करना' },
-  { id: 'c6_h_06', number: 6, title: 'झाँसी की रानी (समास परिचय व मुहावरे)', grade: 6, subject: 'hindi', icon: '⚔️', conceptSummary: 'NCERT: तत्पुरुष व द्वंद्व समास, देशभक्ति मुहावरे' },
+  { id: 'c6_h_01', number: 1, title: 'संज्ञा, सर्वनाम व पद परिचय', grade: 6, subject: 'hindi', icon: '🐦', conceptSummary: 'व्याकरण: संज्ञा के भेद, सर्वनाम के 6 भेद व वाक्य में पदों का व्याकरणिक परिचय' },
+  { id: 'c6_h_02', number: 2, title: 'विशेषण व उसके भेद (प्रविशेषण सहित)', grade: 6, subject: 'hindi', icon: '🌟', conceptSummary: 'व्याकरण: गुणवाचक, संख्यावाचक, परिमाणवाचक, सार्वनामिक विशेषण व प्रविशेषण' },
+  { id: 'c6_h_03', number: 3, title: 'संधि परिचय (स्वर संधि के भेद)', grade: 6, subject: 'hindi', icon: '🤝', conceptSummary: 'व्याकरण: दो वर्णों का मेल, दीर्घ, गुण, वृद्धि, यण व अयादि स्वर संधि नियम' },
+  { id: 'c6_h_04', number: 4, title: 'उपसर्ग, प्रत्यय व शब्द निर्माण', grade: 6, subject: 'hindi', icon: '🧩', conceptSummary: 'व्याकरण: तत्सम, तद्भव व विदेशी उपसर्ग-प्रत्यय द्वारा नवीन शब्द रचना' },
+  { id: 'c6_h_05', number: 5, title: 'विराम चिह्न व अशुद्ध वाक्य शोधन', grade: 6, subject: 'hindi', icon: '📖', conceptSummary: 'व्याकरण: सभी प्रमुख विराम चिह्न, लिंग, वचन, कारक व पदक्रम अशुद्धि सुधार' },
+  { id: 'c6_h_06', number: 6, title: 'समास परिचय व मुहावरे-लोकोक्तियाँ', grade: 6, subject: 'hindi', icon: '⚔️', conceptSummary: 'व्याकरण: तत्पुरुष, द्वंद्व, द्विगु व अव्ययीभाव समास तथा प्रसिद्ध मुहावरे व लोकोक्तियाँ' },
 ];
 
 export const getChaptersForGradeSubject = (grade: Grade, subject: Subject): ChapterLesson[] => {

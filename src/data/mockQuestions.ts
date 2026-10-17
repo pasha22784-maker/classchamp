@@ -503,69 +503,6 @@ export const MOCK_QUESTIONS: Question[] = [
 
 
   // =========================================================================
-  // CLASS 6 — NCERT MATHEMATICS 6 & POORVI 6
-  // =========================================================================
-  {
-    id: 'ncert_c6_m1_001',
-    grade: 6,
-    subject: 'maths',
-    chapter: 'Knowing Our Numbers (Lakhs & Roman Numerals)',
-    concept: 'NCERT Roman Numerals',
-    difficulty: 'medium',
-    type: 'match_pairs',
-    question: 'Match the Roman numeral with its Hindu-Arabic value:',
-    visualEmoji: '🏛️',
-    payload: {
-      pairs: [
-        { id: 'rm1', left: 'V', right: '5' },
-        { id: 'rm2', left: 'X', right: '10' },
-        { id: 'rm3', left: 'L', right: '50' },
-        { id: 'rm4', left: 'C', right: '100' },
-      ],
-    },
-    explanation: 'NCERT Mathematics 6 Ch 1: V = 5, X = 10, L = 50, C = 100!',
-    points: 15,
-  },
-  {
-    id: 'ncert_c6_m5_001',
-    grade: 6,
-    subject: 'maths',
-    chapter: 'Integers (Positive & Negative Numbers)',
-    concept: 'NCERT Integer Operations on Number Line',
-    difficulty: 'hard',
-    type: 'fill_blank',
-    question: 'Calculate the integer result:',
-    visualEmoji: '❄️',
-    payload: {
-      correctAnswer: '-2',
-      wordBank: ['-2', '+2', '-8', '+8'],
-      displayTemplate: '(-5) + 3 = [BLANK].',
-    },
-    explanation: 'NCERT Integers: Start at -5 on the number line and jump 3 steps to the right = -2!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c6_e2_001',
-    grade: 6,
-    subject: 'english',
-    chapter: 'Kinds of Sentences (Declarative, Question, Exclamatory)',
-    concept: 'NCERT Sentence Classification',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'What kind of sentence is: "What a stunning sunset over the mountains!"? 🌄',
-    visualEmoji: '🌄',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'Exclamatory Sentence', isCorrect: true },
-        { id: 'opt_2', text: 'Interrogative Sentence', isCorrect: false },
-        { id: 'opt_3', text: 'Declarative Statement', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Poorvi 6: Sentences expressing strong sudden emotion ending in "!" are Exclamatory!',
-    points: 10,
-  },
-
-  // =========================================================================
   // CLASS 1 — NCERT सारंगी 1 (HINDI): CHAPTER 1 (मीना का परिवार)
   // All 8 Concepts (स्वर पहचान, व्यंजन पहचान, 2-अक्षर शब्द, 3-अक्षर शब्द, 4-अक्षर शब्द, रिश्ते, तुकबंदी, वाक्य)
   // =========================================================================
