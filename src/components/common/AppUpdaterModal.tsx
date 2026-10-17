@@ -11,11 +11,11 @@ import {
 } from 'react-native';
 import * as FileSystem from 'expo-file-system/legacy';
 import * as IntentLauncher from 'expo-intent-launcher';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { COLORS } from '../../constants/theme';
+import { CURRENT_APP_VERSION } from '../../constants/version';
 
-// Current App Version
-export const CURRENT_APP_VERSION = 'v1.2.6';
 const GITHUB_REPO = 'pasha22784-maker/classchamp';
 
 interface ReleaseInfo {
@@ -82,6 +82,19 @@ export function AppUpdaterModal() {
 
       // Check if GitHub has a newer version than this build
       if (latestTag && isNewerVersion(latestTag, CURRENT_APP_VERSION)) {
+        // Check if user dismissed this specific version in the last 24 hours
+        try {
+          const dismissedRaw = await AsyncStorage.getItem('@classchamp_dismissed_update_v1');
+          if (dismissedRaw) {
+            const parsed = JSON.parse(dismissedRaw);
+            if (parsed.version === latestTag && Date.now() - parsed.timestamp < 24 * 60 * 60 * 1000) {
+              return;
+            }
+          }
+        } catch {
+          // ignore
+        }
+
         const info: ReleaseInfo = {
           version: latestTag,
           notes: data.body || 'Naye sawaal, attractive colors aur improvements add kiye gaye hain.',
@@ -89,9 +102,6 @@ export function AppUpdaterModal() {
         };
         setUpdateAvailable(info);
         setModalVisible(true);
-
-        // Auto-start downloading immediately on launch!
-        startDirectDownload(info.downloadUrl);
       }
     } catch {
       // Silent fail if offline or no internet
@@ -191,6 +201,20 @@ export function AppUpdaterModal() {
     }
   };
 
+  const handleDismiss = async () => {
+    try {
+      if (updateAvailable?.version) {
+        await AsyncStorage.setItem(
+          '@classchamp_dismissed_update_v1',
+          JSON.stringify({ version: updateAvailable.version, timestamp: Date.now() })
+        );
+      }
+    } catch {
+      // ignore
+    }
+    setModalVisible(false);
+  };
+
   const formatMB = (bytes: number) => {
     return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
   };
@@ -254,6 +278,17 @@ export function AppUpdaterModal() {
           )}
 
           {/* Action Buttons */}
+          {status === 'idle' && (
+            <TouchableOpacity
+              style={styles.actionBtn}
+              onPress={() => startDirectDownload(updateAvailable.downloadUrl)}
+              activeOpacity={0.85}
+            >
+              <MaterialCommunityIcons name="cloud-download" size={22} color="#FFFFFF" style={{ marginRight: 8 }} />
+              <Text style={styles.actionBtnText}>Update Download Karein</Text>
+            </TouchableOpacity>
+          )}
+
           {status === 'ready_to_install' && (
             <TouchableOpacity
               style={[styles.actionBtn, { backgroundColor: '#10B981' }]}
@@ -295,7 +330,7 @@ export function AppUpdaterModal() {
           {/* Dismiss Button */}
           <TouchableOpacity
             style={styles.laterBtn}
-            onPress={() => setModalVisible(false)}
+            onPress={handleDismiss}
             activeOpacity={0.7}
           >
             <Text style={styles.laterBtnText}>Baad Me</Text>
