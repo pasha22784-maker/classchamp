@@ -86,39 +86,85 @@ export async function saveGlobalConfig(config: AppGlobalConfig): Promise<{ succe
   }
 }
 
+export const ADMIN_MASTER_SECRET = process.env.EXPO_PUBLIC_ADMIN_SECRET || 'CHAMP_ADMIN_7788';
+
 /**
- * Check if the given authenticated user is an Admin
+ * Strict Security: Check if the given authenticated user is an Admin.
+ * ONLY users whose database profile row explicitly has role === 'admin' are authorized.
+ * No email string matching or loose checks.
  */
 export async function checkUserIsAdmin(userId: string, email?: string): Promise<boolean> {
-  if (!userId) return false;
+  if (!userId && !email) return false;
 
-  const cleanEmail = (email || '').toLowerCase().trim();
-
-  // 1. Check if email contains 'admin' keyword or matches configured admin email
-  if (cleanEmail.includes('admin') || cleanEmail === 'pasha22784@gmail.com') {
-    return true;
-  }
-
-  // 2. Check role column in profiles table in Supabase
   if (isSupabaseConfigured()) {
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('role, email')
-        .eq('id', userId)
-        .single();
+      if (userId) {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('role')
+          .eq('id', userId)
+          .maybeSingle();
 
-      if (!error && data) {
-        if (data.role === 'admin' || (data.email && data.email.toLowerCase().includes('admin'))) {
+        if (!error && data?.role === 'admin') {
           return true;
         }
       }
-    } catch {
-      // fallback
+
+      if (email) {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('role')
+          .ilike('email', email.trim())
+          .maybeSingle();
+
+        if (!error && data?.role === 'admin') {
+          return true;
+        }
+      }
+    } catch (err) {
+      console.warn('Error checking admin role in Supabase:', err);
     }
   }
 
   return false;
+}
+
+/**
+ * Explicitly register or upgrade an account as Admin in Supabase using the Master Secret Key
+ */
+export async function registerUserAsAdmin(
+  userId: string,
+  email: string,
+  secretKey: string
+): Promise<{ success: boolean; error?: string }> {
+  if (!secretKey || secretKey.trim() !== ADMIN_MASTER_SECRET) {
+    return { success: false, error: 'Amanaya Admin Secret Key! Access Denied.' };
+  }
+
+  if (!isSupabaseConfigured()) {
+    return { success: false, error: 'Supabase configure nahi hai.' };
+  }
+
+  try {
+    const { error } = await supabase
+      .from('profiles')
+      .upsert({
+        id: userId,
+        email,
+        role: 'admin',
+        student_name: 'Admin Owner',
+        is_pro: true,
+        updated_at: new Date().toISOString(),
+      });
+
+    if (error) {
+      return { success: false, error: error.message };
+    }
+
+    return { success: true };
+  } catch (err: any) {
+    return { success: false, error: err?.message || 'Admin update failed.' };
+  }
 }
 
 /**

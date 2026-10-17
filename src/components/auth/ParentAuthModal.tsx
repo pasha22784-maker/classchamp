@@ -23,7 +23,7 @@ import {
   isSupabaseConfigured,
   syncProfileToCloud,
 } from '../../services/supabase';
-import { checkUserIsAdmin } from '../../services/adminConfig';
+import { checkUserIsAdmin, registerUserAsAdmin } from '../../services/adminConfig';
 import { triggerHaptic } from '../../utils/haptics';
 
 interface ParentAuthModalProps {
@@ -43,6 +43,8 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
   const [otpToken, setOtpToken] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showAdminSecret, setShowAdminSecret] = useState(false);
+  const [adminSecretKey, setAdminSecretKey] = useState('');
 
   const [otpSent, setOtpSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -104,26 +106,38 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
         ? await signUpWithParentEmail(email, password)
         : await signInWithParentEmail(email, password);
 
-    setIsLoading(false);
+    if (!res.success) {
+      setIsLoading(false);
+      Alert.alert('Error', res.error || 'Authentication mein samasya aayi.');
+      return;
+    }
 
-    if (res.success) {
-      triggerHaptic('success');
-
-      // Check if logged-in user is an Admin
-      const isAdmin = await checkUserIsAdmin(res.user?.id || '', email);
-      if (isAdmin && onAdminLogin) {
-        onClose();
-        Alert.alert('👑 Admin Login Successful', `Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.`);
-        onAdminLogin(email);
+    // If Admin Passkey was entered, register / promote user to Admin in database
+    if (adminSecretKey.trim()) {
+      const adminRes = await registerUserAsAdmin(res.user?.id || '', email, adminSecretKey.trim());
+      if (!adminRes.success) {
+        setIsLoading(false);
+        Alert.alert('Admin Passkey Galat Hai', adminRes.error || 'Galat secret key! Kripya sahi Admin Secret Passkey dalein.');
         return;
       }
-
-      Alert.alert('Safal!', 'Aapka account login ho chuka hai.');
-      await syncProfileToCloud(profile);
-      onClose();
-    } else {
-      Alert.alert('Error', res.error || 'Authentication mein samasya aayi.');
     }
+
+    // Strictly check if user is an Admin via Supabase role column
+    const isAdmin = await checkUserIsAdmin(res.user?.id || '', email);
+    setIsLoading(false);
+
+    if (isAdmin && onAdminLogin) {
+      triggerHaptic('success');
+      onClose();
+      Alert.alert('👑 Admin Login Successful', `Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.`);
+      onAdminLogin(email);
+      return;
+    }
+
+    triggerHaptic('success');
+    Alert.alert('Safal!', 'Aapka account login ho chuka hai.');
+    await syncProfileToCloud(profile);
+    onClose();
   };
 
   return (
@@ -290,6 +304,35 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
                   value={password}
                   onChangeText={setPassword}
                 />
+
+                {/* Optional Admin Passkey for App Owner */}
+                <TouchableOpacity
+                  onPress={() => setShowAdminSecret(!showAdminSecret)}
+                  style={styles.adminToggleBtn}
+                  activeOpacity={0.7}
+                >
+                  <Text style={styles.adminToggleText}>
+                    {showAdminSecret ? '▲ Hide Admin Passkey' : '🔐 Register or Login as Admin?'}
+                  </Text>
+                </TouchableOpacity>
+
+                {showAdminSecret && (
+                  <View style={styles.adminSecretBox}>
+                    <Text style={styles.adminSecretLabel}>👑 Admin Master Passkey:</Text>
+                    <TextInput
+                      style={[styles.textInput, styles.adminSecretInput]}
+                      placeholder="Enter Admin Secret Passkey"
+                      placeholderTextColor="#94A3B8"
+                      secureTextEntry
+                      value={adminSecretKey}
+                      onChangeText={setAdminSecretKey}
+                      autoCapitalize="none"
+                    />
+                    <Text style={styles.adminSecretHint}>
+                      Kewal App Owner ke liye. Master secret passkey enter karne par ye account Admin Control Center ke liye authorize ho jayega.
+                    </Text>
+                  </View>
+                )}
 
                 <TouchableOpacity
                   style={[styles.primaryBtn, isLoading && { opacity: 0.7 }]}
@@ -524,5 +567,41 @@ const styles = StyleSheet.create({
     color: '#94A3B8',
     fontSize: 13,
     fontWeight: '600',
+  },
+  adminToggleBtn: {
+    marginTop: 10,
+    alignSelf: 'flex-start',
+    paddingVertical: 4,
+  },
+  adminToggleText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#4F46E5',
+  },
+  adminSecretBox: {
+    marginTop: 8,
+    marginBottom: 4,
+    padding: 12,
+    backgroundColor: '#EEF2FF',
+    borderRadius: 14,
+    borderWidth: 1.5,
+    borderColor: '#C7D2FE',
+  },
+  adminSecretLabel: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#312E81',
+    marginBottom: 6,
+  },
+  adminSecretInput: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#A5B4FC',
+    fontSize: 14,
+  },
+  adminSecretHint: {
+    fontSize: 11,
+    color: '#4338CA',
+    marginTop: 6,
+    lineHeight: 15,
   },
 });
