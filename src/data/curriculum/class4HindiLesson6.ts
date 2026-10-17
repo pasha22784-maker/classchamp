@@ -64,7 +64,7 @@ export const CLASS_4_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🌾 🚜 🧑‍🌾',
     payload: {
       options: [
-        { id: 'opt_ks1', text: 'किसान (कृषक)', isCorrect: true },
+        { id: 'opt_ks1', text: 'किसान', isCorrect: true },
         { id: 'opt_ks2', text: 'लोहार', isCorrect: false },
         { id: 'opt_ks3', text: 'बढ़ई', isCorrect: false },
       ],

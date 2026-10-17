@@ -22,7 +22,7 @@ export const CLASS_3_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '⭕ 🛞',
     payload: {
       options: [
-        { id: 'opt_ed1_1', text: '0 corners (It has 1 continuous curved edge and no corners)', isCorrect: true },
+        { id: 'opt_ed1_1', text: '0 corners', isCorrect: true },
         { id: 'opt_ed1_2', text: '1 corner', isCorrect: false },
         { id: 'opt_ed1_3', text: '4 corners', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🧩 📐 🟩',
     payload: {
       options: [
-        { id: 'opt_tg1_1', text: '7 pieces (5 triangles, 1 square, 1 parallelogram)', isCorrect: true },
+        { id: 'opt_tg1_1', text: '7 pieces', isCorrect: true },
         { id: 'opt_tg1_2', text: '12 pieces', isCorrect: false },
         { id: 'opt_tg1_3', text: '3 pieces', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_3_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🔺 🧩',
     payload: {
       options: [
-        { id: 'opt_tg2_1', text: 'Triangles 🔺 (3 triangles)', isCorrect: true },
+        { id: 'opt_tg2_1', text: 'Triangles 🔺', isCorrect: true },
         { id: 'opt_tg2_2', text: 'Circles ⭕', isCorrect: false },
         { id: 'opt_tg2_3', text: 'Stars ⭐', isCorrect: false },
       ],
@@ -108,8 +108,8 @@ export const CLASS_3_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🧱 ⏹️ ⭕',
     payload: {
       options: [
-        { id: 'opt_tl1_1', text: 'Squares and Rectangles ⏹️ (They tile completely without gaps)', isCorrect: true },
-        { id: 'opt_tl1_2', text: 'Circles ⭕ (They always leave open gaps between them)', isCorrect: false },
+        { id: 'opt_tl1_1', text: 'Squares and Rectangles ⏹️', isCorrect: true },
+        { id: 'opt_tl1_2', text: 'Circles ⭕', isCorrect: false },
       ],
     },
     explanation: '💡 Squares and rectangles fit edge-to-edge seamlessly without gaps. Circles leave gaps when placed side-by-side!',

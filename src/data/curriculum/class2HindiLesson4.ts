@@ -22,7 +22,7 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🥵',
     payload: {
       options: [
-        { id: 'opt_vs1_1', text: 'तेज (धूप की विशेषता बताने वाला शब्द)', isCorrect: true },
+        { id: 'opt_vs1_1', text: 'तेज', isCorrect: true },
         { id: 'opt_vs1_2', text: 'आदमी', isCorrect: false },
         { id: 'opt_vs1_3', text: 'सूरज', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '💨 vs ☀️',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: 'कि हम दोनों में से अधिक बलवान (ताकतवर) कौन है!', isCorrect: true },
+        { id: 'opt_st1_1', text: 'कि हम दोनों में से अधिक बलवान कौन है!', isCorrect: true },
         { id: 'opt_st1_2', text: 'कि कौन तेज दौड़ सकता है', isCorrect: false },
         { id: 'opt_st1_3', text: 'कि कौन खाना खाएगा', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🥵 🧥',
     payload: {
       options: [
-        { id: 'opt_st2_1', text: 'अपना कोट उतार दिया 🧥 (और सूरज जीत गया)', isCorrect: true },
+        { id: 'opt_st2_1', text: 'अपना कोट उतार दिया 🧥', isCorrect: true },
         { id: 'opt_st2_2', text: 'कोट और कसकर पहन लिया', isCorrect: false },
         { id: 'opt_st2_3', text: 'दौड़ने लगा', isCorrect: false },
       ],

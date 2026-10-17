@@ -22,7 +22,7 @@ export const CLASS_3_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐦 🎶 🌳',
     payload: {
       options: [
-        { id: 'opt_kak1', text: 'कोयल (मीठी आवाज़ वाली चिड़िया)', isCorrect: true },
+        { id: 'opt_kak1', text: 'कोयल', isCorrect: true },
         { id: 'opt_kak2', text: 'कौआ', isCorrect: false },
         { id: 'opt_kak3', text: 'तोता', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🇮🇳 🏞️ 🏛️',
     payload: {
       options: [
-        { id: 'opt_vy1', text: 'हिमालय (एक विशेष पर्वत का नाम)', isCorrect: true },
+        { id: 'opt_vy1', text: 'हिमालय', isCorrect: true },
         { id: 'opt_vy2', text: 'पहाड़', isCorrect: false },
         { id: 'opt_vy3', text: 'नदी', isCorrect: false },
       ],
@@ -88,9 +88,9 @@ export const CLASS_3_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '👧 📚 🏫',
     payload: {
       options: [
-        { id: 'opt_jt1', text: 'लड़का (पूरी जाति या वर्ग का नाम)', isCorrect: true },
-        { id: 'opt_jt2', text: 'रोहन (विशेष नाम)', isCorrect: false },
-        { id: 'opt_jt3', text: 'दिल्ली (विशेष शहर)', isCorrect: false },
+        { id: 'opt_jt1', text: 'लड़का', isCorrect: true },
+        { id: 'opt_jt2', text: 'रोहन', isCorrect: false },
+        { id: 'opt_jt3', text: 'दिल्ली', isCorrect: false },
       ],
     },
     explanation: '💡 जिस संज्ञा शब्द से एक ही प्रकार की सभी वस्तुओं या प्राणियों का बोध हो, उसे **जातिवाचक संज्ञा** कहते हैं (जैसे लड़का, पेड़, चिड़िया, फल)।',

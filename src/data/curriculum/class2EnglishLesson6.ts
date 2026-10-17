@@ -22,7 +22,7 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🌳 👦 🙈',
     payload: {
       options: [
-        { id: 'opt_bh1_1', text: 'BEHIND the tree (At the back of it)', isCorrect: true },
+        { id: 'opt_bh1_1', text: 'BEHIND the tree', isCorrect: true },
         { id: 'opt_bh1_2', text: 'IN FRONT OF the tree', isCorrect: false },
         { id: 'opt_bh1_3', text: 'INSIDE the bark', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '👦 🧒 👧',
     payload: {
       options: [
-        { id: 'opt_bw1_1', text: 'BETWEEN Ali and Tina (In the middle of the two)', isCorrect: true },
+        { id: 'opt_bw1_1', text: 'BETWEEN Ali and Tina', isCorrect: true },
         { id: 'opt_bw1_2', text: 'Behind the bench', isCorrect: false },
         { id: 'opt_bw1_3', text: 'Under the ground', isCorrect: false },
       ],
@@ -130,7 +130,7 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '💡 📖',
     payload: {
       options: [
-        { id: 'opt_nx1_1', text: 'NEXT TO (Side by side)', isCorrect: true },
+        { id: 'opt_nx1_1', text: 'NEXT TO', isCorrect: true },
         { id: 'opt_nx1_2', text: 'INSIDE', isCorrect: false },
         { id: 'opt_nx1_3', text: 'UNDER', isCorrect: false },
       ],

@@ -22,9 +22,9 @@ export const CLASS_6_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🔦 ➡️ Ray of Light',
     payload: {
       options: [
-        { id: 'opt_ray1', text: 'A Ray (has 1 starting endpoint and extends infinitely in 1 direction)', isCorrect: true },
-        { id: 'opt_ray2', text: 'A Line Segment (has 2 fixed endpoints)', isCorrect: false },
-        { id: 'opt_ray3', text: 'A Line (extends both directions without endpoints)', isCorrect: false },
+        { id: 'opt_ray1', text: 'A Ray', isCorrect: true },
+        { id: 'opt_ray2', text: 'A Line Segment', isCorrect: false },
+        { id: 'opt_ray3', text: 'A Line', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: A **Ray** has one fixed initial point and extends endlessly in one direction (e.g. Ray AB with arrow at B)!',
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🪙 Radius = 3.5 cm ➡️ Diameter = ❓',
     payload: {
       options: [
-        { id: 'opt_dia1', text: '7.0 cm (Diameter = 2 × Radius = 2 × 3.5 = 7 cm)', isCorrect: true },
+        { id: 'opt_dia1', text: '7.0 cm', isCorrect: true },
         { id: 'opt_dia2', text: '3.5 cm', isCorrect: false },
         { id: 'opt_dia3', text: '14.0 cm', isCorrect: false },
       ],

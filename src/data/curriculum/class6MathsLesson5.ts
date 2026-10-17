@@ -22,7 +22,7 @@ export const CLASS_6_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '❄️ 15°C Below Zero',
     payload: {
       options: [
-        { id: 'opt_int1', text: '-15°C (Negative integer)', isCorrect: true },
+        { id: 'opt_int1', text: '-15°C', isCorrect: true },
         { id: 'opt_int2', text: '+15°C', isCorrect: false },
         { id: 'opt_int3', text: '0°C', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🔄 Additive Inverse',
     payload: {
       options: [
-        { id: 'opt_inv1', text: '+14 (because -14 + 14 = 0)', isCorrect: true },
+        { id: 'opt_inv1', text: '+14', isCorrect: true },
         { id: 'opt_inv2', text: '-14', isCorrect: false },
         { id: 'opt_inv3', text: '0', isCorrect: false },
       ],

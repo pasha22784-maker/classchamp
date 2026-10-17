@@ -46,6 +46,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
     nextQuestion,
     tickTimer,
     isQuizComplete,
+    activeChapterTitle,
   } = useQuizStore();
 
   // Run the 10-minute countdown timer
@@ -182,6 +183,37 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
           total={questions.length}
           style={styles.progressBar}
         />
+
+        {/* Chapter & Learning Progression Ladder Header */}
+        <View style={styles.chapterHeader}>
+          <Text style={styles.chapterTitleText} numberOfLines={1}>
+            📖 {currentQ.chapter || activeChapterTitle || 'NCERT Practice'}
+          </Text>
+          <View style={styles.stepBadgeRow}>
+            <ChampBadge
+              label={
+                currentQ.difficulty === 'easy'
+                  ? '🌱 Step 1: Understand'
+                  : currentQ.difficulty === 'medium'
+                  ? '🌿 Step 2: Practice'
+                  : '🏆 Step 3: Mastery'
+              }
+              variant={
+                currentQ.difficulty === 'easy'
+                  ? 'success'
+                  : currentQ.difficulty === 'medium'
+                  ? 'primary'
+                  : 'gold'
+              }
+              size="sm"
+            />
+            {currentQ.concept ? (
+              <Text style={styles.conceptText} numberOfLines={1}>
+                {currentQ.concept}
+              </Text>
+            ) : null}
+          </View>
+        </View>
 
         {/* In-Quiz Streak Multiplier Banner */}
         {consecutiveStreak >= 2 && (
@@ -344,7 +376,34 @@ const styles = StyleSheet.create({
     minHeight: '100%',
   },
   progressBar: {
+    marginBottom: SPACING.sm,
+  },
+  chapterHeader: {
+    backgroundColor: '#EEF2FF',
+    borderRadius: BORDER_RADIUS.md,
+    paddingHorizontal: SPACING.md,
+    paddingVertical: SPACING.sm,
     marginBottom: SPACING.md,
+    borderWidth: 1,
+    borderColor: '#C7D2FE',
+  },
+  chapterTitleText: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: COLORS.primaryDark,
+    marginBottom: 4,
+  },
+  stepBadgeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  conceptText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: COLORS.textMedium,
+    flex: 1,
   },
   streakBanner: {
     backgroundColor: '#FEF3C7',

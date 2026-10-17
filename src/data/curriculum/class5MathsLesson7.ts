@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '📏 1 cm = 10 mm | 1 mm = ❓ cm',
     payload: {
       options: [
-        { id: 'opt_t1', text: '0.1 cm (or 1/10 cm)', isCorrect: true },
+        { id: 'opt_t1', text: '0.1 cm', isCorrect: true },
         { id: 'opt_t2', text: '0.01 cm', isCorrect: false },
         { id: 'opt_t3', text: '1.0 cm', isCorrect: false },
       ],

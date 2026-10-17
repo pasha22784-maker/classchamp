@@ -60,7 +60,7 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🎈 🏫',
     payload: {
       options: [
-        { id: 'opt_dw3_1', text: 'Sunday (रविवार)', isCorrect: true },
+        { id: 'opt_dw3_1', text: 'Sunday', isCorrect: true },
         { id: 'opt_dw3_2', text: 'Monday', isCorrect: false },
         { id: 'opt_dw3_3', text: 'Wednesday', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🎉 1️⃣ 📅',
     payload: {
       options: [
-        { id: 'opt_mn1_1', text: 'January (पहला महीना)', isCorrect: true },
+        { id: 'opt_mn1_1', text: 'January', isCorrect: true },
         { id: 'opt_mn1_2', text: 'March', isCorrect: false },
         { id: 'opt_mn1_3', text: 'December', isCorrect: false },
       ],
@@ -104,9 +104,9 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '❄️ 2️⃣8️⃣ 📅',
     payload: {
       options: [
-        { id: 'opt_mn2_1', text: 'February (28 or 29 days)', isCorrect: true },
-        { id: 'opt_mn2_2', text: 'July (31 days)', isCorrect: false },
-        { id: 'opt_mn2_3', text: 'August (31 days)', isCorrect: false },
+        { id: 'opt_mn2_1', text: 'February', isCorrect: true },
+        { id: 'opt_mn2_2', text: 'July', isCorrect: false },
+        { id: 'opt_mn2_3', text: 'August', isCorrect: false },
       ],
     },
     explanation: '💡 **February** is the shortest month with 28 days (and 29 in a Leap Year)!',
@@ -128,8 +128,8 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🥭 🏖️',
     payload: {
       options: [
-        { id: 'opt_sn1_1', text: 'Summer Season (गर्मी की ऋतु / ग्रीष्म)', isCorrect: true },
-        { id: 'opt_sn1_2', text: 'Winter Season (सर्दी)', isCorrect: false },
+        { id: 'opt_sn1_1', text: 'Summer Season', isCorrect: true },
+        { id: 'opt_sn1_2', text: 'Winter Season', isCorrect: false },
         { id: 'opt_sn1_3', text: 'Rainy Season', isCorrect: false },
       ],
     },

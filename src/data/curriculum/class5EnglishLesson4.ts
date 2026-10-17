@@ -22,8 +22,8 @@ export const CLASS_5_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🎂 👵 Active vs Passive',
     payload: {
       options: [
-        { id: 'opt_ap1', text: 'Passive Voice (The subject "cake" receives the action)', isCorrect: true },
-        { id: 'opt_ap2', text: 'Active Voice (The subject performs the action)', isCorrect: false },
+        { id: 'opt_ap1', text: 'Passive Voice', isCorrect: true },
+        { id: 'opt_ap2', text: 'Active Voice', isCorrect: false },
         { id: 'opt_ap3', text: 'Imperative command', isCorrect: false },
       ],
     },

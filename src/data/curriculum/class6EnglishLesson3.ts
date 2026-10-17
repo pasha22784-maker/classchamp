@@ -22,7 +22,7 @@ export const CLASS_6_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🤝 Subject + Verb',
     payload: {
       options: [
-        { id: 'opt_sva1', text: 'The teacher explains the lesson clearly. (Singular "teacher" + singular "explains")', isCorrect: true },
+        { id: 'opt_sva1', text: 'The teacher explains the lesson clearly.', isCorrect: true },
         { id: 'opt_sva2', text: 'The teacher explain the lesson clearly.', isCorrect: false },
         { id: 'opt_sva3', text: 'The teachers explains the lesson clearly.', isCorrect: false },
       ],
@@ -85,8 +85,8 @@ export const CLASS_6_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🐱 🐶 Either... or',
     payload: {
       options: [
-        { id: 'opt_eo1', text: 'have (agrees with the nearer plural subject "dogs")', isCorrect: true },
-        { id: 'opt_eo2', text: 'has (singular)', isCorrect: false },
+        { id: 'opt_eo1', text: 'have', isCorrect: true },
+        { id: 'opt_eo2', text: 'has', isCorrect: false },
         { id: 'opt_eo3', text: 'is', isCorrect: false },
       ],
     },

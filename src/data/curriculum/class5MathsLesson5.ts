@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🔤 🔃 180°',
     payload: {
       options: [
-        { id: 'opt_ht1', text: 'Letter "H" (H looks the same upside down)', isCorrect: true },
+        { id: 'opt_ht1', text: 'Letter "H"', isCorrect: true },
         { id: 'opt_ht2', text: 'Letter "A"', isCorrect: false },
         { id: 'opt_ht3', text: 'Letter "T"', isCorrect: false },
       ],
@@ -64,8 +64,8 @@ export const CLASS_5_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '⏹️ 🔄 90°',
     payload: {
       options: [
-        { id: 'opt_qt1', text: 'A Square (all 4 sides and angles are equal)', isCorrect: true },
-        { id: 'opt_qt2', text: 'A Rectangle (longer than it is wide)', isCorrect: false },
+        { id: 'opt_qt1', text: 'A Square', isCorrect: true },
+        { id: 'opt_qt2', text: 'A Rectangle', isCorrect: false },
         { id: 'opt_qt3', text: 'An Oval', isCorrect: false },
       ],
     },

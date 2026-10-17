@@ -106,7 +106,7 @@ export const CLASS_3_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🔄 ➕ ➖',
     payload: {
       options: [
-        { id: 'opt_ck1_1', text: '220 + 120 = 340 (Difference + Subtracted part = Total)', isCorrect: true },
+        { id: 'opt_ck1_1', text: '220 + 120 = 340', isCorrect: true },
         { id: 'opt_ck1_2', text: '340 + 220 = 560', isCorrect: false },
         { id: 'opt_ck1_3', text: '220 - 120 = 100', isCorrect: false },
       ],
@@ -130,7 +130,7 @@ export const CLASS_3_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🦩 (125) + 🦢 (180)',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: '305 birds (125 + 180 = 305)', isCorrect: true },
+        { id: 'opt_st1_1', text: '305 birds', isCorrect: true },
         { id: 'opt_st1_2', text: '295 birds', isCorrect: false },
         { id: 'opt_st1_3', text: '315 birds', isCorrect: false },
       ],

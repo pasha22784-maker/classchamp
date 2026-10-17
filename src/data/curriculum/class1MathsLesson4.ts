@@ -60,7 +60,7 @@ export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '✏️(10) + ✏️✏️✏️✏️✏️',
     payload: {
       options: [
-        { id: 'opt_bnd3_1', text: '15 Pencils (1 Ten + 5 Ones)', isCorrect: true },
+        { id: 'opt_bnd3_1', text: '15 Pencils', isCorrect: true },
         { id: 'opt_bnd3_2', text: '10 Pencils', isCorrect: false },
         { id: 'opt_bnd3_3', text: '16 Pencils', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '1️⃣ 4️⃣',
     payload: {
       options: [
-        { id: 'opt_pl1_1', text: '1 Ten and 4 Ones (10 + 4 = 14)', isCorrect: true },
+        { id: 'opt_pl1_1', text: '1 Ten and 4 Ones', isCorrect: true },
         { id: 'opt_pl1_2', text: '4 Tens and 1 One', isCorrect: false },
         { id: 'opt_pl1_3', text: '0 Tens and 14 Ones', isCorrect: false },
       ],
@@ -122,7 +122,7 @@ export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🪵(10) + 🪵(10) = 2️⃣0️⃣',
     payload: {
       options: [
-        { id: 'opt_pl3_1', text: '2 bundles of Ten (2 Tens = 20)', isCorrect: true },
+        { id: 'opt_pl3_1', text: '2 bundles of Ten', isCorrect: true },
         { id: 'opt_pl3_2', text: '1 bundle of Ten', isCorrect: false },
         { id: 'opt_pl3_3', text: '3 bundles of Ten', isCorrect: false },
       ],
@@ -146,9 +146,9 @@ export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '1️⃣1️⃣',
     payload: {
       options: [
-        { id: 'opt_nm1_1', text: 'ELEVEN (11)', isCorrect: true },
-        { id: 'opt_nm1_2', text: 'TWELVE (12)', isCorrect: false },
-        { id: 'opt_nm1_3', text: 'TEN (10)', isCorrect: false },
+        { id: 'opt_nm1_1', text: 'ELEVEN', isCorrect: true },
+        { id: 'opt_nm1_2', text: 'TWELVE', isCorrect: false },
+        { id: 'opt_nm1_3', text: 'TEN', isCorrect: false },
       ],
     },
     explanation: '💡 11 is spelled **E - L - E - V - E - N** (Eleven)!',
@@ -191,9 +191,9 @@ export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '1️⃣5️⃣ ➡️ ?',
     payload: {
       options: [
-        { id: 'opt_ord_1', text: '16 (Sixteen)', isCorrect: true },
-        { id: 'opt_ord_2', text: '14 (Fourteen)', isCorrect: false },
-        { id: 'opt_ord_3', text: '17 (Seventeen)', isCorrect: false },
+        { id: 'opt_ord_1', text: '16', isCorrect: true },
+        { id: 'opt_ord_2', text: '14', isCorrect: false },
+        { id: 'opt_ord_3', text: '17', isCorrect: false },
       ],
     },
     explanation: '💡 15 + 1 = **16**! 16 comes right after 15.',
@@ -229,7 +229,7 @@ export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '? ⬅️ 2️⃣0️⃣',
     payload: {
       options: [
-        { id: 'opt_bef_1', text: '19 (Nineteen)', isCorrect: true },
+        { id: 'opt_bef_1', text: '19', isCorrect: true },
         { id: 'opt_bef_2', text: '18', isCorrect: false },
         { id: 'opt_bef_3', text: '21', isCorrect: false },
       ],

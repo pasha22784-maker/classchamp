@@ -22,9 +22,9 @@ export const CLASS_1_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: 'आ ➡️ ा',
     payload: {
       options: [
-        { id: 'opt_hm1_1', text: 'ा (आ की मात्रा एक सीधी खड़ी रेखा होती है)', isCorrect: true },
-        { id: 'opt_hm1_2', text: 'ि (छोटी इ की मात्रा)', isCorrect: false },
-        { id: 'opt_hm1_3', text: 'ु (छोटा उ की मात्रा)', isCorrect: false },
+        { id: 'opt_hm1_1', text: 'ा', isCorrect: true },
+        { id: 'opt_hm1_2', text: 'ि', isCorrect: false },
+        { id: 'opt_hm1_3', text: 'ु', isCorrect: false },
       ],
     },
     explanation: '💡 याद रखें: स्वर "आ" की मात्रा **ा** (खड़ी डंडी) होती है, जैसे क + ा = का!',
@@ -60,7 +60,7 @@ export const CLASS_1_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: 'न + ा + क = 👃',
     payload: {
       options: [
-        { id: 'opt_hm3_1', text: 'नाक 👃 (सूँघने वाला अंग)', isCorrect: true },
+        { id: 'opt_hm3_1', text: 'नाक 👃', isCorrect: true },
         { id: 'opt_hm3_2', text: 'नाम 🏷️', isCorrect: false },
         { id: 'opt_hm3_3', text: 'नाच 💃', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_1_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🥭 🌞',
     payload: {
       options: [
-        { id: 'opt_h2l1_1', text: 'आम 🥭 (फलों का राजा)', isCorrect: true },
+        { id: 'opt_h2l1_1', text: 'आम 🥭', isCorrect: true },
         { id: 'opt_h2l1_2', text: 'आग 🔥', isCorrect: false },
         { id: 'opt_h2l1_3', text: 'आज 📅', isCorrect: false },
       ],
@@ -129,7 +129,7 @@ export const CLASS_1_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '☂️ 🌧️',
     payload: {
       options: [
-        { id: 'opt_bth1_1', text: 'छाता ☂️ (छ + ा + त + ा)', isCorrect: true },
+        { id: 'opt_bth1_1', text: 'छाता ☂️', isCorrect: true },
         { id: 'opt_bth1_2', text: 'ताला 🔒', isCorrect: false },
         { id: 'opt_bth1_3', text: 'बाजा 🎺', isCorrect: false },
       ],
@@ -192,7 +192,7 @@ export const CLASS_1_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '☁️ 🌧️',
     payload: {
       options: [
-        { id: 'opt_3la1_1', text: 'बादल 🌧️ (ब + ा + द + ल)', isCorrect: true },
+        { id: 'opt_3la1_1', text: 'बादल 🌧️', isCorrect: true },
         { id: 'opt_3la1_2', text: 'काजल 👁️', isCorrect: false },
         { id: 'opt_3la1_3', text: 'चावल 🍚', isCorrect: false },
       ],
@@ -212,7 +212,7 @@ export const CLASS_1_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🥕 🐇',
     payload: {
       options: [
-        { id: 'opt_3la2_1', text: 'गाजर 🥕 (ग + ा + ज + र)', isCorrect: true },
+        { id: 'opt_3la2_1', text: 'गाजर 🥕', isCorrect: true },
         { id: 'opt_3la2_2', text: 'मटर 🫛', isCorrect: false },
         { id: 'opt_3la2_3', text: 'शलजम 🧅', isCorrect: false },
       ],
@@ -236,7 +236,7 @@ export const CLASS_1_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '👴 📰 👓',
     payload: {
       options: [
-        { id: 'opt_dd1_1', text: 'अखबार 📰 (समाचार पत्र)', isCorrect: true },
+        { id: 'opt_dd1_1', text: 'अखबार 📰', isCorrect: true },
         { id: 'opt_dd1_2', text: 'खेल का बल्ला 🏏', isCorrect: false },
         { id: 'opt_dd1_3', text: 'खिलौना 🧸', isCorrect: false },
       ],
@@ -278,7 +278,7 @@ export const CLASS_1_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🥭 🏷️',
     payload: {
       options: [
-        { id: 'opt_rhya1_1', text: 'नाम (आम - नाम - काम)', isCorrect: true },
+        { id: 'opt_rhya1_1', text: 'नाम', isCorrect: true },
         { id: 'opt_rhya1_2', text: 'नाक 👃', isCorrect: false },
         { id: 'opt_rhya1_3', text: 'नल 🚰', isCorrect: false },
       ],

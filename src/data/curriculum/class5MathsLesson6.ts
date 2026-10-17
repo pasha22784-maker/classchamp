@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🔢 Multiples of 4 & 6 ➔ ❓',
     payload: {
       options: [
-        { id: 'opt_lcm1', text: '12 (4, 8, 12... and 6, 12...)', isCorrect: true },
+        { id: 'opt_lcm1', text: '12', isCorrect: true },
         { id: 'opt_lcm2', text: '24', isCorrect: false },
         { id: 'opt_lcm3', text: '6', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🌳 Factors of 12',
     payload: {
       options: [
-        { id: 'opt_fc1', text: '1, 2, 3, 4, 6, 12 (exact divisors)', isCorrect: true },
+        { id: 'opt_fc1', text: '1, 2, 3, 4, 6, 12', isCorrect: true },
         { id: 'opt_fc2', text: '2, 4, 6, 8, 10, 12', isCorrect: false },
         { id: 'opt_fc3', text: '1, 3, 5, 12', isCorrect: false },
       ],

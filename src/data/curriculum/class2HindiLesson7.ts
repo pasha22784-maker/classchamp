@@ -22,7 +22,7 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '👦 👨 🦁',
     payload: {
       options: [
-        { id: 'opt_lg1_1', text: 'पुल्लिंग (पुरुष जाति का बोध)', isCorrect: true },
+        { id: 'opt_lg1_1', text: 'पुल्लिंग', isCorrect: true },
         { id: 'opt_lg1_2', text: 'स्त्रीलिंग', isCorrect: false },
         { id: 'opt_lg1_3', text: 'वचन', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🦚 🌧️',
     payload: {
       options: [
-        { id: 'opt_pk1_1', text: 'मोरनी (मोर का स्त्रीलिंग)', isCorrect: true },
+        { id: 'opt_pk1_1', text: 'मोरनी', isCorrect: true },
         { id: 'opt_pk1_2', text: 'चिड़िया', isCorrect: false },
         { id: 'opt_pk1_3', text: 'मुर्गी', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🐂 vs 🐄',
     payload: {
       options: [
-        { id: 'opt_ps1_1', text: 'गाय 🐄 (बैल ↔️ गाय)', isCorrect: true },
+        { id: 'opt_ps1_1', text: 'गाय 🐄', isCorrect: true },
         { id: 'opt_ps1_2', text: 'बैलनी', isCorrect: false },
         { id: 'opt_ps1_3', text: 'भैंस', isCorrect: false },
       ],
@@ -130,7 +130,7 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '👦 🎶 ➡️ 👧 🎶',
     payload: {
       options: [
-        { id: 'opt_vk1_1', text: 'लड़की गाना गाती है। (गाता बदलकर गाती)', isCorrect: true },
+        { id: 'opt_vk1_1', text: 'लड़की गाना गाती है।', isCorrect: true },
         { id: 'opt_vk1_2', text: 'लड़की गाना गाता है।', isCorrect: false },
         { id: 'opt_vk1_3', text: 'लड़की गाना गाते हैं।', isCorrect: false },
       ],

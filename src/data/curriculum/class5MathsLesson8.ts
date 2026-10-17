@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🏡 Length = 12m, Breadth = 8m',
     payload: {
       options: [
-        { id: 'opt_p1', text: '40 m (Perimeter = 2 × (12 + 8) = 2 × 20 = 40 m)', isCorrect: true },
+        { id: 'opt_p1', text: '40 m = 2 × 20 = 40 m)', isCorrect: true },
         { id: 'opt_p2', text: '96 m', isCorrect: false },
         { id: 'opt_p3', text: '20 m', isCorrect: false },
       ],
@@ -85,8 +85,8 @@ export const CLASS_5_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🧶 Carpet A (6×6) vs Carpet B (8×4)',
     payload: {
       options: [
-        { id: 'opt_cmp1', text: 'Carpet A (Area = 36 sq m > Carpet B = 32 sq m)', isCorrect: true },
-        { id: 'opt_cmp2', text: 'Carpet B (Area = 32 sq m)', isCorrect: false },
+        { id: 'opt_cmp1', text: 'Carpet A', isCorrect: true },
+        { id: 'opt_cmp2', text: 'Carpet B', isCorrect: false },
         { id: 'opt_cmp3', text: 'Both have the exact same area', isCorrect: false },
       ],
     },

@@ -22,7 +22,7 @@ export const CLASS_3_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '📏 1️⃣ m = ❓ cm',
     payload: {
       options: [
-        { id: 'opt_cv1_1', text: '100 centimeters (1 m = 100 cm)', isCorrect: true },
+        { id: 'opt_cv1_1', text: '100 centimeters', isCorrect: true },
         { id: 'opt_cv1_2', text: '10 centimeters', isCorrect: false },
         { id: 'opt_cv1_3', text: '1000 centimeters', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🖍️ 📏 0️⃣',
     payload: {
       options: [
-        { id: 'opt_rl1_1', text: 'At the "0" (Zero) mark', isCorrect: true },
+        { id: 'opt_rl1_1', text: 'At the "0" mark', isCorrect: true },
         { id: 'opt_rl1_2', text: 'At the "1" mark', isCorrect: false },
         { id: 'opt_rl1_3', text: 'At the very corner of the plastic', isCorrect: false },
       ],
@@ -88,9 +88,9 @@ export const CLASS_3_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🚗 🛣️ 🏙️',
     payload: {
       options: [
-        { id: 'opt_km1_1', text: 'Kilometers (km) (1 km = 1000 meters)', isCorrect: true },
-        { id: 'opt_km1_2', text: 'Centimeters (cm)', isCorrect: false },
-        { id: 'opt_km1_3', text: 'Millimeters (mm)', isCorrect: false },
+        { id: 'opt_km1_1', text: 'Kilometers', isCorrect: true },
+        { id: 'opt_km1_2', text: 'Centimeters', isCorrect: false },
+        { id: 'opt_km1_3', text: 'Millimeters', isCorrect: false },
       ],
     },
     explanation: '💡 Long travel distances on highways and roads are measured in **Kilometers (km)**!',
@@ -130,9 +130,9 @@ export const CLASS_3_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🚩 🏫',
     payload: {
       options: [
-        { id: 'opt_ch1_1', text: 'Meters (m)', isCorrect: true },
-        { id: 'opt_ch1_2', text: 'Kilometers (km)', isCorrect: false },
-        { id: 'opt_ch1_3', text: 'Millimeters (mm)', isCorrect: false },
+        { id: 'opt_ch1_1', text: 'Meters', isCorrect: true },
+        { id: 'opt_ch1_2', text: 'Kilometers', isCorrect: false },
+        { id: 'opt_ch1_3', text: 'Millimeters', isCorrect: false },
       ],
     },
     explanation: '💡 A school flag pole is several meters tall (e.g. 6 meters), so **meters (m)** is the best unit!',

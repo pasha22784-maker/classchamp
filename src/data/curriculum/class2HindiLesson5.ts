@@ -22,9 +22,9 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🐆 🐢 🏃‍♂️',
     payload: {
       options: [
-        { id: 'opt_kr1_1', text: 'झपटकर, दबाकर, भागा (काम बताने वाले शब्द)', isCorrect: true },
-        { id: 'opt_kr1_2', text: 'तेंदुआ और कछुआ (संज्ञा)', isCorrect: false },
-        { id: 'opt_kr1_3', text: 'मुँह (अंग)', isCorrect: false },
+        { id: 'opt_kr1_1', text: 'झपटकर, दबाकर, भागा', isCorrect: true },
+        { id: 'opt_kr1_2', text: 'तेंदुआ और कछुआ', isCorrect: false },
+        { id: 'opt_kr1_3', text: 'मुँह', isCorrect: false },
       ],
     },
     explanation: '💡 जिन शब्दों से किसी काम के करने या होने का पता चले, उन्हें **क्रिया (काम वाले शब्द)** कहते हैं!',
@@ -64,7 +64,7 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🦊 💡 🐆 🐢',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: 'कछुए को पानी में फेंकने की (ताकि उसका सख्त खोल नरम हो जाए)', isCorrect: true },
+        { id: 'opt_st1_1', text: 'कछुए को पानी में फेंकने की', isCorrect: true },
         { id: 'opt_st1_2', text: 'पेड़ पर चढ़ने की', isCorrect: false },
         { id: 'opt_st1_3', text: 'कछुए को ज़मीन में गाड़ने की', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🐢 🛡️',
     payload: {
       options: [
-        { id: 'opt_kh1_1', text: 'खोल (सख्त आवरण)', isCorrect: true },
+        { id: 'opt_kh1_1', text: 'खोल', isCorrect: true },
         { id: 'opt_kh1_2', text: 'पंख', isCorrect: false },
         { id: 'opt_kh1_3', text: 'सींग', isCorrect: false },
       ],

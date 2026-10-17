@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '💰 1️⃣ Crore = ❓ Lakhs',
     payload: {
       options: [
-        { id: 'opt_cr1', text: '100 Lakhs (1 Crore = 100 Lakhs = 1,00,00,000)', isCorrect: true },
+        { id: 'opt_cr1', text: '100 Lakhs', isCorrect: true },
         { id: 'opt_cr2', text: '10 Lakhs', isCorrect: false },
         { id: 'opt_cr3', text: '1,000 Lakhs', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_5_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🚣 4 km/h × 6 hours = ❓',
     payload: {
       options: [
-        { id: 'opt_sp1', text: '24 km (Distance = Speed × Time = 4 × 6 = 24 km)', isCorrect: true },
+        { id: 'opt_sp1', text: '24 km', isCorrect: true },
         { id: 'opt_sp2', text: '18 km', isCorrect: false },
         { id: 'opt_sp3', text: '10 km', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_5_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐟 6 kg × ₹ 60 = ❓',
     payload: {
       options: [
-        { id: 'opt_wt1', text: '₹ 360 (6 × 60 = 360)', isCorrect: true },
+        { id: 'opt_wt1', text: '₹ 360', isCorrect: true },
         { id: 'opt_wt2', text: '₹ 300', isCorrect: false },
         { id: 'opt_wt3', text: '₹ 420', isCorrect: false },
       ],

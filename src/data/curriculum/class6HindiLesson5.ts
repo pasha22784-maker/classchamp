@@ -85,7 +85,7 @@ export const CLASS_6_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '✔️ वाक्य शुद्धि',
     payload: {
       options: [
-        { id: 'opt_shd1', text: '"मुझे घर जाना है।" (शुद्ध सर्वनाम प्रयोग)', isCorrect: true },
+        { id: 'opt_shd1', text: '"मुझे घर जाना है।"', isCorrect: true },
         { id: 'opt_shd2', text: '"हमको घर जाना है।"', isCorrect: false },
         { id: 'opt_shd3', text: '"मेरे को जाना घर है।"', isCorrect: false },
       ],

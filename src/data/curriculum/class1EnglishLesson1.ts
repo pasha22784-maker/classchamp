@@ -22,9 +22,9 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🍎',
     payload: {
       options: [
-        { id: 'opt_ph1_1', text: 'Letter A (/æ/ as in Apple 🍎)', isCorrect: true },
-        { id: 'opt_ph1_2', text: 'Letter B (/b/ as in Ball ⚽)', isCorrect: false },
-        { id: 'opt_ph1_3', text: 'Letter C (/k/ as in Cat 🐱)', isCorrect: false },
+        { id: 'opt_ph1_1', text: 'Letter A', isCorrect: true },
+        { id: 'opt_ph1_2', text: 'Letter B', isCorrect: false },
+        { id: 'opt_ph1_3', text: 'Letter C', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Apple starts with the letter **A**! /æ/ /æ/ Apple!',
@@ -42,9 +42,9 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '⚽',
     payload: {
       options: [
-        { id: 'opt_ph2_1', text: 'Letter B (/b/ for Ball)', isCorrect: true },
-        { id: 'opt_ph2_2', text: 'Letter D (/d/ for Dog)', isCorrect: false },
-        { id: 'opt_ph2_3', text: 'Letter P (/p/ for Pen)', isCorrect: false },
+        { id: 'opt_ph2_1', text: 'Letter B', isCorrect: true },
+        { id: 'opt_ph2_2', text: 'Letter D', isCorrect: false },
+        { id: 'opt_ph2_3', text: 'Letter P', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Ball begins with the letter **B**! /b/ /b/ Ball!',
@@ -62,9 +62,9 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐶',
     payload: {
       options: [
-        { id: 'opt_ph3_1', text: 'D (D is for Dog 🐶)', isCorrect: true },
-        { id: 'opt_ph3_2', text: 'B (B is for Ball ⚽)', isCorrect: false },
-        { id: 'opt_ph3_3', text: 'G (G is for Grapes 🍇)', isCorrect: false },
+        { id: 'opt_ph3_1', text: 'D', isCorrect: true },
+        { id: 'opt_ph3_2', text: 'B', isCorrect: false },
+        { id: 'opt_ph3_3', text: 'G', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: **D** is for Dog! /d/ /d/ Dog!',
@@ -82,9 +82,9 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '☀️',
     payload: {
       options: [
-        { id: 'opt_ph4_1', text: 'S (/s/ as in Sun ☀️)', isCorrect: true },
-        { id: 'opt_ph4_2', text: 'T (/t/ as in Tree 🌳)', isCorrect: false },
-        { id: 'opt_ph4_3', text: 'M (/m/ as in Moon 🌙)', isCorrect: false },
+        { id: 'opt_ph4_1', text: 'S', isCorrect: true },
+        { id: 'opt_ph4_2', text: 'T', isCorrect: false },
+        { id: 'opt_ph4_3', text: 'M', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Sun starts with the hissing letter **S**! /s/ /s/ Sun!',
@@ -102,9 +102,9 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐟',
     payload: {
       options: [
-        { id: 'opt_ph5_1', text: 'F (/f/ for Fish 🐟)', isCorrect: true },
-        { id: 'opt_ph5_2', text: 'E (/e/ for Egg 🥚)', isCorrect: false },
-        { id: 'opt_ph5_3', text: 'H (/h/ for Hat 🎩)', isCorrect: false },
+        { id: 'opt_ph5_1', text: 'F', isCorrect: true },
+        { id: 'opt_ph5_2', text: 'E', isCorrect: false },
+        { id: 'opt_ph5_3', text: 'H', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Fish begins with the letter **F**! /f/ /f/ Fish!',
@@ -147,9 +147,9 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🔠 🔡',
     payload: {
       options: [
-        { id: 'opt_case_e1', text: 'e (small e)', isCorrect: true },
-        { id: 'opt_case_e2', text: 'f (small f)', isCorrect: false },
-        { id: 'opt_case_e3', text: 'c (small c)', isCorrect: false },
+        { id: 'opt_case_e1', text: 'e', isCorrect: true },
+        { id: 'opt_case_e2', text: 'f', isCorrect: false },
+        { id: 'opt_case_e3', text: 'c', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Capital **E** matches lowercase **e** (Elephant 🐘)!',
@@ -167,9 +167,9 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🅱️',
     payload: {
       options: [
-        { id: 'opt_b_1', text: 'b (has belly to the right 👉)', isCorrect: true },
-        { id: 'opt_b_2', text: 'd (has circle to the left 👈)', isCorrect: false },
-        { id: 'opt_b_3', text: 'p (hangs down 👇)', isCorrect: false },
+        { id: 'opt_b_1', text: 'b', isCorrect: true },
+        { id: 'opt_b_2', text: 'd', isCorrect: false },
+        { id: 'opt_b_3', text: 'p', isCorrect: false },
       ],
     },
     explanation: '💡 Remember the trick: Small **b** has a belly facing forward 👉, just like big B!',
@@ -191,9 +191,9 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '⭐ 🔤',
     payload: {
       options: [
-        { id: 'opt_v1_1', text: 'Letter A (It is a Vowel ⭐)', isCorrect: true },
-        { id: 'opt_v1_2', text: 'Letter B (Consonant)', isCorrect: false },
-        { id: 'opt_v1_3', text: 'Letter T (Consonant)', isCorrect: false },
+        { id: 'opt_v1_1', text: 'Letter A', isCorrect: true },
+        { id: 'opt_v1_2', text: 'Letter B', isCorrect: false },
+        { id: 'opt_v1_3', text: 'Letter T', isCorrect: false },
       ],
     },
     explanation: '💡 Remember the 5 magical Vowels: **A, E, I, O, U**! Letter A is the first vowel.',
@@ -211,7 +211,7 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐱 C-A-T',
     payload: {
       options: [
-        { id: 'opt_v2_1', text: 'Letter A (middle vowel sound)', isCorrect: true },
+        { id: 'opt_v2_1', text: 'Letter A', isCorrect: true },
         { id: 'opt_v2_2', text: 'Letter C', isCorrect: false },
         { id: 'opt_v2_3', text: 'Letter T', isCorrect: false },
       ],
@@ -231,7 +231,7 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🖐️ A-E-I-O-U',
     payload: {
       options: [
-        { id: 'opt_v3_1', text: '5 Vowels (A, E, I, O, U)', isCorrect: true },
+        { id: 'opt_v3_1', text: '5 Vowels', isCorrect: true },
         { id: 'opt_v3_2', text: '2 Vowels', isCorrect: false },
         { id: 'opt_v3_3', text: '10 Vowels', isCorrect: false },
       ],
@@ -255,7 +255,7 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐱 🎩 🐶',
     payload: {
       options: [
-        { id: 'opt_rh1_1', text: 'HAT 🎩 (Cat - Hat)', isCorrect: true },
+        { id: 'opt_rh1_1', text: 'HAT 🎩', isCorrect: true },
         { id: 'opt_rh1_2', text: 'DOG 🐶', isCorrect: false },
         { id: 'opt_rh1_3', text: 'SUN ☀️', isCorrect: false },
       ],
@@ -275,7 +275,7 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🪭 🍳 🚗',
     payload: {
       options: [
-        { id: 'opt_rh2_1', text: 'PAN 🍳 (cooking pan)', isCorrect: true },
+        { id: 'opt_rh2_1', text: 'PAN 🍳', isCorrect: true },
         { id: 'opt_rh2_2', text: 'CAR 🚗', isCorrect: false },
         { id: 'opt_rh2_3', text: 'CUP ☕', isCorrect: false },
       ],
@@ -320,7 +320,7 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '👩 🤱',
     payload: {
       options: [
-        { id: 'opt_fam1_1', text: 'Mother (Mom / Mummy)', isCorrect: true },
+        { id: 'opt_fam1_1', text: 'Mother', isCorrect: true },
         { id: 'opt_fam1_2', text: 'Brother', isCorrect: false },
         { id: 'opt_fam1_3', text: 'Uncle', isCorrect: false },
       ],
@@ -340,7 +340,7 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '👨 📖',
     payload: {
       options: [
-        { id: 'opt_fam2_1', text: 'Father (Dad / Papa)', isCorrect: true },
+        { id: 'opt_fam2_1', text: 'Father', isCorrect: true },
         { id: 'opt_fam2_2', text: 'Sister', isCorrect: false },
         { id: 'opt_fam2_3', text: 'Aunt', isCorrect: false },
       ],
@@ -360,7 +360,7 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '👴 👓',
     payload: {
       options: [
-        { id: 'opt_fam3_1', text: 'Grandfather (Dada / Nana 👴)', isCorrect: true },
+        { id: 'opt_fam3_1', text: 'Grandfather', isCorrect: true },
         { id: 'opt_fam3_2', text: 'Baby brother 👶', isCorrect: false },
         { id: 'opt_fam3_3', text: 'Cousin 👦', isCorrect: false },
       ],
@@ -522,7 +522,7 @@ export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '👦 👋',
     payload: {
       options: [
-        { id: 'opt_sw_1', text: 'my ("Hello, my name is Aarav.")', isCorrect: true },
+        { id: 'opt_sw_1', text: 'my', isCorrect: true },
         { id: 'opt_sw_2', text: 'you', isCorrect: false },
         { id: 'opt_sw_3', text: 'we', isCorrect: false },
       ],

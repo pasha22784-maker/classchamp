@@ -22,7 +22,7 @@ export const CLASS_4_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🏏 ⚾ ✋',
     payload: {
       options: [
-        { id: 'opt_ct1', text: 'caught (past tense of catch)', isCorrect: true },
+        { id: 'opt_ct1', text: 'caught', isCorrect: true },
         { id: 'opt_ct2', text: 'catched', isCorrect: false },
         { id: 'opt_ct3', text: 'catching', isCorrect: false },
       ],
@@ -64,9 +64,9 @@ export const CLASS_4_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '📚 🛍️ 💳',
     payload: {
       options: [
-        { id: 'opt_by1', text: 'bought (past tense of buy)', isCorrect: true },
+        { id: 'opt_by1', text: 'bought', isCorrect: true },
         { id: 'opt_by2', text: 'buyed', isCorrect: false },
-        { id: 'opt_by3', text: 'brought (from bring)', isCorrect: false },
+        { id: 'opt_by3', text: 'brought', isCorrect: false },
       ],
     },
     explanation: '💡 Buy ➔ **bought**! (Notice the difference: Bring ➔ brought, Buy ➔ bought).',

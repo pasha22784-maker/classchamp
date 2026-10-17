@@ -41,9 +41,9 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '✏️ 🪙 🔘',
     payload: {
       options: [
-        { id: 'opt_l2_1', text: '✏️ Writing Pencil (LONG)', isCorrect: true },
-        { id: 'opt_l2_2', text: '🪙 Round Coin (ROUND)', isCorrect: false },
-        { id: 'opt_l2_3', text: '🔘 Shirt Button (ROUND)', isCorrect: false },
+        { id: 'opt_l2_1', text: '✏️ Writing Pencil', isCorrect: true },
+        { id: 'opt_l2_2', text: '🪙 Round Coin', isCorrect: false },
+        { id: 'opt_l2_3', text: '🔘 Shirt Button', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: A pencil ✏️ is long and straight so you can hold and write with it!',
@@ -61,9 +61,9 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🥒 🍅 🧅',
     payload: {
       options: [
-        { id: 'opt_veg_1', text: '🥒 Cucumber / Gourd (LONG)', isCorrect: true },
-        { id: 'opt_veg_2', text: '🍅 Ripe Tomato (ROUND)', isCorrect: false },
-        { id: 'opt_veg_3', text: '🧅 Pink Onion (ROUND)', isCorrect: false },
+        { id: 'opt_veg_1', text: '🥒 Cucumber / Gourd', isCorrect: true },
+        { id: 'opt_veg_2', text: '🍅 Ripe Tomato', isCorrect: false },
+        { id: 'opt_veg_3', text: '🧅 Pink Onion', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Cucumbers 🥒 and carrots 🥕 grow long, while tomatoes 🍅 and onions 🧅 are round!',
@@ -85,8 +85,8 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🫓 🍌',
     payload: {
       options: [
-        { id: 'opt_r1_1', text: '🫓 Soft Roti / Chapati (ROUND)', isCorrect: true },
-        { id: 'opt_r1_2', text: '🍌 Yellow Banana (LONG)', isCorrect: false },
+        { id: 'opt_r1_1', text: '🫓 Soft Roti / Chapati', isCorrect: true },
+        { id: 'opt_r1_2', text: '🍌 Yellow Banana', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: A roti 🫓 is round all around with zero corners, while a banana 🍌 is long!',
@@ -104,8 +104,8 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🟡 🍫',
     payload: {
       options: [
-        { id: 'opt_r2_1', text: '🟡 Motichoor Ladoo (ROUND)', isCorrect: true },
-        { id: 'opt_r2_2', text: '🍫 Chocolate Bar (RECTANGLE/LONG)', isCorrect: false },
+        { id: 'opt_r2_1', text: '🟡 Motichoor Ladoo', isCorrect: true },
+        { id: 'opt_r2_2', text: '🍫 Chocolate Bar', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: A ladoo 🟡 or rasgulla is spherical and round all around!',
@@ -252,9 +252,9 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🪙 🧱 ⚽',
     payload: {
       options: [
-        { id: 'opt_dual_1', text: '🪙 Coin (Rolls on edge, Slides on face)', isCorrect: true },
-        { id: 'opt_dual_2', text: '🧱 Brick (Only slides)', isCorrect: false },
-        { id: 'opt_dual_3', text: '⚽ Ball (Only rolls)', isCorrect: false },
+        { id: 'opt_dual_1', text: '🪙 Coin', isCorrect: true },
+        { id: 'opt_dual_2', text: '🧱 Brick', isCorrect: false },
+        { id: 'opt_dual_3', text: '⚽ Ball', isCorrect: false },
       ],
     },
     explanation: '💡 NCERT Secret: A coin 🪙 has a flat face (slides) and a circular rim (rolls)! Pipes and pencils can also do both.',
@@ -318,10 +318,10 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '📏 🪥 🥕 ⚽',
     payload: {
       options: [
-        { id: 'opt_odd_2', text: '⚽ Football (It is round, not long)', isCorrect: true },
-        { id: 'opt_odd_1', text: '📏 Measuring Ruler (Long)', isCorrect: false },
-        { id: 'opt_odd_3', text: '🪥 Toothbrush (Long)', isCorrect: false },
-        { id: 'opt_odd_4', text: '🥕 Carrot (Long)', isCorrect: false },
+        { id: 'opt_odd_2', text: '⚽ Football', isCorrect: true },
+        { id: 'opt_odd_1', text: '📏 Measuring Ruler', isCorrect: false },
+        { id: 'opt_odd_3', text: '🪥 Toothbrush', isCorrect: false },
+        { id: 'opt_odd_4', text: '🥕 Carrot', isCorrect: false },
       ],
     },
     explanation: '💡 Ruler, toothbrush, and carrot are long. A football ⚽ is round!',

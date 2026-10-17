@@ -22,7 +22,7 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🦌 (24) + 🐇 (15)',
     payload: {
       options: [
-        { id: 'opt_ad1_1', text: '39 (Add ones: 4+5=9, Add tens: 2+1=3)', isCorrect: true },
+        { id: 'opt_ad1_1', text: '39', isCorrect: true },
         { id: 'opt_ad1_2', text: '49', isCorrect: false },
         { id: 'opt_ad1_3', text: '35', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '4️⃣0️⃣ + 3️⃣0️⃣',
     payload: {
       options: [
-        { id: 'opt_at1_1', text: '70 (4 tens + 3 tens = 7 tens)', isCorrect: true },
+        { id: 'opt_at1_1', text: '70', isCorrect: true },
         { id: 'opt_at1_2', text: '60', isCorrect: false },
         { id: 'opt_at1_3', text: '80', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '📚 (32) + 📖 (23)',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: '55 books (32 + 23 = 55)', isCorrect: true },
+        { id: 'opt_st1_1', text: '55 books', isCorrect: true },
         { id: 'opt_st1_2', text: '45 books', isCorrect: false },
         { id: 'opt_st1_3', text: '50 books', isCorrect: false },
       ],
@@ -148,7 +148,7 @@ export const CLASS_2_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🔄 2️⃣5️⃣ + 1️⃣4️⃣',
     payload: {
       options: [
-        { id: 'opt_cm1_1', text: '39 (Changing the order does not change the sum)', isCorrect: true },
+        { id: 'opt_cm1_1', text: '39', isCorrect: true },
         { id: 'opt_cm1_2', text: '29', isCorrect: false },
         { id: 'opt_cm1_3', text: '49', isCorrect: false },
       ],

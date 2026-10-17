@@ -22,9 +22,9 @@ export const CLASS_5_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🛡️ Courage & Bravery',
     payload: {
       options: [
-        { id: 'opt_an1', text: 'courage (name of a quality/feeling)', isCorrect: true },
-        { id: 'opt_an2', text: 'soldier (concrete noun)', isCorrect: false },
-        { id: 'opt_an3', text: 'fought (action verb)', isCorrect: false },
+        { id: 'opt_an1', text: 'courage', isCorrect: true },
+        { id: 'opt_an2', text: 'soldier', isCorrect: false },
+        { id: 'opt_an3', text: 'fought', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: An **Abstract Noun** is an idea, quality, or feeling that you cannot touch or see with your eyes (e.g. *courage, honesty, happiness*)!',
@@ -85,9 +85,9 @@ export const CLASS_5_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '👶 🧒 Childhood',
     payload: {
       options: [
-        { id: 'opt_ch1', text: '-hood (Childhood)', isCorrect: true },
-        { id: 'opt_ch2', text: '-ness (Childness)', isCorrect: false },
-        { id: 'opt_ch3', text: '-ly (Childly)', isCorrect: false },
+        { id: 'opt_ch1', text: '-hood', isCorrect: true },
+        { id: 'opt_ch2', text: '-ness', isCorrect: false },
+        { id: 'opt_ch3', text: '-ly', isCorrect: false },
       ],
     },
     explanation: '💡 Adding **-hood** to Child forms the abstract noun **Childhood** (like Brotherhood, Neighborhood)!',

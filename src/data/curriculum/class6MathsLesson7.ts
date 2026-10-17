@@ -22,9 +22,9 @@ export const CLASS_6_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🪙 14 . 2 8 [5]',
     payload: {
       options: [
-        { id: 'opt_dec1', text: '5 thousandths (5/1000 or 0.005)', isCorrect: true },
-        { id: 'opt_dec2', text: '5 hundredths (0.05)', isCorrect: false },
-        { id: 'opt_dec3', text: '5 units (5)', isCorrect: false },
+        { id: 'opt_dec1', text: '5 thousandths', isCorrect: true },
+        { id: 'opt_dec2', text: '5 hundredths', isCorrect: false },
+        { id: 'opt_dec3', text: '5 units', isCorrect: false },
       ],
     },
     explanation: '💡 In 14.285: 2 is in Tenths place, 8 is in Hundredths place, and **5 is in Thousandths place (5/1000)**!',
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '➖ 20.75 - 14.50 = ❓',
     payload: {
       options: [
-        { id: 'opt_sub1', text: '6.25 (20.75 - 14.50 = 6.25)', isCorrect: true },
+        { id: 'opt_sub1', text: '6.25', isCorrect: true },
         { id: 'opt_sub2', text: '5.25', isCorrect: false },
         { id: 'opt_sub3', text: '6.75', isCorrect: false },
       ],

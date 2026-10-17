@@ -22,7 +22,7 @@ export const CLASS_2_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🏃 🎵',
     payload: {
       options: [
-        { id: 'opt_rh1_1', text: 'FUN 🎈 (Sun rhymes with Fun)', isCorrect: true },
+        { id: 'opt_rh1_1', text: 'FUN 🎈', isCorrect: true },
         { id: 'opt_rh1_2', text: 'BOOK', isCorrect: false },
         { id: 'opt_rh1_3', text: 'DESK', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '👏 🔤',
     payload: {
       options: [
-        { id: 'opt_bl1_1', text: 'CLAP (cl + ap = clap 👏)', isCorrect: true },
+        { id: 'opt_bl1_1', text: 'CLAP', isCorrect: true },
         { id: 'opt_bl1_2', text: 'SLAP', isCorrect: false },
         { id: 'opt_bl1_3', text: 'TRAP', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_2_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐰 HOP ➡️ HOP + E = ❓',
     payload: {
       options: [
-        { id: 'opt_vw1_1', text: 'HOPE (Magic "e" makes the vowel say its name)', isCorrect: true },
+        { id: 'opt_vw1_1', text: 'HOPE', isCorrect: true },
         { id: 'opt_vw1_2', text: 'HOLE', isCorrect: false },
         { id: 'opt_vw1_3', text: 'HOMES', isCorrect: false },
       ],

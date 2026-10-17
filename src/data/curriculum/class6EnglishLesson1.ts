@@ -22,7 +22,7 @@ export const CLASS_6_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🦅 🌳 Two Birds',
     payload: {
       options: [
-        { id: 'opt_tb1', text: '"One is known by the company one keeps" (Character is shaped by company)', isCorrect: true },
+        { id: 'opt_tb1', text: '"One is known by the company one keeps"', isCorrect: true },
         { id: 'opt_tb2', text: 'Birds cannot talk to humans', isCorrect: false },
         { id: 'opt_tb3', text: 'The forest is dangerous for kings', isCorrect: false },
       ],

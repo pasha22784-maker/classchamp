@@ -22,7 +22,7 @@ export const CLASS_4_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '👨‍✈️ 👦 🌟',
     payload: {
       options: [
-        { id: 'opt_pj1', text: 'एक अच्छा इंसान बनना (सबसे पहले एक अच्छा इंसान बनो)', isCorrect: true },
+        { id: 'opt_pj1', text: 'एक अच्छा इंसान बनना', isCorrect: true },
         { id: 'opt_pj2', text: 'हवाई जहाज का पायलट बनना', isCorrect: false },
         { id: 'opt_pj3', text: 'रेलवे का चौकीदार बनना', isCorrect: false },
       ],

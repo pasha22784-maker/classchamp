@@ -22,9 +22,9 @@ export const CLASS_2_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🐄 🥛 🛑',
     payload: {
       options: [
-        { id: 'opt_tl1_1', text: 'With a Full Stop ( . )', isCorrect: true },
-        { id: 'opt_tl1_2', text: 'With a Question Mark ( ? )', isCorrect: false },
-        { id: 'opt_tl1_3', text: 'With a Comma ( , )', isCorrect: false },
+        { id: 'opt_tl1_1', text: 'With a Full Stop', isCorrect: true },
+        { id: 'opt_tl1_2', text: 'With a Question Mark', isCorrect: false },
+        { id: 'opt_tl1_3', text: 'With a Comma', isCorrect: false },
       ],
     },
     explanation: '💡 A statement or telling sentence always ends with a **full stop ( . )**! 🛑',
@@ -88,9 +88,9 @@ export const CLASS_2_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🦚 🤩 ❗',
     payload: {
       options: [
-        { id: 'opt_ex1_1', text: 'Exclamation Mark ( ! )', isCorrect: true },
-        { id: 'opt_ex1_2', text: 'Question Mark ( ? )', isCorrect: false },
-        { id: 'opt_ex1_3', text: 'Hyphen ( - )', isCorrect: false },
+        { id: 'opt_ex1_1', text: 'Exclamation Mark', isCorrect: true },
+        { id: 'opt_ex1_2', text: 'Question Mark', isCorrect: false },
+        { id: 'opt_ex1_3', text: 'Hyphen', isCorrect: false },
       ],
     },
     explanation: '💡 An **exclamation mark ( ! )** shows sudden excitement, joy, or surprise! 🤩',

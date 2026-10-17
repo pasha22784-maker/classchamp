@@ -64,7 +64,7 @@ export const CLASS_3_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '☀️ ➔ 🏃',
     payload: {
       options: [
-        { id: 'opt_rh1', text: 'Run (Sun – Run)', isCorrect: true },
+        { id: 'opt_rh1', text: 'Run', isCorrect: true },
         { id: 'opt_rh2', text: 'Moon', isCorrect: false },
         { id: 'opt_rh3', text: 'Star', isCorrect: false },
       ],

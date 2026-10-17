@@ -112,13 +112,13 @@ export const CelebrationScreen: React.FC<CelebrationScreenProps> = ({
               <View style={{ flex: 1 }}>
                 <Text style={styles.practiceTitle}>Need Extra Practice on this Topic?</Text>
                 <Text style={styles.practiceDesc}>
-                  Master every concept like a champion! Solve 10 more dynamic questions from {result.chapterTitle || 'this topic'}.
+                  Master every concept like a champion! Practice and strengthen your skills in {result.chapterTitle || 'this topic'}.
                 </Text>
               </View>
             </View>
 
             <ChampButton
-              title="Practice 10 More Questions 🚀"
+              title="Practice This Chapter Again 🚀"
               icon="🔄"
               variant="gold"
               size="lg"

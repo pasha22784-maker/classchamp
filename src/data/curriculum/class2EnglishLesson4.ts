@@ -22,7 +22,7 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '👦👧 🖍️',
     payload: {
       options: [
-        { id: 'opt_we1_1', text: 'WE (When talking about yourself and someone else)', isCorrect: true },
+        { id: 'opt_we1_1', text: 'WE', isCorrect: true },
         { id: 'opt_we1_2', text: 'THEY', isCorrect: false },
         { id: 'opt_we1_3', text: 'HE', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '👥 🌳',
     payload: {
       options: [
-        { id: 'opt_th1_1', text: 'THEY (Used for more than one person when you are not included)', isCorrect: true },
+        { id: 'opt_th1_1', text: 'THEY', isCorrect: true },
         { id: 'opt_th1_2', text: 'WE', isCorrect: false },
         { id: 'opt_th1_3', text: 'IT', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '👩‍🏫 👉 👦',
     payload: {
       options: [
-        { id: 'opt_yu1_1', text: 'YOU (Talking directly to someone)', isCorrect: true },
+        { id: 'opt_yu1_1', text: 'YOU', isCorrect: true },
         { id: 'opt_yu1_2', text: 'THEY', isCorrect: false },
         { id: 'opt_yu1_3', text: 'WE', isCorrect: false },
       ],
@@ -130,7 +130,7 @@ export const CLASS_2_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '💡 🔤',
     payload: {
       options: [
-        { id: 'opt_am1_1', text: 'I (I am seven years old)', isCorrect: true },
+        { id: 'opt_am1_1', text: 'I', isCorrect: true },
         { id: 'opt_am1_2', text: 'We am', isCorrect: false },
         { id: 'opt_am1_3', text: 'They am', isCorrect: false },
       ],

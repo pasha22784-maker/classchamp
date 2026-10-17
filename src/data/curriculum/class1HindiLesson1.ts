@@ -22,9 +22,9 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🍎',
     payload: {
       options: [
-        { id: 'opt_sw1_1', text: 'अ (अ से अनार 🍎)', isCorrect: true },
-        { id: 'opt_sw1_2', text: 'आ (आ से आम 🥭)', isCorrect: false },
-        { id: 'opt_sw1_3', text: 'इ (इ से इमली)', isCorrect: false },
+        { id: 'opt_sw1_1', text: 'अ', isCorrect: true },
+        { id: 'opt_sw1_2', text: 'आ', isCorrect: false },
+        { id: 'opt_sw1_3', text: 'इ', isCorrect: false },
       ],
     },
     explanation: '💡 याद रखें: **अ** से अनार 🍎! अनार का पहला अक्षर "अ" होता है।',
@@ -42,9 +42,9 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🥭',
     payload: {
       options: [
-        { id: 'opt_sw2_1', text: 'आ (आ से आम 🥭)', isCorrect: true },
-        { id: 'opt_sw2_2', text: 'अ (अ से अनार)', isCorrect: false },
-        { id: 'opt_sw2_3', text: 'उ (उ से उल्लू 🦉)', isCorrect: false },
+        { id: 'opt_sw2_1', text: 'आ', isCorrect: true },
+        { id: 'opt_sw2_2', text: 'अ', isCorrect: false },
+        { id: 'opt_sw2_3', text: 'उ', isCorrect: false },
       ],
     },
     explanation: '💡 याद रखें: **आ** से आम 🥭! आम में बड़ा आ स्वर आता है।',
@@ -87,9 +87,9 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🪷',
     payload: {
       options: [
-        { id: 'opt_vy1_1', text: 'क (क से कमल 🪷)', isCorrect: true },
-        { id: 'opt_vy1_2', text: 'ख (ख से खरगोश 🐇)', isCorrect: false },
-        { id: 'opt_vy1_3', text: 'ग (ग से गमला 🪴)', isCorrect: false },
+        { id: 'opt_vy1_1', text: 'क', isCorrect: true },
+        { id: 'opt_vy1_2', text: 'ख', isCorrect: false },
+        { id: 'opt_vy1_3', text: 'ग', isCorrect: false },
       ],
     },
     explanation: '💡 याद रखें: **क** से कमल 🪷! क व्यंजन से कमल शुरू होता है।',
@@ -107,9 +107,9 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🏠',
     payload: {
       options: [
-        { id: 'opt_vy2_1', text: 'घ (घ से घर 🏠)', isCorrect: true },
-        { id: 'opt_vy2_2', text: 'च (च से चम्मच)', isCorrect: false },
-        { id: 'opt_vy2_3', text: 'ध (ध से धनुष)', isCorrect: false },
+        { id: 'opt_vy2_1', text: 'घ', isCorrect: true },
+        { id: 'opt_vy2_2', text: 'च', isCorrect: false },
+        { id: 'opt_vy2_3', text: 'ध', isCorrect: false },
       ],
     },
     explanation: '💡 याद रखें: **घ** से घर 🏠! घ + र = घर।',
@@ -235,7 +235,7 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: 'म + ट + र = 🫛',
     payload: {
       options: [
-        { id: 'opt_3l1_1', text: 'मटर 🫛 (हरी मीठी मटर)', isCorrect: true },
+        { id: 'opt_3l1_1', text: 'मटर 🫛', isCorrect: true },
         { id: 'opt_3l1_2', text: 'कमल 🪷', isCorrect: false },
         { id: 'opt_3l1_3', text: 'सड़क 🛣️', isCorrect: false },
       ],
@@ -297,9 +297,9 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🌳',
     payload: {
       options: [
-        { id: 'opt_4l1_1', text: 'ब-र-ग-द (बरगद 🌳)', isCorrect: true },
-        { id: 'opt_4l1_2', text: 'क-स-र-त (कसरत 🏋️)', isCorrect: false },
-        { id: 'opt_4l1_3', text: 'थ-र-म-स (थर्मस 🍶)', isCorrect: false },
+        { id: 'opt_4l1_1', text: 'ब-र-ग-द', isCorrect: true },
+        { id: 'opt_4l1_2', text: 'क-स-र-त', isCorrect: false },
+        { id: 'opt_4l1_3', text: 'थ-र-म-स', isCorrect: false },
       ],
     },
     explanation: '💡 ब + र + ग + द = **बरगद** 🌳! यह चार अक्षर वाला शब्द है।',
@@ -404,7 +404,7 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '💧 🚰',
     payload: {
       options: [
-        { id: 'opt_hrh1_1', text: 'नल 🚰 (जल - नल)', isCorrect: true },
+        { id: 'opt_hrh1_1', text: 'नल 🚰', isCorrect: true },
         { id: 'opt_hrh1_2', text: 'बस 🚌', isCorrect: false },
         { id: 'opt_hrh1_3', text: 'घर 🏠', isCorrect: false },
       ],
@@ -424,7 +424,7 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🏠 🚪',
     payload: {
       options: [
-        { id: 'opt_hrh2_1', text: 'पर (घर - पर - डर)', isCorrect: true },
+        { id: 'opt_hrh2_1', text: 'पर', isCorrect: true },
         { id: 'opt_hrh2_2', text: 'फल 🍎', isCorrect: false },
         { id: 'opt_hrh2_3', text: 'मटर 🫛', isCorrect: false },
       ],

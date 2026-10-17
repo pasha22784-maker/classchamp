@@ -64,9 +64,9 @@ export const CLASS_3_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '❓ ✍️ 🐱',
     payload: {
       options: [
-        { id: 'opt_qm1', text: 'प्रश्नवाचक चिह्न ( ? )', isCorrect: true },
-        { id: 'opt_qm2', text: 'पूर्ण विराम ( । )', isCorrect: false },
-        { id: 'opt_qm3', text: 'विस्मयादिबोधक चिह्न ( ! )', isCorrect: false },
+        { id: 'opt_qm1', text: 'प्रश्नवाचक चिह्न', isCorrect: true },
+        { id: 'opt_qm2', text: 'पूर्ण विराम', isCorrect: false },
+        { id: 'opt_qm3', text: 'विस्मयादिबोधक चिह्न', isCorrect: false },
       ],
     },
     explanation: '💡 जिस वाक्य में कोई प्रश्न पूछा जाए (क्यों, क्या, कहाँ, कब), उसके अंत में **प्रश्नवाचक चिह्न (?)** लगता है!',
@@ -102,7 +102,7 @@ export const CLASS_3_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '❗ 😲 🍞',
     payload: {
       options: [
-        { id: 'opt_ex1', text: 'विस्मयादिबोधक चिह्न (आश्चर्य या भाव प्रकट करने वाला)', isCorrect: true },
+        { id: 'opt_ex1', text: 'विस्मयादिबोधक चिह्न', isCorrect: true },
         { id: 'opt_ex2', text: 'अल्प विराम', isCorrect: false },
         { id: 'opt_ex3', text: 'योजक चिह्न', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '👧 🐭 🛌',
     payload: {
       options: [
-        { id: 'opt_sg1_1', text: 'लड़की और चुहिया (नाम वाले शब्द)', isCorrect: true },
+        { id: 'opt_sg1_1', text: 'लड़की और चुहिया', isCorrect: true },
         { id: 'opt_sg1_2', text: 'सोती हुई', isCorrect: false },
         { id: 'opt_sg1_3', text: 'काट लिया', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🐱 🐭 🔊',
     payload: {
       options: [
-        { id: 'opt_sd1_1', text: 'बिल्ली 🐱 की आवाज़ (क्योंकि चूहे बिल्ली से डरते हैं)', isCorrect: true },
+        { id: 'opt_sd1_1', text: 'बिल्ली 🐱 की आवाज़', isCorrect: true },
         { id: 'opt_sd1_2', text: 'शेर की दहाड़', isCorrect: false },
         { id: 'opt_sd1_3', text: 'कुत्ते का भौंकना', isCorrect: false },
       ],
@@ -112,7 +112,7 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🍲 🏠 👩',
     payload: {
       options: [
-        { id: 'opt_sp1_1', text: 'रसोईघर (स्थान का नाम)', isCorrect: true },
+        { id: 'opt_sp1_1', text: 'रसोईघर', isCorrect: true },
         { id: 'opt_sp1_2', text: 'स्वादिष्ट', isCorrect: false },
         { id: 'opt_sp1_3', text: 'बना रही हैं', isCorrect: false },
       ],

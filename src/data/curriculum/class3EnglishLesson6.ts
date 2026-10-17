@@ -22,7 +22,7 @@ export const CLASS_3_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '👩 👧 👨',
     payload: {
       options: [
-        { id: 'opt_plc1', text: 'between (in the middle of two)', isCorrect: true },
+        { id: 'opt_plc1', text: 'between', isCorrect: true },
         { id: 'opt_plc2', text: 'under', isCorrect: false },
         { id: 'opt_plc3', text: 'at', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '⏰ 8:30 AM 🔔',
     payload: {
       options: [
-        { id: 'opt_tm1', text: 'at (at 8:30 AM)', isCorrect: true },
+        { id: 'opt_tm1', text: 'at', isCorrect: true },
         { id: 'opt_tm2', text: 'on', isCorrect: false },
         { id: 'opt_tm3', text: 'in', isCorrect: false },
       ],
@@ -102,7 +102,7 @@ export const CLASS_3_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🌸 🌼 🌻',
     payload: {
       options: [
-        { id: 'opt_in1', text: 'in (in spring / in July)', isCorrect: true },
+        { id: 'opt_in1', text: 'in', isCorrect: true },
         { id: 'opt_in2', text: 'at', isCorrect: false },
         { id: 'opt_in3', text: 'on', isCorrect: false },
       ],

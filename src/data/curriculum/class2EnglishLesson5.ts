@@ -22,7 +22,7 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🍎 ✨',
     payload: {
       options: [
-        { id: 'opt_dj1_1', text: 'Sweet and Red (They tell how it tastes and looks)', isCorrect: true },
+        { id: 'opt_dj1_1', text: 'Sweet and Red', isCorrect: true },
         { id: 'opt_dj1_2', text: 'Ravi and Apple', isCorrect: false },
         { id: 'opt_dj1_3', text: 'Eats', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🪶 vs 🪨',
     payload: {
       options: [
-        { id: 'opt_tc1_1', text: 'Soft 🪶 (Opposite of hard)', isCorrect: true },
+        { id: 'opt_tc1_1', text: 'Soft 🪶', isCorrect: true },
         { id: 'opt_tc1_2', text: 'Heavy', isCorrect: false },
         { id: 'opt_tc1_3', text: 'Sour', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🐆 💨 vs 🐢 ⏳',
     payload: {
       options: [
-        { id: 'opt_op1_1', text: 'SLOW 🐢 (Fast ↔️ Slow)', isCorrect: true },
+        { id: 'opt_op1_1', text: 'SLOW 🐢', isCorrect: true },
         { id: 'opt_op1_2', text: 'QUICK', isCorrect: false },
         { id: 'opt_op1_3', text: 'LONG', isCorrect: false },
       ],

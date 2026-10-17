@@ -64,7 +64,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🪜 👁️',
     payload: {
       options: [
-        { id: 'opt_sv1_1', text: 'Side view (बगल से)', isCorrect: true },
+        { id: 'opt_sv1_1', text: 'Side view', isCorrect: true },
         { id: 'opt_sv1_2', text: 'Top view', isCorrect: false },
         { id: 'opt_sv1_3', text: 'Bottom view', isCorrect: false },
       ],
@@ -108,7 +108,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🔤 🪞 🅰️',
     payload: {
       options: [
-        { id: 'opt_sm1_1', text: 'Letter "A" (Left side matches the right side)', isCorrect: true },
+        { id: 'opt_sm1_1', text: 'Letter "A"', isCorrect: true },
         { id: 'opt_sm1_2', text: 'Letter "F"', isCorrect: false },
         { id: 'opt_sm1_3', text: 'Letter "P"', isCorrect: false },
       ],

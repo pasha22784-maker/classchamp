@@ -22,7 +22,7 @@ export const CLASS_4_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '☁️ 🎈',
     payload: {
       options: [
-        { id: 'opt_bd1', text: 'गुब्बारों से (गुब्बारे से गालों वाले)', isCorrect: true },
+        { id: 'opt_bd1', text: 'गुब्बारों से', isCorrect: true },
         { id: 'opt_bd2', text: 'तरबूज से', isCorrect: false },
         { id: 'opt_bd3', text: 'फुटबॉल से', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_4_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '☁️ ⚡ 🌧️',
     payload: {
       options: [
-        { id: 'opt_vs1', text: 'काले (बादल संज्ञा का रंग/गुण बता रहा है)', isCorrect: true },
+        { id: 'opt_vs1', text: 'काले', isCorrect: true },
         { id: 'opt_vs2', text: 'आसमान', isCorrect: false },
         { id: 'opt_vs3', text: 'बादल', isCorrect: false },
       ],

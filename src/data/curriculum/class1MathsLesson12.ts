@@ -64,9 +64,9 @@ export const CLASS_1_MATHS_LESSON_12_QUESTIONS: Question[] = [
     visualEmoji: '🪀 (5) | 🐎 (2) | 🎈 (8)',
     payload: {
       options: [
-        { id: 'opt_ms1_1', text: 'Balloons 🎈 (8 is the biggest number)', isCorrect: true },
-        { id: 'opt_ms1_2', text: 'Rocking horses 🐎 (2)', isCorrect: false },
-        { id: 'opt_ms1_3', text: 'Spinning tops 🪀 (5)', isCorrect: false },
+        { id: 'opt_ms1_1', text: 'Balloons 🎈', isCorrect: true },
+        { id: 'opt_ms1_2', text: 'Rocking horses 🐎', isCorrect: false },
+        { id: 'opt_ms1_3', text: 'Spinning tops 🪀', isCorrect: false },
       ],
     },
     explanation: '💡 8 is greater than 5 and 2, so **Balloons 🎈** are the MOST!',
@@ -88,7 +88,7 @@ export const CLASS_1_MATHS_LESSON_12_QUESTIONS: Question[] = [
     visualEmoji: '🍎 (5), 🍌 (2), 🍊 (4)',
     payload: {
       options: [
-        { id: 'opt_ls1_1', text: 'Bananas 🍌 (only 2)', isCorrect: true },
+        { id: 'opt_ls1_1', text: 'Bananas 🍌', isCorrect: true },
         { id: 'opt_ls1_2', text: 'Apples 🍎', isCorrect: false },
         { id: 'opt_ls1_3', text: 'Oranges 🍊', isCorrect: false },
       ],
@@ -112,7 +112,7 @@ export const CLASS_1_MATHS_LESSON_12_QUESTIONS: Question[] = [
     visualEmoji: '🧸 (6) - 🚂 (4) = ❓',
     payload: {
       options: [
-        { id: 'opt_df1_1', text: '2 more teddy bears (6 - 4 = 2)', isCorrect: true },
+        { id: 'opt_df1_1', text: '2 more teddy bears', isCorrect: true },
         { id: 'opt_df1_2', text: '10 more', isCorrect: false },
         { id: 'opt_df1_3', text: '4 more', isCorrect: false },
       ],
@@ -132,7 +132,7 @@ export const CLASS_1_MATHS_LESSON_12_QUESTIONS: Question[] = [
     visualEmoji: '🤖🤖🤖 vs 🤖🤖🤖',
     payload: {
       options: [
-        { id: 'opt_eq1_1', text: 'Yes, both have EQUAL (3 = 3) robots 🤖', isCorrect: true },
+        { id: 'opt_eq1_1', text: 'Yes, both have EQUAL robots 🤖', isCorrect: true },
         { id: 'opt_eq1_2', text: 'No, Shelf A has more', isCorrect: false },
         { id: 'opt_eq1_3', text: 'No, Shelf B has more', isCorrect: false },
       ],

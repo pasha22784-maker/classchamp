@@ -22,7 +22,7 @@ export const CLASS_4_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🚆 1️⃣7️⃣:3️⃣0️⃣ ➔ ❓',
     payload: {
       options: [
-        { id: 'opt_cl1', text: '5:30 PM (17:30 - 12:00 = 5:30 PM)', isCorrect: true },
+        { id: 'opt_cl1', text: '5:30 PM', isCorrect: true },
         { id: 'opt_cl2', text: '7:30 PM', isCorrect: false },
         { id: 'opt_cl3', text: '5:30 AM', isCorrect: false },
       ],

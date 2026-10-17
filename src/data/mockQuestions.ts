@@ -516,9 +516,9 @@ export const MOCK_QUESTIONS: Question[] = [
     visualEmoji: '🕒',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Right Angle (90 degrees)', isCorrect: true },
-        { id: 'opt_2', text: 'Acute Angle (less than 90°)', isCorrect: false },
-        { id: 'opt_3', text: 'Obtuse Angle (more than 90°)', isCorrect: false },
+        { id: 'opt_1', text: 'Right Angle', isCorrect: true },
+        { id: 'opt_2', text: 'Acute Angle', isCorrect: false },
+        { id: 'opt_3', text: 'Obtuse Angle', isCorrect: false },
       ],
     },
     explanation: 'NCERT Math-Magic 5 Ch 2: At 3:00, the hands form an exact L-shape (Right Angle = 90°)!',
@@ -554,9 +554,9 @@ export const MOCK_QUESTIONS: Question[] = [
     visualEmoji: '💎',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Honesty (Truthfulness)', isCorrect: true },
-        { id: 'opt_2', text: 'Golden Ring (Object)', isCorrect: false },
-        { id: 'opt_3', text: 'Wooden Table (Object)', isCorrect: false },
+        { id: 'opt_1', text: 'Honesty', isCorrect: true },
+        { id: 'opt_2', text: 'Golden Ring', isCorrect: false },
+        { id: 'opt_3', text: 'Wooden Table', isCorrect: false },
       ],
     },
     explanation: 'NCERT Marigold 5: "Honesty" is an abstract noun because it represents a virtue!',
@@ -617,9 +617,9 @@ export const MOCK_QUESTIONS: Question[] = [
     visualEmoji: '🌄',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Exclamatory Sentence (!)', isCorrect: true },
-        { id: 'opt_2', text: 'Interrogative Sentence (?)', isCorrect: false },
-        { id: 'opt_3', text: 'Declarative Statement (.)', isCorrect: false },
+        { id: 'opt_1', text: 'Exclamatory Sentence', isCorrect: true },
+        { id: 'opt_2', text: 'Interrogative Sentence', isCorrect: false },
+        { id: 'opt_3', text: 'Declarative Statement', isCorrect: false },
       ],
     },
     explanation: 'NCERT Poorvi 6: Sentences expressing strong sudden emotion ending in "!" are Exclamatory!',

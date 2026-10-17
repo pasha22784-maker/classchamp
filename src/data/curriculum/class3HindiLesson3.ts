@@ -22,7 +22,7 @@ export const CLASS_3_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '👵 🧹 🏠',
     payload: {
       options: [
-        { id: 'opt_am1', text: 'घर में झाड़ू लगाती थी (झाड़ू लगाना = क्रिया)', isCorrect: true },
+        { id: 'opt_am1', text: 'घर में झाड़ू लगाती थी', isCorrect: true },
         { id: 'opt_am2', text: 'पेड़ पर चढ़ती थी', isCorrect: false },
         { id: 'opt_am3', text: 'पतंग उड़ाती थी', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '⏳ 📜 👵',
     payload: {
       options: [
-        { id: 'opt_kl1', text: 'अम्मा झाड़ू लगा रही थी। (था/थी = बीता समय)', isCorrect: true },
+        { id: 'opt_kl1', text: 'अम्मा झाड़ू लगा रही थी।', isCorrect: true },
         { id: 'opt_kl2', text: 'अम्मा झाड़ू लगा रही है।', isCorrect: false },
         { id: 'opt_kl3', text: 'अम्मा झाड़ू लगाएगी।', isCorrect: false },
       ],
@@ -84,9 +84,9 @@ export const CLASS_3_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🧺 🌳 🚌 🔜',
     payload: {
       options: [
-        { id: 'opt_fut1', text: 'भविष्यत काल (आने वाला समय - गा/गे/गी)', isCorrect: true },
-        { id: 'opt_fut2', text: 'भूतकाल (बीत चुका समय)', isCorrect: false },
-        { id: 'opt_fut3', text: 'वर्तमानकाल (चल रहा समय)', isCorrect: false },
+        { id: 'opt_fut1', text: 'भविष्यत काल', isCorrect: true },
+        { id: 'opt_fut2', text: 'भूतकाल', isCorrect: false },
+        { id: 'opt_fut3', text: 'वर्तमानकाल', isCorrect: false },
       ],
     },
     explanation: '💡 आने वाले समय में होने वाले काम को **भविष्यत काल** कहते हैं (पहचान: गा, गे, गी)!',

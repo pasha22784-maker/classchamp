@@ -22,9 +22,9 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '🇮🇳 🪙',
     payload: {
       options: [
-        { id: 'opt_cn1_1', text: '₹ (Rupee symbol)', isCorrect: true },
-        { id: 'opt_cn1_2', text: '$ (Dollar)', isCorrect: false },
-        { id: 'opt_cn1_3', text: '€ (Euro)', isCorrect: false },
+        { id: 'opt_cn1_1', text: '₹', isCorrect: true },
+        { id: 'opt_cn1_2', text: '$', isCorrect: false },
+        { id: 'opt_cn1_3', text: '€', isCorrect: false },
       ],
     },
     explanation: '💡 The official symbol for the Indian Rupee is **₹**!',
@@ -42,9 +42,9 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '🪙 5️⃣',
     payload: {
       options: [
-        { id: 'opt_cn2_1', text: '₹5 (Five Rupees)', isCorrect: true },
-        { id: 'opt_cn2_2', text: '₹50 (Fifty Rupees)', isCorrect: false },
-        { id: 'opt_cn2_3', text: '₹1 (One Rupee)', isCorrect: false },
+        { id: 'opt_cn2_1', text: '₹5', isCorrect: true },
+        { id: 'opt_cn2_2', text: '₹50', isCorrect: false },
+        { id: 'opt_cn2_3', text: '₹1', isCorrect: false },
       ],
     },
     explanation: '💡 A coin stamped with 5 is a **₹5 (Five Rupees)** coin!',
@@ -66,7 +66,7 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '🪙 + 🪙 = 🔟',
     payload: {
       options: [
-        { id: 'opt_cb1_1', text: 'Two ₹5 coins (₹5 + ₹5 = ₹10)', isCorrect: true },
+        { id: 'opt_cb1_1', text: 'Two ₹5 coins', isCorrect: true },
         { id: 'opt_cb1_2', text: 'Five ₹5 coins', isCorrect: false },
         { id: 'opt_cb1_3', text: 'One ₹5 coin', isCorrect: false },
       ],
@@ -108,7 +108,7 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '✏️ (₹5) + 🧼 (₹3)',
     payload: {
       options: [
-        { id: 'opt_sp1_1', text: '₹8 (5 + 3 = 8)', isCorrect: true },
+        { id: 'opt_sp1_1', text: '₹8', isCorrect: true },
         { id: 'opt_sp1_2', text: '₹15', isCorrect: false },
         { id: 'opt_sp1_3', text: '₹2', isCorrect: false },
       ],
@@ -150,7 +150,7 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '💵 ₹10 - 🍦 ₹6 = ❓',
     payload: {
       options: [
-        { id: 'opt_ch1_1', text: '₹4 change (10 - 6 = 4)', isCorrect: true },
+        { id: 'opt_ch1_1', text: '₹4 change', isCorrect: true },
         { id: 'opt_ch1_2', text: '₹16', isCorrect: false },
         { id: 'opt_ch1_3', text: '₹5', isCorrect: false },
       ],
@@ -174,8 +174,8 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '💵 ₹20 vs 🪙 ₹2',
     payload: {
       options: [
-        { id: 'opt_mr1_1', text: 'A ₹20 note 💵 (Twenty Rupees)', isCorrect: true },
-        { id: 'opt_mr1_2', text: 'A ₹2 coin 🪙 (Two Rupees)', isCorrect: false },
+        { id: 'opt_mr1_1', text: 'A ₹20 note 💵', isCorrect: true },
+        { id: 'opt_mr1_2', text: 'A ₹2 coin 🪙', isCorrect: false },
         { id: 'opt_mr1_3', text: 'Both are same', isCorrect: false },
       ],
     },

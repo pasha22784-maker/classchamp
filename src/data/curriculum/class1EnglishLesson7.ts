@@ -22,7 +22,7 @@ export const CLASS_1_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '👦 🎒',
     payload: {
       options: [
-        { id: 'opt_he1_1', text: 'HE (He is a boy 👦)', isCorrect: true },
+        { id: 'opt_he1_1', text: 'HE', isCorrect: true },
         { id: 'opt_he1_2', text: 'SHE', isCorrect: false },
         { id: 'opt_he1_3', text: 'IT', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_1_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '👧 🎤',
     payload: {
       options: [
-        { id: 'opt_she1_1', text: 'SHE (She is a girl 👧)', isCorrect: true },
+        { id: 'opt_she1_1', text: 'SHE', isCorrect: true },
         { id: 'opt_she1_2', text: 'HE', isCorrect: false },
         { id: 'opt_she1_3', text: 'IT', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_1_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '⚽ 🥅',
     payload: {
       options: [
-        { id: 'opt_it1_1', text: 'IT (It is round ⚽)', isCorrect: true },
+        { id: 'opt_it1_1', text: 'IT', isCorrect: true },
         { id: 'opt_it1_2', text: 'HE', isCorrect: false },
         { id: 'opt_it1_3', text: 'SHE', isCorrect: false },
       ],
@@ -148,7 +148,7 @@ export const CLASS_1_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🧒 👧 👦 🏞️',
     payload: {
       options: [
-        { id: 'opt_thy1_1', text: 'THEY (They are playing 🧒👧)', isCorrect: true },
+        { id: 'opt_thy1_1', text: 'THEY', isCorrect: true },
         { id: 'opt_thy1_2', text: 'HE', isCorrect: false },
         { id: 'opt_thy1_3', text: 'SHE', isCorrect: false },
       ],

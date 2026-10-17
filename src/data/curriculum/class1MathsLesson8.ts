@@ -22,7 +22,7 @@ export const CLASS_1_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🎋🎋🎋 (3 bundles of 10)',
     payload: {
       options: [
-        { id: 'opt_tn1_1', text: '30 sticks (3 tens = 30)', isCorrect: true },
+        { id: 'opt_tn1_1', text: '30 sticks', isCorrect: true },
         { id: 'opt_tn1_2', text: '13 sticks', isCorrect: false },
         { id: 'opt_tn1_3', text: '3 sticks', isCorrect: false },
       ],
@@ -42,7 +42,7 @@ export const CLASS_1_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🎋🎋 + 🥢🥢🥢🥢🥢',
     payload: {
       options: [
-        { id: 'opt_tn2_1', text: '25 (2 tens + 5 ones)', isCorrect: true },
+        { id: 'opt_tn2_1', text: '25', isCorrect: true },
         { id: 'opt_tn2_2', text: '52', isCorrect: false },
         { id: 'opt_tn2_3', text: '7', isCorrect: false },
       ],
@@ -170,7 +170,7 @@ export const CLASS_1_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '5️⃣2️⃣ vs 2️⃣5️⃣',
     payload: {
       options: [
-        { id: 'opt_cp1_1', text: '52 is greater (5 tens > 2 tens)', isCorrect: true },
+        { id: 'opt_cp1_1', text: '52 is greater', isCorrect: true },
         { id: 'opt_cp1_2', text: '25 is greater', isCorrect: false },
         { id: 'opt_cp1_3', text: 'Both are equal', isCorrect: false },
       ],
@@ -190,7 +190,7 @@ export const CLASS_1_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '7️⃣4️⃣, 3️⃣8️⃣, 5️⃣6️⃣',
     payload: {
       options: [
-        { id: 'opt_cp2_1', text: '38 (only 3 tens)', isCorrect: true },
+        { id: 'opt_cp2_1', text: '38', isCorrect: true },
         { id: 'opt_cp2_2', text: '56', isCorrect: false },
         { id: 'opt_cp2_3', text: '74', isCorrect: false },
       ],

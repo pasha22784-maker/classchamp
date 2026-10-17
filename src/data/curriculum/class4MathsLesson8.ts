@@ -22,9 +22,9 @@ export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🍕 1 slice out of 4',
     payload: {
       options: [
-        { id: 'opt_fr1', text: '1/4 (One-fourth or Quarter)', isCorrect: true },
-        { id: 'opt_fr2', text: '1/2 (Half)', isCorrect: false },
-        { id: 'opt_fr3', text: '3/4 (Three-quarters)', isCorrect: false },
+        { id: 'opt_fr1', text: '1/4', isCorrect: true },
+        { id: 'opt_fr2', text: '1/2', isCorrect: false },
+        { id: 'opt_fr3', text: '3/4', isCorrect: false },
       ],
     },
     explanation: '💡 1 equal part out of 4 is written as **1/4 (Quarter)**!',
@@ -42,7 +42,7 @@ export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🥧 ¼ + ¼ = ½',
     payload: {
       options: [
-        { id: 'opt_eq1', text: '2 quarters (2/4 = 1/2)', isCorrect: true },
+        { id: 'opt_eq1', text: '2 quarters', isCorrect: true },
         { id: 'opt_eq2', text: '3 quarters', isCorrect: false },
         { id: 'opt_eq3', text: '4 quarters', isCorrect: false },
       ],
@@ -102,7 +102,7 @@ export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🎀 ¾ of 100 cm = ❓',
     payload: {
       options: [
-        { id: 'opt_rb1', text: '75 cm (1/4 is 25 cm, 3/4 is 75 cm)', isCorrect: true },
+        { id: 'opt_rb1', text: '75 cm', isCorrect: true },
         { id: 'opt_rb2', text: '50 cm', isCorrect: false },
         { id: 'opt_rb3', text: '25 cm', isCorrect: false },
       ],

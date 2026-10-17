@@ -22,7 +22,7 @@ export const CLASS_3_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🦒 🌿',
     payload: {
       options: [
-        { id: 'opt_adj1', text: 'long (describes the neck)', isCorrect: true },
+        { id: 'opt_adj1', text: 'long', isCorrect: true },
         { id: 'opt_adj2', text: 'giraffe', isCorrect: false },
         { id: 'opt_adj3', text: 'neck', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_3_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🏔️ 🗻 ⛰️',
     payload: {
       options: [
-        { id: 'opt_sup1', text: 'highest (the + highest)', isCorrect: true },
+        { id: 'opt_sup1', text: 'highest', isCorrect: true },
         { id: 'opt_sup2', text: 'higher', isCorrect: false },
         { id: 'opt_sup3', text: 'high', isCorrect: false },
       ],

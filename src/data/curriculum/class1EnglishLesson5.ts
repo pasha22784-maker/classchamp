@@ -22,7 +22,7 @@ export const CLASS_1_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🍅',
     payload: {
       options: [
-        { id: 'opt_col1_1', text: 'RED 🔴 (A red tomato)', isCorrect: true },
+        { id: 'opt_col1_1', text: 'RED 🔴', isCorrect: true },
         { id: 'opt_col1_2', text: 'BLUE 🔵', isCorrect: false },
         { id: 'opt_col1_3', text: 'GREEN 🟢', isCorrect: false },
       ],
@@ -42,7 +42,7 @@ export const CLASS_1_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🦜 🍃',
     payload: {
       options: [
-        { id: 'opt_col2_1', text: 'GREEN 🟢 (Green feathers)', isCorrect: true },
+        { id: 'opt_col2_1', text: 'GREEN 🟢', isCorrect: true },
         { id: 'opt_col2_2', text: 'PURPLE 🟣', isCorrect: false },
         { id: 'opt_col2_3', text: 'ORANGE 🟠', isCorrect: false },
       ],
@@ -87,7 +87,7 @@ export const CLASS_1_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🐘 vs 🐁',
     payload: {
       options: [
-        { id: 'opt_sz1_1', text: 'BIG (The elephant is BIG 🐘)', isCorrect: true },
+        { id: 'opt_sz1_1', text: 'BIG', isCorrect: true },
         { id: 'opt_sz1_2', text: 'TINY', isCorrect: false },
         { id: 'opt_sz1_3', text: 'SLENDER', isCorrect: false },
       ],
@@ -107,7 +107,7 @@ export const CLASS_1_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🦒',
     payload: {
       options: [
-        { id: 'opt_sz2_1', text: 'TALL (A tall giraffe 🦒)', isCorrect: true },
+        { id: 'opt_sz2_1', text: 'TALL', isCorrect: true },
         { id: 'opt_sz2_2', text: 'SHORT', isCorrect: false },
         { id: 'opt_sz2_3', text: 'FLAT', isCorrect: false },
       ],
@@ -176,7 +176,7 @@ export const CLASS_1_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🛏️ 🧸',
     payload: {
       options: [
-        { id: 'opt_tch1_1', text: 'SOFT (A soft pillow)', isCorrect: true },
+        { id: 'opt_tch1_1', text: 'SOFT', isCorrect: true },
         { id: 'opt_tch1_2', text: 'HARD like a rock 🪨', isCorrect: false },
         { id: 'opt_tch1_3', text: 'SHARP like a needle 🪡', isCorrect: false },
       ],

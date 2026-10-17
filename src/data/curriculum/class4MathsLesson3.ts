@@ -22,7 +22,7 @@ export const CLASS_4_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🚌 50 seats × 4 buses = ❓',
     payload: {
       options: [
-        { id: 'opt_bs1', text: '200 children (4 × 50 = 200)', isCorrect: true },
+        { id: 'opt_bs1', text: '200 children', isCorrect: true },
         { id: 'opt_bs2', text: '250 children', isCorrect: false },
         { id: 'opt_bs3', text: '150 children', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_4_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '⛽ 100 L × ₹ 35 = ❓',
     payload: {
       options: [
-        { id: 'opt_fl1', text: '₹ 3,500 (100 × 35 = 3500)', isCorrect: true },
+        { id: 'opt_fl1', text: '₹ 3,500', isCorrect: true },
         { id: 'opt_fl2', text: '₹ 350', isCorrect: false },
         { id: 'opt_fl3', text: '₹ 35,000', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_4_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🚤 ₹ 25 × 4 friends = ❓',
     payload: {
       options: [
-        { id: 'opt_bt1', text: '₹ 100 (4 × 25 = 100)', isCorrect: true },
+        { id: 'opt_bt1', text: '₹ 100', isCorrect: true },
         { id: 'opt_bt2', text: '₹ 75', isCorrect: false },
         { id: 'opt_bt3', text: '₹ 50', isCorrect: false },
       ],

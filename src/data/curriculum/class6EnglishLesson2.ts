@@ -22,8 +22,8 @@ export const CLASS_6_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🚪 🤫 Sentence Types',
     payload: {
       options: [
-        { id: 'opt_st1', text: 'Imperative Sentence (gives a polite request or command)', isCorrect: true },
-        { id: 'opt_st2', text: 'Interrogative Sentence (asks a question)', isCorrect: false },
+        { id: 'opt_st1', text: 'Imperative Sentence', isCorrect: true },
+        { id: 'opt_st2', text: 'Interrogative Sentence', isCorrect: false },
         { id: 'opt_st3', text: 'Exclamatory Sentence', isCorrect: false },
       ],
     },

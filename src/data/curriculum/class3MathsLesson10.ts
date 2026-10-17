@@ -22,7 +22,7 @@ export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '🪙 ₹1 = ❓ paise',
     payload: {
       options: [
-        { id: 'opt_rs1', text: '100 paise (₹1 = 100 p)', isCorrect: true },
+        { id: 'opt_rs1', text: '100 paise', isCorrect: true },
         { id: 'opt_rs2', text: '10 paise', isCorrect: false },
         { id: 'opt_rs3', text: '1000 paise', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '✏️ ₹5 + 📒 ₹25 = ❓',
     payload: {
       options: [
-        { id: 'opt_bill1', text: '₹ 30 (₹25 + ₹5)', isCorrect: true },
+        { id: 'opt_bill1', text: '₹ 30', isCorrect: true },
         { id: 'opt_bill2', text: '₹ 20', isCorrect: false },
         { id: 'opt_bill3', text: '₹ 35', isCorrect: false },
       ],

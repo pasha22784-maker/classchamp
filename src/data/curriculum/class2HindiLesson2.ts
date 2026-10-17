@@ -64,7 +64,7 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🐻 🔤',
     payload: {
       options: [
-        { id: 'opt_mt1_1', text: 'भा में आ (ा) और लू में बड़ा ऊ (ू) की मात्रा', isCorrect: true },
+        { id: 'opt_mt1_1', text: 'भा में आ और लू में बड़ा ऊ की मात्रा', isCorrect: true },
         { id: 'opt_mt1_2', text: 'छोटी इ की मात्रा', isCorrect: false },
         { id: 'opt_mt1_3', text: 'ए की मात्रा', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '☀️ ❄️ 🌫️',
     payload: {
       options: [
-        { id: 'opt_vr2_1', text: 'मौसम ⛅ (औ की मात्रा)', isCorrect: true },
+        { id: 'opt_vr2_1', text: 'मौसम ⛅', isCorrect: true },
         { id: 'opt_vr2_2', text: 'मोसम', isCorrect: false },
         { id: 'opt_vr2_3', text: 'मूसम', isCorrect: false },
       ],
@@ -108,7 +108,7 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '☀️ ❄️',
     payload: {
       options: [
-        { id: 'opt_rf1_1', text: 'रेफ़ ( आधा \'र\' का रूप )', isCorrect: true },
+        { id: 'opt_rf1_1', text: 'रेफ़', isCorrect: true },
         { id: 'opt_rf1_2', text: 'चन्द्रबिन्दु', isCorrect: false },
         { id: 'opt_rf1_3', text: 'विसर्ग', isCorrect: false },
       ],

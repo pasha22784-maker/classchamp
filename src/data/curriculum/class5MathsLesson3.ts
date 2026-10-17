@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '💌 4 cm × 3 cm = ❓',
     payload: {
       options: [
-        { id: 'opt_st1', text: '12 square cm (4 × 3 = 12 cm²)', isCorrect: true },
+        { id: 'opt_st1', text: '12 square cm', isCorrect: true },
         { id: 'opt_st2', text: '7 square cm', isCorrect: false },
         { id: 'opt_st3', text: '14 square cm', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_5_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🍃 👣 ⏹️',
     payload: {
       options: [
-        { id: 'opt_ir1', text: 'Count full squares as 1, and more than half as 1 (ignore less than half)', isCorrect: true },
+        { id: 'opt_ir1', text: 'Count full squares as 1, and more than half as 1', isCorrect: true },
         { id: 'opt_ir2', text: 'Count every touched square as 1 regardless of size', isCorrect: false },
         { id: 'opt_ir3', text: 'Only count completely full squares', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '📦 L=5cm, B=3cm, H=1cm',
     payload: {
       options: [
-        { id: 'opt_v1', text: '15 cm³ (Volume = 5 × 3 × 1 = 15 cubic cm)', isCorrect: true },
+        { id: 'opt_v1', text: '15 cm³', isCorrect: true },
         { id: 'opt_v2', text: '9 cm³', isCorrect: false },
         { id: 'opt_v3', text: '30 cm³', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '🧪 50 mL ➡️ 65 mL with 5 marbles',
     payload: {
       options: [
-        { id: 'opt_disp1', text: '15 mL (or 15 cm³)', isCorrect: true },
+        { id: 'opt_disp1', text: '15 mL', isCorrect: true },
         { id: 'opt_disp2', text: '115 mL', isCorrect: false },
         { id: 'opt_disp3', text: '5 mL', isCorrect: false },
       ],

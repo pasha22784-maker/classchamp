@@ -22,7 +22,7 @@ export const CLASS_6_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🌍 1 Crore = ❓ Millions',
     payload: {
       options: [
-        { id: 'opt_mil1', text: '10 Millions (1 Crore = 10,000,000 = 10 Millions)', isCorrect: true },
+        { id: 'opt_mil1', text: '10 Millions', isCorrect: true },
         { id: 'opt_mil2', text: '1 Million', isCorrect: false },
         { id: 'opt_mil3', text: '100 Millions', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🏛️ 49 = ❓',
     payload: {
       options: [
-        { id: 'opt_rm1', text: 'XLIX (40 + 9 = XL + IX)', isCorrect: true },
+        { id: 'opt_rm1', text: 'XLIX', isCorrect: true },
         { id: 'opt_rm2', text: 'IL', isCorrect: false },
         { id: 'opt_rm3', text: 'XXXXIX', isCorrect: false },
       ],

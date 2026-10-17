@@ -22,7 +22,7 @@ export const CLASS_3_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ 1️⃣ kg = ❓ g',
     payload: {
       options: [
-        { id: 'opt_kg1_1', text: '1000 grams (1 kg = 1000 g)', isCorrect: true },
+        { id: 'opt_kg1_1', text: '1000 grams', isCorrect: true },
         { id: 'opt_kg1_2', text: '100 grams', isCorrect: false },
         { id: 'opt_kg1_3', text: '10 grams', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ 🎃 vs 🍅',
     payload: {
       options: [
-        { id: 'opt_sc1_1', text: 'Pan A with the pumpkin (Heavier side always goes DOWN)', isCorrect: true },
+        { id: 'opt_sc1_1', text: 'Pan A with the pumpkin', isCorrect: true },
         { id: 'opt_sc1_2', text: 'Pan B with the tomato', isCorrect: false },
         { id: 'opt_sc1_3', text: 'Both stay exactly level', isCorrect: false },
       ],
@@ -88,9 +88,9 @@ export const CLASS_3_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🌾 ⚖️ 🏋️',
     payload: {
       options: [
-        { id: 'opt_ch1_1', text: 'Kilograms (kg) (e.g. 10 kg sack)', isCorrect: true },
-        { id: 'opt_ch1_2', text: 'Grams (g) (10 grams is lighter than a spoon)', isCorrect: false },
-        { id: 'opt_ch1_3', text: 'Milliliters (ml)', isCorrect: false },
+        { id: 'opt_ch1_1', text: 'Kilograms', isCorrect: true },
+        { id: 'opt_ch1_2', text: 'Grams', isCorrect: false },
+        { id: 'opt_ch1_3', text: 'Milliliters', isCorrect: false },
       ],
     },
     explanation: '💡 Heavy grocery items like sacks of wheat and rice are measured in **Kilograms (kg)**!',

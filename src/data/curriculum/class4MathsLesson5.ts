@@ -46,7 +46,7 @@ export const CLASS_4_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🎲 ❓ + ❓ = 7️⃣',
     payload: {
       options: [
-        { id: 'opt_dc1', text: 'Always 7 (Opposite faces add up to 7)', isCorrect: true },
+        { id: 'opt_dc1', text: 'Always 7', isCorrect: true },
         { id: 'opt_dc2', text: 'Always 10', isCorrect: false },
         { id: 'opt_dc3', text: 'Always 6', isCorrect: false },
       ],

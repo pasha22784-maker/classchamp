@@ -22,8 +22,8 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🥛 😋',
     payload: {
       options: [
-        { id: 'opt_ac1_1', text: 'drinks (Action word)', isCorrect: true },
-        { id: 'opt_ac1_2', text: 'milk (Naming word)', isCorrect: false },
+        { id: 'opt_ac1_1', text: 'drinks', isCorrect: true },
+        { id: 'opt_ac1_2', text: 'milk', isCorrect: false },
         { id: 'opt_ac1_3', text: 'morning', isCorrect: false },
       ],
     },
@@ -64,7 +64,7 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '⚽ 🏃‍♂️',
     payload: {
       options: [
-        { id: 'opt_ng1_1', text: 'playing (play + ing)', isCorrect: true },
+        { id: 'opt_ng1_1', text: 'playing', isCorrect: true },
         { id: 'opt_ng1_2', text: 'player', isCorrect: false },
         { id: 'opt_ng1_3', text: 'played', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_2_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🐶 🐕',
     payload: {
       options: [
-        { id: 'opt_ag1_1', text: 'The dog barks at strangers. (One dog -> barks)', isCorrect: true },
+        { id: 'opt_ag1_1', text: 'The dog barks at strangers.', isCorrect: true },
         { id: 'opt_ag1_2', text: 'The dog bark at strangers.', isCorrect: false },
         { id: 'opt_ag1_3', text: 'The dog barking without is.', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_5_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '📖 ⏳ Yesterday',
     payload: {
       options: [
-        { id: 'opt_ten1', text: 'wrote (past form of write)', isCorrect: true },
+        { id: 'opt_ten1', text: 'wrote', isCorrect: true },
         { id: 'opt_ten2', text: 'writed', isCorrect: false },
         { id: 'opt_ten3', text: 'will write', isCorrect: false },
       ],

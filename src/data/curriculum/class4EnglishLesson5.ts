@@ -22,7 +22,7 @@ export const CLASS_4_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🌧️ ☔ 🧒',
     payload: {
       options: [
-        { id: 'opt_so1', text: 'so (shows the direct result)', isCorrect: true },
+        { id: 'opt_so1', text: 'so', isCorrect: true },
         { id: 'opt_so2', text: 'because', isCorrect: false },
         { id: 'opt_so3', text: 'although', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_4_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🚶 ⛰️ 💪',
     payload: {
       options: [
-        { id: 'opt_al1', text: 'Although (in spite of being tired)', isCorrect: true },
+        { id: 'opt_al1', text: 'Although', isCorrect: true },
         { id: 'opt_al2', text: 'Because', isCorrect: false },
         { id: 'opt_al3', text: 'So', isCorrect: false },
       ],

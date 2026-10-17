@@ -22,7 +22,7 @@ export const CLASS_1_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🎈🎈 + 🎈🎈🎈',
     payload: {
       options: [
-        { id: 'opt_p1_1', text: '5 Balloons (2 + 3 = 5)', isCorrect: true },
+        { id: 'opt_p1_1', text: '5 Balloons', isCorrect: true },
         { id: 'opt_p1_2', text: '4 Balloons', isCorrect: false },
         { id: 'opt_p1_3', text: '6 Balloons', isCorrect: false },
       ],
@@ -60,7 +60,7 @@ export const CLASS_1_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🧁🧁🧁🧁 + 🧁🧁',
     payload: {
       options: [
-        { id: 'opt_p3_1', text: '6 Cupcakes (4 + 2 = 6)', isCorrect: true },
+        { id: 'opt_p3_1', text: '6 Cupcakes', isCorrect: true },
         { id: 'opt_p3_2', text: '7 Cupcakes', isCorrect: false },
         { id: 'opt_p3_3', text: '5 Cupcakes', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_1_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '5️⃣ ➡️ +2 ➡️ ?',
     payload: {
       options: [
-        { id: 'opt_co1_1', text: '7 (5 + 2 = 7)', isCorrect: true },
+        { id: 'opt_co1_1', text: '7', isCorrect: true },
         { id: 'opt_co1_2', text: '6', isCorrect: false },
         { id: 'opt_co1_3', text: '8', isCorrect: false },
       ],
@@ -126,8 +126,8 @@ export const CLASS_1_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '➕',
     payload: {
       options: [
-        { id: 'opt_sym1_1', text: 'Put together and ADD (+)', isCorrect: true },
-        { id: 'opt_sym1_2', text: 'Take away and subtract (-)', isCorrect: false },
+        { id: 'opt_sym1_1', text: 'Put together and ADD', isCorrect: true },
+        { id: 'opt_sym1_2', text: 'Take away and subtract', isCorrect: false },
         { id: 'opt_sym1_3', text: 'Cut into halves', isCorrect: false },
       ],
     },
@@ -171,7 +171,7 @@ export const CLASS_1_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🥭🥭🥭🥭 + 0️⃣',
     payload: {
       options: [
-        { id: 'opt_zadd1_1', text: '4 Mangoes (4 + 0 = 4)', isCorrect: true },
+        { id: 'opt_zadd1_1', text: '4 Mangoes', isCorrect: true },
         { id: 'opt_zadd1_2', text: '0 Mangoes', isCorrect: false },
         { id: 'opt_zadd1_3', text: '5 Mangoes', isCorrect: false },
       ],
@@ -213,7 +213,7 @@ export const CLASS_1_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '3 + 2 = 5 🔄 2 + 3 = ?',
     payload: {
       options: [
-        { id: 'opt_ord_1', text: '5 (The answer is still 5)', isCorrect: true },
+        { id: 'opt_ord_1', text: '5', isCorrect: true },
         { id: 'opt_ord_2', text: '6', isCorrect: false },
         { id: 'opt_ord_3', text: '4', isCorrect: false },
       ],
@@ -237,7 +237,7 @@ export const CLASS_1_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🐸🐸🐸🐸 + 🐸🐸🐸',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: '7 Frogs (4 + 3 = 7)', isCorrect: true },
+        { id: 'opt_st1_1', text: '7 Frogs', isCorrect: true },
         { id: 'opt_st1_2', text: '6 Frogs', isCorrect: false },
         { id: 'opt_st1_3', text: '8 Frogs', isCorrect: false },
       ],

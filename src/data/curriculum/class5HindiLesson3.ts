@@ -22,7 +22,7 @@ export const CLASS_5_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🏹 👦 खिलौनेवाला',
     payload: {
       options: [
-        { id: 'opt_kh1', text: 'श्री रामचंद्र जी की तरह (ताड़का राक्षसी को मारने हेतु)', isCorrect: true },
+        { id: 'opt_kh1', text: 'श्री रामचंद्र जी की तरह', isCorrect: true },
         { id: 'opt_kh2', text: 'कृष्ण जी की तरह', isCorrect: false },
         { id: 'opt_kh3', text: 'अर्जुन की तरह', isCorrect: false },
       ],
@@ -85,8 +85,8 @@ export const CLASS_5_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🏔️ 🌸 सौंदर्य',
     payload: {
       options: [
-        { id: 'opt_bhv1', text: 'सुंदरता (भाव/गुण का नाम)', isCorrect: true },
-        { id: 'opt_bhv2', text: 'कश्मीर (व्यक्तिवाचक संज्ञा)', isCorrect: false },
+        { id: 'opt_bhv1', text: 'सुंदरता', isCorrect: true },
+        { id: 'opt_bhv2', text: 'कश्मीर', isCorrect: false },
         { id: 'opt_bhv3', text: 'मोहित', isCorrect: false },
       ],
     },

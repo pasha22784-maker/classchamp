@@ -22,7 +22,7 @@ export const CLASS_4_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🟡 28 ÷ 4 = ❓',
     payload: {
       options: [
-        { id: 'opt_sh1', text: '7 laddoos each (28 ÷ 4 = 7)', isCorrect: true },
+        { id: 'opt_sh1', text: '7 laddoos each', isCorrect: true },
         { id: 'opt_sh2', text: '6 laddoos each', isCorrect: false },
         { id: 'opt_sh3', text: '8 laddoos each', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_4_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🔮 25 ÷ 4 ➔ Q: ❓, R: ❓',
     payload: {
       options: [
-        { id: 'opt_rm1', text: 'Quotient = 6, Remainder = 1 (4 × 6 = 24, 25 - 24 = 1)', isCorrect: true },
+        { id: 'opt_rm1', text: 'Quotient = 6, Remainder = 1', isCorrect: true },
         { id: 'opt_rm2', text: 'Quotient = 5, Remainder = 5', isCorrect: false },
         { id: 'opt_rm3', text: 'Quotient = 6, Remainder = 2', isCorrect: false },
       ],

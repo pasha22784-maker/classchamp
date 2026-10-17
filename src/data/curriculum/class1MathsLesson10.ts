@@ -66,7 +66,7 @@ export const CLASS_1_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🍱 🍛',
     payload: {
       options: [
-        { id: 'opt_nn1_1', text: 'Lunch (दोपहर का भोजन) 🍱', isCorrect: true },
+        { id: 'opt_nn1_1', text: 'Lunch 🍱', isCorrect: true },
         { id: 'opt_nn1_2', text: 'Dinner 🌙', isCorrect: false },
         { id: 'opt_nn1_3', text: 'Bedtime milk', isCorrect: false },
       ],
@@ -191,8 +191,8 @@ export const CLASS_1_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '⏳ 🧼 vs 🏫',
     payload: {
       options: [
-        { id: 'opt_dr1_1', text: 'Studying in school for full day (6 hours) 🏫', isCorrect: true },
-        { id: 'opt_dr1_2', text: 'Washing your hands with soap (20 seconds) 🧼', isCorrect: false },
+        { id: 'opt_dr1_1', text: 'Studying in school for full day 🏫', isCorrect: true },
+        { id: 'opt_dr1_2', text: 'Washing your hands with soap 🧼', isCorrect: false },
         { id: 'opt_dr1_3', text: 'Blinking your eye once 😉', isCorrect: false },
       ],
     },

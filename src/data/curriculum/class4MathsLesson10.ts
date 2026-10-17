@@ -22,9 +22,9 @@ export const CLASS_4_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '🌾 🔲 ➔ ❓',
     payload: {
       options: [
-        { id: 'opt_pm1', text: 'Perimeter (परिमाप - boundary length)', isCorrect: true },
-        { id: 'opt_pm2', text: 'Volume (आयतन)', isCorrect: false },
-        { id: 'opt_pm3', text: 'Radius (त्रिज्या)', isCorrect: false },
+        { id: 'opt_pm1', text: 'Perimeter', isCorrect: true },
+        { id: 'opt_pm2', text: 'Volume', isCorrect: false },
+        { id: 'opt_pm3', text: 'Radius', isCorrect: false },
       ],
     },
     explanation: '💡 The distance all the way around the outside edge of a shape is its **Perimeter** (घेरा / सीमा की लंबाई)!',
@@ -60,7 +60,7 @@ export const CLASS_4_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '🌾 15 m × 10 m ➔ Wire fence = ❓',
     payload: {
       options: [
-        { id: 'opt_rec1', text: '50 meters (15 + 10 + 15 + 10 = 50 m)', isCorrect: true },
+        { id: 'opt_rec1', text: '50 meters', isCorrect: true },
         { id: 'opt_rec2', text: '25 meters', isCorrect: false },
         { id: 'opt_rec3', text: '150 meters', isCorrect: false },
       ],

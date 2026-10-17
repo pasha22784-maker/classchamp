@@ -22,7 +22,7 @@ export const CLASS_3_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '📦 ➔ 📦📦📦',
     payload: {
       options: [
-        { id: 'opt_pl_bx1', text: 'boxes (add -es)', isCorrect: true },
+        { id: 'opt_pl_bx1', text: 'boxes', isCorrect: true },
         { id: 'opt_pl_bx2', text: 'boxs', isCorrect: false },
         { id: 'opt_pl_bx3', text: 'boxies', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '👶 ➔ 👶👶',
     payload: {
       options: [
-        { id: 'opt_ies1', text: 'babies (drop y, add -ies)', isCorrect: true },
+        { id: 'opt_ies1', text: 'babies', isCorrect: true },
         { id: 'opt_ies2', text: 'babys', isCorrect: false },
         { id: 'opt_ies3', text: 'babyes', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_3_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🧸 👦',
     payload: {
       options: [
-        { id: 'opt_toy1', text: 'toys and boys (just add -s because of vowel before y)', isCorrect: true },
+        { id: 'opt_toy1', text: 'toys and boys', isCorrect: true },
         { id: 'opt_toy2', text: 'toies and boies', isCorrect: false },
         { id: 'opt_toy3', text: 'toyes and boyes', isCorrect: false },
       ],

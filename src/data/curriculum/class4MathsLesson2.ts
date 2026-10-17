@@ -22,7 +22,7 @@ export const CLASS_4_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🏃 1️⃣ km = ❓ m',
     payload: {
       options: [
-        { id: 'opt_km1', text: '1000 meters (1 km = 1000 m)', isCorrect: true },
+        { id: 'opt_km1', text: '1000 meters', isCorrect: true },
         { id: 'opt_km2', text: '100 meters', isCorrect: false },
         { id: 'opt_km3', text: '10,000 meters', isCorrect: false },
       ],
@@ -82,7 +82,7 @@ export const CLASS_4_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🏟️ Track: 400 m | Goal: 2000 m (2 km)',
     payload: {
       options: [
-        { id: 'opt_tr1', text: '5 rounds (5 × 400 m = 2000 m = 2 km)', isCorrect: true },
+        { id: 'opt_tr1', text: '5 rounds', isCorrect: true },
         { id: 'opt_tr2', text: '4 rounds', isCorrect: false },
         { id: 'opt_tr3', text: '8 rounds', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_4_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🥇 2 m 45 cm  vs  🥈 2 m 17 cm',
     payload: {
       options: [
-        { id: 'opt_jp1', text: '28 cm (45 cm - 17 cm = 28 cm)', isCorrect: true },
+        { id: 'opt_jp1', text: '28 cm', isCorrect: true },
         { id: 'opt_jp2', text: '32 cm', isCorrect: false },
         { id: 'opt_jp3', text: '18 cm', isCorrect: false },
       ],

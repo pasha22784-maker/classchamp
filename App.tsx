@@ -68,7 +68,7 @@ export default function App() {
   const handleSelect365Day = (dayNumber: number) => {
     const mission = getDayMissionInfo(profile.grade, dayNumber);
     const dayQuestions = getQuestionsForDay(profile.grade, dayNumber);
-    startQuiz(profile.grade, mission.subject, dayQuestions, mission.title);
+    startQuiz(profile.grade, mission.subject, dayQuestions, mission.chapter);
     setCurrentScreen('quiz');
   };
 

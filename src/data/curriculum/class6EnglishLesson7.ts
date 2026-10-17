@@ -22,8 +22,8 @@ export const CLASS_6_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '✉️ 🏫 Principal Letter',
     payload: {
       options: [
-        { id: 'opt_lt1', text: 'Formal Letter (Official and structured with polite language)', isCorrect: true },
-        { id: 'opt_lt2', text: 'Informal Letter (Casual and conversational)', isCorrect: false },
+        { id: 'opt_lt1', text: 'Formal Letter', isCorrect: true },
+        { id: 'opt_lt2', text: 'Informal Letter', isCorrect: false },
         { id: 'opt_lt3', text: 'Poetic verse', isCorrect: false },
       ],
     },

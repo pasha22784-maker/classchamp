@@ -22,7 +22,7 @@ export const CLASS_2_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🍎 vs 🍎🍎🍎',
     payload: {
       options: [
-        { id: 'opt_vc1_1', text: 'वचन (एकवचन और बहुवचन)', isCorrect: true },
+        { id: 'opt_vc1_1', text: 'वचन', isCorrect: true },
         { id: 'opt_vc1_2', text: 'लिंग', isCorrect: false },
         { id: 'opt_vc1_3', text: 'क्रिया', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🦋 ➡️ 🦋🦋🦋',
     payload: {
       options: [
-        { id: 'opt_iy1_1', text: 'तितलियाँ 🦋 (बड़ी ई बदलकर छोटी इ और -याँ)', isCorrect: true },
+        { id: 'opt_iy1_1', text: 'तितलियाँ 🦋', isCorrect: true },
         { id: 'opt_iy1_2', text: 'तितलिये', isCorrect: false },
         { id: 'opt_iy1_3', text: 'तितलों', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_2_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '👁️ 👁️',
     payload: {
       options: [
-        { id: 'opt_bd1_1', text: 'आँखें (एक आँख -> दो आँखें)', isCorrect: true },
+        { id: 'opt_bd1_1', text: 'आँखें', isCorrect: true },
         { id: 'opt_bd1_2', text: 'आँखा', isCorrect: false },
         { id: 'opt_bd1_3', text: 'आँखों', isCorrect: false },
       ],

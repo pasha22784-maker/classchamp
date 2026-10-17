@@ -60,7 +60,7 @@ export const CLASS_4_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🐇 🕳️ 🥕',
     payload: {
       options: [
-        { id: 'opt_rb1', text: 'burrow (or warren)', isCorrect: true },
+        { id: 'opt_rb1', text: 'burrow', isCorrect: true },
         { id: 'opt_rb2', text: 'shed', isCorrect: false },
         { id: 'opt_rb3', text: 'nest', isCorrect: false },
       ],

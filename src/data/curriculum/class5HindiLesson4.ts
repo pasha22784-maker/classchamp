@@ -85,9 +85,9 @@ export const CLASS_5_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🔔 कर्म पहचान',
     payload: {
       options: [
-        { id: 'opt_krm1', text: 'घंटी (कर्म पद)', isCorrect: true },
-        { id: 'opt_krm2', text: 'केशव (कर्ता पद)', isCorrect: false },
-        { id: 'opt_krm3', text: 'बनाई (क्रिया पद)', isCorrect: false },
+        { id: 'opt_krm1', text: 'घंटी', isCorrect: true },
+        { id: 'opt_krm2', text: 'केशव', isCorrect: false },
+        { id: 'opt_krm3', text: 'बनाई', isCorrect: false },
       ],
     },
     explanation: '💡 "केशव ने क्या बनाई?" ➡️ उत्तर मिलता है: **घंटी**। अतः "घंटी" इस वाक्य का कर्म है!',

@@ -22,7 +22,7 @@ export const CLASS_6_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '⚔️ 🛡️ वीरांगना लक्ष्मीबाई',
     payload: {
       options: [
-        { id: 'opt_jhr1', text: 'बरछी, ढाल, कृपाण और कटारी (शस्त्र ही उनकी सहेलियाँ थीं)', isCorrect: true },
+        { id: 'opt_jhr1', text: 'बरछी, ढाल, कृपाण और कटारी', isCorrect: true },
         { id: 'opt_jhr2', text: 'गुड़िया और खिलौने', isCorrect: false },
         { id: 'opt_jhr3', text: 'राजमहल की दासियाँ', isCorrect: false },
       ],

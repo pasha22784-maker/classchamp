@@ -22,8 +22,8 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🖐️ 📏',
     payload: {
       options: [
-        { id: 'opt_hs1_1', text: 'Handspan (बित्ता)', isCorrect: true },
-        { id: 'opt_hs1_2', text: 'Footstep (कदम)', isCorrect: false },
+        { id: 'opt_hs1_1', text: 'Handspan', isCorrect: true },
+        { id: 'opt_hs1_2', text: 'Footstep', isCorrect: false },
         { id: 'opt_hs1_3', text: 'Kilogram', isCorrect: false },
       ],
     },
@@ -88,7 +88,7 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '📏 ✏️ 🧼',
     payload: {
       options: [
-        { id: 'opt_cm1_1', text: 'A drawing pencil and eraser (in Centimeters - cm) ✏️', isCorrect: true },
+        { id: 'opt_cm1_1', text: 'A drawing pencil and eraser ✏️', isCorrect: true },
         { id: 'opt_cm1_2', text: 'The road from Delhi to Mumbai', isCorrect: false },
         { id: 'opt_cm1_3', text: 'A two-story school building', isCorrect: false },
       ],
@@ -112,8 +112,8 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🥻 📏',
     payload: {
       options: [
-        { id: 'opt_mt1_1', text: 'In Meters (m) (like 5 meters saree)', isCorrect: true },
-        { id: 'opt_mt1_2', text: 'In Centimeters only (5 cm is tiny)', isCorrect: false },
+        { id: 'opt_mt1_1', text: 'In Meters', isCorrect: true },
+        { id: 'opt_mt1_2', text: 'In Centimeters only', isCorrect: false },
         { id: 'opt_mt1_3', text: 'In Minutes', isCorrect: false },
       ],
     },

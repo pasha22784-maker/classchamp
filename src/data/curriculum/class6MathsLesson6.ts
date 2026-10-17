@@ -22,8 +22,8 @@ export const CLASS_6_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🍰 9/4 = Improper Fraction',
     payload: {
       options: [
-        { id: 'opt_fr1', text: 'Improper Fraction (Numerator > Denominator)', isCorrect: true },
-        { id: 'opt_fr2', text: 'Proper Fraction (Numerator < Denominator)', isCorrect: false },
+        { id: 'opt_fr1', text: 'Improper Fraction', isCorrect: true },
+        { id: 'opt_fr2', text: 'Proper Fraction', isCorrect: false },
         { id: 'opt_fr3', text: 'Unit Fraction', isCorrect: false },
       ],
     },
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '➕ 1/3 + 1/4 = ❓',
     payload: {
       options: [
-        { id: 'opt_addf1', text: '7/12 (LCM of 3 and 4 is 12: 4/12 + 3/12 = 7/12)', isCorrect: true },
+        { id: 'opt_addf1', text: '7/12', isCorrect: true },
         { id: 'opt_addf2', text: '2/7', isCorrect: false },
         { id: 'opt_addf3', text: '1/12', isCorrect: false },
       ],

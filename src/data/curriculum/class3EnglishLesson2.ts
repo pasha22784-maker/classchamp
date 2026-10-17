@@ -22,9 +22,9 @@ export const CLASS_3_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🐕 🏙️ 👦',
     payload: {
       options: [
-        { id: 'opt_cn1', text: 'city (general word for any city)', isCorrect: true },
-        { id: 'opt_cn2', text: 'New Delhi (specific city)', isCorrect: false },
-        { id: 'opt_cn3', text: 'India (specific country)', isCorrect: false },
+        { id: 'opt_cn1', text: 'city', isCorrect: true },
+        { id: 'opt_cn2', text: 'New Delhi', isCorrect: false },
+        { id: 'opt_cn3', text: 'India', isCorrect: false },
       ],
     },
     explanation: '💡 A **Common Noun** is a general name for any person, place, animal, or thing (like boy, dog, city, river).',

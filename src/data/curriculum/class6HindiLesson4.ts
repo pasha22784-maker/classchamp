@@ -85,7 +85,7 @@ export const CLASS_6_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '💎 प्रत्यय पहचान',
     payload: {
       options: [
-        { id: 'opt_shl1', text: '"-शाली" (प्रत्यय जो शब्द के अंत में लगा है)', isCorrect: true },
+        { id: 'opt_shl1', text: '"-शाली"', isCorrect: true },
         { id: 'opt_shl2', text: '"बल-"', isCorrect: false },
         { id: 'opt_shl3', text: '"-ली"', isCorrect: false },
       ],

@@ -22,8 +22,8 @@ export const CLASS_6_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🍬 👧👦 Between vs Among',
     payload: {
       options: [
-        { id: 'opt_prp1', text: 'among (used for more than two people or things)', isCorrect: true },
-        { id: 'opt_prp2', text: 'between (used only for two)', isCorrect: false },
+        { id: 'opt_prp1', text: 'among', isCorrect: true },
+        { id: 'opt_prp2', text: 'between', isCorrect: false },
         { id: 'opt_prp3', text: 'with', isCorrect: false },
       ],
     },
@@ -85,9 +85,9 @@ export const CLASS_6_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🚒 🧯 Firefighters',
     payload: {
       options: [
-        { id: 'opt_phr1', text: 'put out (extinguish)', isCorrect: true },
-        { id: 'opt_phr2', text: 'put on (wear)', isCorrect: false },
-        { id: 'opt_phr3', text: 'put off (delay)', isCorrect: false },
+        { id: 'opt_phr1', text: 'put out', isCorrect: true },
+        { id: 'opt_phr2', text: 'put on', isCorrect: false },
+        { id: 'opt_phr3', text: 'put off', isCorrect: false },
       ],
     },
     explanation: '💡 **Put out** means to extinguish flames or candles!',

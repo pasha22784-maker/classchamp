@@ -85,7 +85,7 @@ export const CLASS_5_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🔪 🐑 साधन',
     payload: {
       options: [
-        { id: 'opt_krk1', text: 'करण कारक (क्रिया का साधन/माध्यम)', isCorrect: true },
+        { id: 'opt_krk1', text: 'करण कारक', isCorrect: true },
         { id: 'opt_krk2', text: 'अपादान कारक', isCorrect: false },
         { id: 'opt_krk3', text: 'कर्म कारक', isCorrect: false },
       ],

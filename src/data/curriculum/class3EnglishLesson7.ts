@@ -22,7 +22,7 @@ export const CLASS_3_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🎒 📓 ✏️',
     payload: {
       options: [
-        { id: 'opt_and1', text: 'and (joins similar things together)', isCorrect: true },
+        { id: 'opt_and1', text: 'and', isCorrect: true },
         { id: 'opt_and2', text: 'but', isCorrect: false },
         { id: 'opt_and3', text: 'because', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🏃 💨 🚌 💨',
     payload: {
       options: [
-        { id: 'opt_but1', text: 'but (shows contrast or surprise)', isCorrect: true },
+        { id: 'opt_but1', text: 'but', isCorrect: true },
         { id: 'opt_but2', text: 'and', isCorrect: false },
         { id: 'opt_but3', text: 'because', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_3_ENGLISH_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '☂️ 🌧️ 👧',
     payload: {
       options: [
-        { id: 'opt_bec1', text: 'because (explains the reason why)', isCorrect: true },
+        { id: 'opt_bec1', text: 'because', isCorrect: true },
         { id: 'opt_bec2', text: 'but', isCorrect: false },
         { id: 'opt_bec3', text: 'and', isCorrect: false },
       ],

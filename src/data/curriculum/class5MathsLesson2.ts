@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '📐 ∟ 9️⃣0️⃣°',
     payload: {
       options: [
-        { id: 'opt_ra1', text: '90 degrees (90°)', isCorrect: true },
+        { id: 'opt_ra1', text: '90 degrees', isCorrect: true },
         { id: 'opt_ra2', text: '180 degrees', isCorrect: false },
         { id: 'opt_ra3', text: '45 degrees', isCorrect: false },
       ],
@@ -64,9 +64,9 @@ export const CLASS_5_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '📐 🗜️ < 90°',
     payload: {
       options: [
-        { id: 'opt_ac1', text: 'Acute Angle (न्यून कोण - less than 90°)', isCorrect: true },
-        { id: 'opt_ac2', text: 'Obtuse Angle (अधिक कोण)', isCorrect: false },
-        { id: 'opt_ac3', text: 'Straight Angle (ऋजु कोण)', isCorrect: false },
+        { id: 'opt_ac1', text: 'Acute Angle', isCorrect: true },
+        { id: 'opt_ac2', text: 'Obtuse Angle', isCorrect: false },
+        { id: 'opt_ac3', text: 'Straight Angle', isCorrect: false },
       ],
     },
     explanation: '💡 An angle smaller than 90° is an **Acute Angle**! An angle larger than 90° is an **Obtuse Angle**.',
@@ -84,9 +84,9 @@ export const CLASS_5_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🕔',
     payload: {
       options: [
-        { id: 'opt_ob1', text: 'Obtuse Angle (More than a right angle: 150°)', isCorrect: true },
-        { id: 'opt_ob2', text: 'Acute Angle (Less than a right angle)', isCorrect: false },
-        { id: 'opt_ob3', text: 'Right Angle (Exactly 90°)', isCorrect: false },
+        { id: 'opt_ob1', text: 'Obtuse Angle', isCorrect: true },
+        { id: 'opt_ob2', text: 'Acute Angle', isCorrect: false },
+        { id: 'opt_ob3', text: 'Right Angle', isCorrect: false },
       ],
     },
     explanation: '💡 At 5:00, the hands are wide apart (150°), which is greater than 90°: an **Obtuse Angle**!',

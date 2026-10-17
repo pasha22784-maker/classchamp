@@ -22,9 +22,9 @@ export const CLASS_1_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🏃 👟',
     payload: {
       options: [
-        { id: 'opt_vrb1_1', text: 'RUNNING 🏃 (An action word)', isCorrect: true },
-        { id: 'opt_vrb1_2', text: 'Shoe (A thing)', isCorrect: false },
-        { id: 'opt_vrb1_3', text: 'Tree (A thing)', isCorrect: false },
+        { id: 'opt_vrb1_1', text: 'RUNNING 🏃', isCorrect: true },
+        { id: 'opt_vrb1_2', text: 'Shoe', isCorrect: false },
+        { id: 'opt_vrb1_3', text: 'Tree', isCorrect: false },
       ],
     },
     explanation: '💡 **Run** 🏃 is an action word (verb) because it shows something you do!',
@@ -42,7 +42,7 @@ export const CLASS_1_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '💃 🕺 🎶',
     payload: {
       options: [
-        { id: 'opt_vrb2_1', text: 'DANCE 💃 (Moving to music)', isCorrect: true },
+        { id: 'opt_vrb2_1', text: 'DANCE 💃', isCorrect: true },
         { id: 'opt_vrb2_2', text: 'Cake 🎂', isCorrect: false },
         { id: 'opt_vrb2_3', text: 'Hat 🎩', isCorrect: false },
       ],
@@ -87,7 +87,7 @@ export const CLASS_1_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🐸 🪷',
     payload: {
       options: [
-        { id: 'opt_af1_1', text: 'HOP / JUMP 🐸 (Frogs hop and jump)', isCorrect: true },
+        { id: 'opt_af1_1', text: 'HOP / JUMP 🐸', isCorrect: true },
         { id: 'opt_af1_2', text: 'FLY high in clouds ☁️', isCorrect: false },
         { id: 'opt_af1_3', text: 'WRITE with a pencil ✏️', isCorrect: false },
       ],
@@ -132,9 +132,9 @@ export const CLASS_1_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🐱 🥛',
     payload: {
       options: [
-        { id: 'opt_vs1_1', text: 'drink (The action cats do)', isCorrect: true },
-        { id: 'opt_vs1_2', text: 'Cats (Naming word / animal)', isCorrect: false },
-        { id: 'opt_vs1_3', text: 'milk (Naming word / food)', isCorrect: false },
+        { id: 'opt_vs1_1', text: 'drink', isCorrect: true },
+        { id: 'opt_vs1_2', text: 'Cats', isCorrect: false },
+        { id: 'opt_vs1_3', text: 'milk', isCorrect: false },
       ],
     },
     explanation: '💡 **Drink** is what the cats are doing, so it is the action word (verb)!',
@@ -152,7 +152,7 @@ export const CLASS_1_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🪑 ⚽ 🏃 🎒',
     payload: {
       options: [
-        { id: 'opt_vodd_1', text: 'JUMP (Doing action)', isCorrect: true },
+        { id: 'opt_vodd_1', text: 'JUMP', isCorrect: true },
         { id: 'opt_vodd_2', text: 'Chair', isCorrect: false },
         { id: 'opt_vodd_3', text: 'Ball', isCorrect: false },
         { id: 'opt_vodd_4', text: 'Table', isCorrect: false },

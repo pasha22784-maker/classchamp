@@ -22,8 +22,8 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: 'े ➡️ के',
     payload: {
       options: [
-        { id: 'opt_e1_1', text: 'अक्षर के ऊपर एक तिरछी चोटी (े)', isCorrect: true },
-        { id: 'opt_e1_2', text: 'अक्षर के ऊपर दो चोटियाँ (ै)', isCorrect: false },
+        { id: 'opt_e1_1', text: 'अक्षर के ऊपर एक तिरछी चोटी', isCorrect: true },
+        { id: 'opt_e1_2', text: 'अक्षर के ऊपर दो चोटियाँ', isCorrect: false },
         { id: 'opt_e1_3', text: 'अक्षर के नीचे गोल घुमाव', isCorrect: false },
       ],
     },
@@ -42,7 +42,7 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🍌',
     payload: {
       options: [
-        { id: 'opt_e2_1', text: 'केला 🍌 (क + े + ल + ा)', isCorrect: true },
+        { id: 'opt_e2_1', text: 'केला 🍌', isCorrect: true },
         { id: 'opt_e2_2', text: 'सेब 🍎', isCorrect: false },
         { id: 'opt_e2_3', text: 'आम 🥭', isCorrect: false },
       ],
@@ -87,7 +87,7 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: 'ै ➡️ पै',
     payload: {
       options: [
-        { id: 'opt_ai1_1', text: 'ऊपर दो चोटियाँ (ै) जैसे प + ै = पै', isCorrect: true },
+        { id: 'opt_ai1_1', text: 'ऊपर दो चोटियाँ जैसे प + ै = पै', isCorrect: true },
         { id: 'opt_ai1_2', text: 'ऊपर केवल एक चोटी', isCorrect: false },
         { id: 'opt_ai1_3', text: 'पीछे एक खड़ी डंडी', isCorrect: false },
       ],
@@ -107,7 +107,7 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🪖 🇮🇳',
     payload: {
       options: [
-        { id: 'opt_ai2_1', text: 'सैनिक 🪖 (स + ै + न + ि + क)', isCorrect: true },
+        { id: 'opt_ai2_1', text: 'सैनिक 🪖', isCorrect: true },
         { id: 'opt_ai2_2', text: 'नेता 👔', isCorrect: false },
         { id: 'opt_ai2_3', text: 'किसान 🌾', isCorrect: false },
       ],
@@ -149,9 +149,9 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🦚 🌧️',
     payload: {
       options: [
-        { id: 'opt_o1_1', text: 'ओ की मात्रा (ो) - म + ो + र', isCorrect: true },
-        { id: 'opt_o1_2', text: 'आ की मात्रा (ा)', isCorrect: false },
-        { id: 'opt_o1_3', text: 'ऊ की मात्रा (ू)', isCorrect: false },
+        { id: 'opt_o1_1', text: 'ओ की मात्रा - म + ो + र', isCorrect: true },
+        { id: 'opt_o1_2', text: 'आ की मात्रा', isCorrect: false },
+        { id: 'opt_o1_3', text: 'ऊ की मात्रा', isCorrect: false },
       ],
     },
     explanation: '💡 म + ो + र = **मोर** 🦚! म के पीछे एक डंडी और ऊपर एक चोटी यानी "ओ" (ो) की मात्रा लगती है।',
@@ -194,7 +194,7 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🌱 🪴',
     payload: {
       options: [
-        { id: 'opt_au1_1', text: 'पौधा 🌱 (प + ौ + ध + ा)', isCorrect: true },
+        { id: 'opt_au1_1', text: 'पौधा 🌱', isCorrect: true },
         { id: 'opt_au1_2', text: 'पेड़ 🌳', isCorrect: false },
         { id: 'opt_au1_3', text: 'पत्ता 🍃', isCorrect: false },
       ],
@@ -232,7 +232,7 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '⛵ 🌊',
     payload: {
       options: [
-        { id: 'opt_au3_1', text: 'नौका ⛵ (न + ौ + क + ा)', isCorrect: true },
+        { id: 'opt_au3_1', text: 'नौका ⛵', isCorrect: true },
         { id: 'opt_au3_2', text: 'गाड़ी 🚗', isCorrect: false },
         { id: 'opt_au3_3', text: 'हवाई जहाज ✈️', isCorrect: false },
       ],
@@ -256,8 +256,8 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🐂 🌾',
     payload: {
       options: [
-        { id: 'opt_df1_1', text: 'ऐ की मात्रा (ै) - बैल (दो चोटियाँ)', isCorrect: true },
-        { id: 'opt_df1_2', text: 'ए की मात्रा (े) - बेल (एक चोटी)', isCorrect: false },
+        { id: 'opt_df1_1', text: 'ऐ की मात्रा - बैल', isCorrect: true },
+        { id: 'opt_df1_2', text: 'ए की मात्रा - बेल', isCorrect: false },
       ],
     },
     explanation: '💡 ब पर दो चोटियाँ (ै) लगने पर बनता है **बैल** 🐂 (पशु), जबकि एक चोटी (े) लगने पर बनता है बेल 🌿 (लता)!',

@@ -22,7 +22,7 @@ export const CLASS_6_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '📊 Tally Marks: 13',
     payload: {
       options: [
-        { id: 'opt_tl1', text: 'Two bundles of 5 and 3 single lines (卌 卌 ||| = 13)', isCorrect: true },
+        { id: 'opt_tl1', text: 'Two bundles of 5 and 3 single lines', isCorrect: true },
         { id: 'opt_tl2', text: 'Three bundles of 4 and 1 single line', isCorrect: false },
         { id: 'opt_tl3', text: '13 single lines without bundling', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🏏 vs ⚽ Bar Heights',
     payload: {
       options: [
-        { id: 'opt_bg1', text: '10 students (Difference = 8 - 6 = 2 units × 5 = 10 students)', isCorrect: true },
+        { id: 'opt_bg1', text: '10 students', isCorrect: true },
         { id: 'opt_bg2', text: '2 students', isCorrect: false },
         { id: 'opt_bg3', text: '14 students', isCorrect: false },
       ],

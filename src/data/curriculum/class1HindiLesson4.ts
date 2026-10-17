@@ -22,7 +22,7 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: 'ु ➡️ कु',
     payload: {
       options: [
-        { id: 'opt_cu1_1', text: 'अक्षर के नीचे बाईं ओर मुड़कर (ु)', isCorrect: true },
+        { id: 'opt_cu1_1', text: 'अक्षर के नीचे बाईं ओर मुड़कर', isCorrect: true },
         { id: 'opt_cu1_2', text: 'अक्षर के ऊपर दो सींग', isCorrect: false },
         { id: 'opt_cu1_3', text: 'अक्षर के आगे एक डंडी', isCorrect: false },
       ],
@@ -42,7 +42,7 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🌹 🪴',
     payload: {
       options: [
-        { id: 'opt_cu2_1', text: 'गुलाब 🌹 (ग + ु + ल + ा + ब)', isCorrect: true },
+        { id: 'opt_cu2_1', text: 'गुलाब 🌹', isCorrect: true },
         { id: 'opt_cu2_2', text: 'सूरज ☀️', isCorrect: false },
         { id: 'opt_cu2_3', text: 'कमल 🪷', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: 'ू ➡️ सू',
     payload: {
       options: [
-        { id: 'opt_bu1_1', text: 'लम्बी और खिंची हुई आवाज़ (जैसे स + ू = सू)', isCorrect: true },
+        { id: 'opt_bu1_1', text: 'लम्बी और खिंची हुई आवाज़', isCorrect: true },
         { id: 'opt_bu1_2', text: 'बहुत छोटी और हल्की आवाज़', isCorrect: false },
         { id: 'opt_bu1_3', text: 'गूँजती हुई नाक की आवाज़', isCorrect: false },
       ],
@@ -104,7 +104,7 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🌄',
     payload: {
       options: [
-        { id: 'opt_bu2_1', text: 'सूरज ☀️ (स + ू + र + ज)', isCorrect: true },
+        { id: 'opt_bu2_1', text: 'सूरज ☀️', isCorrect: true },
         { id: 'opt_bu2_2', text: 'तारा ⭐', isCorrect: false },
         { id: 'opt_bu2_3', text: 'बादल ☁️', isCorrect: false },
       ],
@@ -149,7 +149,7 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: 'र + ु = रु 🪙',
     payload: {
       options: [
-        { id: 'opt_rar1_1', text: 'रुपया 🪙 (र के बीच में मुड़ाव = रु)', isCorrect: true },
+        { id: 'opt_rar1_1', text: 'रुपया 🪙', isCorrect: true },
         { id: 'opt_rar1_2', text: 'र के नीचे गोल मात्रा', isCorrect: false },
       ],
     },
@@ -172,7 +172,7 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🌙 ⭐',
     payload: {
       options: [
-        { id: 'opt_chm1_1', text: 'चंदा मामा 🌙 (चंद्रमा)', isCorrect: true },
+        { id: 'opt_chm1_1', text: 'चंदा मामा 🌙', isCorrect: true },
         { id: 'opt_chm1_2', text: 'सूरज दादा ☀️', isCorrect: false },
         { id: 'opt_chm1_3', text: 'पतंग 🪁', isCorrect: false },
       ],
@@ -214,7 +214,7 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🐻 🥔',
     payload: {
       options: [
-        { id: 'opt_rhu1_1', text: 'आलू 🥔 (भालू - आलू - चालू)', isCorrect: true },
+        { id: 'opt_rhu1_1', text: 'आलू 🥔', isCorrect: true },
         { id: 'opt_rhu1_2', text: 'फूल 🌸', isCorrect: false },
         { id: 'opt_rhu1_3', text: 'पुल 🌉', isCorrect: false },
       ],

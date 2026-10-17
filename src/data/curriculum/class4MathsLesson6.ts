@@ -22,7 +22,7 @@ export const CLASS_4_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '📰 30 kg × ₹ 8 = ❓',
     payload: {
       options: [
-        { id: 'opt_np1', text: '₹ 240 (30 × 8 = 240)', isCorrect: true },
+        { id: 'opt_np1', text: '₹ 240', isCorrect: true },
         { id: 'opt_np2', text: '₹ 200', isCorrect: false },
         { id: 'opt_np3', text: '₹ 280', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_4_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🏦 6 months × ₹ 51 = ❓',
     payload: {
       options: [
-        { id: 'opt_ln1', text: '₹ 306 (6 × 51 = 306, so ₹6 extra interest)', isCorrect: true },
+        { id: 'opt_ln1', text: '₹ 306', isCorrect: true },
         { id: 'opt_ln2', text: '₹ 300', isCorrect: false },
         { id: 'opt_ln3', text: '₹ 350', isCorrect: false },
       ],

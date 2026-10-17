@@ -22,7 +22,7 @@ export const CLASS_6_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '👓 🐒 चश्मा और लंगूर',
     payload: {
       options: [
-        { id: 'opt_ksb1', text: '"सूरत बनी लंगूर की" (आँख पर चश्मा लगाया, ताकि सूझे दूर की)', isCorrect: true },
+        { id: 'opt_ksb1', text: '"सूरत बनी लंगूर की"', isCorrect: true },
         { id: 'opt_ksb2', text: '"सूरत बनी उल्लू की"', isCorrect: false },
         { id: 'opt_ksb3', text: '"पढ़ने वाली गुड़िया"', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🧦 निजवाचक सर्वनाम',
     payload: {
       options: [
-        { id: 'opt_nij1', text: 'निजवाचक सर्वनाम (जो कर्ता अपने स्वयं के लिए प्रयुक्त करे)', isCorrect: true },
+        { id: 'opt_nij1', text: 'निजवाचक सर्वनाम', isCorrect: true },
         { id: 'opt_nij2', text: 'संबंधवाचक सर्वनाम', isCorrect: false },
         { id: 'opt_nij3', text: 'अनिश्चयवाचक सर्वनाम', isCorrect: false },
       ],

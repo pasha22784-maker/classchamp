@@ -85,7 +85,7 @@ export const CLASS_6_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '⚡ देव + इंद्र = ❓',
     payload: {
       options: [
-        { id: 'opt_sd1', text: 'देवेंद्र (गुण स्वर संधि: अ + इ = ए)', isCorrect: true },
+        { id: 'opt_sd1', text: 'देवेंद्र', isCorrect: true },
         { id: 'opt_sd2', text: 'देवाइंद्र', isCorrect: false },
         { id: 'opt_sd3', text: 'देविंद्र', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_5_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🧵 🪡 कशीदाकारी',
     payload: {
       options: [
-        { id: 'opt_ila1', text: 'पैरों के अँगूठे से सुई में धागा पिरोकर काठियावाड़ी कशीदाकारी (कढ़ाई) में', isCorrect: true },
+        { id: 'opt_ila1', text: 'पैरों के अँगूठे से सुई में धागा पिरोकर काठियावाड़ी कशीदाकारी में', isCorrect: true },
         { id: 'opt_ila2', text: 'चित्रकला में', isCorrect: false },
         { id: 'opt_ila3', text: 'मूर्तिकला में', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_5_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '😮 👏 मुहावरा प्रयोग',
     payload: {
       options: [
-        { id: 'opt_mhv1', text: 'दाँतों तले उँगली दबा ली (हैरान रह गए)', isCorrect: true },
+        { id: 'opt_mhv1', text: 'दाँतों तले उँगली दबा ली', isCorrect: true },
         { id: 'opt_mhv2', text: 'नौ दो ग्यारह हो गए', isCorrect: false },
         { id: 'opt_mhv3', text: 'घी के दीये जलाए', isCorrect: false },
       ],

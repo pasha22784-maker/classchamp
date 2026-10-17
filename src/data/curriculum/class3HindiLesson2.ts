@@ -22,7 +22,7 @@ export const CLASS_3_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🪰 🦊 🕸️',
     payload: {
       options: [
-        { id: 'opt_sh1', text: 'चतुर लोमड़ी ने (मकड़ी के जाले में फँसवा कर)', isCorrect: true },
+        { id: 'opt_sh1', text: 'चतुर लोमड़ी ने', isCorrect: true },
         { id: 'opt_sh2', text: 'शेर ने', isCorrect: false },
         { id: 'opt_sh3', text: 'हाथी ने', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🦁 🪰 👁️',
     payload: {
       options: [
-        { id: 'opt_sv1', text: 'उसने (शेर संज्ञा के बदले आया है)', isCorrect: true },
+        { id: 'opt_sv1', text: 'उसने', isCorrect: true },
         { id: 'opt_sv2', text: 'शेर', isCorrect: false },
         { id: 'opt_sv3', text: 'मक्खी', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_3_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '👉 👦 ➔ 👦👧👦',
     payload: {
       options: [
-        { id: 'opt_vch1', text: 'वे (वह ➔ वे)', isCorrect: true },
+        { id: 'opt_vch1', text: 'वे', isCorrect: true },
         { id: 'opt_vch2', text: 'हम', isCorrect: false },
         { id: 'opt_vch3', text: 'आप', isCorrect: false },
       ],

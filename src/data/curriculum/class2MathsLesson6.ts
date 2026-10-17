@@ -22,7 +22,7 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🪔 4️⃣8️⃣ - 2️⃣5️⃣ = ❓',
     payload: {
       options: [
-        { id: 'opt_sb1_1', text: '23 diyas (8 - 5 = 3 ones, 4 - 2 = 2 tens)', isCorrect: true },
+        { id: 'opt_sb1_1', text: '23 diyas', isCorrect: true },
         { id: 'opt_sb1_2', text: '13 diyas', isCorrect: false },
         { id: 'opt_sb1_3', text: '25 diyas', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🏵️ 8️⃣0️⃣ - 3️⃣0️⃣',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: '50 garlands (8 tens - 3 tens = 5 tens)', isCorrect: true },
+        { id: 'opt_st1_1', text: '50 garlands', isCorrect: true },
         { id: 'opt_st1_2', text: '40 garlands', isCorrect: false },
         { id: 'opt_st1_3', text: '110 garlands', isCorrect: false },
       ],
@@ -106,7 +106,7 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🎈 6️⃣7️⃣ - 💥 1️⃣4️⃣',
     payload: {
       options: [
-        { id: 'opt_bl1_1', text: '53 balloons (67 - 14 = 53)', isCorrect: true },
+        { id: 'opt_bl1_1', text: '53 balloons', isCorrect: true },
         { id: 'opt_bl1_2', text: '51 balloons', isCorrect: false },
         { id: 'opt_bl1_3', text: '81 balloons', isCorrect: false },
       ],

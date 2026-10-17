@@ -22,9 +22,9 @@ export const CLASS_6_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '0️⃣ 1️⃣ 2️⃣ 3️⃣...',
     payload: {
       options: [
-        { id: 'opt_wn1', text: '0 (zero) is the smallest whole number, and it has no predecessor in whole numbers', isCorrect: true },
-        { id: 'opt_wn2', text: '1 (one)', isCorrect: false },
-        { id: 'opt_wn3', text: '-1 (negative one)', isCorrect: false },
+        { id: 'opt_wn1', text: '0 is the smallest whole number, and it has no predecessor in whole numbers', isCorrect: true },
+        { id: 'opt_wn2', text: '1', isCorrect: false },
+        { id: 'opt_wn3', text: '-1', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Counting numbers 1, 2, 3... are **Natural numbers**. Including 0 gives **Whole numbers** (0, 1, 2, 3...). 0 has no whole number predecessor!',
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '💡 25 × (100 + 2) = ❓',
     payload: {
       options: [
-        { id: 'opt_dst1', text: '2,550 (25 × 100 + 25 × 2 = 2500 + 50 = 2550)', isCorrect: true },
+        { id: 'opt_dst1', text: '2,550', isCorrect: true },
         { id: 'opt_dst2', text: '2,525', isCorrect: false },
         { id: 'opt_dst3', text: '2,600', isCorrect: false },
       ],

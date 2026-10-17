@@ -11,14 +11,16 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 // Templates and banks to guarantee every 10-minute quiz session has exactly 10 rich questions
+// Structured Pedagogical Question Selector following IXL learning progression ladder:
+// Stage 1 (Foundation / Easy): Basic concept understanding & identification
+// Stage 2 (Application / Medium): Interactive practice (fill_blank, match_pairs)
+// Stage 3 (Mastery / Hard): Multi-step reasoning, word problems & drag_order
 export const generateQuestionsForSession = (
   grade: Grade,
   subject: Subject,
   chapterTitle?: string
 ): Question[] => {
-  const TARGET_COUNT = 10;
-
-  // 1. Gather curated matching questions from MOCK_QUESTIONS
+  // 1. Gather curated matching questions from MOCK_QUESTIONS for the specific chapter
   let matchedQuestions: Question[] = [];
   if (chapterTitle) {
     const cleanChapter = chapterTitle.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
@@ -26,55 +28,37 @@ export const generateQuestionsForSession = (
     matchedQuestions = MOCK_QUESTIONS.filter((q) => {
       if (q.grade !== grade || q.subject !== subject) return false;
       const qChapter = q.chapter.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
-      if (cleanChapter.includes(qChapter.slice(0, 8)) || qChapter.includes(cleanChapter.slice(0, 8))) return true;
+      if (cleanChapter === qChapter) return true;
+      if (cleanChapter.includes(qChapter) || qChapter.includes(cleanChapter)) return true;
       const qWords = qChapter.split(/\s+/).filter(w => w.length > 2);
       const overlap = chapterWords.filter(w => qWords.includes(w));
-      return overlap.length >= 1;
+      return overlap.length >= 2 || (chapterWords.length === 1 && overlap.length >= 1);
     });
   }
 
-  // Fallback if no chapter match: get all grade and subject questions
+  // Fallback if no chapter specified or no match: get all grade and subject questions
   if (matchedQuestions.length === 0) {
     matchedQuestions = MOCK_QUESTIONS.filter(
       (q) => q.grade === grade && q.subject === subject
     );
   }
 
-  // Shuffle matched questions to provide dynamic variety for "Need Extra Practice"
-  matchedQuestions = shuffleArray(matchedQuestions);
+  // 2. PEDAGOGICAL LEARNING LADDER (सीखने का निश्चित पैटर्न)
+  // Strictly sort questions by progressive learning difficulty:
+  // Easy (बुनियादी अवधारणा) ➡️ Medium (नियम प्रयोग व अभ्यास) ➡️ Hard (चुनौती व निपुणता)
+  const difficultyOrder: Record<string, number> = {
+    easy: 1,
+    medium: 2,
+    hard: 3,
+  };
 
-  // 2. Generate supplemental questions tailored to the subject and grade
-  const synthesizedQuestions = getSynthesizedBank(grade, subject, chapterTitle);
+  const sortedQuestions = [...matchedQuestions].sort((a, b) => {
+    const diffA = difficultyOrder[a.difficulty] || 2;
+    const diffB = difficultyOrder[b.difficulty] || 2;
+    return diffA - diffB;
+  });
 
-  // Combine matched with synthesized, avoiding duplicates by id
-  const pool: Question[] = [...matchedQuestions];
-  const usedIds = new Set(pool.map((q) => q.id));
-
-  for (const q of synthesizedQuestions) {
-    if (!usedIds.has(q.id)) {
-      pool.push(q);
-      usedIds.add(q.id);
-    }
-  }
-
-  // If still under 10, fill from general subject pool
-  if (pool.length < TARGET_COUNT) {
-    const generalPool = MOCK_QUESTIONS.filter((q) => q.subject === subject);
-    for (const q of generalPool) {
-      if (!usedIds.has(q.id)) {
-        pool.push({
-          ...q,
-          id: `${q.id}_sup_${Math.random().toString(36).substring(2, 6)}`,
-          grade,
-        });
-        usedIds.add(q.id);
-        if (pool.length >= TARGET_COUNT) break;
-      }
-    }
-  }
-
-  // Return exactly TARGET_COUNT (10) questions
-  return pool.slice(0, TARGET_COUNT);
+  return sortedQuestions;
 };
 
 // Comprehensive curriculum bank providing full 10 questions for any grade and subject
@@ -132,8 +116,8 @@ function getMathsQuestionBank(grade: Grade, chapter: string): Question[] {
         visualEmoji: '🐘',
         payload: {
           options: [
-            { id: 'o1', text: 'Elephant 🐘 (Bigger)', isCorrect: true },
-            { id: 'o2', text: 'Mouse 🐁 (Smaller)', isCorrect: false },
+            { id: 'o1', text: 'Elephant 🐘', isCorrect: true },
+            { id: 'o2', text: 'Mouse 🐁', isCorrect: false },
           ],
         },
         explanation: 'NCERT Ch 1: An elephant 🐘 is much bigger than a tiny mouse 🐁!',
@@ -247,8 +231,8 @@ function getMathsQuestionBank(grade: Grade, chapter: string): Question[] {
         visualEmoji: '🍉',
         payload: {
           options: [
-            { id: 'o1', text: 'Watermelon 🍉 (Heavier)', isCorrect: true },
-            { id: 'o2', text: 'Strawberry 🍓 (Lighter)', isCorrect: false },
+            { id: 'o1', text: 'Watermelon 🍉', isCorrect: true },
+            { id: 'o2', text: 'Strawberry 🍓', isCorrect: false },
           ],
         },
         explanation: 'A big watermelon 🍉 is much heavier than a small strawberry 🍓!',
@@ -284,7 +268,7 @@ function getMathsQuestionBank(grade: Grade, chapter: string): Question[] {
         visualEmoji: '🥭',
         payload: {
           options: [
-            { id: 'o1', text: '0 (Zero mangoes left)', isCorrect: true },
+            { id: 'o1', text: '0', isCorrect: true },
             { id: 'o2', text: '1 mango left', isCorrect: false },
             { id: 'o3', text: '3 mangoes left', isCorrect: false },
           ],
@@ -367,9 +351,9 @@ function getMathsQuestionBank(grade: Grade, chapter: string): Question[] {
       visualEmoji: '🍕',
       payload: {
         options: [
-          { id: 'o1', text: '1/4 (One-fourth)', isCorrect: true },
-          { id: 'o2', text: '1/2 (Half)', isCorrect: false },
-          { id: 'o3', text: '3/4 (Three-fourths)', isCorrect: false },
+          { id: 'o1', text: '1/4', isCorrect: true },
+          { id: 'o2', text: '1/2', isCorrect: false },
+          { id: 'o3', text: '3/4', isCorrect: false },
         ],
       },
       explanation: '1 slice out of 4 total equal slices = 1/4 fraction!',
@@ -509,9 +493,9 @@ function getEnglishQuestionBank(grade: Grade, chapter: string): Question[] {
       visualEmoji: '🐶',
       payload: {
         options: [
-          { id: 'o1', text: 'Puppy (Noun - Animal name)', isCorrect: true },
-          { id: 'o2', text: 'Happily (Adverb)', isCorrect: false },
-          { id: 'o3', text: 'Barked (Verb)', isCorrect: false },
+          { id: 'o1', text: 'Puppy', isCorrect: true },
+          { id: 'o2', text: 'Happily', isCorrect: false },
+          { id: 'o3', text: 'Barked', isCorrect: false },
         ],
       },
       explanation: 'A noun is a naming word for a person, place, animal, or thing (puppy)!',
@@ -567,9 +551,9 @@ function getEnglishQuestionBank(grade: Grade, chapter: string): Question[] {
       visualEmoji: '🕺',
       payload: {
         options: [
-          { id: 'o1', text: 'dances (Action verb)', isCorrect: true },
-          { id: 'o2', text: 'stage (Noun)', isCorrect: false },
-          { id: 'o3', text: 'Rohan (Proper noun)', isCorrect: false },
+          { id: 'o1', text: 'dances', isCorrect: true },
+          { id: 'o2', text: 'stage', isCorrect: false },
+          { id: 'o3', text: 'Rohan', isCorrect: false },
         ],
       },
       explanation: '"Dances" is the action that Rohan is performing!',
@@ -643,9 +627,9 @@ function getEnglishQuestionBank(grade: Grade, chapter: string): Question[] {
       visualEmoji: '🐘',
       payload: {
         options: [
-          { id: 'o1', text: 'cold (Describes the water)', isCorrect: true },
-          { id: 'o2', text: 'drank (Verb)', isCorrect: false },
-          { id: 'o3', text: 'elephant (Noun)', isCorrect: false },
+          { id: 'o1', text: 'cold', isCorrect: true },
+          { id: 'o2', text: 'drank', isCorrect: false },
+          { id: 'o3', text: 'elephant', isCorrect: false },
         ],
       },
       explanation: '"Cold" describes how the water feels!',
@@ -709,9 +693,9 @@ function getHindiQuestionBank(grade: Grade, chapter: string): Question[] {
       visualEmoji: '🏫',
       payload: {
         options: [
-          { id: 'o1', text: 'विद्यालय 🏫 (स्थान का नाम)', isCorrect: true },
-          { id: 'o2', text: 'दौड़ना 🏃 (काम)', isCorrect: false },
-          { id: 'o3', text: 'सुंदर 🌸 (विशेषण)', isCorrect: false },
+          { id: 'o1', text: 'विद्यालय 🏫', isCorrect: true },
+          { id: 'o2', text: 'दौड़ना 🏃', isCorrect: false },
+          { id: 'o3', text: 'सुंदर 🌸', isCorrect: false },
         ],
       },
       explanation: 'किसी व्यक्ति, वस्तु, प्राणी या स्थान के नाम को संज्ञा कहते हैं (जैसे विद्यालय)!',
@@ -767,9 +751,9 @@ function getHindiQuestionBank(grade: Grade, chapter: string): Question[] {
       visualEmoji: '🥭',
       payload: {
         options: [
-          { id: 'o1', text: 'मीठे (गुण बताने वाला विशेषण)', isCorrect: true },
-          { id: 'o2', text: 'आम (संज्ञा)', isCorrect: false },
-          { id: 'o3', text: 'पेड़ (संज्ञा)', isCorrect: false },
+          { id: 'o1', text: 'मीठे', isCorrect: true },
+          { id: 'o2', text: 'आम', isCorrect: false },
+          { id: 'o3', text: 'पेड़', isCorrect: false },
         ],
       },
       explanation: '"मीठे" शब्द आम के स्वाद व गुण की विशेषता बता रहा है!',
@@ -863,9 +847,9 @@ function getHindiQuestionBank(grade: Grade, chapter: string): Question[] {
       visualEmoji: '🌸',
       payload: {
         options: [
-          { id: 'o1', text: 'विस्मयादिबोधक चिह्न (!)', isCorrect: true },
-          { id: 'o2', text: 'पूर्ण विराम (।)', isCorrect: false },
-          { id: 'o3', text: 'प्रश्नवाचक चिह्न (?)', isCorrect: false },
+          { id: 'o1', text: 'विस्मयादिबोधक चिह्न', isCorrect: true },
+          { id: 'o2', text: 'पूर्ण विराम', isCorrect: false },
+          { id: 'o3', text: 'प्रश्नवाचक चिह्न', isCorrect: false },
         ],
       },
       explanation: 'हर्ष, आश्चर्य या शोक प्रकट करने वाले शब्दों के आगे विस्मयादिबोधक चिह्न (!) लगता है!',

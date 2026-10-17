@@ -64,7 +64,7 @@ export const CLASS_4_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '⏳ 📜 🎾',
     payload: {
       options: [
-        { id: 'opt_bt1', text: 'दीपक की गेंद पाँच महीने पहले खो गई थी। (थी = भूतकाल)', isCorrect: true },
+        { id: 'opt_bt1', text: 'दीपक की गेंद पाँच महीने पहले खो गई थी।', isCorrect: true },
         { id: 'opt_bt2', text: 'दिनेश गेंद से खेल रहा है।', isCorrect: false },
         { id: 'opt_bt3', text: 'हम शाम को क्रिकेट खेलेंगे।', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_6_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '🥢 L L L... Pattern',
     payload: {
       options: [
-        { id: 'opt_alg1', text: '2n matchsticks (where n is the number of Ls)', isCorrect: true },
+        { id: 'opt_alg1', text: '2n matchsticks', isCorrect: true },
         { id: 'opt_alg2', text: 'n + 2 matchsticks', isCorrect: false },
         { id: 'opt_alg3', text: '2 + n matchsticks', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ x + 7 = 15',
     payload: {
       options: [
-        { id: 'opt_sol1', text: 'x = 8 (because 8 + 7 = 15)', isCorrect: true },
+        { id: 'opt_sol1', text: 'x = 8', isCorrect: true },
         { id: 'opt_sol2', text: 'x = 22', isCorrect: false },
         { id: 'opt_sol3', text: 'x = 7', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_6_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🔺 Side = 8 cm',
     payload: {
       options: [
-        { id: 'opt_eq1', text: '24 cm (Perimeter = 3 × Side = 3 × 8 = 24 cm)', isCorrect: true },
+        { id: 'opt_eq1', text: '24 cm', isCorrect: true },
         { id: 'opt_eq2', text: '16 cm', isCorrect: false },
         { id: 'opt_eq3', text: '64 cm', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🏠 6m × 4m Floor',
     payload: {
       options: [
-        { id: 'opt_tile1', text: '24 tiles (Area of room = 6 × 4 = 24 sq m; Tile area = 1 sq m)', isCorrect: true },
+        { id: 'opt_tile1', text: '24 tiles', isCorrect: true },
         { id: 'opt_tile2', text: '20 tiles', isCorrect: false },
         { id: 'opt_tile3', text: '10 tiles', isCorrect: false },
       ],

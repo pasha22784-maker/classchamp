@@ -22,9 +22,9 @@ export const CLASS_1_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: 'ि ➡️ कि',
     payload: {
       options: [
-        { id: 'opt_ci1_1', text: 'अक्षर के आगे (बाईं तरफ 👈) से टोपी की तरह (ि)', isCorrect: true },
-        { id: 'opt_ci1_2', text: 'अक्षर के पीछे (दाईं तरफ 👉) से (ी)', isCorrect: false },
-        { id: 'opt_ci1_3', text: 'अक्षर के नीचे से (ु)', isCorrect: false },
+        { id: 'opt_ci1_1', text: 'अक्षर के आगे से टोपी की तरह', isCorrect: true },
+        { id: 'opt_ci1_2', text: 'अक्षर के पीछे से', isCorrect: false },
+        { id: 'opt_ci1_3', text: 'अक्षर के नीचे से', isCorrect: false },
       ],
     },
     explanation: '💡 याद रखें: **छोटी इ (ि)** हमेशा अक्षर के आगे (बाईं तरफ) से ऊपर घूमकर लगती है, जैसे क + ि = **कि**!',
@@ -42,7 +42,7 @@ export const CLASS_1_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🌅',
     payload: {
       options: [
-        { id: 'opt_ci2_1', text: 'दिन ☀️ (द + ि + न)', isCorrect: true },
+        { id: 'opt_ci2_1', text: 'दिन ☀️', isCorrect: true },
         { id: 'opt_ci2_2', text: 'रात 🌙', isCorrect: false },
         { id: 'opt_ci2_3', text: 'धूप 🌤️', isCorrect: false },
       ],
@@ -84,8 +84,8 @@ export const CLASS_1_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: 'ी ➡️ की',
     payload: {
       options: [
-        { id: 'opt_be1_1', text: 'अक्षर के पीछे (दाईं तरफ 👉) से (ी)', isCorrect: true },
-        { id: 'opt_be1_2', text: 'अक्षर के आगे (बाईं तरफ 👈) से (ि)', isCorrect: false },
+        { id: 'opt_be1_1', text: 'अक्षर के पीछे से', isCorrect: true },
+        { id: 'opt_be1_2', text: 'अक्षर के आगे से', isCorrect: false },
         { id: 'opt_be1_3', text: 'अक्षर के ऊपर दो मात्राएँ', isCorrect: false },
       ],
     },
@@ -104,7 +104,7 @@ export const CLASS_1_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🐘 🌴',
     payload: {
       options: [
-        { id: 'opt_be2_1', text: 'हाथी 🐘 (ह + ा + थ + ी)', isCorrect: true },
+        { id: 'opt_be2_1', text: 'हाथी 🐘', isCorrect: true },
         { id: 'opt_be2_2', text: 'हिरन 🦌', isCorrect: false },
         { id: 'opt_be2_3', text: 'शेर 🦁', isCorrect: false },
       ],
@@ -149,9 +149,9 @@ export const CLASS_1_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: 'ि 👂 ?',
     payload: {
       options: [
-        { id: 'opt_idf1_1', text: 'किताब 📖 (क + ि + त + ा + ब)', isCorrect: true },
-        { id: 'opt_idf1_2', text: 'कील 📍 (क + ी + ल)', isCorrect: false },
-        { id: 'opt_idf1_3', text: 'खीर 🍲 (ख + ी + र)', isCorrect: false },
+        { id: 'opt_idf1_1', text: 'किताब 📖', isCorrect: true },
+        { id: 'opt_idf1_2', text: 'कील 📍', isCorrect: false },
+        { id: 'opt_idf1_3', text: 'खीर 🍲', isCorrect: false },
       ],
     },
     explanation: '💡 **किताब** में क पर छोटी इ (ि) लगती है जिसे जल्दी बोलते हैं: "कि-ताब"। कील और खीर में लम्बी बड़ी ई (ी) है।',
@@ -169,9 +169,9 @@ export const CLASS_1_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: 'ी 👂 ?',
     payload: {
       options: [
-        { id: 'opt_idf2_1', text: 'दीपक 🪔 (द + ी + प + क)', isCorrect: true },
-        { id: 'opt_idf2_2', text: 'पिन 📌 (प + ि + न)', isCorrect: false },
-        { id: 'opt_idf2_3', text: 'गिन 🔢 (ग + ि + न)', isCorrect: false },
+        { id: 'opt_idf2_1', text: 'दीपक 🪔', isCorrect: true },
+        { id: 'opt_idf2_2', text: 'पिन 📌', isCorrect: false },
+        { id: 'opt_idf2_3', text: 'गिन 🔢', isCorrect: false },
       ],
     },
     explanation: '💡 **दीपक** 🪔 में द पर बड़ी ई (ी) की लम्बी मात्रा है! पिन और गिन में छोटी इ (ि) है।',
@@ -235,7 +235,7 @@ export const CLASS_1_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🐟 🦋',
     payload: {
       options: [
-        { id: 'opt_rhye1_1', text: 'तितली 🦋 (मछली - तितली)', isCorrect: true },
+        { id: 'opt_rhye1_1', text: 'तितली 🦋', isCorrect: true },
         { id: 'opt_rhye1_2', text: 'पानी 💧', isCorrect: false },
         { id: 'opt_rhye1_3', text: 'तोता 🦜', isCorrect: false },
       ],

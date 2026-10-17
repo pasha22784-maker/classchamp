@@ -22,7 +22,7 @@ export const CLASS_6_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐦 🌾 झुंडी के दाने',
     payload: {
       options: [
-        { id: 'opt_chd1', text: 'दूध भरे झुंडी (ज्वार) के दाने', isCorrect: true },
+        { id: 'opt_chd1', text: 'दूध भरे झुंडी के दाने', isCorrect: true },
         { id: 'opt_chd2', text: 'मीठे आम के फल', isCorrect: false },
         { id: 'opt_chd3', text: 'हरी घास के तिनके', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🔍 पद परिचय',
     payload: {
       options: [
-        { id: 'opt_pd1', text: 'गुणवाचक विशेषण (चिड़िया की विशेषता बताने वाला)', isCorrect: true },
+        { id: 'opt_pd1', text: 'गुणवाचक विशेषण', isCorrect: true },
         { id: 'opt_pd2', text: 'व्यक्तिवाचक संज्ञा', isCorrect: false },
         { id: 'opt_pd3', text: 'अव्यय पद', isCorrect: false },
       ],

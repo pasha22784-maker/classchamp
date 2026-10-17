@@ -22,7 +22,7 @@ export const CLASS_5_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🎲 Flat Net ➡️ 3D Cube',
     payload: {
       options: [
-        { id: 'opt_cfaces1', text: '6 square faces (Top, Bottom, Front, Back, Left, Right)', isCorrect: true },
+        { id: 'opt_cfaces1', text: '6 square faces', isCorrect: true },
         { id: 'opt_cfaces2', text: '4 square faces', isCorrect: false },
         { id: 'opt_cfaces3', text: '8 square faces', isCorrect: false },
       ],

@@ -64,9 +64,9 @@ export const CLASS_3_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🐸 0 ➔ 3 ➔ 6 ➔ 9 ➔ 12 ➔ ❓',
     payload: {
       options: [
-        { id: 'opt_frog1', text: '15 (5 × 3 = 15)', isCorrect: true },
-        { id: 'opt_frog2', text: '12 (4 × 3 = 12)', isCorrect: false },
-        { id: 'opt_frog3', text: '18 (6 × 3 = 18)', isCorrect: false },
+        { id: 'opt_frog1', text: '15', isCorrect: true },
+        { id: 'opt_frog2', text: '12', isCorrect: false },
+        { id: 'opt_frog3', text: '18', isCorrect: false },
       ],
     },
     explanation: '💡 5 jumps of 3 steps = 5 × 3 = **15**!',
@@ -148,7 +148,7 @@ export const CLASS_3_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🕷️ 8 legs × 5 spiders = ❓',
     payload: {
       options: [
-        { id: 'opt_spider1', text: '40 legs (5 × 8 = 40)', isCorrect: true },
+        { id: 'opt_spider1', text: '40 legs', isCorrect: true },
         { id: 'opt_spider2', text: '35 legs', isCorrect: false },
         { id: 'opt_spider3', text: '48 legs', isCorrect: false },
       ],

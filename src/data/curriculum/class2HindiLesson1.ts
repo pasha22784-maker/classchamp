@@ -22,7 +22,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🔤 ✍️',
     payload: {
       options: [
-        { id: 'opt_sy1_1', text: 'क्ष, त्र, ज्ञ, श्र (चार संयुक्त व्यंजन)', isCorrect: true },
+        { id: 'opt_sy1_1', text: 'क्ष, त्र, ज्ञ, श्र', isCorrect: true },
         { id: 'opt_sy1_2', text: 'क, ख, ग, घ', isCorrect: false },
         { id: 'opt_sy1_3', text: 'अ, आ, इ, ई', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐱 🍃 🥄',
     payload: {
       options: [
-        { id: 'opt_dv1_1', text: 'द्वित्व व्यंजन (जैसे- बिल्ली, पत्ता, चम्मच)', isCorrect: true },
+        { id: 'opt_dv1_1', text: 'द्वित्व व्यंजन', isCorrect: true },
         { id: 'opt_dv1_2', text: 'केवल स्वर', isCorrect: false },
         { id: 'opt_dv1_3', text: 'मात्रा हीन शब्द', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🍃 💧 🚗',
     payload: {
       options: [
-        { id: 'opt_dv2_1', text: 'पत्ता 🍃 (त् + त = त्त)', isCorrect: true },
+        { id: 'opt_dv2_1', text: 'पत्ता 🍃', isCorrect: true },
         { id: 'opt_dv2_2', text: 'पानी', isCorrect: false },
         { id: 'opt_dv2_3', text: 'कमल', isCorrect: false },
       ],
@@ -108,9 +108,9 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐪 🌙',
     payload: {
       options: [
-        { id: 'opt_ch1_1', text: 'चन्द्रबिन्दु ( ँ )', isCorrect: true },
-        { id: 'opt_ch1_2', text: 'अनुस्वार ( ं )', isCorrect: false },
-        { id: 'opt_ch1_3', text: 'विसर्ग ( ः )', isCorrect: false },
+        { id: 'opt_ch1_1', text: 'चन्द्रबिन्दु', isCorrect: true },
+        { id: 'opt_ch1_2', text: 'अनुस्वार', isCorrect: false },
+        { id: 'opt_ch1_3', text: 'विसर्ग', isCorrect: false },
       ],
     },
     explanation: '💡 ऊँट, चाँद, आँख, और दाँत में **चन्द्रबिन्दु ( ँ )** का प्रयोग होता है! 🐪',
@@ -150,7 +150,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐪 🏜️',
     payload: {
       options: [
-        { id: 'opt_on1_1', text: 'रेत (बालू) में 🏜️', isCorrect: true },
+        { id: 'opt_on1_1', text: 'रेत में 🏜️', isCorrect: true },
         { id: 'opt_on1_2', text: 'बर्फ में ❄️', isCorrect: false },
         { id: 'opt_on1_3', text: 'नदी के गहरे पानी में', isCorrect: false },
       ],
@@ -174,7 +174,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🏜️ 🐻 🎵',
     payload: {
       options: [
-        { id: 'opt_tk1_1', text: 'भालू 🐻 (बालू - भालू)', isCorrect: true },
+        { id: 'opt_tk1_1', text: 'भालू 🐻', isCorrect: true },
         { id: 'opt_tk1_2', text: 'हाथी', isCorrect: false },
         { id: 'opt_tk1_3', text: 'चिड़िया', isCorrect: false },
       ],

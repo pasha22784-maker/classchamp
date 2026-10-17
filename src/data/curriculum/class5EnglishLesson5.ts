@@ -85,7 +85,7 @@ export const CLASS_5_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🍰 📝 Super Easy',
     payload: {
       options: [
-        { id: 'opt_poc1', text: '"It was a piece of cake!" (Very easy)', isCorrect: true },
+        { id: 'opt_poc1', text: '"It was a piece of cake!"', isCorrect: true },
         { id: 'opt_poc2', text: '"It rained cats and dogs!"', isCorrect: false },
         { id: 'opt_poc3', text: '"She spilled the beans!"', isCorrect: false },
       ],

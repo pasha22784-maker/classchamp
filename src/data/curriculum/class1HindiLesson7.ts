@@ -106,7 +106,7 @@ export const CLASS_1_HINDI_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '☀️ ↔️ 🌙',
     payload: {
       options: [
-        { id: 'opt_dn1_1', text: 'रात 🌙 (अंधेरा)', isCorrect: true },
+        { id: 'opt_dn1_1', text: 'रात 🌙', isCorrect: true },
         { id: 'opt_dn1_2', text: 'सुबह', isCorrect: false },
         { id: 'opt_dn1_3', text: 'दोपहर', isCorrect: false },
       ],
@@ -150,7 +150,7 @@ export const CLASS_1_HINDI_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '☕ ↔️ 🍦',
     payload: {
       options: [
-        { id: 'opt_gm1_1', text: 'ठंडी 🍦 (ठंडा)', isCorrect: true },
+        { id: 'opt_gm1_1', text: 'ठंडी 🍦', isCorrect: true },
         { id: 'opt_gm1_2', text: 'मीठी', isCorrect: false },
         { id: 'opt_gm1_3', text: 'तीखी', isCorrect: false },
       ],
@@ -305,7 +305,7 @@ export const CLASS_1_HINDI_LESSON_7_QUESTIONS: Question[] = [
     payload: {
       options: [
         { id: 'opt_jd1_1', text: 'दिन — रात ☀️🌙', isCorrect: true },
-        { id: 'opt_jd1_2', text: 'पानी — जल (समान अर्थ)', isCorrect: false },
+        { id: 'opt_jd1_2', text: 'पानी — जल', isCorrect: false },
         { id: 'opt_jd1_3', text: 'बड़ा — मोटा', isCorrect: false },
       ],
     },

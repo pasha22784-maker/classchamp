@@ -130,9 +130,9 @@ export const CLASS_2_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🚲 🚴',
     payload: {
       options: [
-        { id: 'opt_sp1_1', text: 'Bicycle (A vehicle/thing) 🚲', isCorrect: true },
-        { id: 'opt_sp1_2', text: 'Shiny (Describing word)', isCorrect: false },
-        { id: 'opt_sp1_3', text: 'Has (Helping word)', isCorrect: false },
+        { id: 'opt_sp1_1', text: 'Bicycle 🚲', isCorrect: true },
+        { id: 'opt_sp1_2', text: 'Shiny', isCorrect: false },
+        { id: 'opt_sp1_3', text: 'Has', isCorrect: false },
       ],
     },
     explanation: '💡 **Bicycle** is the name of an object/vehicle, so it is a naming word (noun)!',

@@ -22,7 +22,7 @@ export const CLASS_1_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🐱',
     payload: {
       options: [
-        { id: 'opt_om1_1', text: 'ONE Cat (Single cat)', isCorrect: true },
+        { id: 'opt_om1_1', text: 'ONE Cat', isCorrect: true },
         { id: 'opt_om1_2', text: 'MANY Cats', isCorrect: false },
       ],
     },
@@ -41,7 +41,7 @@ export const CLASS_1_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🪁 🪁 🪁 🪁',
     payload: {
       options: [
-        { id: 'opt_om2_1', text: 'MANY Kites (More than one)', isCorrect: true },
+        { id: 'opt_om2_1', text: 'MANY Kites', isCorrect: true },
         { id: 'opt_om2_2', text: 'ONE Kite', isCorrect: false },
       ],
     },
@@ -100,7 +100,7 @@ export const CLASS_1_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🦆🦆🦆',
     payload: {
       options: [
-        { id: 'opt_dk1_1', text: 'DUCKS (Duck + s)', isCorrect: true },
+        { id: 'opt_dk1_1', text: 'DUCKS', isCorrect: true },
         { id: 'opt_dk1_2', text: 'DUCK', isCorrect: false },
         { id: 'opt_dk1_3', text: 'DUCKES', isCorrect: false },
       ],
@@ -170,7 +170,7 @@ export const CLASS_1_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '📦 ➡️ 📦📦',
     payload: {
       options: [
-        { id: 'opt_es1_1', text: 'BOXES (Box + es)', isCorrect: true },
+        { id: 'opt_es1_1', text: 'BOXES', isCorrect: true },
         { id: 'opt_es1_2', text: 'BOXS', isCorrect: false },
         { id: 'opt_es1_3', text: 'BOX', isCorrect: false },
       ],
@@ -212,7 +212,7 @@ export const CLASS_1_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '5️⃣ 🎈',
     payload: {
       options: [
-        { id: 'opt_ag1_1', text: 'I have five balloons. 🎈 (Correct)', isCorrect: true },
+        { id: 'opt_ag1_1', text: 'I have five balloons. 🎈', isCorrect: true },
         { id: 'opt_ag1_2', text: 'I have five balloon.', isCorrect: false },
         { id: 'opt_ag1_3', text: 'I have one balloons.', isCorrect: false },
       ],

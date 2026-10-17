@@ -22,7 +22,7 @@ export const CLASS_1_ENGLISH_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🔤 ✍️',
     payload: {
       options: [
-        { id: 'opt_cp1_1', text: 'A CAPITAL (big) letter (like "T", "A", "M")', isCorrect: true },
+        { id: 'opt_cp1_1', text: 'A CAPITAL letter', isCorrect: true },
         { id: 'opt_cp1_2', text: 'A small lowercase letter only', isCorrect: false },
         { id: 'opt_cp1_3', text: 'A number', isCorrect: false },
       ],
@@ -66,8 +66,8 @@ export const CLASS_1_ENGLISH_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '📚 🛑',
     payload: {
       options: [
-        { id: 'opt_fs1_1', text: 'A Full Stop ( . )', isCorrect: true },
-        { id: 'opt_fs1_2', text: 'A comma ( , )', isCorrect: false },
+        { id: 'opt_fs1_1', text: 'A Full Stop', isCorrect: true },
+        { id: 'opt_fs1_2', text: 'A comma', isCorrect: false },
         { id: 'opt_fs1_3', text: 'No mark at all', isCorrect: false },
       ],
     },
@@ -170,9 +170,9 @@ export const CLASS_1_ENGLISH_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '❓ 👦',
     payload: {
       options: [
-        { id: 'opt_qs1_1', text: 'Question mark ( ? )', isCorrect: true },
-        { id: 'opt_qs1_2', text: 'Full stop ( . )', isCorrect: false },
-        { id: 'opt_qs1_3', text: 'Exclamation mark ( ! )', isCorrect: false },
+        { id: 'opt_qs1_1', text: 'Question mark', isCorrect: true },
+        { id: 'opt_qs1_2', text: 'Full stop', isCorrect: false },
+        { id: 'opt_qs1_3', text: 'Exclamation mark', isCorrect: false },
       ],
     },
     explanation: '💡 Asking questions always end with a **question mark ( ? )**! ❓',

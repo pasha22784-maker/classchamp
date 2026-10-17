@@ -22,7 +22,7 @@ export const CLASS_4_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🐑🐑🐑 ➔ ❓',
     payload: {
       options: [
-        { id: 'opt_flk1', text: 'A flock (a flock of sheep / birds)', isCorrect: true },
+        { id: 'opt_flk1', text: 'A flock', isCorrect: true },
         { id: 'opt_flk2', text: 'A pack', isCorrect: false },
         { id: 'opt_flk3', text: 'A bunch', isCorrect: false },
       ],

@@ -85,7 +85,7 @@ export const CLASS_5_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '🚲 👦 Possession',
     payload: {
       options: [
-        { id: 'opt_pos1', text: "Ravi's bicycle (Singular possessive with 's)", isCorrect: true },
+        { id: 'opt_pos1', text: "Ravi's bicycle", isCorrect: true },
         { id: 'opt_pos2', text: 'Ravis bicycle', isCorrect: false },
         { id: 'opt_pos3', text: "Ravis' bicycle", isCorrect: false },
       ],

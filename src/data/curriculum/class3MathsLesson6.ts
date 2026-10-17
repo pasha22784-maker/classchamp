@@ -22,7 +22,7 @@ export const CLASS_3_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '⏰ 1️⃣ hour = ❓ min',
     payload: {
       options: [
-        { id: 'opt_ck1_1', text: '60 minutes (1 Hour = 60 Minutes)', isCorrect: true },
+        { id: 'opt_ck1_1', text: '60 minutes', isCorrect: true },
         { id: 'opt_ck1_2', text: '100 minutes', isCorrect: false },
         { id: 'opt_ck1_3', text: '24 minutes', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_3_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '⏱️ 👁️ vs 🧶',
     payload: {
       options: [
-        { id: 'opt_dr1_1', text: 'Blinking your eye or snapping your fingers 👁️ (Takes seconds)', isCorrect: true },
+        { id: 'opt_dr1_1', text: 'Blinking your eye or snapping your fingers 👁️', isCorrect: true },
         { id: 'opt_dr1_2', text: 'Knitting a warm woolen sweater 🧶', isCorrect: false },
         { id: 'opt_dr1_3', text: 'Growing a tall mango tree from a seed 🥭', isCorrect: false },
       ],
@@ -108,7 +108,7 @@ export const CLASS_3_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '📅 3️⃣6️⃣6️⃣',
     payload: {
       options: [
-        { id: 'opt_cl1_1', text: '366 days (One extra day in February)', isCorrect: true },
+        { id: 'opt_cl1_1', text: '366 days', isCorrect: true },
         { id: 'opt_cl1_2', text: '370 days', isCorrect: false },
         { id: 'opt_cl1_3', text: '360 days', isCorrect: false },
       ],

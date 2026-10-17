@@ -65,7 +65,7 @@ export const CLASS_5_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🔤 शब्द के आरंभ में',
     payload: {
       options: [
-        { id: 'opt_up1', text: '"सु-" (अच्छा अर्थ देने वाला उपसर्ग)', isCorrect: true },
+        { id: 'opt_up1', text: '"सु-"', isCorrect: true },
         { id: 'opt_up2', text: '"सुग-"', isCorrect: false },
         { id: 'opt_up3', text: '"-ंध"', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_5_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🔤 शब्द के अंत में',
     payload: {
       options: [
-        { id: 'opt_prt1', text: 'प्रत्यय (जो शब्द के अंत में जुड़ता है)', isCorrect: true },
+        { id: 'opt_prt1', text: 'प्रत्यय', isCorrect: true },
         { id: 'opt_prt2', text: 'उपसर्ग', isCorrect: false },
         { id: 'opt_prt3', text: 'संज्ञा', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_3_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '👦 📖 🏫',
     payload: {
       options: [
-        { id: 'opt_am1', text: 'am (I am)', isCorrect: true },
+        { id: 'opt_am1', text: 'am', isCorrect: true },
         { id: 'opt_am2', text: 'is', isCorrect: false },
         { id: 'opt_am3', text: 'are', isCorrect: false },
       ],
@@ -102,7 +102,7 @@ export const CLASS_3_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🦁 🐘 🧒👦',
     payload: {
       options: [
-        { id: 'opt_were1', text: 'were (children were)', isCorrect: true },
+        { id: 'opt_were1', text: 'were', isCorrect: true },
         { id: 'opt_were2', text: 'was', isCorrect: false },
         { id: 'opt_were3', text: 'is', isCorrect: false },
       ],

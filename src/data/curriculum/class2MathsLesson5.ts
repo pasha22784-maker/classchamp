@@ -22,7 +22,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '💈 ⬆️ ⬇️',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: 'A Standing line (Vertical straight line | )', isCorrect: true },
+        { id: 'opt_st1_1', text: 'A Standing line', isCorrect: true },
         { id: 'opt_st1_2', text: 'A Curved line', isCorrect: false },
         { id: 'opt_st1_3', text: 'A Sleeping line', isCorrect: false },
       ],
@@ -46,7 +46,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '✏️ ⬅️ ➡️',
     payload: {
       options: [
-        { id: 'opt_sp1_1', text: 'A Sleeping line (Horizontal straight line — )', isCorrect: true },
+        { id: 'opt_sp1_1', text: 'A Sleeping line', isCorrect: true },
         { id: 'opt_sp1_2', text: 'A Standing line', isCorrect: false },
         { id: 'opt_sp1_3', text: 'A Zigzag line', isCorrect: false },
       ],
@@ -70,7 +70,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🌧️ 🪜 ╱ ╲',
     payload: {
       options: [
-        { id: 'opt_sl1_1', text: 'A Slanting line (तिरछी रेखा ╱ )', isCorrect: true },
+        { id: 'opt_sl1_1', text: 'A Slanting line', isCorrect: true },
         { id: 'opt_sl1_2', text: 'A Standing line', isCorrect: false },
         { id: 'opt_sl1_3', text: 'A Sleeping line', isCorrect: false },
       ],
@@ -116,7 +116,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🔤 🇭',
     payload: {
       options: [
-        { id: 'opt_lh1_1', text: '2 Standing lines and 1 Sleeping line ( | — | )', isCorrect: true },
+        { id: 'opt_lh1_1', text: '2 Standing lines and 1 Sleeping line', isCorrect: true },
         { id: 'opt_lh1_2', text: '3 Slanting lines', isCorrect: false },
         { id: 'opt_lh1_3', text: 'Curved lines only', isCorrect: false },
       ],
@@ -136,7 +136,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🔤 🇦',
     payload: {
       options: [
-        { id: 'opt_la2_1', text: '2 Slanting lines and 1 Sleeping line ( / — \\ )', isCorrect: true },
+        { id: 'opt_la2_1', text: '2 Slanting lines and 1 Sleeping line', isCorrect: true },
         { id: 'opt_la2_2', text: 'Only standing lines', isCorrect: false },
         { id: 'opt_la2_3', text: 'Only curved lines', isCorrect: false },
       ],

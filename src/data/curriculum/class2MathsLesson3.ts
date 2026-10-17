@@ -106,7 +106,7 @@ export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '❓ ⬅️ 9️⃣0️⃣',
     payload: {
       options: [
-        { id: 'opt_ba1_1', text: '89 (One less than 90)', isCorrect: true },
+        { id: 'opt_ba1_1', text: '89', isCorrect: true },
         { id: 'opt_ba1_2', text: '91', isCorrect: false },
         { id: 'opt_ba1_3', text: '80', isCorrect: false },
       ],
@@ -148,7 +148,7 @@ export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ 🔢',
     payload: {
       options: [
-        { id: 'opt_cp1_1', text: '65 > 56 (6 tens is greater than 5 tens)', isCorrect: true },
+        { id: 'opt_cp1_1', text: '65 > 56', isCorrect: true },
         { id: 'opt_cp1_2', text: '42 > 84', isCorrect: false },
         { id: 'opt_cp1_3', text: '99 < 19', isCorrect: false },
       ],
@@ -194,8 +194,8 @@ export const CLASS_2_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🏏 💯',
     payload: {
       options: [
-        { id: 'opt_ct1_1', text: '100 runs (A Century = 100)', isCorrect: true },
-        { id: 'opt_ct1_2', text: '50 runs (Half-century)', isCorrect: false },
+        { id: 'opt_ct1_1', text: '100 runs', isCorrect: true },
+        { id: 'opt_ct1_2', text: '50 runs', isCorrect: false },
         { id: 'opt_ct1_3', text: '10 runs', isCorrect: false },
       ],
     },

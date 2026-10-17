@@ -22,9 +22,9 @@ export const CLASS_1_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🔴 🔺 🔴 🔺 🔴 ❓',
     payload: {
       options: [
-        { id: 'opt_sh1_1', text: '🔺 (Triangle)', isCorrect: true },
-        { id: 'opt_sh1_2', text: '🔴 (Circle)', isCorrect: false },
-        { id: 'opt_sh1_3', text: '🟦 (Square)', isCorrect: false },
+        { id: 'opt_sh1_1', text: '🔺', isCorrect: true },
+        { id: 'opt_sh1_2', text: '🔴', isCorrect: false },
+        { id: 'opt_sh1_3', text: '🟦', isCorrect: false },
       ],
     },
     explanation: '💡 The pattern is repeating: Circle, Triangle, Circle, Triangle... After 🔴 comes **🔺**!',
@@ -42,9 +42,9 @@ export const CLASS_1_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🍃 🍃 🌸 🍃 🍃 🌸 🍃 ❓',
     payload: {
       options: [
-        { id: 'opt_sh2_1', text: '🍃 (Leaf)', isCorrect: true },
-        { id: 'opt_sh2_2', text: '🌸 (Flower)', isCorrect: false },
-        { id: 'opt_sh2_3', text: '⭐ (Star)', isCorrect: false },
+        { id: 'opt_sh2_1', text: '🍃', isCorrect: true },
+        { id: 'opt_sh2_2', text: '🌸', isCorrect: false },
+        { id: 'opt_sh2_3', text: '⭐', isCorrect: false },
       ],
     },
     explanation: '💡 The rule is two leaves then one flower: 🍃 🍃 🌸. So after the first leaf comes the second **🍃**!',
@@ -66,9 +66,9 @@ export const CLASS_1_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🟡 🟠 🟡 🟠 🟡 ❓',
     payload: {
       options: [
-        { id: 'opt_cl1_1', text: '🟠 (Orange flower)', isCorrect: true },
-        { id: 'opt_cl1_2', text: '🟡 (Yellow flower)', isCorrect: false },
-        { id: 'opt_cl1_3', text: '⚪ (White flower)', isCorrect: false },
+        { id: 'opt_cl1_1', text: '🟠', isCorrect: true },
+        { id: 'opt_cl1_2', text: '🟡', isCorrect: false },
+        { id: 'opt_cl1_3', text: '⚪', isCorrect: false },
       ],
     },
     explanation: '💡 The pattern switches: Yellow, Orange, Yellow, Orange... After Yellow comes **Orange 🟠**!',
@@ -108,8 +108,8 @@ export const CLASS_1_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🪔 🕯️ 🪔 🕯️ ❓',
     payload: {
       options: [
-        { id: 'opt_sz1_1', text: '🪔 (Big diya)', isCorrect: true },
-        { id: 'opt_sz1_2', text: '🕯️ (Small candle)', isCorrect: false },
+        { id: 'opt_sz1_1', text: '🪔', isCorrect: true },
+        { id: 'opt_sz1_2', text: '🕯️', isCorrect: false },
       ],
     },
     explanation: '💡 Big, Small, Big, Small... the next item is **Big diya 🪔**!',
@@ -149,7 +149,7 @@ export const CLASS_1_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🏠 1️⃣, 3️⃣, 5️⃣, 7️⃣, ❓',
     payload: {
       options: [
-        { id: 'opt_nm2_1', text: '9 (adds 2 each time)', isCorrect: true },
+        { id: 'opt_nm2_1', text: '9', isCorrect: true },
         { id: 'opt_nm2_2', text: '8', isCorrect: false },
         { id: 'opt_nm2_3', text: '10', isCorrect: false },
       ],

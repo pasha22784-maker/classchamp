@@ -161,9 +161,9 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🫧 🫧 🫧',
     payload: {
       options: [
-        { id: 'opt_bub_1', text: 'Bubble C (giant) is the BIGGEST', isCorrect: true },
-        { id: 'opt_bub_2', text: 'Bubble A (tiny) is the BIGGEST', isCorrect: false },
-        { id: 'opt_bub_3', text: 'Bubble B (medium) is the BIGGEST', isCorrect: false },
+        { id: 'opt_bub_1', text: 'Bubble C is the BIGGEST', isCorrect: true },
+        { id: 'opt_bub_2', text: 'Bubble A is the BIGGEST', isCorrect: false },
+        { id: 'opt_bub_3', text: 'Bubble B is the BIGGEST', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: The biggest is the one that has the largest size among all three bubbles!',
@@ -279,8 +279,8 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐦 🌳',
     payload: {
       options: [
-        { id: 'opt_nf_1', text: 'Pink bird (2 steps) is NEARER 🐦', isCorrect: true },
-        { id: 'opt_nf_2', text: 'Blue bird (10 steps) is NEARER 🐦', isCorrect: false },
+        { id: 'opt_nf_1', text: 'Pink bird is NEARER 🐦', isCorrect: true },
+        { id: 'opt_nf_2', text: 'Blue bird is NEARER 🐦', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Nearer means having a shorter distance to the tree!',
@@ -340,7 +340,7 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🏃 🏃 🏃 🎪',
     payload: {
       options: [
-        { id: 'opt_fst_1', text: 'The child who is farthest back at the gate (FARTHEST)', isCorrect: true },
+        { id: 'opt_fst_1', text: 'The child who is farthest back at the gate', isCorrect: true },
         { id: 'opt_fst_2', text: 'The child touching the swing rope', isCorrect: false },
       ],
     },
@@ -469,7 +469,7 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🔺 🥟',
     payload: {
       options: [
-        { id: 'opt_sh_4', text: 'Crispy Samosa 🥟 (3 corners)', isCorrect: true },
+        { id: 'opt_sh_4', text: 'Crispy Samosa 🥟', isCorrect: true },
         { id: 'opt_sh_5', text: 'Round Gulab Jamun 🟤', isCorrect: false },
         { id: 'opt_sh_6', text: 'Square Sandwich 🥪', isCorrect: false },
       ],
@@ -559,9 +559,9 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🛝 ⚽',
     payload: {
       options: [
-        { id: 'opt_rs_1', text: '⚽ Round Football (ROLLS)', isCorrect: true },
-        { id: 'opt_rs_2', text: '📦 Cardboard Box (SLIDES)', isCorrect: false },
-        { id: 'opt_rs_3', text: '🧱 Wooden Block (SLIDES)', isCorrect: false },
+        { id: 'opt_rs_1', text: '⚽ Round Football', isCorrect: true },
+        { id: 'opt_rs_2', text: '📦 Cardboard Box', isCorrect: false },
+        { id: 'opt_rs_3', text: '🧱 Wooden Block', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: Objects with smooth curved or round surfaces ROLL down slopes!',

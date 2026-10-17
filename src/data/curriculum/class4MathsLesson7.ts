@@ -22,8 +22,8 @@ export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '⭕ 📍 ➔ ➖',
     payload: {
       options: [
-        { id: 'opt_rd1', text: 'Radius (त्रिज्या)', isCorrect: true },
-        { id: 'opt_rd2', text: 'Diameter (व्यास)', isCorrect: false },
+        { id: 'opt_rd1', text: 'Radius', isCorrect: true },
+        { id: 'opt_rd2', text: 'Diameter', isCorrect: false },
         { id: 'opt_rd3', text: 'Chord', isCorrect: false },
       ],
     },

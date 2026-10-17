@@ -103,9 +103,9 @@ export const CLASS_1_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '4️⃣ 🍀',
     payload: {
       options: [
-        { id: 'opt_nm1_1', text: 'FOUR (4)', isCorrect: true },
-        { id: 'opt_nm1_2', text: 'FIVE (5)', isCorrect: false },
-        { id: 'opt_nm1_3', text: 'THREE (3)', isCorrect: false },
+        { id: 'opt_nm1_1', text: 'FOUR', isCorrect: true },
+        { id: 'opt_nm1_2', text: 'FIVE', isCorrect: false },
+        { id: 'opt_nm1_3', text: 'THREE', isCorrect: false },
       ],
     },
     explanation: '💡 Remember the spelling: F - O - U - R is **FOUR** (4)!',
@@ -168,7 +168,7 @@ export const CLASS_1_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🌳 🐦 💨',
     payload: {
       options: [
-        { id: 'opt_z1_1', text: '0 (Zero birds left)', isCorrect: true },
+        { id: 'opt_z1_1', text: '0', isCorrect: true },
         { id: 'opt_z1_2', text: '1 bird left', isCorrect: false },
         { id: 'opt_z1_3', text: '3 birds left', isCorrect: false },
       ],
@@ -188,7 +188,7 @@ export const CLASS_1_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🧺 ✨',
     payload: {
       options: [
-        { id: 'opt_z2_1', text: '0 (The basket is empty, Zero mangoes)', isCorrect: true },
+        { id: 'opt_z2_1', text: '0', isCorrect: true },
         { id: 'opt_z2_2', text: '4 mangoes', isCorrect: false },
         { id: 'opt_z2_3', text: '1 mango', isCorrect: false },
       ],
@@ -208,7 +208,7 @@ export const CLASS_1_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '0️⃣',
     payload: {
       options: [
-        { id: 'opt_z3_1', text: 'Zero means nothing or none (0)', isCorrect: true },
+        { id: 'opt_z3_1', text: 'Zero means nothing or none', isCorrect: true },
         { id: 'opt_z3_2', text: 'Zero means everything', isCorrect: false },
         { id: 'opt_z3_3', text: 'Zero means the biggest number', isCorrect: false },
       ],
@@ -312,8 +312,8 @@ export const CLASS_1_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🎈 🎈 🎈 🎈 🎈  vs  🎈 🎈',
     payload: {
       options: [
-        { id: 'opt_cmp1_1', text: 'Group A (5 balloons is MORE)', isCorrect: true },
-        { id: 'opt_cmp1_2', text: 'Group B (2 balloons is MORE)', isCorrect: false },
+        { id: 'opt_cmp1_1', text: 'Group A', isCorrect: true },
+        { id: 'opt_cmp1_2', text: 'Group B', isCorrect: false },
       ],
     },
     explanation: '💡 5 is greater than 2! Group A with 5 balloons has **MORE**.',
@@ -331,7 +331,7 @@ export const CLASS_1_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🥣 🐟 vs 🥣 🐟 🐟 🐟',
     payload: {
       options: [
-        { id: 'opt_cmp2_1', text: 'Bowl with 1 fish (FEWER)', isCorrect: true },
+        { id: 'opt_cmp2_1', text: 'Bowl with 1 fish', isCorrect: true },
         { id: 'opt_cmp2_2', text: 'Bowl with 3 fish', isCorrect: false },
       ],
     },
@@ -391,7 +391,7 @@ export const CLASS_1_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '9️⃣ 8️⃣ 7️⃣ 6️⃣ ❓',
     payload: {
       options: [
-        { id: 'opt_bk2_1', text: '5 (counting backward)', isCorrect: true },
+        { id: 'opt_bk2_1', text: '5', isCorrect: true },
         { id: 'opt_bk2_2', text: '7', isCorrect: false },
         { id: 'opt_bk2_3', text: '10', isCorrect: false },
       ],

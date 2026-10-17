@@ -22,7 +22,7 @@ export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🛝 ⚽ vs 📦',
     payload: {
       options: [
-        { id: 'opt_rl1_1', text: 'A round football ⚽ (It has a curved surface)', isCorrect: true },
+        { id: 'opt_rl1_1', text: 'A round football ⚽', isCorrect: true },
         { id: 'opt_rl1_2', text: 'A flat cardboard box 📦', isCorrect: false },
         { id: 'opt_rl1_3', text: 'A flat pencil box 📏', isCorrect: false },
       ],
@@ -64,7 +64,7 @@ export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '📖 🧱 ⚽',
     payload: {
       options: [
-        { id: 'opt_sl1_1', text: 'A heavy storybook 📖 (It has flat faces)', isCorrect: true },
+        { id: 'opt_sl1_1', text: 'A heavy storybook 📖', isCorrect: true },
         { id: 'opt_sl1_2', text: 'A cricket tennis ball 🎾', isCorrect: false },
         { id: 'opt_sl1_3', text: 'A round glass marble 🔮', isCorrect: false },
       ],

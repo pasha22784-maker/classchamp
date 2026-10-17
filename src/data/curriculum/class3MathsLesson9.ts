@@ -22,7 +22,7 @@ export const CLASS_3_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🥛 1️⃣ Litre = ❓ mL',
     payload: {
       options: [
-        { id: 'opt_l1', text: '1000 mL (1 L = 1000 mL)', isCorrect: true },
+        { id: 'opt_l1', text: '1000 mL', isCorrect: true },
         { id: 'opt_l2', text: '100 mL', isCorrect: false },
         { id: 'opt_l3', text: '10 mL', isCorrect: false },
       ],
@@ -64,9 +64,9 @@ export const CLASS_3_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🥄 💧 ➔ ❓',
     payload: {
       options: [
-        { id: 'opt_unit1', text: 'Millilitres (mL)', isCorrect: true },
-        { id: 'opt_unit2', text: 'Litres (L)', isCorrect: false },
-        { id: 'opt_unit3', text: 'Kilograms (kg)', isCorrect: false },
+        { id: 'opt_unit1', text: 'Millilitres', isCorrect: true },
+        { id: 'opt_unit2', text: 'Litres', isCorrect: false },
+        { id: 'opt_unit3', text: 'Kilograms', isCorrect: false },
       ],
     },
     explanation: '💡 Very small amounts of liquid (like spoonfuls or eye drops) are measured in **millilitres (mL)**!',
@@ -84,9 +84,9 @@ export const CLASS_3_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🪣 ➔ ❓',
     payload: {
       options: [
-        { id: 'opt_bkt1', text: 'Litres (L)', isCorrect: true },
-        { id: 'opt_bkt2', text: 'Millilitres (mL)', isCorrect: false },
-        { id: 'opt_bkt3', text: 'Grams (g)', isCorrect: false },
+        { id: 'opt_bkt1', text: 'Litres', isCorrect: true },
+        { id: 'opt_bkt2', text: 'Millilitres', isCorrect: false },
+        { id: 'opt_bkt3', text: 'Grams', isCorrect: false },
       ],
     },
     explanation: '💡 Large liquid capacities like buckets, drums, and car tanks are measured in **Litres (L)**!',
@@ -108,7 +108,7 @@ export const CLASS_3_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '☕ 250 mL × ❓ = 1000 mL (1 L)',
     payload: {
       options: [
-        { id: 'opt_cup1', text: '4 cups (250 × 4 = 1000 mL)', isCorrect: true },
+        { id: 'opt_cup1', text: '4 cups', isCorrect: true },
         { id: 'opt_cup2', text: '2 cups', isCorrect: false },
         { id: 'opt_cup3', text: '10 cups', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_6_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '👧👦 24 girls : 16 boys',
     payload: {
       options: [
-        { id: 'opt_rt1', text: '3 : 2 (Dividing both 24 and 16 by their HCF 8)', isCorrect: true },
+        { id: 'opt_rt1', text: '3 : 2', isCorrect: true },
         { id: 'opt_rt2', text: '2 : 3', isCorrect: false },
         { id: 'opt_rt3', text: '6 : 4', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '🚗 180 km in 3 hours ➡️ 5 hours = ❓',
     payload: {
       options: [
-        { id: 'opt_car1', text: '300 km (Speed = 180 ÷ 3 = 60 km/h; 60 × 5 = 300 km)', isCorrect: true },
+        { id: 'opt_car1', text: '300 km', isCorrect: true },
         { id: 'opt_car2', text: '240 km', isCorrect: false },
         { id: 'opt_car3', text: '360 km', isCorrect: false },
       ],

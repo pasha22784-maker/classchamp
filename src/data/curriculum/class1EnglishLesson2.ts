@@ -22,7 +22,7 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🧑‍🏫 🏫 📚',
     payload: {
       options: [
-        { id: 'opt_per1_1', text: 'Teacher (A person)', isCorrect: true },
+        { id: 'opt_per1_1', text: 'Teacher', isCorrect: true },
         { id: 'opt_per1_2', text: 'Table', isCorrect: false },
         { id: 'opt_per1_3', text: 'Tree', isCorrect: false },
       ],
@@ -66,7 +66,7 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🐄 🥛',
     payload: {
       options: [
-        { id: 'opt_ani1_1', text: 'Cow 🐄 (An animal)', isCorrect: true },
+        { id: 'opt_ani1_1', text: 'Cow 🐄', isCorrect: true },
         { id: 'opt_ani1_2', text: 'Chair 🪑', isCorrect: false },
         { id: 'opt_ani1_3', text: 'Car 🚗', isCorrect: false },
       ],
@@ -111,7 +111,7 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🏞️ 🛝',
     payload: {
       options: [
-        { id: 'opt_plc1_1', text: 'Park (A place to play)', isCorrect: true },
+        { id: 'opt_plc1_1', text: 'Park', isCorrect: true },
         { id: 'opt_plc1_2', text: 'Pencil', isCorrect: false },
         { id: 'opt_plc1_3', text: 'Puppy', isCorrect: false },
       ],
@@ -131,9 +131,9 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🦁 🦓 🦒 🏞️',
     payload: {
       options: [
-        { id: 'opt_plc2_1', text: 'Zoo (A place with animals)', isCorrect: true },
-        { id: 'opt_plc2_2', text: 'Aarav (A person)', isCorrect: false },
-        { id: 'opt_plc2_3', text: 'went (Action verb)', isCorrect: false },
+        { id: 'opt_plc2_1', text: 'Zoo', isCorrect: true },
+        { id: 'opt_plc2_2', text: 'Aarav', isCorrect: false },
+        { id: 'opt_plc2_3', text: 'went', isCorrect: false },
       ],
     },
     explanation: '💡 The **Zoo** is the place where wild animals live and visitors come to see them!',
@@ -155,9 +155,9 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🎒',
     payload: {
       options: [
-        { id: 'opt_thg1_1', text: 'School Bag 🎒 (A thing)', isCorrect: true },
-        { id: 'opt_thg1_2', text: 'Friend 👦 (A person)', isCorrect: false },
-        { id: 'opt_thg1_3', text: 'Walk 🚶 (An action)', isCorrect: false },
+        { id: 'opt_thg1_1', text: 'School Bag 🎒', isCorrect: true },
+        { id: 'opt_thg1_2', text: 'Friend 👦', isCorrect: false },
+        { id: 'opt_thg1_3', text: 'Walk 🚶', isCorrect: false },
       ],
     },
     explanation: '💡 A **School Bag** 🎒 is a non-living object, so it is a **thing**!',
@@ -221,10 +221,10 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🐶 ⚽ 🏃 🎒',
     payload: {
       options: [
-        { id: 'opt_odd_n1', text: 'RUN 🏃 (Action verb, not a noun)', isCorrect: true },
-        { id: 'opt_odd_n2', text: 'DOG 🐶 (Animal)', isCorrect: false },
-        { id: 'opt_odd_n3', text: 'BALL ⚽ (Thing)', isCorrect: false },
-        { id: 'opt_odd_n4', text: 'BAG 🎒 (Thing)', isCorrect: false },
+        { id: 'opt_odd_n1', text: 'RUN 🏃', isCorrect: true },
+        { id: 'opt_odd_n2', text: 'DOG 🐶', isCorrect: false },
+        { id: 'opt_odd_n3', text: 'BALL ⚽', isCorrect: false },
+        { id: 'opt_odd_n4', text: 'BAG 🎒', isCorrect: false },
       ],
     },
     explanation: '💡 Dog, Ball, and Bag are names of objects and animals. Run 🏃 is doing an action!',

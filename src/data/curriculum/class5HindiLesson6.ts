@@ -22,7 +22,7 @@ export const CLASS_5_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '✉️ 📮 पिन कोड',
     payload: {
       options: [
-        { id: 'opt_pin1', text: '6 अंकों की संख्या (Postal Index Number)', isCorrect: true },
+        { id: 'opt_pin1', text: '6 अंकों की संख्या', isCorrect: true },
         { id: 'opt_pin2', text: '4 अंकों की संख्या', isCorrect: false },
         { id: 'opt_pin3', text: '10 अंकों की संख्या', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_5_HINDI_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '✔️ शुद्ध शब्द',
     payload: {
       options: [
-        { id: 'opt_shd1', text: 'कवयित्री (शुद्ध रूप)', isCorrect: true },
+        { id: 'opt_shd1', text: 'कवयित्री', isCorrect: true },
         { id: 'opt_shd2', text: 'कविइत्री', isCorrect: false },
         { id: 'opt_shd3', text: 'कवयत्री', isCorrect: false },
       ],

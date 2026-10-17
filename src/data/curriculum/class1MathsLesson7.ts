@@ -22,8 +22,8 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '✏️📏 vs ✏️',
     payload: {
       options: [
-        { id: 'opt_lng1_1', text: 'Brand-new full pencil (LONGER)', isCorrect: true },
-        { id: 'opt_lng1_2', text: 'Old sharpened small pencil (SHORTER)', isCorrect: false },
+        { id: 'opt_lng1_1', text: 'Brand-new full pencil', isCorrect: true },
+        { id: 'opt_lng1_2', text: 'Old sharpened small pencil', isCorrect: false },
       ],
     },
     explanation: '💡 The new pencil has more length from tip to eraser, so it is **LONGER**!',
@@ -60,8 +60,8 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🪜 Ladder A, B, C',
     payload: {
       options: [
-        { id: 'opt_lng3_1', text: 'Ladder C with 10 steps (LONGEST)', isCorrect: true },
-        { id: 'opt_lng3_2', text: 'Ladder A with 2 steps (SHORTEST)', isCorrect: false },
+        { id: 'opt_lng3_1', text: 'Ladder C with 10 steps', isCorrect: true },
+        { id: 'opt_lng3_2', text: 'Ladder A with 2 steps', isCorrect: false },
         { id: 'opt_lng3_3', text: 'Ladder B with 5 steps', isCorrect: false },
       ],
     },
@@ -250,8 +250,8 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🖐️ 📏',
     payload: {
       options: [
-        { id: 'opt_spn1_1', text: 'HANDSPAN (बिलाँत / बित्ता 🖐️)', isCorrect: true },
-        { id: 'opt_spn1_2', text: 'FOOTSTEP (कदम 👣)', isCorrect: false },
+        { id: 'opt_spn1_1', text: 'HANDSPAN', isCorrect: true },
+        { id: 'opt_spn1_2', text: 'FOOTSTEP', isCorrect: false },
         { id: 'opt_spn1_3', text: 'PENCIL TIP', isCorrect: false },
       ],
     },

@@ -22,7 +22,7 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🧱 ➔ ❓ faces',
     payload: {
       options: [
-        { id: 'opt_fc1', text: '6 faces (it is a 3D cuboid)', isCorrect: true },
+        { id: 'opt_fc1', text: '6 faces', isCorrect: true },
         { id: 'opt_fc2', text: '4 faces', isCorrect: false },
         { id: 'opt_fc3', text: '8 faces', isCorrect: false },
         { id: 'opt_fc4', text: '12 faces', isCorrect: false },
@@ -113,9 +113,9 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🏭 🧱 1️⃣0️⃣0️⃣0️⃣0️⃣0️⃣',
     payload: {
       options: [
-        { id: 'opt_lk1', text: '5 zeros (1,00,000)', isCorrect: true },
-        { id: 'opt_lk2', text: '4 zeros (10,000)', isCorrect: false },
-        { id: 'opt_lk3', text: '6 zeros (10,00,000)', isCorrect: false },
+        { id: 'opt_lk1', text: '5 zeros', isCorrect: true },
+        { id: 'opt_lk2', text: '4 zeros', isCorrect: false },
+        { id: 'opt_lk3', text: '6 zeros', isCorrect: false },
       ],
     },
     explanation: '💡 **1 Lakh = 1,00,000** has exactly **5 zeros** (one hundred thousand)!',

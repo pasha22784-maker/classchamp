@@ -22,9 +22,9 @@ export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🇮🇳 1 part out of 3',
     payload: {
       options: [
-        { id: 'opt_fl1', text: '1/3 (One-third)', isCorrect: true },
-        { id: 'opt_fl2', text: '1/2 (Half)', isCorrect: false },
-        { id: 'opt_fl3', text: '1/4 (One-fourth)', isCorrect: false },
+        { id: 'opt_fl1', text: '1/3', isCorrect: true },
+        { id: 'opt_fl2', text: '1/2', isCorrect: false },
+        { id: 'opt_fl3', text: '1/4', isCorrect: false },
       ],
     },
     explanation: '💡 The Indian flag has 3 equal bands: 1/3 saffron, 1/3 white, and 1/3 green!',
@@ -46,7 +46,7 @@ export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🍰 ½ = ❓',
     payload: {
       options: [
-        { id: 'opt_eq1', text: '3/6 (multiply top and bottom by 3)', isCorrect: true },
+        { id: 'opt_eq1', text: '3/6', isCorrect: true },
         { id: 'opt_eq2', text: '2/5', isCorrect: false },
         { id: 'opt_eq3', text: '1/4', isCorrect: false },
       ],
@@ -88,7 +88,7 @@ export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🍫 12 ÷ 4 = ❓',
     payload: {
       options: [
-        { id: 'opt_ch1', text: '3 pieces (12 ÷ 4 = 3)', isCorrect: true },
+        { id: 'opt_ch1', text: '3 pieces', isCorrect: true },
         { id: 'opt_ch2', text: '4 pieces', isCorrect: false },
         { id: 'opt_ch3', text: '6 pieces', isCorrect: false },
       ],

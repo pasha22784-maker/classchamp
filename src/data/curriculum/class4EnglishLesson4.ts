@@ -22,7 +22,7 @@ export const CLASS_4_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🐢 🏁',
     payload: {
       options: [
-        { id: 'opt_adv1', text: 'slowly (describes how the tortoise walked)', isCorrect: true },
+        { id: 'opt_adv1', text: 'slowly', isCorrect: true },
         { id: 'opt_adv2', text: 'tortoise', isCorrect: false },
         { id: 'opt_adv3', text: 'walked', isCorrect: false },
       ],
@@ -60,7 +60,7 @@ export const CLASS_4_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '😊 ➔ 💃',
     payload: {
       options: [
-        { id: 'opt_hpy1', text: 'happily (change y to i, then add -ly)', isCorrect: true },
+        { id: 'opt_hpy1', text: 'happily', isCorrect: true },
         { id: 'opt_hpy2', text: 'happyly', isCorrect: false },
         { id: 'opt_hpy3', text: 'happiness', isCorrect: false },
       ],

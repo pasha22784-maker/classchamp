@@ -85,9 +85,9 @@ export const CLASS_6_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🎯 HCF(24, 36) = ❓',
     payload: {
       options: [
-        { id: 'opt_hcf1', text: '12 (Factors of 24: 1,2,3,4,6,8,12,24; Factors of 36: 1,2,3,4,6,9,12,18,36)', isCorrect: true },
+        { id: 'opt_hcf1', text: '12', isCorrect: true },
         { id: 'opt_hcf2', text: '6', isCorrect: false },
-        { id: 'opt_hcf3', text: '72 (This is the LCM, not HCF)', isCorrect: false },
+        { id: 'opt_hcf3', text: '72', isCorrect: false },
       ],
     },
     explanation: '💡 The highest factor shared by both 24 and 36 is **12** (their LCM is 72)!',

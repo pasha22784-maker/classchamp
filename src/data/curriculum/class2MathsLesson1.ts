@@ -22,7 +22,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🩴 (5 pairs)',
     payload: {
       options: [
-        { id: 'opt_pr1_1', text: '10 sandals (5 pairs of 2 = 10)', isCorrect: true },
+        { id: 'opt_pr1_1', text: '10 sandals', isCorrect: true },
         { id: 'opt_pr1_2', text: '7 sandals', isCorrect: false },
         { id: 'opt_pr1_3', text: '5 sandals', isCorrect: false },
       ],
@@ -60,7 +60,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🕊️🕊️ 🕊️🕊️ 🕊️🕊️ 🕊️🕊️',
     payload: {
       options: [
-        { id: 'opt_pr3_1', text: '8 seagulls (4 × 2 = 8)', isCorrect: true },
+        { id: 'opt_pr3_1', text: '8 seagulls', isCorrect: true },
         { id: 'opt_pr3_2', text: '6 seagulls', isCorrect: false },
         { id: 'opt_pr3_3', text: '12 seagulls', isCorrect: false },
       ],
@@ -84,7 +84,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🥣🐚 (4 bowls of 5)',
     payload: {
       options: [
-        { id: 'opt_fv1_1', text: '20 shells (5, 10, 15, 20)', isCorrect: true },
+        { id: 'opt_fv1_1', text: '20 shells', isCorrect: true },
         { id: 'opt_fv1_2', text: '15 shells', isCorrect: false },
         { id: 'opt_fv1_3', text: '25 shells', isCorrect: false },
       ],
@@ -126,7 +126,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🦷 👄',
     payload: {
       options: [
-        { id: 'opt_es1_1', text: 'Less than 40 (usually 20 to 32)', isCorrect: true },
+        { id: 'opt_es1_1', text: 'Less than 40', isCorrect: true },
         { id: 'opt_es1_2', text: 'More than 100', isCorrect: false },
         { id: 'opt_es1_3', text: 'More than 500', isCorrect: false },
       ],
@@ -217,7 +217,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🌴 🥥🥥🥥 × 3',
     payload: {
       options: [
-        { id: 'opt_cc1_1', text: '9 coconuts (3 + 3 + 3 = 9)', isCorrect: true },
+        { id: 'opt_cc1_1', text: '9 coconuts', isCorrect: true },
         { id: 'opt_cc1_2', text: '6 coconuts', isCorrect: false },
         { id: 'opt_cc1_3', text: '12 coconuts', isCorrect: false },
       ],

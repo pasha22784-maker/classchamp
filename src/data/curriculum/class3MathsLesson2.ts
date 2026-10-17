@@ -88,7 +88,7 @@ export const CLASS_3_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🏏 9️⃣6️⃣ ➡️ 💯',
     payload: {
       options: [
-        { id: 'opt_cn1_1', text: '4 runs (100 - 96 = 4)', isCorrect: true },
+        { id: 'opt_cn1_1', text: '4 runs', isCorrect: true },
         { id: 'opt_cn1_2', text: '6 runs', isCorrect: false },
         { id: 'opt_cn1_3', text: '10 runs', isCorrect: false },
       ],
@@ -152,7 +152,7 @@ export const CLASS_3_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '9️⃣9️⃣9️⃣ ➡️ ❓',
     payload: {
       options: [
-        { id: 'opt_th1_1', text: '1000 (One Thousand - smallest 4-digit number)', isCorrect: true },
+        { id: 'opt_th1_1', text: '1000', isCorrect: true },
         { id: 'opt_th1_2', text: '990', isCorrect: false },
         { id: 'opt_th1_3', text: '100', isCorrect: false },
       ],

@@ -22,7 +22,7 @@ export const CLASS_6_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '📝 ✨ Completed Action',
     payload: {
       options: [
-        { id: 'opt_pf1', text: 'has completed (Singular "She" + has + V3)', isCorrect: true },
+        { id: 'opt_pf1', text: 'has completed', isCorrect: true },
         { id: 'opt_pf2', text: 'have completed', isCorrect: false },
         { id: 'opt_pf3', text: 'had completing', isCorrect: false },
       ],
@@ -85,7 +85,7 @@ export const CLASS_6_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🕊️ fly ➡️ flew ➡️ ❓',
     payload: {
       options: [
-        { id: 'opt_fl1', text: 'flown (fly ➡️ flew ➡️ flown)', isCorrect: true },
+        { id: 'opt_fl1', text: 'flown', isCorrect: true },
         { id: 'opt_fl2', text: 'flied', isCorrect: false },
         { id: 'opt_fl3', text: 'flowing', isCorrect: false },
       ],
