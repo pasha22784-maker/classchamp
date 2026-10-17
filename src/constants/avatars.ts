@@ -10,6 +10,8 @@ export const KID_AVATARS: AvatarOption[] = [
 ];
 
 export const GRADE_OPTIONS = [
+  { grade: 'LKG' as const, label: 'LKG (Balvatika 2)', desc: 'Ages 3-4 (Phonics, ABC, 1-5, Shapes, Colors, Emojis)' },
+  { grade: 'UKG' as const, label: 'UKG (Balvatika 3)', desc: 'Ages 4-5 (Phonics Reading, CVC Words, 1-20, Addition)' },
   { grade: 1 as const, label: 'Class 1', desc: 'Ages 6-7 (Counting, Shapes, Alphabet, Nouns)' },
   { grade: 2 as const, label: 'Class 2', desc: 'Ages 7-8 (Addition, Subtraction, Verbs, Rhymes)' },
   { grade: 3 as const, label: 'Class 3', desc: 'Ages 8-9 (Fractions, Time, Prepositions)' },

@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { COLORS, BORDER_RADIUS, SPACING, SHADOWS } from '../../constants/theme';
-import { QuizSessionResult } from '../../types';
+import { QuizSessionResult, Grade } from '../../types';
 
 interface CertificateCardProps {
   studentName: string;
-  grade: number;
+  grade: Grade;
   result: QuizSessionResult;
   streakDays: number;
 }
@@ -54,7 +54,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
           <Text style={styles.congratsText}>{getPraise()}</Text>
           <Text style={styles.studentName}>{studentName}</Text>
           <Text style={styles.gradeText}>
-            Class {grade} • {result.subject === 'maths' ? 'Mathematics 📐' : result.subject === 'english' ? 'English Grammar 📚' : 'Hindi (हिंदी) 🇮🇳'}
+            {typeof grade === 'number' ? `Class ${grade}` : grade} • {result.subject === 'maths' ? 'Mathematics 📐' : result.subject === 'english' ? 'English Grammar 📚' : 'Hindi (हिंदी) 🇮🇳'}
           </Text>
           {result.chapterTitle ? (
             <Text style={[styles.gradeText, { color: COLORS.primary, fontWeight: '700', marginTop: 2 }]}>

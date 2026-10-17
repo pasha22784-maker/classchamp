@@ -1,4 +1,10 @@
 import { Question, Grade, Subject } from '../types';
+import { LKG_MATHS_ALL_QUESTIONS } from './curriculum/lkgMathsLessons';
+import { LKG_ENGLISH_ALL_QUESTIONS } from './curriculum/lkgEnglishLessons';
+import { LKG_HINDI_ALL_QUESTIONS } from './curriculum/lkgHindiLessons';
+import { UKG_MATHS_ALL_QUESTIONS } from './curriculum/ukgMathsLessons';
+import { UKG_ENGLISH_ALL_QUESTIONS } from './curriculum/ukgEnglishLessons';
+import { UKG_HINDI_ALL_QUESTIONS } from './curriculum/ukgHindiLessons';
 import { CLASS_1_MATHS_LESSON_1_QUESTIONS } from './curriculum/class1MathsLesson1';
 import { CLASS_1_MATHS_LESSON_2_QUESTIONS } from './curriculum/class1MathsLesson2';
 import { CLASS_1_MATHS_LESSON_3_QUESTIONS } from './curriculum/class1MathsLesson3';
@@ -141,6 +147,20 @@ import { CLASS_6_HINDI_LESSON_5_QUESTIONS } from './curriculum/class6HindiLesson
 import { CLASS_6_HINDI_LESSON_6_QUESTIONS } from './curriculum/class6HindiLesson6';
 
 export const MOCK_QUESTIONS: Question[] = [
+  // =========================================================================
+  // LKG (BALVATIKA 2) — FOUNDATION CURRICULUM (15 CHAPTERS)
+  // =========================================================================
+  ...LKG_MATHS_ALL_QUESTIONS,
+  ...LKG_ENGLISH_ALL_QUESTIONS,
+  ...LKG_HINDI_ALL_QUESTIONS,
+
+  // =========================================================================
+  // UKG (BALVATIKA 3) — KINDERGARTEN CURRICULUM (15 CHAPTERS)
+  // =========================================================================
+  ...UKG_MATHS_ALL_QUESTIONS,
+  ...UKG_ENGLISH_ALL_QUESTIONS,
+  ...UKG_HINDI_ALL_QUESTIONS,
+
   // =========================================================================
   // CLASS 1 — NCERT JOYFUL MATHEMATICS: CHAPTER 1 (Shapes & Space / Finding the Furry Cat)
   // All 11 Concepts (Inside/Outside, Big/Small, Biggest/Smallest, Top/Bottom, Near/Far,

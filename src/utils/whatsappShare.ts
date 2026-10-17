@@ -1,18 +1,19 @@
 import { Platform, Share } from 'react-native';
 import * as Sharing from 'expo-sharing';
 import { captureRef } from 'react-native-view-shot';
-import { QuizSessionResult } from '../types';
+import { QuizSessionResult, Grade } from '../types';
 
 export const shareScorecard = async (
   viewRef: React.RefObject<any>,
   studentName: string,
-  grade: number,
+  grade: Grade,
   result: QuizSessionResult,
   streakDays: number
 ): Promise<boolean> => {
+  const gradeLabel = typeof grade === 'number' ? `Class ${grade}` : grade;
   const shareMessage =
     `🌟 *CLASSCHAMP DAILY REPORT CARD* 🌟\n\n` +
-    `👤 Champion: *${studentName}* (Class ${grade})\n` +
+    `👤 Champion: *${studentName}* (${gradeLabel})\n` +
     `📚 Subject: *${result.subject === 'maths' ? 'Mathematics 📐' : result.subject === 'english' ? 'English Grammar 📚' : 'Hindi (हिंदी) 🇮🇳'}*\n` +
     `⭐ Score: *${result.correctCount} / ${result.totalQuestions}* (${result.scorePercentage}%)\n` +
     `⏱️ Focus Time: *${Math.floor(result.timeTakenSeconds / 60)}m ${result.timeTakenSeconds % 60}s*\n` +

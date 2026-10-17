@@ -57,7 +57,7 @@ export const Roadmap365Screen: React.FC<Roadmap365ScreenProps> = ({
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primaryDark} />
 
       <ChampHeader
-        title={`Class ${grade} • 365-Day Journey`}
+        title={typeof grade === 'number' ? `Class ${grade} • 365-Day Journey` : `${grade} • 365-Day Journey`}
         subtitle="10-Min Daily Practice Every Single Day"
         onBack={onBack}
       />

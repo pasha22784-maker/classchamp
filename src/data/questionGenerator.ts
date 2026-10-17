@@ -33,6 +33,185 @@ export function generateDynamicMathQuestion(grade: Grade, chapterTitle?: string)
   const qId = `dyn_math_${grade}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
   const ch = chapterTitle || `Mathematics Practice (Class ${grade})`;
 
+  // LKG MATHEMATICS (FOUNDATIONAL & GAMIFIED)
+  if (grade === 'LKG') {
+    const type = randomChoice(['count5', 'big_small', 'shapes', 'colors']);
+    if (type === 'count5') {
+      const num = randomInt(1, 5);
+      const emoji = randomChoice(['🍎', '⭐', '🎈', '🐱', '⚽']);
+      const emojis = Array(num).fill(emoji).join(' ');
+      return {
+        id: qId,
+        grade: 'LKG',
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Counting up to 5',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `How many ${emoji} can you see?\n${emojis}`,
+        visualEmoji: '🖐️ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${num} ${emoji}`, isCorrect: true },
+            { id: 'opt_2', text: `${num === 5 ? 3 : num + 1} ${emoji}`, isCorrect: false },
+            { id: 'opt_3', text: `${num === 1 ? 4 : num - 1} ${emoji}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Let's count together: ${emojis} = ${num}! Great job! 🎉`,
+        points: 10,
+      };
+    } else if (type === 'big_small') {
+      return {
+        id: qId,
+        grade: 'LKG',
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Big vs Small',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: 'Which one is BIG?',
+        visualEmoji: '🐘 🐭',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: '🐘 Big Elephant', isCorrect: true },
+            { id: 'opt_2', text: '🐭 Small Mouse', isCorrect: false },
+          ]),
+        },
+        explanation: '💡 An Elephant 🐘 is huge and big! A Mouse 🐭 is small.',
+        points: 10,
+      };
+    } else if (type === 'shapes') {
+      const shape = randomChoice([
+        { q: 'Which shape is a ROUND CIRCLE? ⭕', correct: '⭕ Circle', wrong: '⬛ Square' },
+        { q: 'Which shape has 3 corners like a samosa? 🔺', correct: '🔺 Triangle', wrong: '⭕ Circle' },
+        { q: 'Which shape has 4 equal sides? ⬛', correct: '⬛ Square', wrong: '⭕ Circle' },
+      ]);
+      return {
+        id: qId,
+        grade: 'LKG',
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Basic Shapes',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: shape.q,
+        visualEmoji: '🔺 ⭕',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: shape.correct, isCorrect: true },
+            { id: 'opt_2', text: shape.wrong, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${shape.correct} is the right shape! Super star! ⭐`,
+        points: 10,
+      };
+    } else {
+      const color = randomChoice([
+        { q: 'Which one is RED? 🔴', correct: '🍎 Red Apple', wrong: '🍌 Yellow Banana' },
+        { q: 'Which one is YELLOW? 🟡', correct: '🌻 Yellow Sunflower', wrong: '🫐 Blue Berry' },
+        { q: 'Which one is GREEN? 🟢', correct: '🍃 Green Leaf', wrong: '🍓 Red Strawberry' },
+      ]);
+      return {
+        id: qId,
+        grade: 'LKG',
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Colors Recognition',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: color.q,
+        visualEmoji: '🎨 ✨',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: color.correct, isCorrect: true },
+            { id: 'opt_2', text: color.wrong, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Yes! ${color.correct}! You know your colors so well! 🎨`,
+        points: 10,
+      };
+    }
+  }
+
+  // UKG MATHEMATICS (KINDERGARTEN COUNTING & VISUAL ADDITION)
+  if (grade === 'UKG') {
+    const type = randomChoice(['count10', 'add_pic', 'after_before']);
+    if (type === 'count10') {
+      const num = randomInt(5, 10);
+      const emoji = randomChoice(['⭐', '🎈', '🧁', '🚗']);
+      const emojis = Array(num).fill(emoji).join(' ');
+      return {
+        id: qId,
+        grade: 'UKG',
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Numbers 1 to 10',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `Count the ${emoji}:\n${emojis}`,
+        visualEmoji: '🔟 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${num}`, isCorrect: true },
+            { id: 'opt_2', text: `${num + 1}`, isCorrect: false },
+            { id: 'opt_3', text: `${num - 1}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 There are ${num} ${emoji}! Great counting! 🌟`,
+        points: 10,
+      };
+    } else if (type === 'add_pic') {
+      const a = randomInt(1, 4);
+      const b = randomInt(1, 4);
+      const ans = a + b;
+      const emoji = randomChoice(['🍎', '⭐', '🎈']);
+      const aEmojis = Array(a).fill(emoji).join(' ');
+      const bEmojis = Array(b).fill(emoji).join(' ');
+      return {
+        id: qId,
+        grade: 'UKG',
+        subject: 'maths',
+        chapter: ch,
+        concept: 'Picture Addition',
+        difficulty: 'medium',
+        type: 'mcq',
+        question: `How many in all?\n${aEmojis} + ${bEmojis} = ?`,
+        visualEmoji: '➕ 🌟',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${ans} ${emoji}`, isCorrect: true },
+            { id: 'opt_2', text: `${ans + 1} ${emoji}`, isCorrect: false },
+            { id: 'opt_3', text: `${ans - 1} ${emoji}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 ${a} and ${b} more make ${ans}! Terrific math! 🚀`,
+        points: 15,
+      };
+    } else {
+      const n = randomInt(2, 9);
+      return {
+        id: qId,
+        grade: 'UKG',
+        subject: 'maths',
+        chapter: ch,
+        concept: 'After Numbers',
+        difficulty: 'easy',
+        type: 'mcq',
+        question: `What number comes AFTER ${n}?`,
+        visualEmoji: '⏭️ 🔢',
+        payload: {
+          options: shuffleArray([
+            { id: 'opt_1', text: `${n + 1}`, isCorrect: true },
+            { id: 'opt_2', text: `${n - 1}`, isCorrect: false },
+            { id: 'opt_3', text: `${n + 2}`, isCorrect: false },
+          ]),
+        },
+        explanation: `💡 Counting forward: ${n}, then comes ${n + 1}!`,
+        points: 10,
+      };
+    }
+  }
+
   // CLASS 1 MATHEMATICS
   if (grade === 1) {
     const type = randomChoice(['add', 'sub', 'compare', 'count']);
@@ -729,7 +908,7 @@ export function generateDynamicEnglishGrammarQuestion(grade: Grade, chapterTitle
     subject: 'english',
     chapter: ch,
     concept: item.concept,
-    difficulty: grade <= 2 ? 'easy' : grade <= 4 ? 'medium' : 'hard',
+    difficulty: (grade === 'LKG' || grade === 'UKG' || grade <= 2) ? 'easy' : grade <= 4 ? 'medium' : 'hard',
     type: 'mcq',
     question: item.question,
     visualEmoji: '🔤 ✍️',
@@ -907,7 +1086,7 @@ export function generateDynamicHindiVyakaranQuestion(grade: Grade, chapterTitle?
     subject: 'hindi',
     chapter: ch,
     concept: item.concept,
-    difficulty: grade <= 2 ? 'easy' : grade <= 4 ? 'medium' : 'hard',
+    difficulty: (grade === 'LKG' || grade === 'UKG' || grade <= 2) ? 'easy' : grade <= 4 ? 'medium' : 'hard',
     type: 'mcq',
     question: item.question,
     visualEmoji: '🇮🇳 ✍️',

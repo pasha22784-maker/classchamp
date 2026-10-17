@@ -46,7 +46,7 @@ export const ChapterVaultScreen: React.FC<ChapterVaultScreenProps> = ({
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primaryDark} />
 
       <ChampHeader
-        title={`Class ${grade} NCERT Lessons`}
+        title={typeof grade === 'number' ? `Class ${grade} NCERT Lessons` : `${grade} Foundation Lessons`}
         subtitle="100% Official Textbook Syllabus"
         onBack={onBack}
       />

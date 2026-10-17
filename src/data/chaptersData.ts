@@ -7,6 +7,16 @@ export interface NCERTBookInfo {
 }
 
 export const NCERT_BOOKS: Record<Grade, NCERTBookInfo> = {
+  LKG: {
+    mathsBook: 'Pre-School Joyful Maths (Numbers 1-5, Shapes & Colors)',
+    englishBook: 'Early Phonics & Alphabet Fun (A-Z Sounds & Rhymes)',
+    hindiBook: 'बाल वाटिका 2 (स्वर, चित्र व मौखिक ज्ञान)',
+  },
+  UKG: {
+    mathsBook: 'Kindergarten Maths (Numbers 1-20, Counting & Addition)',
+    englishBook: 'Phonics & Sight Words (CVC Words & Early Reading)',
+    hindiBook: 'बाल वाटिका 3 (स्वर, व्यंजन व सरल अमात्रिक शब्द)',
+  },
   1: {
     mathsBook: 'NCERT Joyful Mathematics (Math-Magic 1)',
     englishBook: 'NCERT Mridang & Marigold 1',
@@ -234,6 +244,54 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c6_h_04', number: 4, title: 'उपसर्ग, प्रत्यय व शब्द निर्माण', grade: 6, subject: 'hindi', icon: '🧩', conceptSummary: 'व्याकरण: तत्सम, तद्भव व विदेशी उपसर्ग-प्रत्यय द्वारा नवीन शब्द रचना' },
   { id: 'c6_h_05', number: 5, title: 'विराम चिह्न व अशुद्ध वाक्य शोधन', grade: 6, subject: 'hindi', icon: '📖', conceptSummary: 'व्याकरण: सभी प्रमुख विराम चिह्न, लिंग, वचन, कारक व पदक्रम अशुद्धि सुधार' },
   { id: 'c6_h_06', number: 6, title: 'समास परिचय व मुहावरे-लोकोक्तियाँ', grade: 6, subject: 'hindi', icon: '⚔️', conceptSummary: 'व्याकरण: तत्पुरुष, द्वंद्व, द्विगु व अव्ययीभाव समास तथा प्रसिद्ध मुहावरे व लोकोक्तियाँ' },
+
+  // =========================================================================
+  // LKG (BALVATIKA 2) — PRE-SCHOOL FOUNDATION
+  // =========================================================================
+  // LKG MATHEMATICS
+  { id: 'c_lkg_m_01', number: 1, title: 'Pre-Math Concepts (Big vs Small & Tall vs Short)', grade: 'LKG', subject: 'maths', icon: '🐘', conceptSummary: 'Pre-Math: बड़ा/छोटा (Big/Small), लंबा/छोटा (Tall/Short), भारी/हल्का (Heavy/Light)' },
+  { id: 'c_lkg_m_02', number: 2, title: 'Numbers 1 to 5 (Counting & Finger Fun)', grade: 'LKG', subject: 'maths', icon: '🖐️', conceptSummary: 'Counting objects 1 to 5, finger counting, visual quantity matching' },
+  { id: 'c_lkg_m_03', number: 3, title: 'Shapes & Colors (Circle, Square, Red, Blue)', grade: 'LKG', subject: 'maths', icon: '🔴', conceptSummary: 'Basic Shapes (⭕ Circle, ⬛ Square, 🔺 Triangle) & Primary Colors (Red, Blue, Yellow, Green)' },
+  { id: 'c_lkg_m_04', number: 4, title: 'More or Less & Matching Pairs', grade: 'LKG', subject: 'maths', icon: '⚖️', conceptSummary: 'Comparing quantities (more vs less), matching related real-world pairs' },
+  { id: 'c_lkg_m_05', number: 5, title: 'Visual Patterns & Sorting', grade: 'LKG', subject: 'maths', icon: '🧩', conceptSummary: 'Identifying simple AB patterns (🔴 🔵 🔴 🔵) and sorting by shape & color' },
+
+  // LKG ENGLISH
+  { id: 'c_lkg_e_01', number: 1, title: 'Fun with Letters (A to M Recognition)', grade: 'LKG', subject: 'english', icon: '🔤', conceptSummary: 'Letter recognition & visual identification for uppercase letters A through M' },
+  { id: 'c_lkg_e_02', number: 2, title: 'Fun with Letters (N to Z Recognition)', grade: 'LKG', subject: 'english', icon: '🔡', conceptSummary: 'Letter recognition & visual identification for uppercase letters N through Z' },
+  { id: 'c_lkg_e_03', number: 3, title: 'First Phonics Sounds (A for Apple, B for Ball)', grade: 'LKG', subject: 'english', icon: '🍎', conceptSummary: 'Beginning phonetic sounds with everyday familiar objects & picture cues' },
+  { id: 'c_lkg_e_04', number: 4, title: 'Animal Sounds & Rhymes (Woof, Moo, Meow)', grade: 'LKG', subject: 'english', icon: '🐶', conceptSummary: 'Connecting animals with their sounds (Dog says Woof, Cat says Meow, Cow says Moo)' },
+  { id: 'c_lkg_e_05', number: 5, title: 'My Body & Everyday Words', grade: 'LKG', subject: 'english', icon: '👀', conceptSummary: 'Identifying body parts (Eyes, Ears, Nose, Hands) and common daily objects' },
+
+  // LKG HINDI
+  { id: 'c_lkg_h_01', number: 1, title: 'स्वर पहचान (अ से ई तक - अनार, आम, इमली, ईख)', grade: 'LKG', subject: 'hindi', icon: '🥭', conceptSummary: 'बाल वाटिका: अ से अनार, आ से आम, इ से इमली, ई से ईख की सचित्र पहचान' },
+  { id: 'c_lkg_h_02', number: 2, title: 'स्वर पहचान (उ से अः तक - उल्लू, ऊन, ऋषि)', grade: 'LKG', subject: 'hindi', icon: '🦉', conceptSummary: 'बाल वाटिका: उ से उल्लू, ऊ से ऊन, ऋ से ऋषि, ए से एड़ी, ओ से ओखली पहचान' },
+  { id: 'c_lkg_h_03', number: 3, title: 'चित्र देखकर पहला अक्षर पहचानो', grade: 'LKG', subject: 'hindi', icon: '🖼️', conceptSummary: 'बाल वाटिका: दिए गए चित्र को देखकर उसका पहला स्वर या व्यंजन चुनना' },
+  { id: 'c_lkg_h_04', number: 4, title: 'पशु-पक्षी व उनके नाम (गाय, हाथी, तोता, मोर)', grade: 'LKG', subject: 'hindi', icon: '🦜', conceptSummary: 'बाल वाटिका: परिचित पशु-पक्षियों की पहचान व उनके नाम' },
+  { id: 'c_lkg_h_05', number: 5, title: 'रंग, फल व शरीर के अंग (लाल, केला, आँख, कान)', grade: 'LKG', subject: 'hindi', icon: '🍎', conceptSummary: 'बाल वाटिका: प्राथमिक रंग (लाल, पीला, हरा), सरल फल व शरीर के मुख्य अंग' },
+
+  // =========================================================================
+  // UKG (BALVATIKA 3) — KINDERGARTEN FOUNDATION
+  // =========================================================================
+  // UKG MATHEMATICS
+  { id: 'c_ukg_m_01', number: 1, title: 'Numbers 1 to 10 (Counting & Number Names)', grade: 'UKG', subject: 'maths', icon: '🔟', conceptSummary: 'Kindergarten: Counting 1 to 10, spelling One to Ten, matching quantities' },
+  { id: 'c_ukg_m_02', number: 2, title: 'Numbers 11 to 20 & Missing Numbers', grade: 'UKG', subject: 'maths', icon: '🔢', conceptSummary: 'Kindergarten: Counting 11 to 20, finding missing numbers in sequences' },
+  { id: 'c_ukg_m_03', number: 3, title: 'Before, After & In-Between Numbers', grade: 'UKG', subject: 'maths', icon: '↔️', conceptSummary: 'Kindergarten: What comes after, before, and between numbers up to 20' },
+  { id: 'c_ukg_m_04', number: 4, title: 'Picture Addition (Counting Together up to 10)', grade: 'UKG', subject: 'maths', icon: '➕', conceptSummary: 'Kindergarten: Adding two sets of objects using picture counters (🍎 + 🍎)' },
+  { id: 'c_ukg_m_05', number: 5, title: 'Picture Subtraction (Taking Away up to 10)', grade: 'UKG', subject: 'maths', icon: '➖', conceptSummary: 'Kindergarten: Taking away objects from a set using picture counters (🎈 - 🎈)' },
+
+  // UKG ENGLISH
+  { id: 'c_ukg_e_01', number: 1, title: 'Uppercase & Lowercase Matching (Aa to Zz)', grade: 'UKG', subject: 'english', icon: '🔠', conceptSummary: 'Kindergarten: Matching capital letters to small letters (Aa, Bb, Cc...)' },
+  { id: 'c_ukg_e_02', number: 2, title: '3-Letter CVC Words (Cat, Bat, Pen, Sun)', grade: 'UKG', subject: 'english', icon: '🐱', conceptSummary: 'Kindergarten: Blending CVC phonics words (a, e, i, o, u short vowel sounds)' },
+  { id: 'c_ukg_e_03', number: 3, title: 'Rhyming Words (Pan-Fan, Dog-Log, Pin-Tin)', grade: 'UKG', subject: 'english', icon: '🎵', conceptSummary: 'Kindergarten: Identifying words with identical ending sounds' },
+  { id: 'c_ukg_e_04', number: 4, title: 'First Sight Words (is, the, in, on, under)', grade: 'UKG', subject: 'english', icon: '📖', conceptSummary: 'Kindergarten: High-frequency sight words and basic prepositions with pictures' },
+  { id: 'c_ukg_e_05', number: 5, title: 'Opposites & Picture Reading (Hot/Cold, Up/Down)', grade: 'UKG', subject: 'english', icon: '🔄', conceptSummary: 'Kindergarten: Everyday antonym pairs (Hot/Cold, Happy/Sad, Big/Small)' },
+
+  // UKG HINDI
+  { id: 'c_ukg_h_01', number: 1, title: 'संपूर्ण स्वर (अ से अः की पहचान)', grade: 'UKG', subject: 'hindi', icon: '🍇', conceptSummary: 'बाल वाटिका 3: सभी 13 स्वरों का सही क्रम, मौखिक उच्चारण व सचित्र पहचान' },
+  { id: 'c_ukg_h_02', number: 2, title: 'व्यंजन पहचान (क से ङ - कबूतर, खरगोश, गमला, घर)', grade: 'UKG', subject: 'hindi', icon: '🕊️', conceptSummary: 'बाल वाटिका 3: क, ख, ग, घ, ङ की पहचान, उच्चारण व सचित्र संबंध' },
+  { id: 'c_ukg_h_03', number: 3, title: 'व्यंजन पहचान (च से ज्ञ - चम्मच, टमाटर, पतंग, नल)', grade: 'UKG', subject: 'hindi', icon: '🪁', conceptSummary: 'बाल वाटिका 3: च से ज्ञ तक के प्रमुख व्यंजनों की सचित्र पहचान' },
+  { id: 'c_ukg_h_04', number: 4, title: 'दो अक्षर वाले सरल अमात्रिक शब्द (घर, जल, फल, बस)', grade: 'UKG', subject: 'hindi', icon: '🏠', conceptSummary: 'बाल वाटिका 3: बिना मात्रा के दो अक्षरों को जोड़कर सरल शब्द पढ़ना' },
+  { id: 'c_ukg_h_05', number: 5, title: 'चित्र मिलान व सरल विलोम (दिन/रात, बड़ा/छोटा)', grade: 'UKG', subject: 'hindi', icon: '☀️', conceptSummary: 'बाल वाटिका 3: चित्रों का शब्दों से मिलान व बुनियादी विलोम शब्द' },
 ];
 
 export const getChaptersForGradeSubject = (grade: Grade, subject: Subject): ChapterLesson[] => {
@@ -247,11 +305,11 @@ export const getChaptersForGradeSubject = (grade: Grade, subject: Subject): Chap
     {
       id: `ncert_${grade}_${subject}_1`,
       number: 1,
-      title: `NCERT ${subjectLabel} Foundation`,
+      title: `${subjectLabel} Foundation (${typeof grade === 'number' ? `Class ${grade}` : grade})`,
       grade,
       subject,
       icon: subjectIcon,
-      conceptSummary: `Official NCERT textbook syllabus for Class ${grade}`,
+      conceptSummary: typeof grade === 'number' ? `Official NCERT textbook syllabus for Class ${grade}` : `Foundational syllabus for ${grade}`,
     },
   ];
 };

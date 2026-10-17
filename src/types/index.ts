@@ -1,6 +1,6 @@
 // ClassChamp Core TypeScript Type Definitions
 
-export type Grade = 1 | 2 | 3 | 4 | 5 | 6;
+export type Grade = 'LKG' | 'UKG' | 1 | 2 | 3 | 4 | 5 | 6;
 export type Subject = 'maths' | 'english' | 'hindi';
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type QuestionType = 'mcq' | 'fill_blank' | 'match_pairs' | 'drag_order';
