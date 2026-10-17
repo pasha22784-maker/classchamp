@@ -3,140 +3,334 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 4 MATHEMATICS (MATH-MAGIC 4)
 // CHAPTER 3: A TRIP TO BHOPAL (WORD PROBLEMS & ESTIMATION)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_MATHS_LESSON_3_QUESTIONS: Question[] = [
   // --------------------------------------------------------------------------
-  // CONCEPT 1: Bus Capacity & Seating Calculations
+  // TIER 1: 5 EASY QUESTIONS (बस क्षमता, यात्रा समय, डीज़ल व अनुमान)
   // --------------------------------------------------------------------------
   {
-    id: 'c4_m3_concept_bus_01',
+    id: 'c4_m3_q01',
     grade: 4,
     subject: 'maths',
     chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
     concept: 'Bus Seating Capacity',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'A large tour bus has 50 passenger seats. How many children can sit in 4 such buses?',
-    visualEmoji: '🚌 50 seats × 4 buses = ❓',
+    question: 'If one standard school bus has 50 passenger seats, how many children can sit in 4 such buses?',
+    visualEmoji: '🚌 🚌 🚌 🚌',
     payload: {
       options: [
-        { id: 'opt_bs1', text: '200 children', isCorrect: true },
-        { id: 'opt_bs2', text: '250 children', isCorrect: false },
-        { id: 'opt_bs3', text: '150 children', isCorrect: false },
+        { id: 'opt_1', text: '200 children', isCorrect: true },
+        { id: 'opt_2', text: '150 children', isCorrect: false },
+        { id: 'opt_3', text: '250 children', isCorrect: false },
+        { id: 'opt_4', text: '100 children', isCorrect: false },
       ],
     },
-    explanation: '💡 4 buses × 50 seats each = **200 children** can get seats!',
+    explanation: '💡 4 buses × 50 seats each = 200 children can sit!',
     points: 10,
   },
   {
-    id: 'c4_m3_concept_bus_02',
+    id: 'c4_m3_q02',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Journey Travel Time',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'The school bus trip to Bhopal takes 2 hours. If the bus departs from school at 9:00 AM without any traffic stops, it will reach Bhopal at [BLANK] AM.',
+    visualEmoji: '⏰ 9️⃣:0️⃣0️⃣ ➡️ 2 hr',
+    payload: {
+      correctAnswer: '11:00',
+      wordBank: ['11:00', '10:00', '12:00', '1:00'],
+      displayTemplate: 'It will reach Bhopal at [BLANK] AM.',
+    },
+    explanation: '💡 9:00 AM + 2 hours = 11:00 AM!',
+    points: 10,
+  },
+  {
+    id: 'c4_m3_q03',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Mini-Bus Capacity',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'A mini-bus has 35 seats. How many children can travel seated in 2 mini-buses?',
+    visualEmoji: '🚐 🚐 3️⃣5️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '70 children', isCorrect: true },
+        { id: 'opt_2', text: '60 children', isCorrect: false },
+        { id: 'opt_3', text: '80 children', isCorrect: false },
+        { id: 'opt_4', text: '35 children', isCorrect: false },
+      ],
+    },
+    explanation: '💡 2 mini-buses × 35 seats = 70 children!',
+    points: 10,
+  },
+  {
+    id: 'c4_m3_q04',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Diesel Cost Calculation',
+    difficulty: 'easy',
+    type: 'fill_blank',
+    question: 'At the highway petrol pump, diesel costs ₹65 per litre. The cost of 10 litres of diesel is ₹[BLANK].',
+    visualEmoji: '⛽ 1️⃣0️⃣ L ✖️ ₹6️⃣5️⃣',
+    payload: {
+      correctAnswer: '650',
+      wordBank: ['650', '6500', '75', '550'],
+      displayTemplate: 'Cost of 10 litres is ₹[BLANK].',
+    },
+    explanation: '💡 10 litres × ₹65 = ₹650!',
+    points: 10,
+  },
+  {
+    id: 'c4_m3_q05',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'River Water Level Difference',
+    difficulty: 'easy',
+    type: 'mcq',
+    question: 'Looking down from the Narmada bridge, the river water is 40 meters below in summer, but only 15 meters below in the rainy season. What is the difference between the two water levels?',
+    visualEmoji: '🌉 🌊 4️⃣0️⃣ m ➖ 1️⃣5️⃣ m',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '25 meters', isCorrect: true },
+        { id: 'opt_2', text: '35 meters', isCorrect: false },
+        { id: 'opt_3', text: '15 meters', isCorrect: false },
+        { id: 'opt_4', text: '55 meters', isCorrect: false },
+      ],
+    },
+    explanation: '💡 40 m - 15 m = 25 meters difference!',
+    points: 10,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 2: 5 MEDIUM QUESTIONS (मिनी-बस गणना, बिना सीट बच्चे, भीमबेटका व नौकायन)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c4_m3_q06',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Mini-Buses Needed for Trip',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'A total of 210 children are going on the school picnic to Bhopal. If each mini-bus can seat 35 children, how many mini-buses must the school hire?',
+    visualEmoji: '🚐 2️⃣1️⃣0️⃣ ➗ 3️⃣5️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '6 mini-buses', isCorrect: true },
+        { id: 'opt_2', text: '5 mini-buses', isCorrect: false },
+        { id: 'opt_3', text: '7 mini-buses', isCorrect: false },
+        { id: 'opt_4', text: '8 mini-buses', isCorrect: false },
+      ],
+    },
+    explanation: '💡 210 ÷ 35 = 6 mini-buses needed!',
+    points: 15,
+  },
+  {
+    id: 'c4_m3_q07',
     grade: 4,
     subject: 'maths',
     chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
     concept: 'Children Left Without Seats',
     difficulty: 'medium',
     type: 'fill_blank',
-    question: 'There are 210 students going on the trip. If 4 buses carry 200 students, exactly [BLANK] students will be left without seats.',
-    visualEmoji: '👥 210 - 200 = ❓',
+    question: '210 children board 4 big buses having 50 seats each. Exactly [BLANK] children will be left standing without a seat.',
+    visualEmoji: '🚌 2️⃣1️⃣0️⃣ ➖ 2️⃣0️⃣0️⃣',
     payload: {
       correctAnswer: '10',
-      wordBank: ['10', '5', '15', '20'],
-      displayTemplate: '210 students - 200 seats = [BLANK] students without seats.',
+      wordBank: ['10', '20', '5', '15'],
+      displayTemplate: 'Exactly [BLANK] children are left without a seat.',
     },
-    explanation: '💡 210 - 200 = **10 students** left without seats.',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 2: Petrol Pump Refilling & Total Bill
-  // --------------------------------------------------------------------------
-  {
-    id: 'c4_m3_concept_fuel_01',
-    grade: 4,
-    subject: 'maths',
-    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
-    concept: 'Diesel Cost Calculation',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'The bus stopped at a petrol pump. It took 100 litres of diesel. If 1 litre costs ₹ 35, how much did the driver pay?',
-    visualEmoji: '⛽ 100 L × ₹ 35 = ❓',
-    payload: {
-      options: [
-        { id: 'opt_fl1', text: '₹ 3,500', isCorrect: true },
-        { id: 'opt_fl2', text: '₹ 350', isCorrect: false },
-        { id: 'opt_fl3', text: '₹ 35,000', isCorrect: false },
-      ],
-    },
-    explanation: '💡 Multiply: 100 litres × ₹ 35/litre = **₹ 3,500**!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 3: Boating Time & Ticket Rates
-  // --------------------------------------------------------------------------
-  {
-    id: 'c4_m3_concept_boat_01',
-    grade: 4,
-    subject: 'maths',
-    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
-    concept: 'Boat Ride Cost for Group',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'A motor-boat ticket costs ₹ 25 per person. A group of 4 friends ride the motor-boat. How much do they pay in total?',
-    visualEmoji: '🚤 ₹ 25 × 4 friends = ❓',
-    payload: {
-      options: [
-        { id: 'opt_bt1', text: '₹ 100', isCorrect: true },
-        { id: 'opt_bt2', text: '₹ 75', isCorrect: false },
-        { id: 'opt_bt3', text: '₹ 50', isCorrect: false },
-      ],
-    },
-    explanation: '💡 4 friends × ₹ 25 = **₹ 100** total ticket cost!',
-    points: 10,
-  },
-
-  // --------------------------------------------------------------------------
-  // CONCEPT 4: Trip Timeline & Boat Matching
-  // --------------------------------------------------------------------------
-  {
-    id: 'c4_m3_concept_order_01',
-    grade: 4,
-    subject: 'maths',
-    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
-    concept: 'Bhopal Trip Daily Timeline',
-    difficulty: 'medium',
-    type: 'drag_order',
-    question: 'Arrange the events of the Bhopal picnic in chronological order from morning to evening:',
-    visualEmoji: '🚌 ➔ ⛽ ➔ 🎨 ➔ 🚤',
-    payload: {
-      tokens: ['Boarded school buses at 9:00 AM', 'Refilled diesel at petrol pump', 'Saw cave paintings at Bhimbetka', 'Enjoyed boating at the lake at 3:00 PM'],
-      scrambled: ['Enjoyed boating at the lake at 3:00 PM', 'Boarded school buses at 9:00 AM', 'Saw cave paintings at Bhimbetka', 'Refilled diesel at petrol pump'],
-      correctSequence: ['Boarded school buses at 9:00 AM', 'Refilled diesel at petrol pump', 'Saw cave paintings at Bhimbetka', 'Enjoyed boating at the lake at 3:00 PM'],
-    },
-    explanation: '💡 Timeline order: Board bus ➔ Petrol pump ➔ Bhimbetka cave art ➔ Boating at lake!',
+    explanation: '💡 4 buses have 4 × 50 = 200 seats. 210 - 200 = 10 children left standing!',
     points: 15,
   },
   {
-    id: 'c4_m3_concept_match_01',
+    id: 'c4_m3_q08',
     grade: 4,
     subject: 'maths',
     chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
-    concept: 'Boat Ride Rates & Duration Match',
+    concept: 'Full Tank Diesel Payment',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'A bus fills 50 litres of diesel at the fuel station. If diesel costs ₹70 per litre, how much does the driver pay?',
+    visualEmoji: '⛽ 5️⃣0️⃣ L ✖️ ₹7️⃣0️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '₹3500', isCorrect: true },
+        { id: 'opt_2', text: '₹350', isCorrect: false },
+        { id: 'opt_3', text: '₹3000', isCorrect: false },
+        { id: 'opt_4', text: '₹4000', isCorrect: false },
+      ],
+    },
+    explanation: '💡 50 litres × ₹70 = ₹3500!',
+    points: 15,
+  },
+  {
+    id: 'c4_m3_q09',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Bhimbetka Cave Animals Difference',
+    difficulty: 'medium',
+    type: 'mcq',
+    question: 'At Bhimbetka caves, Shankar counts 37 wild bisons and 117 deer painted on rock walls. How many more deer did he count than bisons?',
+    visualEmoji: '🦌 1️⃣1️⃣7️⃣ 🆚 🦬 3️⃣7️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '80 more deer', isCorrect: true },
+        { id: 'opt_2', text: '70 more deer', isCorrect: false },
+        { id: 'opt_3', text: '90 more deer', isCorrect: false },
+        { id: 'opt_4', text: '84 more deer', isCorrect: false },
+      ],
+    },
+    explanation: '💡 117 deer - 37 bisons = 80 more deer!',
+    points: 15,
+  },
+  {
+    id: 'c4_m3_q10',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Matching Boating Tickets to Time and Cost',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each boat with its ticket price and ride duration:',
-    visualEmoji: '⛵ ➔ 🏷️',
+    question: 'Match each boat at the Bhopal lake with its ticket price and ride duration:',
+    visualEmoji: '⛵ 🎟️ ⏱️',
     payload: {
       pairs: [
-        { id: 'bp_p1', left: 'Double-decker boat 🚢', right: '₹ 30 for 45 minutes' },
-        { id: 'bp_p2', left: 'Paddle boat 🚣', right: '₹ 15 for 30 minutes' },
-        { id: 'bp_p3', left: 'Motor boat 🚤', right: '₹ 25 for 20 minutes' },
-        { id: 'bp_p4', left: 'Oar boat 🛶', right: '₹ 15 for 45 minutes' },
+        { id: 'm3_p1', left: 'Double-decker boat', right: '₹30 (45 minutes)' },
+        { id: 'm3_p2', left: 'Paddle boat', right: '₹15 (30 minutes)' },
+        { id: 'm3_p3', left: 'Motor boat', right: '₹25 (20 minutes)' },
+        { id: 'm3_p4', left: 'Boat with oars', right: '₹15 (45 minutes)' },
       ],
     },
-    explanation: '💡 NCERT Math-Magic rates: Double-decker ₹30/45min; Paddle ₹15/30min; Motor ₹25/20min; Oar ₹15/45min.',
+    explanation: '💡 Official NCERT Bhopal lake boating price chart!',
     points: 15,
+  },
+
+  // --------------------------------------------------------------------------
+  // TIER 3: 5 HARD QUESTIONS (बहु-नौका लागत, संयुक्त समय, फल वितरण व पहेली)
+  // --------------------------------------------------------------------------
+  {
+    id: 'c4_m3_q11',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Two Friends Multiple Boat Rides Cost',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Indra and Bhanu first went in the motor boat (₹25 per person) and then took the oar boat (₹15 per person). How much total money did both friends spend together on tickets?',
+    visualEmoji: '👦 👦 🚤 🛶 💰',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '₹80', isCorrect: true },
+        { id: 'opt_2', text: '₹40', isCorrect: false },
+        { id: 'opt_3', text: '₹70', isCorrect: false },
+        { id: 'opt_4', text: '₹90', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Per person: ₹25 + ₹15 = ₹40. For 2 friends: 2 × ₹40 = ₹80 total!',
+    points: 20,
+  },
+  {
+    id: 'c4_m3_q12',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Combined Ride Time of Fifty Minutes',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'A group of children took two different boat rides and spent exactly 50 minutes on the water. Which two boats did they ride?',
+    visualEmoji: '⏱️ 5️⃣0️⃣ min ⛵ 🚤',
+    payload: {
+      options: [
+        { id: 'opt_1', text: 'Paddle boat (30 min) and Motor boat (20 min)', isCorrect: true },
+        { id: 'opt_2', text: 'Double-decker (45 min) and Motor boat (20 min)', isCorrect: false },
+        { id: 'opt_3', text: 'Paddle boat (30 min) and Oar boat (45 min)', isCorrect: false },
+        { id: 'opt_4', text: 'Double-decker (45 min) and Paddle boat (30 min)', isCorrect: false },
+      ],
+    },
+    explanation: '💡 30 minutes (Paddle boat) + 20 minutes (Motor boat) = exactly 50 minutes!',
+    points: 20,
+  },
+  {
+    id: 'c4_m3_q13',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Picnic Banana Distribution Subtraction',
+    difficulty: 'hard',
+    type: 'fill_blank',
+    question: 'Each of the 200 children was offered 1 banana, but 38 children refused to take bananas. Exactly [BLANK] bananas were distributed.',
+    visualEmoji: '🍌 2️⃣0️⃣0️⃣ ➖ 3️⃣8️⃣',
+    payload: {
+      correctAnswer: '162',
+      wordBank: ['162', '172', '168', '238'],
+      displayTemplate: 'Exactly [BLANK] bananas were distributed.',
+    },
+    explanation: '💡 200 total children - 38 who did not take = 162 bananas distributed!',
+    points: 20,
+  },
+  {
+    id: 'c4_m3_q14',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Toffees Sharing Riddle',
+    difficulty: 'hard',
+    type: 'mcq',
+    question: 'Solve the riddle from Math-Magic: "I gave 4 toffees each to 4 of my best friends, and 3 toffees were still left with me. How many toffees did I have in total at the start?"',
+    visualEmoji: '🍬 4️⃣ ✖️ 4️⃣ ➕ 3️⃣',
+    payload: {
+      options: [
+        { id: 'opt_1', text: '19 toffees', isCorrect: true },
+        { id: 'opt_2', text: '16 toffees', isCorrect: false },
+        { id: 'opt_3', text: '15 toffees', isCorrect: false },
+        { id: 'opt_4', text: '21 toffees', isCorrect: false },
+      ],
+    },
+    explanation: '💡 Toffees given = 4 × 4 = 16. Toffees left = 3. Total at start = 16 + 3 = 19 toffees!',
+    points: 20,
+  },
+  {
+    id: 'c4_m3_q15',
+    grade: 4,
+    subject: 'maths',
+    chapter: 'A Trip to Bhopal (Word Problems & Estimation)',
+    concept: 'Bhopal Picnic Schedule Order',
+    difficulty: 'hard',
+    type: 'drag_order',
+    question: 'Arrange the events of the Bhopal excursion in chronological order of time:',
+    visualEmoji: '🚌 ⛽ 🧗 ⛵',
+    payload: {
+      tokens: [
+        '1. Buses leave school at 9:00 AM',
+        '2. Fill diesel at petrol pump at 10:00 AM',
+        '3. Reach Bhimbetka cave paintings at 11:30 AM',
+        '4. Enjoy boat rides on the Bhopal lake at 3:00 PM',
+      ],
+      scrambled: [
+        '3. Reach Bhimbetka cave paintings at 11:30 AM',
+        '1. Buses leave school at 9:00 AM',
+        '4. Enjoy boat rides on the Bhopal lake at 3:00 PM',
+        '2. Fill diesel at petrol pump at 10:00 AM',
+      ],
+      correctSequence: [
+        '1. Buses leave school at 9:00 AM',
+        '2. Fill diesel at petrol pump at 10:00 AM',
+        '3. Reach Bhimbetka cave paintings at 11:30 AM',
+        '4. Enjoy boat rides on the Bhopal lake at 3:00 PM',
+      ],
+    },
+    explanation: '💡 Chronological timeline: 9:00 AM -> 10:00 AM -> 11:30 AM -> 3:00 PM!',
+    points: 20,
   },
 ];

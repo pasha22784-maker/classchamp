@@ -472,32 +472,32 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_4_MATHS_LESSON_10_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 1 (Wake Up! & Daily Habits)
+  // CLASS 4 — ENGLISH GRAMMAR: CHAPTER 1 (Articles & Determiners)
   // =========================================================================
   ...CLASS_4_ENGLISH_LESSON_1_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 2 (Collective Nouns - Flock, Herd, Bunch)
+  // CLASS 4 — ENGLISH GRAMMAR: CHAPTER 2 (Collective & Abstract Nouns)
   // =========================================================================
   ...CLASS_4_ENGLISH_LESSON_2_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 3 (Past Tense & Irregular Verbs - Caught, Flew)
+  // CLASS 4 — ENGLISH GRAMMAR: CHAPTER 3 (Past Tense & Irregular Verbs)
   // =========================================================================
   ...CLASS_4_ENGLISH_LESSON_3_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 4 (Adverbs of Manner -ly words)
+  // CLASS 4 — ENGLISH GRAMMAR: CHAPTER 4 (Adverbs of Manner & Time)
   // =========================================================================
   ...CLASS_4_ENGLISH_LESSON_4_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 5 (Conjunctions - So, Although, Because)
+  // CLASS 4 — ENGLISH GRAMMAR: CHAPTER 5 (Conjunctions & Compound Sentences)
   // =========================================================================
   ...CLASS_4_ENGLISH_LESSON_5_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT MARIGOLD 4: CHAPTER 6 (Animal Homes & Vocabulary)
+  // CLASS 4 — ENGLISH GRAMMAR: CHAPTER 6 (Prepositions & Direction Words)
   // =========================================================================
   ...CLASS_4_ENGLISH_LESSON_6_QUESTIONS,
 
@@ -733,32 +733,32 @@ export const MOCK_QUESTIONS: Question[] = [
   ...CLASS_3_HINDI_LESSON_6_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 1 (मन के भोले-भाले बादल - विशेषण व भेद)
+  // CLASS 4 — HINDI VYAKARAN: CHAPTER 1 (विशेषण व उसके भेद)
   // =========================================================================
   ...CLASS_4_HINDI_LESSON_1_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 2 (जैसा सवाल वैसा जवाब - मुहावरे व लोकोक्तियाँ)
+  // CLASS 4 — HINDI VYAKARAN: CHAPTER 2 (मुहावरे व लोकोक्तियाँ)
   // =========================================================================
   ...CLASS_4_HINDI_LESSON_2_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 3 (किरमिच की गेंद - काल - भूत, वर्तमान, भविष्य)
+  // CLASS 4 — HINDI VYAKARAN: CHAPTER 3 (काल व उसके भेद)
   // =========================================================================
   ...CLASS_4_HINDI_LESSON_3_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 4 (पापा जब बच्चे थे - लिंग व वचन परिवर्तन)
+  // CLASS 4 — HINDI VYAKARAN: CHAPTER 4 (लिंग व वचन परिवर्तन के नियम)
   // =========================================================================
   ...CLASS_4_HINDI_LESSON_4_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 5 (नाव बनाओ - पर्यायवाची शब्द व तुकांत शब्द)
+  // CLASS 4 — HINDI VYAKARAN: CHAPTER 5 (विलोम व पर्यायवाची शब्द)
   // =========================================================================
   ...CLASS_4_HINDI_LESSON_5_QUESTIONS,
 
   // =========================================================================
-  // CLASS 4 — NCERT रिमझिम 4: CHAPTER 6 (थप्प रोटी थप्प दाल - अनेक शब्दों के लिए एक शब्द)
+  // CLASS 4 — HINDI VYAKARAN: CHAPTER 6 (अनेक शब्दों के लिए एक शब्द)
   // =========================================================================
   ...CLASS_4_HINDI_LESSON_6_QUESTIONS,
 

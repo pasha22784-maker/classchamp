@@ -122,12 +122,12 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c4_m_09', number: 9, title: 'Tables and Shares (Division)', grade: 4, subject: 'maths', icon: '➗', conceptSummary: 'NCERT: Long division with remainders' },
   { id: 'c4_m_10', number: 10, title: 'Fields and Fences (Perimeter & Area)', grade: 4, subject: 'maths', icon: '🌾', conceptSummary: 'NCERT: Boundary length of fields & gardens' },
 
-  { id: 'c4_e_01', number: 1, title: 'Wake Up! & Daily Habits', grade: 4, subject: 'english', icon: '⏰', conceptSummary: 'NCERT: Phonic rhymes, morning action words' },
-  { id: 'c4_e_02', number: 2, title: 'Collective Nouns (Flock, Herd, Bunch)', grade: 4, subject: 'english', icon: '🐑', conceptSummary: 'NCERT: Naming words for collections' },
-  { id: 'c4_e_03', number: 3, title: 'Past Tense & Irregular Verbs (Caught, Flew)', grade: 4, subject: 'english', icon: '⚾', conceptSummary: 'NCERT: Simple past tense formation' },
-  { id: 'c4_e_04', number: 4, title: 'Adverbs of Manner (-ly words)', grade: 4, subject: 'english', icon: '🐢', conceptSummary: 'NCERT: Slowly, quickly, happily, bravely' },
-  { id: 'c4_e_05', number: 5, title: 'Conjunctions (So, Although, Because)', grade: 4, subject: 'english', icon: '🌧️', conceptSummary: 'NCERT: Connecting contrasting clauses' },
-  { id: 'c4_e_06', number: 6, title: 'Animal Homes & Vocabulary', grade: 4, subject: 'english', icon: '🏡', conceptSummary: 'NCERT: Den, Hive, Stable, Nest pairings' },
+  { id: 'c4_e_01', number: 1, title: 'Articles & Determiners (A, An, The)', grade: 4, subject: 'english', icon: '🔤', conceptSummary: 'Universal: Vowel sounds, indefinite vs definite articles' },
+  { id: 'c4_e_02', number: 2, title: 'Collective & Abstract Nouns', grade: 4, subject: 'english', icon: '🐑', conceptSummary: 'Universal: Flocks, herds, prides, swarms, and abstract quality nouns' },
+  { id: 'c4_e_03', number: 3, title: 'Past Tense & Irregular Verbs', grade: 4, subject: 'english', icon: '⚾', conceptSummary: 'Universal: Irregular past tense (caught, flew, wrote, thought)' },
+  { id: 'c4_e_04', number: 4, title: 'Adverbs of Manner & Time', grade: 4, subject: 'english', icon: '🐢', conceptSummary: 'Universal: Slowly, quickly, happily, bravely, yesterday, soon' },
+  { id: 'c4_e_05', number: 5, title: 'Conjunctions & Compound Sentences', grade: 4, subject: 'english', icon: '🔗', conceptSummary: 'Universal: Although, because, so, while, joining independent clauses' },
+  { id: 'c4_e_06', number: 6, title: 'Prepositions & Direction Words', grade: 4, subject: 'english', icon: '🧭', conceptSummary: 'Universal: Across, through, into, toward, around, beside' },
 
   // =========================================================================
   // CLASS 5 — NCERT MATH-MAGIC 5 & MARIGOLD 5
@@ -206,14 +206,14 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c3_h_06', number: 6, title: 'विराम चिह्न व शुद्ध वर्तनी', grade: 3, subject: 'hindi', icon: '✍️', conceptSummary: 'व्याकरण: पूर्ण विराम (।), प्रश्नवाचक (?), विस्मयादिबोधक (!) व शुद्ध शब्द' },
 
   // =========================================================================
-  // CLASS 4 — NCERT रिमझिम 4 (RIMJHIM 4)
+  // CLASS 4 — HINDI VYAKARAN & NCERT रिमझिम 4
   // =========================================================================
-  { id: 'c4_h_01', number: 1, title: 'मन के भोले-भाले बादल (विशेषण व भेद)', grade: 4, subject: 'hindi', icon: '☁️', conceptSummary: 'NCERT रिमझिम 4: गुणवाचक, संख्यावाचक विशेषण' },
-  { id: 'c4_h_02', number: 2, title: 'जैसा सवाल वैसा जवाब (मुहावरे व लोकोक्तियाँ)', grade: 4, subject: 'hindi', icon: '👑', conceptSummary: 'NCERT: छक्के छुड़ाना, नौ दो ग्यारह होना' },
-  { id: 'c4_h_03', number: 3, title: 'किरमिच की गेंद (काल - भूत, वर्तमान, भविष्य)', grade: 4, subject: 'hindi', icon: '🎾', conceptSummary: 'NCERT: तीनों कालों का वाक्य में सही प्रयोग' },
-  { id: 'c4_h_04', number: 4, title: 'पापा जब बच्चे थे (लिंग व वचन परिवर्तन)', grade: 4, subject: 'hindi', icon: '👨‍✈️', conceptSummary: 'NCERT: नदी -> नदियाँ, दवाई -> दवाइयाँ के नियम' },
-  { id: 'c4_h_05', number: 5, title: 'नाव बनाओ (पर्यायवाची शब्द व तुकांत शब्द)', grade: 4, subject: 'hindi', icon: '⛵', conceptSummary: 'NCERT: बादल, वर्षा, पानी के समानार्थक' },
-  { id: 'c4_h_06', number: 6, title: 'थप्प रोटी थप्प दाल (अनेक शब्दों के लिए एक शब्द)', grade: 4, subject: 'hindi', icon: '🍲', conceptSummary: 'NCERT: जो खेती करे = किसान, जो सेना में हो = सैनिक' },
+  { id: 'c4_h_01', number: 1, title: 'विशेषण व उसके भेद (गुणवाचक, संख्यावाचक)', grade: 4, subject: 'hindi', icon: '🌟', conceptSummary: 'व्याकरण: गुणवाचक, संख्यावाचक, परिमाणवाचक विशेषण' },
+  { id: 'c4_h_02', number: 2, title: 'मुहावरे व लोकोक्तियाँ (प्रयोग व अर्थ)', grade: 4, subject: 'hindi', icon: '👑', conceptSummary: 'व्याकरण: छक्के छुड़ाना, नौ दो ग्यारह होना, फूला न समाना' },
+  { id: 'c4_h_03', number: 3, title: 'काल व उसके भेद (भूत, वर्तमान, भविष्य)', grade: 4, subject: 'hindi', icon: '⏰', conceptSummary: 'व्याकरण: तीनों कालों का वाक्य में सही प्रयोग व काल परिवर्तन' },
+  { id: 'c4_h_04', number: 4, title: 'लिंग व वचन परिवर्तन के नियम', grade: 4, subject: 'hindi', icon: '👫', conceptSummary: 'व्याकरण: नदी ➔ नदियाँ, दवाई ➔ दवाइयाँ, कवयित्री, विदुषी' },
+  { id: 'c4_h_05', number: 5, title: 'विलोम व पर्यायवाची शब्द', grade: 4, subject: 'hindi', icon: '🔄', conceptSummary: 'व्याकरण: बादल, वर्षा, पानी, अग्नि, सूर्य के समानार्थक व विलोम' },
+  { id: 'c4_h_06', number: 6, title: 'अनेक शब्दों के लिए एक शब्द', grade: 4, subject: 'hindi', icon: '✍️', conceptSummary: 'व्याकरण: जो खेती करे = किसान, जो कभी न मरे = अमर, आस्तिक' },
 
   // =========================================================================
   // CLASS 5 — NCERT रिमझिम 5 (RIMJHIM 5)
