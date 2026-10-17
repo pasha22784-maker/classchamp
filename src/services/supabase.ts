@@ -86,6 +86,57 @@ export async function verifyParentPhoneOtp(
 }
 
 /**
+ * Send OTP to Parent's Email ID
+ */
+export async function sendParentEmailOtp(email: string): Promise<{ success: boolean; error?: string }> {
+  if (!isSupabaseConfigured()) {
+    return { success: false, error: 'Supabase configure nahi hai.' };
+  }
+
+  try {
+    const { error } = await supabase.auth.signInWithOtp({
+      email: email.trim().toLowerCase(),
+    });
+
+    if (error) {
+      return { success: false, error: error.message };
+    }
+
+    return { success: true };
+  } catch (err: any) {
+    return { success: false, error: err?.message || 'Email par OTP nahi bhej paya.' };
+  }
+}
+
+/**
+ * Verify Email 6-digit OTP
+ */
+export async function verifyParentEmailOtp(
+  email: string,
+  token: string
+): Promise<{ success: boolean; user?: any; error?: string }> {
+  if (!isSupabaseConfigured()) {
+    return { success: false, error: 'Supabase configure nahi hai.' };
+  }
+
+  try {
+    const { data, error } = await supabase.auth.verifyOtp({
+      email: email.trim().toLowerCase(),
+      token: token.trim(),
+      type: 'email',
+    });
+
+    if (error) {
+      return { success: false, error: error.message };
+    }
+
+    return { success: true, user: data.user };
+  } catch (err: any) {
+    return { success: false, error: err?.message || 'Email OTP verify nahi ho paya.' };
+  }
+}
+
+/**
  * Sign In with Email & Password (Alternative for parents)
  */
 export async function signInWithParentEmail(

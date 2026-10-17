@@ -17,42 +17,45 @@ import { getMonetizationInfo } from '../../utils/monetization';
 import {
   sendParentPhoneOtp,
   verifyParentPhoneOtp,
-  signInWithParentEmail,
-  signUpWithParentEmail,
+  sendParentEmailOtp,
+  verifyParentEmailOtp,
   signOutParent,
   isSupabaseConfigured,
   syncProfileToCloud,
 } from '../../services/supabase';
-import { checkUserIsAdmin, registerUserAsAdmin } from '../../services/adminConfig';
+import { checkUserIsAdmin } from '../../services/adminConfig';
 import { triggerHaptic } from '../../utils/haptics';
 
 interface ParentAuthModalProps {
   visible: boolean;
   onClose: () => void;
-  onAdminLogin?: (adminEmail: string) => void;
+  onAdminLogin?: (adminIdentifier: string) => void;
 }
 
-type AuthMode = 'phone' | 'email_login' | 'email_signup';
+type AuthMode = 'phone' | 'email';
 
 export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClose, onAdminLogin }) => {
   const { profile, setProStatus } = useUserStore();
   const monetization = getMonetizationInfo(profile);
 
   const [mode, setMode] = useState<AuthMode>('phone');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [otpToken, setOtpToken] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showAdminSecret, setShowAdminSecret] = useState(false);
-  const [adminSecretKey, setAdminSecretKey] = useState('');
 
-  const [otpSent, setOtpSent] = useState(false);
+  // Phone OTP state
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneOtpToken, setPhoneOtpToken] = useState('');
+  const [phoneOtpSent, setPhoneOtpSent] = useState(false);
+
+  // Email OTP state
+  const [email, setEmail] = useState('');
+  const [emailOtpToken, setEmailOtpToken] = useState('');
+  const [emailOtpSent, setEmailOtpSent] = useState(false);
+
   const [isLoading, setIsLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const configured = isSupabaseConfigured();
 
-  const handleSendOtp = async () => {
+  const handleSendPhoneOtp = async () => {
     if (!phoneNumber || phoneNumber.length < 10) {
       Alert.alert('Mobile Number', 'Kripya 10 digit ka valid mobile number dalein.');
       return;
@@ -65,26 +68,36 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
     setIsLoading(false);
 
     if (res.success) {
-      setOtpSent(true);
+      setPhoneOtpSent(true);
       setStatusMessage('OTP aapke mobile number par bhej diya gaya hai.');
     } else {
       Alert.alert('Notice', res.error || 'OTP nahi bhej paya.');
     }
   };
 
-  const handleVerifyOtp = async () => {
-    if (!otpToken || otpToken.length < 4) {
+  const handleVerifyPhoneOtp = async () => {
+    if (!phoneOtpToken || phoneOtpToken.length < 4) {
       Alert.alert('OTP', 'Kripya valid OTP dalein.');
       return;
     }
     setIsLoading(true);
     triggerHaptic('medium');
 
-    const res = await verifyParentPhoneOtp(phoneNumber, otpToken);
+    const res = await verifyParentPhoneOtp(phoneNumber, phoneOtpToken);
     setIsLoading(false);
 
     if (res.success) {
       triggerHaptic('success');
+
+      // Check if logged-in user is an Admin
+      const isAdmin = await checkUserIsAdmin(res.user?.id || '', res.user?.email, phoneNumber);
+      if (isAdmin && onAdminLogin) {
+        onClose();
+        Alert.alert('👑 Admin Login Successful', 'Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.');
+        onAdminLogin(phoneNumber);
+        return;
+      }
+
       Alert.alert('Login Kamyab!', 'Aapka account successfully link ho gaya hai.');
       await syncProfileToCloud(profile);
       onClose();
@@ -93,51 +106,55 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
     }
   };
 
-  const handleEmailAuth = async () => {
-    if (!email || !password || password.length < 6) {
-      Alert.alert('Invalid Input', 'Email aur kam se kam 6 character ka password dalein.');
+  const handleSendEmailOtp = async () => {
+    if (!email || !email.includes('@')) {
+      Alert.alert('Email ID', 'Kripya sahi Email address dalein.');
       return;
     }
     setIsLoading(true);
+    setStatusMessage(null);
     triggerHaptic('light');
 
-    const res =
-      mode === 'email_signup'
-        ? await signUpWithParentEmail(email, password)
-        : await signInWithParentEmail(email, password);
-
-    if (!res.success) {
-      setIsLoading(false);
-      Alert.alert('Error', res.error || 'Authentication mein samasya aayi.');
-      return;
-    }
-
-    // If Admin Passkey was entered, register / promote user to Admin in database
-    if (adminSecretKey.trim()) {
-      const adminRes = await registerUserAsAdmin(res.user?.id || '', email, adminSecretKey.trim());
-      if (!adminRes.success) {
-        setIsLoading(false);
-        Alert.alert('Admin Passkey Galat Hai', adminRes.error || 'Galat secret key! Kripya sahi Admin Secret Passkey dalein.');
-        return;
-      }
-    }
-
-    // Strictly check if user is an Admin via Supabase role column
-    const isAdmin = await checkUserIsAdmin(res.user?.id || '', email);
+    const res = await sendParentEmailOtp(email);
     setIsLoading(false);
 
-    if (isAdmin && onAdminLogin) {
-      triggerHaptic('success');
-      onClose();
-      Alert.alert('👑 Admin Login Successful', `Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.`);
-      onAdminLogin(email);
+    if (res.success) {
+      setEmailOtpSent(true);
+      setStatusMessage('6-digit login OTP aapke email par bhej diya gaya hai. Kripya inbox check karein.');
+    } else {
+      Alert.alert('Notice', res.error || 'Email par OTP nahi bhej paya.');
+    }
+  };
+
+  const handleVerifyEmailOtp = async () => {
+    if (!emailOtpToken || emailOtpToken.length < 4) {
+      Alert.alert('OTP', 'Kripya valid 6-digit OTP dalein.');
       return;
     }
+    setIsLoading(true);
+    triggerHaptic('medium');
 
-    triggerHaptic('success');
-    Alert.alert('Safal!', 'Aapka account login ho chuka hai.');
-    await syncProfileToCloud(profile);
-    onClose();
+    const res = await verifyParentEmailOtp(email, emailOtpToken);
+    setIsLoading(false);
+
+    if (res.success) {
+      triggerHaptic('success');
+
+      // Check if logged-in user is an Admin
+      const isAdmin = await checkUserIsAdmin(res.user?.id || '', email, undefined);
+      if (isAdmin && onAdminLogin) {
+        onClose();
+        Alert.alert('👑 Admin Login Successful', 'Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.');
+        onAdminLogin(email);
+        return;
+      }
+
+      Alert.alert('Login Kamyab!', 'Aapka account successfully login ho gaya hai.');
+      await syncProfileToCloud(profile);
+      onClose();
+    } else {
+      Alert.alert('Galat OTP', res.error || 'OTP galat hai ya expire ho gaya.');
+    }
   };
 
   return (
@@ -202,7 +219,7 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
                 style={[styles.tab, mode === 'phone' && styles.tabActive]}
                 onPress={() => {
                   setMode('phone');
-                  setOtpSent(false);
+                  setStatusMessage(null);
                 }}
               >
                 <Text style={[styles.tabText, mode === 'phone' && styles.tabTextActive]}>
@@ -211,11 +228,14 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.tab, mode.startsWith('email') && styles.tabActive]}
-                onPress={() => setMode('email_login')}
+                style={[styles.tab, mode === 'email' && styles.tabActive]}
+                onPress={() => {
+                  setMode('email');
+                  setStatusMessage(null);
+                }}
               >
-                <Text style={[styles.tabText, mode.startsWith('email') && styles.tabTextActive]}>
-                  ✉️ Email Login
+                <Text style={[styles.tabText, mode === 'email' && styles.tabTextActive]}>
+                  ✉️ Email OTP
                 </Text>
               </TouchableOpacity>
             </View>
@@ -223,7 +243,7 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
             {/* Phone OTP Form */}
             {mode === 'phone' && (
               <View style={styles.form}>
-                <Text style={styles.inputLabel}>Parent Mobile Number (WhatsApp / SMS):</Text>
+                <Text style={styles.inputLabel}>Parent Mobile Number:</Text>
                 <View style={styles.phoneInputRow}>
                   <Text style={styles.countryCode}>+91</Text>
                   <TextInput
@@ -234,21 +254,21 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
                     maxLength={10}
                     value={phoneNumber}
                     onChangeText={setPhoneNumber}
-                    editable={!otpSent}
+                    editable={!phoneOtpSent}
                   />
                 </View>
 
-                {otpSent && (
+                {phoneOtpSent && (
                   <>
-                    <Text style={[styles.inputLabel, { marginTop: 14 }]}>6-Digit OTP Dalein:</Text>
+                    <Text style={[styles.inputLabel, { marginTop: 14 }]}>6-Digit SMS OTP Dalein:</Text>
                     <TextInput
                       style={styles.textInput}
                       placeholder="Enter OTP"
                       placeholderTextColor="#94A3B8"
                       keyboardType="number-pad"
                       maxLength={6}
-                      value={otpToken}
-                      onChangeText={setOtpToken}
+                      value={phoneOtpToken}
+                      onChangeText={setPhoneOtpToken}
                     />
                   </>
                 )}
@@ -257,7 +277,7 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
 
                 <TouchableOpacity
                   style={[styles.primaryBtn, isLoading && { opacity: 0.7 }]}
-                  onPress={otpSent ? handleVerifyOtp : handleSendOtp}
+                  onPress={phoneOtpSent ? handleVerifyPhoneOtp : handleSendPhoneOtp}
                   disabled={isLoading}
                   activeOpacity={0.85}
                 >
@@ -265,14 +285,14 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
                     <ActivityIndicator color="#FFFFFF" size="small" />
                   ) : (
                     <Text style={styles.primaryBtnText}>
-                      {otpSent ? 'Verify OTP & Login' : 'Send OTP via SMS'}
+                      {phoneOtpSent ? 'Verify OTP & Login' : 'Send OTP via SMS'}
                     </Text>
                   )}
                 </TouchableOpacity>
 
-                {otpSent && (
+                {phoneOtpSent && (
                   <TouchableOpacity
-                    onPress={() => setOtpSent(false)}
+                    onPress={() => setPhoneOtpSent(false)}
                     style={styles.secondaryBtn}
                   >
                     <Text style={styles.secondaryBtnText}>Number Badlein</Text>
@@ -281,8 +301,8 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
               </View>
             )}
 
-            {/* Email Form */}
-            {mode.startsWith('email') && (
+            {/* Email OTP Form */}
+            {mode === 'email' && (
               <View style={styles.form}>
                 <Text style={styles.inputLabel}>Parent Email ID:</Text>
                 <TextInput
@@ -293,50 +313,29 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
                   autoCapitalize="none"
                   value={email}
                   onChangeText={setEmail}
+                  editable={!emailOtpSent}
                 />
 
-                <Text style={[styles.inputLabel, { marginTop: 12 }]}>Password:</Text>
-                <TextInput
-                  style={styles.textInput}
-                  placeholder="Minimum 6 characters"
-                  placeholderTextColor="#94A3B8"
-                  secureTextEntry
-                  value={password}
-                  onChangeText={setPassword}
-                />
-
-                {/* Optional Admin Passkey for App Owner */}
-                <TouchableOpacity
-                  onPress={() => setShowAdminSecret(!showAdminSecret)}
-                  style={styles.adminToggleBtn}
-                  activeOpacity={0.7}
-                >
-                  <Text style={styles.adminToggleText}>
-                    {showAdminSecret ? '▲ Hide Admin Passkey' : '🔐 Register or Login as Admin?'}
-                  </Text>
-                </TouchableOpacity>
-
-                {showAdminSecret && (
-                  <View style={styles.adminSecretBox}>
-                    <Text style={styles.adminSecretLabel}>👑 Admin Master Passkey:</Text>
+                {emailOtpSent && (
+                  <>
+                    <Text style={[styles.inputLabel, { marginTop: 14 }]}>6-Digit Email OTP Dalein:</Text>
                     <TextInput
-                      style={[styles.textInput, styles.adminSecretInput]}
-                      placeholder="Enter Admin Secret Passkey"
+                      style={styles.textInput}
+                      placeholder="Enter 6-Digit OTP"
                       placeholderTextColor="#94A3B8"
-                      secureTextEntry
-                      value={adminSecretKey}
-                      onChangeText={setAdminSecretKey}
-                      autoCapitalize="none"
+                      keyboardType="number-pad"
+                      maxLength={6}
+                      value={emailOtpToken}
+                      onChangeText={setEmailOtpToken}
                     />
-                    <Text style={styles.adminSecretHint}>
-                      Kewal App Owner ke liye. Master secret passkey enter karne par ye account Admin Control Center ke liye authorize ho jayega.
-                    </Text>
-                  </View>
+                  </>
                 )}
+
+                {statusMessage && <Text style={styles.statusSuccess}>{statusMessage}</Text>}
 
                 <TouchableOpacity
                   style={[styles.primaryBtn, isLoading && { opacity: 0.7 }]}
-                  onPress={handleEmailAuth}
+                  onPress={emailOtpSent ? handleVerifyEmailOtp : handleSendEmailOtp}
                   disabled={isLoading}
                   activeOpacity={0.85}
                 >
@@ -344,21 +343,19 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
                     <ActivityIndicator color="#FFFFFF" size="small" />
                   ) : (
                     <Text style={styles.primaryBtnText}>
-                      {mode === 'email_signup' ? 'Create Parent Account' : 'Sign In'}
+                      {emailOtpSent ? 'Verify OTP & Login' : 'Send Login OTP to Email'}
                     </Text>
                   )}
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                  onPress={() => setMode(mode === 'email_login' ? 'email_signup' : 'email_login')}
-                  style={styles.secondaryBtn}
-                >
-                  <Text style={styles.secondaryBtnText}>
-                    {mode === 'email_login'
-                      ? 'Naya account banana hai? Sign Up karein'
-                      : 'Pehle se account hai? Login karein'}
-                  </Text>
-                </TouchableOpacity>
+                {emailOtpSent && (
+                  <TouchableOpacity
+                    onPress={() => setEmailOtpSent(false)}
+                    style={styles.secondaryBtn}
+                  >
+                    <Text style={styles.secondaryBtnText}>Email Badlein</Text>
+                  </TouchableOpacity>
+                )}
               </View>
             )}
 
@@ -567,41 +564,5 @@ const styles = StyleSheet.create({
     color: '#94A3B8',
     fontSize: 13,
     fontWeight: '600',
-  },
-  adminToggleBtn: {
-    marginTop: 10,
-    alignSelf: 'flex-start',
-    paddingVertical: 4,
-  },
-  adminToggleText: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#4F46E5',
-  },
-  adminSecretBox: {
-    marginTop: 8,
-    marginBottom: 4,
-    padding: 12,
-    backgroundColor: '#EEF2FF',
-    borderRadius: 14,
-    borderWidth: 1.5,
-    borderColor: '#C7D2FE',
-  },
-  adminSecretLabel: {
-    fontSize: 12,
-    fontWeight: '800',
-    color: '#312E81',
-    marginBottom: 6,
-  },
-  adminSecretInput: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#A5B4FC',
-    fontSize: 14,
-  },
-  adminSecretHint: {
-    fontSize: 11,
-    color: '#4338CA',
-    marginTop: 6,
-    lineHeight: 15,
   },
 });

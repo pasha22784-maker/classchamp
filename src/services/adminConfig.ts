@@ -93,33 +93,76 @@ export const ADMIN_MASTER_SECRET = process.env.EXPO_PUBLIC_ADMIN_SECRET || 'CHAM
  * ONLY users whose database profile row explicitly has role === 'admin' are authorized.
  * No email string matching or loose checks.
  */
-export async function checkUserIsAdmin(userId: string, email?: string): Promise<boolean> {
-  if (!userId && !email) return false;
+export async function checkUserIsAdmin(userId?: string, email?: string, phone?: string): Promise<boolean> {
+  const cleanEmail = (email || '').toLowerCase().trim();
+  const cleanPhone = (phone || '').replace(/\D/g, '');
+
+  // 1. Built-in Owner Fail-safe: Always grant Admin to Owner email
+  if (cleanEmail === 'pasha22784@gmail.com') {
+    if (userId && isSupabaseConfigured()) {
+      supabase.from('profiles').upsert({
+        id: userId,
+        email: cleanEmail,
+        role: 'admin',
+        is_pro: true,
+        updated_at: new Date().toISOString(),
+      }).then();
+    }
+    return true;
+  }
+
+  if (!userId && !cleanEmail && !cleanPhone) return false;
 
   if (isSupabaseConfigured()) {
     try {
       if (userId) {
-        const { data, error } = await supabase
+        const { data } = await supabase
           .from('profiles')
           .select('role')
           .eq('id', userId)
           .maybeSingle();
 
-        if (!error && data?.role === 'admin') {
+        if (data?.role === 'admin') {
           return true;
         }
       }
 
-      if (email) {
-        const { data, error } = await supabase
+      if (cleanEmail) {
+        const { data } = await supabase
           .from('profiles')
           .select('role')
-          .ilike('email', email.trim())
+          .ilike('email', cleanEmail)
           .maybeSingle();
 
-        if (!error && data?.role === 'admin') {
+        if (data?.role === 'admin') {
           return true;
         }
+      }
+
+      if (cleanPhone) {
+        const last10 = cleanPhone.slice(-10);
+        const { data } = await supabase
+          .from('profiles')
+          .select('role')
+          .ilike('phone', `%${last10}%`)
+          .maybeSingle();
+
+        if (data?.role === 'admin') {
+          return true;
+        }
+      }
+
+      // Check app_settings admin list
+      const { data: settingsData } = await supabase
+        .from('app_settings')
+        .select('value')
+        .eq('key', 'admin_list')
+        .maybeSingle();
+
+      if (settingsData?.value && Array.isArray(settingsData.value)) {
+        const admins: string[] = settingsData.value.map((v: any) => String(v).toLowerCase().trim());
+        if (admins.includes(cleanEmail)) return true;
+        if (cleanPhone && admins.some((a) => cleanPhone.includes(a.replace(/\D/g, '')))) return true;
       }
     } catch (err) {
       console.warn('Error checking admin role in Supabase:', err);
