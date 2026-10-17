@@ -143,12 +143,12 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c5_m_09', number: 9, title: 'Boxes and Sketches (3D Nets & Cubes)', grade: 5, subject: 'maths', icon: '📦', conceptSummary: 'NCERT: Folding 2D nets into 3D open and closed boxes' },
   { id: 'c5_m_10', number: 10, title: 'How Big? How Heavy? (Volume)', grade: 5, subject: 'maths', icon: '🧊', conceptSummary: 'NCERT: Volume in cubic cm, water displacement' },
 
-  { id: 'c5_e_01', number: 1, title: 'Ice-Cream Man & Wonderful Waste', grade: 5, subject: 'english', icon: '🍦', conceptSummary: 'NCERT: Traditional recipes, vocabulary' },
-  { id: 'c5_e_02', number: 2, title: 'Abstract Nouns (Kindness, Honesty, Courage)', grade: 5, subject: 'english', icon: '💎', conceptSummary: 'NCERT: Nouns for feelings and virtues' },
-  { id: 'c5_e_03', number: 3, title: 'Tenses: Present, Past & Future', grade: 5, subject: 'english', icon: '⏳', conceptSummary: 'NCERT: Complete 3-tense mastery' },
-  { id: 'c5_e_04', number: 4, title: 'Active and Passive Voice', grade: 5, subject: 'english', icon: '🔄', conceptSummary: 'NCERT: Subject doing vs receiving the action' },
-  { id: 'c5_e_05', number: 5, title: 'Idioms & Proverbs (Better Late Than Never)', grade: 5, subject: 'english', icon: '💡', conceptSummary: 'NCERT: Wise sayings and colorful expressions' },
-  { id: 'c5_e_06', number: 6, title: 'Punctuation: Quotation Marks & Apostrophe', grade: 5, subject: 'english', icon: '✍️', conceptSummary: 'NCERT: Direct dialogue and contractions' },
+  { id: 'c5_e_01', number: 1, title: 'Types of Sentences & Subject-Predicate', grade: 5, subject: 'english', icon: '📝', conceptSummary: 'Universal: Assertive, Interrogative, Imperative, Exclamatory & Subject-Predicate' },
+  { id: 'c5_e_02', number: 2, title: 'Nouns: Abstract & Collective Mastery', grade: 5, subject: 'english', icon: '💎', conceptSummary: 'Universal: Forming abstract nouns from adjectives/verbs & advanced collectives' },
+  { id: 'c5_e_03', number: 3, title: 'Tenses: Present, Past & Future (Simple & Continuous)', grade: 5, subject: 'english', icon: '⏳', conceptSummary: 'Universal: Present, past, and future tense forms and temporal agreement' },
+  { id: 'c5_e_04', number: 4, title: 'Active and Passive Voice', grade: 5, subject: 'english', icon: '🔄', conceptSummary: 'Universal: Identifying doer vs receiver, by-agent, past participles' },
+  { id: 'c5_e_05', number: 5, title: 'Idioms, Proverbs & Figurative Language', grade: 5, subject: 'english', icon: '💡', conceptSummary: 'Universal: Colorful idioms, proverbs, similes & metaphors' },
+  { id: 'c5_e_06', number: 6, title: 'Punctuation, Quotation Marks & Contractions', grade: 5, subject: 'english', icon: '✍️', conceptSummary: 'Universal: Direct speech inverted commas, apostrophes for possession & contractions' },
 
   // =========================================================================
   // CLASS 6 — NCERT MATHEMATICS 6 & POORVI/HONEYSUCKLE 6
@@ -216,14 +216,14 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c4_h_06', number: 6, title: 'अनेक शब्दों के लिए एक शब्द', grade: 4, subject: 'hindi', icon: '✍️', conceptSummary: 'व्याकरण: जो खेती करे = किसान, जो कभी न मरे = अमर, आस्तिक' },
 
   // =========================================================================
-  // CLASS 5 — NCERT रिमझिम 5 (RIMJHIM 5)
+  // CLASS 5 — HINDI VYAKARAN & NCERT रिमझिम 5
   // =========================================================================
-  { id: 'c5_h_01', number: 1, title: 'राख की रस्सी (कारक और उनके विभक्ति चिह्न)', grade: 5, subject: 'hindi', icon: '🧶', conceptSummary: 'NCERT रिमझिम 5: कर्ता ने, कर्म को, करण से, संप्रदान के लिए' },
-  { id: 'c5_h_02', number: 2, title: 'फसलों के त्योहार (उपसर्ग और प्रत्यय)', grade: 5, subject: 'hindi', icon: '🌾', conceptSummary: 'NCERT: उपसर्ग (सु-, बे-, अन-) और प्रत्यय (-दार, -वान, -ई)' },
-  { id: 'c5_h_03', number: 3, title: 'खिलौनेवाला (संज्ञा से भाववाचक संज्ञा)', grade: 5, subject: 'hindi', icon: '🏹', conceptSummary: 'NCERT: मित्र -> मित्रता, सुंदर -> सुंदरता' },
-  { id: 'c5_h_04', number: 4, title: 'नन्हा फ़नकार (सकर्मक व अकर्मक क्रिया)', grade: 5, subject: 'hindi', icon: '🗿', conceptSummary: 'NCERT: कर्म के साथ क्रिया और बिना कर्म की क्रिया' },
-  { id: 'c5_h_05', number: 5, title: 'जहाँ चाह वहाँ राह (प्रसिद्ध मुहावरे व वाक्य प्रयोग)', grade: 5, subject: 'hindi', icon: '🧵', conceptSummary: 'NCERT: दाँतों तले उँगली दबाना, कमर कसना' },
-  { id: 'c5_h_06', number: 6, title: 'चिट्ठी का सफ़र (पत्र लेखन व वर्तनी शुद्धि)', grade: 5, subject: 'hindi', icon: '✉️', conceptSummary: 'NCERT: पिन कोड, पत्र का प्रारूप, सही वर्तनी' },
+  { id: 'c5_h_01', number: 1, title: 'कारक व उनके विभक्ति चिह्न (परसर्ग)', grade: 5, subject: 'hindi', icon: '🧶', conceptSummary: 'व्याकरण: कर्ता, कर्म, करण, संप्रदान, अपादान, संबंध, अधिकरण, संबोधन' },
+  { id: 'c5_h_02', number: 2, title: 'उपसर्ग व प्रत्यय (पहचान व शब्द निर्माण)', grade: 5, subject: 'hindi', icon: '🌾', conceptSummary: 'व्याकरण: उपसर्ग (सु-, बे-, अन-, दुर्-) और प्रत्यय (-दार, -वान, -ई, -ता)' },
+  { id: 'c5_h_03', number: 3, title: 'भाववाचक संज्ञा निर्माण', grade: 5, subject: 'hindi', icon: '🏹', conceptSummary: 'व्याकरण: जातिवाचक संज्ञा, सर्वनाम, विशेषण व क्रिया से भाववाचक संज्ञा बनाना' },
+  { id: 'c5_h_04', number: 4, title: 'क्रिया के भेद (सकर्मक व अकर्मक क्रिया)', grade: 5, subject: 'hindi', icon: '🗿', conceptSummary: 'व्याकरण: कर्म की पहचान, क्या/किसे प्रश्न नियम, सकर्मक व अकर्मक क्रिया' },
+  { id: 'c5_h_05', number: 5, title: 'मुहावरे, लोकोक्तियाँ व वाक्य प्रयोग', grade: 5, subject: 'hindi', icon: '🧵', conceptSummary: 'व्याकरण: दाँतों तले उँगली दबाना, कमर कसना, आँखें खुलना, लोकोक्ति अर्थ' },
+  { id: 'c5_h_06', number: 6, title: 'विराम चिह्न, वर्तनी शुद्धि व वाक्य रचना', grade: 5, subject: 'hindi', icon: '✉️', conceptSummary: 'व्याकरण: अल्पविराम, पूर्णविराम, उद्धरण चिह्न, शुद्ध वर्तनी व वाक्य रचना' },
 
   // =========================================================================
   // CLASS 6 — NCERT मल्हार 6 (MALHAR 6 / VASANT 1)

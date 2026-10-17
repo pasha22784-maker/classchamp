@@ -501,67 +501,6 @@ export const MOCK_QUESTIONS: Question[] = [
   // =========================================================================
   ...CLASS_4_ENGLISH_LESSON_6_QUESTIONS,
 
-  // =========================================================================
-  // CLASS 5 — NCERT MATH-MAGIC 5 & MARIGOLD 5
-  // =========================================================================
-  {
-    id: 'ncert_c5_m2_001',
-    grade: 5,
-    subject: 'maths',
-    chapter: 'Shapes and Angles (Acute, Right, Obtuse)',
-    concept: 'NCERT Clock Angles',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'When the clock shows exactly 3:00 o’clock 🕒, what angle do the hands make?',
-    visualEmoji: '🕒',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'Right Angle', isCorrect: true },
-        { id: 'opt_2', text: 'Acute Angle', isCorrect: false },
-        { id: 'opt_3', text: 'Obtuse Angle', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Math-Magic 5 Ch 2: At 3:00, the hands form an exact L-shape (Right Angle = 90°)!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c5_m6_001',
-    grade: 5,
-    subject: 'maths',
-    chapter: 'Multiples and Factors (LCM & HCF)',
-    concept: 'NCERT Common Multiples',
-    difficulty: 'hard',
-    type: 'fill_blank',
-    question: 'Find the smallest common multiple:',
-    visualEmoji: '🔢',
-    payload: {
-      correctAnswer: '12',
-      wordBank: ['12', '6', '18', '24'],
-      displayTemplate: 'The Lowest Common Multiple (LCM) of 4 and 6 is [BLANK].',
-    },
-    explanation: 'NCERT Class 5: Multiples of 4 are 4, 8, 12... Multiples of 6 are 6, 12... Smallest common is 12!',
-    points: 10,
-  },
-  {
-    id: 'ncert_c5_e2_001',
-    grade: 5,
-    subject: 'english',
-    chapter: 'Abstract Nouns (Kindness, Honesty, Courage)',
-    concept: 'NCERT Abstract Nouns',
-    difficulty: 'medium',
-    type: 'mcq',
-    question: 'Which of the following is an ABSTRACT NOUN (a quality you can feel, not touch)?',
-    visualEmoji: '💎',
-    payload: {
-      options: [
-        { id: 'opt_1', text: 'Honesty', isCorrect: true },
-        { id: 'opt_2', text: 'Golden Ring', isCorrect: false },
-        { id: 'opt_3', text: 'Wooden Table', isCorrect: false },
-      ],
-    },
-    explanation: 'NCERT Marigold 5: "Honesty" is an abstract noun because it represents a virtue!',
-    points: 10,
-  },
 
   // =========================================================================
   // CLASS 6 — NCERT MATHEMATICS 6 & POORVI 6
