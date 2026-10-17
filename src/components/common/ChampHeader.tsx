@@ -66,31 +66,16 @@ export const ChampHeader: React.FC<ChampHeaderProps> = ({
           </View>
         )}
 
-        <TouchableOpacity
-          activeOpacity={onPressAvatar ? 0.7 : 1}
-          disabled={!onPressAvatar}
-          onPress={() => {
-            if (onPressAvatar) {
-              triggerHaptic('light');
-              onPressAvatar();
-            }
-          }}
-          style={styles.titleColumn}
-        >
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-            <Text style={styles.titleText} numberOfLines={1}>
-              {title || 'ClassChamp'}
-            </Text>
-            {onPressAvatar && (
-              <Text style={{ fontSize: 13, color: '#93C5FD' }}>⚙️</Text>
-            )}
-          </View>
+        <View style={styles.titleColumn}>
+          <Text style={styles.titleText} numberOfLines={1}>
+            {title || 'ClassChamp'}
+          </Text>
           {subtitle ? (
             <Text style={styles.subtitleText} numberOfLines={1}>
               {subtitle}
             </Text>
           ) : null}
-        </TouchableOpacity>
+        </View>
       </View>
 
       <View style={styles.rightRow}>

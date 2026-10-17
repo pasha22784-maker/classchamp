@@ -12,7 +12,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { COLORS } from '../../constants/theme';
 
 // Current App Version
-export const CURRENT_APP_VERSION = 'v1.2.1';
+export const CURRENT_APP_VERSION = 'v1.2.2';
 const GITHUB_REPO = 'pasha22784-maker/classchamp';
 
 interface ReleaseInfo {
@@ -46,9 +46,10 @@ export function AppUpdaterModal() {
   const checkForUpdate = async () => {
     try {
       setIsChecking(true);
-      const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/releases/latest`, {
+      const res = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/releases/latest?t=${Date.now()}`, {
         headers: {
           'Accept': 'application/vnd.github+json',
+          'Cache-Control': 'no-cache',
         },
       });
 

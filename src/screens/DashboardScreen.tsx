@@ -135,7 +135,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
     <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primaryDark} />
 
-      {/* Clean & Smart Header: Avatar + Greeting + Stars + Settings Button */}
+      {/* Clean & Smart Header: Avatar (opens Settings) + Greeting + Stars */}
       <ChampHeader
         title={`Hi, ${profile.name}! 👋`}
         subtitle={`${gradeConfig.label} • NCERT`}
@@ -145,19 +145,6 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           triggerHaptic('light');
           setShowSettingsModal(true);
         }}
-        rightComponent={
-          <TouchableOpacity
-            style={styles.settingsGearBtn}
-            onPress={() => {
-              triggerHaptic('light');
-              setShowSettingsModal(true);
-            }}
-            activeOpacity={0.8}
-            accessibilityLabel="Settings"
-          >
-            <Text style={styles.settingsGearText}>⚙️</Text>
-          </TouchableOpacity>
-        }
       />
 
       {/* App Open Streak Welcome Toast (Auto-dismisses, then moves to Settings) */}
@@ -202,27 +189,43 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Clean, Smart Hero Card: "Daily 10-Min Practice" */}
-        <View style={styles.heroCard}>
+        {/* Kid-Friendly Vibrant Hero Card: "Daily 10-Min Mission" */}
+        <View
+          style={[
+            styles.heroCard,
+            isCompletedToday ? styles.heroCardCompleted : styles.heroCardActive,
+          ]}
+        >
           <View style={styles.heroTopRow}>
-            <View style={styles.heroBadge}>
-              <Text style={styles.heroBadgeText}>🎯 DAILY MISSION</Text>
+            <View style={[styles.heroBadge, isCompletedToday ? styles.heroBadgeCompleted : styles.heroBadgeActive]}>
+              <Text style={styles.heroBadgeText}>
+                {isCompletedToday ? '🌟 MISSION ACCOMPLISHED' : '🎯 DAILY MISSION'}
+              </Text>
             </View>
             <View style={[styles.statusPill, isCompletedToday ? styles.statusPillDone : styles.statusPillPending]}>
-              <Text style={[styles.statusPillText, isCompletedToday ? styles.statusTextDone : styles.statusTextPending]}>
-                {isCompletedToday ? 'Completed 🌟' : '10 Min Goal'}
+              <Text style={styles.statusPillText}>
+                {isCompletedToday ? '100% Done ✅' : '10 Min Goal ⏱️'}
               </Text>
             </View>
           </View>
 
-          <Text style={styles.heroTitle}>
-            {isCompletedToday ? 'Great Job Today! 🎉' : 'Daily 10-Min CBSE Practice'}
-          </Text>
-          <Text style={styles.heroSub}>
-            {isCompletedToday
-              ? 'You have finished today’s target. Keep practicing any subject below!'
-              : 'Choose any subject below to master concepts with fun interactive questions.'}
-          </Text>
+          <View style={styles.heroBodyRow}>
+            <View style={styles.heroTextCol}>
+              <Text style={styles.heroTitle}>
+                {isCompletedToday ? 'Shabaash, Champ! 🎉' : 'Daily 10-Min CBSE Quest 🚀'}
+              </Text>
+              <Text style={styles.heroSub}>
+                {isCompletedToday
+                  ? 'Aapne aaj ka target poora kar liya! Neeche kisi bhi subject ki practice jari rakhein.'
+                  : 'Rozana 10 sawaal solve karke naye stars jeetein aur CBSE concepts master karein!'}
+              </Text>
+            </View>
+            <View style={styles.heroIllustrationCircle}>
+              <Text style={styles.heroIllustrationEmoji}>
+                {isCompletedToday ? '🏆' : '🚀'}
+              </Text>
+            </View>
+          </View>
 
           {/* Clean Progress Line */}
           <View style={styles.heroProgressTrack}>
@@ -230,7 +233,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               style={[
                 styles.heroProgressBar,
                 { width: isCompletedToday ? '100%' : '15%' },
-                isCompletedToday ? { backgroundColor: '#10B981' } : { backgroundColor: '#60A5FA' },
+                { backgroundColor: '#FDE047' },
               ]}
             />
           </View>
@@ -581,20 +584,6 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
 
-  // Settings Gear in Header
-  settingsGearBtn: {
-    width: 38,
-    height: 38,
-    borderRadius: 19,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 6,
-  },
-  settingsGearText: {
-    fontSize: 18,
-  },
-
   // App-open Streak Toast
   streakToastContainer: {
     paddingHorizontal: 16,
@@ -645,35 +634,46 @@ const styles = StyleSheet.create({
     color: '#B45309',
   },
 
-  // Clean Hero Card: Daily Mission
+  // Kid-Friendly Vibrant Hero Card: Daily Mission
   heroCard: {
-    backgroundColor: '#1E293B',
-    borderRadius: 20,
+    borderRadius: 22,
     padding: 18,
     marginBottom: 20,
-    shadowColor: '#0F172A',
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
+    shadowOpacity: 0.22,
+    shadowRadius: 14,
     elevation: 6,
+  },
+  heroCardActive: {
+    backgroundColor: '#2563EB', // Vibrant bright Royal Blue
+    shadowColor: '#1D4ED8',
+  },
+  heroCardCompleted: {
+    backgroundColor: '#059669', // Bright cheerful Emerald Green
+    shadowColor: '#047857',
   },
   heroTopRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 10,
   },
   heroBadge: {
-    backgroundColor: 'rgba(255, 255, 255, 0.12)',
     paddingHorizontal: 10,
     paddingVertical: 4,
-    borderRadius: 8,
+    borderRadius: 10,
+  },
+  heroBadgeActive: {
+    backgroundColor: 'rgba(255, 255, 255, 0.22)',
+  },
+  heroBadgeCompleted: {
+    backgroundColor: 'rgba(255, 255, 255, 0.22)',
   },
   heroBadgeText: {
     fontSize: 11,
-    fontWeight: '800',
-    color: '#94A3B8',
-    letterSpacing: 0.8,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    letterSpacing: 0.6,
   },
   statusPill: {
     paddingHorizontal: 10,
@@ -681,42 +681,59 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   statusPillDone: {
-    backgroundColor: '#064E3B',
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
   },
   statusPillPending: {
-    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+    backgroundColor: 'rgba(255, 255, 255, 0.22)',
   },
   statusPillText: {
     fontSize: 11,
     fontWeight: '800',
+    color: '#FFFFFF',
   },
-  statusTextDone: {
-    color: '#34D399',
+  heroBodyRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 12,
   },
-  statusTextPending: {
-    color: '#93C5FD',
+  heroTextCol: {
+    flex: 1,
+    paddingRight: 8,
   },
   heroTitle: {
-    fontSize: 18,
-    fontWeight: '800',
+    fontSize: 19,
+    fontWeight: '900',
     color: '#FFFFFF',
     marginBottom: 4,
   },
   heroSub: {
     fontSize: 13,
-    color: '#94A3B8',
+    color: 'rgba(255, 255, 255, 0.92)',
     lineHeight: 18,
-    marginBottom: 14,
+  },
+  heroIllustrationCircle: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'rgba(255, 255, 255, 0.22)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.35)',
+  },
+  heroIllustrationEmoji: {
+    fontSize: 26,
   },
   heroProgressTrack: {
-    height: 6,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-    borderRadius: 3,
+    height: 7,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 4,
     overflow: 'hidden',
   },
   heroProgressBar: {
     height: '100%',
-    borderRadius: 3,
+    borderRadius: 4,
   },
 
   // Section Header
