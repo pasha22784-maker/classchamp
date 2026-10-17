@@ -3,9 +3,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UserProfile } from '../types';
 
 // Supabase Configuration
-// Put your Supabase project credentials in .env or configure here
-export const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL || 'https://your-project-id.supabase.co';
-export const SUPABASE_ANON_KEY = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || 'your-public-anon-key';
+export const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL || 'https://oeghcusumhhqlvokwnff.supabase.co';
+export const SUPABASE_ANON_KEY = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_KIThD2aZvbUIKzP6Djo7Pw_jLRljbbz';
 
 // Helper to check if user has linked real Supabase credentials
 export const isSupabaseConfigured = (): boolean => {

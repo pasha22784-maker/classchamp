@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UserProfile, Grade, Subject } from '../types';
+import { syncProfileToCloud } from '../services/supabase';
 
 const STORAGE_KEY = '@classchamp_user_profile_v1';
 
@@ -89,24 +90,28 @@ export const useUserStore = create<UserState>((set, get) => ({
     const updated = { ...get().profile, name: name.trim() || 'Champ' };
     set({ profile: updated });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
   },
 
   setGrade: async (grade: Grade) => {
     const updated = { ...get().profile, grade };
     set({ profile: updated });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
   },
 
   setAvatar: async (avatarId: string) => {
     const updated = { ...get().profile, avatarId };
     set({ profile: updated });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
   },
 
   setProStatus: async (isPro: boolean) => {
     const updated = { ...get().profile, isPro };
     set({ profile: updated });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
   },
 
   addStars: async (stars: number) => {
@@ -154,6 +159,7 @@ export const useUserStore = create<UserState>((set, get) => ({
 
     set({ profile: updatedProfile });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
+    syncProfileToCloud(updatedProfile);
 
     return { newStreak, earnedTrophy };
   },
