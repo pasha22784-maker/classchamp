@@ -31,6 +31,7 @@ const DEFAULT_PROFILE: UserProfile = {
   currentStreak: 0,
   lastActiveDate: '',
   historyDatesCompleted: [],
+  trialStartedAt: new Date().toISOString(),
 };
 
 interface UserState {
@@ -57,6 +58,11 @@ export const useUserStore = create<UserState>((set, get) => ({
       if (stored) {
         const parsed: UserProfile = JSON.parse(stored);
         
+        // Ensure 30-day trial timer exists
+        if (!parsed.trialStartedAt) {
+          parsed.trialStartedAt = new Date().toISOString();
+        }
+
         // Check if streak was broken (missed yesterday and today)
         const today = getTodayDateString();
         const yesterday = getYesterdayDateString();
@@ -68,12 +74,15 @@ export const useUserStore = create<UserState>((set, get) => ({
 
         const updatedProfile = { ...parsed, currentStreak: validStreak };
         set({ profile: updatedProfile, isHydrated: true });
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
         return;
       }
     } catch (e) {
       console.warn('Failed to load user profile from storage', e);
     }
-    set({ profile: DEFAULT_PROFILE, isHydrated: true });
+    const fresh = { ...DEFAULT_PROFILE, trialStartedAt: new Date().toISOString() };
+    set({ profile: fresh, isHydrated: true });
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(fresh));
   },
 
   updateName: async (name: string) => {

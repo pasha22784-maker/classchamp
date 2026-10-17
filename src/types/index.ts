@@ -78,6 +78,13 @@ export interface UserProfile {
   lastActiveDate: string; // YYYY-MM-DD
   historyDatesCompleted: string[]; // List of YYYY-MM-DD
   lastLessonBySubject?: Partial<Record<Subject, string>>;
+  // 30-Day Free Trial & Cloud Auth Fields
+  trialStartedAt?: string; // ISO string
+  userId?: string;
+  parentPhone?: string;
+  parentEmail?: string;
+  subscriptionPlan?: 'monthly' | 'yearly' | null;
+  subscriptionExpiresAt?: string; // ISO string
 }
 
 export interface UserAnswerRecord {

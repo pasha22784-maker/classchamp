@@ -12,9 +12,10 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS, SPACING, BORDER_RADIUS } from '../constants/theme';
-import { ChampHeader, ChampCard, ChampButton, ChampBadge } from '../components/common';
+import { ChampHeader, ChampCard, ChampButton, ChampBadge, ParentAuthModal } from '../components/common';
 import { GRADE_OPTIONS } from '../constants/avatars';
 import { useUserStore } from '../store/useUserStore';
+import { getMonetizationInfo } from '../utils/monetization';
 import { triggerHaptic } from '../utils/haptics';
 
 interface ParentZoneScreenProps {
@@ -25,6 +26,9 @@ export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack }) =>
   const { profile, updateName, setGrade, setProStatus, resetProgress } = useUserStore();
   const [editingName, setEditingName] = useState(profile.name);
   const [isSaved, setIsSaved] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const monetization = getMonetizationInfo(profile);
 
   const handleSaveName = async () => {
     if (editingName.trim()) {
@@ -98,6 +102,39 @@ export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack }) =>
               <Text style={styles.statLabel}>Days Active</Text>
             </View>
           </View>
+        </ChampCard>
+
+        {/* 30-Day Free VIP Trial & Cloud Account Card */}
+        <ChampCard style={styles.card}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+            <Text style={styles.cardTitle}>🎁 30-Day Free VIP Trial</Text>
+            <ChampBadge
+              label={monetization.statusBadge}
+              variant={monetization.isPro ? 'gold' : monetization.isTrialActive ? 'success' : 'neutral'}
+              size="sm"
+            />
+          </View>
+          <Text style={styles.cardSub}>
+            {monetization.isPro
+              ? 'Aapka Pro subscription active hai. Sabhi chapters aur daily tests ad-free hain.'
+              : monetization.isTrialActive
+              ? `VIP Free Trial active hai (${monetization.daysRemaining} din bache hain). 100% Ad-Free experience.`
+              : 'Aapka 30-day trial poora ho gaya hai. Ad-free continue rakhne ke liye Pro upgrade karein.'}
+          </Text>
+          <TouchableOpacity
+            style={styles.authTriggerBtn}
+            onPress={() => {
+              triggerHaptic('light');
+              setShowAuthModal(true);
+            }}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.authTriggerBtnText}>
+              {profile.parentPhone || profile.parentEmail
+                ? `📱 Account: ${profile.parentPhone || profile.parentEmail} (Manage)`
+                : '📱 Link Parent Mobile OTP / Email'}
+            </Text>
+          </TouchableOpacity>
         </ChampCard>
 
         {/* Edit Child Profile */}
@@ -226,6 +263,12 @@ export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack }) =>
           style={styles.resetBtn}
         />
       </ScrollView>
+
+      {/* Parent Mobile OTP & Cloud Sync Modal */}
+      <ParentAuthModal
+        visible={showAuthModal}
+        onClose={() => setShowAuthModal(false)}
+      />
     </SafeAreaView>
   );
 };
@@ -328,5 +371,20 @@ const styles = StyleSheet.create({
   resetBtn: {
     marginTop: SPACING.sm,
     marginBottom: SPACING.xxl,
+  },
+  authTriggerBtn: {
+    marginTop: SPACING.md,
+    backgroundColor: '#EFF6FF',
+    borderWidth: 1.5,
+    borderColor: '#93C5FD',
+    borderRadius: BORDER_RADIUS.md,
+    paddingVertical: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  authTriggerBtnText: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#1E40AF',
   },
 });

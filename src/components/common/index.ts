@@ -8,3 +8,4 @@ export * from './TrophyModal';
 export * from './PaywallModal';
 export * from './AppUpdaterModal';
 export * from './SpeakerButton';
+export * from '../auth/ParentAuthModal';
