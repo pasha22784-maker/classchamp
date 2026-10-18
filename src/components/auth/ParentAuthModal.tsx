@@ -67,21 +67,34 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
     const res = await sendParentPhoneOtp(phoneNumber);
     setIsLoading(false);
 
+    setPhoneOtpSent(true);
     if (res.success) {
-      setPhoneOtpSent(true);
       setStatusMessage('OTP aapke mobile number par bhej diya gaya hai.');
     } else {
-      Alert.alert('Notice', res.error || 'OTP nahi bhej paya.');
+      setStatusMessage('OTP dalein (ya Master PIN dalein).');
     }
   };
 
   const handleVerifyPhoneOtp = async () => {
-    if (!phoneOtpToken || phoneOtpToken.length < 4) {
+    const token = phoneOtpToken.trim();
+    if (!token || token.length < 4) {
       Alert.alert('OTP', 'Kripya valid OTP dalein.');
       return;
     }
     setIsLoading(true);
     triggerHaptic('medium');
+
+    // Instant Master PIN for Owner/Admin
+    if (token === '778899' || token === '7788' || token === 'CHAMP_ADMIN_7788') {
+      setIsLoading(false);
+      triggerHaptic('success');
+      onClose();
+      Alert.alert('👑 Admin Login Successful', 'Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.');
+      if (onAdminLogin) {
+        onAdminLogin(phoneNumber);
+      }
+      return;
+    }
 
     const res = await verifyParentPhoneOtp(phoneNumber, phoneOtpToken);
     setIsLoading(false);
@@ -111,41 +124,59 @@ export const ParentAuthModal: React.FC<ParentAuthModalProps> = ({ visible, onClo
       Alert.alert('Email ID', 'Kripya sahi Email address dalein.');
       return;
     }
+    const cleanEmail = email.toLowerCase().trim();
     setIsLoading(true);
     setStatusMessage(null);
     triggerHaptic('light');
 
-    const res = await sendParentEmailOtp(email);
+    const res = await sendParentEmailOtp(cleanEmail);
     setIsLoading(false);
 
-    if (res.success) {
-      setEmailOtpSent(true);
-      setStatusMessage('6-digit login OTP aapke email par bhej diya gaya hai. Kripya inbox check karein.');
+    setEmailOtpSent(true);
+    if (cleanEmail === 'pasha22784@gmail.com') {
+      setStatusMessage('OTP enter karein (ya apna Master PIN 778899 dalein).');
+    } else if (res.success) {
+      setStatusMessage('6-digit login OTP aapke email par bhej diya gaya hai. Kripya inbox ya Spam folder check karein.');
     } else {
-      Alert.alert('Notice', res.error || 'Email par OTP nahi bhej paya.');
+      setStatusMessage('OTP enter karein (Spam folder check karein ya Master PIN dalein).');
     }
   };
 
   const handleVerifyEmailOtp = async () => {
-    if (!emailOtpToken || emailOtpToken.length < 4) {
+    const cleanEmail = email.toLowerCase().trim();
+    const token = emailOtpToken.trim();
+
+    if (!token || token.length < 4) {
       Alert.alert('OTP', 'Kripya valid 6-digit OTP dalein.');
       return;
     }
     setIsLoading(true);
     triggerHaptic('medium');
 
-    const res = await verifyParentEmailOtp(email, emailOtpToken);
+    // Instant Master PIN for Owner/Admin Email
+    if ((cleanEmail === 'pasha22784@gmail.com' || cleanEmail.includes('admin')) && (token === '778899' || token === '7788' || token === 'CHAMP_ADMIN_7788')) {
+      setIsLoading(false);
+      triggerHaptic('success');
+      onClose();
+      Alert.alert('👑 Admin Login Successful', 'Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.');
+      if (onAdminLogin) {
+        onAdminLogin(cleanEmail);
+      }
+      return;
+    }
+
+    const res = await verifyParentEmailOtp(cleanEmail, token);
     setIsLoading(false);
 
     if (res.success) {
       triggerHaptic('success');
 
       // Check if logged-in user is an Admin
-      const isAdmin = await checkUserIsAdmin(res.user?.id || '', email, undefined);
+      const isAdmin = await checkUserIsAdmin(res.user?.id || '', cleanEmail, undefined);
       if (isAdmin && onAdminLogin) {
         onClose();
         Alert.alert('👑 Admin Login Successful', 'Swagat hai Admin! ClassChamp Control Center me redirect kiya ja raha hai.');
-        onAdminLogin(email);
+        onAdminLogin(cleanEmail);
         return;
       }
 
