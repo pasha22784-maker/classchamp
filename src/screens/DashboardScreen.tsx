@@ -37,11 +37,15 @@ import { MagnetLabModal } from '../components/conceptGames/MagnetLabModal';
 import { ColorPrismLabModal } from '../components/conceptGames/ColorPrismLabModal';
 import { SpeedBrainGameModal } from '../components/conceptGames/SpeedBrainGameModal';
 import { ConceptLabHubModal } from '../components/conceptGames/ConceptLabHubModal';
+import { DailyBrainGymModal } from '../components/dailyWorkout/DailyBrainGymModal';
+import { BrainDevelopmentMatrixModal } from '../components/cognitive/BrainDevelopmentMatrixModal';
+import { WeeklyOlympiadTestModal } from '../components/assessment/WeeklyOlympiadTestModal';
+import { TargetedWeakTopicModal } from '../components/adaptive/TargetedWeakTopicModal';
 import { CONCEPT_LABS_BY_GRADE, getGradeGroupKey } from '../data/conceptLabsRegistry';
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
 import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
 import { fetchGlobalConfig } from '../services/adminConfig';
-import { Subject, Grade, ChapterLesson, AppGlobalConfig } from '../types';
+import { Subject, Grade, ChapterLesson, AppGlobalConfig, WeakTopicItem } from '../types';
 import { triggerHaptic } from '../utils/haptics';
 
 interface DashboardScreenProps {
@@ -78,6 +82,11 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const [showColorPrismModal, setShowColorPrismModal] = useState(false);
   const [showSpeedBrainModal, setShowSpeedBrainModal] = useState(false);
   const [showConceptLabHub, setShowConceptLabHub] = useState(false);
+  const [showDailyBrainGymModal, setShowDailyBrainGymModal] = useState(false);
+  const [showBrainMatrixModal, setShowBrainMatrixModal] = useState(false);
+  const [showOlympiadTestModal, setShowOlympiadTestModal] = useState(false);
+  const [showWeakTopicModal, setShowWeakTopicModal] = useState(false);
+  const [selectedWeakTopic, setSelectedWeakTopic] = useState<WeakTopicItem | null>(null);
   const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
 
   const handleOpenConceptLab = (labId: string) => {
@@ -140,6 +149,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
   const todayStr = getTodayDateString();
   const isCompletedToday = profile.historyDatesCompleted.includes(todayStr);
+  const isWorkoutDoneToday = (profile.dailyWorkoutCompletedDates || []).includes(todayStr);
+  const currentWeakTopic = (profile.weakTopics && profile.weakTopics.length > 0) ? profile.weakTopics[0] : null;
   const isFreeSpinReady = profile.lastSpinDate !== todayStr;
   const currentAvatar = KID_AVATARS.find((a) => a.id === profile.avatarId) || KID_AVATARS[0];
   const gradeConfig = GRADE_OPTIONS.find((g) => g.grade === profile.grade) || GRADE_OPTIONS[0];
@@ -414,6 +425,90 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             <Text style={styles.luckySpinActionText}>SPIN ›</Text>
           </View>
         </TouchableOpacity>
+
+        {/* Daily Super Kid Brain Gym Banner (3-Step Daily Workout) */}
+        <View style={styles.dailyGymCard}>
+          <View style={styles.dailyGymTopRow}>
+            <View style={[styles.dailyGymBadge, isWorkoutDoneToday && styles.dailyGymBadgeDone]}>
+              <Text style={styles.dailyGymBadgeText}>
+                {isWorkoutDoneToday ? '✅ TODAY’S WORKOUT SEALED' : '🔥 DAILY BRAIN GYM READY'}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.brainMatrixPill}
+              activeOpacity={0.8}
+              onPress={() => {
+                triggerHaptic('light');
+                setShowBrainMatrixModal(true);
+              }}
+            >
+              <Text style={styles.brainMatrixPillText}>Brain Matrix 📊</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.dailyGymMainRow}>
+            <View style={styles.dailyGymIconCircle}>
+              <Text style={styles.dailyGymIconEmoji}>🏋️‍♂️</Text>
+            </View>
+            <View style={styles.dailyGymTextBox}>
+              <Text style={styles.dailyGymTitle}>Super Kid Daily Workout</Text>
+              <Text style={styles.dailyGymSub}>
+                1 Logic Puzzle + 1 STEM Lab Mission + 60s Speed Sprint
+              </Text>
+            </View>
+          </View>
+
+          <TouchableOpacity
+            style={[styles.dailyGymActionBtn, isWorkoutDoneToday && styles.dailyGymActionBtnDone]}
+            activeOpacity={0.88}
+            onPress={() => {
+              triggerHaptic('medium');
+              setShowDailyBrainGymModal(true);
+            }}
+          >
+            <Text style={styles.dailyGymActionText}>
+              {isWorkoutDoneToday ? 'Review Today’s Workout 🌟' : 'Start 3-Step Workout 🚀 (+50 ⭐)'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Adaptive Weak Topic Remediation Booster */}
+        {currentWeakTopic && currentWeakTopic.status !== 'mastered' && (
+          <TouchableOpacity
+            style={styles.weakTopicCard}
+            activeOpacity={0.9}
+            onPress={() => {
+              triggerHaptic('medium');
+              setSelectedWeakTopic(currentWeakTopic);
+              setShowWeakTopicModal(true);
+            }}
+          >
+            <View style={styles.weakTopicTopRow}>
+              <View style={styles.weakTopicBadge}>
+                <Text style={styles.weakTopicBadgeText}>🎯 TARGETED BOOSTER</Text>
+              </View>
+              <Text style={styles.weakTopicAccuracy}>
+                Mastery: <Text style={{ color: '#EF4444', fontWeight: '900' }}>{currentWeakTopic.accuracyPercentage}%</Text>
+              </Text>
+            </View>
+
+            <View style={styles.weakTopicContentRow}>
+              <View style={styles.weakTopicIconBox}>
+                <Text style={styles.weakTopicIconEmoji}>⚠️</Text>
+              </View>
+              <View style={styles.weakTopicTextBox}>
+                <Text style={styles.weakTopicTitle}>{currentWeakTopic.chapterTitle}</Text>
+                <Text style={styles.weakTopicSub}>{currentWeakTopic.conceptName}</Text>
+                <Text style={styles.weakTopicHint}>
+                  कमज़ोर टॉपिक की 3-मिनट ख़ास प्रैक्टिस • Turn this into 100%! 🚀
+                </Text>
+              </View>
+              <View style={styles.weakTopicGoBtn}>
+                <Text style={styles.weakTopicGoText}>Fix ▶</Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        )}
 
         {/* Section Heading: Clean & Minimal */}
         <View style={styles.sectionHeaderRow}>
@@ -710,6 +805,34 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             </TouchableOpacity>
           </View>
         </View>
+
+        {/* Weekly Olympiad & Advance HOTS Benchmark Test Banner */}
+        <TouchableOpacity
+          style={styles.olympiadBanner}
+          activeOpacity={0.88}
+          onPress={() => {
+            triggerHaptic('medium');
+            setShowOlympiadTestModal(true);
+          }}
+        >
+          <View style={styles.olympiadIconCircle}>
+            <Text style={styles.olympiadIconEmoji}>🏅</Text>
+          </View>
+          <View style={styles.olympiadTextBox}>
+            <View style={styles.olympiadBadgeRow}>
+              <View style={styles.olympiadBadge}>
+                <Text style={styles.olympiadBadgeText}>WEEKLY BENCHMARK</Text>
+              </View>
+            </View>
+            <Text style={styles.olympiadTitle}>Weekly STEM Olympiad Test</Text>
+            <Text style={styles.olympiadSub}>
+              NCERT + HOTS Thinking Questions • Diagnostic Parent Report
+            </Text>
+          </View>
+          <View style={styles.olympiadActionBtn}>
+            <Text style={styles.olympiadActionText}>TEST ›</Text>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
 
       {/* Profile & Settings Modal — Holds Streak, Stats, Avatar & Options */}
@@ -1010,6 +1133,43 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         onClose={() => setShowSpeedBrainModal(false)}
         userGrade={profile.grade}
       />
+
+      <DailyBrainGymModal
+        visible={showDailyBrainGymModal}
+        onClose={() => setShowDailyBrainGymModal(false)}
+        userGrade={profile.grade}
+        onLaunchLab={(labId) => {
+          handleOpenConceptLab(labId);
+        }}
+        onLaunchSpeedBrain={() => {
+          setShowSpeedBrainModal(true);
+        }}
+      />
+
+      <BrainDevelopmentMatrixModal
+        visible={showBrainMatrixModal}
+        onClose={() => setShowBrainMatrixModal(false)}
+        userGrade={profile.grade}
+        onOpenLab={() => {
+          setShowConceptLabHub(true);
+        }}
+      />
+
+      <WeeklyOlympiadTestModal
+        visible={showOlympiadTestModal}
+        onClose={() => setShowOlympiadTestModal(false)}
+        userGrade={profile.grade}
+      />
+
+      <TargetedWeakTopicModal
+        visible={showWeakTopicModal}
+        onClose={() => {
+          setShowWeakTopicModal(false);
+          setSelectedWeakTopic(null);
+        }}
+        userGrade={profile.grade}
+        topic={selectedWeakTopic}
+      />
     </SafeAreaView>
   );
 };
@@ -1175,6 +1335,257 @@ const styles = StyleSheet.create({
   heroProgressBar: {
     height: '100%',
     borderRadius: 4,
+  },
+
+  // Daily Super Kid Brain Gym Card Styles
+  dailyGymCard: {
+    backgroundColor: '#0F172A',
+    borderRadius: 20,
+    padding: 16,
+    marginBottom: 14,
+    borderWidth: 1.5,
+    borderColor: '#8B5CF6',
+    ...SHADOWS.card,
+  },
+  dailyGymTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  dailyGymBadge: {
+    backgroundColor: 'rgba(139, 92, 246, 0.2)',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: '#8B5CF6',
+  },
+  dailyGymBadgeDone: {
+    backgroundColor: 'rgba(16, 185, 129, 0.2)',
+    borderColor: '#10B981',
+  },
+  dailyGymBadgeText: {
+    color: '#C4B5FD',
+    fontSize: 9,
+    fontWeight: '900',
+    letterSpacing: 0.5,
+  },
+  brainMatrixPill: {
+    backgroundColor: '#1E293B',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: BORDER_RADIUS.full,
+    borderWidth: 1,
+    borderColor: '#38BDF8',
+  },
+  brainMatrixPillText: {
+    color: '#38BDF8',
+    fontSize: 10,
+    fontWeight: '800',
+  },
+  dailyGymMainRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 12,
+  },
+  dailyGymIconCircle: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: '#1E293B',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1.5,
+    borderColor: '#8B5CF6',
+  },
+  dailyGymIconEmoji: {
+    fontSize: 22,
+  },
+  dailyGymTextBox: {
+    flex: 1,
+  },
+  dailyGymTitle: {
+    color: '#F8FAFC',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  dailyGymSub: {
+    color: '#94A3B8',
+    fontSize: 11,
+    marginTop: 2,
+    lineHeight: 15,
+  },
+  dailyGymActionBtn: {
+    backgroundColor: '#8B5CF6',
+    borderRadius: BORDER_RADIUS.lg,
+    paddingVertical: 11,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 3,
+    borderBottomColor: '#6D28D9',
+  },
+  dailyGymActionBtnDone: {
+    backgroundColor: '#059669',
+    borderBottomColor: '#047857',
+  },
+  dailyGymActionText: {
+    color: '#FFF',
+    fontSize: 13,
+    fontWeight: '900',
+  },
+
+  // Adaptive Weak Topic Remediation Card Styles
+  weakTopicCard: {
+    backgroundColor: '#FFFBEB',
+    borderRadius: 18,
+    padding: 14,
+    marginBottom: 14,
+    borderWidth: 1.5,
+    borderColor: '#F59E0B',
+    ...SHADOWS.card,
+  },
+  weakTopicTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  weakTopicBadge: {
+    backgroundColor: 'rgba(245, 158, 11, 0.2)',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: '#F59E0B',
+  },
+  weakTopicBadgeText: {
+    color: '#B45309',
+    fontSize: 9,
+    fontWeight: '900',
+  },
+  weakTopicAccuracy: {
+    fontSize: 11,
+    color: '#78350F',
+    fontWeight: '700',
+  },
+  weakTopicContentRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  weakTopicIconBox: {
+    width: 38,
+    height: 38,
+    borderRadius: 12,
+    backgroundColor: '#FEF3C7',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  weakTopicIconEmoji: {
+    fontSize: 20,
+  },
+  weakTopicTextBox: {
+    flex: 1,
+  },
+  weakTopicTitle: {
+    color: '#0F172A',
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  weakTopicSub: {
+    color: '#475569',
+    fontSize: 11,
+    marginTop: 1,
+  },
+  weakTopicHint: {
+    color: '#92400E',
+    fontSize: 10,
+    fontStyle: 'italic',
+    marginTop: 4,
+  },
+  weakTopicGoBtn: {
+    backgroundColor: '#F59E0B',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: BORDER_RADIUS.md,
+  },
+  weakTopicGoText: {
+    color: '#78350F',
+    fontSize: 11,
+    fontWeight: '900',
+  },
+
+  // Weekly Olympiad Banner Styles
+  olympiadBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#1E1B4B',
+    borderRadius: 20,
+    padding: 16,
+    marginVertical: 12,
+    borderWidth: 1.5,
+    borderColor: '#818CF8',
+    ...SHADOWS.card,
+  },
+  olympiadIconCircle: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#312E81',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1.5,
+    borderColor: '#C7D2FE',
+    marginRight: 12,
+  },
+  olympiadIconEmoji: {
+    fontSize: 24,
+  },
+  olympiadTextBox: {
+    flex: 1,
+  },
+  olympiadBadgeRow: {
+    flexDirection: 'row',
+    marginBottom: 4,
+  },
+  olympiadBadge: {
+    backgroundColor: 'rgba(129, 140, 248, 0.25)',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: '#818CF8',
+  },
+  olympiadBadgeText: {
+    color: '#C7D2FE',
+    fontSize: 8,
+    fontWeight: '900',
+    letterSpacing: 0.5,
+  },
+  olympiadTitle: {
+    color: '#FFF',
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  olympiadSub: {
+    color: '#A5B4FC',
+    fontSize: 11,
+    marginTop: 2,
+    lineHeight: 15,
+  },
+  olympiadActionBtn: {
+    backgroundColor: '#4F46E5',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: BORDER_RADIUS.md,
+    marginLeft: 8,
+  },
+  olympiadActionText: {
+    color: '#FFF',
+    fontSize: 11,
+    fontWeight: '900',
   },
 
   // Section Header

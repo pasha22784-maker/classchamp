@@ -90,6 +90,28 @@ export interface UserProfile {
   xp?: number;
   streakShields?: number;
   lastSpinDate?: string; // YYYY-MM-DD
+  // Adaptive Learning & Cognitive Development
+  weakTopics?: WeakTopicItem[];
+  cognitiveScores?: CognitiveProfileScores;
+  dailyWorkoutCompletedDates?: string[];
+}
+
+export interface WeakTopicItem {
+  id: string;
+  subject: Subject;
+  chapterTitle: string;
+  conceptName: string;
+  accuracyPercentage: number;
+  attemptsCount: number;
+  status: 'needs_practice' | 'improving' | 'mastered';
+  lastPracticedDate: string;
+}
+
+export interface CognitiveProfileScores {
+  logicScore: number;       // 0 - 100
+  spatialScore: number;     // 0 - 100
+  memorySpeedScore: number; // 0 - 100
+  problemSolvingScore: number; // 0 - 100
 }
 
 export interface AppGlobalConfig {

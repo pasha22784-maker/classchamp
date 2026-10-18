@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { UserProfile, Grade, Subject } from '../types';
+import { UserProfile, Grade, Subject, WeakTopicItem, CognitiveProfileScores } from '../types';
 import { syncProfileToCloud } from '../services/supabase';
+import { getDefaultWeakTopicsForGrade } from '../data/cognitiveEngine';
 
 const STORAGE_KEY = '@classchamp_user_profile_v1';
 
@@ -36,6 +37,14 @@ const DEFAULT_PROFILE: UserProfile = {
   xp: 0,
   streakShields: 1, // Give 1 complimentary streak shield to start!
   lastSpinDate: '',
+  weakTopics: getDefaultWeakTopicsForGrade(1),
+  cognitiveScores: {
+    logicScore: 88,
+    spatialScore: 84,
+    memorySpeedScore: 86,
+    problemSolvingScore: 89,
+  },
+  dailyWorkoutCompletedDates: [],
 };
 
 interface UserState {
@@ -51,6 +60,9 @@ interface UserState {
   recordSpinUsed: () => Promise<void>;
   recordQuizCompletion: (starsEarned: number) => Promise<{ newStreak: number; earnedTrophy: boolean }>;
   setLastSubjectLesson: (subject: Subject, chapterTitle: string) => Promise<void>;
+  recordTopicPerformance: (subject: Subject, chapterTitle: string, accuracy: number) => Promise<void>;
+  markDailyWorkoutDone: () => Promise<void>;
+  updateCognitiveScore: (track: keyof CognitiveProfileScores, delta: number) => Promise<void>;
   resetProgress: () => Promise<void>;
 }
 
@@ -90,6 +102,16 @@ export const useUserStore = create<UserState>((set, get) => ({
           streakShields: shields,
           xp: parsed.xp ?? 0,
           lastSpinDate: parsed.lastSpinDate ?? '',
+          weakTopics: parsed.weakTopics && parsed.weakTopics.length > 0
+            ? parsed.weakTopics
+            : getDefaultWeakTopicsForGrade(parsed.grade || 1),
+          cognitiveScores: parsed.cognitiveScores ?? {
+            logicScore: 88,
+            spatialScore: 84,
+            memorySpeedScore: 86,
+            problemSolvingScore: 89,
+          },
+          dailyWorkoutCompletedDates: parsed.dailyWorkoutCompletedDates ?? [],
         };
         set({ profile: updatedProfile, isHydrated: true });
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
@@ -111,7 +133,12 @@ export const useUserStore = create<UserState>((set, get) => ({
   },
 
   setGrade: async (grade: Grade) => {
-    const updated = { ...get().profile, grade };
+    const current = get().profile;
+    const updated = {
+      ...current,
+      grade,
+      weakTopics: getDefaultWeakTopicsForGrade(grade),
+    };
     set({ profile: updated });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
     syncProfileToCloud(updated);
@@ -220,6 +247,85 @@ export const useUserStore = create<UserState>((set, get) => ({
     };
     set({ profile: updatedProfile });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
+  },
+
+  recordTopicPerformance: async (subject: Subject, chapterTitle: string, accuracy: number) => {
+    const current = get().profile;
+    const existingWeak = [...(current.weakTopics || [])];
+    const today = getTodayDateString();
+
+    const idx = existingWeak.findIndex(
+      (t) => t.chapterTitle.toLowerCase() === chapterTitle.toLowerCase() && t.subject === subject
+    );
+
+    if (idx >= 0) {
+      const topic = existingWeak[idx];
+      const newStatus = accuracy >= 80 ? 'mastered' : accuracy >= 60 ? 'improving' : 'needs_practice';
+      existingWeak[idx] = {
+        ...topic,
+        accuracyPercentage: Math.round((topic.accuracyPercentage + accuracy) / 2),
+        attemptsCount: topic.attemptsCount + 1,
+        status: newStatus,
+        lastPracticedDate: today,
+      };
+    } else if (accuracy < 75) {
+      existingWeak.unshift({
+        id: `weak_${Date.now()}`,
+        subject,
+        chapterTitle,
+        conceptName: `Core ${subject.toUpperCase()} Application`,
+        accuracyPercentage: accuracy,
+        attemptsCount: 1,
+        status: accuracy >= 60 ? 'improving' : 'needs_practice',
+        lastPracticedDate: today,
+      });
+    }
+
+    const updatedProfile: UserProfile = {
+      ...current,
+      weakTopics: existingWeak,
+    };
+    set({ profile: updatedProfile });
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
+    syncProfileToCloud(updatedProfile);
+  },
+
+  markDailyWorkoutDone: async () => {
+    const current = get().profile;
+    const today = getTodayDateString();
+    const completed = current.dailyWorkoutCompletedDates || [];
+    if (!completed.includes(today)) {
+      const updated: UserProfile = {
+        ...current,
+        totalStars: current.totalStars + 50,
+        xp: (current.xp || 0) + 100,
+        dailyWorkoutCompletedDates: [...completed, today],
+      };
+      set({ profile: updated });
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      syncProfileToCloud(updated);
+    }
+  },
+
+  updateCognitiveScore: async (track: keyof CognitiveProfileScores, delta: number) => {
+    const current = get().profile;
+    const scores = current.cognitiveScores || {
+      logicScore: 88,
+      spatialScore: 84,
+      memorySpeedScore: 86,
+      problemSolvingScore: 89,
+    };
+    const newScore = Math.min(100, Math.max(50, (scores[track] || 85) + delta));
+    const updated: UserProfile = {
+      ...current,
+      cognitiveScores: {
+        ...scores,
+        [track]: newScore,
+      },
+    };
+    set({ profile: updated });
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
   },
 
   resetProgress: async () => {

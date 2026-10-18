@@ -44,6 +44,12 @@ export const CelebrationScreen: React.FC<CelebrationScreenProps> = ({
 
       // Advance to next chapter for the subject so student resumes ahead next time
       if (result.chapterTitle) {
+        await useUserStore.getState().recordTopicPerformance(
+          result.subject,
+          result.chapterTitle,
+          result.scorePercentage
+        );
+
         const chapters = getChaptersForGradeSubject(result.grade, result.subject);
         const currentIndex = chapters.findIndex((c) => c.title === result.chapterTitle);
         if (currentIndex >= 0 && currentIndex + 1 < chapters.length) {
