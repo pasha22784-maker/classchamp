@@ -205,3 +205,42 @@ export const CONCEPT_LABS_BY_GRADE: Record<GradeGroupKey, ConceptLabItem[]> = {
     },
   ],
 };
+
+export const SCIENCE_STEM_LABS: ConceptLabItem[] = [
+  {
+    id: 'magnet_lab',
+    title: 'Magnetic Poles & Field Lab',
+    subtitle: 'Opposite poles attract, like poles repel & iron testing',
+    icon: '🧲',
+    badge: 'NCERT Science • Magnetism',
+    accentColor: '#EF4444',
+    boxColor: '#7F1D1D',
+    ncertTopic: 'Magnetic Poles & Materials',
+    pedagogicalOutcome: {
+      english: 'Children physically test North and South magnetic poles and discover which everyday materials (iron vs wood) are magnetic.',
+      hindi: 'बच्चे चुंबक के North और South पोल्स को जोड़कर आकर्षण (Attraction) और प्रतिकर्षण (Repulsion) का प्रत्यक्ष अनुभव करते हैं।',
+    },
+  },
+  {
+    id: 'color_prism',
+    title: 'Color Mixing & Rainbow Prism',
+    subtitle: 'Primary color synthesis & glass prism light dispersion',
+    icon: '🌈',
+    badge: 'NCERT Science • Optics & Light',
+    accentColor: '#EC4899',
+    boxColor: '#831843',
+    ncertTopic: 'Light Dispersion & Color Theory',
+    pedagogicalOutcome: {
+      english: 'Drops of Red, Yellow, and Blue mix in a visual beaker, and white light refracts through a glass prism into 7 VIBGYOR colors.',
+      hindi: 'बीकर में लाल, पीले और नीले रंग मिलाकर नए रंग बनाना और कांच के प्रिज्म से सफेद रोशनी को 7 रंगों में बिखरते देखना।',
+    },
+  },
+];
+
+export const ALL_CONCEPT_LABS: ConceptLabItem[] = [
+  ...CONCEPT_LABS_BY_GRADE.lkg_ukg,
+  ...CONCEPT_LABS_BY_GRADE.class_1_2,
+  ...CONCEPT_LABS_BY_GRADE.class_3_4,
+  ...CONCEPT_LABS_BY_GRADE.class_5_6,
+  ...SCIENCE_STEM_LABS,
+];

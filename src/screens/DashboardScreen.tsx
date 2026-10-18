@@ -33,6 +33,9 @@ import { PatternBuilderGameModal } from '../components/conceptGames/PatternBuild
 import { PlaceValueRocketModal } from '../components/conceptGames/PlaceValueRocketModal';
 import { GeoAreaPerimeterModal } from '../components/conceptGames/GeoAreaPerimeterModal';
 import { IntegerSubmarineModal } from '../components/conceptGames/IntegerSubmarineModal';
+import { MagnetLabModal } from '../components/conceptGames/MagnetLabModal';
+import { ColorPrismLabModal } from '../components/conceptGames/ColorPrismLabModal';
+import { ConceptLabHubModal } from '../components/conceptGames/ConceptLabHubModal';
 import { CONCEPT_LABS_BY_GRADE, getGradeGroupKey } from '../data/conceptLabsRegistry';
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
 import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
@@ -70,6 +73,9 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const [showPlaceValueRocketModal, setShowPlaceValueRocketModal] = useState(false);
   const [showGeoAreaPerimeterModal, setShowGeoAreaPerimeterModal] = useState(false);
   const [showIntegerSubmarineModal, setShowIntegerSubmarineModal] = useState(false);
+  const [showMagnetLabModal, setShowMagnetLabModal] = useState(false);
+  const [showColorPrismModal, setShowColorPrismModal] = useState(false);
+  const [showConceptLabHub, setShowConceptLabHub] = useState(false);
   const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
 
   const handleOpenConceptLab = (labId: string) => {
@@ -86,6 +92,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
     else if (labId === 'angle_laser') setShowAngleShooterModal(true);
     else if (labId === 'geo_area_perimeter') setShowGeoAreaPerimeterModal(true);
     else if (labId === 'integer_submarine') setShowIntegerSubmarineModal(true);
+    else if (labId === 'magnet_lab') setShowMagnetLabModal(true);
+    else if (labId === 'color_prism') setShowColorPrismModal(true);
   };
   
   // App-open Streak Greeting (shown once when app opens, then dismissed)
@@ -535,6 +543,18 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           <TouchableOpacity
             style={styles.shortcutPill}
             onPress={() => {
+              triggerHaptic('medium');
+              setShowConceptLabHub(true);
+            }}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.shortcutEmoji}>🔬</Text>
+            <Text style={styles.shortcutLabel}>STEM Labs</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.shortcutPill}
+            onPress={() => {
               triggerHaptic('light');
               onOpenParentZone();
             }}
@@ -606,43 +626,64 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </TouchableOpacity>
         </View>
 
-        {/* Concept Labs: Physics Wallah & PhET Style Practical Hands-On Simulations */}
-        <View style={styles.arcadeHeaderRow}>
-          <View>
-            <Text style={styles.arcadeTitle}>🧪 Concept Labs</Text>
-            <Text style={styles.arcadeSub}>Practical Learning • खेल-खेल में सीखें!</Text>
+        {/* STEM & Math Practical Concept Labs Hero Gateway */}
+        <TouchableOpacity
+          style={styles.labGatewayCard}
+          activeOpacity={0.92}
+          onPress={() => {
+            triggerHaptic('medium');
+            setShowConceptLabHub(true);
+          }}
+        >
+          {/* Top Live Tag & Grade Badge */}
+          <View style={styles.labGatewayTopRow}>
+            <View style={styles.labGatewayLiveBadge}>
+              <View style={styles.labGatewayLiveDot} />
+              <Text style={styles.labGatewayLiveText}>EXPERIENTIAL STEM LABS</Text>
+            </View>
+            <View style={styles.labGatewayGradeBadge}>
+              <Text style={styles.labGatewayGradeText}>{gradeConfig.label} • NCERT Experiments</Text>
+            </View>
           </View>
-          <View style={[styles.arcadeLiveBadge, { backgroundColor: '#10B981' }]}>
-            <Text style={styles.arcadeLiveText}>PRACTICAL 🔬</Text>
-          </View>
-        </View>
 
-        <View style={styles.conceptLabList}>
-          {CONCEPT_LABS_BY_GRADE[getGradeGroupKey(profile.grade)].map((lab) => (
-            <TouchableOpacity
-              key={lab.id}
-              style={[styles.conceptLabCard, { backgroundColor: '#1E293B', borderColor: lab.accentColor }]}
-              activeOpacity={0.88}
-              onPress={() => handleOpenConceptLab(lab.id)}
-            >
-              <View style={[styles.conceptLabIconBox, { backgroundColor: lab.boxColor }]}>
-                <Text style={styles.conceptLabEmoji}>{lab.icon}</Text>
-              </View>
-              <View style={styles.conceptLabTextBox}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
-                  <Text style={styles.conceptLabTitle}>{lab.title}</Text>
-                </View>
-                <View style={{ marginBottom: 3 }}>
-                  <Text style={{ color: lab.accentColor, fontSize: 10, fontWeight: '800' }}>{lab.badge}</Text>
-                </View>
-                <Text style={styles.conceptLabDesc}>{lab.subtitle}</Text>
-              </View>
-              <View style={[styles.conceptLabPlayBtn, { backgroundColor: lab.accentColor }]}>
-                <Text style={styles.conceptLabPlayText}>Lab ▶</Text>
-              </View>
-            </TouchableOpacity>
-          ))}
-        </View>
+          {/* Main Visual Content */}
+          <View style={styles.labGatewayMainRow}>
+            <View style={styles.labGatewayTextCol}>
+              <Text style={styles.labGatewayTitle}>🔬 Practical Concept Labs</Text>
+              <Text style={styles.labGatewayPunchline}>
+                Enter the Lab to Practice! 🧪
+              </Text>
+              <Text style={styles.labGatewayDesc}>
+                फॉर्मूले रटना छोड़ें • तराजू, घड़ी, पिज़्ज़ा, चुंबक और प्रिज्म से खुद प्रयोग करके सीखें!
+              </Text>
+            </View>
+
+            <View style={styles.labGatewayFlaskBox}>
+              <Text style={styles.labGatewayFlaskEmoji}>🧪</Text>
+            </View>
+          </View>
+
+          {/* Feature Badges */}
+          <View style={styles.labGatewayPillsRow}>
+            <View style={styles.labFeaturePill}>
+              <Text style={styles.labFeatureText}>⚖️ Balance Beam</Text>
+            </View>
+            <View style={styles.labFeaturePill}>
+              <Text style={styles.labFeatureText}>🍕 Fraction Slices</Text>
+            </View>
+            <View style={styles.labFeaturePill}>
+              <Text style={styles.labFeatureText}>🧲 Magnets & Optics</Text>
+            </View>
+          </View>
+
+          {/* Big Action Button */}
+          <View style={styles.enterLabActionBtn}>
+            <Text style={styles.enterLabActionText}>Enter the Lab to Practice 🚀</Text>
+            <View style={styles.enterLabActionArrow}>
+              <Text style={styles.enterLabArrowText}>▶</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
 
       {/* Profile & Settings Modal — Holds Streak, Stats, Avatar & Options */}
@@ -911,6 +952,26 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
       <AngleShooterGameModal
         visible={showAngleShooterModal}
         onClose={() => setShowAngleShooterModal(false)}
+      />
+
+      <MagnetLabModal
+        visible={showMagnetLabModal}
+        onClose={() => setShowMagnetLabModal(false)}
+      />
+
+      <ColorPrismLabModal
+        visible={showColorPrismModal}
+        onClose={() => setShowColorPrismModal(false)}
+      />
+
+      <ConceptLabHubModal
+        visible={showConceptLabHub}
+        onClose={() => setShowConceptLabHub(false)}
+        userGrade={profile.grade}
+        onSelectLab={(labId) => {
+          setShowConceptLabHub(false);
+          handleOpenConceptLab(labId);
+        }}
       />
     </SafeAreaView>
   );
@@ -1662,51 +1723,145 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
 
-  // 4. Concept Labs
-  conceptLabList: {
-    gap: 10,
-    marginBottom: SPACING.xl,
-  },
-  conceptLabCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  // 4. STEM & Math Practical Concept Labs Hero Gateway Card
+  labGatewayCard: {
+    backgroundColor: '#0F172A',
     borderRadius: BORDER_RADIUS.xl,
-    padding: SPACING.md,
-    borderWidth: 1.5,
+    padding: SPACING.lg,
+    borderWidth: 2,
+    borderColor: '#10B981',
+    marginBottom: SPACING.xl,
     ...SHADOWS.medium,
   },
-  conceptLabIconBox: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    justifyContent: 'center',
+  labGatewayTopRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginRight: SPACING.sm,
+    marginBottom: SPACING.sm,
   },
-  conceptLabEmoji: {
-    fontSize: 24,
+  labGatewayLiveBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: '#064E3B',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: BORDER_RADIUS.round,
+    borderWidth: 1,
+    borderColor: '#34D399',
   },
-  conceptLabTextBox: {
-    flex: 1,
+  labGatewayLiveDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#34D399',
   },
-  conceptLabTitle: {
-    fontSize: 15,
+  labGatewayLiveText: {
+    color: '#A7F3D0',
+    fontSize: 9,
     fontWeight: '900',
-    color: '#FFFFFF',
+    letterSpacing: 0.5,
+  },
+  labGatewayGradeBadge: {
+    backgroundColor: '#1E293B',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: BORDER_RADIUS.round,
+    borderWidth: 1,
+    borderColor: '#475569',
+  },
+  labGatewayGradeText: {
+    color: '#94A3B8',
+    fontSize: 10,
+    fontWeight: '700',
+  },
+  labGatewayMainRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: SPACING.sm,
+  },
+  labGatewayTextCol: {
+    flex: 1,
+    paddingRight: SPACING.sm,
+  },
+  labGatewayTitle: {
+    color: '#34D399',
+    fontSize: 12,
+    fontWeight: '900',
+    letterSpacing: 1,
     marginBottom: 2,
   },
-  conceptLabDesc: {
-    fontSize: 11,
+  labGatewayPunchline: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '900',
+    marginBottom: 4,
+  },
+  labGatewayDesc: {
     color: '#94A3B8',
-    lineHeight: 15,
+    fontSize: 11,
+    lineHeight: 16,
   },
-  conceptLabPlayBtn: {
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: BORDER_RADIUS.round,
-    marginLeft: 8,
+  labGatewayFlaskBox: {
+    width: 58,
+    height: 58,
+    borderRadius: 18,
+    backgroundColor: '#065F46',
+    borderWidth: 2,
+    borderColor: '#10B981',
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...SHADOWS.small,
   },
-  conceptLabPlayText: {
+  labGatewayFlaskEmoji: {
+    fontSize: 30,
+  },
+  labGatewayPillsRow: {
+    flexDirection: 'row',
+    gap: 6,
+    marginVertical: SPACING.xs,
+  },
+  labFeaturePill: {
+    backgroundColor: '#1E293B',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: BORDER_RADIUS.sm,
+    borderWidth: 1,
+    borderColor: '#334155',
+  },
+  labFeatureText: {
+    color: '#CBD5E1',
+    fontSize: 10,
+    fontWeight: '700',
+  },
+  enterLabActionBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#10B981',
+    borderRadius: BORDER_RADIUS.lg,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginTop: SPACING.sm,
+    borderWidth: 1,
+    borderColor: '#34D399',
+  },
+  enterLabActionText: {
+    color: '#022C22',
+    fontSize: 14,
+    fontWeight: '900',
+    letterSpacing: 0.5,
+  },
+  enterLabActionArrow: {
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: '#065F46',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  enterLabArrowText: {
     color: '#FFFFFF',
     fontSize: 12,
     fontWeight: '900',

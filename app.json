@@ -2,18 +2,18 @@
   "expo": {
     "name": "ClassChamp",
     "slug": "classchamp",
-    "version": "1.3.9",
+    "version": "1.3.10",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.classchamp.app",
-      "buildNumber": "28"
+      "buildNumber": "29"
     },
     "android": {
       "package": "com.classchamp.app",
-      "versionCode": 28,
+      "versionCode": 29,
       "permissions": [
         "REQUEST_INSTALL_PACKAGES"
       ],
