@@ -86,6 +86,10 @@ export interface UserProfile {
   role?: 'admin' | 'user';
   subscriptionPlan?: 'monthly' | 'yearly' | null;
   subscriptionExpiresAt?: string; // ISO string
+  // Gamification & Rewards
+  xp?: number;
+  streakShields?: number;
+  lastSpinDate?: string; // YYYY-MM-DD
 }
 
 export interface AppGlobalConfig {

@@ -19,6 +19,9 @@ import {
   ChampHeader,
   PaywallModal,
 } from '../components/common';
+import { LuckySpinModal } from '../components/gamification/LuckySpinModal';
+import { BalloonPopGameModal } from '../components/gamification/BalloonPopGameModal';
+import { MemoryMatchModal } from '../components/gamification/MemoryMatchModal';
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
 import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
 import { fetchGlobalConfig } from '../services/adminConfig';
@@ -41,6 +44,9 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const { profile, loadProfile, setAvatar } = useUserStore();
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showPaywallModal, setShowPaywallModal] = useState(false);
+  const [showLuckySpinModal, setShowLuckySpinModal] = useState(false);
+  const [showBalloonPopModal, setShowBalloonPopModal] = useState(false);
+  const [showMemoryMatchModal, setShowMemoryMatchModal] = useState(false);
   const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
   
   // App-open Streak Greeting (shown once when app opens, then dismissed)
@@ -84,6 +90,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
   const todayStr = getTodayDateString();
   const isCompletedToday = profile.historyDatesCompleted.includes(todayStr);
+  const isFreeSpinReady = profile.lastSpinDate !== todayStr;
   const currentAvatar = KID_AVATARS.find((a) => a.id === profile.avatarId) || KID_AVATARS[0];
   const gradeConfig = GRADE_OPTIONS.find((g) => g.grade === profile.grade) || GRADE_OPTIONS[0];
   const bookInfo = NCERT_BOOKS[profile.grade] || {
@@ -237,6 +244,47 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </TouchableOpacity>
         )}
 
+        {/* Child Gamified Loot Strip: Streak, Shield, Stars, XP */}
+        <View style={styles.champLootStrip}>
+          <View style={styles.lootStripItem}>
+            <Text style={styles.lootStripEmoji}>🔥</Text>
+            <View>
+              <Text style={styles.lootStripVal}>{profile.currentStreak}d</Text>
+              <Text style={styles.lootStripLbl}>Streak</Text>
+            </View>
+          </View>
+
+          <View style={styles.lootStripDivider} />
+
+          <View style={styles.lootStripItem}>
+            <Text style={styles.lootStripEmoji}>🛡️</Text>
+            <View>
+              <Text style={styles.lootStripVal}>{profile.streakShields ?? 0}</Text>
+              <Text style={styles.lootStripLbl}>Shields</Text>
+            </View>
+          </View>
+
+          <View style={styles.lootStripDivider} />
+
+          <View style={styles.lootStripItem}>
+            <Text style={styles.lootStripEmoji}>⭐</Text>
+            <View>
+              <Text style={styles.lootStripVal}>{profile.totalStars}</Text>
+              <Text style={styles.lootStripLbl}>Stars</Text>
+            </View>
+          </View>
+
+          <View style={styles.lootStripDivider} />
+
+          <View style={styles.lootStripItem}>
+            <Text style={styles.lootStripEmoji}>⚡</Text>
+            <View>
+              <Text style={styles.lootStripVal}>{profile.xp ?? 0}</Text>
+              <Text style={styles.lootStripLbl}>XP</Text>
+            </View>
+          </View>
+        </View>
+
         {/* Kid-Friendly Vibrant Hero Card: "Daily 10-Min Mission" */}
         <View
           style={[
@@ -286,6 +334,36 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             />
           </View>
         </View>
+
+        {/* Daily Lucky Spin Banner */}
+        <TouchableOpacity
+          style={styles.luckySpinBanner}
+          activeOpacity={0.88}
+          onPress={() => {
+            triggerHaptic('medium');
+            setShowLuckySpinModal(true);
+          }}
+        >
+          <View style={styles.luckySpinIconCircle}>
+            <Text style={styles.luckySpinIconEmoji}>🎡</Text>
+          </View>
+          <View style={styles.luckySpinTextBox}>
+            <View style={styles.luckySpinBadgeRow}>
+              <View style={[styles.luckySpinBadge, isFreeSpinReady && styles.luckySpinBadgeFree]}>
+                <Text style={styles.luckySpinBadgeText}>
+                  {isFreeSpinReady ? '🎁 FREE SPIN READY' : '⭐ EXTRA SPIN'}
+                </Text>
+              </View>
+            </View>
+            <Text style={styles.luckySpinTitle}>Daily Lucky Spin Wheel</Text>
+            <Text style={styles.luckySpinSub}>
+              Spin daily to win Stars, Shields, Trophies & XP!
+            </Text>
+          </View>
+          <View style={styles.luckySpinActionBtn}>
+            <Text style={styles.luckySpinActionText}>SPIN ›</Text>
+          </View>
+        </TouchableOpacity>
 
         {/* Section Heading: Clean & Minimal */}
         <View style={styles.sectionHeaderRow}>
@@ -427,6 +505,67 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             <Text style={styles.shortcutLabel}>Parent Zone</Text>
           </TouchableOpacity>
         </View>
+
+        {/* Champ Arcade: Exciting Kids Educational Games */}
+        <View style={styles.arcadeHeaderRow}>
+          <View>
+            <Text style={styles.arcadeTitle}>🎮 Champ Arcade</Text>
+            <Text style={styles.arcadeSub}>High-energy educational mini games</Text>
+          </View>
+          <View style={styles.arcadeLiveBadge}>
+            <Text style={styles.arcadeLiveText}>NEW ✨</Text>
+          </View>
+        </View>
+
+        <View style={styles.arcadeGrid}>
+          {/* 1. Balloon Pop Blitz */}
+          <TouchableOpacity
+            style={[styles.arcadeCard, { backgroundColor: '#0284C7' }]}
+            activeOpacity={0.88}
+            onPress={() => {
+              triggerHaptic('medium');
+              setShowBalloonPopModal(true);
+            }}
+          >
+            <View style={styles.arcadeCardTop}>
+              <Text style={styles.arcadeCardEmoji}>🎈</Text>
+              <View style={styles.arcadeCardBadge}>
+                <Text style={styles.arcadeCardBadgeText}>40s Blitz</Text>
+              </View>
+            </View>
+            <Text style={styles.arcadeCardTitle}>Balloon Pop Blitz</Text>
+            <Text style={styles.arcadeCardDesc}>
+              Pop the right balloons fast! Beat the clock & score combos 🔥
+            </Text>
+            <View style={styles.arcadeCardBtn}>
+              <Text style={styles.arcadeCardBtnText}>Play Now ▶</Text>
+            </View>
+          </TouchableOpacity>
+
+          {/* 2. Mind Match 3D */}
+          <TouchableOpacity
+            style={[styles.arcadeCard, { backgroundColor: '#4338CA' }]}
+            activeOpacity={0.88}
+            onPress={() => {
+              triggerHaptic('medium');
+              setShowMemoryMatchModal(true);
+            }}
+          >
+            <View style={styles.arcadeCardTop}>
+              <Text style={styles.arcadeCardEmoji}>🃏</Text>
+              <View style={styles.arcadeCardBadge}>
+                <Text style={styles.arcadeCardBadgeText}>Brain Power</Text>
+              </View>
+            </View>
+            <Text style={styles.arcadeCardTitle}>Mind Match 3D</Text>
+            <Text style={styles.arcadeCardDesc}>
+              Flip & match memory pairs! Earn 3-star rating & big XP.
+            </Text>
+            <View style={styles.arcadeCardBtn}>
+              <Text style={styles.arcadeCardBtnText}>Play Now ▶</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
 
       {/* Profile & Settings Modal — Holds Streak, Stats, Avatar & Options */}
@@ -485,15 +624,19 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               <View style={styles.streakStatsRow}>
                 <View style={styles.streakStatCol}>
                   <Text style={styles.streakStatVal}>⭐ {profile.totalStars}</Text>
-                  <Text style={styles.streakStatLbl}>Stars Won</Text>
+                  <Text style={styles.streakStatLbl}>Stars</Text>
+                </View>
+                <View style={styles.streakStatCol}>
+                  <Text style={styles.streakStatVal}>🛡️ {profile.streakShields ?? 0}</Text>
+                  <Text style={styles.streakStatLbl}>Shields</Text>
+                </View>
+                <View style={styles.streakStatCol}>
+                  <Text style={styles.streakStatVal}>⚡ {profile.xp ?? 0}</Text>
+                  <Text style={styles.streakStatLbl}>XP</Text>
                 </View>
                 <View style={styles.streakStatCol}>
                   <Text style={styles.streakStatVal}>🏆 {profile.totalTrophies}</Text>
                   <Text style={styles.streakStatLbl}>Trophies</Text>
-                </View>
-                <View style={styles.streakStatCol}>
-                  <Text style={styles.streakStatVal}>📅 {profile.historyDatesCompleted.length}</Text>
-                  <Text style={styles.streakStatLbl}>Days Active</Text>
                 </View>
               </View>
             </View>
@@ -616,6 +759,24 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           setShowPaywallModal(false);
           useUserStore.getState().setProStatus(true);
         }}
+      />
+
+      {/* Gamification Modals */}
+      <LuckySpinModal
+        visible={showLuckySpinModal}
+        onClose={() => setShowLuckySpinModal(false)}
+      />
+
+      <BalloonPopGameModal
+        visible={showBalloonPopModal}
+        onClose={() => setShowBalloonPopModal(false)}
+        grade={profile.grade}
+      />
+
+      <MemoryMatchModal
+        visible={showMemoryMatchModal}
+        onClose={() => setShowMemoryMatchModal(false)}
+        grade={profile.grade}
       />
     </SafeAreaView>
   );
@@ -1172,5 +1333,198 @@ const styles = StyleSheet.create({
     color: '#E2E8F0',
     fontSize: 11,
     marginTop: 2,
+  },
+
+  // 1. Gamified Loot Strip
+  champLootStrip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#1E293B',
+    borderRadius: BORDER_RADIUS.lg,
+    paddingVertical: 10,
+    paddingHorizontal: SPACING.md,
+    marginBottom: SPACING.md,
+    ...SHADOWS.small,
+  },
+  lootStripItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  lootStripEmoji: {
+    fontSize: 18,
+  },
+  lootStripVal: {
+    fontSize: 14,
+    fontWeight: '900',
+    color: '#FFFFFF',
+  },
+  lootStripLbl: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: '#94A3B8',
+  },
+  lootStripDivider: {
+    width: 1,
+    height: 22,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+  },
+
+  // 2. Lucky Spin Banner
+  luckySpinBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#312E81', // Mystical Indigo
+    borderRadius: BORDER_RADIUS.xl,
+    padding: SPACING.md,
+    marginVertical: SPACING.sm,
+    borderWidth: 2,
+    borderColor: '#F59E0B',
+    ...SHADOWS.medium,
+  },
+  luckySpinIconCircle: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#F59E0B',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: SPACING.sm,
+  },
+  luckySpinIconEmoji: {
+    fontSize: 26,
+  },
+  luckySpinTextBox: {
+    flex: 1,
+  },
+  luckySpinBadgeRow: {
+    flexDirection: 'row',
+    marginBottom: 2,
+  },
+  luckySpinBadge: {
+    backgroundColor: 'rgba(245, 158, 11, 0.25)',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#F59E0B',
+  },
+  luckySpinBadgeFree: {
+    backgroundColor: '#10B981',
+    borderColor: '#34D399',
+  },
+  luckySpinBadgeText: {
+    fontSize: 9,
+    fontWeight: '900',
+    color: '#FDE047',
+  },
+  luckySpinTitle: {
+    fontSize: 15,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    marginTop: 2,
+  },
+  luckySpinSub: {
+    fontSize: 11,
+    color: '#C7D2FE',
+    marginTop: 1,
+  },
+  luckySpinActionBtn: {
+    backgroundColor: '#F59E0B',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: BORDER_RADIUS.round,
+    marginLeft: 6,
+  },
+  luckySpinActionText: {
+    color: '#78350F',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+
+  // 3. Champ Arcade
+  arcadeHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: SPACING.lg,
+    marginBottom: SPACING.sm,
+  },
+  arcadeTitle: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: COLORS.textDark,
+  },
+  arcadeSub: {
+    fontSize: 12,
+    color: COLORS.textLight,
+  },
+  arcadeLiveBadge: {
+    backgroundColor: '#DC2626',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: BORDER_RADIUS.round,
+  },
+  arcadeLiveText: {
+    color: '#FFFFFF',
+    fontSize: 10,
+    fontWeight: '900',
+  },
+  arcadeGrid: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: SPACING.xl,
+  },
+  arcadeCard: {
+    flex: 1,
+    borderRadius: BORDER_RADIUS.xl,
+    padding: SPACING.md,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.25)',
+    ...SHADOWS.medium,
+  },
+  arcadeCardTop: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: SPACING.xs,
+  },
+  arcadeCardEmoji: {
+    fontSize: 28,
+  },
+  arcadeCardBadge: {
+    backgroundColor: 'rgba(0, 0, 0, 0.25)',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: BORDER_RADIUS.round,
+  },
+  arcadeCardBadgeText: {
+    color: '#FFFFFF',
+    fontSize: 10,
+    fontWeight: '800',
+  },
+  arcadeCardTitle: {
+    fontSize: 15,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    marginBottom: 4,
+  },
+  arcadeCardDesc: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.85)',
+    lineHeight: 15,
+    marginBottom: SPACING.sm,
+  },
+  arcadeCardBtn: {
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 6,
+    borderRadius: BORDER_RADIUS.round,
+    alignItems: 'center',
+  },
+  arcadeCardBtnText: {
+    color: '#0F172A',
+    fontSize: 12,
+    fontWeight: '900',
   },
 });

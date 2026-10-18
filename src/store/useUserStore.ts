@@ -33,6 +33,9 @@ const DEFAULT_PROFILE: UserProfile = {
   lastActiveDate: '',
   historyDatesCompleted: [],
   trialStartedAt: new Date().toISOString(),
+  xp: 0,
+  streakShields: 1, // Give 1 complimentary streak shield to start!
+  lastSpinDate: '',
 };
 
 interface UserState {
@@ -44,6 +47,8 @@ interface UserState {
   setAvatar: (avatarId: string) => Promise<void>;
   setProStatus: (isPro: boolean) => Promise<void>;
   addStars: (stars: number) => Promise<void>;
+  addReward: (reward: { stars?: number; trophies?: number; xp?: number; streakShields?: number }) => Promise<void>;
+  recordSpinUsed: () => Promise<void>;
   recordQuizCompletion: (starsEarned: number) => Promise<{ newStreak: number; earnedTrophy: boolean }>;
   setLastSubjectLesson: (subject: Subject, chapterTitle: string) => Promise<void>;
   resetProgress: () => Promise<void>;
@@ -68,12 +73,24 @@ export const useUserStore = create<UserState>((set, get) => ({
         const today = getTodayDateString();
         const yesterday = getYesterdayDateString();
         let validStreak = parsed.currentStreak;
+        let shields = parsed.streakShields ?? 1;
         
         if (parsed.lastActiveDate && parsed.lastActiveDate !== today && parsed.lastActiveDate !== yesterday) {
-          validStreak = 0; // Streak reset if inactive for 2+ days
+          if (shields > 0 && validStreak > 0) {
+            // Streak Shield saved the streak!
+            shields -= 1;
+          } else {
+            validStreak = 0; // Streak reset if inactive for 2+ days and no shield
+          }
         }
 
-        const updatedProfile = { ...parsed, currentStreak: validStreak };
+        const updatedProfile: UserProfile = {
+          ...parsed,
+          currentStreak: validStreak,
+          streakShields: shields,
+          xp: parsed.xp ?? 0,
+          lastSpinDate: parsed.lastSpinDate ?? '',
+        };
         set({ profile: updatedProfile, isHydrated: true });
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
         return;
@@ -119,6 +136,33 @@ export const useUserStore = create<UserState>((set, get) => ({
     const updated = { ...current, totalStars: current.totalStars + stars };
     set({ profile: updated });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
+  },
+
+  addReward: async (reward) => {
+    const current = get().profile;
+    const updated: UserProfile = {
+      ...current,
+      totalStars: current.totalStars + (reward.stars || 0),
+      totalTrophies: current.totalTrophies + (reward.trophies || 0),
+      xp: (current.xp || 0) + (reward.xp || 0),
+      streakShields: (current.streakShields || 0) + (reward.streakShields || 0),
+    };
+    set({ profile: updated });
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
+  },
+
+  recordSpinUsed: async () => {
+    const current = get().profile;
+    const today = getTodayDateString();
+    const updated: UserProfile = {
+      ...current,
+      lastSpinDate: today,
+    };
+    set({ profile: updated });
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
   },
 
   recordQuizCompletion: async (starsEarned: number) => {
