@@ -39,7 +39,7 @@ export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
     concept: 'LCM of 4 and 6',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'What is the Lowest Common Multiple (LCM / ल.स.) of 4 and 6?',
+    question: 'What is the Lowest Common Multiple (LCM) of 4 and 6?',
     visualEmoji: '🔢 Multiples of 4 & 6',
     payload: {
       options: [
@@ -60,7 +60,7 @@ export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
     concept: 'Identifying Non-Factor of 12',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Which of the following numbers is NOT a factor (अपवर्तक) of 12?',
+    question: 'Which of the following numbers is NOT a factor of 12?',
     visualEmoji: '🧮 Factors of 12',
     payload: {
       options: [
@@ -145,7 +145,7 @@ export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
     concept: 'Highest Common Factor of 12 and 18',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'What is the Highest Common Factor (HCF / म.स.) of 12 and 18?',
+    question: 'What is the Highest Common Factor (HCF) of 12 and 18?',
     visualEmoji: '🧮 HCF of 12 & 18',
     payload: {
       options: [

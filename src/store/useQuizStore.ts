@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { Question, UserAnswerRecord, QuizSessionResult, Subject, Grade } from '../types';
 import { soundManager } from '../utils/soundManager';
+import { getAdaptedQuestion, getSubjectLanguage } from '../utils/language';
+import { useUserStore } from './useUserStore';
 
 interface QuizState {
   // Session details
@@ -64,11 +66,15 @@ export const useQuizStore = create<QuizState>((set, get) => ({
   isQuizComplete: false,
 
   startQuiz: (grade: Grade, subject: Subject, questions: Question[], chapterTitle?: string) => {
+    const userLang = useUserStore.getState().profile.preferredLanguage;
+    const targetLang = getSubjectLanguage(subject, userLang);
+    const sanitizedQuestions = (questions || []).map((q) => getAdaptedQuestion(q, targetLang));
+
     set({
       grade,
       subject,
       activeChapterTitle: chapterTitle,
-      questions,
+      questions: sanitizedQuestions,
       currentQuestionIndex: 0,
       secondsRemaining: 600,
       timeSpentSeconds: 0,

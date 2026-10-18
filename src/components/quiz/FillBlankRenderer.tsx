@@ -25,7 +25,9 @@ export const FillBlankRenderer: React.FC<FillBlankRendererProps> = ({
   // Split template by [BLANK]
   const parts = displayTemplate.split('[BLANK]');
   const isCorrect = isSubmitted && selectedWord?.trim().toLowerCase() === correctAnswer.trim().toLowerCase();
-  const fullSpokenSentence = displayTemplate.replace('[BLANK]', selectedWord || 'खाली जगह');
+  const isHindiTemplate = /[\u0900-\u097F]/.test(displayTemplate);
+  const blankWord = selectedWord || (isHindiTemplate ? 'खाली जगह' : 'blank');
+  const fullSpokenSentence = displayTemplate.replace('[BLANK]', blankWord);
 
   const handleWordTap = (word: string) => {
     if (isSubmitted) return;

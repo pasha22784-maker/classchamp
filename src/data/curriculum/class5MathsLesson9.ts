@@ -124,7 +124,7 @@ export const CLASS_5_MATHS_LESSON_9_QUESTIONS: Question[] = [
     concept: 'Floor Map vs Deep Drawing',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'What is the key difference between a house "Floor Map" and a "Deep Drawing" (गहरा चित्र)?',
+    question: 'What is the key difference between a house "Floor Map" and a "Deep Drawing" ?',
     visualEmoji: '🗺️ vs 🏠',
     payload: {
       options: [

@@ -81,7 +81,7 @@ export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
     concept: 'Identifying Denominator',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'In the fraction 5/8, the bottom number (denominator / हर) is [BLANK].',
+    question: 'In the fraction 5/8, the bottom number (denominator) is [BLANK].',
     visualEmoji: '5️⃣ ➗ 8️⃣',
     payload: {
       correctAnswer: '8',
@@ -251,7 +251,7 @@ export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
     concept: 'Improper Fraction to Mixed Number',
     difficulty: 'hard',
     type: 'mcq',
-    question: 'How is the improper fraction 7/2 expressed as a mixed number (मिश्रित भिन्न)?',
+    question: 'How is the improper fraction 7/2 expressed as a mixed number?',
     visualEmoji: '🍕 7/2 = ❓',
     payload: {
       options: [

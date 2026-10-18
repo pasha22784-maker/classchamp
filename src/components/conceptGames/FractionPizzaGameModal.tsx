@@ -33,7 +33,7 @@ const PIZZA_CHALLENGES: OrderChallenge[] = [
     targetFractionText: '1/2',
     targetNumerator: 1,
     targetDenominator: 2,
-    explanation: '1 out of 2 equal parts is called Half (आधा / 1/2)!',
+    explanation: '1 out of 2 equal parts is called Half (1/2)!',
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const PIZZA_CHALLENGES: OrderChallenge[] = [
     targetFractionText: '1/4',
     targetNumerator: 1,
     targetDenominator: 4,
-    explanation: '1 out of 4 equal parts is One-Quarter (एक-चौथाई / 1/4)!',
+    explanation: '1 out of 4 equal parts is One-Quarter (1/4)!',
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ const PIZZA_CHALLENGES: OrderChallenge[] = [
     targetFractionText: '3/4',
     targetNumerator: 3,
     targetDenominator: 4,
-    explanation: '3 out of 4 equal parts is Three-Fourths (तीन-चौथाई / 3/4)!',
+    explanation: '3 out of 4 equal parts is Three-Fourths (3/4)!',
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const PIZZA_CHALLENGES: OrderChallenge[] = [
     targetFractionText: '4/4',
     targetNumerator: 4,
     targetDenominator: 4,
-    explanation: '4/4 means all parts are taken = 1 Whole Pizza (पूर्ण)!',
+    explanation: '4/4 means all parts are taken = 1 Whole Pizza!',
   },
   {
     id: 6,

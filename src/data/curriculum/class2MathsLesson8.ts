@@ -66,7 +66,7 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
         { id: 'opt_dw3_3', text: 'Wednesday', isCorrect: false },
       ],
     },
-    explanation: '💡 Sunday (रविवार) is the universal weekly school holiday!',
+    explanation: '💡 Sunday is the universal weekly school holiday!',
     points: 10,
   },
   {
@@ -179,10 +179,10 @@ export const CLASS_2_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '☀️ 🌧️ ❄️ 🌸',
     payload: {
       pairs: [
-        { id: 'm8_s1', left: 'Summer (गर्मी)', right: 'Hot sunny days, cotton clothes & mangoes' },
-        { id: 'm8_s2', left: 'Monsoon (वर्षा)', right: 'Raincoats, umbrellas & puddles' },
-        { id: 'm8_s3', left: 'Winter (सर्दी)', right: 'Woolen sweaters, jackets & hot soup' },
-        { id: 'm8_s4', left: 'Spring (बसंत)', right: 'Pleasant breeze & colorful blooming flowers' },
+        { id: 'm8_s1', left: 'Summer', right: 'Hot sunny days, cotton clothes & mangoes' },
+        { id: 'm8_s2', left: 'Monsoon', right: 'Raincoats, umbrellas & puddles' },
+        { id: 'm8_s3', left: 'Winter', right: 'Woolen sweaters, jackets & hot soup' },
+        { id: 'm8_s4', left: 'Spring', right: 'Pleasant breeze & colorful blooming flowers' },
       ],
     },
     explanation: '💡 Summer = hot/cotton; Monsoon = rain/umbrella; Winter = cold/woolens; Spring = pleasant/flowers!',

@@ -109,7 +109,7 @@ export const CLASS_5_MATHS_LESSON_7_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Ones', isCorrect: false },
       ],
     },
-    explanation: '💡 The first digit immediately after the decimal point represents **Tenths** (दशांश)!',
+    explanation: '💡 The first digit immediately after the decimal point represents **Tenths**!',
     points: 10,
   },
 

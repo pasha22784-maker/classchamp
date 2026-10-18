@@ -22,6 +22,7 @@ import { useQuizStore } from '../store/useQuizStore';
 import { useUserStore } from '../store/useUserStore';
 import { triggerHaptic } from '../utils/haptics';
 import { stopSpeaking } from '../utils/speech';
+import { cleanBilingualForEnglish, cleanBilingualForHindi } from '../utils/language';
 
 interface QuizScreenProps {
   onFinishQuiz: () => void;
@@ -193,7 +194,9 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
         {/* Chapter & Learning Progression Ladder Header */}
         <View style={styles.chapterHeader}>
           <Text style={styles.chapterTitleText} numberOfLines={1}>
-            📖 {currentQ.chapter || activeChapterTitle || 'NCERT Practice'}
+            📖 {isHindi
+              ? cleanBilingualForHindi(currentQ.chapter || activeChapterTitle || 'NCERT अभ्यास')
+              : cleanBilingualForEnglish(currentQ.chapter || activeChapterTitle || 'NCERT Practice')}
           </Text>
           <View style={styles.stepBadgeRow}>
             <ChampBadge
@@ -215,7 +218,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
             />
             {currentQ.concept ? (
               <Text style={styles.conceptText} numberOfLines={1}>
-                {currentQ.concept}
+                {isHindi ? cleanBilingualForHindi(currentQ.concept) : cleanBilingualForEnglish(currentQ.concept)}
               </Text>
             ) : null}
           </View>

@@ -28,7 +28,7 @@ export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Tangent', isCorrect: false },
       ],
     },
-    explanation: '💡 The distance from the center point to any edge on the boundary is the **radius** (त्रिज्या)!',
+    explanation: '💡 The distance from the center point to any edge on the boundary is the **radius**!',
     points: 10,
   },
   {
@@ -70,7 +70,7 @@ export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Set square', isCorrect: false },
       ],
     },
-    explanation: '💡 A **compass** (परकार) has a pointed metal tip for the center and holds a pencil to rotate smoothly!',
+    explanation: '💡 A **compass** has a pointed metal tip for the center and holds a pencil to rotate smoothly!',
     points: 10,
   },
   {
@@ -88,7 +88,7 @@ export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
       wordBank: ['diameter', 'radius', 'corner', 'side'],
       displayTemplate: 'The full line passing through center is the [BLANK].',
     },
-    explanation: '💡 The line from edge to edge passing through the center is the **diameter** (व्यास)!',
+    explanation: '💡 The line from edge to edge passing through the center is the **diameter**!',
     points: 10,
   },
   {
@@ -166,7 +166,7 @@ export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Spinning Top (Lattoo) Center Stability',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'In the NCERT activity, children made spinning tops (लट्टू) from cardboard circles. Why does a top spin smoothly only when the stick is poked exactly through the center?',
+    question: 'In the NCERT activity, children made spinning tops from cardboard circles. Why does a top spin smoothly only when the stick is poked exactly through the center?',
     visualEmoji: '🌀 📍 💫',
     payload: {
       options: [
@@ -303,7 +303,7 @@ export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Parallel circles', isCorrect: false },
       ],
     },
-    explanation: '💡 Circles with the same common center point and different radii are called **concentric circles** (सकेंद्री वृत्त)!',
+    explanation: '💡 Circles with the same common center point and different radii are called **concentric circles**!',
     points: 20,
   },
   {

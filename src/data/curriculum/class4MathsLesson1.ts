@@ -170,7 +170,7 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'A triangle cone', isCorrect: false },
       ],
     },
-    explanation: '💡 A curved brick structure that spans an opening and supports weight from above is called an arch (मेहराब)!',
+    explanation: '💡 A curved brick structure that spans an opening and supports weight from above is called an arch!',
     points: 15,
   },
   {
@@ -181,7 +181,7 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Jali (Lattice) Pattern Purpose',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Why did traditional Indian brick builders create decorative "Jaali" (जाली) patterns in palace and school walls?',
+    question: 'Why did traditional Indian brick builders create decorative "Jaali" patterns in palace and school walls?',
     visualEmoji: '🏰 🧱 💨 ☀️',
     payload: {
       options: [
@@ -312,19 +312,19 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
         'Spread wet cement mortar on the base',
         'Lay the first row of bricks end-to-end',
         'Overlap joints in the second row so vertical lines do not match',
-        'Check vertical alignment with a plumb-line (साहुल)',
+        'Check vertical alignment with a plumb-line',
       ],
       scrambled: [
         'Overlap joints in the second row so vertical lines do not match',
         'Spread wet cement mortar on the base',
-        'Check vertical alignment with a plumb-line (साहुल)',
+        'Check vertical alignment with a plumb-line',
         'Lay the first row of bricks end-to-end',
       ],
       correctSequence: [
         'Spread wet cement mortar on the base',
         'Lay the first row of bricks end-to-end',
         'Overlap joints in the second row so vertical lines do not match',
-        'Check vertical alignment with a plumb-line (साहुल)',
+        'Check vertical alignment with a plumb-line',
       ],
     },
     explanation: '💡 Mortar -> First row -> Overlap joints (prevents cracks) -> Check vertical alignment with plumb-line!',

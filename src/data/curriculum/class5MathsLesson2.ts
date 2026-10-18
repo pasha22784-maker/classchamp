@@ -18,7 +18,7 @@ export const CLASS_5_MATHS_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Right Angle Degrees',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'What is the exact measure in degrees of a Right Angle (समकोण)?',
+    question: 'What is the exact measure in degrees of a Right Angle?',
     visualEmoji: '📐 ∟ 9️⃣0️⃣°',
     payload: {
       options: [
@@ -49,7 +49,7 @@ export const CLASS_5_MATHS_LESSON_2_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Reflex angle', isCorrect: false },
       ],
     },
-    explanation: '💡 An angle smaller than 90° is called an **Acute angle** (न्यूनकोण)!',
+    explanation: '💡 An angle smaller than 90° is called an **Acute angle**!',
     points: 10,
   },
   {
@@ -70,7 +70,7 @@ export const CLASS_5_MATHS_LESSON_2_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Zero angle', isCorrect: false },
       ],
     },
-    explanation: '💡 An angle wider than 90° and less than 180° is called an **Obtuse angle** (अधिककोण)!',
+    explanation: '💡 An angle wider than 90° and less than 180° is called an **Obtuse angle**!',
     points: 10,
   },
   {
@@ -176,7 +176,7 @@ export const CLASS_5_MATHS_LESSON_2_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Acute angle', isCorrect: false },
       ],
     },
-    explanation: '💡 An angle of 180° forms a flat straight line and is called a **Straight angle** (ऋजुकोण)!',
+    explanation: '💡 An angle of 180° forms a flat straight line and is called a **Straight angle**!',
     points: 15,
   },
   {

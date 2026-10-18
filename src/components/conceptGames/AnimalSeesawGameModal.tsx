@@ -34,7 +34,7 @@ interface SeesawLevel {
 const SEESAW_LEVELS: SeesawLevel[] = [
   {
     id: 1,
-    prompt: 'Who is HEAVIER (भारी)? Tap to see who goes down!',
+    prompt: 'Who is HEAVIER? Tap to see who goes down!',
     hindiPrompt: 'हाथी 🐘 या चूहा 🐭 में कौन भारी है?',
     leftAnimal: { name: 'Elephant', emoji: '🐘', weight: 50 },
     rightAnimal: { name: 'Mouse', emoji: '🐭', weight: 1 },
@@ -44,7 +44,7 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   },
   {
     id: 2,
-    prompt: 'Who is LIGHTER (हल्का)? Tap the lighter one!',
+    prompt: 'Who is LIGHTER? Tap the lighter one!',
     hindiPrompt: 'शेर 🦁 या तितली 🦋 में कौन हल्का है?',
     leftAnimal: { name: 'Lion', emoji: '🦁', weight: 35 },
     rightAnimal: { name: 'Butterfly', emoji: '🦋', weight: 1 },
@@ -54,7 +54,7 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   },
   {
     id: 3,
-    prompt: 'Who is HEAVIER (भारी)? Tap the heavy fruit!',
+    prompt: 'Who is HEAVIER? Tap the heavy fruit!',
     hindiPrompt: 'तरबूज 🍉 या स्ट्रॉबेरी 🍓 में कौन भारी है?',
     leftAnimal: { name: 'Strawberry', emoji: '🍓', weight: 2 },
     rightAnimal: { name: 'Watermelon', emoji: '🍉', weight: 40 },
@@ -64,7 +64,7 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   },
   {
     id: 4,
-    prompt: 'Who is LIGHTER (हल्का)?',
+    prompt: 'Who is LIGHTER?',
     hindiPrompt: 'दरियाई घोड़ा 🦛 या बिल्ली 🐱 में कौन हल्का है?',
     leftAnimal: { name: 'Hippo', emoji: '🦛', weight: 45 },
     rightAnimal: { name: 'Cat', emoji: '🐱', weight: 5 },
@@ -74,7 +74,7 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   },
   {
     id: 5,
-    prompt: 'Who is HEAVIER (भारी)? Tap the heavy vehicle!',
+    prompt: 'Who is HEAVIER? Tap the heavy vehicle!',
     hindiPrompt: 'बस 🚌 या साइकिल 🚲 में कौन भारी है?',
     leftAnimal: { name: 'Bus', emoji: '🚌', weight: 60 },
     rightAnimal: { name: 'Bicycle', emoji: '🚲', weight: 8 },
@@ -84,7 +84,7 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   },
   {
     id: 6,
-    prompt: 'Who is LIGHTER (हल्का)?',
+    prompt: 'Who is LIGHTER?',
     hindiPrompt: 'किताब 📚 या मोर पंख 🪶 में कौन हल्का है?',
     leftAnimal: { name: 'Heavy Book', emoji: '📚', weight: 15 },
     rightAnimal: { name: 'Feather', emoji: '🪶', weight: 1 },
@@ -94,7 +94,7 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   },
   {
     id: 7,
-    prompt: 'Who is HEAVIER (भारी)?',
+    prompt: 'Who is HEAVIER?',
     hindiPrompt: 'भालू 🐻 या खरगोश 🐰 में कौन भारी है?',
     leftAnimal: { name: 'Bear', emoji: '🐻', weight: 38 },
     rightAnimal: { name: 'Rabbit', emoji: '🐰', weight: 4 },
@@ -104,7 +104,7 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   },
   {
     id: 8,
-    prompt: 'Master Balance: Who is LIGHTER (हल्का)?',
+    prompt: 'Master Balance: Who is LIGHTER?',
     hindiPrompt: 'बड़ा कद्दू 🎃 या छोटी चेरी 🍒 में कौन हल्का है?',
     leftAnimal: { name: 'Pumpkin', emoji: '🎃', weight: 28 },
     rightAnimal: { name: 'Cherry', emoji: '🍒', weight: 1 },
@@ -315,7 +315,7 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
                 <Text style={styles.successEmoji}>🦚</Text>
                 <Text style={styles.successTitle}>Seesaw Physics Champ!</Text>
                 <Text style={styles.successDesc}>
-                  Aapne heavy (भारी) aur light (हल्के) ka practical concept master kar liya!
+                  You have mastered the practical concept of Heavy and Light!
                 </Text>
                 <View style={styles.rewardPill}>
                   <Text style={styles.rewardText}>+25 Stars ⭐  +90 XP ⚡</Text>

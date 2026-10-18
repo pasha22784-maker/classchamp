@@ -27,7 +27,7 @@ export const CLASS_1_MATHS_LESSON_10_QUESTIONS: Question[] = [
         { id: 'opt_mr1_3', text: 'Look at the stars in the dark sky ✨', isCorrect: false },
       ],
     },
-    explanation: '💡 In the **Morning** (सुबह), when the sun rises, we wake up, brush our teeth, take a bath, and eat a healthy breakfast!',
+    explanation: '💡 In the **Morning**, when the sun rises, we wake up, brush our teeth, take a bath, and eat a healthy breakfast!',
     points: 10,
   },
   {
@@ -71,7 +71,7 @@ export const CLASS_1_MATHS_LESSON_10_QUESTIONS: Question[] = [
         { id: 'opt_nn1_3', text: 'Bedtime milk', isCorrect: false },
       ],
     },
-    explanation: '💡 We eat **Lunch** in the **Afternoon** (दोपहर)!',
+    explanation: '💡 We eat **Lunch** in the **Afternoon**!',
     points: 10,
   },
 
@@ -95,7 +95,7 @@ export const CLASS_1_MATHS_LESSON_10_QUESTIONS: Question[] = [
         { id: 'opt_ev1_3', text: 'Eat early breakfast', isCorrect: false },
       ],
     },
-    explanation: '💡 In the **Evening** (शाम), children love to play in the park and do homework!',
+    explanation: '💡 In the **Evening**, children love to play in the park and do homework!',
     points: 10,
   },
 
@@ -117,7 +117,7 @@ export const CLASS_1_MATHS_LESSON_10_QUESTIONS: Question[] = [
       wordBank: ['sleep', 'swimming', 'school', 'sunshine'],
       displayTemplate: 'It is time for [BLANK] at night. 🛌',
     },
-    explanation: '💡 At **Night** (रात), we eat dinner and go to **sleep**!',
+    explanation: '💡 At **Night**, we eat dinner and go to **sleep**!',
     points: 10,
   },
 

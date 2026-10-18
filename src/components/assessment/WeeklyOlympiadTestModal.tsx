@@ -13,6 +13,7 @@ import { soundManager } from '../../utils/soundManager';
 import { Grade, Question, AppLanguage } from '../../types';
 import { getOlympiadMockTestQuestions } from '../../data/cognitiveEngine';
 import { useUserStore } from '../../store/useUserStore';
+import { getAdaptedQuestion } from '../../utils/language';
 
 interface WeeklyOlympiadTestModalProps {
   visible: boolean;
@@ -40,8 +41,9 @@ export const WeeklyOlympiadTestModal: React.FC<WeeklyOlympiadTestModalProps> = (
 
   useEffect(() => {
     if (visible) {
-      const q = getOlympiadMockTestQuestions(userGrade);
-      setQuestions(q);
+      const rawQ = getOlympiadMockTestQuestions(userGrade);
+      const adaptedQ = rawQ.map((item) => getAdaptedQuestion(item, activeLang));
+      setQuestions(adaptedQ);
       setCurrentIndex(0);
       setSelectedOptionId(null);
       setAnswers({});

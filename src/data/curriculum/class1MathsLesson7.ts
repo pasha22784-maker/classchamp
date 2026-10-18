@@ -255,7 +255,7 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
         { id: 'opt_spn1_3', text: 'PENCIL TIP', isCorrect: false },
       ],
     },
-    explanation: '💡 In NCERT Maths, measuring with an open stretched hand 🖐️ is called a **HANDSPAN** (बित्ता)!',
+    explanation: '💡 In NCERT Maths, measuring with an open stretched hand 🖐️ is called a **HANDSPAN**!',
     points: 10,
   },
   {
@@ -273,7 +273,7 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
       wordBank: ['footsteps', 'fingers', 'hair', 'ears'],
       displayTemplate: 'We walk across the room in [BLANK]. 👣',
     },
-    explanation: '💡 Walking heel-to-toe across a room measures the floor in **footsteps** (कदम) 👣!',
+    explanation: '💡 Walking heel-to-toe across a room measures the floor in **footsteps** 👣!',
     points: 10,
   },
 

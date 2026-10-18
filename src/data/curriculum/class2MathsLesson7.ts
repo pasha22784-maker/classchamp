@@ -44,9 +44,9 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     payload: {
       correctAnswer: 'paces',
       wordBank: ['paces', 'fingers', 'rulers', 'hours'],
-      displayTemplate: 'Children count their walking [BLANK] (कदम).',
+      displayTemplate: 'Children count their walking [BLANK].',
     },
-    explanation: '💡 For long floor distances, we count our walking steps or paces (कदम)!',
+    explanation: '💡 For long floor distances, we count our walking steps or paces!',
     points: 10,
   },
   {

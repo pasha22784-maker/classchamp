@@ -1,4 +1,4 @@
-import { AppLanguage, Subject, UserProfile, Question } from '../types';
+import { AppLanguage, Subject, UserProfile, Question } from '../types/index';
 
 /**
  * Returns the active UI language from user profile, defaulting to 'en'
@@ -20,48 +20,167 @@ export const getSubjectLanguage = (subject: Subject, preferredLanguage: AppLangu
 };
 
 /**
+ * Cleans mixed English/Hindi strings when the target language is English.
+ * Removes parenthetical Hindi (e.g. '(पौना भाग)', '(समकोण)', '(अंदर और बाहर)'),
+ * slash Devanagari (e.g. 'LCM / ल.स.'), and guarantees ZERO Devanagari characters
+ * remain in the text while keeping English content pristine.
+ */
+export const cleanBilingualForEnglish = (text?: string): string => {
+  if (!text || typeof text !== 'string') return text || '';
+  if (!/[\u0900-\u097F]/.test(text)) return text;
+
+  let res = text;
+
+  // 1. Top-level slash split: 'English sentence / हिन्दी वाक्य'
+  if (res.includes(' / ')) {
+    const parts = res.split(' / ');
+    if (/[a-zA-Z]/.test(parts[0]) && /[\u0900-\u097F]/.test(parts[1]) && !parts[0].includes('(')) {
+      res = parts[0].trim();
+    }
+  }
+
+  // 2. Parentheses with both English and Hindi: e.g. (denominator / हर) or (LCM / ल.स.) or (Repel / प्रतिकर्षण)
+  res = res.replace(/\s*\(\s*([a-zA-Z0-9\s\-_]+)\s*[\/|\\]\s*[\u0900-\u097F\s\.\-_]+\)/g, (_, eng) => ` (${eng.trim()})`);
+
+  // 3. Parentheses containing any remaining Devanagari: e.g. (बड़ा और छोटा), (ऋण / कर्ज), (वृत्त / गोल), (समकोण)
+  res = res.replace(/\s*\([^)]*[\u0900-\u097F]+[^)]*\)/g, '');
+
+  // 4. Standalone slash followed by Devanagari: e.g. 'LCM / ल.स.' or 'factor / अपवर्तक'
+  res = res.replace(/\s*[\/|\\]\s*[\u0900-\u097F\s\.\,\-]+(?=[\s\.\,\?!]|$)/g, '');
+
+  // 5. Any leftover Devanagari characters
+  res = res.replace(/[\u0900-\u097F]+/g, '');
+
+  // 6. Clean empty parentheses if any were left: '()' -> ''
+  res = res.replace(/\s*\(\s*\)/g, '');
+
+  // 7. Clean whitespace and punctuation spacing
+  res = res.replace(/\s{2,}/g, ' ')
+           .replace(/\s+([.,?!:;])/g, '$1')
+           .trim();
+
+  return res;
+};
+
+/**
+ * Cleans mixed English/Hindi strings when the target language is Hindi.
+ * Extracts the Hindi translation if provided in slash or parenthetical format.
+ */
+export const cleanBilingualForHindi = (text?: string): string => {
+  if (!text || typeof text !== 'string') return text || '';
+  if (!/[\u0900-\u097F]/.test(text)) return text;
+
+  let res = text;
+
+  // 1. Top-level slash split: 'English / हिन्दी'
+  if (res.includes(' / ')) {
+    const parts = res.split(' / ');
+    if (/[\u0900-\u097F]/.test(parts[1])) {
+      res = parts[1].trim();
+    }
+  }
+
+  // 2. Parentheses like 'Big vs Small (बड़ा और छोटा)' -> extract 'बड़ा और छोटा'
+  const parentheticalHindiMatch = res.match(/^[a-zA-Z0-9\s:,\-\?]+\(([\u0900-\u097F\s\/\-,\.।]+)\)[!\?]?$/);
+  if (parentheticalHindiMatch && parentheticalHindiMatch[1]) {
+    res = parentheticalHindiMatch[1].trim();
+  }
+
+  return res.trim();
+};
+
+/**
  * Adapts a question object according to user's language choice.
  * If user chose Hindi ('hi') and question has questionHindi, it uses Hindi.
  * If question has dual language format in a single string (e.g. "English text / हिन्दी अनुवाद"),
  * it extracts only the preferred language part to prevent visual clutter!
+ * In English mode, eliminates all Devanagari characters from questions, concepts, chapters,
+ * explanations, and options.
  */
 export const getAdaptedQuestion = (q: Question, lang: AppLanguage): Question => {
-  // If subject is hindi, keep it as is
+  // If subject is hindi, keep it pure Hindi
   if (q.subject === 'hindi') {
     return q;
   }
 
-  // If question has dedicated Hindi fields
-  if (lang === 'hi' && q.questionHindi) {
+  // HINDI MODE
+  if (lang === 'hi') {
+    if (q.questionHindi) {
+      return {
+        ...q,
+        question: q.questionHindi,
+        concept: q.concept ? cleanBilingualForHindi(q.concept) : q.concept,
+        chapter: q.chapter ? cleanBilingualForHindi(q.chapter) : q.chapter,
+        payload: q.payloadHindi || q.payload,
+        explanation: q.explanationHindi || q.explanation,
+      };
+    }
+    const cleanedPayload = { ...q.payload };
+    if (cleanedPayload.options) {
+      cleanedPayload.options = cleanedPayload.options.map(opt => ({
+        ...opt,
+        text: cleanBilingualForHindi(opt.text),
+      }));
+    }
+    if (cleanedPayload.pairs) {
+      cleanedPayload.pairs = cleanedPayload.pairs.map(pair => ({
+        ...pair,
+        left: cleanBilingualForHindi(pair.left),
+        right: cleanBilingualForHindi(pair.right),
+      }));
+    }
     return {
       ...q,
-      question: q.questionHindi,
-      payload: q.payloadHindi || q.payload,
-      explanation: q.explanationHindi || q.explanation,
+      question: cleanBilingualForHindi(q.question),
+      concept: q.concept ? cleanBilingualForHindi(q.concept) : q.concept,
+      chapter: q.chapter ? cleanBilingualForHindi(q.chapter) : q.chapter,
+      explanation: cleanBilingualForHindi(q.explanation),
+      payload: cleanedPayload,
     };
   }
 
-  // Strip accidental bilingual slash or bracket text if present
-  let cleanQuestion = q.question;
-  let cleanExplanation = q.explanation;
-
-  if (lang === 'en') {
-    // If string has "English / हिन्दी", extract English part
-    if (cleanQuestion.includes(' / ') && /[\u0900-\u097F]/.test(cleanQuestion)) {
-      cleanQuestion = cleanQuestion.split(' / ')[0].trim();
-    }
-  } else if (lang === 'hi') {
-    // If string has "English / हिन्दी", extract Hindi part
-    if (cleanQuestion.includes(' / ') && /[\u0900-\u097F]/.test(cleanQuestion)) {
-      const parts = cleanQuestion.split(' / ');
-      cleanQuestion = (parts[1] || parts[0]).trim();
-    }
+  // ENGLISH MODE ('en')
+  // Ensure ZERO Devanagari characters leak into question, concept, chapter, explanation, or options
+  const cleanedPayload = { ...q.payload };
+  if (cleanedPayload.options) {
+    cleanedPayload.options = cleanedPayload.options.map(opt => ({
+      ...opt,
+      text: cleanBilingualForEnglish(opt.text),
+    }));
+  }
+  if (cleanedPayload.pairs) {
+    cleanedPayload.pairs = cleanedPayload.pairs.map(pair => ({
+      ...pair,
+      left: cleanBilingualForEnglish(pair.left),
+      right: cleanBilingualForEnglish(pair.right),
+    }));
+  }
+  if (cleanedPayload.wordBank) {
+    cleanedPayload.wordBank = cleanedPayload.wordBank.map(w => cleanBilingualForEnglish(w));
+  }
+  if (cleanedPayload.displayTemplate) {
+    cleanedPayload.displayTemplate = cleanBilingualForEnglish(cleanedPayload.displayTemplate);
+  }
+  if (cleanedPayload.correctAnswer) {
+    cleanedPayload.correctAnswer = cleanBilingualForEnglish(cleanedPayload.correctAnswer);
+  }
+  if (cleanedPayload.tokens) {
+    cleanedPayload.tokens = cleanedPayload.tokens.map(t => cleanBilingualForEnglish(t));
+  }
+  if (cleanedPayload.scrambled) {
+    cleanedPayload.scrambled = cleanedPayload.scrambled.map(s => cleanBilingualForEnglish(s));
+  }
+  if (cleanedPayload.correctSequence) {
+    cleanedPayload.correctSequence = cleanedPayload.correctSequence.map(cs => cleanBilingualForEnglish(cs));
   }
 
   return {
     ...q,
-    question: cleanQuestion,
-    explanation: cleanExplanation,
+    question: cleanBilingualForEnglish(q.question),
+    concept: q.concept ? cleanBilingualForEnglish(q.concept) : q.concept,
+    chapter: q.chapter ? cleanBilingualForEnglish(q.chapter) : q.chapter,
+    explanation: cleanBilingualForEnglish(q.explanation),
+    payload: cleanedPayload,
   };
 };
 

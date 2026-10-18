@@ -60,7 +60,7 @@ export const CLASS_4_MATHS_LESSON_6_QUESTIONS: Question[] = [
     concept: 'Understanding Bank Loan',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'What is a loan (ऋण / कर्ज)?',
+    question: 'What is a loan?',
     visualEmoji: '🏦 🤝 💼',
     payload: {
       options: [

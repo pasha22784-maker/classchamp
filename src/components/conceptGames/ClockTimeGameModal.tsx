@@ -290,7 +290,7 @@ export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
           {/* Stepper Hand Controls */}
           <View style={styles.controlsGrid}>
             <View style={styles.controlCol}>
-              <Text style={styles.controlHeader}>Hour Hand (सुई):</Text>
+              <Text style={styles.controlHeader}>Hour Hand:</Text>
               <View style={styles.stepperRow}>
                 <TouchableOpacity
                   style={styles.stepperBtn}
@@ -308,7 +308,7 @@ export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
             </View>
 
             <View style={styles.controlCol}>
-              <Text style={styles.controlHeader}>Minute Hand (सुई):</Text>
+              <Text style={styles.controlHeader}>Minute Hand:</Text>
               <View style={styles.stepperRow}>
                 <TouchableOpacity
                   style={styles.stepperBtn}

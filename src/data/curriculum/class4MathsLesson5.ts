@@ -227,7 +227,7 @@ export const CLASS_4_MATHS_LESSON_5_QUESTIONS: Question[] = [
     concept: 'Funnel Top View Geometric Identification',
     difficulty: 'hard',
     type: 'mcq',
-    question: 'A kitchen liquid funnel (कीप) looks like a wide cone with a narrow pipe from the side. What does it look like when viewed directly from the TOP?',
+    question: 'A kitchen liquid funnel looks like a wide cone with a narrow pipe from the side. What does it look like when viewed directly from the TOP?',
     visualEmoji: '🌪️ ⬇️ ⭕ ⭕',
     payload: {
       options: [

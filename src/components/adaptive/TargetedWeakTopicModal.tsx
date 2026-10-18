@@ -12,6 +12,7 @@ import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { Grade, WeakTopicItem, Question, AppLanguage } from '../../types';
 import { useUserStore } from '../../store/useUserStore';
+import { cleanBilingualForEnglish, cleanBilingualForHindi } from '../../utils/language';
 
 interface TargetedWeakTopicModalProps {
   visible: boolean;
@@ -157,8 +158,12 @@ export const TargetedWeakTopicModal: React.FC<TargetedWeakTopicModalProps> = ({
                       {isHindi ? '⚠️ सुधार क्षेत्र' : '⚠️ FOCUS AREA DETECTED'}
                     </Text>
                   </View>
-                  <Text style={styles.topicTitle}>{topic.chapterTitle}</Text>
-                  <Text style={styles.topicSub}>{topic.conceptName}</Text>
+                  <Text style={styles.topicTitle}>
+                    {isHindi ? cleanBilingualForHindi(topic.chapterTitle) : cleanBilingualForEnglish(topic.chapterTitle)}
+                  </Text>
+                  <Text style={styles.topicSub}>
+                    {isHindi ? cleanBilingualForHindi(topic.conceptName) : cleanBilingualForEnglish(topic.conceptName)}
+                  </Text>
                   <Text style={styles.topicAccuracy}>
                     {isHindi ? (
                       <>वर्तमान दक्षता: <Text style={{ color: '#FACC15', fontWeight: '900' }}>{topic.accuracyPercentage}%</Text> • लक्ष्य: 100% 🚀</>

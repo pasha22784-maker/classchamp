@@ -42,7 +42,7 @@ const MAGNET_LEVELS: MagnetLevel[] = [
     expectedBehavior: 'attract',
     objectName: 'South Pole Magnet',
     objectEmoji: '🧲 (S)',
-    parentNote: 'Opposite magnetic poles (N and S) always pull towards each other (Attract / आकर्षण).',
+    parentNote: 'Opposite magnetic poles (N and S) always pull towards each other (Attract).',
   },
   {
     id: 2,
@@ -53,7 +53,7 @@ const MAGNET_LEVELS: MagnetLevel[] = [
     expectedBehavior: 'repel',
     objectName: 'North Pole Magnet',
     objectEmoji: '🧲 (N)',
-    parentNote: 'Like magnetic poles (N-N or S-S) push away from each other (Repel / प्रतिकर्षण).',
+    parentNote: 'Like magnetic poles (N-N or S-S) push away from each other (Repel).',
   },
   {
     id: 3,
@@ -297,7 +297,7 @@ export const MagnetLabModal: React.FC<MagnetLabModalProps> = ({
               onPress={() => handleTestMagnet('attract')}
               activeOpacity={0.8}
             >
-              <Text style={styles.actionBtnText}>🧲 ATTRACT (खींचेंगे!)</Text>
+              <Text style={styles.actionBtnText}>🧲 ATTRACT</Text>
               <Text style={styles.actionSubText}>Pull Together</Text>
             </TouchableOpacity>
 
@@ -310,7 +310,7 @@ export const MagnetLabModal: React.FC<MagnetLabModalProps> = ({
               onPress={() => handleTestMagnet('repel')}
               activeOpacity={0.8}
             >
-              <Text style={styles.actionBtnText}>💥 REPEL (धक्का देंगे!)</Text>
+              <Text style={styles.actionBtnText}>💥 REPEL</Text>
               <Text style={styles.actionSubText}>Push Away / No Stick</Text>
             </TouchableOpacity>
           </View>

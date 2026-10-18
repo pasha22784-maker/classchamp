@@ -47,7 +47,7 @@ import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
 import { fetchGlobalConfig } from '../services/adminConfig';
 import { Subject, Grade, ChapterLesson, AppGlobalConfig, WeakTopicItem, AppLanguage } from '../types';
 import { triggerHaptic } from '../utils/haptics';
-import { getActiveLanguage, STRINGS } from '../utils/language';
+import { getActiveLanguage, STRINGS, cleanBilingualForEnglish, cleanBilingualForHindi } from '../utils/language';
 
 interface DashboardScreenProps {
   onStartQuiz: (subject: Subject, chapterTitle?: string) => void;
@@ -865,8 +865,12 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                     <Text style={styles.weakTopicIconEmoji}>⚠️</Text>
                   </View>
                   <View style={styles.weakTopicTextBox}>
-                    <Text style={styles.weakTopicTitle}>{currentWeakTopic.chapterTitle}</Text>
-                    <Text style={styles.weakTopicSub}>{currentWeakTopic.conceptName}</Text>
+                    <Text style={styles.weakTopicTitle}>
+                      {activeLang === 'hi' ? cleanBilingualForHindi(currentWeakTopic.chapterTitle) : cleanBilingualForEnglish(currentWeakTopic.chapterTitle)}
+                    </Text>
+                    <Text style={styles.weakTopicSub}>
+                      {activeLang === 'hi' ? cleanBilingualForHindi(currentWeakTopic.conceptName) : cleanBilingualForEnglish(currentWeakTopic.conceptName)}
+                    </Text>
                     <Text style={styles.weakTopicHint}>{s.weakTopicHint}</Text>
                   </View>
                   <View style={styles.weakTopicGoBtn}>

@@ -28,7 +28,7 @@ export const CLASS_4_MATHS_LESSON_10_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Capacity', isCorrect: false },
       ],
     },
-    explanation: '💡 The total distance along the outside edge of a shape is called its **Perimeter** (परिमाप / घेरा)!',
+    explanation: '💡 The total distance along the outside edge of a shape is called its **Perimeter**!',
     points: 10,
   },
   {

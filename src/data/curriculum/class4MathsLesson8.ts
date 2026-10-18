@@ -78,7 +78,7 @@ export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
     concept: 'Three-Quarters Representation',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Which fraction represents three-quarters (पौना भाग)?',
+    question: 'Which fraction represents three-quarters?',
     visualEmoji: '🥧 3 out of 4',
     payload: {
       options: [
@@ -99,7 +99,7 @@ export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
     concept: 'Numerator and Denominator',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'In the fraction 3/4, what is the numerator (अंश)?',
+    question: 'In the fraction 3/4, what is the numerator?',
     visualEmoji: '3️⃣ ➗ 4️⃣',
     payload: {
       options: [

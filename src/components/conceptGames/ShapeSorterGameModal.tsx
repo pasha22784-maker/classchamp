@@ -33,7 +33,7 @@ interface ShapeLevel {
 const SHAPE_LEVELS: ShapeLevel[] = [
   {
     id: 1,
-    prompt: 'Find the Circle (वृत्त / गोल)!',
+    prompt: 'Find the Circle!',
     hindiPrompt: 'गोल आकार (सर्कल) पर टैप करें!',
     targetShape: 'circle',
     targetEmoji: '⭕',
@@ -46,7 +46,7 @@ const SHAPE_LEVELS: ShapeLevel[] = [
   },
   {
     id: 2,
-    prompt: 'Find the Triangle (त्रिभुज)!',
+    prompt: 'Find the Triangle!',
     hindiPrompt: '3 कोनों वाला त्रिभुज ढूंढें!',
     targetShape: 'triangle',
     targetEmoji: '🔺',
@@ -59,7 +59,7 @@ const SHAPE_LEVELS: ShapeLevel[] = [
   },
   {
     id: 3,
-    prompt: 'Find the Square (वर्ग)!',
+    prompt: 'Find the Square!',
     hindiPrompt: '4 बराबर भुजाओं वाला चौकोर (स्क्वायर) ढूंढें!',
     targetShape: 'square',
     targetEmoji: '🟦',
@@ -72,7 +72,7 @@ const SHAPE_LEVELS: ShapeLevel[] = [
   },
   {
     id: 4,
-    prompt: 'Find the Shiny Star (तारा)!',
+    prompt: 'Find the Shiny Star!',
     hindiPrompt: 'आसमान का चमकता तारा ढूंढें!',
     targetShape: 'star',
     targetEmoji: '⭐',
@@ -85,7 +85,7 @@ const SHAPE_LEVELS: ShapeLevel[] = [
   },
   {
     id: 5,
-    prompt: 'Find the Rectangle (आयत)!',
+    prompt: 'Find the Rectangle!',
     hindiPrompt: 'लंबा चौकोर (आयत / रेक्टेंगल) पहचानें!',
     targetShape: 'rectangle',
     targetEmoji: '🟩',
@@ -111,7 +111,7 @@ const SHAPE_LEVELS: ShapeLevel[] = [
   },
   {
     id: 7,
-    prompt: 'Find the Oval (अंडाकार / ओवल)!',
+    prompt: 'Find the Oval!',
     hindiPrompt: 'अंडाकार (ओवल) आकार ढूंढें!',
     targetShape: 'oval',
     targetEmoji: '🥚',

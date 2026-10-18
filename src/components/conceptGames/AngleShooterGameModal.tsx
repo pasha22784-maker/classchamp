@@ -29,19 +29,19 @@ interface AngleMission {
 const ANGLE_MISSIONS: AngleMission[] = [
   {
     id: 1,
-    prompt: 'Aim a Right Angle (समकोण) at 90° to target the Diamond!',
+    prompt: 'Aim a Right Angle at 90° to target the Diamond!',
     targetAngle: 90,
     expectedType: 'right',
     targetLabel: 'Right Angle (90°)',
-    explanation: 'A 90° angle makes a perfect L-shape corner, called a Right Angle (समकोण)!',
+    explanation: 'A 90° angle makes a perfect L-shape corner, called a Right Angle!',
   },
   {
     id: 2,
-    prompt: 'Aim an Acute Angle (न्यून कोण) at 45° to reflect the beam!',
+    prompt: 'Aim an Acute Angle at 45° to reflect the beam!',
     targetAngle: 45,
     expectedType: 'acute',
     targetLabel: 'Acute Angle (45°)',
-    explanation: 'Any angle less than 90° is an Acute Angle (न्यून कोण) — sharp & narrow!',
+    explanation: 'Any angle less than 90° is an Acute Angle — sharp & narrow!',
   },
   {
     id: 3,
@@ -61,11 +61,11 @@ const ANGLE_MISSIONS: AngleMission[] = [
   },
   {
     id: 5,
-    prompt: 'Aim an Obtuse Angle (अधिक कोण) at 120°!',
+    prompt: 'Aim an Obtuse Angle at 120°!',
     targetAngle: 120,
     expectedType: 'obtuse',
     targetLabel: 'Obtuse Angle (120°)',
-    explanation: '120° is wider than a 90° right angle, making it an Obtuse Angle (अधिक कोण)!',
+    explanation: '120° is wider than a 90° right angle, making it an Obtuse Angle!',
   },
   {
     id: 6,
@@ -85,11 +85,11 @@ const ANGLE_MISSIONS: AngleMission[] = [
   },
   {
     id: 8,
-    prompt: 'Aim a Flat Straight Angle (ऋजु कोण) at 180°!',
+    prompt: 'Aim a Flat Straight Angle at 180°!',
     targetAngle: 180,
     expectedType: 'straight',
     targetLabel: 'Straight Angle (180°)',
-    explanation: 'A 180° angle forms a complete straight line, called a Straight Angle (ऋजु कोण)!',
+    explanation: 'A 180° angle forms a complete straight line, called a Straight Angle!',
   },
 ];
 
@@ -120,10 +120,10 @@ export const AngleShooterGameModal: React.FC<AngleShooterGameModalProps> = ({
   }, [visible]);
 
   const getAngleClassification = (angle: number) => {
-    if (angle < 90) return { type: 'acute', label: 'Acute Angle (न्यून कोण)', color: '#10B981', tag: '< 90°' };
-    if (angle === 90) return { type: 'right', label: 'Right Angle (समकोण)', color: '#F59E0B', tag: '= 90°' };
-    if (angle < 180) return { type: 'obtuse', label: 'Obtuse Angle (अधिक कोण)', color: '#8B5CF6', tag: '> 90°' };
-    return { type: 'straight', label: 'Straight Angle (ऋजु कोण)', color: '#3B82F6', tag: '= 180°' };
+    if (angle < 90) return { type: 'acute', label: 'Acute Angle', color: '#10B981', tag: '< 90°' };
+    if (angle === 90) return { type: 'right', label: 'Right Angle', color: '#F59E0B', tag: '= 90°' };
+    if (angle < 180) return { type: 'obtuse', label: 'Obtuse Angle', color: '#8B5CF6', tag: '> 90°' };
+    return { type: 'straight', label: 'Straight Angle', color: '#3B82F6', tag: '= 180°' };
   };
 
   const currentClass = getAngleClassification(currentAngle);

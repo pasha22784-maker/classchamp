@@ -249,7 +249,7 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   // LKG (BALVATIKA 2) — PRE-SCHOOL FOUNDATION
   // =========================================================================
   // LKG MATHEMATICS
-  { id: 'c_lkg_m_01', number: 1, title: 'Pre-Math Concepts (Big vs Small & Tall vs Short)', grade: 'LKG', subject: 'maths', icon: '🐘', conceptSummary: 'Pre-Math: बड़ा/छोटा (Big/Small), लंबा/छोटा (Tall/Short), भारी/हल्का (Heavy/Light)' },
+  { id: 'c_lkg_m_01', number: 1, title: 'Pre-Math Concepts (Big vs Small & Tall vs Short)', grade: 'LKG', subject: 'maths', icon: '🐘', conceptSummary: 'Pre-Math: Big/Small, Tall/Short, Heavy/Light comparison concepts' },
   { id: 'c_lkg_m_02', number: 2, title: 'Numbers 1 to 5 (Counting & Finger Fun)', grade: 'LKG', subject: 'maths', icon: '🖐️', conceptSummary: 'Counting objects 1 to 5, finger counting, visual quantity matching' },
   { id: 'c_lkg_m_03', number: 3, title: 'Shapes & Colors (Circle, Square, Red, Blue)', grade: 'LKG', subject: 'maths', icon: '🔴', conceptSummary: 'Basic Shapes (⭕ Circle, ⬛ Square, 🔺 Triangle) & Primary Colors (Red, Blue, Yellow, Green)' },
   { id: 'c_lkg_m_04', number: 4, title: 'More or Less & Matching Pairs', grade: 'LKG', subject: 'maths', icon: '⚖️', conceptSummary: 'Comparing quantities (more vs less), matching related real-world pairs' },

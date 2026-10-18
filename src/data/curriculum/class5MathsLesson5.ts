@@ -70,7 +70,7 @@ export const CLASS_5_MATHS_LESSON_5_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Diagonal tangent', isCorrect: false },
       ],
     },
-    explanation: '💡 A fold line that splits a figure into matching mirror images is its **line of symmetry** (सममिति अक्ष)!',
+    explanation: '💡 A fold line that splits a figure into matching mirror images is its **line of symmetry**!',
     points: 10,
   },
   {

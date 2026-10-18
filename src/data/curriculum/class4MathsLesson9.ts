@@ -88,7 +88,7 @@ export const CLASS_4_MATHS_LESSON_9_QUESTIONS: Question[] = [
         { id: 'opt_4', text: 'Remainder', isCorrect: false },
       ],
     },
-    explanation: '💡 35 is the Dividend, 5 is the Divisor, and 7 is the **Quotient** (भागफल)!',
+    explanation: '💡 35 is the Dividend, 5 is the Divisor, and 7 is the **Quotient**!',
     points: 10,
   },
   {
