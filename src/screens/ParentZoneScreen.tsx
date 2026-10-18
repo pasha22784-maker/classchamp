@@ -24,7 +24,7 @@ interface ParentZoneScreenProps {
 }
 
 export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack, onOpenAdmin }) => {
-  const { profile, updateName, setGrade, setProStatus, resetProgress } = useUserStore();
+  const { profile, updateName, setGrade, setPreferredLanguage, setProStatus, resetProgress } = useUserStore();
   const [editingName, setEditingName] = useState(profile.name);
   const [isSaved, setIsSaved] = useState(false);
   const [showAuthModal, setShowAuthModal] = useState(false);
@@ -140,7 +140,7 @@ export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack, onOp
 
         {/* Edit Child Profile */}
         <ChampCard style={styles.card}>
-          <Text style={styles.cardTitle}>✏️ Child's Display Name</Text>
+          <Text style={styles.cardTitle}>✏️ Child{"'"}s Display Name</Text>
           <View style={styles.inputRow}>
             <TextInput
               style={styles.textInput}
@@ -159,7 +159,7 @@ export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack, onOp
 
         {/* Change Child's Class / Grade (Parent-Controlled) */}
         <ChampCard style={styles.card}>
-          <Text style={styles.cardTitle}>🎓 Child's Class / Grade (CBSE / NCERT)</Text>
+          <Text style={styles.cardTitle}>🎓 Child{"'"}s Class / Grade (CBSE / NCERT)</Text>
           <Text style={styles.cardSub}>
             Select the grade your child is currently studying in. The daily 365-day practice missions and subjects will automatically adapt.
           </Text>
@@ -216,6 +216,81 @@ export const ParentZoneScreen: React.FC<ParentZoneScreenProps> = ({ onBack, onOp
                 </TouchableOpacity>
               );
             })}
+          </View>
+        </ChampCard>
+
+        {/* Preferred Learning Language / भाषा माध्यम */}
+        <ChampCard style={styles.card}>
+          <Text style={styles.cardTitle}>🌐 Preferred Learning Medium / भाषा माध्यम</Text>
+          <Text style={styles.cardSub}>
+            Choose whether practice questions & explanations are in English or Hindi. (Note: Hindi subject is always pure Hindi).
+          </Text>
+          <View style={{ flexDirection: 'row', gap: SPACING.md, marginTop: SPACING.md }}>
+            <TouchableOpacity
+              activeOpacity={0.85}
+              onPress={() => {
+                triggerHaptic('success');
+                setPreferredLanguage('en');
+              }}
+              style={{
+                flex: 1,
+                paddingVertical: SPACING.md,
+                paddingHorizontal: SPACING.md,
+                borderRadius: BORDER_RADIUS.md,
+                borderWidth: 2,
+                borderColor: (profile.preferredLanguage || 'en') === 'en' ? COLORS.primary : COLORS.border,
+                backgroundColor: (profile.preferredLanguage || 'en') === 'en' ? '#EFF6FF' : COLORS.backgroundAlt,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Text style={{ fontSize: 22, marginBottom: 4 }}>🇬🇧</Text>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: '800',
+                  color: (profile.preferredLanguage || 'en') === 'en' ? COLORS.primary : COLORS.textDark,
+                }}
+              >
+                English Medium
+              </Text>
+              <Text style={{ fontSize: 11, color: COLORS.textMedium, marginTop: 2 }}>
+                English Questions
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              activeOpacity={0.85}
+              onPress={() => {
+                triggerHaptic('success');
+                setPreferredLanguage('hi');
+              }}
+              style={{
+                flex: 1,
+                paddingVertical: SPACING.md,
+                paddingHorizontal: SPACING.md,
+                borderRadius: BORDER_RADIUS.md,
+                borderWidth: 2,
+                borderColor: profile.preferredLanguage === 'hi' ? '#D97706' : COLORS.border,
+                backgroundColor: profile.preferredLanguage === 'hi' ? '#FFFBEB' : COLORS.backgroundAlt,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Text style={{ fontSize: 22, marginBottom: 4 }}>🇮🇳</Text>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: '800',
+                  color: profile.preferredLanguage === 'hi' ? '#D97706' : COLORS.textDark,
+                }}
+              >
+                हिंदी माध्यम
+              </Text>
+              <Text style={{ fontSize: 11, color: COLORS.textMedium, marginTop: 2 }}>
+                Hindi Questions
+              </Text>
+            </TouchableOpacity>
           </View>
         </ChampCard>
 

@@ -10,7 +10,7 @@ import {
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
-import { Grade } from '../../types';
+import { Grade, AppLanguage } from '../../types';
 import { COGNITIVE_PILLARS } from '../../data/cognitiveEngine';
 import { useUserStore } from '../../store/useUserStore';
 
@@ -19,6 +19,7 @@ interface BrainDevelopmentMatrixModalProps {
   onClose: () => void;
   userGrade: Grade;
   onOpenLab: () => void;
+  activeLang?: AppLanguage;
 }
 
 export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalProps> = ({
@@ -26,7 +27,9 @@ export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalPr
   onClose,
   userGrade,
   onOpenLab,
+  activeLang = 'en',
 }) => {
+  const isHindi = activeLang === 'hi';
   const { profile } = useUserStore();
   const scores = profile.cognitiveScores || {
     logicScore: 88,
@@ -48,8 +51,12 @@ export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalPr
             <View style={styles.topBarLeft}>
               <Text style={styles.matrixIcon}>🧠</Text>
               <View>
-                <Text style={styles.topBarTitle}>Super Kid Cognitive Matrix</Text>
-                <Text style={styles.topBarSub}>Scientific Brain Growth Report • वैज्ञानिक विकास</Text>
+                <Text style={styles.topBarTitle}>
+                  {isHindi ? 'सुपर किड बौद्धिक विकास मैट्रिक्स' : 'Super Kid Cognitive Matrix'}
+                </Text>
+                <Text style={styles.topBarSub}>
+                  {isHindi ? 'वैज्ञानिक मस्तिष्क विकास रिपोर्ट' : 'Scientific Brain Growth Report'}
+                </Text>
               </View>
             </View>
             <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
@@ -62,8 +69,12 @@ export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalPr
             <View style={styles.overallBanner}>
               <View style={styles.overallHeader}>
                 <View>
-                  <Text style={styles.overallTitle}>{profile.name}’s Cognitive Index</Text>
-                  <Text style={styles.overallSub}>Class {userGrade} Developmental Benchmark</Text>
+                  <Text style={styles.overallTitle}>
+                    {isHindi ? `${profile.name} का बौद्धिक सूचकांक` : `${profile.name}’s Cognitive Index`}
+                  </Text>
+                  <Text style={styles.overallSub}>
+                    {isHindi ? `कक्षा ${userGrade} विकासात्मक मानक` : `Class ${userGrade} Developmental Benchmark`}
+                  </Text>
                 </View>
                 <View style={styles.scoreCircle}>
                   <Text style={styles.scoreCircleVal}>{avgScore}</Text>
@@ -73,17 +84,23 @@ export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalPr
 
               <View style={styles.percentileBadgeRow}>
                 <View style={styles.percentileBadge}>
-                  <Text style={styles.percentileBadgeText}>🏆 TOP 3% COGNITIVE PERCENTILE</Text>
+                  <Text style={styles.percentileBadgeText}>
+                    {isHindi ? '🏆 शीर्ष 3% बौद्धिक स्तर' : '🏆 TOP 3% COGNITIVE PERCENTILE'}
+                  </Text>
                 </View>
               </View>
 
               <Text style={styles.overallDesc}>
-                रटने की बजाय खेल-खेल में 4 मुख्य मानसिक स्तंभों (Logic, Spatial, Memory, Problem Solving) का संतुलित विकास हो रहा है।
+                {isHindi
+                  ? 'रटने की बजाय खेल-खेल में 4 मुख्य मानसिक स्तंभों (तर्क, स्थानिक समझ, स्मृति, समस्या निवारण) का संतुलित विकास हो रहा है।'
+                  : 'Balanced cognitive growth across 4 core mental pillars (Logic, Spatial, Memory, Problem Solving) through hands-on practice.'}
               </Text>
             </View>
 
             {/* 4 Pillars Breakdown */}
-            <Text style={styles.sectionHeader}>4 CORE DEVELOPMENTAL PILLARS</Text>
+            <Text style={styles.sectionHeader}>
+              {isHindi ? '4 मुख्य बौद्धिक विकास स्तंभ' : '4 CORE DEVELOPMENTAL PILLARS'}
+            </Text>
 
             <View style={styles.pillarsList}>
               {COGNITIVE_PILLARS.map((pillar) => {
@@ -96,8 +113,9 @@ export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalPr
                         <Text style={styles.pillarEmoji}>{pillar.icon}</Text>
                       </View>
                       <View style={styles.pillarTitleCol}>
-                        <Text style={styles.pillarNameEn}>{pillar.nameEnglish}</Text>
-                        <Text style={styles.pillarNameHi}>{pillar.nameHindi}</Text>
+                        <Text style={styles.pillarNameEn}>
+                          {isHindi ? pillar.nameHindi : pillar.nameEnglish}
+                        </Text>
                       </View>
                       <Text style={[styles.pillarScoreText, { color: pillar.accentColor }]}>
                         {score}%
@@ -114,11 +132,13 @@ export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalPr
                       />
                     </View>
 
-                    <Text style={styles.pillarDesc}>{pillar.description}</Text>
+                    <Text style={styles.pillarDesc}>
+                      {pillar.description}
+                    </Text>
 
                     <View style={styles.pedagogyBox}>
                       <Text style={styles.pedagogyText}>
-                        💡 <Text style={{ fontWeight: '800' }}>Impact:</Text> {pillar.pedagogicalBenefit}
+                        💡 <Text style={{ fontWeight: '800' }}>{isHindi ? 'प्रभाव:' : 'Impact:'}</Text> {pillar.pedagogicalBenefit}
                       </Text>
                     </View>
                   </View>
@@ -128,9 +148,13 @@ export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalPr
 
             {/* Parent Recommendation */}
             <View style={styles.recCard}>
-              <Text style={styles.recTitle}>👨‍🏫 Recommended Next Step for Parents</Text>
+              <Text style={styles.recTitle}>
+                {isHindi ? '👨‍🏫 अभिभावकों के लिए सिफ़ारिश' : '👨‍🏫 Recommended Next Step for Parents'}
+              </Text>
               <Text style={styles.recDesc}>
-                अपने बच्चे की तार्किक और स्थानिक क्षमता को 100% तक पहुँचाने के लिए रोज़ाना 10 मिनट Concept Labs में प्रयोग करवाएँ।
+                {isHindi
+                  ? 'अपने बच्चे की तार्किक और स्थानिक क्षमता को 100% तक पहुँचाने के लिए रोज़ाना 10 मिनट Concept Labs में प्रयोग करवाएँ।'
+                  : 'To maximize your child’s logical and spatial thinking to 100%, encourage 10 minutes of daily exploration in Concept Labs.'}
               </Text>
               <TouchableOpacity
                 style={styles.openLabsBtn}
@@ -142,7 +166,9 @@ export const BrainDevelopmentMatrixModal: React.FC<BrainDevelopmentMatrixModalPr
                   onOpenLab();
                 }}
               >
-                <Text style={styles.openLabsBtnText}>Open Practical Concept Labs 🔬</Text>
+                <Text style={styles.openLabsBtnText}>
+                  {isHindi ? 'प्रैक्टिकल कॉन्सेप्ट लैब खोलें 🔬' : 'Open Practical Concept Labs 🔬'}
+                </Text>
               </TouchableOpacity>
             </View>
           </ScrollView>

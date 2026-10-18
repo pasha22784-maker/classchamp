@@ -10,7 +10,7 @@ import {
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
-import { Grade } from '../../types';
+import { Grade, AppLanguage } from '../../types';
 import { getDailyWorkoutForDate, DailyWorkoutData } from '../../data/cognitiveEngine';
 import { useUserStore, getTodayDateString } from '../../store/useUserStore';
 
@@ -20,6 +20,7 @@ interface DailyBrainGymModalProps {
   userGrade: Grade;
   onLaunchLab: (labId: string) => void;
   onLaunchSpeedBrain: () => void;
+  activeLang?: AppLanguage;
 }
 
 export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
@@ -28,7 +29,9 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
   userGrade,
   onLaunchLab,
   onLaunchSpeedBrain,
+  activeLang = 'en',
 }) => {
+  const isHindi = activeLang === 'hi';
   const { profile, markDailyWorkoutDone, updateCognitiveScore } = useUserStore();
   const today = getTodayDateString();
   const isCompletedToday = (profile.dailyWorkoutCompletedDates || []).includes(today);
@@ -81,9 +84,13 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
             <View style={styles.topBarLeft}>
               <Text style={styles.barEmoji}>🏋️‍♂️</Text>
               <View>
-                <Text style={styles.barTitle}>Daily Super Kid Brain Gym</Text>
+                <Text style={styles.barTitle}>
+                  {isHindi ? 'दैनिक सुपर किड ब्रेन जिम' : 'Daily Super Kid Brain Gym'}
+                </Text>
                 <Text style={styles.barSub}>
-                  Day {workoutData.dayNumber} of 365 • 3-Step Daily Workout
+                  {isHindi
+                    ? `365 में से दिन ${workoutData.dayNumber} • 3-चरणीय दैनिक कसरत`
+                    : `Day ${workoutData.dayNumber} of 365 • 3-Step Daily Workout`}
                 </Text>
               </View>
             </View>
@@ -115,7 +122,9 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
             {currentStep === 1 && (
               <View style={styles.stepBox}>
                 <View style={styles.stepBadge}>
-                  <Text style={styles.stepBadgeText}>STEP 1: LOGIC PUZZLE OF THE DAY 🧩</Text>
+                  <Text style={styles.stepBadgeText}>
+                    {isHindi ? 'चरण 1: आज की तार्किक पहेली 🧩' : 'STEP 1: LOGIC PUZZLE OF THE DAY 🧩'}
+                  </Text>
                 </View>
 
                 <View style={styles.puzzleCard}>
@@ -159,7 +168,7 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
                       }}
                     >
                       <Text style={styles.hintBtnText}>
-                        💡 {showHint ? workoutData.puzzle.hint : 'Need a Hint? Tap here'}
+                        💡 {showHint ? workoutData.puzzle.hint : (isHindi ? 'संकेत चाहिए? यहाँ टैप करें' : 'Need a Hint? Tap here')}
                       </Text>
                     </TouchableOpacity>
                   )}
@@ -168,7 +177,9 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
                   {puzzleAnswered && (
                     <View style={styles.feedbackBox}>
                       <Text style={styles.feedbackTitle}>
-                        {isPuzzleCorrect ? '🎉 Brilliant Deduction!' : '💡 Learning Moment!'}
+                        {isPuzzleCorrect
+                          ? (isHindi ? '🎉 शाबाश! बेहतरीन जवाब!' : '🎉 Brilliant Deduction!')
+                          : (isHindi ? '💡 सीखने का अवसर!' : '💡 Learning Moment!')}
                       </Text>
                       <Text style={styles.feedbackDesc}>
                         {workoutData.puzzle.explanation}
@@ -182,7 +193,9 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
                           setCurrentStep(2);
                         }}
                       >
-                        <Text style={styles.nextStepBtnText}>Next: STEM Lab Mission 🚀</Text>
+                        <Text style={styles.nextStepBtnText}>
+                          {isHindi ? 'अगला: एसटीईएम लैब मिशन 🚀' : 'Next: STEM Lab Mission 🚀'}
+                        </Text>
                       </TouchableOpacity>
                     </View>
                   )}

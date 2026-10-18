@@ -10,7 +10,7 @@ import {
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
-import { Grade, WeakTopicItem, Question } from '../../types';
+import { Grade, WeakTopicItem, Question, AppLanguage } from '../../types';
 import { useUserStore } from '../../store/useUserStore';
 
 interface TargetedWeakTopicModalProps {
@@ -18,6 +18,7 @@ interface TargetedWeakTopicModalProps {
   onClose: () => void;
   userGrade: Grade;
   topic: WeakTopicItem | null;
+  activeLang?: AppLanguage;
 }
 
 export const TargetedWeakTopicModal: React.FC<TargetedWeakTopicModalProps> = ({
@@ -25,7 +26,9 @@ export const TargetedWeakTopicModal: React.FC<TargetedWeakTopicModalProps> = ({
   onClose,
   userGrade,
   topic,
+  activeLang = 'en',
 }) => {
+  const isHindi = activeLang === 'hi';
   const { addStars, recordTopicPerformance } = useUserStore();
   const [selectedOpt, setSelectedOpt] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -131,8 +134,12 @@ export const TargetedWeakTopicModal: React.FC<TargetedWeakTopicModalProps> = ({
             <View style={styles.topBarLeft}>
               <Text style={styles.boosterIcon}>🎯</Text>
               <View>
-                <Text style={styles.topBarTitle}>Targeted Concept Booster</Text>
-                <Text style={styles.topBarSub}>3-Minute Mastery Session • कमज़ोर टॉपिक सुधार</Text>
+                <Text style={styles.topBarTitle}>
+                  {isHindi ? 'कमज़ोर टॉपिक सुधार' : 'Targeted Concept Booster'}
+                </Text>
+                <Text style={styles.topBarSub}>
+                  {isHindi ? '3-मिनट का विशेष अभ्यास' : '3-Minute Mastery Session'}
+                </Text>
               </View>
             </View>
             <TouchableOpacity onPress={handleModalClose} style={styles.closeBtn}>
@@ -146,12 +153,18 @@ export const TargetedWeakTopicModal: React.FC<TargetedWeakTopicModalProps> = ({
                 {/* Topic Header Card */}
                 <View style={styles.topicHeaderCard}>
                   <View style={styles.topicBadge}>
-                    <Text style={styles.topicBadgeText}>⚠️ FOCUS AREA DETECTED</Text>
+                    <Text style={styles.topicBadgeText}>
+                      {isHindi ? '⚠️ सुधार क्षेत्र' : '⚠️ FOCUS AREA DETECTED'}
+                    </Text>
                   </View>
                   <Text style={styles.topicTitle}>{topic.chapterTitle}</Text>
                   <Text style={styles.topicSub}>{topic.conceptName}</Text>
                   <Text style={styles.topicAccuracy}>
-                    Current Mastery: <Text style={{ color: '#FACC15', fontWeight: '900' }}>{topic.accuracyPercentage}%</Text> • Goal: 100% 🚀
+                    {isHindi ? (
+                      <>वर्तमान दक्षता: <Text style={{ color: '#FACC15', fontWeight: '900' }}>{topic.accuracyPercentage}%</Text> • लक्ष्य: 100% 🚀</>
+                    ) : (
+                      <>Current Mastery: <Text style={{ color: '#FACC15', fontWeight: '900' }}>{topic.accuracyPercentage}%</Text> • Goal: 100% 🚀</>
+                    )}
                   </Text>
                 </View>
 
@@ -190,7 +203,9 @@ export const TargetedWeakTopicModal: React.FC<TargetedWeakTopicModalProps> = ({
                   {/* Explanation feedback */}
                   {isAnswered && (
                     <View style={styles.feedbackBox}>
-                      <Text style={styles.feedbackTitle}>💡 Concept Clarity:</Text>
+                      <Text style={styles.feedbackTitle}>
+                        {isHindi ? '💡 कॉन्सेप्ट स्पष्टता:' : '💡 Concept Clarity:'}
+                      </Text>
                       <Text style={styles.feedbackText}>{currentQ.explanation}</Text>
 
                       <TouchableOpacity
@@ -198,7 +213,9 @@ export const TargetedWeakTopicModal: React.FC<TargetedWeakTopicModalProps> = ({
                         activeOpacity={0.88}
                         onPress={handleFinish}
                       >
-                        <Text style={styles.masteredBtnText}>Mark as Mastered (+30 Stars) 🌟</Text>
+                        <Text style={styles.masteredBtnText}>
+                          {isHindi ? 'निपुण घोषित करें (+30 सितारे) 🌟' : 'Mark as Mastered (+30 Stars) 🌟'}
+                        </Text>
                       </TouchableOpacity>
                     </View>
                   )}
@@ -207,19 +224,27 @@ export const TargetedWeakTopicModal: React.FC<TargetedWeakTopicModalProps> = ({
             ) : (
               <View style={styles.completeBox}>
                 <Text style={styles.trophyEmoji}>🌟🏆</Text>
-                <Text style={styles.completeTitle}>TOPIC MASTERED!</Text>
+                <Text style={styles.completeTitle}>
+                  {isHindi ? 'टॉपिक में निपुणता प्राप्त!' : 'TOPIC MASTERED!'}
+                </Text>
                 <Text style={styles.completeSub}>
-                  You turned a weak spot into a superpower strength! Your mastery rating in {topic.chapterTitle} is now 90%+.
+                  {isHindi
+                    ? `कमज़ोर टॉपिक अब आपकी ताकत बन गया है! ${topic.chapterTitle} में आपकी दक्षता 90%+ हो गई है।`
+                    : `You turned a weak spot into a superpower strength! Your mastery rating in ${topic.chapterTitle} is now 90%+.`}
                 </Text>
                 <View style={styles.rewardPill}>
-                  <Text style={styles.rewardText}>⭐ +30 Stars Awarded to Profile!</Text>
+                  <Text style={styles.rewardText}>
+                    {isHindi ? '⭐ +30 सितारे प्रोफ़ाइल में जोड़े गए!' : '⭐ +30 Stars Awarded to Profile!'}
+                  </Text>
                 </View>
                 <TouchableOpacity
                   style={styles.doneBtn}
                   activeOpacity={0.88}
                   onPress={handleModalClose}
                 >
-                  <Text style={styles.doneBtnText}>Back to Dashboard 🏠</Text>
+                  <Text style={styles.doneBtnText}>
+                    {isHindi ? 'डैशबोर्ड पर वापस जाएं 🏠' : 'Back to Dashboard 🏠'}
+                  </Text>
                 </TouchableOpacity>
               </View>
             )}

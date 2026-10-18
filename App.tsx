@@ -19,6 +19,7 @@ import { getChaptersForGradeSubject } from './src/data/chaptersData';
 import { fetchGlobalConfig } from './src/services/adminConfig';
 import { setGlobalFreeAccess } from './src/utils/monetization';
 import { Subject, Grade, ScreenType } from './src/types';
+import { getAdaptedQuestion, getSubjectLanguage } from './src/utils/language';
 
 export default function App() {
   const { profile, isHydrated, loadProfile, setGrade, setLastSubjectLesson } = useUserStore();
@@ -61,7 +62,9 @@ export default function App() {
     }
 
     const sessionQuestions = generateQuestionsForSession(profile.grade, subject, targetChapter, isExtraPractice);
-    startQuiz(profile.grade, subject, sessionQuestions, targetChapter);
+    const lang = getSubjectLanguage(subject, profile.preferredLanguage);
+    const adaptedQuestions = sessionQuestions.map((q) => getAdaptedQuestion(q, lang));
+    startQuiz(profile.grade, subject, adaptedQuestions, targetChapter);
     setCurrentScreen('quiz');
   };
 
@@ -69,7 +72,9 @@ export default function App() {
   const handleSelectChapter = (subject: Subject, chapterTitle: string) => {
     setLastSubjectLesson(subject, chapterTitle);
     const chapterQuestions = generateQuestionsForSession(profile.grade, subject, chapterTitle);
-    startQuiz(profile.grade, subject, chapterQuestions, chapterTitle);
+    const lang = getSubjectLanguage(subject, profile.preferredLanguage);
+    const adaptedQuestions = chapterQuestions.map((q) => getAdaptedQuestion(q, lang));
+    startQuiz(profile.grade, subject, adaptedQuestions, chapterTitle);
     setCurrentScreen('quiz');
   };
 
@@ -77,7 +82,9 @@ export default function App() {
   const handleSelect365Day = (dayNumber: number) => {
     const mission = getDayMissionInfo(profile.grade, dayNumber);
     const dayQuestions = getQuestionsForDay(profile.grade, dayNumber);
-    startQuiz(profile.grade, mission.subject, dayQuestions, mission.chapter);
+    const lang = getSubjectLanguage(mission.subject, profile.preferredLanguage);
+    const adaptedQuestions = dayQuestions.map((q) => getAdaptedQuestion(q, lang));
+    startQuiz(profile.grade, mission.subject, adaptedQuestions, mission.chapter);
     setCurrentScreen('quiz');
   };
 

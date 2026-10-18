@@ -10,7 +10,7 @@ import {
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
-import { Grade, Question } from '../../types';
+import { Grade, Question, AppLanguage } from '../../types';
 import { getOlympiadMockTestQuestions } from '../../data/cognitiveEngine';
 import { useUserStore } from '../../store/useUserStore';
 
@@ -19,6 +19,7 @@ interface WeeklyOlympiadTestModalProps {
   onClose: () => void;
   userGrade: Grade;
   onPracticeWeakTopic?: (chapterTitle: string) => void;
+  activeLang?: AppLanguage;
 }
 
 export const WeeklyOlympiadTestModal: React.FC<WeeklyOlympiadTestModalProps> = ({
@@ -26,7 +27,9 @@ export const WeeklyOlympiadTestModal: React.FC<WeeklyOlympiadTestModalProps> = (
   onClose,
   userGrade,
   onPracticeWeakTopic,
+  activeLang = 'en',
 }) => {
+  const isHindi = activeLang === 'hi';
   const { addStars, recordTopicPerformance } = useUserStore();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -198,19 +201,29 @@ export const WeeklyOlympiadTestModal: React.FC<WeeklyOlympiadTestModalProps> = (
 
                 {/* Diagnostic Insights */}
                 <View style={styles.insightBox}>
-                  <Text style={styles.insightTitle}>🔍 Diagnostic Parent Assessment:</Text>
+                  <Text style={styles.insightTitle}>
+                    {isHindi ? '🔍 अभिभावक नैदानिक मूल्यांकन:' : '🔍 Diagnostic Parent Assessment:'}
+                  </Text>
                   <Text style={styles.insightText}>
-                    {score >= 70
-                      ? 'बच्चे की तार्किक और समस्या निवारण क्षमता बहुत मजबूत है। कठिन से कठिन सवालों को समझने की अच्छी समझ विकसित हो चुकी है।'
-                      : 'कुछ टॉपिक्स में बुनियादी समझ को और मजबूत करने की ज़रूरत है। नीचे दिए गए वीक-टॉपिक की प्रैक्टिस करें।'}
+                    {isHindi
+                      ? (score >= 70
+                          ? 'बच्चे की तार्किक और समस्या निवारण क्षमता बहुत मजबूत है। कठिन से कठिन सवालों को समझने की अच्छी समझ विकसित हो चुकी है।'
+                          : 'कुछ टॉपिक्स में बुनियादी समझ को और मजबूत करने की ज़रूरत है। नीचे दिए गए वीक-टॉपिक की प्रैक्टिस करें।')
+                      : (score >= 70
+                          ? 'Child shows exceptional conceptual and problem-solving skills! Excellent grasp over high-order thinking concepts.'
+                          : 'Foundational concepts in a few topics need extra reinforcement. Recommended to practice via the targeted boosters.')}
                   </Text>
                 </View>
 
                 {/* Weak Spots & Remediation */}
                 <View style={styles.weakActionBox}>
-                  <Text style={styles.weakActionTitle}>🎯 Targeted Practice Recommended:</Text>
+                  <Text style={styles.weakActionTitle}>
+                    {isHindi ? '🎯 विशेष अभ्यास सिफ़ारिश:' : '🎯 Targeted Practice Recommended:'}
+                  </Text>
                   <Text style={styles.weakActionDesc}>
-                    कमज़ोर टॉपिक्स को 100% परफेक्ट बनाने के लिए होमपेज पर दिए गए 3-Minute Booster से प्रैक्टिस करें।
+                    {isHindi
+                      ? 'कमज़ोर टॉपिक्स को 100% परफेक्ट बनाने के लिए होमपेज पर दिए गए 3-Minute Booster से प्रैक्टिस करें।'
+                      : 'To turn weak topics into 100% strengths, practice using the 3-Minute Booster available on the dashboard.'}
                   </Text>
                 </View>
 
@@ -219,7 +232,9 @@ export const WeeklyOlympiadTestModal: React.FC<WeeklyOlympiadTestModalProps> = (
                   activeOpacity={0.88}
                   onPress={onClose}
                 >
-                  <Text style={styles.doneBtnText}>Review Weak Topics on Home 🏠</Text>
+                  <Text style={styles.doneBtnText}>
+                    {isHindi ? 'होमपेज पर कमज़ोर टॉपिक देखें 🏠' : 'Review Weak Topics on Home 🏠'}
+                  </Text>
                 </TouchableOpacity>
               </View>
             </ScrollView>

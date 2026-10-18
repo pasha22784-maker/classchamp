@@ -19,6 +19,7 @@ import {
 } from '../components/common';
 import { DynamicQuestionRenderer } from '../components/quiz';
 import { useQuizStore } from '../store/useQuizStore';
+import { useUserStore } from '../store/useUserStore';
 import { triggerHaptic } from '../utils/haptics';
 import { stopSpeaking } from '../utils/speech';
 
@@ -31,6 +32,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
   onFinishQuiz,
   onExitQuiz,
 }) => {
+  const { profile } = useUserStore();
   const {
     questions,
     currentQuestionIndex,
@@ -82,6 +84,8 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
     return null;
   }
 
+  const isHindi = currentQ.subject === 'hindi' || (currentQ.subject !== 'english' && profile.preferredLanguage === 'hi');
+
   // Format timer MM:SS
   const minutes = Math.floor(secondsRemaining / 60);
   const seconds = secondsRemaining % 60;
@@ -89,12 +93,14 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
 
   const handleExitPress = () => {
     Alert.alert(
-      'Leave Practice?',
-      'Your progress for this 10-minute session will not be saved.',
+      isHindi ? 'अभ्यास छोड़ें?' : 'Leave Practice?',
+      isHindi
+        ? 'इस 10-मिनट सत्र की आपकी प्रगति सुरक्षित नहीं होगी।'
+        : 'Your progress for this 10-minute session will not be saved.',
       [
-        { text: 'Keep Playing', style: 'cancel' },
+        { text: isHindi ? 'जारी रखें' : 'Keep Playing', style: 'cancel' },
         {
-          text: 'Leave',
+          text: isHindi ? 'बाहर जाएं' : 'Leave',
           style: 'destructive',
           onPress: () => {
             triggerHaptic('warning');
@@ -133,21 +139,21 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
   const formatQuestionTypeLabel = (type: string) => {
     switch (type) {
       case 'mcq':
-        return 'Multiple Choice 🔘';
+        return isHindi ? 'बहुविकल्पीय प्रश्न 🔘' : 'Multiple Choice 🔘';
       case 'fill_blank':
-        return 'Fill the Blank ✍️';
+        return isHindi ? 'रिक्त स्थान भरें ✍️' : 'Fill the Blank ✍️';
       case 'match_pairs':
-        return 'Match the Pairs 🔗';
+        return isHindi ? 'जोड़ियां मिलाएं 🔗' : 'Match the Pairs 🔗';
       case 'drag_order':
-        return 'Order Puzzle 🧩';
+        return isHindi ? 'क्रम में लगाएं 🧩' : 'Order Puzzle 🧩';
       default:
-        return 'Practice Question';
+        return isHindi ? 'अभ्यास प्रश्न' : 'Practice Question';
     }
   };
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.primaryDark} />
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
 
       {/* Quiz Header with Timer & Exit */}
       <View style={styles.header}>
@@ -193,10 +199,10 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
             <ChampBadge
               label={
                 currentQ.difficulty === 'easy'
-                  ? '🌱 Step 1: Understand'
+                  ? (isHindi ? '🌱 चरण 1: समझें' : '🌱 Step 1: Understand')
                   : currentQ.difficulty === 'medium'
-                  ? '🌿 Step 2: Practice'
-                  : '🏆 Step 3: Mastery'
+                  ? (isHindi ? '🌿 चरण 2: अभ्यास' : '🌿 Step 2: Practice')
+                  : (isHindi ? '🏆 चरण 3: निपुणता' : '🏆 Step 3: Mastery')
               }
               variant={
                 currentQ.difficulty === 'easy'
@@ -219,7 +225,9 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
         {consecutiveStreak >= 2 && (
           <View style={styles.streakBanner}>
             <Text style={styles.streakBannerText}>
-              🔥 {consecutiveStreak} In A Row! Super Champ (+15 ⭐ Bonus)
+              {isHindi
+                ? `🔥 लगातार ${consecutiveStreak}! सुपर चैंप (+15 ⭐ बोनस)`
+                : `🔥 ${consecutiveStreak} In A Row! Super Champ (+15 ⭐ Bonus)`}
             </Text>
           </View>
         )}
@@ -269,7 +277,9 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
           >
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
               <Text style={styles.feedbackHeading}>
-                {isCorrect ? '🎉 Super Champ! That’s Right!' : '💡 Good Try! Here’s the Clue:'}
+                {isCorrect
+                  ? (isHindi ? '🎉 शाबाश, सुपर चैंप! बिल्कुल सही!' : '🎉 Super Champ! That’s Right!')
+                  : (isHindi ? '💡 अच्छा प्रयास! यह रहा सही संकेत:' : '💡 Good Try! Here’s the Clue:')}
               </Text>
               <SpeakerButton textToSpeak={currentQ.explanation} size="sm" />
             </View>
@@ -281,7 +291,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
         <View style={styles.bottomControl}>
           {!isAnswerSubmitted ? (
             <ChampButton
-              title="Check Answer"
+              title={isHindi ? 'उत्तर जाँचें' : 'Check Answer'}
               icon="✓"
               variant="primary"
               size="lg"
@@ -292,8 +302,8 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
             <ChampButton
               title={
                 currentQuestionIndex + 1 >= questions.length
-                  ? 'See Today’s Scorecard 🏆'
-                  : 'Next Question →'
+                  ? (isHindi ? 'आज का स्कोरकार्ड देखें 🏆' : 'See Today’s Scorecard 🏆')
+                  : (isHindi ? 'अगला प्रश्न →' : 'Next Question →')
               }
               variant="gold"
               size="lg"
@@ -309,7 +319,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: COLORS.primaryDark,
+    backgroundColor: COLORS.primary,
   },
   header: {
     flexDirection: 'row',
@@ -317,7 +327,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: SPACING.lg,
     paddingVertical: SPACING.md,
-    backgroundColor: COLORS.primaryDark,
+    backgroundColor: COLORS.primary,
   },
   exitBtn: {
     width: 36,

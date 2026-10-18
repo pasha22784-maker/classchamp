@@ -11,7 +11,7 @@ import {
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
-import { Grade } from '../../types';
+import { Grade, AppLanguage } from '../../types';
 import {
   CONCEPT_LABS_BY_GRADE,
   SCIENCE_STEM_LABS,
@@ -34,6 +34,7 @@ interface ConceptLabHubModalProps {
   avatarBadgeColor?: string;
   totalStars?: number;
   streakDays?: number;
+  activeLang?: AppLanguage;
 }
 
 type TabKey = GradeGroupKey | 'science_stem' | 'all';
@@ -48,7 +49,9 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
   avatarBadgeColor = '#F59E0B',
   totalStars = 120,
   streakDays = 5,
+  activeLang = 'en',
 }) => {
+  const isHindi = activeLang === 'hi';
   const defaultTab = getGradeGroupKey(userGrade);
   const [selectedTab, setSelectedTab] = useState<TabKey>(defaultTab);
   const [showParentInfo, setShowParentInfo] = useState(false);
@@ -79,9 +82,11 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 <Text style={styles.flaskIcon}>🧪</Text>
               </View>
               <View>
-                <Text style={styles.headerTitle}>STEM Concept Labs</Text>
+                <Text style={styles.headerTitle}>
+                  {isHindi ? 'एसटीईएम कॉन्सेप्ट लैब' : 'STEM Concept Labs'}
+                </Text>
                 <Text style={styles.headerSub}>
-                  Hands-On Practical Learning • खेल-खेल में सीखें
+                  {isHindi ? 'खेल-खेल में सीखें • प्रैक्टिकल लर्निंग' : 'Hands-On Practical Learning • STEM Labs'}
                 </Text>
               </View>
             </View>
@@ -91,7 +96,9 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 style={styles.parentPill}
                 onPress={() => setShowParentInfo((v) => !v)}
               >
-                <Text style={styles.parentPillText}>👨‍🏫 Parents</Text>
+                <Text style={styles.parentPillText}>
+                  {isHindi ? '👨‍🏫 अभिभावक' : '👨‍🏫 Parents'}
+                </Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
                 <Text style={styles.closeText}>✕</Text>
@@ -103,10 +110,12 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
           {showParentInfo && (
             <View style={styles.parentBox}>
               <Text style={styles.parentTitle}>
-                💡 Why Practical Concept Labs? (प्रैक्टिकल लर्निंग क्यों?)
+                {isHindi ? '💡 प्रैक्टिकल लर्निंग क्यों जरूरी है?' : '💡 Why Practical Concept Labs?'}
               </Text>
               <Text style={styles.parentDesc}>
-                बच्चे परिभाषाएं और फॉर्मूले रटने के बजाय जब खुद स्क्रीन पर तराजू का वजन बदलते हैं, घड़ी की सुइयां घुमाते हैं, पिज़्ज़ा के टुकड़े करते हैं, और चुंबक के पोल्स जोड़ते हैं — तो उनका कॉन्सेप्ट हमेशा के लिए पक्का हो जाता है।
+                {isHindi
+                  ? 'बच्चे परिभाषाएं और फॉर्मूले रटने के बजाय जब खुद स्क्रीन पर तराजू का वजन बदलते हैं, घड़ी की सुइयां घुमाते हैं, पिज़्ज़ा के टुकड़े करते हैं, और चुंबक के पोल्स जोड़ते हैं — तो उनका कॉन्सेप्ट हमेशा के लिए पक्का हो जाता है।'
+                  : 'Instead of rote memorization, children interact directly with balance weights, clock hands, pizza fractions, and magnetic poles — building deep conceptual mastery.'}
               </Text>
             </View>
           )}
@@ -172,7 +181,9 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                   setShowCertModal(true);
                 }}
               >
-                <Text style={styles.viewCertBtnText}>🏆 View STEM Diploma</Text>
+                <Text style={styles.viewCertBtnText}>
+                  {isHindi ? '🏆 प्रमाण-पत्र देखें' : '🏆 View STEM Diploma'}
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -180,7 +191,9 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 activeOpacity={0.85}
                 onPress={() => handleLaunch('speed_brain')}
               >
-                <Text style={styles.brainBoosterBtnText}>⚡ 60s Brain Booster</Text>
+                <Text style={styles.brainBoosterBtnText}>
+                  {isHindi ? '⚡ 60s ब्रेन बूस्टर' : '⚡ 60s Brain Booster'}
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -196,7 +209,7 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 }}
               >
                 <Text style={[styles.tabText, selectedTab === getGradeGroupKey(userGrade) && styles.tabTextActive]}>
-                  🎯 My Class Labs
+                  {isHindi ? '🎯 मेरी क्लास' : '🎯 My Class Labs'}
                 </Text>
               </TouchableOpacity>
 
@@ -208,7 +221,7 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 }}
               >
                 <Text style={[styles.tabText, selectedTab === 'lkg_ukg' && styles.tabTextActive]}>
-                  👶 LKG & UKG
+                  {isHindi ? '👶 LKG और UKG' : '👶 LKG & UKG'}
                 </Text>
               </TouchableOpacity>
 
@@ -220,7 +233,7 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 }}
               >
                 <Text style={[styles.tabText, selectedTab === 'class_1_2' && styles.tabTextActive]}>
-                  🎒 Class 1 & 2
+                  {isHindi ? '🎒 कक्षा 1 व 2' : '🎒 Class 1 & 2'}
                 </Text>
               </TouchableOpacity>
 
@@ -232,7 +245,7 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 }}
               >
                 <Text style={[styles.tabText, selectedTab === 'class_3_4' && styles.tabTextActive]}>
-                  🚀 Class 3 & 4
+                  {isHindi ? '🚀 कक्षा 3 व 4' : '🚀 Class 3 & 4'}
                 </Text>
               </TouchableOpacity>
 
@@ -244,7 +257,7 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 }}
               >
                 <Text style={[styles.tabText, selectedTab === 'class_5_6' && styles.tabTextActive]}>
-                  ⚡ Class 5 & 6
+                  {isHindi ? '⚡ कक्षा 5 व 6' : '⚡ Class 5 & 6'}
                 </Text>
               </TouchableOpacity>
 
@@ -256,7 +269,7 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 }}
               >
                 <Text style={[styles.tabText, selectedTab === 'science_stem' && styles.tabTextActive]}>
-                  🧲 Science & Optics
+                  {isHindi ? '🧲 विज्ञान और प्रकाशिकी' : '🧲 Science & Optics'}
                 </Text>
               </TouchableOpacity>
 
@@ -268,7 +281,7 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 }}
               >
                 <Text style={[styles.tabText, selectedTab === 'all' && styles.tabTextActive]}>
-                  🌟 All 15 Labs
+                  {isHindi ? '🌟 सभी 15 लैब' : '🌟 All 15 Labs'}
                 </Text>
               </TouchableOpacity>
             </ScrollView>
@@ -298,7 +311,9 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                       </Text>
                     </View>
                     <View style={styles.levelsPill}>
-                      <Text style={styles.levelsText}>8-10 Levels 🔬</Text>
+                      <Text style={styles.levelsText}>
+                        {isHindi ? '8-10 स्तर 🔬' : '8-10 Levels 🔬'}
+                      </Text>
                     </View>
                   </View>
 
@@ -307,20 +322,24 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
 
                   <View style={styles.practicalNoteRow}>
                     <Text style={styles.practicalNoteText} numberOfLines={2}>
-                      💡 {lab.pedagogicalOutcome.hindi}
+                      💡 {isHindi ? lab.pedagogicalOutcome.hindi : lab.pedagogicalOutcome.english}
                     </Text>
                   </View>
                 </View>
 
                 <View style={[styles.launchBtn, { backgroundColor: lab.accentColor }]}>
-                  <Text style={styles.launchBtnText}>Enter ▶</Text>
+                  <Text style={styles.launchBtnText}>
+                    {isHindi ? 'प्रवेश ▶' : 'Enter ▶'}
+                  </Text>
                 </View>
               </TouchableOpacity>
             ))}
 
             <View style={styles.footerSpace}>
               <Text style={styles.footerNote}>
-                ✨ Aligned with NCERT CBSE Syllabus & NEP 2020 Experiential Learning
+                {isHindi
+                  ? '✨ सीबीएसई एनसीईआरटी पाठ्यक्रम और एनईपी 2020 प्रायोगिक शिक्षा'
+                  : '✨ Aligned with NCERT CBSE Syllabus & NEP 2020 Experiential Learning'}
               </Text>
             </View>
           </ScrollView>

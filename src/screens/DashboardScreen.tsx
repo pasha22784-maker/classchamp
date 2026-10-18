@@ -45,8 +45,9 @@ import { CONCEPT_LABS_BY_GRADE, getGradeGroupKey } from '../data/conceptLabsRegi
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
 import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
 import { fetchGlobalConfig } from '../services/adminConfig';
-import { Subject, Grade, ChapterLesson, AppGlobalConfig, WeakTopicItem } from '../types';
+import { Subject, Grade, ChapterLesson, AppGlobalConfig, WeakTopicItem, AppLanguage } from '../types';
 import { triggerHaptic } from '../utils/haptics';
+import { getActiveLanguage, STRINGS } from '../utils/language';
 
 interface DashboardScreenProps {
   onStartQuiz: (subject: Subject, chapterTitle?: string) => void;
@@ -61,7 +62,9 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   onOpenRoadmap365,
   onOpenParentZone,
 }) => {
-  const { profile, loadProfile, setAvatar } = useUserStore();
+  const { profile, loadProfile, setAvatar, setPreferredLanguage } = useUserStore();
+  const activeLang: AppLanguage = getActiveLanguage(profile);
+  const s = STRINGS[activeLang];
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showPaywallModal, setShowPaywallModal] = useState(false);
   const [showLuckySpinModal, setShowLuckySpinModal] = useState(false);
@@ -208,8 +211,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
       {/* Clean & Smart Header: Avatar (opens Settings) + Greeting + Stars */}
       <ChampHeader
-        title={`Hi, ${profile.name}! 👋`}
-        subtitle={`${gradeConfig.label} • NCERT`}
+        title={`${s.greeting}, ${profile.name}! 👋`}
+        subtitle={`${gradeConfig.label} • ${s.ncertTag}`}
         totalStars={profile.totalStars}
         avatarEmoji={currentAvatar.emoji}
         onPressAvatar={() => {
@@ -236,13 +239,11 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             <View style={{ flex: 1 }}>
               <Text style={styles.streakToastTitle}>
                 {profile.currentStreak > 0
-                  ? `${profile.currentStreak} Day Streak Active!`
-                  : 'Start Your Streak Today!'}
+                  ? (activeLang === 'hi' ? `${profile.currentStreak} दिन की स्ट्रीक जारी!` : `${profile.currentStreak} Day Streak Active!`)
+                  : (activeLang === 'hi' ? 'आज अपनी स्ट्रीक शुरू करें!' : 'Start Your Streak Today!')}
               </Text>
               <Text style={styles.streakToastSub}>
-                {isCompletedToday
-                  ? "Today's goal completed! Shabaash 🌟"
-                  : 'Complete 10 min practice to keep it burning!'}
+                {isCompletedToday ? s.heroSubDone : s.heroSubPending}
               </Text>
             </View>
             <TouchableOpacity
@@ -311,7 +312,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             <Text style={styles.lootStripEmoji}>🔥</Text>
             <View>
               <Text style={styles.lootStripVal}>{profile.currentStreak}d</Text>
-              <Text style={styles.lootStripLbl}>Streak</Text>
+              <Text style={styles.lootStripLbl}>{s.streak}</Text>
             </View>
           </View>
 
@@ -321,7 +322,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             <Text style={styles.lootStripEmoji}>🛡️</Text>
             <View>
               <Text style={styles.lootStripVal}>{profile.streakShields ?? 0}</Text>
-              <Text style={styles.lootStripLbl}>Shields</Text>
+              <Text style={styles.lootStripLbl}>{s.shields}</Text>
             </View>
           </View>
 
@@ -331,7 +332,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             <Text style={styles.lootStripEmoji}>⭐</Text>
             <View>
               <Text style={styles.lootStripVal}>{profile.totalStars}</Text>
-              <Text style={styles.lootStripLbl}>Stars</Text>
+              <Text style={styles.lootStripLbl}>{s.stars}</Text>
             </View>
           </View>
 
@@ -341,7 +342,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             <Text style={styles.lootStripEmoji}>⚡</Text>
             <View>
               <Text style={styles.lootStripVal}>{profile.xp ?? 0}</Text>
-              <Text style={styles.lootStripLbl}>XP</Text>
+              <Text style={styles.lootStripLbl}>{s.xp}</Text>
             </View>
           </View>
         </View>
@@ -356,12 +357,12 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           <View style={styles.heroTopRow}>
             <View style={[styles.heroBadge, isCompletedToday ? styles.heroBadgeCompleted : styles.heroBadgeActive]}>
               <Text style={styles.heroBadgeText}>
-                {isCompletedToday ? '🌟 MISSION ACCOMPLISHED' : '🎯 DAILY MISSION'}
+                {isCompletedToday ? s.heroMissionDone : s.heroDailyMission}
               </Text>
             </View>
             <View style={[styles.statusPill, isCompletedToday ? styles.statusPillDone : styles.statusPillPending]}>
               <Text style={styles.statusPillText}>
-                {isCompletedToday ? '100% Done ✅' : '10 Min Goal ⏱️'}
+                {isCompletedToday ? s.heroGoalDone : s.heroGoalPending}
               </Text>
             </View>
           </View>
@@ -369,12 +370,10 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           <View style={styles.heroBodyRow}>
             <View style={styles.heroTextCol}>
               <Text style={styles.heroTitle}>
-                {isCompletedToday ? 'Shabaash, Champ! 🎉' : 'Daily 10-Min CBSE Quest 🚀'}
+                {isCompletedToday ? s.heroTitleDone : s.heroTitlePending}
               </Text>
               <Text style={styles.heroSub}>
-                {isCompletedToday
-                  ? 'Aapne aaj ka target poora kar liya! Neeche kisi bhi subject ki practice jari rakhein.'
-                  : 'Rozana 10 sawaal solve karke naye stars jeetein aur CBSE concepts master karein!'}
+                {isCompletedToday ? s.heroSubDone : s.heroSubPending}
               </Text>
             </View>
             <View style={styles.heroIllustrationCircle}>
@@ -412,17 +411,17 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             <View style={styles.luckySpinBadgeRow}>
               <View style={[styles.luckySpinBadge, isFreeSpinReady && styles.luckySpinBadgeFree]}>
                 <Text style={styles.luckySpinBadgeText}>
-                  {isFreeSpinReady ? '🎁 FREE SPIN READY' : '⭐ EXTRA SPIN'}
+                  {isFreeSpinReady ? s.spinFreeReady : s.spinExtra}
                 </Text>
               </View>
             </View>
-            <Text style={styles.luckySpinTitle}>Daily Lucky Spin Wheel</Text>
+            <Text style={styles.luckySpinTitle}>{s.spinTitle}</Text>
             <Text style={styles.luckySpinSub}>
-              Spin daily to win Stars, Shields, Trophies & XP!
+              {s.spinSub}
             </Text>
           </View>
           <View style={styles.luckySpinActionBtn}>
-            <Text style={styles.luckySpinActionText}>SPIN ›</Text>
+            <Text style={styles.luckySpinActionText}>{s.spinBtn}</Text>
           </View>
         </TouchableOpacity>
 
@@ -431,7 +430,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           <View style={styles.dailyGymTopRow}>
             <View style={[styles.dailyGymBadge, isWorkoutDoneToday && styles.dailyGymBadgeDone]}>
               <Text style={styles.dailyGymBadgeText}>
-                {isWorkoutDoneToday ? '✅ TODAY’S WORKOUT SEALED' : '🔥 DAILY BRAIN GYM READY'}
+                {isWorkoutDoneToday ? s.gymBadgeDone : s.gymBadgePending}
               </Text>
             </View>
             <TouchableOpacity
@@ -442,7 +441,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 setShowBrainMatrixModal(true);
               }}
             >
-              <Text style={styles.brainMatrixPillText}>Brain Matrix 📊</Text>
+              <Text style={styles.brainMatrixPillText}>{s.brainMatrixBtn}</Text>
             </TouchableOpacity>
           </View>
 
@@ -451,9 +450,9 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               <Text style={styles.dailyGymIconEmoji}>🏋️‍♂️</Text>
             </View>
             <View style={styles.dailyGymTextBox}>
-              <Text style={styles.dailyGymTitle}>Super Kid Daily Workout</Text>
+              <Text style={styles.dailyGymTitle}>{s.gymTitle}</Text>
               <Text style={styles.dailyGymSub}>
-                1 Logic Puzzle + 1 STEM Lab Mission + 60s Speed Sprint
+                {s.gymSub}
               </Text>
             </View>
           </View>
@@ -467,7 +466,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             }}
           >
             <Text style={styles.dailyGymActionText}>
-              {isWorkoutDoneToday ? 'Review Today’s Workout 🌟' : 'Start 3-Step Workout 🚀 (+50 ⭐)'}
+              {isWorkoutDoneToday ? s.gymBtnReview : s.gymBtnStart}
             </Text>
           </TouchableOpacity>
         </View>
@@ -485,10 +484,10 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           >
             <View style={styles.weakTopicTopRow}>
               <View style={styles.weakTopicBadge}>
-                <Text style={styles.weakTopicBadgeText}>🎯 TARGETED BOOSTER</Text>
+                <Text style={styles.weakTopicBadgeText}>{s.weakTopicBadge}</Text>
               </View>
               <Text style={styles.weakTopicAccuracy}>
-                Mastery: <Text style={{ color: '#EF4444', fontWeight: '900' }}>{currentWeakTopic.accuracyPercentage}%</Text>
+                {s.weakTopicMastery}: <Text style={{ color: '#EF4444', fontWeight: '900' }}>{currentWeakTopic.accuracyPercentage}%</Text>
               </Text>
             </View>
 
@@ -500,11 +499,11 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 <Text style={styles.weakTopicTitle}>{currentWeakTopic.chapterTitle}</Text>
                 <Text style={styles.weakTopicSub}>{currentWeakTopic.conceptName}</Text>
                 <Text style={styles.weakTopicHint}>
-                  कमज़ोर टॉपिक की 3-मिनट ख़ास प्रैक्टिस • Turn this into 100%! 🚀
+                  {s.weakTopicHint}
                 </Text>
               </View>
               <View style={styles.weakTopicGoBtn}>
-                <Text style={styles.weakTopicGoText}>Fix ▶</Text>
+                <Text style={styles.weakTopicGoText}>{s.weakTopicFixBtn}</Text>
               </View>
             </View>
           </TouchableOpacity>
@@ -512,8 +511,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
         {/* Section Heading: Clean & Minimal */}
         <View style={styles.sectionHeaderRow}>
-          <Text style={styles.sectionTitle}>Select Subject</Text>
-          <Text style={styles.sectionSub}>100% CBSE & NCERT</Text>
+          <Text style={styles.sectionTitle}>{s.selectSubject}</Text>
+          <Text style={styles.sectionSub}>{s.subjectSub}</Text>
         </View>
 
         {/* 1. Mathematics Smart Card */}
@@ -528,10 +527,12 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
 
           <View style={styles.subjectTextBox}>
             <View style={styles.subjectTitleRow}>
-              <Text style={styles.subjectName}>Mathematics</Text>
+              <Text style={styles.subjectName}>
+                {activeLang === 'hi' ? 'गणित (Mathematics)' : 'Mathematics'}
+              </Text>
               <View style={[styles.lessonBadge, { backgroundColor: '#DBEAFE' }]}>
                 <Text style={[styles.lessonBadgeText, { color: '#1E40AF' }]}>
-                  {mathsInfo.isResume ? 'Resume ▶' : `Ch ${mathsInfo.lesson.number}`}
+                  {mathsInfo.isResume ? s.resumeBadge : `${s.chapterPrefix} ${mathsInfo.lesson.number}`}
                 </Text>
               </View>
             </View>
@@ -539,7 +540,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               {mathsInfo.lesson.title}
             </Text>
             <Text style={styles.bookSub} numberOfLines={1}>
-              {bookInfo.mathsBook} • 10 Practice Questions
+              {bookInfo.mathsBook} • 10 {s.practiceQuestionsSuffix}
             </Text>
           </View>
 
@@ -580,7 +581,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </View>
         </TouchableOpacity>
 
-        {/* 3. Hindi Smart Card */}
+        {/* 3. Hindi Smart Card (Always in pure Hindi) */}
         <TouchableOpacity
           style={styles.cleanSubjectCard}
           onPress={() => handleSubjectClick('hindi', hindiInfo.lesson.title)}
@@ -595,7 +596,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               <Text style={styles.subjectName}>हिंदी (Hindi)</Text>
               <View style={[styles.lessonBadge, { backgroundColor: '#D1FAE5' }]}>
                 <Text style={[styles.lessonBadgeText, { color: '#065F46' }]}>
-                  {hindiInfo.isResume ? 'Resume ▶' : `पाठ ${hindiInfo.lesson.number}`}
+                  {hindiInfo.isResume ? 'जारी रखें ▶' : `पाठ ${hindiInfo.lesson.number}`}
                 </Text>
               </View>
             </View>
@@ -603,7 +604,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               {hindiInfo.lesson.title}
             </Text>
             <Text style={styles.bookSub} numberOfLines={1}>
-              {bookInfo.hindiBook} • 10 Practice Questions
+              {bookInfo.hindiBook} • 10 अभ्यास प्रश्न
             </Text>
           </View>
 
@@ -623,7 +624,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             activeOpacity={0.8}
           >
             <Text style={styles.shortcutEmoji}>🗓️</Text>
-            <Text style={styles.shortcutLabel}>365 Plan</Text>
+            <Text style={styles.shortcutLabel}>{s.shortcutRoadmap}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -635,7 +636,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             activeOpacity={0.8}
           >
             <Text style={styles.shortcutEmoji}>📚</Text>
-            <Text style={styles.shortcutLabel}>All Chapters</Text>
+            <Text style={styles.shortcutLabel}>{s.shortcutVault}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -647,7 +648,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             activeOpacity={0.8}
           >
             <Text style={styles.shortcutEmoji}>🔬</Text>
-            <Text style={styles.shortcutLabel}>STEM Labs</Text>
+            <Text style={styles.shortcutLabel}>{s.shortcutLabs}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -659,15 +660,15 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             activeOpacity={0.8}
           >
             <Text style={styles.shortcutEmoji}>👨‍👩‍👧</Text>
-            <Text style={styles.shortcutLabel}>Parent Zone</Text>
+            <Text style={styles.shortcutLabel}>{s.shortcutParent}</Text>
           </TouchableOpacity>
         </View>
 
         {/* Champ Arcade: Exciting Kids Educational Games */}
         <View style={styles.arcadeHeaderRow}>
           <View>
-            <Text style={styles.arcadeTitle}>🎮 Champ Arcade</Text>
-            <Text style={styles.arcadeSub}>High-energy educational mini games</Text>
+            <Text style={styles.arcadeTitle}>{s.arcadeTitle}</Text>
+            <Text style={styles.arcadeSub}>{s.arcadeSub}</Text>
           </View>
           <View style={styles.arcadeLiveBadge}>
             <Text style={styles.arcadeLiveText}>NEW ✨</Text>
@@ -690,18 +691,18 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 <Text style={styles.arcadeCardBadgeText}>40s Blitz</Text>
               </View>
             </View>
-            <Text style={styles.arcadeCardTitle}>Balloon Pop Blitz</Text>
+            <Text style={styles.arcadeCardTitle}>{s.balloonPopTitle}</Text>
             <Text style={styles.arcadeCardDesc}>
-              Pop the right balloons fast! Beat the clock & score combos 🔥
+              {s.balloonPopDesc}
             </Text>
             <View style={styles.arcadeCardBtn}>
-              <Text style={styles.arcadeCardBtnText}>Play Now ▶</Text>
+              <Text style={styles.arcadeCardBtnText}>{s.playNowBtn}</Text>
             </View>
           </TouchableOpacity>
 
-          {/* 2. Mind Match 3D */}
+          {/* 2. Mind Match 3D (Vibrant Bright Purple instead of dark indigo) */}
           <TouchableOpacity
-            style={[styles.arcadeCard, { backgroundColor: '#4338CA' }]}
+            style={[styles.arcadeCard, { backgroundColor: '#8B5CF6' }]}
             activeOpacity={0.88}
             onPress={() => {
               triggerHaptic('medium');
@@ -714,12 +715,12 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 <Text style={styles.arcadeCardBadgeText}>Brain Power</Text>
               </View>
             </View>
-            <Text style={styles.arcadeCardTitle}>Mind Match 3D</Text>
+            <Text style={styles.arcadeCardTitle}>{s.mindMatchTitle}</Text>
             <Text style={styles.arcadeCardDesc}>
-              Flip & match memory pairs! Earn 3-star rating & big XP.
+              {s.mindMatchDesc}
             </Text>
             <View style={styles.arcadeCardBtn}>
-              <Text style={styles.arcadeCardBtnText}>Play Now ▶</Text>
+              <Text style={styles.arcadeCardBtnText}>{s.playNowBtn}</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -730,10 +731,10 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           <View style={styles.labGatewayTopRow}>
             <View style={styles.labGatewayLiveBadge}>
               <View style={styles.labGatewayLiveDot} />
-              <Text style={styles.labGatewayLiveText}>🦸 SUPER KID STEM LABS</Text>
+              <Text style={styles.labGatewayLiveText}>{s.labGatewayBadge}</Text>
             </View>
             <View style={styles.labGatewayGradeBadge}>
-              <Text style={styles.labGatewayGradeText}>{gradeConfig.label} • 15 NCERT Labs</Text>
+              <Text style={styles.labGatewayGradeText}>{gradeConfig.label} • {s.labGatewayLabsCount}</Text>
             </View>
           </View>
 
@@ -747,12 +748,12 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             style={styles.labGatewayMainRow}
           >
             <View style={styles.labGatewayTextCol}>
-              <Text style={styles.labGatewayTitle}>🔬 Practical Concept Labs</Text>
+              <Text style={styles.labGatewayTitle}>{s.labGatewayTitle}</Text>
               <Text style={styles.labGatewayPunchline}>
-                Become a Super Kid! ⚡ Hands-On STEM
+                {s.labGatewayPunchline}
               </Text>
               <Text style={styles.labGatewayDesc}>
-                फॉर्मूले रटना छोड़ें • तराजू, घड़ी, पिज़्ज़ा, चुंबक, प्रिज्म और 60s स्पीड बूस्टर से सुपर-किड बनें!
+                {s.labGatewayDesc}
               </Text>
             </View>
 
@@ -787,7 +788,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 setShowConceptLabHub(true);
               }}
             >
-              <Text style={styles.enterLabActionText}>Enter Concept Labs 🚀</Text>
+              <Text style={styles.enterLabActionText}>{s.labGatewayEnterBtn}</Text>
               <View style={styles.enterLabActionArrow}>
                 <Text style={styles.enterLabArrowText}>▶</Text>
               </View>
@@ -801,7 +802,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 setShowSpeedBrainModal(true);
               }}
             >
-              <Text style={styles.speedBrainActionText}>⚡ 60s Rush</Text>
+              <Text style={styles.speedBrainActionText}>{s.labGatewayRushBtn}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -821,16 +822,16 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           <View style={styles.olympiadTextBox}>
             <View style={styles.olympiadBadgeRow}>
               <View style={styles.olympiadBadge}>
-                <Text style={styles.olympiadBadgeText}>WEEKLY BENCHMARK</Text>
+                <Text style={styles.olympiadBadgeText}>{s.olympiadBadge}</Text>
               </View>
             </View>
-            <Text style={styles.olympiadTitle}>Weekly STEM Olympiad Test</Text>
+            <Text style={styles.olympiadTitle}>{s.olympiadTitle}</Text>
             <Text style={styles.olympiadSub}>
-              NCERT + HOTS Thinking Questions • Diagnostic Parent Report
+              {s.olympiadSub}
             </Text>
           </View>
           <View style={styles.olympiadActionBtn}>
-            <Text style={styles.olympiadActionText}>TEST ›</Text>
+            <Text style={styles.olympiadActionText}>{s.olympiadTestBtn}</Text>
           </View>
         </TouchableOpacity>
       </ScrollView>
@@ -857,7 +858,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 </View>
                 <View>
                   <Text style={styles.modalUserName}>{profile.name} 👋</Text>
-                  <Text style={styles.modalUserClass}>{gradeConfig.label} (CBSE/NCERT)</Text>
+                  <Text style={styles.modalUserClass}>{gradeConfig.label} ({s.ncertTag})</Text>
                 </View>
               </View>
               <TouchableOpacity
@@ -876,12 +877,14 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.streakCardDays}>
-                    {profile.currentStreak} Day Practice Streak
+                    {activeLang === 'hi'
+                      ? `${profile.currentStreak} दिन की दैनिक स्ट्रीक`
+                      : `${profile.currentStreak} Day Practice Streak`}
                   </Text>
                   <Text style={styles.streakCardSubtitle}>
                     {isCompletedToday
-                      ? 'Streak safe! Today’s 10-min practice completed 🌟'
-                      : 'Practice 10 minutes today to maintain your streak!'}
+                      ? (activeLang === 'hi' ? 'स्ट्रीक सुरक्षित! आज का 10-मिनट अभ्यास पूरा हुआ 🌟' : 'Streak safe! Today’s 10-min practice completed 🌟')
+                      : (activeLang === 'hi' ? 'स्ट्रीक जारी रखने के लिए आज 10 मिनट अभ्यास करें!' : 'Practice 10 minutes today to maintain your streak!')}
                   </Text>
                 </View>
               </View>
@@ -891,25 +894,79 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               <View style={styles.streakStatsRow}>
                 <View style={styles.streakStatCol}>
                   <Text style={styles.streakStatVal}>⭐ {profile.totalStars}</Text>
-                  <Text style={styles.streakStatLbl}>Stars</Text>
+                  <Text style={styles.streakStatLbl}>{s.stars}</Text>
                 </View>
                 <View style={styles.streakStatCol}>
                   <Text style={styles.streakStatVal}>🛡️ {profile.streakShields ?? 0}</Text>
-                  <Text style={styles.streakStatLbl}>Shields</Text>
+                  <Text style={styles.streakStatLbl}>{s.shields}</Text>
                 </View>
                 <View style={styles.streakStatCol}>
                   <Text style={styles.streakStatVal}>⚡ {profile.xp ?? 0}</Text>
-                  <Text style={styles.streakStatLbl}>XP</Text>
+                  <Text style={styles.streakStatLbl}>{s.xp}</Text>
                 </View>
                 <View style={styles.streakStatCol}>
                   <Text style={styles.streakStatVal}>🏆 {profile.totalTrophies}</Text>
-                  <Text style={styles.streakStatLbl}>Trophies</Text>
+                  <Text style={styles.streakStatLbl}>{s.trophies}</Text>
                 </View>
               </View>
             </View>
 
+            {/* Preferred Medium / Language Selector */}
+            <Text style={styles.sheetSectionTitle}>{s.languageSectionTitle}</Text>
+            <View style={styles.langSelectorRow}>
+              <TouchableOpacity
+                style={[
+                  styles.langPill,
+                  activeLang === 'en' && styles.langPillActive,
+                ]}
+                onPress={() => {
+                  triggerHaptic('light');
+                  setPreferredLanguage('en');
+                }}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.langPillFlag}>🇬🇧</Text>
+                <View style={styles.langPillTextCol}>
+                  <Text style={[styles.langPillText, activeLang === 'en' && styles.langPillTextActive]}>
+                    English
+                  </Text>
+                  <Text style={styles.langPillSub}>Maths & UI in English</Text>
+                </View>
+                {activeLang === 'en' && (
+                  <View style={styles.langCheckCircle}>
+                    <Text style={styles.langCheckText}>✓</Text>
+                  </View>
+                )}
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[
+                  styles.langPill,
+                  activeLang === 'hi' && styles.langPillActive,
+                ]}
+                onPress={() => {
+                  triggerHaptic('light');
+                  setPreferredLanguage('hi');
+                }}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.langPillFlag}>🇮🇳</Text>
+                <View style={styles.langPillTextCol}>
+                  <Text style={[styles.langPillText, activeLang === 'hi' && styles.langPillTextActive]}>
+                    हिंदी (Hindi)
+                  </Text>
+                  <Text style={styles.langPillSub}>गणित और UI हिंदी में</Text>
+                </View>
+                {activeLang === 'hi' && (
+                  <View style={styles.langCheckCircle}>
+                    <Text style={styles.langCheckText}>✓</Text>
+                  </View>
+                )}
+              </TouchableOpacity>
+            </View>
+
             {/* Mascot Avatar Selector */}
-            <Text style={styles.sheetSectionTitle}>Change Avatar Mascot:</Text>
+            <Text style={styles.sheetSectionTitle}>{s.avatarSectionTitle}</Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.avatarScroll}>
               {KID_AVATARS.map((avatar) => {
                 const isSelected = avatar.id === profile.avatarId;
@@ -946,8 +1003,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                   <Text style={{ fontSize: 18 }}>🔒</Text>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={styles.menuItemTitle}>Change Class ({gradeConfig.label})</Text>
-                  <Text style={styles.menuItemSub}>Parent Gate protected</Text>
+                  <Text style={styles.menuItemTitle}>{s.menuChangeClass} ({gradeConfig.label})</Text>
+                  <Text style={styles.menuItemSub}>{s.menuParentGateSub}</Text>
                 </View>
                 <Text style={styles.menuItemArrow}>→</Text>
               </TouchableOpacity>
@@ -964,8 +1021,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                   <Text style={{ fontSize: 18 }}>🗓️</Text>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={styles.menuItemTitle}>365-Day Annual Roadmap</Text>
-                  <Text style={styles.menuItemSub}>View all 52 weeks</Text>
+                  <Text style={styles.menuItemTitle}>{s.menuRoadmap}</Text>
+                  <Text style={styles.menuItemSub}>{s.menuRoadmapSub}</Text>
                 </View>
                 <Text style={styles.menuItemArrow}>→</Text>
               </TouchableOpacity>
@@ -982,8 +1039,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                   <Text style={{ fontSize: 18 }}>📚</Text>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={styles.menuItemTitle}>NCERT Chapter Vault</Text>
-                  <Text style={styles.menuItemSub}>Browse all lessons</Text>
+                  <Text style={styles.menuItemTitle}>{s.menuVault}</Text>
+                  <Text style={styles.menuItemSub}>{s.menuVaultSub}</Text>
                 </View>
                 <Text style={styles.menuItemArrow}>→</Text>
               </TouchableOpacity>
@@ -1000,8 +1057,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                   <Text style={{ fontSize: 18 }}>👨‍👩‍👧</Text>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={styles.menuItemTitle}>Parent Zone & Settings</Text>
-                  <Text style={styles.menuItemSub}>Audio, report & reset</Text>
+                  <Text style={styles.menuItemTitle}>{s.menuParentZone}</Text>
+                  <Text style={styles.menuItemSub}>{s.menuParentZoneSub}</Text>
                 </View>
                 <Text style={styles.menuItemArrow}>→</Text>
               </TouchableOpacity>
@@ -1012,7 +1069,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
               style={styles.modalCloseBtn}
               onPress={() => setShowSettingsModal(false)}
             >
-              <Text style={styles.modalCloseBtnText}>Done</Text>
+              <Text style={styles.modalCloseBtnText}>{s.doneBtn}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -1122,6 +1179,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         avatarBadgeColor={currentAvatar.badgeColor}
         totalStars={profile.totalStars}
         streakDays={profile.currentStreak}
+        activeLang={activeLang}
         onSelectLab={(labId) => {
           setShowConceptLabHub(false);
           handleOpenConceptLab(labId);
@@ -1138,6 +1196,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         visible={showDailyBrainGymModal}
         onClose={() => setShowDailyBrainGymModal(false)}
         userGrade={profile.grade}
+        activeLang={activeLang}
         onLaunchLab={(labId) => {
           handleOpenConceptLab(labId);
         }}
@@ -1150,6 +1209,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         visible={showBrainMatrixModal}
         onClose={() => setShowBrainMatrixModal(false)}
         userGrade={profile.grade}
+        activeLang={activeLang}
         onOpenLab={() => {
           setShowConceptLabHub(true);
         }}
@@ -1159,6 +1219,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         visible={showOlympiadTestModal}
         onClose={() => setShowOlympiadTestModal(false)}
         userGrade={profile.grade}
+        activeLang={activeLang}
       />
 
       <TargetedWeakTopicModal
@@ -1169,6 +1230,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         }}
         userGrade={profile.grade}
         topic={selectedWeakTopic}
+        activeLang={activeLang}
       />
     </SafeAreaView>
   );
@@ -1865,6 +1927,66 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textTransform: 'uppercase',
     letterSpacing: 0.6,
+  },
+  langSelectorRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 18,
+  },
+  langPill: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderRadius: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    borderWidth: 2,
+    borderColor: '#E2E8F0',
+    gap: 8,
+  },
+  langPillActive: {
+    backgroundColor: '#EFF6FF',
+    borderColor: '#2563EB',
+    shadowColor: '#2563EB',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 3,
+  },
+  langPillFlag: {
+    fontSize: 24,
+  },
+  langPillTextCol: {
+    flex: 1,
+  },
+  langPillText: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: '#475569',
+  },
+  langPillTextActive: {
+    color: '#1D4ED8',
+    fontWeight: '900',
+  },
+  langPillSub: {
+    fontSize: 10,
+    fontWeight: '600',
+    color: '#64748B',
+    marginTop: 1,
+  },
+  langCheckCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: '#2563EB',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  langCheckText: {
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '900',
   },
   avatarScroll: {
     flexDirection: 'row',

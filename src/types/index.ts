@@ -4,6 +4,7 @@ export type Grade = 'LKG' | 'UKG' | 1 | 2 | 3 | 4 | 5 | 6;
 export type Subject = 'maths' | 'english' | 'hindi';
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type QuestionType = 'mcq' | 'fill_blank' | 'match_pairs' | 'drag_order';
+export type AppLanguage = 'en' | 'hi';
 
 export interface MCQOption {
   id: string;
@@ -44,9 +45,12 @@ export interface Question {
   difficulty: Difficulty;
   type: QuestionType;
   question: string;
+  questionHindi?: string;
   visualEmoji?: string;
   payload: QuestionPayload;
+  payloadHindi?: QuestionPayload;
   explanation: string;
+  explanationHindi?: string;
   points: number;
 }
 
@@ -71,6 +75,7 @@ export interface UserProfile {
   name: string;
   grade: Grade;
   avatarId: string;
+  preferredLanguage?: AppLanguage; // 'en' | 'hi' (Default 'en', Hindi subject is always Hindi)
   isPro: boolean;
   totalStars: number;
   totalTrophies: number;

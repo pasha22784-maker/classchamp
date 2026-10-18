@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { UserProfile, Grade, Subject, WeakTopicItem, CognitiveProfileScores } from '../types';
+import { UserProfile, Grade, Subject, CognitiveProfileScores, AppLanguage } from '../types';
 import { syncProfileToCloud } from '../services/supabase';
 import { getDefaultWeakTopicsForGrade } from '../data/cognitiveEngine';
 
@@ -27,6 +27,7 @@ const DEFAULT_PROFILE: UserProfile = {
   name: 'Champ',
   grade: 1,
   avatarId: 'lion',
+  preferredLanguage: 'en',
   isPro: false,
   totalStars: 0,
   totalTrophies: 0,
@@ -54,6 +55,7 @@ interface UserState {
   updateName: (name: string) => Promise<void>;
   setGrade: (grade: Grade) => Promise<void>;
   setAvatar: (avatarId: string) => Promise<void>;
+  setPreferredLanguage: (lang: AppLanguage) => Promise<void>;
   setProStatus: (isPro: boolean) => Promise<void>;
   addStars: (stars: number) => Promise<void>;
   addReward: (reward: { stars?: number; trophies?: number; xp?: number; streakShields?: number }) => Promise<void>;
@@ -146,6 +148,13 @@ export const useUserStore = create<UserState>((set, get) => ({
 
   setAvatar: async (avatarId: string) => {
     const updated = { ...get().profile, avatarId };
+    set({ profile: updated });
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
+  },
+
+  setPreferredLanguage: async (lang: AppLanguage) => {
+    const updated = { ...get().profile, preferredLanguage: lang };
     set({ profile: updated });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
     syncProfileToCloud(updated);
