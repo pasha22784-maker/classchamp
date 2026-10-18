@@ -25,6 +25,15 @@ import { MemoryMatchModal } from '../components/gamification/MemoryMatchModal';
 import { BalanceScaleGameModal } from '../components/conceptGames/BalanceScaleGameModal';
 import { FractionPizzaGameModal } from '../components/conceptGames/FractionPizzaGameModal';
 import { AngleShooterGameModal } from '../components/conceptGames/AngleShooterGameModal';
+import { ShapeSorterGameModal } from '../components/conceptGames/ShapeSorterGameModal';
+import { CountingTrainGameModal } from '../components/conceptGames/CountingTrainGameModal';
+import { AnimalSeesawGameModal } from '../components/conceptGames/AnimalSeesawGameModal';
+import { ClockTimeGameModal } from '../components/conceptGames/ClockTimeGameModal';
+import { PatternBuilderGameModal } from '../components/conceptGames/PatternBuilderGameModal';
+import { PlaceValueRocketModal } from '../components/conceptGames/PlaceValueRocketModal';
+import { GeoAreaPerimeterModal } from '../components/conceptGames/GeoAreaPerimeterModal';
+import { IntegerSubmarineModal } from '../components/conceptGames/IntegerSubmarineModal';
+import { CONCEPT_LABS_BY_GRADE, getGradeGroupKey } from '../data/conceptLabsRegistry';
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
 import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
 import { fetchGlobalConfig } from '../services/adminConfig';
@@ -53,7 +62,31 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const [showBalanceScaleModal, setShowBalanceScaleModal] = useState(false);
   const [showFractionPizzaModal, setShowFractionPizzaModal] = useState(false);
   const [showAngleShooterModal, setShowAngleShooterModal] = useState(false);
+  const [showShapeSorterModal, setShowShapeSorterModal] = useState(false);
+  const [showCountingTrainModal, setShowCountingTrainModal] = useState(false);
+  const [showAnimalSeesawModal, setShowAnimalSeesawModal] = useState(false);
+  const [showClockTimeModal, setShowClockTimeModal] = useState(false);
+  const [showPatternBuilderModal, setShowPatternBuilderModal] = useState(false);
+  const [showPlaceValueRocketModal, setShowPlaceValueRocketModal] = useState(false);
+  const [showGeoAreaPerimeterModal, setShowGeoAreaPerimeterModal] = useState(false);
+  const [showIntegerSubmarineModal, setShowIntegerSubmarineModal] = useState(false);
   const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
+
+  const handleOpenConceptLab = (labId: string) => {
+    triggerHaptic('medium');
+    if (labId === 'shape_sorter') setShowShapeSorterModal(true);
+    else if (labId === 'counting_train') setShowCountingTrainModal(true);
+    else if (labId === 'animal_seesaw') setShowAnimalSeesawModal(true);
+    else if (labId === 'balance_scale') setShowBalanceScaleModal(true);
+    else if (labId === 'clock_time') setShowClockTimeModal(true);
+    else if (labId === 'pattern_builder') setShowPatternBuilderModal(true);
+    else if (labId === 'place_value_rocket') setShowPlaceValueRocketModal(true);
+    else if (labId === 'fraction_pizza') setShowFractionPizzaModal(true);
+    else if (labId === 'metric_weight') setShowBalanceScaleModal(true);
+    else if (labId === 'angle_laser') setShowAngleShooterModal(true);
+    else if (labId === 'geo_area_perimeter') setShowGeoAreaPerimeterModal(true);
+    else if (labId === 'integer_submarine') setShowIntegerSubmarineModal(true);
+  };
   
   // App-open Streak Greeting (shown once when app opens, then dismissed)
   const [showStreakWelcome, setShowStreakWelcome] = useState(true);
@@ -573,86 +606,42 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </TouchableOpacity>
         </View>
 
-        {/* Concept Labs: Physics Wallah Style Hands-On Simulations */}
+        {/* Concept Labs: Physics Wallah & PhET Style Practical Hands-On Simulations */}
         <View style={styles.arcadeHeaderRow}>
           <View>
             <Text style={styles.arcadeTitle}>🧪 Concept Labs</Text>
-            <Text style={styles.arcadeSub}>Play with concepts • खेल-खेल में सीखें!</Text>
+            <Text style={styles.arcadeSub}>Practical Learning • खेल-खेल में सीखें!</Text>
           </View>
           <View style={[styles.arcadeLiveBadge, { backgroundColor: '#10B981' }]}>
-            <Text style={styles.arcadeLiveText}>LAB 🔬</Text>
+            <Text style={styles.arcadeLiveText}>PRACTICAL 🔬</Text>
           </View>
         </View>
 
         <View style={styles.conceptLabList}>
-          {/* 1. The Balance Beam */}
-          <TouchableOpacity
-            style={[styles.conceptLabCard, { backgroundColor: '#1E293B', borderColor: '#F59E0B' }]}
-            activeOpacity={0.88}
-            onPress={() => {
-              triggerHaptic('medium');
-              setShowBalanceScaleModal(true);
-            }}
-          >
-            <View style={[styles.conceptLabIconBox, { backgroundColor: '#78350F' }]}>
-              <Text style={styles.conceptLabEmoji}>⚖️</Text>
-            </View>
-            <View style={styles.conceptLabTextBox}>
-              <Text style={styles.conceptLabTitle}>The Balance Beam</Text>
-              <Text style={styles.conceptLabDesc}>
-                Physics tilt balance scale! Master weights, addition & equations.
-              </Text>
-            </View>
-            <View style={[styles.conceptLabPlayBtn, { backgroundColor: '#F59E0B' }]}>
-              <Text style={styles.conceptLabPlayText}>Lab ▶</Text>
-            </View>
-          </TouchableOpacity>
-
-          {/* 2. Fraction Pizza Kitchen */}
-          <TouchableOpacity
-            style={[styles.conceptLabCard, { backgroundColor: '#1E293B', borderColor: '#EA580C' }]}
-            activeOpacity={0.88}
-            onPress={() => {
-              triggerHaptic('medium');
-              setShowFractionPizzaModal(true);
-            }}
-          >
-            <View style={[styles.conceptLabIconBox, { backgroundColor: '#7C2D12' }]}>
-              <Text style={styles.conceptLabEmoji}>🍕</Text>
-            </View>
-            <View style={styles.conceptLabTextBox}>
-              <Text style={styles.conceptLabTitle}>Fraction Pizza Kitchen</Text>
-              <Text style={styles.conceptLabDesc}>
-                Slice pizzas & serve orders! Master Halves (1/2), Quarters (1/4) & Equivalence.
-              </Text>
-            </View>
-            <View style={[styles.conceptLabPlayBtn, { backgroundColor: '#EA580C' }]}>
-              <Text style={styles.conceptLabPlayText}>Lab ▶</Text>
-            </View>
-          </TouchableOpacity>
-
-          {/* 3. Angle Laser Lab */}
-          <TouchableOpacity
-            style={[styles.conceptLabCard, { backgroundColor: '#1E293B', borderColor: '#8B5CF6' }]}
-            activeOpacity={0.88}
-            onPress={() => {
-              triggerHaptic('medium');
-              setShowAngleShooterModal(true);
-            }}
-          >
-            <View style={[styles.conceptLabIconBox, { backgroundColor: '#4C1D95' }]}>
-              <Text style={styles.conceptLabEmoji}>📐</Text>
-            </View>
-            <View style={styles.conceptLabTextBox}>
-              <Text style={styles.conceptLabTitle}>Angle Laser Lab</Text>
-              <Text style={styles.conceptLabDesc}>
-                Rotate the laser turret! Visually master Acute, Right & Obtuse angles.
-              </Text>
-            </View>
-            <View style={[styles.conceptLabPlayBtn, { backgroundColor: '#8B5CF6' }]}>
-              <Text style={styles.conceptLabPlayText}>Lab ▶</Text>
-            </View>
-          </TouchableOpacity>
+          {CONCEPT_LABS_BY_GRADE[getGradeGroupKey(profile.grade)].map((lab) => (
+            <TouchableOpacity
+              key={lab.id}
+              style={[styles.conceptLabCard, { backgroundColor: '#1E293B', borderColor: lab.accentColor }]}
+              activeOpacity={0.88}
+              onPress={() => handleOpenConceptLab(lab.id)}
+            >
+              <View style={[styles.conceptLabIconBox, { backgroundColor: lab.boxColor }]}>
+                <Text style={styles.conceptLabEmoji}>{lab.icon}</Text>
+              </View>
+              <View style={styles.conceptLabTextBox}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: 2 }}>
+                  <Text style={styles.conceptLabTitle}>{lab.title}</Text>
+                </View>
+                <View style={{ marginBottom: 3 }}>
+                  <Text style={{ color: lab.accentColor, fontSize: 10, fontWeight: '800' }}>{lab.badge}</Text>
+                </View>
+                <Text style={styles.conceptLabDesc}>{lab.subtitle}</Text>
+              </View>
+              <View style={[styles.conceptLabPlayBtn, { backgroundColor: lab.accentColor }]}>
+                <Text style={styles.conceptLabPlayText}>Lab ▶</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
         </View>
       </ScrollView>
 
@@ -868,6 +857,46 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
       />
 
       {/* Concept Lab Modals */}
+      <ShapeSorterGameModal
+        visible={showShapeSorterModal}
+        onClose={() => setShowShapeSorterModal(false)}
+      />
+
+      <CountingTrainGameModal
+        visible={showCountingTrainModal}
+        onClose={() => setShowCountingTrainModal(false)}
+      />
+
+      <AnimalSeesawGameModal
+        visible={showAnimalSeesawModal}
+        onClose={() => setShowAnimalSeesawModal(false)}
+      />
+
+      <ClockTimeGameModal
+        visible={showClockTimeModal}
+        onClose={() => setShowClockTimeModal(false)}
+      />
+
+      <PatternBuilderGameModal
+        visible={showPatternBuilderModal}
+        onClose={() => setShowPatternBuilderModal(false)}
+      />
+
+      <PlaceValueRocketModal
+        visible={showPlaceValueRocketModal}
+        onClose={() => setShowPlaceValueRocketModal(false)}
+      />
+
+      <GeoAreaPerimeterModal
+        visible={showGeoAreaPerimeterModal}
+        onClose={() => setShowGeoAreaPerimeterModal(false)}
+      />
+
+      <IntegerSubmarineModal
+        visible={showIntegerSubmarineModal}
+        onClose={() => setShowIntegerSubmarineModal(false)}
+      />
+
       <BalanceScaleGameModal
         visible={showBalanceScaleModal}
         onClose={() => setShowBalanceScaleModal(false)}

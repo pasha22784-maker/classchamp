@@ -60,6 +60,7 @@ export const BORDER_RADIUS = {
   lg: 16,
   xl: 20,
   round: 9999,
+  full: 9999,
 };
 
 export const SHADOWS = {
@@ -74,6 +75,20 @@ export const SHADOWS = {
     shadowColor: '#1E40AF',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  md: {
+    shadowColor: '#1E40AF',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  card: {
+    shadowColor: '#0F172A',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
     shadowRadius: 8,
     elevation: 4,
   },

@@ -32,33 +32,35 @@ interface LevelData {
 }
 
 const getLevelsForGrade = (grade: Grade): LevelData[] => {
-  const isKG = grade === 'LKG' || grade === 'UKG';
   const isLower = grade === 1 || grade === 2;
-
-  if (isKG) {
-    return [
-      { id: 1, prompt: 'Make both sides equal!', conceptNote: 'Equivalence: 3 = 3', leftTargetWeight: 3, leftDisplay: '🍎 🍎 🍎 (3)', rightInitialWeight: 0, rightInitialDisplay: '', availableWeights: [1, 2, 3, 4] },
-      { id: 2, prompt: 'Add weights to balance 5!', conceptNote: 'Counting to 5', leftTargetWeight: 5, leftDisplay: '⭐ 5', rightInitialWeight: 2, rightInitialDisplay: '⭐ 2 + ?', availableWeights: [1, 2, 3, 4] },
-      { id: 3, prompt: 'Balance the heavy 4!', conceptNote: 'Number matching', leftTargetWeight: 4, leftDisplay: '🦁 4', rightInitialWeight: 1, rightInitialDisplay: '1 + ?', availableWeights: [1, 2, 3, 4] },
-      { id: 4, prompt: 'Find the missing 2 to make 6!', conceptNote: 'Addition basics', leftTargetWeight: 6, leftDisplay: '🎈 6', rightInitialWeight: 4, rightInitialDisplay: '4 + ?', availableWeights: [1, 2, 3, 5] },
-    ];
-  }
 
   if (isLower) {
     return [
       { id: 1, prompt: 'Balance: 4 + 3 = ?', conceptNote: 'Addition balance', leftTargetWeight: 7, leftDisplay: '4 + 3 (7)', rightInitialWeight: 2, rightInitialDisplay: '2 + ?', availableWeights: [3, 4, 5, 6] },
-      { id: 2, prompt: 'Balance the scale at 10!', conceptNote: 'Making 10', leftTargetWeight: 10, leftDisplay: '10 kg', rightInitialWeight: 6, rightInitialDisplay: '6 + ?', availableWeights: [2, 3, 4, 5] },
+      { id: 2, prompt: 'Balance the scale at 10!', conceptNote: 'Making 10 (Friends of 10)', leftTargetWeight: 10, leftDisplay: '10 kg', rightInitialWeight: 6, rightInitialDisplay: '6 + ?', availableWeights: [2, 3, 4, 5] },
       { id: 3, prompt: 'Balance: 15 - 5 = ?', conceptNote: 'Subtraction equivalence', leftTargetWeight: 10, leftDisplay: '15 - 5 (10)', rightInitialWeight: 3, rightInitialDisplay: '3 + ?', availableWeights: [4, 6, 7, 8] },
-      { id: 4, prompt: 'Balance: 8 + 4 = ?', conceptNote: 'Regrouping', leftTargetWeight: 12, leftDisplay: '8 + 4 (12)', rightInitialWeight: 5, rightInitialDisplay: '5 + ?', availableWeights: [5, 6, 7, 8] },
+      { id: 4, prompt: 'Balance: 8 + 4 = ?', conceptNote: 'Regrouping to 12', leftTargetWeight: 12, leftDisplay: '8 + 4 (12)', rightInitialWeight: 5, rightInitialDisplay: '5 + ?', availableWeights: [5, 6, 7, 8] },
+      { id: 5, prompt: 'Friends of 10: 10 = 7 + ?', conceptNote: '10 pairs', leftTargetWeight: 10, leftDisplay: '10', rightInitialWeight: 7, rightInitialDisplay: '7 + ?', availableWeights: [2, 3, 4, 5] },
+      { id: 6, prompt: 'Double Balance: 5 + 5 = ?', conceptNote: 'Doubles balance', leftTargetWeight: 10, leftDisplay: '5 + 5 (10)', rightInitialWeight: 4, rightInitialDisplay: '4 + ?', availableWeights: [4, 5, 6, 7] },
+      { id: 7, prompt: 'Balance 16 kg on scale!', conceptNote: 'Addition to 16', leftTargetWeight: 16, leftDisplay: '16 kg', rightInitialWeight: 9, rightInitialDisplay: '9 + ?', availableWeights: [5, 6, 7, 8] },
+      { id: 8, prompt: 'Subtraction Balance: 20 - 6 = ?', conceptNote: 'Subtraction from 20', leftTargetWeight: 14, leftDisplay: '20 - 6 (14)', rightInitialWeight: 8, rightInitialDisplay: '8 + ?', availableWeights: [5, 6, 7, 8] },
+      { id: 9, prompt: 'Balance 18 kg: 11 + ?', conceptNote: 'Two-digit equilibrium', leftTargetWeight: 18, leftDisplay: '18 kg', rightInitialWeight: 11, rightInitialDisplay: '11 + ?', availableWeights: [6, 7, 8, 9] },
+      { id: 10, prompt: 'Master Balance: 25 kg scale!', conceptNote: 'Champ equation balance', leftTargetWeight: 25, leftDisplay: '25 kg', rightInitialWeight: 15, rightInitialDisplay: '15 + ?', availableWeights: [8, 9, 10, 12] },
     ];
   }
 
-  // Class 3 to 6: Multiplications, Weights & Equations
+  // Class 3 to 6: Metric Weight conversions & Multiplication equations (10 Levels)
   return [
     { id: 1, prompt: 'Balance the multiplication equation!', conceptNote: 'Multiplication: 6 × 4 = 24', leftTargetWeight: 24, leftDisplay: '6 × 4 (24)', rightInitialWeight: 14, rightInitialDisplay: '14 + ?', availableWeights: [8, 10, 12, 14] },
     { id: 2, prompt: 'Metric Weight Balance: 1 kg = 1000g', conceptNote: 'Metric: 1000g = 650g + ?', leftTargetWeight: 1000, leftDisplay: '1 kg (1000g)', rightInitialWeight: 650, rightInitialDisplay: '650g + ?', availableWeights: [250, 300, 350, 400] },
-    { id: 3, prompt: 'Algebra Scale: 2x + 6 = 20', conceptNote: 'Linear equation: 2x = 14 ➔ x = 7', leftTargetWeight: 20, leftDisplay: '20 kg', rightInitialWeight: 6, rightInitialDisplay: '6 + (2 × ?)', availableWeights: [5, 6, 7, 8] },
-    { id: 4, prompt: 'Fraction / Proportion Balance', conceptNote: 'Equivalent values', leftTargetWeight: 36, leftDisplay: '9 × 4 (36)', rightInitialWeight: 16, rightInitialDisplay: '16 + ?', availableWeights: [18, 20, 22, 24] },
+    { id: 3, prompt: 'Balance 1 kg Sugar with 500g!', conceptNote: '500g + 500g = 1000g', leftTargetWeight: 1000, leftDisplay: '1 kg Sugar', rightInitialWeight: 500, rightInitialDisplay: '500g + ?', availableWeights: [250, 400, 500, 600] },
+    { id: 4, prompt: 'Multiplication Balance: 7 × 5 = ?', conceptNote: '7 × 5 = 35', leftTargetWeight: 35, leftDisplay: '7 × 5 (35)', rightInitialWeight: 20, rightInitialDisplay: '20 + ?', availableWeights: [12, 14, 15, 18] },
+    { id: 5, prompt: 'Metric Double: 2 kg = 2000g', conceptNote: '2000g = 1200g + ?', leftTargetWeight: 2000, leftDisplay: '2 kg (2000g)', rightInitialWeight: 1200, rightInitialDisplay: '1200g + ?', availableWeights: [600, 700, 800, 900] },
+    { id: 6, prompt: 'Multiplication Balance: 8 × 4 = ?', conceptNote: '8 × 4 = 32', leftTargetWeight: 32, leftDisplay: '8 × 4 (32)', rightInitialWeight: 18, rightInitialDisplay: '18 + ?', availableWeights: [12, 14, 16, 18] },
+    { id: 7, prompt: 'Flour Sack: 1500g = 900g + ?', conceptNote: '1.5 kg balance', leftTargetWeight: 1500, leftDisplay: '1.5 kg Flour', rightInitialWeight: 900, rightInitialDisplay: '900g + ?', availableWeights: [400, 500, 600, 700] },
+    { id: 8, prompt: 'Multiplication Balance: 9 × 6 = ?', conceptNote: '9 × 6 = 54', leftTargetWeight: 54, leftDisplay: '9 × 6 (54)', rightInitialWeight: 30, rightInitialDisplay: '30 + ?', availableWeights: [20, 22, 24, 26] },
+    { id: 9, prompt: 'Grocery Bag: 2500g = 1750g + ?', conceptNote: '2.5 kg balance', leftTargetWeight: 2500, leftDisplay: '2.5 kg Grocery', rightInitialWeight: 1750, rightInitialDisplay: '1750g + ?', availableWeights: [650, 700, 750, 800] },
+    { id: 10, prompt: 'Master Scientist: 3000g = 1800g + ?', conceptNote: '3 kg Grand Balance', leftTargetWeight: 3000, leftDisplay: '3 kg (3000g)', rightInitialWeight: 1800, rightInitialDisplay: '1800g + ?', availableWeights: [1000, 1100, 1200, 1300] },
   ];
 };
 
@@ -73,6 +75,7 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
   const [score, setScore] = useState(0);
   const [isBalanced, setIsBalanced] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const [showParentInfo, setShowParentInfo] = useState(false);
 
   const levels = getLevelsForGrade(grade);
   const currentLevel = levels[levelIndex] || levels[0];
@@ -86,6 +89,7 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
     setScore(0);
     setIsBalanced(false);
     setIsFinished(false);
+    setShowParentInfo(false);
     tiltAnim.setValue(-12); // Initial tilt towards heavier left side
   }, [visible, grade]);
 
@@ -171,10 +175,44 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
               <Text style={styles.gameTitle}>⚖️ The Balance Scale</Text>
               <Text style={styles.gameSub}>Level {levelIndex + 1} of {levels.length} • Concept Lab</Text>
             </View>
-            <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <Text style={styles.closeText}>✕</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: '#78350F',
+                  paddingHorizontal: 10,
+                  paddingVertical: 5,
+                  borderRadius: BORDER_RADIUS.full,
+                  borderWidth: 1,
+                  borderColor: '#FDE68A',
+                }}
+                onPress={() => setShowParentInfo((v) => !v)}
+              >
+                <Text style={{ color: '#FEF3C7', fontSize: 12, fontWeight: '700' }}>👨‍🏫 Parents</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+                <Text style={styles.closeText}>✕</Text>
+              </TouchableOpacity>
+            </View>
           </View>
+
+          {/* Parent Pedagogical Guide Dropdown */}
+          {showParentInfo && (
+            <View style={{
+              backgroundColor: '#451A03',
+              borderRadius: BORDER_RADIUS.md,
+              padding: 10,
+              marginBottom: SPACING.sm,
+              borderLeftWidth: 3,
+              borderLeftColor: '#F59E0B',
+            }}>
+              <Text style={{ color: '#F59E0B', fontSize: 12, fontWeight: '700', marginBottom: 2 }}>
+                💡 Practical Learning Note:
+              </Text>
+              <Text style={{ color: '#E2E8F0', fontSize: 12, lineHeight: 16 }}>
+                Equalities (A + B = C) are physically realized on a balance scale. When both pans hold equal mass, the beam sits horizontal without tipping.
+              </Text>
+            </View>
+          )}
 
           {/* Mission Objective */}
           <View style={styles.promptBox}>

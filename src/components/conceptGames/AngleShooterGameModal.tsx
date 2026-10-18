@@ -45,14 +45,46 @@ const ANGLE_MISSIONS: AngleMission[] = [
   },
   {
     id: 3,
-    prompt: 'Aim an Obtuse Angle (अधिक कोण) at 135° to unlock the portal!',
-    targetAngle: 135,
-    expectedType: 'obtuse',
-    targetLabel: 'Obtuse Angle (135°)',
-    explanation: 'An angle between 90° and 180° is an Obtuse Angle (अधिक कोण) — wide & open!',
+    prompt: 'Aim an Acute Angle at 60° (Triangle Angle)!',
+    targetAngle: 60,
+    expectedType: 'acute',
+    targetLabel: 'Acute Angle (60°)',
+    explanation: 'Every angle in an equilateral triangle is exactly 60° (Acute)!',
   },
   {
     id: 4,
+    prompt: 'Aim a Sharp Acute Angle at 30°!',
+    targetAngle: 30,
+    expectedType: 'acute',
+    targetLabel: 'Acute Angle (30°)',
+    explanation: '30° is 1/3 of a right angle — very sharp and narrow!',
+  },
+  {
+    id: 5,
+    prompt: 'Aim an Obtuse Angle (अधिक कोण) at 120°!',
+    targetAngle: 120,
+    expectedType: 'obtuse',
+    targetLabel: 'Obtuse Angle (120°)',
+    explanation: '120° is wider than a 90° right angle, making it an Obtuse Angle (अधिक कोण)!',
+  },
+  {
+    id: 6,
+    prompt: 'Aim an Obtuse Angle at 135° to unlock the portal!',
+    targetAngle: 135,
+    expectedType: 'obtuse',
+    targetLabel: 'Obtuse Angle (135°)',
+    explanation: 'An angle between 90° and 180° is an Obtuse Angle — wide & open!',
+  },
+  {
+    id: 7,
+    prompt: 'Aim a Wide Obtuse Angle at 150°!',
+    targetAngle: 150,
+    expectedType: 'obtuse',
+    targetLabel: 'Obtuse Angle (150°)',
+    explanation: '150° is nearly a straight line, but still an Obtuse Angle!',
+  },
+  {
+    id: 8,
     prompt: 'Aim a Flat Straight Angle (ऋजु कोण) at 180°!',
     targetAngle: 180,
     expectedType: 'straight',
@@ -73,6 +105,7 @@ export const AngleShooterGameModal: React.FC<AngleShooterGameModalProps> = ({
   const [isLaserFired, setIsLaserFired] = useState(false);
   const [isHit, setIsHit] = useState(false);
   const [isFinished, setIsFinished] = useState(false);
+  const [showParentInfo, setShowParentInfo] = useState(false);
 
   const mission = ANGLE_MISSIONS[levelIndex] || ANGLE_MISSIONS[0];
 
@@ -83,6 +116,7 @@ export const AngleShooterGameModal: React.FC<AngleShooterGameModalProps> = ({
     setIsLaserFired(false);
     setIsHit(false);
     setIsFinished(false);
+    setShowParentInfo(false);
   }, [visible]);
 
   const getAngleClassification = (angle: number) => {
@@ -145,10 +179,44 @@ export const AngleShooterGameModal: React.FC<AngleShooterGameModalProps> = ({
               <Text style={styles.gameTitle}>📐 Angle Laser Lab</Text>
               <Text style={styles.gameSub}>Mission {levelIndex + 1} of {ANGLE_MISSIONS.length} • Geometry Lab</Text>
             </View>
-            <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <Text style={styles.closeText}>✕</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: '#4C1D95',
+                  paddingHorizontal: 10,
+                  paddingVertical: 5,
+                  borderRadius: BORDER_RADIUS.full,
+                  borderWidth: 1,
+                  borderColor: '#C4B5FD',
+                }}
+                onPress={() => setShowParentInfo((v) => !v)}
+              >
+                <Text style={{ color: '#EDE9FE', fontSize: 12, fontWeight: '700' }}>👨‍🏫 Parents</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+                <Text style={styles.closeText}>✕</Text>
+              </TouchableOpacity>
+            </View>
           </View>
+
+          {/* Parent Pedagogical Guide Dropdown */}
+          {showParentInfo && (
+            <View style={{
+              backgroundColor: '#2E1065',
+              borderRadius: BORDER_RADIUS.md,
+              padding: 10,
+              marginBottom: SPACING.sm,
+              borderLeftWidth: 3,
+              borderLeftColor: '#8B5CF6',
+            }}>
+              <Text style={{ color: '#C4B5FD', fontSize: 12, fontWeight: '700', marginBottom: 2 }}>
+                💡 Practical Learning Note:
+              </Text>
+              <Text style={{ color: '#E2E8F0', fontSize: 12, lineHeight: 16 }}>
+                Angles measure circular rotation in degrees (°). Aiming laser beams connects the abstract numbers (45°, 90°, 135°) to physical trajectory and sharp vs wide turns.
+              </Text>
+            </View>
+          )}
 
           {/* Mission Prompt */}
           <View style={styles.missionBox}>

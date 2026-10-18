@@ -112,6 +112,11 @@ class SoundManager {
     triggerHaptic('light');
   }
 
+  // Play light click sound
+  playClick() {
+    this.playPop();
+  }
+
   // Play crisp click sound for spinning wheel ticks
   playSpinTick() {
     triggerHaptic('light');
