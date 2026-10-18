@@ -275,12 +275,12 @@ export const STRINGS = {
     mindMatchDesc: 'Flip & match memory pairs! Earn 3-star rating & big XP.',
 
     // STEM Labs Gateway
-    labGatewayBadge: '🦸 SUPER KID STEM LABS',
-    labGatewayLabsCount: '15 Interactive Labs',
+    labGatewayBadge: '🔬 STEM LABS',
+    labGatewayLabsCount: '15+ Labs',
     labGatewayTitle: '🔬 Practical Concept Labs',
     labGatewayPunchline: 'Become a Super Kid! ⚡ Hands-On STEM',
     labGatewayDesc: 'No rote learning! Learn through scales, clock, pizza fractions, magnets & prisms.',
-    labGatewayEnterBtn: 'Enter Concept Labs 🚀',
+    labGatewayEnterBtn: 'Enter Labs 🚀',
     labGatewayRushBtn: '⚡ 60s Rush',
 
     // Olympiad
@@ -392,12 +392,12 @@ export const STRINGS = {
     mindMatchDesc: 'जोड़ियों को याद रखकर मिलाएं! 3-स्टार रेटिंग और बड़ा XP पाएं।',
 
     // STEM Labs Gateway
-    labGatewayBadge: '🦸 सुपर किड एसटीईएम लैब',
-    labGatewayLabsCount: '15 इंटरएक्टिव लैब्स',
+    labGatewayBadge: '🔬 स्टेम लैब्स',
+    labGatewayLabsCount: '15+ लैब्स',
     labGatewayTitle: '🔬 प्रैक्टिकल कॉन्सेप्ट लैब्स',
     labGatewayPunchline: 'सुपर किड बनें! ⚡ खेल-खेल में सीखें',
     labGatewayDesc: 'फॉर्मूले रटना छोड़ें • तराजू, घड़ी, पिज़्ज़ा, चुंबक और प्रिज्म से सीधे सीखें!',
-    labGatewayEnterBtn: 'कॉन्सेप्ट लैब में जाएं 🚀',
+    labGatewayEnterBtn: 'लैब्स में जाएं 🚀',
     labGatewayRushBtn: '⚡ 60s रश',
 
     // Olympiad

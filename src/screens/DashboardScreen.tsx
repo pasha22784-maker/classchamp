@@ -627,57 +627,6 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 <Text style={styles.playBtnArrow}>▶</Text>
               </View>
             </TouchableOpacity>
-
-            {/* Clean Shortcut Bar: 365 Roadmap, Vault, Concept Labs, Parent Zone */}
-            <View style={styles.shortcutsRow}>
-              <TouchableOpacity
-                style={styles.shortcutPill}
-                onPress={() => {
-                  triggerHaptic('light');
-                  onOpenRoadmap365();
-                }}
-                activeOpacity={0.8}
-              >
-                <Text style={styles.shortcutEmoji}>🗓️</Text>
-                <Text style={styles.shortcutLabel}>{s.shortcutRoadmap}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={styles.shortcutPill}
-                onPress={() => {
-                  triggerHaptic('light');
-                  onOpenChapterVault('maths');
-                }}
-                activeOpacity={0.8}
-              >
-                <Text style={styles.shortcutEmoji}>📚</Text>
-                <Text style={styles.shortcutLabel}>{s.shortcutVault}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={styles.shortcutPill}
-                onPress={() => {
-                  triggerHaptic('medium');
-                  setActiveCategory('labs');
-                }}
-                activeOpacity={0.8}
-              >
-                <Text style={styles.shortcutEmoji}>🔬</Text>
-                <Text style={styles.shortcutLabel}>{s.shortcutLabs}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={styles.shortcutPill}
-                onPress={() => {
-                  triggerHaptic('light');
-                  onOpenParentZone();
-                }}
-                activeOpacity={0.8}
-              >
-                <Text style={styles.shortcutEmoji}>👨‍👩‍👧</Text>
-                <Text style={styles.shortcutLabel}>{s.shortcutParent}</Text>
-              </TouchableOpacity>
-            </View>
           </View>
         )}
 
@@ -704,7 +653,9 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                   <Text style={styles.labGatewayLiveText}>{s.labGatewayBadge}</Text>
                 </View>
                 <View style={styles.labGatewayGradeBadge}>
-                  <Text style={styles.labGatewayGradeText}>{gradeConfig.label} • {s.labGatewayLabsCount}</Text>
+                  <Text style={styles.labGatewayGradeText} numberOfLines={1} ellipsizeMode="tail">
+                    {typeof profile.grade === 'number' ? `Class ${profile.grade}` : profile.grade} • {s.labGatewayLabsCount}
+                  </Text>
                 </View>
               </View>
 
@@ -1987,41 +1938,6 @@ const styles = StyleSheet.create({
     marginLeft: 2,
   },
 
-  // Shortcuts Bar
-  shortcutsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 10,
-    marginTop: 6,
-    marginBottom: 16,
-  },
-  shortcutPill: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
-    paddingVertical: 12,
-    paddingHorizontal: 8,
-    borderRadius: 16,
-    gap: 6,
-    borderWidth: 1.5,
-    borderColor: '#E2E8F0',
-    shadowColor: '#64748B',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  shortcutEmoji: {
-    fontSize: 16,
-  },
-  shortcutLabel: {
-    fontSize: 12,
-    fontWeight: '700',
-    color: '#334155',
-  },
-
   // Modal Styles
   modalOverlay: {
     flex: 1,
@@ -2570,15 +2486,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 10,
+    gap: 8,
   },
   labGatewayLiveBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 5,
     backgroundColor: '#10B981',
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: 6,
+    flexShrink: 0,
   },
   labGatewayLiveDot: {
     width: 6,
@@ -2594,11 +2512,13 @@ const styles = StyleSheet.create({
   },
   labGatewayGradeBadge: {
     backgroundColor: '#FFFFFF',
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: BORDER_RADIUS.round,
     borderWidth: 1.5,
     borderColor: '#A7F3D0',
+    flexShrink: 1,
+    maxWidth: '55%',
   },
   labGatewayGradeText: {
     color: '#065F46',
@@ -2676,38 +2596,39 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    gap: 8,
     backgroundColor: '#10B981',
     borderRadius: 14,
     paddingVertical: 12,
-    paddingHorizontal: 16,
+    paddingHorizontal: 12,
     borderBottomWidth: 4,
     borderBottomColor: '#059669',
   },
   enterLabActionText: {
     color: '#FFFFFF',
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '900',
-    letterSpacing: 0.5,
+    letterSpacing: 0.3,
   },
   enterLabActionArrow: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
+    width: 22,
+    height: 22,
+    borderRadius: 11,
     backgroundColor: '#047857',
     justifyContent: 'center',
     alignItems: 'center',
   },
   enterLabArrowText: {
     color: '#FFFFFF',
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: '900',
   },
   speedBrainActionBtn: {
     backgroundColor: '#0284C7',
     borderRadius: 14,
     paddingVertical: 12,
-    paddingHorizontal: 16,
+    paddingHorizontal: 14,
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 4,
@@ -2882,6 +2803,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     color: '#1E293B',
     marginRight: 8,
+    flexShrink: 1,
   },
   categorySectionBadge: {
     backgroundColor: '#EFF6FF',
