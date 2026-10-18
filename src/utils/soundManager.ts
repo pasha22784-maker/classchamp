@@ -197,7 +197,64 @@ class SoundManager {
       }
     }
   }
+
+  // Play clear bell chime for balanced scale or completed challenge
+  playBell() {
+    triggerHaptic('success');
+    if (this.audioContext) {
+      try {
+        const ctx = this.audioContext;
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1046.5, now); // C6 bell
+        osc.frequency.exponentialRampToValueAtTime(1046.5, now + 0.8);
+
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.8);
+      } catch {
+        // Fallback
+      }
+    }
+  }
+
+  // Play laser shoot sound for angle lab
+  playLaser() {
+    triggerHaptic('light');
+    if (this.audioContext) {
+      try {
+        const ctx = this.audioContext;
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(1200, now);
+        osc.frequency.exponentialRampToValueAtTime(200, now + 0.15);
+
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.15);
+      } catch {
+        // Fallback
+      }
+    }
+  }
 }
 
 export const soundManager = new SoundManager();
+
 

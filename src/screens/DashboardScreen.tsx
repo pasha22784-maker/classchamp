@@ -22,6 +22,9 @@ import {
 import { LuckySpinModal } from '../components/gamification/LuckySpinModal';
 import { BalloonPopGameModal } from '../components/gamification/BalloonPopGameModal';
 import { MemoryMatchModal } from '../components/gamification/MemoryMatchModal';
+import { BalanceScaleGameModal } from '../components/conceptGames/BalanceScaleGameModal';
+import { FractionPizzaGameModal } from '../components/conceptGames/FractionPizzaGameModal';
+import { AngleShooterGameModal } from '../components/conceptGames/AngleShooterGameModal';
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
 import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
 import { fetchGlobalConfig } from '../services/adminConfig';
@@ -47,6 +50,9 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const [showLuckySpinModal, setShowLuckySpinModal] = useState(false);
   const [showBalloonPopModal, setShowBalloonPopModal] = useState(false);
   const [showMemoryMatchModal, setShowMemoryMatchModal] = useState(false);
+  const [showBalanceScaleModal, setShowBalanceScaleModal] = useState(false);
+  const [showFractionPizzaModal, setShowFractionPizzaModal] = useState(false);
+  const [showAngleShooterModal, setShowAngleShooterModal] = useState(false);
   const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
   
   // App-open Streak Greeting (shown once when app opens, then dismissed)
@@ -566,6 +572,88 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             </View>
           </TouchableOpacity>
         </View>
+
+        {/* Concept Labs: Physics Wallah Style Hands-On Simulations */}
+        <View style={styles.arcadeHeaderRow}>
+          <View>
+            <Text style={styles.arcadeTitle}>🧪 Concept Labs</Text>
+            <Text style={styles.arcadeSub}>Play with concepts • खेल-खेल में सीखें!</Text>
+          </View>
+          <View style={[styles.arcadeLiveBadge, { backgroundColor: '#10B981' }]}>
+            <Text style={styles.arcadeLiveText}>LAB 🔬</Text>
+          </View>
+        </View>
+
+        <View style={styles.conceptLabList}>
+          {/* 1. The Balance Beam */}
+          <TouchableOpacity
+            style={[styles.conceptLabCard, { backgroundColor: '#1E293B', borderColor: '#F59E0B' }]}
+            activeOpacity={0.88}
+            onPress={() => {
+              triggerHaptic('medium');
+              setShowBalanceScaleModal(true);
+            }}
+          >
+            <View style={[styles.conceptLabIconBox, { backgroundColor: '#78350F' }]}>
+              <Text style={styles.conceptLabEmoji}>⚖️</Text>
+            </View>
+            <View style={styles.conceptLabTextBox}>
+              <Text style={styles.conceptLabTitle}>The Balance Beam</Text>
+              <Text style={styles.conceptLabDesc}>
+                Physics tilt balance scale! Master weights, addition & equations.
+              </Text>
+            </View>
+            <View style={[styles.conceptLabPlayBtn, { backgroundColor: '#F59E0B' }]}>
+              <Text style={styles.conceptLabPlayText}>Lab ▶</Text>
+            </View>
+          </TouchableOpacity>
+
+          {/* 2. Fraction Pizza Kitchen */}
+          <TouchableOpacity
+            style={[styles.conceptLabCard, { backgroundColor: '#1E293B', borderColor: '#EA580C' }]}
+            activeOpacity={0.88}
+            onPress={() => {
+              triggerHaptic('medium');
+              setShowFractionPizzaModal(true);
+            }}
+          >
+            <View style={[styles.conceptLabIconBox, { backgroundColor: '#7C2D12' }]}>
+              <Text style={styles.conceptLabEmoji}>🍕</Text>
+            </View>
+            <View style={styles.conceptLabTextBox}>
+              <Text style={styles.conceptLabTitle}>Fraction Pizza Kitchen</Text>
+              <Text style={styles.conceptLabDesc}>
+                Slice pizzas & serve orders! Master Halves (1/2), Quarters (1/4) & Equivalence.
+              </Text>
+            </View>
+            <View style={[styles.conceptLabPlayBtn, { backgroundColor: '#EA580C' }]}>
+              <Text style={styles.conceptLabPlayText}>Lab ▶</Text>
+            </View>
+          </TouchableOpacity>
+
+          {/* 3. Angle Laser Lab */}
+          <TouchableOpacity
+            style={[styles.conceptLabCard, { backgroundColor: '#1E293B', borderColor: '#8B5CF6' }]}
+            activeOpacity={0.88}
+            onPress={() => {
+              triggerHaptic('medium');
+              setShowAngleShooterModal(true);
+            }}
+          >
+            <View style={[styles.conceptLabIconBox, { backgroundColor: '#4C1D95' }]}>
+              <Text style={styles.conceptLabEmoji}>📐</Text>
+            </View>
+            <View style={styles.conceptLabTextBox}>
+              <Text style={styles.conceptLabTitle}>Angle Laser Lab</Text>
+              <Text style={styles.conceptLabDesc}>
+                Rotate the laser turret! Visually master Acute, Right & Obtuse angles.
+              </Text>
+            </View>
+            <View style={[styles.conceptLabPlayBtn, { backgroundColor: '#8B5CF6' }]}>
+              <Text style={styles.conceptLabPlayText}>Lab ▶</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
 
       {/* Profile & Settings Modal — Holds Streak, Stats, Avatar & Options */}
@@ -777,6 +865,23 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         visible={showMemoryMatchModal}
         onClose={() => setShowMemoryMatchModal(false)}
         grade={profile.grade}
+      />
+
+      {/* Concept Lab Modals */}
+      <BalanceScaleGameModal
+        visible={showBalanceScaleModal}
+        onClose={() => setShowBalanceScaleModal(false)}
+        grade={profile.grade}
+      />
+
+      <FractionPizzaGameModal
+        visible={showFractionPizzaModal}
+        onClose={() => setShowFractionPizzaModal(false)}
+      />
+
+      <AngleShooterGameModal
+        visible={showAngleShooterModal}
+        onClose={() => setShowAngleShooterModal(false)}
       />
     </SafeAreaView>
   );
@@ -1524,6 +1629,56 @@ const styles = StyleSheet.create({
   },
   arcadeCardBtnText: {
     color: '#0F172A',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+
+  // 4. Concept Labs
+  conceptLabList: {
+    gap: 10,
+    marginBottom: SPACING.xl,
+  },
+  conceptLabCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: BORDER_RADIUS.xl,
+    padding: SPACING.md,
+    borderWidth: 1.5,
+    ...SHADOWS.medium,
+  },
+  conceptLabIconBox: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: SPACING.sm,
+  },
+  conceptLabEmoji: {
+    fontSize: 24,
+  },
+  conceptLabTextBox: {
+    flex: 1,
+  },
+  conceptLabTitle: {
+    fontSize: 15,
+    fontWeight: '900',
+    color: '#FFFFFF',
+    marginBottom: 2,
+  },
+  conceptLabDesc: {
+    fontSize: 11,
+    color: '#94A3B8',
+    lineHeight: 15,
+  },
+  conceptLabPlayBtn: {
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: BORDER_RADIUS.round,
+    marginLeft: 8,
+  },
+  conceptLabPlayText: {
+    color: '#FFFFFF',
     fontSize: 12,
     fontWeight: '900',
   },
