@@ -40,7 +40,26 @@ Each week (7 days) follows a consistent psychological rhythm:
 
 ---
 
-## 3. Class 1 — 365-Day Master Syllabus Breakdown
+## 3. Master Syllabus Coverage (All 8 Grades: LKG to Class 6)
+
+The full detailed chapter-by-chapter and concept-by-concept syllabus across all 8 grades (170 chapters, 2,550 questions) is fully documented in:
+👉 **[`COMPLETE_SYLLABUS_MASTER.md`](./COMPLETE_SYLLABUS_MASTER.md)**
+
+| Grade | Level | Total Chapters | Curated Questions | NCERT Mapped Books |
+| :--- | :--- | :---: | :---: | :--- |
+| **LKG** | Balvatika 2 | 15 | 225 | Pre-School Joyful Maths, Phonics, Balvatika 2 Hindi |
+| **UKG** | Balvatika 3 | 15 | 225 | Kindergarten Maths, Phonics CVC, Balvatika 3 Hindi |
+| **Class 1** | Primary | 27 | 405 | NCERT Joyful Maths 1, Mridang 1, Sarangi 1 |
+| **Class 2** | Primary | 22 | 330 | NCERT Joyful Maths 2, Mridang 2, Sarangi 2 |
+| **Class 3** | Primary | 23 | 345 | NCERT Math-Magic 3, Santoor 3, Veena 3 |
+| **Class 4** | Upper Primary | 22 | 330 | NCERT Math-Magic 4, Marigold 4, Rimjhim 4 |
+| **Class 5** | Upper Primary | 22 | 330 | NCERT Math-Magic 5, Marigold 5, Rimjhim 5 |
+| **Class 6** | Middle School | 24 | 360 | NCERT Mathematics 6, Poorvi 6, Malhar 6 |
+| **TOTAL** | **8 Grades** | **170** | **2,550** | **100% CBSE & NCERT Compliant** |
+
+---
+
+## 4. Class 1 — 365-Day Master Syllabus Sample Breakdown
 
 ### Term 1: Days 1 to 90 (Foundations)
 - **Maths**:
