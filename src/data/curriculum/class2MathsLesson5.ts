@@ -23,7 +23,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '💈 ⬆️ ⬇️',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: 'A Standing line (vertical)', isCorrect: true },
+        { id: 'opt_st1_1', text: 'A Standing line', isCorrect: true },
         { id: 'opt_st1_2', text: 'A Curved line', isCorrect: false },
         { id: 'opt_st1_3', text: 'A Sleeping line', isCorrect: false },
       ],
@@ -43,7 +43,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '✏️ ⬅️ ➡️',
     payload: {
       options: [
-        { id: 'opt_sp1_1', text: 'A Sleeping line (horizontal)', isCorrect: true },
+        { id: 'opt_sp1_1', text: 'A Sleeping line', isCorrect: true },
         { id: 'opt_sp1_2', text: 'A Standing line', isCorrect: false },
         { id: 'opt_sp1_3', text: 'A Zigzag line', isCorrect: false },
       ],
@@ -63,7 +63,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🪜 🌧️ ╱ ╲',
     payload: {
       options: [
-        { id: 'opt_sl1_1', text: 'A Slanting line (diagonal)', isCorrect: true },
+        { id: 'opt_sl1_1', text: 'A Slanting line', isCorrect: true },
         { id: 'opt_sl1_2', text: 'A Standing line', isCorrect: false },
         { id: 'opt_sl1_3', text: 'A Sleeping line', isCorrect: false },
       ],
@@ -101,7 +101,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '📏 ✏️',
     payload: {
       options: [
-        { id: 'opt_rl1_1', text: 'A Ruler (Scale)', isCorrect: true },
+        { id: 'opt_rl1_1', text: 'A Ruler', isCorrect: true },
         { id: 'opt_rl1_2', text: 'An Eraser', isCorrect: false },
         { id: 'opt_rl1_3', text: 'A Sharpener', isCorrect: false },
       ],

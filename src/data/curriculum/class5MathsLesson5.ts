@@ -209,8 +209,8 @@ export const CLASS_5_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '▭ ➔ ▯',
     payload: {
       options: [
-        { id: 'opt_1', text: 'No, because its length becomes vertical and width becomes horizontal', isCorrect: true },
-        { id: 'opt_2', text: 'Yes, all four-sided shapes look the same on 1/4 turn', isCorrect: false },
+        { id: 'opt_1', text: 'No, it looks different', isCorrect: true },
+        { id: 'opt_2', text: 'Yes, it looks exactly the same', isCorrect: false },
         { id: 'opt_3', text: 'Yes, if it is made of wood', isCorrect: false },
         { id: 'opt_4', text: 'Only when viewed upside down', isCorrect: false },
       ],
@@ -234,7 +234,7 @@ export const CLASS_5_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🎏 🔄 4 blades',
     payload: {
       options: [
-        { id: 'opt_1', text: '4 times (Order 4 rotational symmetry)', isCorrect: true },
+        { id: 'opt_1', text: '4 times', isCorrect: true },
         { id: 'opt_2', text: '2 times only', isCorrect: false },
         { id: 'opt_3', text: '1 time only', isCorrect: false },
         { id: 'opt_4', text: '8 times', isCorrect: false },

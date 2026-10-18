@@ -45,3 +45,6 @@ yarn-error.*
 # APK builds
 *.apk
 
+# audit & migration scripts
+scripts/
+

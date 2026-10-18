@@ -276,7 +276,7 @@ export const CLASS_5_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🧠 ⚡ 🦉 🕊️',
     payload: {
       options: [
-        { id: 'opt_1', text: '4 abstract nouns (knowledge, power, wisdom, freedom)', isCorrect: true },
+        { id: 'opt_1', text: '4 abstract nouns', isCorrect: true },
         { id: 'opt_2', text: '2 abstract nouns', isCorrect: false },
         { id: 'opt_3', text: '3 abstract nouns', isCorrect: false },
         { id: 'opt_4', text: '1 abstract noun', isCorrect: false },

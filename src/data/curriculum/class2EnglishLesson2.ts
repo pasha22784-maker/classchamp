@@ -225,7 +225,7 @@ export const CLASS_2_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🚒 🐰 🏚️',
     payload: {
       options: [
-        { id: 'opt_cn_1', text: '3 nouns (firefighter, rabbit, barn)', isCorrect: true },
+        { id: 'opt_cn_1', text: '3 nouns', isCorrect: true },
         { id: 'opt_cn_2', text: '2 nouns', isCorrect: false },
         { id: 'opt_cn_3', text: '5 nouns', isCorrect: false },
         { id: 'opt_cn_4', text: '1 noun', isCorrect: false },

@@ -100,10 +100,10 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🏭 🧱 💯',
     payload: {
       options: [
-        { id: 'opt_1', text: 'One Lakh (1,00,000)', isCorrect: true },
-        { id: 'opt_2', text: 'Ten Thousand (10,000)', isCorrect: false },
-        { id: 'opt_3', text: 'One Crore (1,00,00,000)', isCorrect: false },
-        { id: 'opt_4', text: 'One Million (10,00,000)', isCorrect: false },
+        { id: 'opt_1', text: 'One Lakh', isCorrect: true },
+        { id: 'opt_2', text: 'Ten Thousand', isCorrect: false },
+        { id: 'opt_3', text: 'One Crore', isCorrect: false },
+        { id: 'opt_4', text: 'One Million', isCorrect: false },
       ],
     },
     explanation: '💡 100 thousands = 100 × 1,000 = 1,00,000 = One Lakh!',
@@ -164,7 +164,7 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🌉 🏛️ 📐',
     payload: {
       options: [
-        { id: 'opt_1', text: 'An arch (मेहराब)', isCorrect: true },
+        { id: 'opt_1', text: 'An arch', isCorrect: true },
         { id: 'opt_2', text: 'A square pillar', isCorrect: false },
         { id: 'opt_3', text: 'A flat roof', isCorrect: false },
         { id: 'opt_4', text: 'A triangle cone', isCorrect: false },
@@ -309,22 +309,22 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🧱 🏗️ 📐 🪜',
     payload: {
       tokens: [
-        '1. Spread wet cement mortar on the base',
-        '2. Lay the first row of bricks end-to-end',
-        '3. Overlap joints in the second row so vertical lines do not match',
-        '4. Check vertical alignment with a plumb-line (साहुल)',
+        'Spread wet cement mortar on the base',
+        'Lay the first row of bricks end-to-end',
+        'Overlap joints in the second row so vertical lines do not match',
+        'Check vertical alignment with a plumb-line (साहुल)',
       ],
       scrambled: [
-        '3. Overlap joints in the second row so vertical lines do not match',
-        '1. Spread wet cement mortar on the base',
-        '4. Check vertical alignment with a plumb-line (साहुल)',
-        '2. Lay the first row of bricks end-to-end',
+        'Overlap joints in the second row so vertical lines do not match',
+        'Spread wet cement mortar on the base',
+        'Check vertical alignment with a plumb-line (साहुल)',
+        'Lay the first row of bricks end-to-end',
       ],
       correctSequence: [
-        '1. Spread wet cement mortar on the base',
-        '2. Lay the first row of bricks end-to-end',
-        '3. Overlap joints in the second row so vertical lines do not match',
-        '4. Check vertical alignment with a plumb-line (साहुल)',
+        'Spread wet cement mortar on the base',
+        'Lay the first row of bricks end-to-end',
+        'Overlap joints in the second row so vertical lines do not match',
+        'Check vertical alignment with a plumb-line (साहुल)',
       ],
     },
     explanation: '💡 Mortar -> First row -> Overlap joints (prevents cracks) -> Check vertical alignment with plumb-line!',

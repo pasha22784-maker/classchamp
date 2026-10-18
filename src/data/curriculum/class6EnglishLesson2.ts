@@ -23,7 +23,7 @@ export const CLASS_6_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '📝 🛑',
     payload: {
       options: [
-        { id: 'opt_1', text: 'A Declarative (Assertive) sentence', isCorrect: true },
+        { id: 'opt_1', text: 'A Declarative sentence', isCorrect: true },
         { id: 'opt_2', text: 'An Interrogative sentence', isCorrect: false },
         { id: 'opt_3', text: 'An Imperative sentence', isCorrect: false },
         { id: 'opt_4', text: 'An Exclamatory sentence', isCorrect: false },

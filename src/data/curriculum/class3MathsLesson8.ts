@@ -312,8 +312,8 @@ export const CLASS_3_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ (6 × 8) 🆚 (7 × 7)',
     payload: {
       options: [
-        { id: 'opt_1', text: '7 × 7 (which equals 49)', isCorrect: true },
-        { id: 'opt_2', text: '6 × 8 (which equals 48)', isCorrect: false },
+        { id: 'opt_1', text: '7 × 7', isCorrect: true },
+        { id: 'opt_2', text: '6 × 8', isCorrect: false },
         { id: 'opt_3', text: 'Both are equal', isCorrect: false },
         { id: 'opt_4', text: 'Neither can be calculated', isCorrect: false },
       ],

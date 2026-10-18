@@ -225,7 +225,7 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '👦 🏪 ⚽',
     payload: {
       options: [
-        { id: 'opt_cn3_1', text: '3 संज्ञा शब्द (रोहित, बाज़ार, गेंद)', isCorrect: true },
+        { id: 'opt_cn3_1', text: '3 संज्ञा शब्द', isCorrect: true },
         { id: 'opt_cn3_2', text: '2 संज्ञा शब्द', isCorrect: false },
         { id: 'opt_cn3_3', text: '4 संज्ञा शब्द', isCorrect: false },
         { id: 'opt_cn3_4', text: '1 संज्ञा शब्द', isCorrect: false },
@@ -319,8 +319,8 @@ export const CLASS_2_HINDI_LESSON_3_QUESTIONS: Question[] = [
     payload: {
       options: [
         { id: 'opt_nr3_1', text: 'संज्ञा', isCorrect: true },
-        { id: 'opt_nr3_2', text: 'क्रिया (काम)', isCorrect: false },
-        { id: 'opt_nr3_3', text: 'विशेषण (गुण)', isCorrect: false },
+        { id: 'opt_nr3_2', text: 'क्रिया', isCorrect: false },
+        { id: 'opt_nr3_3', text: 'विशेषण', isCorrect: false },
         { id: 'opt_nr3_4', text: 'वचन', isCorrect: false },
       ],
     },

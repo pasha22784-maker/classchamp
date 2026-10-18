@@ -231,7 +231,7 @@ export const CLASS_3_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🐑 🦌 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: 'sheep (one sheep, ten sheep)', isCorrect: true },
+        { id: 'opt_1', text: 'sheep', isCorrect: true },
         { id: 'opt_2', text: 'horse', isCorrect: false },
         { id: 'opt_3', text: 'goat', isCorrect: false },
         { id: 'opt_4', text: 'camel', isCorrect: false },
@@ -273,7 +273,7 @@ export const CLASS_3_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '❌ 🔤 🔍',
     payload: {
       options: [
-        { id: 'opt_1', text: 'butterflys (incorrect spelling)', isCorrect: true },
+        { id: 'opt_1', text: 'butterflys', isCorrect: true },
         { id: 'opt_2', text: 'tomatoes', isCorrect: false },
         { id: 'opt_3', text: 'dishes', isCorrect: false },
         { id: 'opt_4', text: 'wolves', isCorrect: false },
@@ -311,9 +311,9 @@ export const CLASS_3_ENGLISH_LESSON_3_QUESTIONS: Question[] = [
     question: 'Arrange these four nouns in order of their plural suffixes (-s, -es, -ies, -ves):',
     visualEmoji: '📜 🔤 🏷️',
     payload: {
-      tokens: ['1. Book (add -s)', '2. Fox (add -es)', '3. Puppy (change to -ies)', '4. Wolf (change to -ves)'],
-      scrambled: ['3. Puppy (change to -ies)', '1. Book (add -s)', '4. Wolf (change to -ves)', '2. Fox (add -es)'],
-      correctSequence: ['1. Book (add -s)', '2. Fox (add -es)', '3. Puppy (change to -ies)', '4. Wolf (change to -ves)'],
+      tokens: ['Book', 'Fox', 'Puppy', 'Wolf'],
+      scrambled: ['Puppy', 'Book', 'Wolf', 'Fox'],
+      correctSequence: ['Book', 'Fox', 'Puppy', 'Wolf'],
     },
     explanation: '💡 Order: -s (books) -> -es (foxes) -> -ies (puppies) -> -ves (wolves)!',
     points: 20,

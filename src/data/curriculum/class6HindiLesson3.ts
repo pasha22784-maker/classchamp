@@ -236,10 +236,10 @@ export const CLASS_6_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🌸 🙏',
     payload: {
       options: [
-        { id: 'opt_1', text: 'सु + आगत (यण संधि)', isCorrect: true },
-        { id: 'opt_2', text: 'स्वा + गत (दीर्घ संधि)', isCorrect: false },
-        { id: 'opt_3', text: 'स्व + आगत (गुण संधि)', isCorrect: false },
-        { id: 'opt_4', text: 'सु + गत (वृद्धि संधि)', isCorrect: false },
+        { id: 'opt_1', text: 'सु + आगत — यण संधि', isCorrect: true },
+        { id: 'opt_2', text: 'स्वा + गत — दीर्घ संधि', isCorrect: false },
+        { id: 'opt_3', text: 'स्व + आगत — गुण संधि', isCorrect: false },
+        { id: 'opt_4', text: 'सु + गत — वृद्धि संधि', isCorrect: false },
       ],
     },
     explanation: 'सु (उ) + आगत (आ) में उ का "व्" बनकर आधा "स्" और "वा" बनता है = स्वागत (यण संधि)।',
@@ -299,10 +299,10 @@ export const CLASS_6_HINDI_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🔍 ❌',
     payload: {
       options: [
-        { id: 'opt_1', text: 'सूर्य + उदय = सूर्योदय (दीर्घ संधि)', isCorrect: true },
-        { id: 'opt_2', text: 'विद्या + आलय = विद्यालय (दीर्घ संधि)', isCorrect: false },
-        { id: 'opt_3', text: 'एक + एक = एकैक (वृद्धि संधि)', isCorrect: false },
-        { id: 'opt_4', text: 'इति + आदि = इत्यादि (यण संधि)', isCorrect: false },
+        { id: 'opt_1', text: 'सूर्य + उदय = सूर्योदय — दीर्घ संधि', isCorrect: true },
+        { id: 'opt_2', text: 'विद्या + आलय = विद्यालय — दीर्घ संधि', isCorrect: false },
+        { id: 'opt_3', text: 'एक + एक = एकैक — वृद्धि संधि', isCorrect: false },
+        { id: 'opt_4', text: 'इति + आदि = इत्यादि — यण संधि', isCorrect: false },
       ],
     },
     explanation: 'सूर्य + उदय = सूर्योदय में अ + उ मिलकर "ओ" बन रहा है, अतः यह गुण संधि है, न कि दीर्घ संधि। इसलिए यह विकल्प अशुद्ध है।',

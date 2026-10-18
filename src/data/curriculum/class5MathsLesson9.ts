@@ -146,10 +146,10 @@ export const CLASS_5_MATHS_LESSON_9_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'If you draw 6 squares in a single continuous straight strip (like a ruler), will this net fold into a cube?',
-    visualEmoji: '🔲🔲🔲🔲🔲🔲 ❌',
+    visualEmoji: '🔲🔲🔲🔲🔲🔲 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: 'No, because the squares will wrap over each other leaving the top and bottom open', isCorrect: true },
+        { id: 'opt_1', text: 'No, it will not fold into a closed cube', isCorrect: true },
         { id: 'opt_2', text: 'Yes, any 6 squares will always make a cube', isCorrect: false },
         { id: 'opt_3', text: 'Yes, but only if folded diagonally', isCorrect: false },
         { id: 'opt_4', text: 'Yes, if you use glue', isCorrect: false },
@@ -170,7 +170,7 @@ export const CLASS_5_MATHS_LESSON_9_QUESTIONS: Question[] = [
     visualEmoji: '🎉 🍦 ➔ 🍰',
     payload: {
       options: [
-        { id: 'opt_1', text: 'A sector of a circle (a pie slice shape)', isCorrect: true },
+        { id: 'opt_1', text: 'A sector of a circle', isCorrect: true },
         { id: 'opt_2', text: 'A perfect square', isCorrect: false },
         { id: 'opt_3', text: 'A rectangle', isCorrect: false },
         { id: 'opt_4', text: 'A hexagon', isCorrect: false },
@@ -252,7 +252,7 @@ export const CLASS_5_MATHS_LESSON_9_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'In mathematics, out of 35 different arrangements of 6 connected squares (hexominoes), exactly how many can fold into a perfect 3D cube?',
-    visualEmoji: '🎲 📐 1️⃣1️⃣',
+    visualEmoji: '🎲 📐 ❓',
     payload: {
       options: [
         { id: 'opt_1', text: '11 valid nets', isCorrect: true },

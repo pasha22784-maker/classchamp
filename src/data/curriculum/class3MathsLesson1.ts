@@ -189,22 +189,22 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '✨ 🌸 📐',
     payload: {
       tokens: [
-        '1. Mark the center dot on the grid',
-        '2. Connect dots to form inner petals',
-        '3. Extend straight lines symmetrically to outer dots',
-        '4. Fill vibrant festival colors inside the design',
+        'Mark the center dot on the grid',
+        'Connect dots to form inner petals',
+        'Extend straight lines symmetrically to outer dots',
+        'Fill vibrant festival colors inside the design',
       ],
       scrambled: [
-        '3. Extend straight lines symmetrically to outer dots',
-        '1. Mark the center dot on the grid',
-        '4. Fill vibrant festival colors inside the design',
-        '2. Connect dots to form inner petals',
+        'Extend straight lines symmetrically to outer dots',
+        'Mark the center dot on the grid',
+        'Fill vibrant festival colors inside the design',
+        'Connect dots to form inner petals',
       ],
       correctSequence: [
-        '1. Mark the center dot on the grid',
-        '2. Connect dots to form inner petals',
-        '3. Extend straight lines symmetrically to outer dots',
-        '4. Fill vibrant festival colors inside the design',
+        'Mark the center dot on the grid',
+        'Connect dots to form inner petals',
+        'Extend straight lines symmetrically to outer dots',
+        'Fill vibrant festival colors inside the design',
       ],
     },
     explanation: '💡 Center dot -> Inner petals -> Outer lines -> Fill colors!',
@@ -289,7 +289,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🪞 🔤',
     payload: {
       options: [
-        { id: 'opt_1', text: 'A shape with 4 round loops (butterfly shape)', isCorrect: true },
+        { id: 'opt_1', text: 'A shape with 4 round loops', isCorrect: true },
         { id: 'opt_2', text: 'The letter C', isCorrect: false },
         { id: 'opt_3', text: 'A straight line only', isCorrect: false },
         { id: 'opt_4', text: 'The letter D', isCorrect: false },

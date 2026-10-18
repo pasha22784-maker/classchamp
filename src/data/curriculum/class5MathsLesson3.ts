@@ -128,7 +128,7 @@ export const CLASS_5_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🔲 × 12',
     payload: {
       options: [
-        { id: 'opt_1', text: '3 rectangles (1×12, 2×6, 3×4)', isCorrect: true },
+        { id: 'opt_1', text: '3 rectangles', isCorrect: true },
         { id: 'opt_2', text: '1 rectangle only', isCorrect: false },
         { id: 'opt_3', text: '6 rectangles', isCorrect: false },
         { id: 'opt_4', text: '12 rectangles', isCorrect: false },
@@ -149,9 +149,9 @@ export const CLASS_5_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '📏 1×12 vs 2×6 vs 3×4',
     payload: {
       options: [
-        { id: 'opt_1', text: '1 cm × 12 cm rectangle (Perimeter = 26 cm)', isCorrect: true },
-        { id: 'opt_2', text: '2 cm × 6 cm rectangle (Perimeter = 16 cm)', isCorrect: false },
-        { id: 'opt_3', text: '3 cm × 4 cm rectangle (Perimeter = 14 cm)', isCorrect: false },
+        { id: 'opt_1', text: '1 cm × 12 cm rectangle', isCorrect: true },
+        { id: 'opt_2', text: '2 cm × 6 cm rectangle', isCorrect: false },
+        { id: 'opt_3', text: '3 cm × 4 cm rectangle', isCorrect: false },
         { id: 'opt_4', text: 'All have the same perimeter', isCorrect: false },
       ],
     },
@@ -170,9 +170,9 @@ export const CLASS_5_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '📐 3 cm × 4 cm',
     payload: {
       options: [
-        { id: 'opt_1', text: '3 cm × 4 cm rectangle (Perimeter = 14 cm)', isCorrect: true },
-        { id: 'opt_2', text: '1 cm × 12 cm rectangle (Perimeter = 26 cm)', isCorrect: false },
-        { id: 'opt_3', text: '2 cm × 6 cm rectangle (Perimeter = 16 cm)', isCorrect: false },
+        { id: 'opt_1', text: '3 cm × 4 cm rectangle', isCorrect: true },
+        { id: 'opt_2', text: '1 cm × 12 cm rectangle', isCorrect: false },
+        { id: 'opt_3', text: '2 cm × 6 cm rectangle', isCorrect: false },
         { id: 'opt_4', text: 'Cannot be determined', isCorrect: false },
       ],
     },
@@ -276,7 +276,7 @@ export const CLASS_5_MATHS_LESSON_3_QUESTIONS: Question[] = [
     visualEmoji: '🟩 4×4 vs 📏 7×1',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Shape A has more area (16 sq cm vs 7 sq cm)', isCorrect: true },
+        { id: 'opt_1', text: 'Shape A has more area', isCorrect: true },
         { id: 'opt_2', text: 'Shape B has more area', isCorrect: false },
         { id: 'opt_3', text: 'Both have the exact same area', isCorrect: false },
         { id: 'opt_4', text: 'Area cannot be compared from perimeter', isCorrect: false },

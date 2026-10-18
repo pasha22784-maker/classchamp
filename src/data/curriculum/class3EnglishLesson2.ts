@@ -149,10 +149,10 @@ export const CLASS_3_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🔍 🔤',
     payload: {
       options: [
-        { id: 'opt_1', text: 'jaipur (should be capitalized as Jaipur)', isCorrect: true },
-        { id: 'opt_2', text: 'winter (should be Winter)', isCorrect: false },
-        { id: 'opt_3', text: 'break (should be Break)', isCorrect: false },
-        { id: 'opt_4', text: 'travel (should be Travel)', isCorrect: false },
+        { id: 'opt_1', text: 'jaipur', isCorrect: true },
+        { id: 'opt_2', text: 'winter', isCorrect: false },
+        { id: 'opt_3', text: 'break', isCorrect: false },
+        { id: 'opt_4', text: 'travel', isCorrect: false },
       ],
     },
     explanation: '💡 Jaipur is the proper name of a city, so it must always start with a capital "J"!',

@@ -23,7 +23,7 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🖐️ 📏',
     payload: {
       options: [
-        { id: 'opt_hs1_1', text: 'Handspan (बित्ता)', isCorrect: true },
+        { id: 'opt_hs1_1', text: 'Handspan', isCorrect: true },
         { id: 'opt_hs1_2', text: 'Footstep', isCorrect: false },
         { id: 'opt_hs1_3', text: 'Kilogram', isCorrect: false },
       ],

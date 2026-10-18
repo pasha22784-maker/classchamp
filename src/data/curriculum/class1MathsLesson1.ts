@@ -17,7 +17,7 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Inside vs Outside',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'The little kitten 🐱 is resting INSIDE the basket 🧺. Where is the kitten?',
+    question: 'Look at the little kitten 🐱 and the basket 🧺. Where is the kitten?',
     visualEmoji: '🐱 🧺',
     payload: {
       options: [
@@ -36,7 +36,7 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Inside vs Outside',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Look at the fruit table. The red apple 🍎 is OUTSIDE the bowl on the table. Where is the apple?',
+    question: 'Look at the fruit table. Where is the red apple 🍎 located relative to the bowl 🥣?',
     visualEmoji: '🥣 🍎',
     payload: {
       options: [

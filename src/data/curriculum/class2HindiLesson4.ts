@@ -61,7 +61,7 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '💨 vs ☀️',
     payload: {
       options: [
-        { id: 'opt_st1_1', text: 'कि हम दोनों में से अधिक बलवान (ताकतवर) कौन है!', isCorrect: true },
+        { id: 'opt_st1_1', text: 'कि हम दोनों में से अधिक बलवान कौन है!', isCorrect: true },
         { id: 'opt_st1_2', text: 'कि कौन तेज दौड़ सकता है', isCorrect: false },
         { id: 'opt_st1_3', text: 'कि कौन ज्यादा भोजन करेगा', isCorrect: false },
       ],
@@ -239,7 +239,7 @@ export const CLASS_2_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '👦 🍎 😋',
     payload: {
       options: [
-        { id: 'opt_cv4_1', text: '3 विशेषण (नन्हे, लाल, मीठा)', isCorrect: true },
+        { id: 'opt_cv4_1', text: '3 विशेषण', isCorrect: true },
         { id: 'opt_cv4_2', text: '1 विशेषण', isCorrect: false },
         { id: 'opt_cv4_3', text: '2 विशेषण', isCorrect: false },
         { id: 'opt_cv4_4', text: '4 विशेषण', isCorrect: false },

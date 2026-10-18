@@ -564,9 +564,9 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🧁 🔍',
     payload: {
       options: [
-        { id: 'opt_1', text: '🧁 🧁 🧁 🧁 (4 Cupcakes)', isCorrect: true },
-        { id: 'opt_2', text: '🧁 🧁 (2 Cupcakes)', isCorrect: false },
-        { id: 'opt_3', text: '🧁 🧁 🧁 (3 Cupcakes)', isCorrect: false },
+        { id: 'opt_1', text: '🧁 🧁 🧁 🧁', isCorrect: true },
+        { id: 'opt_2', text: '🧁 🧁', isCorrect: false },
+        { id: 'opt_3', text: '🧁 🧁 🧁', isCorrect: false },
       ],
     },
     explanation: '🧁 🧁 🧁 🧁 has 4 yummy cupcakes!',
@@ -584,7 +584,7 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🍪 🍽️',
     payload: {
       options: [
-        { id: 'opt_1', text: '0 (Zero)', isCorrect: true },
+        { id: 'opt_1', text: '0', isCorrect: true },
         { id: 'opt_2', text: '1', isCorrect: false },
         { id: 'opt_3', text: '5', isCorrect: false },
       ],
@@ -806,7 +806,7 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '⭕ ⚽',
     payload: {
       options: [
-        { id: 'opt_1', text: 'No corners (0)', isCorrect: true },
+        { id: 'opt_1', text: 'No corners', isCorrect: true },
         { id: 'opt_2', text: '3 corners', isCorrect: false },
         { id: 'opt_3', text: '4 corners', isCorrect: false },
       ],
@@ -931,8 +931,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🎈 🎈 🎈 ⚖️ 🎈',
     payload: {
       options: [
-        { id: 'opt_1', text: '🎈 🎈 🎈 (3 Balloons)', isCorrect: true },
-        { id: 'opt_2', text: '🎈 (1 Balloon)', isCorrect: false },
+        { id: 'opt_1', text: '🎈 🎈 🎈', isCorrect: true },
+        { id: 'opt_2', text: '🎈', isCorrect: false },
       ],
     },
     explanation: '🎈 🎈 🎈 3 is MORE than 1!',
@@ -950,8 +950,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🍪 ⚖️ 🍪 🍪 🍪 🍪',
     payload: {
       options: [
-        { id: 'opt_1', text: '🍪 (1 Cookie)', isCorrect: true },
-        { id: 'opt_2', text: '🍪 🍪 🍪 🍪 (4 Cookies)', isCorrect: false },
+        { id: 'opt_1', text: '🍪', isCorrect: true },
+        { id: 'opt_2', text: '🍪 🍪 🍪 🍪', isCorrect: false },
       ],
     },
     explanation: '🍪 1 is LESS than 4 cookies!',
@@ -1048,7 +1048,7 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '⭐ ⭐ ⚖️ ⭐ ⭐',
     payload: {
       options: [
-        { id: 'opt_1', text: 'EQUAL (Both have 2)', isCorrect: true },
+        { id: 'opt_1', text: 'EQUAL', isCorrect: true },
         { id: 'opt_2', text: 'NOT equal', isCorrect: false },
       ],
     },
@@ -1106,7 +1106,7 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '☕ 🍽️',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Saucer (plate)', isCorrect: true },
+        { id: 'opt_1', text: 'Saucer', isCorrect: true },
         { id: 'opt_2', text: 'Shoe', isCorrect: false },
         { id: 'opt_3', text: 'Hat', isCorrect: false },
       ],
@@ -1128,9 +1128,9 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🌳 🐦',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Tree C (5 Birds)', isCorrect: true },
-        { id: 'opt_2', text: 'Tree B (2 Birds)', isCorrect: false },
-        { id: 'opt_3', text: 'Tree A (1 Bird)', isCorrect: false },
+        { id: 'opt_1', text: 'Tree C', isCorrect: true },
+        { id: 'opt_2', text: 'Tree B', isCorrect: false },
+        { id: 'opt_3', text: 'Tree A', isCorrect: false },
       ],
     },
     explanation: 'Tree C has 5 birds, which is the MOST!',
@@ -1148,9 +1148,9 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🐟 🫧',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Bowl 2 (Only 1 fish)', isCorrect: true },
-        { id: 'opt_2', text: 'Bowl 1 (3 fish)', isCorrect: false },
-        { id: 'opt_3', text: 'Bowl 3 (2 fish)', isCorrect: false },
+        { id: 'opt_1', text: 'Bowl 2', isCorrect: true },
+        { id: 'opt_2', text: 'Bowl 1', isCorrect: false },
+        { id: 'opt_3', text: 'Bowl 3', isCorrect: false },
       ],
     },
     explanation: 'Bowl 2 has only 1 fish, which is the LEAST!',
@@ -1468,7 +1468,7 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🚗 🚌 🚂 🍎',
     payload: {
       options: [
-        { id: 'opt_1', text: '🍎 Apple (It is food, not vehicle)', isCorrect: true },
+        { id: 'opt_1', text: '🍎 Apple', isCorrect: true },
         { id: 'opt_2', text: '🚗 Car', isCorrect: false },
         { id: 'opt_3', text: '🚌 Bus', isCorrect: false },
       ],

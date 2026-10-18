@@ -149,10 +149,10 @@ export const CLASS_5_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '4️⃣.2️⃣5️⃣',
     payload: {
       options: [
-        { id: 'opt_1', text: '5 hundredths (5/100)', isCorrect: true },
-        { id: 'opt_2', text: '5 tenths (5/10)', isCorrect: false },
-        { id: 'opt_3', text: '5 tens (50)', isCorrect: false },
-        { id: 'opt_4', text: '5 thousandths (5/1000)', isCorrect: false },
+        { id: 'opt_1', text: '5 hundredths', isCorrect: true },
+        { id: 'opt_2', text: '5 tenths', isCorrect: false },
+        { id: 'opt_3', text: '5 tens', isCorrect: false },
+        { id: 'opt_4', text: '5 thousandths', isCorrect: false },
       ],
     },
     explanation: '💡 The second digit after the decimal point is in the hundredths place: **5/100**!',

@@ -123,7 +123,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐪 🏖️',
     payload: {
       options: [
-        { id: 'opt_pu1_1', text: 'बालू (रेत) में', isCorrect: true },
+        { id: 'opt_pu1_1', text: 'बालू में', isCorrect: true },
         { id: 'opt_pu1_2', text: 'पानी के अंदर', isCorrect: false },
         { id: 'opt_pu1_3', text: 'पेड़ की डाल पर', isCorrect: false },
       ],
@@ -143,7 +143,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '☀️ ✍️',
     payload: {
       options: [
-        { id: 'opt_rf1_1', text: 'रेफ़ (र्)', isCorrect: true },
+        { id: 'opt_rf1_1', text: 'रेफ़', isCorrect: true },
         { id: 'opt_rf1_2', text: 'पदेन', isCorrect: false },
         { id: 'opt_rf1_3', text: 'अनुस्वार', isCorrect: false },
       ],
@@ -224,7 +224,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐱 🥛',
     payload: {
       options: [
-        { id: 'opt_hd1_1', text: 'बिल्ली (ल् + ल)', isCorrect: true },
+        { id: 'opt_hd1_1', text: 'बिल्ली', isCorrect: true },
         { id: 'opt_hd1_2', text: 'नटखट', isCorrect: false },
         { id: 'opt_hd1_3', text: 'मीठा', isCorrect: false },
         { id: 'opt_hd1_4', text: 'दूध', isCorrect: false },
@@ -320,7 +320,7 @@ export const CLASS_2_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐪 🏜️ ❓',
     payload: {
       options: [
-        { id: 'opt_ru1_1', text: 'ऊँट (रेगिस्तान का जहाज़)', isCorrect: true },
+        { id: 'opt_ru1_1', text: 'ऊँट', isCorrect: true },
         { id: 'opt_ru1_2', text: 'हाथी', isCorrect: false },
         { id: 'opt_ru1_3', text: 'घोड़ा', isCorrect: false },
         { id: 'opt_ru1_4', text: 'शेर', isCorrect: false },

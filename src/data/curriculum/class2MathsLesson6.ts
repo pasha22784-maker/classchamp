@@ -99,7 +99,7 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '6️⃣4️⃣ - 0️⃣',
     payload: {
       options: [
-        { id: 'opt_zr6_1', text: '64 (Number remains unchanged)', isCorrect: true },
+        { id: 'opt_zr6_1', text: '64', isCorrect: true },
         { id: 'opt_zr6_2', text: '0', isCorrect: false },
         { id: 'opt_zr6_3', text: '60', isCorrect: false },
       ],

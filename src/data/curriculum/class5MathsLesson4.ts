@@ -297,7 +297,7 @@ export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ 3/4 vs 5/8',
     payload: {
       options: [
-        { id: 'opt_1', text: '3/4 is greater (since 3/4 = 6/8)', isCorrect: true },
+        { id: 'opt_1', text: '3/4 is greater', isCorrect: true },
         { id: 'opt_2', text: '5/8 is greater', isCorrect: false },
         { id: 'opt_3', text: 'Both are exactly equal', isCorrect: false },
         { id: 'opt_4', text: 'Cannot be compared', isCorrect: false },

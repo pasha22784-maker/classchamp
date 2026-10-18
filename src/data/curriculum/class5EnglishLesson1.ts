@@ -100,13 +100,13 @@ export const CLASS_5_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'How many primary functional types of sentences exist in standard English grammar?',
-    visualEmoji: '4️⃣ 📚 🏷️',
+    visualEmoji: '📝 📚 🏷️',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Four (Declarative, Interrogative, Imperative, Exclamatory)', isCorrect: true },
-        { id: 'opt_2', text: 'Two (Long and Short)', isCorrect: false },
-        { id: 'opt_3', text: 'Three (Noun, Verb, Adjective)', isCorrect: false },
-        { id: 'opt_4', text: 'Six (One for each day)', isCorrect: false },
+        { id: 'opt_1', text: 'Four', isCorrect: true },
+        { id: 'opt_2', text: 'Two', isCorrect: false },
+        { id: 'opt_3', text: 'Three', isCorrect: false },
+        { id: 'opt_4', text: 'Six', isCorrect: false },
       ],
     },
     explanation: '💡 Sentences are classified into **4 types**: Statements, Questions, Commands/Requests, and Exclamations!',

@@ -232,10 +232,10 @@ export const CLASS_6_MATHS_LESSON_11_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ 🔢',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Yes, because 30/40 = 45/60 = 3/4', isCorrect: true },
-        { id: 'opt_2', text: 'No, because 30 x 40 does not equal 45 x 60', isCorrect: false },
-        { id: 'opt_3', text: 'No, because all numbers are multiples of 5', isCorrect: false },
-        { id: 'opt_4', text: 'Yes, only because they are in ascending order', isCorrect: false },
+        { id: 'opt_1', text: 'Yes, they are in proportion', isCorrect: true },
+        { id: 'opt_2', text: 'No, they are not in proportion', isCorrect: false },
+        { id: 'opt_3', text: 'Only the first two numbers form a ratio', isCorrect: false },
+        { id: 'opt_4', text: 'Cannot be determined', isCorrect: false },
       ],
     },
     explanation: 'First ratio = 30/40 = 3/4. Second ratio = 45/60 = 3/4. Since both ratios are equal, they are in proportion.',

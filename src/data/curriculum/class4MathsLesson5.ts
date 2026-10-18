@@ -185,7 +185,7 @@ export const CLASS_4_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '☕ ⬇️ ⭕',
     payload: {
       options: [
-        { id: 'opt_1', text: 'A circle with a small loop (handle) attached to the side', isCorrect: true },
+        { id: 'opt_1', text: 'A circle with a small loop attached to the side', isCorrect: true },
         { id: 'opt_2', text: 'A trapezoid', isCorrect: false },
         { id: 'opt_3', text: 'A tall rectangle', isCorrect: false },
         { id: 'opt_4', text: 'A flat triangle', isCorrect: false },
@@ -231,7 +231,7 @@ export const CLASS_4_MATHS_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🌪️ ⬇️ ⭕ ⭕',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Two concentric circles (one large outer circle and one small inner hole)', isCorrect: true },
+        { id: 'opt_1', text: 'Two concentric circles', isCorrect: true },
         { id: 'opt_2', text: 'A solid triangle', isCorrect: false },
         { id: 'opt_3', text: 'A square inside a circle', isCorrect: false },
         { id: 'opt_4', text: 'A single straight line', isCorrect: false },

@@ -820,9 +820,9 @@ export const UKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🍎 🍌 🍇',
     payload: {
       options: [
-        { id: 'opt_1', text: 'फ (फल)', isCorrect: true },
-        { id: 'opt_2', text: 'ब (बत्तख)', isCorrect: false },
-        { id: 'opt_3', text: 'म (मछली)', isCorrect: false },
+        { id: 'opt_1', text: 'फल', isCorrect: true },
+        { id: 'opt_2', text: 'बत्तख', isCorrect: false },
+        { id: 'opt_3', text: 'मछली', isCorrect: false },
       ],
     },
     explanation: 'फ से फल! सेहत के लिए फल बहुत अच्छे होते हैं।',

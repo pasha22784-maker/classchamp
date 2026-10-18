@@ -311,9 +311,9 @@ export const CLASS_3_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     question: 'Arrange these three degrees of comparison in order from base to highest: (Positive ➡️ Comparative ➡️ Superlative)',
     visualEmoji: '🌱 🌿 🌳',
     payload: {
-      tokens: ['1. Small (Positive)', '2. Smaller (Comparative)', '3. Smallest (Superlative)'],
-      scrambled: ['3. Smallest (Superlative)', '1. Small (Positive)', '2. Smaller (Comparative)'],
-      correctSequence: ['1. Small (Positive)', '2. Smaller (Comparative)', '3. Smallest (Superlative)'],
+      tokens: ['Small', 'Smaller', 'Smallest'],
+      scrambled: ['Smallest', 'Small', 'Smaller'],
+      correctSequence: ['Small', 'Smaller', 'Smallest'],
     },
     explanation: '💡 Proper order of degrees: Positive (small) -> Comparative (smaller) -> Superlative (smallest)!',
     points: 20,

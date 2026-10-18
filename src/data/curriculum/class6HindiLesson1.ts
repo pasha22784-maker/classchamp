@@ -65,9 +65,9 @@ export const CLASS_6_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🗣️ 👦',
     payload: {
       options: [
-        { id: 'opt_1', text: 'उत्तम पुरुष (मैं, हम)', isCorrect: true },
-        { id: 'opt_2', text: 'मध्यम पुरुष (तू, तुम)', isCorrect: false },
-        { id: 'opt_3', text: 'अन्य पुरुष (वह, वे)', isCorrect: false },
+        { id: 'opt_1', text: 'उत्तम पुरुष', isCorrect: true },
+        { id: 'opt_2', text: 'मध्यम पुरुष', isCorrect: false },
+        { id: 'opt_3', text: 'अन्य पुरुष', isCorrect: false },
         { id: 'opt_4', text: 'निजवाचक सर्वनाम', isCorrect: false },
       ],
     },
@@ -307,8 +307,8 @@ export const CLASS_6_HINDI_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🇮🇳 👓',
     payload: {
       options: [
-        { id: 'opt_1', text: 'निजवाचक सर्वनाम (स्वयं के अर्थ में)', isCorrect: true },
-        { id: 'opt_2', text: 'मध्यम पुरुषवाचक सर्वनाम (आदर के लिए)', isCorrect: false },
+        { id: 'opt_1', text: 'निजवाचक सर्वनाम', isCorrect: true },
+        { id: 'opt_2', text: 'मध्यम पुरुषवाचक सर्वनाम', isCorrect: false },
         { id: 'opt_3', text: 'उत्तम पुरुषवाचक सर्वनाम', isCorrect: false },
         { id: 'opt_4', text: 'संबंधवाचक सर्वनाम', isCorrect: false },
       ],

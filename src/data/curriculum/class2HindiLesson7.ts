@@ -314,9 +314,9 @@ export const CLASS_2_HINDI_LESSON_7_QUESTIONS: Question[] = [
     payload: {
       options: [
         { id: 'opt_lr7_1', text: 'लिंग', isCorrect: true },
-        { id: 'opt_lr7_2', text: 'वचन (एक-अनेक)', isCorrect: false },
-        { id: 'opt_lr7_3', text: 'क्रिया (काम)', isCorrect: false },
-        { id: 'opt_lr7_4', text: 'विशेषण (गुण)', isCorrect: false },
+        { id: 'opt_lr7_2', text: 'वचन', isCorrect: false },
+        { id: 'opt_lr7_3', text: 'क्रिया', isCorrect: false },
+        { id: 'opt_lr7_4', text: 'विशेषण', isCorrect: false },
       ],
     },
     explanation: '💡 शब्द के जिस रूप से स्त्री या पुरुष जाति का बोध हो, उसे लिंग कहते हैं!',

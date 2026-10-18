@@ -209,7 +209,7 @@ export const CLASS_5_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '✂️ 💌 ➰',
     payload: {
       options: [
-        { id: 'opt_1', text: 'The belt becomes twice as long because you get twice as many strips', isCorrect: true },
+        { id: 'opt_1', text: 'The belt becomes twice as long', isCorrect: true },
         { id: 'opt_2', text: 'The belt becomes shorter', isCorrect: false },
         { id: 'opt_3', text: 'The belt length stays the exact same', isCorrect: false },
         { id: 'opt_4', text: 'The belt turns into a circle', isCorrect: false },
@@ -255,9 +255,9 @@ export const CLASS_5_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '🌾 P = 100 m, Max Area',
     payload: {
       options: [
-        { id: 'opt_1', text: '625 square metres (a square of 25 m × 25 m)', isCorrect: true },
-        { id: 'opt_2', text: '500 square metres (a rectangle of 50 m × 10 m)', isCorrect: false },
-        { id: 'opt_3', text: '400 square metres (a rectangle of 40 m × 10 m)', isCorrect: false },
+        { id: 'opt_1', text: '625 square metres', isCorrect: true },
+        { id: 'opt_2', text: '500 square metres', isCorrect: false },
+        { id: 'opt_3', text: '400 square metres', isCorrect: false },
         { id: 'opt_4', text: '100 square metres', isCorrect: false },
       ],
     },
@@ -294,11 +294,11 @@ export const CLASS_5_MATHS_LESSON_8_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'If the side length of a square is doubled (for example, from 3 cm to 6 cm), what happens to its area?',
-    visualEmoji: '🟩 (3×3 = 9) ➔ 🟩 (6×6 = 36)',
+    visualEmoji: '🟩 3 cm ➔ 🟩 6 cm',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Its area becomes 4 times as large (9 sq cm becomes 36 sq cm)', isCorrect: true },
-        { id: 'opt_2', text: 'Its area only doubles (becomes 2 times)', isCorrect: false },
+        { id: 'opt_1', text: 'Its area becomes 4 times as large', isCorrect: true },
+        { id: 'opt_2', text: 'Its area only doubles', isCorrect: false },
         { id: 'opt_3', text: 'Its area stays the same', isCorrect: false },
         { id: 'opt_4', text: 'Its area triples', isCorrect: false },
       ],

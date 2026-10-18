@@ -122,12 +122,12 @@ export const CLASS_3_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'The hour hand is just past 3, and the minute hand points to 3. What time does the clock show?',
-    visualEmoji: '⏰ 3️⃣:1️⃣5️⃣',
+    visualEmoji: '⏰ 🕒 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: '3:15 (Quarter past 3)', isCorrect: true },
-        { id: 'opt_2', text: '3:30 (Half past 3)', isCorrect: false },
-        { id: 'opt_3', text: '3:45 (Quarter to 4)', isCorrect: false },
+        { id: 'opt_1', text: '3:15', isCorrect: true },
+        { id: 'opt_2', text: '3:30', isCorrect: false },
+        { id: 'opt_3', text: '3:45', isCorrect: false },
         { id: 'opt_4', text: '3:03', isCorrect: false },
       ],
     },
@@ -184,9 +184,9 @@ export const CLASS_3_MATHS_LESSON_6_QUESTIONS: Question[] = [
     question: 'Arrange these units of time in order from shortest to longest duration:',
     visualEmoji: '⏳ 📈 ⏱️',
     payload: {
-      tokens: ['1. Second', '2. Minute', '3. Hour', '4. Day'],
-      scrambled: ['3. Hour', '1. Second', '4. Day', '2. Minute'],
-      correctSequence: ['1. Second', '2. Minute', '3. Hour', '4. Day'],
+      tokens: ['Second', 'Minute', 'Hour', 'Day'],
+      scrambled: ['Hour', 'Second', 'Day', 'Minute'],
+      correctSequence: ['Second', 'Minute', 'Hour', 'Day'],
     },
     explanation: '💡 Shortest to longest: Second -> Minute (60 sec) -> Hour (60 min) -> Day (24 hr)!',
     points: 15,
@@ -246,10 +246,10 @@ export const CLASS_3_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'On an analog wall clock, the minute hand points to 9 and the hour hand is just before 6. What time is shown?',
-    visualEmoji: '⏰ 5️⃣:4️⃣5️⃣',
+    visualEmoji: '⏰ 🕕 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: '5:45 (Quarter to 6)', isCorrect: true },
+        { id: 'opt_1', text: '5:45', isCorrect: true },
         { id: 'opt_2', text: '6:45', isCorrect: false },
         { id: 'opt_3', text: '9:30', isCorrect: false },
         { id: 'opt_4', text: '5:09', isCorrect: false },

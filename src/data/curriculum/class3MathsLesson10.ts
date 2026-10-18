@@ -252,7 +252,7 @@ export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '🪙 7️⃣5️⃣0️⃣p',
     payload: {
       options: [
-        { id: 'opt_1', text: '₹7.50 (7 rupees and 50 paise)', isCorrect: true },
+        { id: 'opt_1', text: '₹7.50', isCorrect: true },
         { id: 'opt_2', text: '₹75.0', isCorrect: false },
         { id: 'opt_3', text: '₹0.75', isCorrect: false },
         { id: 'opt_4', text: '₹70.50', isCorrect: false },

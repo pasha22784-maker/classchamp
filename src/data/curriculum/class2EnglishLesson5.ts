@@ -225,7 +225,7 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🦊 🍇',
     payload: {
       options: [
-        { id: 'opt_ca5_1', text: '4 adjectives (clever, four, juicy, purple)', isCorrect: true },
+        { id: 'opt_ca5_1', text: '4 adjectives', isCorrect: true },
         { id: 'opt_ca5_2', text: '2 adjectives', isCorrect: false },
         { id: 'opt_ca5_3', text: '3 adjectives', isCorrect: false },
         { id: 'opt_ca5_4', text: '1 adjective', isCorrect: false },

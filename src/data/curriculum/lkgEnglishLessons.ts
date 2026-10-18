@@ -891,7 +891,7 @@ export const LKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     visualEmoji: '⚽ 🦇 ☕',
     payload: {
       options: [
-        { id: 'opt_1', text: '☕ Cup (starts with /k/)', isCorrect: true },
+        { id: 'opt_1', text: '☕ Cup', isCorrect: true },
         { id: 'opt_2', text: '⚽ Ball', isCorrect: false },
         { id: 'opt_3', text: '🦇 Bat', isCorrect: false },
       ],

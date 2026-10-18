@@ -61,9 +61,9 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🐻 🔤',
     payload: {
       options: [
-        { id: 'opt_mt1_1', text: 'भा में आ (ा) और लू में बड़ा ऊ (ू) की मात्रा', isCorrect: true },
-        { id: 'opt_mt1_2', text: 'छोटी इ की मात्रा', isCorrect: false },
-        { id: 'opt_mt1_3', text: 'ए की मात्रा', isCorrect: false },
+        { id: 'opt_mt1_1', text: 'आ और बड़ा ऊ की मात्रा', isCorrect: true },
+        { id: 'opt_mt1_2', text: 'छोटी इ और ओ की मात्रा', isCorrect: false },
+        { id: 'opt_mt1_3', text: 'ए और ऐ की मात्रा', isCorrect: false },
       ],
     },
     explanation: '💡 भ् + ा = भा, ल् + ू = लू -> भालू!',
@@ -216,8 +216,8 @@ export const CLASS_2_HINDI_LESSON_2_QUESTIONS: Question[] = [
     payload: {
       options: [
         { id: 'opt_sp2_1', text: 'फुटबॉल', isCorrect: true },
-        { id: 'opt_sp2_2', text: 'क्रिकेट (बल्ले से)', isCorrect: false },
-        { id: 'opt_sp2_3', text: 'कैरम (उंगलियों से)', isCorrect: false },
+        { id: 'opt_sp2_2', text: 'क्रिकेट', isCorrect: false },
+        { id: 'opt_sp2_3', text: 'कैरम', isCorrect: false },
       ],
     },
     explanation: '💡 "फुट" का अर्थ होता है पैर और "बॉल" का अर्थ गेंद, इसलिए फुटबॉल पैरों से खेला जाता है!',

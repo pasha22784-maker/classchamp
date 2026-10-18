@@ -128,7 +128,7 @@ export const CLASS_3_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ 🥜 🆚 🍯',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Both have the exact same weight (1 kg each)', isCorrect: true },
+        { id: 'opt_1', text: 'Both have the exact same weight', isCorrect: true },
         { id: 'opt_2', text: 'Jaggery is heavier because it is small and hard', isCorrect: false },
         { id: 'opt_3', text: 'Groundnuts are heavier because they need a bigger bag', isCorrect: false },
         { id: 'opt_4', text: 'Neither can be weighed', isCorrect: false },
@@ -234,7 +234,7 @@ export const CLASS_3_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ 2️⃣ kg 🆚 7️⃣5️⃣0️⃣ g',
     payload: {
       options: [
-        { id: 'opt_1', text: '1 kg 250 g (1250 g)', isCorrect: true },
+        { id: 'opt_1', text: '1 kg 250 g', isCorrect: true },
         { id: 'opt_2', text: '1 kg 750 g', isCorrect: false },
         { id: 'opt_3', text: '250 g', isCorrect: false },
         { id: 'opt_4', text: '1 kg 500 g', isCorrect: false },

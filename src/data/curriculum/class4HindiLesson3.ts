@@ -40,13 +40,13 @@ export const CLASS_4_HINDI_LESSON_3_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'हिंदी व्याकरण में काल के मुख्य रूप से कितने भेद होते हैं?',
-    visualEmoji: '3️⃣ ⏰ 📅',
+    visualEmoji: '⏰ 📅 ⌛',
     payload: {
       options: [
-        { id: 'opt_1', text: 'तीन (भूतकाल, वर्तमानकाल, भविष्यत् काल)', isCorrect: true },
-        { id: 'opt_2', text: 'दो (दिन और रात)', isCorrect: false },
-        { id: 'opt_3', text: 'चार (प्रातः, दोपहर, संध्या, रात्रि)', isCorrect: false },
-        { id: 'opt_4', text: 'पाँच (पाँचों उँगलियाँ)', isCorrect: false },
+        { id: 'opt_1', text: 'तीन', isCorrect: true },
+        { id: 'opt_2', text: 'दो', isCorrect: false },
+        { id: 'opt_3', text: 'चार', isCorrect: false },
+        { id: 'opt_4', text: 'पाँच', isCorrect: false },
       ],
     },
     explanation: '💡 काल के 3 मुख्य भेद हैं: बीता हुआ समय (**भूतकाल**), चल रहा समय (**वर्तमानकाल**), आने वाला समय (**भविष्यत् काल**)!',

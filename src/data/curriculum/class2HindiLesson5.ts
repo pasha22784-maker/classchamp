@@ -240,7 +240,7 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🏃‍♂️ 🤸 ⚾',
     payload: {
       options: [
-        { id: 'opt_cv5_1', text: '3 क्रिया शब्द (दौड़ता, उछलता, फेंकता)', isCorrect: true },
+        { id: 'opt_cv5_1', text: '3 क्रिया शब्द', isCorrect: true },
         { id: 'opt_cv5_2', text: '1 क्रिया शब्द', isCorrect: false },
         { id: 'opt_cv5_3', text: '2 क्रिया शब्द', isCorrect: false },
         { id: 'opt_cv5_4', text: '4 क्रिया शब्द', isCorrect: false },
@@ -318,9 +318,9 @@ export const CLASS_2_HINDI_LESSON_5_QUESTIONS: Question[] = [
     visualEmoji: '🏊 ✍️ 🏃 ❓',
     payload: {
       options: [
-        { id: 'opt_kr5_1', text: 'क्रिया (काम वाले शब्द)', isCorrect: true },
-        { id: 'opt_kr5_2', text: 'संज्ञा (नाम)', isCorrect: false },
-        { id: 'opt_kr5_3', text: 'विशेषण (गुण)', isCorrect: false },
+        { id: 'opt_kr5_1', text: 'क्रिया', isCorrect: true },
+        { id: 'opt_kr5_2', text: 'संज्ञा', isCorrect: false },
+        { id: 'opt_kr5_3', text: 'विशेषण', isCorrect: false },
         { id: 'opt_kr5_4', text: 'वचन', isCorrect: false },
       ],
     },

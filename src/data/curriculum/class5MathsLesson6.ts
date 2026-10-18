@@ -167,7 +167,7 @@ export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'In a factor tree for 18, 18 branches into 2 × 9, and 9 branches into 3 × 3. What is the prime factorization of 18?',
-    visualEmoji: '🌳 18 ➔ 2 × 3 × 3',
+    visualEmoji: '🌳 18 ➔ ❓',
     payload: {
       options: [
         { id: 'opt_1', text: '2 × 3 × 3', isCorrect: true },
@@ -255,7 +255,7 @@ export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
     visualEmoji: '💍 18 bangles',
     payload: {
       options: [
-        { id: 'opt_1', text: '6 different group sizes (1, 2, 3, 6, 9, 18)', isCorrect: true },
+        { id: 'opt_1', text: '6 different group sizes', isCorrect: true },
         { id: 'opt_2', text: '3 different group sizes', isCorrect: false },
         { id: 'opt_3', text: '4 different group sizes', isCorrect: false },
         { id: 'opt_4', text: '9 different group sizes', isCorrect: false },

@@ -533,7 +533,7 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🐱 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: 'A (c - a - t)', isCorrect: true },
+        { id: 'opt_1', text: 'A', isCorrect: true },
         { id: 'opt_2', text: 'O', isCorrect: false },
         { id: 'opt_3', text: 'I', isCorrect: false },
       ],
@@ -553,7 +553,7 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🖊️ ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: 'E (p - e - n)', isCorrect: true },
+        { id: 'opt_1', text: 'E', isCorrect: true },
         { id: 'opt_2', text: 'U', isCorrect: false },
         { id: 'opt_3', text: 'O', isCorrect: false },
       ],
@@ -656,7 +656,7 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🐶 🪵',
     payload: {
       options: [
-        { id: 'opt_1', text: 'LOG 🪵 (wooden log)', isCorrect: true },
+        { id: 'opt_1', text: 'LOG 🪵', isCorrect: true },
         { id: 'opt_2', text: 'CAT 🐱', isCorrect: false },
         { id: 'opt_3', text: 'SUN ☀️', isCorrect: false },
       ],
@@ -818,7 +818,7 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🥅 🐕',
     payload: {
       options: [
-        { id: 'opt_1', text: 'PET 🐕 (friendly pet animal)', isCorrect: true },
+        { id: 'opt_1', text: 'PET 🐕', isCorrect: true },
         { id: 'opt_2', text: 'NUT 🥜', isCorrect: false },
         { id: 'opt_3', text: 'NOT ❌', isCorrect: false },
       ],
@@ -1250,7 +1250,7 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     visualEmoji: '☕ 🍦',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Ice cream 🍦 (Cold)', isCorrect: true },
+        { id: 'opt_1', text: 'Ice cream 🍦', isCorrect: true },
         { id: 'opt_2', text: 'Fire 🔥', isCorrect: false },
         { id: 'opt_3', text: 'Sun ☀️', isCorrect: false },
       ],

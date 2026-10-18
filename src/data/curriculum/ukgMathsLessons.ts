@@ -285,10 +285,10 @@ export const UKG_MATHS_ALL_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'How many toes do you have on BOTH feet together? 🦶 🦶',
-    visualEmoji: '🦶 🦶 🔟',
+    visualEmoji: '🦶 🦶 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: '10 Toes (TEN)', isCorrect: true },
+        { id: 'opt_1', text: '10 Toes', isCorrect: true },
         { id: 'opt_2', text: '5 Toes', isCorrect: false },
         { id: 'opt_3', text: '8 Toes', isCorrect: false },
       ],
@@ -351,7 +351,7 @@ export const UKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🥚 🔢',
     payload: {
       options: [
-        { id: 'opt_1', text: '12 (Twelve)', isCorrect: true },
+        { id: 'opt_1', text: '12', isCorrect: true },
         { id: 'opt_2', text: '10', isCorrect: false },
         { id: 'opt_3', text: '15', isCorrect: false },
       ],
@@ -411,7 +411,7 @@ export const UKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🔟 🔟',
     payload: {
       options: [
-        { id: 'opt_1', text: '20 (Twenty)', isCorrect: true },
+        { id: 'opt_1', text: '20', isCorrect: true },
         { id: 'opt_2', text: '10', isCorrect: false },
         { id: 'opt_3', text: '30', isCorrect: false },
       ],
@@ -493,7 +493,7 @@ export const UKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🔟 4️⃣',
     payload: {
       options: [
-        { id: 'opt_1', text: '14 (Fourteen)', isCorrect: true },
+        { id: 'opt_1', text: '14', isCorrect: true },
         { id: 'opt_2', text: '40', isCorrect: false },
         { id: 'opt_3', text: '12', isCorrect: false },
       ],
@@ -1023,7 +1023,7 @@ export const UKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '➕ ✨',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Add together (Put together)', isCorrect: true },
+        { id: 'opt_1', text: 'Add together', isCorrect: true },
         { id: 'opt_2', text: 'Take away', isCorrect: false },
       ],
     },
@@ -1289,8 +1289,8 @@ export const UKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '➖ ✨',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Take away (Subtract)', isCorrect: true },
-        { id: 'opt_2', text: 'Put together (Add)', isCorrect: false },
+        { id: 'opt_1', text: 'Take away', isCorrect: true },
+        { id: 'opt_2', text: 'Put together', isCorrect: false },
       ],
     },
     explanation: '➖ Minus means taking away or removing items!',
@@ -1328,7 +1328,7 @@ export const UKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🍪 🍪 🍪 🍽️',
     payload: {
       options: [
-        { id: 'opt_1', text: '0 (None left)', isCorrect: true },
+        { id: 'opt_1', text: '0', isCorrect: true },
         { id: 'opt_2', text: '1', isCorrect: false },
         { id: 'opt_3', text: '3', isCorrect: false },
       ],

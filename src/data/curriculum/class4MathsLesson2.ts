@@ -311,9 +311,9 @@ export const CLASS_4_MATHS_LESSON_2_QUESTIONS: Question[] = [
     question: 'Arrange these four metric units of length in order from smallest to greatest:',
     visualEmoji: '📏 📐 🛣️',
     payload: {
-      tokens: ['1. Millimeter (mm)', '2. Centimeter (cm)', '3. Meter (m)', '4. Kilometer (km)'],
-      scrambled: ['3. Meter (m)', '1. Millimeter (mm)', '4. Kilometer (km)', '2. Centimeter (cm)'],
-      correctSequence: ['1. Millimeter (mm)', '2. Centimeter (cm)', '3. Meter (m)', '4. Kilometer (km)'],
+      tokens: ['Millimeter (mm)', 'Centimeter (cm)', 'Meter (m)', 'Kilometer (km)'],
+      scrambled: ['Meter (m)', 'Millimeter (mm)', 'Kilometer (km)', 'Centimeter (cm)'],
+      correctSequence: ['Millimeter (mm)', 'Centimeter (cm)', 'Meter (m)', 'Kilometer (km)'],
     },
     explanation: '💡 Smallest to largest: Millimeter (0.001 m) -> Centimeter (0.01 m) -> Meter (1 m) -> Kilometer (1000 m)!',
     points: 20,

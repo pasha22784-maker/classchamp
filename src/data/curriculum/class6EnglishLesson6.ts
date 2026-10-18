@@ -24,7 +24,7 @@ export const CLASS_6_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     payload: {
       options: [
         { id: 'opt_1', text: 'Direct Speech', isCorrect: true },
-        { id: 'opt_2', text: 'Indirect (Reported) Speech', isCorrect: false },
+        { id: 'opt_2', text: 'Indirect Speech', isCorrect: false },
         { id: 'opt_3', text: 'Passive Voice', isCorrect: false },
         { id: 'opt_4', text: 'Imperative Speech', isCorrect: false },
       ],

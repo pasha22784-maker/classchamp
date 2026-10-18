@@ -297,7 +297,7 @@ export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
     visualEmoji: '⚖️ 1/2 of 60 vs 3/4 of 40',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Both are exactly equal (30 kg each)', isCorrect: true },
+        { id: 'opt_1', text: 'Both are exactly equal', isCorrect: true },
         { id: 'opt_2', text: '1/2 of 60 kg wheat is heavier', isCorrect: false },
         { id: 'opt_3', text: '3/4 of 40 kg rice is heavier', isCorrect: false },
         { id: 'opt_4', text: 'Cannot be determined', isCorrect: false },

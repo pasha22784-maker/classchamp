@@ -64,7 +64,7 @@ export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '🥛 💧 🪙',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Because the solid object takes up space and pushes away (displaces) an equal volume of water', isCorrect: true },
+        { id: 'opt_1', text: 'Because the solid object takes up space and displaces an equal volume of water', isCorrect: true },
         { id: 'opt_2', text: 'Because the coin drinks water', isCorrect: false },
         { id: 'opt_3', text: 'Because cold water expands instantly', isCorrect: false },
         { id: 'opt_4', text: 'Because the glass shrinks', isCorrect: false },
@@ -149,7 +149,7 @@ export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '🪙 1,000 × 9 g',
     payload: {
       options: [
-        { id: 'opt_1', text: '9 kg (9,000 g)', isCorrect: true },
+        { id: 'opt_1', text: '9 kg', isCorrect: true },
         { id: 'opt_2', text: '90 kg', isCorrect: false },
         { id: 'opt_3', text: '4.5 kg', isCorrect: false },
         { id: 'opt_4', text: '0.9 kg', isCorrect: false },
@@ -209,7 +209,7 @@ export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
     visualEmoji: '💧 1 mL = ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: '1 cubic centimetre (1 cm³)', isCorrect: true },
+        { id: 'opt_1', text: '1 cubic centimetre', isCorrect: true },
         { id: 'opt_2', text: '10 cubic centimetres', isCorrect: false },
         { id: 'opt_3', text: '100 cubic centimetres', isCorrect: false },
         { id: 'opt_4', text: '1 square centimetre', isCorrect: false },
@@ -273,10 +273,10 @@ export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'A hollow plastic cube has side length 10 cm. When filled completely to the brim with water, how much water does it hold?',
-    visualEmoji: '🧊 10 × 10 × 10 = 1,000 cm³',
+    visualEmoji: '🧊 10 cm × 10 cm × 10 cm',
     payload: {
       options: [
-        { id: 'opt_1', text: '1 Litre (1,000 mL)', isCorrect: true },
+        { id: 'opt_1', text: '1 Litre', isCorrect: true },
         { id: 'opt_2', text: '10 Litres', isCorrect: false },
         { id: 'opt_3', text: '100 mL', isCorrect: false },
         { id: 'opt_4', text: '500 mL', isCorrect: false },

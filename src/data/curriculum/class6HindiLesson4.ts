@@ -236,9 +236,9 @@ export const CLASS_6_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🌍 🗣️',
     payload: {
       options: [
-        { id: 'opt_1', text: 'उर्दू-फ़ारसी (आगत) उपसर्ग', isCorrect: true },
-        { id: 'opt_2', text: 'संस्कृत (तत्सम) उपसर्ग', isCorrect: false },
-        { id: 'opt_3', text: 'हिंदी (तद्भव) उपसर्ग', isCorrect: false },
+        { id: 'opt_1', text: 'उर्दू-फ़ारसी उपसर्ग', isCorrect: true },
+        { id: 'opt_2', text: 'संस्कृत उपसर्ग', isCorrect: false },
+        { id: 'opt_3', text: 'हिंदी उपसर्ग', isCorrect: false },
         { id: 'opt_4', text: 'अंग्रेज़ी उपसर्ग', isCorrect: false },
       ],
     },
@@ -299,10 +299,10 @@ export const CLASS_6_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🏊‍♂️ 🛠️',
     payload: {
       options: [
-        { id: 'opt_1', text: 'तैराक (तैरना क्रिया से)', isCorrect: true },
-        { id: 'opt_2', text: 'सामाजिक (समाज संज्ञा से)', isCorrect: false },
-        { id: 'opt_3', text: 'मिठास (मीठा विशेषण से)', isCorrect: false },
-        { id: 'opt_4', text: 'अपनापन (अपना सर्वनाम से)', isCorrect: false },
+        { id: 'opt_1', text: 'तैराक', isCorrect: true },
+        { id: 'opt_2', text: 'सामाजिक', isCorrect: false },
+        { id: 'opt_3', text: 'मिठास', isCorrect: false },
+        { id: 'opt_4', text: 'अपनापन', isCorrect: false },
       ],
     },
     explanation: '"तैरना" एक क्रिया (धातु) है, अतः तैर + आक = तैराक कृदंत शब्द है। शेष सभी तद्धितांत शब्द हैं।',

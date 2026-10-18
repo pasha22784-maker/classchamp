@@ -206,7 +206,7 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: 'इ ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: 'ई (बड़ी ई)', isCorrect: true },
+        { id: 'opt_1', text: 'ई', isCorrect: true },
         { id: 'opt_2', text: 'अ', isCorrect: false },
         { id: 'opt_3', text: 'उ', isCorrect: false },
       ],
@@ -248,8 +248,8 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🎩 🔤',
     payload: {
       options: [
-        { id: 'opt_1', text: 'ई (बड़ी ई)', isCorrect: true },
-        { id: 'opt_2', text: 'इ (छोटी इ)', isCorrect: false },
+        { id: 'opt_1', text: 'ई', isCorrect: true },
+        { id: 'opt_2', text: 'इ', isCorrect: false },
       ],
     },
     explanation: 'बड़ी "ई" के ऊपर सुंदर मुकुट जैसा चिह्न होता है!',
@@ -533,7 +533,7 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🍇 🔤',
     payload: {
       options: [
-        { id: 'opt_1', text: 'अं (अंगूर वाला)', isCorrect: true },
+        { id: 'opt_1', text: 'अं', isCorrect: true },
         { id: 'opt_2', text: 'अ', isCorrect: false },
         { id: 'opt_3', text: 'आ', isCorrect: false },
       ],
@@ -573,8 +573,8 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '👓 🦶',
     payload: {
       options: [
-        { id: 'opt_1', text: 'ऐ (ऐनक वाला)', isCorrect: true },
-        { id: 'opt_2', text: 'ए (एड़ी वाला)', isCorrect: false },
+        { id: 'opt_1', text: 'ऐ', isCorrect: true },
+        { id: 'opt_2', text: 'ए', isCorrect: false },
       ],
     },
     explanation: 'ऐ (ऐनक) के सिर पर एक मात्रा की डंडी होती है!',
@@ -592,7 +592,7 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🥣 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: 'औ (औरत वाला)', isCorrect: true },
+        { id: 'opt_1', text: 'औ', isCorrect: true },
         { id: 'opt_2', text: 'अं', isCorrect: false },
         { id: 'opt_3', text: 'ए', isCorrect: false },
       ],
@@ -980,7 +980,7 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🦜 🌶️',
     payload: {
       options: [
-        { id: 'opt_1', text: 'तोता (मिट्ठू) 🦜', isCorrect: true },
+        { id: 'opt_1', text: 'तोता 🦜', isCorrect: true },
         { id: 'opt_2', text: 'कौआ 🐦', isCorrect: false },
       ],
     },
@@ -1136,7 +1136,7 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🦜 🐘 ☁️',
     payload: {
       options: [
-        { id: 'opt_1', text: '🦜 तोता (पक्षी उड़ सकता है)', isCorrect: true },
+        { id: 'opt_1', text: '🦜 तोता', isCorrect: true },
         { id: 'opt_2', text: '🐘 हाथी', isCorrect: false },
       ],
     },
@@ -1371,7 +1371,7 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🦷 🪥',
     payload: {
       options: [
-        { id: 'opt_1', text: 'दाँत (ब्रश से)', isCorrect: true },
+        { id: 'opt_1', text: 'दाँत', isCorrect: true },
         { id: 'opt_2', text: 'जूते', isCorrect: false },
       ],
     },
@@ -1430,7 +1430,7 @@ export const LKG_HINDI_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🖐️ 🦶 🔢',
     payload: {
       options: [
-        { id: 'opt_1', text: 'दो हाथ और दो पैर (2 + 2)', isCorrect: true },
+        { id: 'opt_1', text: 'दो हाथ और दो पैर', isCorrect: true },
         { id: 'opt_2', text: 'चार हाथ और चार पैर', isCorrect: false },
         { id: 'opt_3', text: 'एक हाथ और एक पैर', isCorrect: false },
       ],

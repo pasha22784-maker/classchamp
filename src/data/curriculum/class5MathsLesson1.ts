@@ -297,10 +297,10 @@ export const CLASS_5_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🌊 2/3 of 3,00,000',
     payload: {
       options: [
-        { id: 'opt_1', text: '2 Lakhs (2,00,000)', isCorrect: true },
-        { id: 'opt_2', text: '1 Lakh (1,00,000)', isCorrect: false },
-        { id: 'opt_3', text: '1.5 Lakhs (1,50,000)', isCorrect: false },
-        { id: 'opt_4', text: '2.5 Lakhs (2,50,000)', isCorrect: false },
+        { id: 'opt_1', text: '2 Lakhs', isCorrect: true },
+        { id: 'opt_2', text: '1 Lakh', isCorrect: false },
+        { id: 'opt_3', text: '1.5 Lakhs', isCorrect: false },
+        { id: 'opt_4', text: '2.5 Lakhs', isCorrect: false },
       ],
     },
     explanation: '💡 (2/3) × 3,00,000 = 2 × 1,00,000 = **2,00,000** (2 Lakhs)!',

@@ -231,8 +231,8 @@ export const CLASS_4_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '💊 🧴 📅',
     payload: {
       options: [
-        { id: 'opt_1', text: 'May 2026 (05/2026)', isCorrect: true },
-        { id: 'opt_2', text: 'May 2025 (05/2025)', isCorrect: false },
+        { id: 'opt_1', text: 'May 2026', isCorrect: true },
+        { id: 'opt_2', text: 'May 2025', isCorrect: false },
         { id: 'opt_3', text: 'December 2026', isCorrect: false },
         { id: 'opt_4', text: 'May 2027', isCorrect: false },
       ],
@@ -249,7 +249,7 @@ export const CLASS_4_MATHS_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'fill_blank',
     question: 'Exactly 12:00 midnight (the start of a brand new day) is written on a 24-hour railway clock as [BLANK].',
-    visualEmoji: '🌙 🕛 0️⃣0️⃣:0️⃣0️⃣',
+    visualEmoji: '🌙 🕛 ❓',
     payload: {
       correctAnswer: '00:00',
       wordBank: ['00:00', '24:00', '12:00', '01:00'],
@@ -288,10 +288,10 @@ export const CLASS_4_MATHS_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'A packet of pain relief tablets shows: MFG 07/2024 and EXP 06/2026. Is it safe to consume this medicine in September 2026?',
-    visualEmoji: '💊 ⚠️ 📅 ❌',
+    visualEmoji: '💊 ⚠️ 📅 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: 'No, because it already expired in June 2026', isCorrect: true },
+        { id: 'opt_1', text: 'No, it has already expired', isCorrect: true },
         { id: 'opt_2', text: 'Yes, it is completely safe', isCorrect: false },
         { id: 'opt_3', text: 'Yes, if taken with warm water', isCorrect: false },
         { id: 'opt_4', text: 'Expiry dates do not matter for tablets', isCorrect: false },
@@ -312,22 +312,22 @@ export const CLASS_4_MATHS_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '⏰ 📈 🌙',
     payload: {
       tokens: [
-        '1. 13:00 (1:00 PM lunch time)',
-        '2. 15:30 (3:30 PM school over)',
-        '3. 19:00 (7:00 PM sunset playtime)',
-        '4. 23:00 (11:00 PM bedtime)',
+        '13:00',
+        '15:30',
+        '19:00',
+        '23:00',
       ],
       scrambled: [
-        '3. 19:00 (7:00 PM sunset playtime)',
-        '1. 13:00 (1:00 PM lunch time)',
-        '4. 23:00 (11:00 PM bedtime)',
-        '2. 15:30 (3:30 PM school over)',
+        '19:00',
+        '13:00',
+        '23:00',
+        '15:30',
       ],
       correctSequence: [
-        '1. 13:00 (1:00 PM lunch time)',
-        '2. 15:30 (3:30 PM school over)',
-        '3. 19:00 (7:00 PM sunset playtime)',
-        '4. 23:00 (11:00 PM bedtime)',
+        '13:00',
+        '15:30',
+        '19:00',
+        '23:00',
       ],
     },
     explanation: '💡 Chronological sequence: 13:00 -> 15:30 -> 19:00 -> 23:00!',

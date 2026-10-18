@@ -235,10 +235,10 @@ export const CLASS_5_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '👨‍🏫 📖',
     payload: {
       options: [
-        { id: 'opt_1', text: 'व्याकरण की पुस्तक (मुख्य कर्म) और छात्रों को (गौण कर्म)', isCorrect: true },
-        { id: 'opt_2', text: 'अध्यापक (मुख्य कर्म) और छात्र (गौण कर्म)', isCorrect: false },
-        { id: 'opt_3', text: 'पढ़ाई (मुख्य कर्म) और पुस्तक (गौण कर्म)', isCorrect: false },
-        { id: 'opt_4', text: 'छात्र (मुख्य कर्म) और अध्यापक (गौण कर्म)', isCorrect: false },
+        { id: 'opt_1', text: 'व्याकरण की पुस्तक और छात्रों को', isCorrect: true },
+        { id: 'opt_2', text: 'अध्यापक और छात्र', isCorrect: false },
+        { id: 'opt_3', text: 'पढ़ाई और पुस्तक', isCorrect: false },
+        { id: 'opt_4', text: 'छात्र और अध्यापक', isCorrect: false },
       ],
     },
     explanation: '"क्या" का उत्तर (निर्जीव वस्तु = पुस्तक) मुख्य कर्म होता है, और "किसे" का उत्तर (सजीव = छात्रों को) गौण कर्म होता है।',
@@ -256,8 +256,8 @@ export const CLASS_5_HINDI_LESSON_4_QUESTIONS: Question[] = [
     visualEmoji: '🐟 🌊',
     payload: {
       options: [
-        { id: 'opt_1', text: 'अकर्मक क्रिया (क्योंकि तालाब तैरने का स्थान / अधिकरण है, कर्म नहीं)', isCorrect: true },
-        { id: 'opt_2', text: 'सकर्मक क्रिया (क्योंकि तालाब कर्म है)', isCorrect: false },
+        { id: 'opt_1', text: 'अकर्मक क्रिया', isCorrect: true },
+        { id: 'opt_2', text: 'सकर्मक क्रिया', isCorrect: false },
         { id: 'opt_3', text: 'द्विकर्मक क्रिया', isCorrect: false },
         { id: 'opt_4', text: 'प्रेरणार्थक क्रिया', isCorrect: false },
       ],
