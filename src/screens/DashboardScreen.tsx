@@ -91,6 +91,9 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const [showWeakTopicModal, setShowWeakTopicModal] = useState(false);
   const [selectedWeakTopic, setSelectedWeakTopic] = useState<WeakTopicItem | null>(null);
   const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
+  const [activeCategory, setActiveCategory] = useState<'subjects' | 'labs' | 'arcade' | 'all'>('subjects');
+  const [showOfferDetailsModal, setShowOfferDetailsModal] = useState(false);
+  const [showCompletedMissionBanner, setShowCompletedMissionBanner] = useState(true);
 
   const handleOpenConceptLab = (labId: string) => {
     triggerHaptic('medium');
@@ -261,51 +264,6 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Dynamic Global Announcement Banner */}
-        {globalConfig?.announcement?.isActive && (
-          <View
-            style={[
-              styles.announcementBanner,
-              globalConfig.announcement.type === 'festive'
-                ? styles.announcementFestive
-                : globalConfig.announcement.type === 'alert'
-                ? styles.announcementAlert
-                : styles.announcementInfo,
-            ]}
-          >
-            <Text style={{ fontSize: 16, marginRight: 8 }}>
-              {globalConfig.announcement.type === 'festive' ? '🎉' : globalConfig.announcement.type === 'alert' ? '🚨' : '📢'}
-            </Text>
-            <Text style={styles.announcementText}>{globalConfig.announcement.text}</Text>
-          </View>
-        )}
-
-        {/* Dynamic Special Festive Offer Banner */}
-        {globalConfig?.specialOffer?.isActive && (
-          <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => setShowPaywallModal(true)}
-            style={styles.offerBannerContainer}
-          >
-            <View style={styles.offerBadge}>
-              <Text style={styles.offerBadgeText}>{globalConfig.specialOffer.badgeText}</Text>
-            </View>
-            <View style={{ flex: 1, marginLeft: 8 }}>
-              <Text style={styles.offerTitle}>{globalConfig.specialOffer.title}</Text>
-              <Text style={styles.offerPrice}>
-                <Text style={{ textDecorationLine: 'line-through', color: '#94A3B8' }}>
-                  {globalConfig.specialOffer.originalPrice}
-                </Text>{' '}
-                <Text style={{ fontWeight: '900', color: COLORS.gold }}>
-                  {globalConfig.specialOffer.discountedPrice}
-                </Text>{' '}
-                • Code: {globalConfig.specialOffer.couponCode}
-              </Text>
-            </View>
-            <Text style={{ fontSize: 14, color: COLORS.gold, fontWeight: '900' }}>GET ›</Text>
-          </TouchableOpacity>
-        )}
-
         {/* Child Gamified Loot Strip: Streak, Shield, Stars, XP */}
         <View style={styles.champLootStrip}>
           <View style={styles.lootStripItem}>
@@ -347,493 +305,670 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </View>
         </View>
 
-        {/* Kid-Friendly Vibrant Hero Card: "Daily 10-Min Mission" */}
-        <View
-          style={[
-            styles.heroCard,
-            isCompletedToday ? styles.heroCardCompleted : styles.heroCardActive,
-          ]}
-        >
-          <View style={styles.heroTopRow}>
-            <View style={[styles.heroBadge, isCompletedToday ? styles.heroBadgeCompleted : styles.heroBadgeActive]}>
-              <Text style={styles.heroBadgeText}>
-                {isCompletedToday ? s.heroMissionDone : s.heroDailyMission}
-              </Text>
-            </View>
-            <View style={[styles.statusPill, isCompletedToday ? styles.statusPillDone : styles.statusPillPending]}>
-              <Text style={styles.statusPillText}>
-                {isCompletedToday ? s.heroGoalDone : s.heroGoalPending}
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.heroBodyRow}>
-            <View style={styles.heroTextCol}>
-              <Text style={styles.heroTitle}>
-                {isCompletedToday ? s.heroTitleDone : s.heroTitlePending}
-              </Text>
-              <Text style={styles.heroSub}>
-                {isCompletedToday ? s.heroSubDone : s.heroSubPending}
-              </Text>
-            </View>
-            <View style={styles.heroIllustrationCircle}>
-              <Text style={styles.heroIllustrationEmoji}>
-                {isCompletedToday ? '🏆' : '🚀'}
-              </Text>
-            </View>
-          </View>
-
-          {/* Clean Progress Line */}
-          <View style={styles.heroProgressTrack}>
-            <View
-              style={[
-                styles.heroProgressBar,
-                { width: isCompletedToday ? '100%' : '15%' },
-                { backgroundColor: '#FDE047' },
-              ]}
-            />
-          </View>
-        </View>
-
-        {/* Daily Lucky Spin Banner */}
-        <TouchableOpacity
-          style={styles.luckySpinBanner}
-          activeOpacity={0.88}
-          onPress={() => {
-            triggerHaptic('medium');
-            setShowLuckySpinModal(true);
-          }}
-        >
-          <View style={styles.luckySpinIconCircle}>
-            <Text style={styles.luckySpinIconEmoji}>🎡</Text>
-          </View>
-          <View style={styles.luckySpinTextBox}>
-            <View style={styles.luckySpinBadgeRow}>
-              <View style={[styles.luckySpinBadge, isFreeSpinReady && styles.luckySpinBadgeFree]}>
-                <Text style={styles.luckySpinBadgeText}>
-                  {isFreeSpinReady ? s.spinFreeReady : s.spinExtra}
-                </Text>
-              </View>
-            </View>
-            <Text style={styles.luckySpinTitle}>{s.spinTitle}</Text>
-            <Text style={styles.luckySpinSub}>
-              {s.spinSub}
-            </Text>
-          </View>
-          <View style={styles.luckySpinActionBtn}>
-            <Text style={styles.luckySpinActionText}>{s.spinBtn}</Text>
-          </View>
-        </TouchableOpacity>
-
-        {/* Daily Super Kid Brain Gym Banner (3-Step Daily Workout) */}
-        <View style={styles.dailyGymCard}>
-          <View style={styles.dailyGymTopRow}>
-            <View style={[styles.dailyGymBadge, isWorkoutDoneToday && styles.dailyGymBadgeDone]}>
-              <Text style={styles.dailyGymBadgeText}>
-                {isWorkoutDoneToday ? s.gymBadgeDone : s.gymBadgePending}
-              </Text>
-            </View>
-            <TouchableOpacity
-              style={styles.brainMatrixPill}
-              activeOpacity={0.8}
-              onPress={() => {
-                triggerHaptic('light');
-                setShowBrainMatrixModal(true);
-              }}
-            >
-              <Text style={styles.brainMatrixPillText}>{s.brainMatrixBtn}</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.dailyGymMainRow}>
-            <View style={styles.dailyGymIconCircle}>
-              <Text style={styles.dailyGymIconEmoji}>🏋️‍♂️</Text>
-            </View>
-            <View style={styles.dailyGymTextBox}>
-              <Text style={styles.dailyGymTitle}>{s.gymTitle}</Text>
-              <Text style={styles.dailyGymSub}>
-                {s.gymSub}
-              </Text>
-            </View>
-          </View>
-
+        {/* Smooth Special Launch Offer Capsule Pill (Takes only 34px, click opens full details) */}
+        {globalConfig?.specialOffer?.isActive && (
           <TouchableOpacity
-            style={[styles.dailyGymActionBtn, isWorkoutDoneToday && styles.dailyGymActionBtnDone]}
-            activeOpacity={0.88}
+            activeOpacity={0.85}
             onPress={() => {
               triggerHaptic('medium');
-              setShowDailyBrainGymModal(true);
+              setShowOfferDetailsModal(true);
             }}
+            style={styles.specialOfferCapsule}
           >
-            <Text style={styles.dailyGymActionText}>
-              {isWorkoutDoneToday ? s.gymBtnReview : s.gymBtnStart}
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Adaptive Weak Topic Remediation Booster */}
-        {currentWeakTopic && currentWeakTopic.status !== 'mastered' && (
-          <TouchableOpacity
-            style={styles.weakTopicCard}
-            activeOpacity={0.9}
-            onPress={() => {
-              triggerHaptic('medium');
-              setSelectedWeakTopic(currentWeakTopic);
-              setShowWeakTopicModal(true);
-            }}
-          >
-            <View style={styles.weakTopicTopRow}>
-              <View style={styles.weakTopicBadge}>
-                <Text style={styles.weakTopicBadgeText}>{s.weakTopicBadge}</Text>
+            <View style={styles.specialOfferInner}>
+              <View style={styles.specialOfferIconCircle}>
+                <Text style={{ fontSize: 13 }}>🎁</Text>
               </View>
-              <Text style={styles.weakTopicAccuracy}>
-                {s.weakTopicMastery}: <Text style={{ color: '#EF4444', fontWeight: '900' }}>{currentWeakTopic.accuracyPercentage}%</Text>
-              </Text>
-            </View>
-
-            <View style={styles.weakTopicContentRow}>
-              <View style={styles.weakTopicIconBox}>
-                <Text style={styles.weakTopicIconEmoji}>⚠️</Text>
-              </View>
-              <View style={styles.weakTopicTextBox}>
-                <Text style={styles.weakTopicTitle}>{currentWeakTopic.chapterTitle}</Text>
-                <Text style={styles.weakTopicSub}>{currentWeakTopic.conceptName}</Text>
-                <Text style={styles.weakTopicHint}>
-                  {s.weakTopicHint}
-                </Text>
-              </View>
-              <View style={styles.weakTopicGoBtn}>
-                <Text style={styles.weakTopicGoText}>{s.weakTopicFixBtn}</Text>
-              </View>
+              <Text style={styles.specialOfferText}>{s.specialLaunchOffer}</Text>
+              <Text style={styles.specialOfferArrow}>✨ ›</Text>
             </View>
           </TouchableOpacity>
         )}
 
-        {/* Section Heading: Clean & Minimal */}
-        <View style={styles.sectionHeaderRow}>
-          <Text style={styles.sectionTitle}>{s.selectSubject}</Text>
-          <Text style={styles.sectionSub}>{s.subjectSub}</Text>
-        </View>
-
-        {/* 1. Mathematics Smart Card */}
-        <TouchableOpacity
-          style={styles.cleanSubjectCard}
-          onPress={() => handleSubjectClick('maths', mathsInfo.lesson.title)}
-          activeOpacity={0.85}
-        >
-          <View style={[styles.subjectIconBox, { backgroundColor: '#EFF6FF' }]}>
-            <Text style={styles.subjectEmoji}>📐</Text>
-          </View>
-
-          <View style={styles.subjectTextBox}>
-            <View style={styles.subjectTitleRow}>
-              <Text style={styles.subjectName}>
-                {activeLang === 'hi' ? 'गणित (Mathematics)' : 'Mathematics'}
-              </Text>
-              <View style={[styles.lessonBadge, { backgroundColor: '#DBEAFE' }]}>
-                <Text style={[styles.lessonBadgeText, { color: '#1E40AF' }]}>
-                  {mathsInfo.isResume ? s.resumeBadge : `${s.chapterPrefix} ${mathsInfo.lesson.number}`}
-                </Text>
-              </View>
-            </View>
-            <Text style={styles.lessonName} numberOfLines={1}>
-              {mathsInfo.lesson.title}
-            </Text>
-            <Text style={styles.bookSub} numberOfLines={1}>
-              {bookInfo.mathsBook} • 10 {s.practiceQuestionsSuffix}
-            </Text>
-          </View>
-
-          <View style={[styles.playBtnCircle, { backgroundColor: '#2563EB' }]}>
-            <Text style={styles.playBtnArrow}>▶</Text>
-          </View>
-        </TouchableOpacity>
-
-        {/* 2. English Smart Card */}
-        <TouchableOpacity
-          style={styles.cleanSubjectCard}
-          onPress={() => handleSubjectClick('english', englishInfo.lesson.title)}
-          activeOpacity={0.85}
-        >
-          <View style={[styles.subjectIconBox, { backgroundColor: '#FEF3C7' }]}>
-            <Text style={styles.subjectEmoji}>📚</Text>
-          </View>
-
-          <View style={styles.subjectTextBox}>
-            <View style={styles.subjectTitleRow}>
-              <Text style={styles.subjectName}>English Grammar</Text>
-              <View style={[styles.lessonBadge, { backgroundColor: '#FEF3C7' }]}>
-                <Text style={[styles.lessonBadgeText, { color: '#92400E' }]}>
-                  {englishInfo.isResume ? 'Resume ▶' : `Ch ${englishInfo.lesson.number}`}
-                </Text>
-              </View>
-            </View>
-            <Text style={styles.lessonName} numberOfLines={1}>
-              {englishInfo.lesson.title}
-            </Text>
-            <Text style={styles.bookSub} numberOfLines={1}>
-              {bookInfo.englishBook} • 10 Practice Questions
-            </Text>
-          </View>
-
-          <View style={[styles.playBtnCircle, { backgroundColor: '#D97706' }]}>
-            <Text style={styles.playBtnArrow}>▶</Text>
-          </View>
-        </TouchableOpacity>
-
-        {/* 3. Hindi Smart Card (Always in pure Hindi) */}
-        <TouchableOpacity
-          style={styles.cleanSubjectCard}
-          onPress={() => handleSubjectClick('hindi', hindiInfo.lesson.title)}
-          activeOpacity={0.85}
-        >
-          <View style={[styles.subjectIconBox, { backgroundColor: '#ECFDF5' }]}>
-            <Text style={styles.subjectEmoji}>🇮🇳</Text>
-          </View>
-
-          <View style={styles.subjectTextBox}>
-            <View style={styles.subjectTitleRow}>
-              <Text style={styles.subjectName}>हिंदी (Hindi)</Text>
-              <View style={[styles.lessonBadge, { backgroundColor: '#D1FAE5' }]}>
-                <Text style={[styles.lessonBadgeText, { color: '#065F46' }]}>
-                  {hindiInfo.isResume ? 'जारी रखें ▶' : `पाठ ${hindiInfo.lesson.number}`}
-                </Text>
-              </View>
-            </View>
-            <Text style={styles.lessonName} numberOfLines={1}>
-              {hindiInfo.lesson.title}
-            </Text>
-            <Text style={styles.bookSub} numberOfLines={1}>
-              {bookInfo.hindiBook} • 10 अभ्यास प्रश्न
-            </Text>
-          </View>
-
-          <View style={[styles.playBtnCircle, { backgroundColor: '#059669' }]}>
-            <Text style={styles.playBtnArrow}>▶</Text>
-          </View>
-        </TouchableOpacity>
-
-        {/* Clean Shortcut Bar: 365 Roadmap, Vault, Parent Zone */}
-        <View style={styles.shortcutsRow}>
-          <TouchableOpacity
-            style={styles.shortcutPill}
-            onPress={() => {
-              triggerHaptic('light');
-              onOpenRoadmap365();
-            }}
-            activeOpacity={0.8}
+        {/* Smart Category Tabs Bar */}
+        <View style={styles.categoryTabsWrapper}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.categoryTabsScroll}
           >
-            <Text style={styles.shortcutEmoji}>🗓️</Text>
-            <Text style={styles.shortcutLabel}>{s.shortcutRoadmap}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.shortcutPill}
-            onPress={() => {
-              triggerHaptic('light');
-              onOpenChapterVault('maths');
-            }}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.shortcutEmoji}>📚</Text>
-            <Text style={styles.shortcutLabel}>{s.shortcutVault}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.shortcutPill}
-            onPress={() => {
-              triggerHaptic('medium');
-              setShowConceptLabHub(true);
-            }}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.shortcutEmoji}>🔬</Text>
-            <Text style={styles.shortcutLabel}>{s.shortcutLabs}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.shortcutPill}
-            onPress={() => {
-              triggerHaptic('light');
-              onOpenParentZone();
-            }}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.shortcutEmoji}>👨‍👩‍👧</Text>
-            <Text style={styles.shortcutLabel}>{s.shortcutParent}</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Champ Arcade: Exciting Kids Educational Games */}
-        <View style={styles.arcadeHeaderRow}>
-          <View>
-            <Text style={styles.arcadeTitle}>{s.arcadeTitle}</Text>
-            <Text style={styles.arcadeSub}>{s.arcadeSub}</Text>
-          </View>
-          <View style={styles.arcadeLiveBadge}>
-            <Text style={styles.arcadeLiveText}>NEW ✨</Text>
-          </View>
-        </View>
-
-        <View style={styles.arcadeGrid}>
-          {/* 1. Balloon Pop Blitz */}
-          <TouchableOpacity
-            style={[styles.arcadeCard, { backgroundColor: '#0284C7' }]}
-            activeOpacity={0.88}
-            onPress={() => {
-              triggerHaptic('medium');
-              setShowBalloonPopModal(true);
-            }}
-          >
-            <View style={styles.arcadeCardTop}>
-              <Text style={styles.arcadeCardEmoji}>🎈</Text>
-              <View style={styles.arcadeCardBadge}>
-                <Text style={styles.arcadeCardBadgeText}>40s Blitz</Text>
-              </View>
-            </View>
-            <Text style={styles.arcadeCardTitle}>{s.balloonPopTitle}</Text>
-            <Text style={styles.arcadeCardDesc}>
-              {s.balloonPopDesc}
-            </Text>
-            <View style={styles.arcadeCardBtn}>
-              <Text style={styles.arcadeCardBtnText}>{s.playNowBtn}</Text>
-            </View>
-          </TouchableOpacity>
-
-          {/* 2. Mind Match 3D (Vibrant Bright Purple instead of dark indigo) */}
-          <TouchableOpacity
-            style={[styles.arcadeCard, { backgroundColor: '#8B5CF6' }]}
-            activeOpacity={0.88}
-            onPress={() => {
-              triggerHaptic('medium');
-              setShowMemoryMatchModal(true);
-            }}
-          >
-            <View style={styles.arcadeCardTop}>
-              <Text style={styles.arcadeCardEmoji}>🃏</Text>
-              <View style={styles.arcadeCardBadge}>
-                <Text style={styles.arcadeCardBadgeText}>Brain Power</Text>
-              </View>
-            </View>
-            <Text style={styles.arcadeCardTitle}>{s.mindMatchTitle}</Text>
-            <Text style={styles.arcadeCardDesc}>
-              {s.mindMatchDesc}
-            </Text>
-            <View style={styles.arcadeCardBtn}>
-              <Text style={styles.arcadeCardBtnText}>{s.playNowBtn}</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
-
-        {/* STEM & Math Practical Concept Labs Hero Gateway: Super Kid STEM Hub */}
-        <View style={styles.labGatewayCard}>
-          {/* Top Live Tag & Grade Badge */}
-          <View style={styles.labGatewayTopRow}>
-            <View style={styles.labGatewayLiveBadge}>
-              <View style={styles.labGatewayLiveDot} />
-              <Text style={styles.labGatewayLiveText}>{s.labGatewayBadge}</Text>
-            </View>
-            <View style={styles.labGatewayGradeBadge}>
-              <Text style={styles.labGatewayGradeText}>{gradeConfig.label} • {s.labGatewayLabsCount}</Text>
-            </View>
-          </View>
-
-          {/* Main Visual Content */}
-          <TouchableOpacity
-            activeOpacity={0.88}
-            onPress={() => {
-              triggerHaptic('medium');
-              setShowConceptLabHub(true);
-            }}
-            style={styles.labGatewayMainRow}
-          >
-            <View style={styles.labGatewayTextCol}>
-              <Text style={styles.labGatewayTitle}>{s.labGatewayTitle}</Text>
-              <Text style={styles.labGatewayPunchline}>
-                {s.labGatewayPunchline}
-              </Text>
-              <Text style={styles.labGatewayDesc}>
-                {s.labGatewayDesc}
-              </Text>
-            </View>
-
-            <View style={styles.labGatewayFlaskBox}>
-              <Text style={styles.labGatewayFlaskEmoji}>🧪</Text>
-            </View>
-          </TouchableOpacity>
-
-          {/* Feature Badges */}
-          <View style={styles.labGatewayPillsRow}>
-            <View style={[styles.labFeaturePill, { borderColor: '#0284C7', backgroundColor: '#F0F9FF' }]}>
-              <Text style={[styles.labFeatureText, { color: '#0284C7' }]}>⚡ 60s Booster</Text>
-            </View>
-            <View style={styles.labFeaturePill}>
-              <Text style={styles.labFeatureText}>⚖️ Balance Beam</Text>
-            </View>
-            <View style={styles.labFeaturePill}>
-              <Text style={styles.labFeatureText}>🍕 Fraction Slices</Text>
-            </View>
-            <View style={styles.labFeaturePill}>
-              <Text style={styles.labFeatureText}>🧲 Magnets & Optics</Text>
-            </View>
-          </View>
-
-          {/* Dual Action Buttons Row */}
-          <View style={styles.labGatewayActionsRow}>
+            {/* 1. Subjects */}
             <TouchableOpacity
-              style={styles.enterLabActionBtn}
-              activeOpacity={0.85}
+              activeOpacity={0.8}
               onPress={() => {
-                triggerHaptic('medium');
-                setShowConceptLabHub(true);
+                triggerHaptic('light');
+                setActiveCategory('subjects');
               }}
+              style={[
+                styles.categoryTabPill,
+                activeCategory === 'subjects' && styles.categoryTabPillActive,
+              ]}
             >
-              <Text style={styles.enterLabActionText}>{s.labGatewayEnterBtn}</Text>
-              <View style={styles.enterLabActionArrow}>
-                <Text style={styles.enterLabArrowText}>▶</Text>
+              <Text style={styles.categoryTabEmoji}>📚</Text>
+              <Text
+                style={[
+                  styles.categoryTabText,
+                  activeCategory === 'subjects' && styles.categoryTabTextActive,
+                ]}
+              >
+                {s.catSubjects}
+              </Text>
+              <View
+                style={[
+                  styles.categoryTabBadge,
+                  activeCategory === 'subjects' && styles.categoryTabBadgeActive,
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.categoryTabBadgeText,
+                    activeCategory === 'subjects' && styles.categoryTabBadgeTextActive,
+                  ]}
+                >
+                  3
+                </Text>
               </View>
             </TouchableOpacity>
 
+            {/* 2. Concept Labs */}
             <TouchableOpacity
-              style={styles.speedBrainActionBtn}
-              activeOpacity={0.85}
+              activeOpacity={0.8}
               onPress={() => {
-                triggerHaptic('medium');
-                setShowSpeedBrainModal(true);
+                triggerHaptic('light');
+                setActiveCategory('labs');
               }}
+              style={[
+                styles.categoryTabPill,
+                activeCategory === 'labs' && styles.categoryTabPillActive,
+              ]}
             >
-              <Text style={styles.speedBrainActionText}>{s.labGatewayRushBtn}</Text>
+              <Text style={styles.categoryTabEmoji}>🔬</Text>
+              <Text
+                style={[
+                  styles.categoryTabText,
+                  activeCategory === 'labs' && styles.categoryTabTextActive,
+                ]}
+              >
+                {s.catLabs}
+              </Text>
+              <View
+                style={[
+                  styles.categoryTabBadge,
+                  activeCategory === 'labs' && styles.categoryTabBadgeActive,
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.categoryTabBadgeText,
+                    activeCategory === 'labs' && styles.categoryTabBadgeTextActive,
+                  ]}
+                >
+                  15+
+                </Text>
+              </View>
             </TouchableOpacity>
-          </View>
+
+            {/* 3. Fun Arcade */}
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => {
+                triggerHaptic('light');
+                setActiveCategory('arcade');
+              }}
+              style={[
+                styles.categoryTabPill,
+                activeCategory === 'arcade' && styles.categoryTabPillActive,
+              ]}
+            >
+              <Text style={styles.categoryTabEmoji}>🎮</Text>
+              <Text
+                style={[
+                  styles.categoryTabText,
+                  activeCategory === 'arcade' && styles.categoryTabTextActive,
+                ]}
+              >
+                {s.catArcade}
+              </Text>
+              {isFreeSpinReady && (
+                <View style={styles.categoryTabFreeDot} />
+              )}
+            </TouchableOpacity>
+
+            {/* 4. All */}
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => {
+                triggerHaptic('light');
+                setActiveCategory('all');
+              }}
+              style={[
+                styles.categoryTabPill,
+                activeCategory === 'all' && styles.categoryTabPillActive,
+              ]}
+            >
+              <Text style={styles.categoryTabEmoji}>🌟</Text>
+              <Text
+                style={[
+                  styles.categoryTabText,
+                  activeCategory === 'all' && styles.categoryTabTextActive,
+                ]}
+              >
+                {s.catAll}
+              </Text>
+            </TouchableOpacity>
+          </ScrollView>
         </View>
 
-        {/* Weekly Olympiad & Advance HOTS Benchmark Test Banner */}
-        <TouchableOpacity
-          style={styles.olympiadBanner}
-          activeOpacity={0.88}
-          onPress={() => {
-            triggerHaptic('medium');
-            setShowOlympiadTestModal(true);
-          }}
-        >
-          <View style={styles.olympiadIconCircle}>
-            <Text style={styles.olympiadIconEmoji}>🏅</Text>
-          </View>
-          <View style={styles.olympiadTextBox}>
-            <View style={styles.olympiadBadgeRow}>
-              <View style={styles.olympiadBadge}>
-                <Text style={styles.olympiadBadgeText}>{s.olympiadBadge}</Text>
+        {/* Daily 10-Min Mission (Only shown when pending) */}
+        {!isCompletedToday && (
+          <View style={[styles.heroCard, styles.heroCardActive]}>
+            <View style={styles.heroTopRow}>
+              <View style={[styles.heroBadge, styles.heroBadgeActive]}>
+                <Text style={styles.heroBadgeText}>{s.heroDailyMission}</Text>
+              </View>
+              <View style={[styles.statusPill, styles.statusPillPending]}>
+                <Text style={styles.statusPillText}>{s.heroGoalPending}</Text>
               </View>
             </View>
-            <Text style={styles.olympiadTitle}>{s.olympiadTitle}</Text>
-            <Text style={styles.olympiadSub}>
-              {s.olympiadSub}
-            </Text>
+
+            <View style={styles.heroBodyRow}>
+              <View style={styles.heroTextCol}>
+                <Text style={styles.heroTitle}>{s.heroTitlePending}</Text>
+                <Text style={styles.heroSub}>{s.heroSubPending}</Text>
+              </View>
+              <View style={styles.heroIllustrationCircle}>
+                <Text style={styles.heroIllustrationEmoji}>🚀</Text>
+              </View>
+            </View>
+
+            <View style={styles.heroProgressTrack}>
+              <View
+                style={[
+                  styles.heroProgressBar,
+                  { width: '15%', backgroundColor: '#FDE047' },
+                ]}
+              />
+            </View>
           </View>
-          <View style={styles.olympiadActionBtn}>
-            <Text style={styles.olympiadActionText}>{s.olympiadTestBtn}</Text>
+        )}
+
+        {/* Mission Completed Compact Celebratory Ribbon (Dismissible with ✕) */}
+        {isCompletedToday && showCompletedMissionBanner && (
+          <View style={styles.compactMissionDoneCard}>
+            <View style={styles.compactMissionDoneLeft}>
+              <Text style={{ fontSize: 20 }}>🏆</Text>
+              <View style={{ marginLeft: 10, flex: 1 }}>
+                <Text style={styles.compactMissionDoneTitle}>{s.missionDoneCompact}</Text>
+                <Text style={styles.compactMissionDoneSub}>{s.missionDoneStreakActive}</Text>
+              </View>
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                triggerHaptic('light');
+                setShowCompletedMissionBanner(false);
+              }}
+              style={styles.compactMissionDoneClose}
+              hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+            >
+              <Text style={styles.compactMissionDoneCloseText}>✕</Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
+        )}
+
+        {/* CATEGORY 1: Core Subjects (CBSE / NCERT) */}
+        {(activeCategory === 'subjects' || activeCategory === 'all') && (
+          <View style={styles.categorySectionBlock}>
+            {activeCategory === 'all' && (
+              <View style={styles.categorySectionHeaderRow}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text style={styles.categorySectionTitle}>📚 {s.selectSubject}</Text>
+                  <View style={styles.categorySectionBadge}>
+                    <Text style={styles.categorySectionBadgeText}>CBSE / NCERT</Text>
+                  </View>
+                </View>
+                <Text style={styles.categorySectionSub}>{s.subjectSub}</Text>
+              </View>
+            )}
+
+            {/* 1. Mathematics Smart Card */}
+            <TouchableOpacity
+              style={styles.cleanSubjectCard}
+              onPress={() => handleSubjectClick('maths', mathsInfo.lesson.title)}
+              activeOpacity={0.85}
+            >
+              <View style={[styles.subjectIconBox, { backgroundColor: '#EFF6FF' }]}>
+                <Text style={styles.subjectEmoji}>📐</Text>
+              </View>
+
+              <View style={styles.subjectTextBox}>
+                <View style={styles.subjectTitleRow}>
+                  <Text style={styles.subjectName}>
+                    {activeLang === 'hi' ? 'गणित (Mathematics)' : 'Mathematics'}
+                  </Text>
+                  <View style={[styles.lessonBadge, { backgroundColor: '#DBEAFE' }]}>
+                    <Text style={[styles.lessonBadgeText, { color: '#1E40AF' }]}>
+                      {mathsInfo.isResume ? s.resumeBadge : `${s.chapterPrefix} ${mathsInfo.lesson.number}`}
+                    </Text>
+                  </View>
+                </View>
+                <Text style={styles.lessonName} numberOfLines={1}>
+                  {mathsInfo.lesson.title}
+                </Text>
+                <Text style={styles.bookSub} numberOfLines={1}>
+                  {bookInfo.mathsBook} • 10 {s.practiceQuestionsSuffix}
+                </Text>
+              </View>
+
+              <View style={[styles.playBtnCircle, { backgroundColor: '#2563EB' }]}>
+                <Text style={styles.playBtnArrow}>▶</Text>
+              </View>
+            </TouchableOpacity>
+
+            {/* 2. English Smart Card */}
+            <TouchableOpacity
+              style={styles.cleanSubjectCard}
+              onPress={() => handleSubjectClick('english', englishInfo.lesson.title)}
+              activeOpacity={0.85}
+            >
+              <View style={[styles.subjectIconBox, { backgroundColor: '#FEF3C7' }]}>
+                <Text style={styles.subjectEmoji}>📚</Text>
+              </View>
+
+              <View style={styles.subjectTextBox}>
+                <View style={styles.subjectTitleRow}>
+                  <Text style={styles.subjectName}>English Grammar</Text>
+                  <View style={[styles.lessonBadge, { backgroundColor: '#FEF3C7' }]}>
+                    <Text style={[styles.lessonBadgeText, { color: '#92400E' }]}>
+                      {englishInfo.isResume ? 'Resume ▶' : `Ch ${englishInfo.lesson.number}`}
+                    </Text>
+                  </View>
+                </View>
+                <Text style={styles.lessonName} numberOfLines={1}>
+                  {englishInfo.lesson.title}
+                </Text>
+                <Text style={styles.bookSub} numberOfLines={1}>
+                  {bookInfo.englishBook} • 10 Practice Questions
+                </Text>
+              </View>
+
+              <View style={[styles.playBtnCircle, { backgroundColor: '#D97706' }]}>
+                <Text style={styles.playBtnArrow}>▶</Text>
+              </View>
+            </TouchableOpacity>
+
+            {/* 3. Hindi Smart Card (Always in pure Hindi) */}
+            <TouchableOpacity
+              style={styles.cleanSubjectCard}
+              onPress={() => handleSubjectClick('hindi', hindiInfo.lesson.title)}
+              activeOpacity={0.85}
+            >
+              <View style={[styles.subjectIconBox, { backgroundColor: '#ECFDF5' }]}>
+                <Text style={styles.subjectEmoji}>🇮🇳</Text>
+              </View>
+
+              <View style={styles.subjectTextBox}>
+                <View style={styles.subjectTitleRow}>
+                  <Text style={styles.subjectName}>हिंदी (Hindi)</Text>
+                  <View style={[styles.lessonBadge, { backgroundColor: '#D1FAE5' }]}>
+                    <Text style={[styles.lessonBadgeText, { color: '#065F46' }]}>
+                      {hindiInfo.isResume ? 'जारी रखें ▶' : `पाठ ${hindiInfo.lesson.number}`}
+                    </Text>
+                  </View>
+                </View>
+                <Text style={styles.lessonName} numberOfLines={1}>
+                  {hindiInfo.lesson.title}
+                </Text>
+                <Text style={styles.bookSub} numberOfLines={1}>
+                  {bookInfo.hindiBook} • 10 अभ्यास प्रश्न
+                </Text>
+              </View>
+
+              <View style={[styles.playBtnCircle, { backgroundColor: '#059669' }]}>
+                <Text style={styles.playBtnArrow}>▶</Text>
+              </View>
+            </TouchableOpacity>
+
+            {/* Clean Shortcut Bar: 365 Roadmap, Vault, Concept Labs, Parent Zone */}
+            <View style={styles.shortcutsRow}>
+              <TouchableOpacity
+                style={styles.shortcutPill}
+                onPress={() => {
+                  triggerHaptic('light');
+                  onOpenRoadmap365();
+                }}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.shortcutEmoji}>🗓️</Text>
+                <Text style={styles.shortcutLabel}>{s.shortcutRoadmap}</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.shortcutPill}
+                onPress={() => {
+                  triggerHaptic('light');
+                  onOpenChapterVault('maths');
+                }}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.shortcutEmoji}>📚</Text>
+                <Text style={styles.shortcutLabel}>{s.shortcutVault}</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.shortcutPill}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setActiveCategory('labs');
+                }}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.shortcutEmoji}>🔬</Text>
+                <Text style={styles.shortcutLabel}>{s.shortcutLabs}</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.shortcutPill}
+                onPress={() => {
+                  triggerHaptic('light');
+                  onOpenParentZone();
+                }}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.shortcutEmoji}>👨‍👩‍👧</Text>
+                <Text style={styles.shortcutLabel}>{s.shortcutParent}</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+
+        {/* CATEGORY 2: STEM Concept Labs & Mind Development */}
+        {(activeCategory === 'labs' || activeCategory === 'all') && (
+          <View style={styles.categorySectionBlock}>
+            {activeCategory === 'all' && (
+              <View style={styles.categorySectionHeaderRow}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text style={styles.categorySectionTitle}>🔬 STEM Concept Labs & Mind Gym</Text>
+                  <View style={[styles.categorySectionBadge, { backgroundColor: '#ECFDF5' }]}>
+                    <Text style={[styles.categorySectionBadgeText, { color: '#059669' }]}>PRACTICAL</Text>
+                  </View>
+                </View>
+                <Text style={styles.categorySectionSub}>{s.labGatewayPunchline}</Text>
+              </View>
+            )}
+
+            {/* STEM Concept Labs Hero Gateway */}
+            <View style={styles.labGatewayCard}>
+              <View style={styles.labGatewayTopRow}>
+                <View style={styles.labGatewayLiveBadge}>
+                  <View style={styles.labGatewayLiveDot} />
+                  <Text style={styles.labGatewayLiveText}>{s.labGatewayBadge}</Text>
+                </View>
+                <View style={styles.labGatewayGradeBadge}>
+                  <Text style={styles.labGatewayGradeText}>{gradeConfig.label} • {s.labGatewayLabsCount}</Text>
+                </View>
+              </View>
+
+              <TouchableOpacity
+                activeOpacity={0.88}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setShowConceptLabHub(true);
+                }}
+                style={styles.labGatewayMainRow}
+              >
+                <View style={styles.labGatewayTextCol}>
+                  <Text style={styles.labGatewayTitle}>{s.labGatewayTitle}</Text>
+                  <Text style={styles.labGatewayPunchline}>{s.labGatewayPunchline}</Text>
+                  <Text style={styles.labGatewayDesc}>{s.labGatewayDesc}</Text>
+                </View>
+
+                <View style={styles.labGatewayFlaskBox}>
+                  <Text style={styles.labGatewayFlaskEmoji}>🧪</Text>
+                </View>
+              </TouchableOpacity>
+
+              <View style={styles.labGatewayPillsRow}>
+                <View style={[styles.labFeaturePill, { borderColor: '#0284C7', backgroundColor: '#F0F9FF' }]}>
+                  <Text style={[styles.labFeatureText, { color: '#0284C7' }]}>⚡ 60s Booster</Text>
+                </View>
+                <View style={styles.labFeaturePill}>
+                  <Text style={styles.labFeatureText}>⚖️ Balance Beam</Text>
+                </View>
+                <View style={styles.labFeaturePill}>
+                  <Text style={styles.labFeatureText}>🍕 Fraction Slices</Text>
+                </View>
+                <View style={styles.labFeaturePill}>
+                  <Text style={styles.labFeatureText}>🧲 Magnets & Optics</Text>
+                </View>
+              </View>
+
+              <View style={styles.labGatewayActionsRow}>
+                <TouchableOpacity
+                  style={styles.enterLabActionBtn}
+                  activeOpacity={0.85}
+                  onPress={() => {
+                    triggerHaptic('medium');
+                    setShowConceptLabHub(true);
+                  }}
+                >
+                  <Text style={styles.enterLabActionText}>{s.labGatewayEnterBtn}</Text>
+                  <View style={styles.enterLabActionArrow}>
+                    <Text style={styles.enterLabArrowText}>▶</Text>
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.speedBrainActionBtn}
+                  activeOpacity={0.85}
+                  onPress={() => {
+                    triggerHaptic('medium');
+                    setShowSpeedBrainModal(true);
+                  }}
+                >
+                  <Text style={styles.speedBrainActionText}>{s.labGatewayRushBtn}</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* Daily Super Kid Brain Gym Card */}
+            <View style={styles.dailyGymCard}>
+              <View style={styles.dailyGymTopRow}>
+                <View style={[styles.dailyGymBadge, isWorkoutDoneToday && styles.dailyGymBadgeDone]}>
+                  <Text style={styles.dailyGymBadgeText}>
+                    {isWorkoutDoneToday ? s.gymBadgeDone : s.gymBadgePending}
+                  </Text>
+                </View>
+                <TouchableOpacity
+                  style={styles.brainMatrixPill}
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    triggerHaptic('light');
+                    setShowBrainMatrixModal(true);
+                  }}
+                >
+                  <Text style={styles.brainMatrixPillText}>{s.brainMatrixBtn}</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={styles.dailyGymMainRow}>
+                <View style={styles.dailyGymIconCircle}>
+                  <Text style={styles.dailyGymIconEmoji}>🏋️‍♂️</Text>
+                </View>
+                <View style={styles.dailyGymTextBox}>
+                  <Text style={styles.dailyGymTitle}>{s.gymTitle}</Text>
+                  <Text style={styles.dailyGymSub}>{s.gymSub}</Text>
+                </View>
+              </View>
+
+              <TouchableOpacity
+                style={[styles.dailyGymActionBtn, isWorkoutDoneToday && styles.dailyGymActionBtnDone]}
+                activeOpacity={0.88}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setShowDailyBrainGymModal(true);
+                }}
+              >
+                <Text style={styles.dailyGymActionText}>
+                  {isWorkoutDoneToday ? s.gymBtnReview : s.gymBtnStart}
+                </Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Weekly Olympiad Test Banner */}
+            <TouchableOpacity
+              style={styles.olympiadBanner}
+              activeOpacity={0.88}
+              onPress={() => {
+                triggerHaptic('medium');
+                setShowOlympiadTestModal(true);
+              }}
+            >
+              <View style={styles.olympiadIconCircle}>
+                <Text style={styles.olympiadIconEmoji}>🏅</Text>
+              </View>
+              <View style={styles.olympiadTextBox}>
+                <View style={styles.olympiadBadgeRow}>
+                  <View style={styles.olympiadBadge}>
+                    <Text style={styles.olympiadBadgeText}>{s.olympiadBadge}</Text>
+                  </View>
+                </View>
+                <Text style={styles.olympiadTitle}>{s.olympiadTitle}</Text>
+                <Text style={styles.olympiadSub}>{s.olympiadSub}</Text>
+              </View>
+              <View style={styles.olympiadActionBtn}>
+                <Text style={styles.olympiadActionText}>{s.olympiadTestBtn}</Text>
+              </View>
+            </TouchableOpacity>
+
+            {/* Adaptive Weak Topic Remediation Booster (if any) */}
+            {currentWeakTopic && currentWeakTopic.status !== 'mastered' && (
+              <TouchableOpacity
+                style={styles.weakTopicCard}
+                activeOpacity={0.9}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setSelectedWeakTopic(currentWeakTopic);
+                  setShowWeakTopicModal(true);
+                }}
+              >
+                <View style={styles.weakTopicTopRow}>
+                  <View style={styles.weakTopicBadge}>
+                    <Text style={styles.weakTopicBadgeText}>{s.weakTopicBadge}</Text>
+                  </View>
+                  <Text style={styles.weakTopicAccuracy}>
+                    {s.weakTopicMastery}: <Text style={{ color: '#EF4444', fontWeight: '900' }}>{currentWeakTopic.accuracyPercentage}%</Text>
+                  </Text>
+                </View>
+
+                <View style={styles.weakTopicContentRow}>
+                  <View style={styles.weakTopicIconBox}>
+                    <Text style={styles.weakTopicIconEmoji}>⚠️</Text>
+                  </View>
+                  <View style={styles.weakTopicTextBox}>
+                    <Text style={styles.weakTopicTitle}>{currentWeakTopic.chapterTitle}</Text>
+                    <Text style={styles.weakTopicSub}>{currentWeakTopic.conceptName}</Text>
+                    <Text style={styles.weakTopicHint}>{s.weakTopicHint}</Text>
+                  </View>
+                  <View style={styles.weakTopicGoBtn}>
+                    <Text style={styles.weakTopicGoText}>{s.weakTopicFixBtn}</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            )}
+          </View>
+        )}
+
+        {/* CATEGORY 3: Fun Arcade & Rewards */}
+        {(activeCategory === 'arcade' || activeCategory === 'all') && (
+          <View style={styles.categorySectionBlock}>
+            {activeCategory === 'all' && (
+              <View style={styles.categorySectionHeaderRow}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Text style={styles.categorySectionTitle}>🎮 {s.arcadeTitle}</Text>
+                  <View style={[styles.categorySectionBadge, { backgroundColor: '#EFF6FF' }]}>
+                    <Text style={[styles.categorySectionBadgeText, { color: '#2563EB' }]}>FUN & REWARDS</Text>
+                  </View>
+                </View>
+                <Text style={styles.categorySectionSub}>{s.arcadeSub}</Text>
+              </View>
+            )}
+
+            {/* Daily Lucky Spin Banner */}
+            <TouchableOpacity
+              style={styles.luckySpinBanner}
+              activeOpacity={0.88}
+              onPress={() => {
+                triggerHaptic('medium');
+                setShowLuckySpinModal(true);
+              }}
+            >
+              <View style={styles.luckySpinIconCircle}>
+                <Text style={styles.luckySpinIconEmoji}>🎡</Text>
+              </View>
+              <View style={styles.luckySpinTextBox}>
+                <View style={styles.luckySpinBadgeRow}>
+                  <View style={[styles.luckySpinBadge, isFreeSpinReady && styles.luckySpinBadgeFree]}>
+                    <Text style={styles.luckySpinBadgeText}>
+                      {isFreeSpinReady ? s.spinFreeReady : s.spinExtra}
+                    </Text>
+                  </View>
+                </View>
+                <Text style={styles.luckySpinTitle}>{s.spinTitle}</Text>
+                <Text style={styles.luckySpinSub}>{s.spinSub}</Text>
+              </View>
+              <View style={styles.luckySpinActionBtn}>
+                <Text style={styles.luckySpinActionText}>{s.spinBtn}</Text>
+              </View>
+            </TouchableOpacity>
+
+            {/* Champ Arcade Mini Games Grid */}
+            <View style={styles.arcadeGrid}>
+              {/* 1. Balloon Pop Blitz */}
+              <TouchableOpacity
+                style={[styles.arcadeCard, { backgroundColor: '#0284C7' }]}
+                activeOpacity={0.88}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setShowBalloonPopModal(true);
+                }}
+              >
+                <View style={styles.arcadeCardTop}>
+                  <Text style={styles.arcadeCardEmoji}>🎈</Text>
+                  <View style={styles.arcadeCardBadge}>
+                    <Text style={styles.arcadeCardBadgeText}>40s Blitz</Text>
+                  </View>
+                </View>
+                <Text style={styles.arcadeCardTitle}>{s.balloonPopTitle}</Text>
+                <Text style={styles.arcadeCardDesc}>{s.balloonPopDesc}</Text>
+                <View style={styles.arcadeCardBtn}>
+                  <Text style={styles.arcadeCardBtnText}>{s.playNowBtn}</Text>
+                </View>
+              </TouchableOpacity>
+
+              {/* 2. Mind Match 3D */}
+              <TouchableOpacity
+                style={[styles.arcadeCard, { backgroundColor: '#8B5CF6' }]}
+                activeOpacity={0.88}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setShowMemoryMatchModal(true);
+                }}
+              >
+                <View style={styles.arcadeCardTop}>
+                  <Text style={styles.arcadeCardEmoji}>🃏</Text>
+                  <View style={styles.arcadeCardBadge}>
+                    <Text style={styles.arcadeCardBadgeText}>Brain Power</Text>
+                  </View>
+                </View>
+                <Text style={styles.arcadeCardTitle}>{s.mindMatchTitle}</Text>
+                <Text style={styles.arcadeCardDesc}>{s.mindMatchDesc}</Text>
+                <View style={styles.arcadeCardBtn}>
+                  <Text style={styles.arcadeCardBtnText}>{s.playNowBtn}</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
       </ScrollView>
 
       {/* Profile & Settings Modal — Holds Streak, Stats, Avatar & Options */}
@@ -1232,6 +1367,89 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         topic={selectedWeakTopic}
         activeLang={activeLang}
       />
+
+      {/* Special Launch Offer Details Modal (Shows on tapping sleek offer capsule) */}
+      <Modal
+        visible={showOfferDetailsModal}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setShowOfferDetailsModal(false)}
+      >
+        <View style={styles.offerModalOverlay}>
+          <View style={styles.offerModalCard}>
+            {/* Close Button */}
+            <TouchableOpacity
+              onPress={() => setShowOfferDetailsModal(false)}
+              style={styles.offerModalCloseBtn}
+              hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+            >
+              <Text style={styles.offerModalCloseText}>✕</Text>
+            </TouchableOpacity>
+
+            {/* Header Icon & Badge */}
+            <View style={styles.offerModalIconCircle}>
+              <Text style={{ fontSize: 32 }}>🎁</Text>
+            </View>
+
+            <View style={styles.offerModalBadge}>
+              <Text style={styles.offerModalBadgeText}>{s.launchOfferBadge}</Text>
+            </View>
+
+            <Text style={styles.offerModalTitle}>
+              {globalConfig?.specialOffer?.title || s.launchOfferTitle}
+            </Text>
+            <Text style={styles.offerModalSub}>
+              {s.launchOfferSub}
+            </Text>
+
+            {/* Pricing Box */}
+            <View style={styles.offerModalPriceBox}>
+              <View style={styles.offerModalPriceRow}>
+                <Text style={styles.offerModalOrigPrice}>
+                  {globalConfig?.specialOffer?.originalPrice || '₹999'}
+                </Text>
+                <Text style={styles.offerModalDiscountedPrice}>
+                  {globalConfig?.specialOffer?.discountedPrice || '₹499'}
+                </Text>
+                <View style={styles.offerModalSaveTag}>
+                  <Text style={styles.offerModalSaveTagText}>50% OFF</Text>
+                </View>
+              </View>
+              <View style={styles.offerModalCouponRow}>
+                <Text style={styles.offerModalCouponLabel}>{s.launchOfferCodeLabel}:</Text>
+                <View style={styles.offerModalCouponCodeBox}>
+                  <Text style={styles.offerModalCouponCode}>
+                    {globalConfig?.specialOffer?.couponCode || 'CHAMP50'}
+                  </Text>
+                </View>
+              </View>
+            </View>
+
+            {/* Features Checklist */}
+            <View style={styles.offerModalFeatures}>
+              <Text style={styles.offerModalFeatureItem}>✨ Unlimited Daily Practice across all Subjects</Text>
+              <Text style={styles.offerModalFeatureItem}>🔬 Full Access to all 15+ STEM Concept Labs</Text>
+              <Text style={styles.offerModalFeatureItem}>🧠 Daily Super Kid Brain Gym & Olympiads</Text>
+              <Text style={styles.offerModalFeatureItem}>🛡️ 100% Ad-Free, Kid-Safe & Parent Reports</Text>
+            </View>
+
+            {/* Claim Button */}
+            <TouchableOpacity
+              activeOpacity={0.88}
+              onPress={() => {
+                triggerHaptic('success');
+                setShowOfferDetailsModal(false);
+                setShowPaywallModal(true);
+              }}
+              style={styles.offerModalClaimBtn}
+            >
+              <Text style={styles.offerModalClaimBtnText}>
+                {s.launchOfferClaimBtn} ({globalConfig?.specialOffer?.discountedPrice || '₹499'}) 🚀
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -2495,5 +2713,360 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 13,
     fontWeight: '900',
+  },
+
+  // Sleek Special Launch Offer Capsule Pill
+  specialOfferCapsule: {
+    alignSelf: 'center',
+    marginBottom: 14,
+    backgroundColor: '#FFFBEB',
+    borderRadius: 20,
+    borderWidth: 1.5,
+    borderColor: '#F59E0B',
+    shadowColor: '#D97706',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 3,
+  },
+  specialOfferInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    gap: 8,
+  },
+  specialOfferIconCircle: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: '#FEF3C7',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  specialOfferText: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#92400E',
+  },
+  specialOfferArrow: {
+    fontSize: 12,
+    fontWeight: '900',
+    color: '#D97706',
+  },
+
+  // Smart Category Tabs Bar
+  categoryTabsWrapper: {
+    marginBottom: 14,
+  },
+  categoryTabsScroll: {
+    flexDirection: 'row',
+    gap: 8,
+    paddingVertical: 2,
+  },
+  categoryTabPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 16,
+    borderWidth: 1.5,
+    borderColor: '#E2E8F0',
+    gap: 6,
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.04,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  categoryTabPillActive: {
+    backgroundColor: '#2563EB',
+    borderColor: '#1D4ED8',
+    shadowColor: '#2563EB',
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  categoryTabEmoji: {
+    fontSize: 16,
+  },
+  categoryTabText: {
+    fontSize: 13,
+    fontWeight: '800',
+    color: '#475569',
+  },
+  categoryTabTextActive: {
+    color: '#FFFFFF',
+  },
+  categoryTabBadge: {
+    backgroundColor: '#F1F5F9',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 10,
+  },
+  categoryTabBadgeActive: {
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+  },
+  categoryTabBadgeText: {
+    fontSize: 10,
+    fontWeight: '900',
+    color: '#64748B',
+  },
+  categoryTabBadgeTextActive: {
+    color: '#FFFFFF',
+  },
+  categoryTabFreeDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#EF4444',
+  },
+
+  // Mission Completed Compact Celebratory Ribbon
+  compactMissionDoneCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#ECFDF5',
+    borderRadius: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
+    marginBottom: 14,
+    borderWidth: 1.5,
+    borderColor: '#A7F3D0',
+    shadowColor: '#059669',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 2,
+  },
+  compactMissionDoneLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  compactMissionDoneTitle: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: '#065F46',
+  },
+  compactMissionDoneSub: {
+    fontSize: 12,
+    color: '#047857',
+    marginTop: 1,
+  },
+  compactMissionDoneClose: {
+    padding: 6,
+  },
+  compactMissionDoneCloseText: {
+    fontSize: 14,
+    fontWeight: '800',
+    color: '#059669',
+  },
+
+  // Category Section Block & Header
+  categorySectionBlock: {
+    marginBottom: 8,
+  },
+  categorySectionHeaderRow: {
+    marginBottom: 10,
+    marginTop: 6,
+  },
+  categorySectionTitle: {
+    fontSize: 17,
+    fontWeight: '900',
+    color: '#1E293B',
+    marginRight: 8,
+  },
+  categorySectionBadge: {
+    backgroundColor: '#EFF6FF',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 6,
+  },
+  categorySectionBadgeText: {
+    fontSize: 10,
+    fontWeight: '900',
+    color: '#2563EB',
+    letterSpacing: 0.5,
+  },
+  categorySectionSub: {
+    fontSize: 12,
+    color: '#64748B',
+    marginTop: 2,
+  },
+
+  // Special Launch Offer Modal Styles
+  offerModalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(15, 23, 42, 0.65)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  offerModalCard: {
+    width: '100%',
+    maxWidth: 380,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
+    padding: 22,
+    alignItems: 'center',
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.25,
+    shadowRadius: 20,
+    elevation: 10,
+  },
+  offerModalCloseBtn: {
+    position: 'absolute',
+    top: 14,
+    right: 14,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: '#F1F5F9',
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 10,
+  },
+  offerModalCloseText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#64748B',
+  },
+  offerModalIconCircle: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: '#FEF3C7',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10,
+    borderWidth: 2,
+    borderColor: '#FDE68A',
+  },
+  offerModalBadge: {
+    backgroundColor: '#FEF3C7',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 12,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: '#F59E0B',
+  },
+  offerModalBadgeText: {
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#B45309',
+    letterSpacing: 0.5,
+  },
+  offerModalTitle: {
+    fontSize: 20,
+    fontWeight: '900',
+    color: '#0F172A',
+    textAlign: 'center',
+    marginBottom: 6,
+  },
+  offerModalSub: {
+    fontSize: 13,
+    color: '#475569',
+    textAlign: 'center',
+    lineHeight: 18,
+    marginBottom: 16,
+  },
+  offerModalPriceBox: {
+    width: '100%',
+    backgroundColor: '#FFFBEB',
+    borderRadius: 16,
+    padding: 14,
+    borderWidth: 1.5,
+    borderColor: '#FDE68A',
+    alignItems: 'center',
+    marginBottom: 14,
+  },
+  offerModalPriceRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    marginBottom: 6,
+  },
+  offerModalOrigPrice: {
+    fontSize: 18,
+    color: '#94A3B8',
+    textDecorationLine: 'line-through',
+    fontWeight: '600',
+  },
+  offerModalDiscountedPrice: {
+    fontSize: 28,
+    fontWeight: '900',
+    color: '#B45309',
+  },
+  offerModalSaveTag: {
+    backgroundColor: '#EF4444',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 8,
+  },
+  offerModalSaveTagText: {
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#FFFFFF',
+  },
+  offerModalCouponRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  offerModalCouponLabel: {
+    fontSize: 12,
+    color: '#78350F',
+    fontWeight: '700',
+  },
+  offerModalCouponCodeBox: {
+    backgroundColor: '#FFFFFF',
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: '#F59E0B',
+  },
+  offerModalCouponCode: {
+    fontSize: 12,
+    fontWeight: '900',
+    color: '#B45309',
+    letterSpacing: 0.6,
+  },
+  offerModalFeatures: {
+    width: '100%',
+    marginBottom: 18,
+    gap: 6,
+  },
+  offerModalFeatureItem: {
+    fontSize: 12,
+    color: '#334155',
+    fontWeight: '600',
+    lineHeight: 18,
+  },
+  offerModalClaimBtn: {
+    width: '100%',
+    backgroundColor: '#2563EB',
+    borderRadius: 16,
+    paddingVertical: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#2563EB',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 4,
+    borderBottomWidth: 4,
+    borderBottomColor: '#1D4ED8',
+  },
+  offerModalClaimBtnText: {
+    color: '#FFFFFF',
+    fontSize: 15,
+    fontWeight: '900',
+    letterSpacing: 0.5,
   },
 });

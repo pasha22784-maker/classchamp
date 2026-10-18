@@ -16,8 +16,8 @@ export const DEFAULT_GLOBAL_CONFIG: AppGlobalConfig = {
     couponCode: 'CHAMP50',
   },
   announcement: {
-    isActive: true,
-    text: '🎉 Complete LKG to Class 6 curriculum is live! Practice 10 minutes daily.',
+    isActive: false,
+    text: '',
     type: 'festive',
   },
 };

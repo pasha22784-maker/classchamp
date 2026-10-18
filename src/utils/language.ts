@@ -80,6 +80,22 @@ export const STRINGS = {
     xp: 'XP',
     trophies: 'Trophies',
 
+    // Category Tabs
+    catAll: 'All',
+    catSubjects: 'Subjects',
+    catLabs: 'STEM Labs',
+    catArcade: 'Fun Arcade',
+    catSubjectsCount: '3',
+    catLabsCount: '15+',
+
+    // Special Launch Offer
+    specialLaunchOffer: 'Special Launch Offer',
+    launchOfferBadge: 'LIMITED PERIOD OFFER 🚀',
+    launchOfferTitle: 'Flat 50% OFF on Annual VIP Pass',
+    launchOfferSub: 'Unlock unlimited daily quizzes, all 15+ STEM Concept Labs, and 100% ad-free experience!',
+    launchOfferCodeLabel: 'Promo Code Applied',
+    launchOfferClaimBtn: 'Claim Special Launch Offer',
+
     // Hero Mission
     heroDailyMission: '🎯 DAILY MISSION',
     heroMissionDone: '🌟 MISSION COMPLETED',
@@ -89,6 +105,11 @@ export const STRINGS = {
     heroTitleDone: 'Super Champ! 🎉',
     heroSubPending: 'Solve 10 questions daily to earn stars and master concepts!',
     heroSubDone: 'You completed today’s practice! Continue learning below.',
+    missionDoneCompact: 'Today’s Mission Done!',
+    missionDoneStreakActive: 'Streak Kept Alive 🔥',
+    missionDonePopupTitle: 'Mission Completed! 🏆',
+    missionDonePopupSub: 'You solved today’s 10 practice questions! Stars and streak have been saved.',
+    awesomeBtn: 'Awesome! 🚀',
 
     // Lucky Spin
     spinTitle: 'Daily Lucky Spin',
@@ -176,6 +197,22 @@ export const STRINGS = {
     xp: 'एक्सपी',
     trophies: 'ट्रॉफ़ी',
 
+    // Category Tabs
+    catAll: 'सभी',
+    catSubjects: 'विषय',
+    catLabs: 'एसटीईएम लैब',
+    catArcade: 'गेम्स व खेल',
+    catSubjectsCount: '3',
+    catLabsCount: '15+',
+
+    // Special Launch Offer
+    specialLaunchOffer: 'स्पेशल लॉन्च ऑफर',
+    launchOfferBadge: 'सीमित समय ऑफर 🚀',
+    launchOfferTitle: 'वार्षिक वीआईपी पास पर सीधा 50% छूट',
+    launchOfferSub: 'असीमित दैनिक क्विज़, सभी 15+ प्रैक्टिकल लैब्स और 100% विज्ञापन-मुक्त अनुभव!',
+    launchOfferCodeLabel: 'कूपन कोड लागू',
+    launchOfferClaimBtn: 'स्पेशल लॉन्च ऑफर लें',
+
     // Hero Mission
     heroDailyMission: '🎯 दैनिक मिशन',
     heroMissionDone: '🌟 मिशन पूरा हुआ',
@@ -185,6 +222,11 @@ export const STRINGS = {
     heroTitleDone: 'शाबाश, सुपर स्टार! 🎉',
     heroSubPending: 'रोज़ाना 10 सवाल हल करके नए सितारे जीतें और पूरे सिलेबस में निपुण बनें!',
     heroSubDone: 'आपने आज का 10-मिनट लक्ष्य पूरा कर लिया! नीचे किसी भी विषय का अभ्यास जारी रखें।',
+    missionDoneCompact: 'आज का मिशन पूरा हुआ!',
+    missionDoneStreakActive: 'स्ट्रीक सुरक्षित 🔥',
+    missionDonePopupTitle: 'मिशन पूरा हुआ! 🏆',
+    missionDonePopupSub: 'आपने आज के 10 अभ्यास प्रश्न पूरे कर लिए हैं! सितारे और स्ट्रीक सुरक्षित हो गए हैं।',
+    awesomeBtn: 'बहुत बढ़िया! 🚀',
 
     // Lucky Spin
     spinTitle: 'दैनिक लकी स्पिन',
