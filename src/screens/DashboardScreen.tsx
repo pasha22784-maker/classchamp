@@ -35,6 +35,7 @@ import { GeoAreaPerimeterModal } from '../components/conceptGames/GeoAreaPerimet
 import { IntegerSubmarineModal } from '../components/conceptGames/IntegerSubmarineModal';
 import { MagnetLabModal } from '../components/conceptGames/MagnetLabModal';
 import { ColorPrismLabModal } from '../components/conceptGames/ColorPrismLabModal';
+import { SpeedBrainGameModal } from '../components/conceptGames/SpeedBrainGameModal';
 import { ConceptLabHubModal } from '../components/conceptGames/ConceptLabHubModal';
 import { CONCEPT_LABS_BY_GRADE, getGradeGroupKey } from '../data/conceptLabsRegistry';
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
@@ -75,6 +76,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const [showIntegerSubmarineModal, setShowIntegerSubmarineModal] = useState(false);
   const [showMagnetLabModal, setShowMagnetLabModal] = useState(false);
   const [showColorPrismModal, setShowColorPrismModal] = useState(false);
+  const [showSpeedBrainModal, setShowSpeedBrainModal] = useState(false);
   const [showConceptLabHub, setShowConceptLabHub] = useState(false);
   const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
 
@@ -94,6 +96,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
     else if (labId === 'integer_submarine') setShowIntegerSubmarineModal(true);
     else if (labId === 'magnet_lab') setShowMagnetLabModal(true);
     else if (labId === 'color_prism') setShowColorPrismModal(true);
+    else if (labId === 'speed_brain') setShowSpeedBrainModal(true);
   };
   
   // App-open Streak Greeting (shown once when app opens, then dismissed)
@@ -626,45 +629,48 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </TouchableOpacity>
         </View>
 
-        {/* STEM & Math Practical Concept Labs Hero Gateway */}
-        <TouchableOpacity
-          style={styles.labGatewayCard}
-          activeOpacity={0.92}
-          onPress={() => {
-            triggerHaptic('medium');
-            setShowConceptLabHub(true);
-          }}
-        >
+        {/* STEM & Math Practical Concept Labs Hero Gateway: Super Kid STEM Hub */}
+        <View style={styles.labGatewayCard}>
           {/* Top Live Tag & Grade Badge */}
           <View style={styles.labGatewayTopRow}>
             <View style={styles.labGatewayLiveBadge}>
               <View style={styles.labGatewayLiveDot} />
-              <Text style={styles.labGatewayLiveText}>EXPERIENTIAL STEM LABS</Text>
+              <Text style={styles.labGatewayLiveText}>🦸 SUPER KID STEM LABS</Text>
             </View>
             <View style={styles.labGatewayGradeBadge}>
-              <Text style={styles.labGatewayGradeText}>{gradeConfig.label} • NCERT Experiments</Text>
+              <Text style={styles.labGatewayGradeText}>{gradeConfig.label} • 15 NCERT Labs</Text>
             </View>
           </View>
 
           {/* Main Visual Content */}
-          <View style={styles.labGatewayMainRow}>
+          <TouchableOpacity
+            activeOpacity={0.88}
+            onPress={() => {
+              triggerHaptic('medium');
+              setShowConceptLabHub(true);
+            }}
+            style={styles.labGatewayMainRow}
+          >
             <View style={styles.labGatewayTextCol}>
               <Text style={styles.labGatewayTitle}>🔬 Practical Concept Labs</Text>
               <Text style={styles.labGatewayPunchline}>
-                Enter the Lab to Practice! 🧪
+                Become a Super Kid! ⚡ Hands-On STEM
               </Text>
               <Text style={styles.labGatewayDesc}>
-                फॉर्मूले रटना छोड़ें • तराजू, घड़ी, पिज़्ज़ा, चुंबक और प्रिज्म से खुद प्रयोग करके सीखें!
+                फॉर्मूले रटना छोड़ें • तराजू, घड़ी, पिज़्ज़ा, चुंबक, प्रिज्म और 60s स्पीड बूस्टर से सुपर-किड बनें!
               </Text>
             </View>
 
             <View style={styles.labGatewayFlaskBox}>
               <Text style={styles.labGatewayFlaskEmoji}>🧪</Text>
             </View>
-          </View>
+          </TouchableOpacity>
 
           {/* Feature Badges */}
           <View style={styles.labGatewayPillsRow}>
+            <View style={[styles.labFeaturePill, { borderColor: '#38BDF8' }]}>
+              <Text style={[styles.labFeatureText, { color: '#38BDF8' }]}>⚡ 60s Booster</Text>
+            </View>
             <View style={styles.labFeaturePill}>
               <Text style={styles.labFeatureText}>⚖️ Balance Beam</Text>
             </View>
@@ -676,14 +682,34 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
             </View>
           </View>
 
-          {/* Big Action Button */}
-          <View style={styles.enterLabActionBtn}>
-            <Text style={styles.enterLabActionText}>Enter the Lab to Practice 🚀</Text>
-            <View style={styles.enterLabActionArrow}>
-              <Text style={styles.enterLabArrowText}>▶</Text>
-            </View>
+          {/* Dual Action Buttons Row */}
+          <View style={styles.labGatewayActionsRow}>
+            <TouchableOpacity
+              style={styles.enterLabActionBtn}
+              activeOpacity={0.85}
+              onPress={() => {
+                triggerHaptic('medium');
+                setShowConceptLabHub(true);
+              }}
+            >
+              <Text style={styles.enterLabActionText}>Enter Concept Labs 🚀</Text>
+              <View style={styles.enterLabActionArrow}>
+                <Text style={styles.enterLabArrowText}>▶</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.speedBrainActionBtn}
+              activeOpacity={0.85}
+              onPress={() => {
+                triggerHaptic('medium');
+                setShowSpeedBrainModal(true);
+              }}
+            >
+              <Text style={styles.speedBrainActionText}>⚡ 60s Rush</Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
+        </View>
       </ScrollView>
 
       {/* Profile & Settings Modal — Holds Streak, Stats, Avatar & Options */}
@@ -968,10 +994,21 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         visible={showConceptLabHub}
         onClose={() => setShowConceptLabHub(false)}
         userGrade={profile.grade}
+        childName={profile.name}
+        avatarEmoji={currentAvatar.emoji}
+        avatarBadgeColor={currentAvatar.badgeColor}
+        totalStars={profile.totalStars}
+        streakDays={profile.currentStreak}
         onSelectLab={(labId) => {
           setShowConceptLabHub(false);
           handleOpenConceptLab(labId);
         }}
+      />
+
+      <SpeedBrainGameModal
+        visible={showSpeedBrainModal}
+        onClose={() => setShowSpeedBrainModal(false)}
+        userGrade={profile.grade}
       />
     </SafeAreaView>
   );
@@ -1835,35 +1872,56 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '700',
   },
+  labGatewayActionsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: SPACING.sm,
+  },
   enterLabActionBtn: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#10B981',
     borderRadius: BORDER_RADIUS.lg,
     paddingVertical: 12,
-    paddingHorizontal: 16,
-    marginTop: SPACING.sm,
+    paddingHorizontal: 14,
     borderWidth: 1,
     borderColor: '#34D399',
   },
   enterLabActionText: {
     color: '#022C22',
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '900',
     letterSpacing: 0.5,
   },
   enterLabActionArrow: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     backgroundColor: '#065F46',
     justifyContent: 'center',
     alignItems: 'center',
   },
   enterLabArrowText: {
     color: '#FFFFFF',
-    fontSize: 12,
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  speedBrainActionBtn: {
+    backgroundColor: '#0284C7',
+    borderRadius: BORDER_RADIUS.lg,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#38BDF8',
+  },
+  speedBrainActionText: {
+    color: '#FFFFFF',
+    fontSize: 13,
     fontWeight: '900',
   },
 });

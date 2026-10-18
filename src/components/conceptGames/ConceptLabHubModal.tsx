@@ -20,6 +20,7 @@ import {
   GradeGroupKey,
   ConceptLabItem,
 } from '../../data/conceptLabsRegistry';
+import { SuperKidCertificateModal } from './SuperKidCertificateModal';
 
 const { width } = Dimensions.get('window');
 
@@ -28,6 +29,11 @@ interface ConceptLabHubModalProps {
   onClose: () => void;
   userGrade: Grade;
   onSelectLab: (labId: string) => void;
+  childName?: string;
+  avatarEmoji?: string;
+  avatarBadgeColor?: string;
+  totalStars?: number;
+  streakDays?: number;
 }
 
 type TabKey = GradeGroupKey | 'science_stem' | 'all';
@@ -37,10 +43,16 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
   onClose,
   userGrade,
   onSelectLab,
+  childName = 'Champ',
+  avatarEmoji = '🦁',
+  avatarBadgeColor = '#F59E0B',
+  totalStars = 120,
+  streakDays = 5,
 }) => {
   const defaultTab = getGradeGroupKey(userGrade);
   const [selectedTab, setSelectedTab] = useState<TabKey>(defaultTab);
   const [showParentInfo, setShowParentInfo] = useState(false);
+  const [showCertModal, setShowCertModal] = useState(false);
 
   const getFilteredLabs = (): ConceptLabItem[] => {
     if (selectedTab === 'all') return ALL_CONCEPT_LABS;
@@ -98,6 +110,80 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
               </Text>
             </View>
           )}
+
+          {/* Holographic Super Kid STEM Passport */}
+          <View style={styles.passportCard}>
+            <View style={styles.passportHeader}>
+              <View style={[styles.passportAvatarBox, { backgroundColor: avatarBadgeColor }]}>
+                <Text style={styles.passportAvatarEmoji}>{avatarEmoji}</Text>
+              </View>
+              <View style={styles.passportInfo}>
+                <View style={styles.passportTitleRow}>
+                  <Text style={styles.passportName} numberOfLines={1}>{childName}</Text>
+                  <View style={styles.passportCadetBadge}>
+                    <Text style={styles.passportCadetText}>SUPER KID 🦸</Text>
+                  </View>
+                </View>
+                <Text style={styles.passportRank}>Level 5 Quantum Cadet • Verified ID</Text>
+              </View>
+            </View>
+
+            {/* Superpower Radar Bars */}
+            <View style={styles.powersRow}>
+              <View style={styles.powerItem}>
+                <View style={styles.powerLabelRow}>
+                  <Text style={styles.powerLabel}>🧠 Logic IQ</Text>
+                  <Text style={styles.powerVal}>96%</Text>
+                </View>
+                <View style={styles.powerBarBg}>
+                  <View style={[styles.powerBarFill, { width: '96%', backgroundColor: '#38BDF8' }]} />
+                </View>
+              </View>
+
+              <View style={styles.powerItem}>
+                <View style={styles.powerLabelRow}>
+                  <Text style={styles.powerLabel}>⚡ Agility</Text>
+                  <Text style={styles.powerVal}>92%</Text>
+                </View>
+                <View style={styles.powerBarBg}>
+                  <View style={[styles.powerBarFill, { width: '92%', backgroundColor: '#FACC15' }]} />
+                </View>
+              </View>
+
+              <View style={styles.powerItem}>
+                <View style={styles.powerLabelRow}>
+                  <Text style={styles.powerLabel}>🔬 STEM Sense</Text>
+                  <Text style={styles.powerVal}>98%</Text>
+                </View>
+                <View style={styles.powerBarBg}>
+                  <View style={[styles.powerBarFill, { width: '98%', backgroundColor: '#10B981' }]} />
+                </View>
+              </View>
+            </View>
+
+            {/* Passport Action Buttons */}
+            <View style={styles.passportActionRow}>
+              <TouchableOpacity
+                style={styles.viewCertBtn}
+                activeOpacity={0.85}
+                onPress={() => {
+                  soundManager.playFanfare();
+                  triggerHaptic('medium');
+                  setShowCertModal(true);
+                }}
+              >
+                <Text style={styles.viewCertBtnText}>🏆 View STEM Diploma</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.brainBoosterBtn}
+                activeOpacity={0.85}
+                onPress={() => handleLaunch('speed_brain')}
+              >
+                <Text style={styles.brainBoosterBtnText}>⚡ 60s Brain Booster</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
 
           {/* Grade / Category Filter Scroll */}
           <View style={styles.tabsContainer}>
@@ -182,7 +268,7 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
                 }}
               >
                 <Text style={[styles.tabText, selectedTab === 'all' && styles.tabTextActive]}>
-                  🌟 All 14 Labs
+                  🌟 All 15 Labs
                 </Text>
               </TouchableOpacity>
             </ScrollView>
@@ -238,6 +324,18 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
               </Text>
             </View>
           </ScrollView>
+
+          {/* Super Kid Certificate Modal */}
+          <SuperKidCertificateModal
+            visible={showCertModal}
+            onClose={() => setShowCertModal(false)}
+            childName={childName}
+            grade={userGrade}
+            avatarEmoji={avatarEmoji}
+            avatarBadgeColor={avatarBadgeColor}
+            totalStars={totalStars}
+            streakDays={streakDays}
+          />
         </View>
       </View>
     </Modal>
@@ -343,6 +441,143 @@ const styles = StyleSheet.create({
     color: '#E2E8F0',
     fontSize: 12,
     lineHeight: 18,
+  },
+  // Super Kid Passport Styles
+  passportCard: {
+    backgroundColor: '#1E293B',
+    borderRadius: BORDER_RADIUS.lg,
+    padding: SPACING.md,
+    marginBottom: SPACING.xs,
+    borderWidth: 1.5,
+    borderColor: '#38BDF8',
+    ...SHADOWS.card,
+  },
+  passportHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 10,
+  },
+  passportAvatarBox: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: '#F59E0B',
+  },
+  passportAvatarEmoji: {
+    fontSize: 24,
+  },
+  passportInfo: {
+    flex: 1,
+  },
+  passportTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  passportName: {
+    color: '#F8FAFC',
+    fontSize: 16,
+    fontWeight: '900',
+    maxWidth: 160,
+  },
+  passportCadetBadge: {
+    backgroundColor: 'rgba(245, 158, 11, 0.2)',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4,
+    borderWidth: 1,
+    borderColor: '#F59E0B',
+  },
+  passportCadetText: {
+    color: '#FCD34D',
+    fontSize: 9,
+    fontWeight: '900',
+  },
+  passportRank: {
+    color: '#94A3B8',
+    fontSize: 11,
+    fontWeight: '600',
+    marginTop: 2,
+  },
+  powersRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 8,
+    marginBottom: 10,
+  },
+  powerItem: {
+    flex: 1,
+    backgroundColor: '#0F172A',
+    padding: 6,
+    borderRadius: BORDER_RADIUS.sm,
+    borderWidth: 1,
+    borderColor: '#334155',
+  },
+  powerLabelRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  powerLabel: {
+    color: '#CBD5E1',
+    fontSize: 9,
+    fontWeight: '800',
+  },
+  powerVal: {
+    color: '#F8FAFC',
+    fontSize: 9,
+    fontWeight: '900',
+  },
+  powerBarBg: {
+    height: 4,
+    backgroundColor: '#334155',
+    borderRadius: 2,
+    overflow: 'hidden',
+  },
+  powerBarFill: {
+    height: '100%',
+    borderRadius: 2,
+  },
+  passportActionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 8,
+    marginTop: 2,
+  },
+  viewCertBtn: {
+    flex: 1,
+    backgroundColor: '#D97706',
+    paddingVertical: 8,
+    borderRadius: BORDER_RADIUS.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 3,
+    borderBottomColor: '#B45309',
+  },
+  viewCertBtnText: {
+    color: '#FFF',
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  brainBoosterBtn: {
+    flex: 1,
+    backgroundColor: '#0284C7',
+    paddingVertical: 8,
+    borderRadius: BORDER_RADIUS.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: 3,
+    borderBottomColor: '#0369A1',
+  },
+  brainBoosterBtnText: {
+    color: '#FFF',
+    fontSize: 11,
+    fontWeight: '900',
   },
   tabsContainer: {
     marginVertical: SPACING.xs,

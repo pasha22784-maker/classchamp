@@ -235,6 +235,20 @@ export const SCIENCE_STEM_LABS: ConceptLabItem[] = [
       hindi: 'बीकर में लाल, पीले और नीले रंग मिलाकर नए रंग बनाना और कांच के प्रिज्म से सफेद रोशनी को 7 रंगों में बिखरते देखना।',
     },
   },
+  {
+    id: 'speed_brain',
+    title: '60s Lightning Brain Booster',
+    subtitle: 'High-speed mental math & reflex combo agility test',
+    icon: '⚡',
+    badge: 'Super Kid Agility • 60s Rush',
+    accentColor: '#0EA5E9',
+    boxColor: '#0369A1',
+    ncertTopic: 'Rapid Mental Agility & Cognitive Reflex',
+    pedagogicalOutcome: {
+      english: 'Builds super-fast cognitive processing, working memory recall, and lightning calculation confidence under light gamified pressure.',
+      hindi: 'तेज़ दिमागी कसरत — 60 सेकंड में त्वरित निर्णय, मेंटल कैलकुलेशन और कॉग्निटिव रिफ्लेक्स को मजबूत करता है।',
+    },
+  },
 ];
 
 export const ALL_CONCEPT_LABS: ConceptLabItem[] = [
