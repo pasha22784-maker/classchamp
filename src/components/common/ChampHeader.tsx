@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: SPACING.lg,
     paddingVertical: SPACING.md,
-    backgroundColor: COLORS.primaryDark,
+    backgroundColor: COLORS.primary,
   },
   leftRow: {
     flexDirection: 'row',
