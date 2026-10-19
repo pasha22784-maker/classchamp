@@ -100,8 +100,8 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🐘 🐕',
     payload: {
       options: [
-        { id: 'opt_bs_1', text: '🐘 Elephant is BIGGER', isCorrect: true },
-        { id: 'opt_bs_2', text: '🐕 Dog is BIGGER', isCorrect: false },
+        { id: 'opt_bs_1', text: 'Elephant 🐘', isCorrect: true },
+        { id: 'opt_bs_2', text: 'Dog 🐕', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: An elephant 🐘 is huge and much bigger in size than a dog 🐕!',
@@ -119,8 +119,8 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🍉 🍓',
     payload: {
       options: [
-        { id: 'opt_bs_3', text: '🍓 Strawberry is SMALLER', isCorrect: true },
-        { id: 'opt_bs_4', text: '🍉 Watermelon is SMALLER', isCorrect: false },
+        { id: 'opt_bs_3', text: 'Strawberry 🍓', isCorrect: true },
+        { id: 'opt_bs_4', text: 'Watermelon 🍉', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: A strawberry 🍓 can fit in your hand, while a watermelon 🍉 is very big. Strawberry is smaller!',
@@ -138,8 +138,8 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     visualEmoji: '🌳 🌱',
     payload: {
       options: [
-        { id: 'opt_tree_1', text: '🌱 Rose plant is SMALLER', isCorrect: true },
-        { id: 'opt_tree_2', text: '🌳 Banyan tree is SMALLER', isCorrect: false },
+        { id: 'opt_tree_1', text: 'Rose plant 🌱', isCorrect: true },
+        { id: 'opt_tree_2', text: 'Banyan tree 🌳', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: The rose plant 🌱 is short and small, while the banyan tree 🌳 is massive and big!',
@@ -157,13 +157,13 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Biggest vs Smallest',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Look at the three bubbles in the air: 🫧 Bubble A (tiny), 🫧 Bubble B (medium), 🫧 Bubble C (giant). Which is the BIGGEST?',
+    question: 'Look at the three bubbles in the air: 🫧 Bubble A, 🫧 Bubble B, 🫧 Bubble C. Which is the BIGGEST?',
     visualEmoji: '🫧 🫧 🫧',
     payload: {
       options: [
-        { id: 'opt_bub_1', text: 'Bubble C is the BIGGEST', isCorrect: true },
-        { id: 'opt_bub_2', text: 'Bubble A is the BIGGEST', isCorrect: false },
-        { id: 'opt_bub_3', text: 'Bubble B is the BIGGEST', isCorrect: false },
+        { id: 'opt_bub_1', text: 'Bubble C 🫧', isCorrect: true },
+        { id: 'opt_bub_2', text: 'Bubble A 🫧', isCorrect: false },
+        { id: 'opt_bub_3', text: 'Bubble B 🫧', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: The biggest is the one that has the largest size among all three bubbles!',
@@ -180,8 +180,8 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     question: 'Arrange these animals in order from SMALLEST to BIGGEST:',
     visualEmoji: '🐜 🐱 🐘',
     payload: {
-      scrambled: ['🐘 Elephant', '🐜 Tiny Ant', '🐱 Cat'],
-      correctSequence: ['🐜 Tiny Ant', '🐱 Cat', '🐘 Elephant'],
+      scrambled: ['Elephant 🐘', 'Ant 🐜', 'Cat 🐱'],
+      correctSequence: ['Ant 🐜', 'Cat 🐱', 'Elephant 🐘'],
     },
     explanation: '💡 Ant 🐜 is smallest, Cat 🐱 is medium size, Elephant 🐘 is biggest!',
     points: 10,

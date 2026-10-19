@@ -24,8 +24,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🐘 🐭',
     payload: {
       options: [
-        { id: 'opt_1', text: '🐘 Big Elephant', isCorrect: true },
-        { id: 'opt_2', text: '🐭 Small Mouse', isCorrect: false },
+        { id: 'opt_1', text: 'Elephant 🐘', isCorrect: true },
+        { id: 'opt_2', text: 'Mouse 🐭', isCorrect: false },
       ],
     },
     explanation: '🐘 The Elephant is huge and BIG! The mouse is small.',
@@ -43,8 +43,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🍉 🍓',
     payload: {
       options: [
-        { id: 'opt_1', text: '🍓 Small Strawberry', isCorrect: true },
-        { id: 'opt_2', text: '🍉 Big Watermelon', isCorrect: false },
+        { id: 'opt_1', text: 'Strawberry 🍓', isCorrect: true },
+        { id: 'opt_2', text: 'Watermelon 🍉', isCorrect: false },
       ],
     },
     explanation: '🍓 A strawberry is small enough to hold in one finger, while a watermelon is very big!',
@@ -62,8 +62,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🦒 🐢',
     payload: {
       options: [
-        { id: 'opt_1', text: '🦒 Tall Giraffe', isCorrect: true },
-        { id: 'opt_2', text: '🐢 Short Turtle', isCorrect: false },
+        { id: 'opt_1', text: 'Giraffe 🦒', isCorrect: true },
+        { id: 'opt_2', text: 'Turtle 🐢', isCorrect: false },
       ],
     },
     explanation: '🦒 The Giraffe reaches high up in the trees because it is TALL!',
@@ -77,12 +77,12 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     concept: 'Heavy vs Light',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Which one is LIGHT and flies in the air? 🪶 or 🪨?',
+    question: 'Which one is LIGHT and floats in the air? 🪶 or 🪨?',
     visualEmoji: '🪶 🪨',
     payload: {
       options: [
-        { id: 'opt_1', text: '🪶 Light Feather', isCorrect: true },
-        { id: 'opt_2', text: '🪨 Heavy Stone', isCorrect: false },
+        { id: 'opt_1', text: 'Feather 🪶', isCorrect: true },
+        { id: 'opt_2', text: 'Stone 🪨', isCorrect: false },
       ],
     },
     explanation: '🪶 A feather is so light that it floats gently in the air!',
@@ -96,12 +96,12 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     concept: 'Inside vs Outside',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Where is the chick? 🐣 in the nest 🪺!',
+    question: 'Where is the chick? 🐣 Is it inside or outside the nest 🪺?',
     visualEmoji: '🐣 🪺',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Inside the nest', isCorrect: true },
-        { id: 'opt_2', text: 'Outside the nest', isCorrect: false },
+        { id: 'opt_1', text: 'Inside the nest 🪺', isCorrect: true },
+        { id: 'opt_2', text: 'Outside the nest 🌳', isCorrect: false },
       ],
     },
     explanation: '🐣 The sweet little chick is cozy INSIDE the nest!',
@@ -121,8 +121,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🚂 🚗',
     payload: {
       options: [
-        { id: 'opt_1', text: '🚂 Long Train', isCorrect: true },
-        { id: 'opt_2', text: '🚗 Short Car', isCorrect: false },
+        { id: 'opt_1', text: 'Train 🚂', isCorrect: true },
+        { id: 'opt_2', text: 'Car 🚗', isCorrect: false },
       ],
     },
     explanation: '🚂 A train has lots of bogies connected together, making it very LONG!',
@@ -136,12 +136,12 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     concept: 'Up and Down',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Look at the sky! What flies UP high in the sky? ✈️ or 🚗?',
+    question: 'Look at the sky! Which one flies UP in the sky? ✈️ or 🚗?',
     visualEmoji: '✈️ ☁️',
     payload: {
       options: [
-        { id: 'opt_1', text: '✈️ Airplane UP in sky', isCorrect: true },
-        { id: 'opt_2', text: '🚗 Car DOWN on road', isCorrect: false },
+        { id: 'opt_1', text: 'Airplane ✈️', isCorrect: true },
+        { id: 'opt_2', text: 'Car 🚗', isCorrect: false },
       ],
     },
     explanation: '✈️ An airplane flies high UP above the clouds!',
@@ -159,8 +159,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🌙 ✨',
     payload: {
       options: [
-        { id: 'opt_1', text: 'FAR away', isCorrect: true },
-        { id: 'opt_2', text: 'NEAR to touch', isCorrect: false },
+        { id: 'opt_1', text: 'Far away 🌙', isCorrect: true },
+        { id: 'opt_2', text: 'Near to touch ✋', isCorrect: false },
       ],
     },
     explanation: '🌙 The moon and stars are FAR away in space!',
@@ -178,8 +178,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🍦 ❄️',
     payload: {
       options: [
-        { id: 'opt_1', text: 'COLD', isCorrect: true },
-        { id: 'opt_2', text: 'HOT', isCorrect: false },
+        { id: 'opt_1', text: 'Cold ❄️', isCorrect: true },
+        { id: 'opt_2', text: 'Hot 🔥', isCorrect: false },
       ],
     },
     explanation: '🍦 Ice cream is sweet and COLD!',
@@ -197,8 +197,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🥛 ✨',
     payload: {
       options: [
-        { id: 'opt_1', text: 'FULL', isCorrect: true },
-        { id: 'opt_2', text: 'EMPTY', isCorrect: false },
+        { id: 'opt_1', text: 'Full 🥛', isCorrect: true },
+        { id: 'opt_2', text: 'Empty 🫙', isCorrect: false },
       ],
     },
     explanation: '🥛 The glass is FULL of healthy milk!',
@@ -218,9 +218,9 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '⚽ 🎾 🔴',
     payload: {
       options: [
-        { id: 'opt_1', text: '⚽ Football', isCorrect: true },
-        { id: 'opt_2', text: '🎾 Tennis ball', isCorrect: false },
-        { id: 'opt_3', text: '🔴 Tiny Marble', isCorrect: false },
+        { id: 'opt_1', text: 'Football ⚽', isCorrect: true },
+        { id: 'opt_2', text: 'Tennis ball 🎾', isCorrect: false },
+        { id: 'opt_3', text: 'Marble 🔴', isCorrect: false },
       ],
     },
     explanation: '⚽ Football is the biggest of the three balls!',
@@ -234,13 +234,13 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     concept: 'Height Comparison (Shortest)',
     difficulty: 'hard',
     type: 'mcq',
-    question: 'Which plant is the SHORTEST? 🌴 Tall Palm tree, 🪴 Small Bush, or 🌿 Tiny Grass?',
+    question: 'Which plant is the SHORTEST? 🌴 Palm tree, 🪴 Bush, or 🌿 Grass?',
     visualEmoji: '🌴 🪴 🌿',
     payload: {
       options: [
-        { id: 'opt_1', text: '🌿 Tiny Grass', isCorrect: true },
-        { id: 'opt_2', text: '🪴 Small Bush', isCorrect: false },
-        { id: 'opt_3', text: '🌴 Tall Palm tree', isCorrect: false },
+        { id: 'opt_1', text: 'Grass 🌿', isCorrect: true },
+        { id: 'opt_2', text: 'Bush 🪴', isCorrect: false },
+        { id: 'opt_3', text: 'Palm tree 🌴', isCorrect: false },
       ],
     },
     explanation: '🌿 Grass grows right along the ground, so it is the shortest!',
@@ -258,8 +258,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🐆 🐌',
     payload: {
       options: [
-        { id: 'opt_1', text: '🐆 Fast Cheetah', isCorrect: true },
-        { id: 'opt_2', text: '🐌 Slow Snail', isCorrect: false },
+        { id: 'opt_1', text: 'Cheetah 🐆', isCorrect: true },
+        { id: 'opt_2', text: 'Snail 🐌', isCorrect: false },
       ],
     },
     explanation: '🐆 The cheetah is the fastest runner in the jungle! 🐌 A snail crawls very slowly.',
@@ -277,9 +277,9 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🚌 🚲 🛹',
     payload: {
       options: [
-        { id: 'opt_1', text: '🚌 Big Bus', isCorrect: true },
-        { id: 'opt_2', text: '🚲 Bicycle', isCorrect: false },
-        { id: 'opt_3', text: '🛹 Skateboard', isCorrect: false },
+        { id: 'opt_1', text: 'Bus 🚌', isCorrect: true },
+        { id: 'opt_2', text: 'Bicycle 🚲', isCorrect: false },
+        { id: 'opt_3', text: 'Skateboard 🛹', isCorrect: false },
       ],
     },
     explanation: '🚌 A bus carries many people and is by far the heaviest!',
@@ -293,12 +293,12 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     concept: 'Ordering by Size (Small to Big)',
     difficulty: 'hard',
     type: 'drag_order',
-    question: 'Put these from SMALLEST to BIGGEST:',
+    question: 'Put these in order from SMALLEST to BIGGEST:',
     visualEmoji: '🐜 🐱 🐘',
     payload: {
-      tokens: ['🐜 Ant', '🐱 Cat', '🐘 Elephant'],
-      scrambled: ['🐘 Elephant', '🐜 Ant', '🐱 Cat'],
-      correctSequence: ['🐜 Ant', '🐱 Cat', '🐘 Elephant'],
+      tokens: ['Ant 🐜', 'Cat 🐱', 'Elephant 🐘'],
+      scrambled: ['Elephant 🐘', 'Ant 🐜', 'Cat 🐱'],
+      correctSequence: ['Ant 🐜', 'Cat 🐱', 'Elephant 🐘'],
     },
     explanation: '🐜 Ant is tiny, 🐱 Cat is medium, and 🐘 Elephant is huge and big!',
     points: 20,
@@ -1408,8 +1408,8 @@ export const LKG_MATHS_ALL_QUESTIONS: Question[] = [
     visualEmoji: '🐘 🐭 🐘 🐭 ❓',
     payload: {
       options: [
-        { id: 'opt_1', text: '🐘 Big Elephant', isCorrect: true },
-        { id: 'opt_2', text: '🐭 Small Mouse', isCorrect: false },
+        { id: 'opt_1', text: 'Elephant 🐘', isCorrect: true },
+        { id: 'opt_2', text: 'Mouse 🐭', isCorrect: false },
       ],
     },
     explanation: 'Big, Small, Big, Small... Next is 🐘 BIG Elephant!',

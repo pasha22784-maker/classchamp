@@ -1348,12 +1348,12 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     concept: 'Fast vs Slow',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'A fast cheetah 🐆 is the opposite of a slow...',
+    question: 'A cheetah runs FAST 🐆. Which animal is SLOW?',
     visualEmoji: '🐆 🐢',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Slow Turtle 🐢', isCorrect: true },
-        { id: 'opt_2', text: 'Fast Rabbit 🐇', isCorrect: false },
+        { id: 'opt_1', text: 'Turtle 🐢', isCorrect: true },
+        { id: 'opt_2', text: 'Rabbit 🐇', isCorrect: false },
         { id: 'opt_3', text: 'Horse 🐴', isCorrect: false },
       ],
     },
@@ -1388,12 +1388,12 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     concept: 'Heavy vs Light',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'A heavy rock 🪨 is the opposite of a light...',
+    question: 'A rock is HEAVY 🪨. Which object is LIGHT?',
     visualEmoji: '🪨 🪶',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Light Feather 🪶', isCorrect: true },
-        { id: 'opt_2', text: 'Heavy Bus 🚌', isCorrect: false },
+        { id: 'opt_1', text: 'Feather 🪶', isCorrect: true },
+        { id: 'opt_2', text: 'Bus 🚌', isCorrect: false },
         { id: 'opt_3', text: 'Mountain ⛰️', isCorrect: false },
       ],
     },

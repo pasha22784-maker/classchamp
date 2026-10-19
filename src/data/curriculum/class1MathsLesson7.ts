@@ -84,8 +84,8 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🦒 vs 🦓',
     payload: {
       options: [
-        { id: 'opt_tal1_1', text: 'Giraffe 🦒 is TALLER', isCorrect: true },
-        { id: 'opt_tal1_2', text: 'Zebra 🦓 is TALLER', isCorrect: false },
+        { id: 'opt_tal1_1', text: 'Giraffe 🦒', isCorrect: true },
+        { id: 'opt_tal1_2', text: 'Zebra 🦓', isCorrect: false },
       ],
     },
     explanation: '💡 The giraffe 🦒 has long legs and a super long neck, making it **TALLER** than the zebra!',
@@ -103,9 +103,9 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '👨 👩 👧 👶',
     payload: {
       options: [
-        { id: 'opt_tal2_1', text: 'Father 👨 is the TALLEST', isCorrect: true },
-        { id: 'opt_tal2_2', text: 'Baby brother 👶 is the TALLEST', isCorrect: false },
-        { id: 'opt_tal2_3', text: 'Lina 👧 is the TALLEST', isCorrect: false },
+        { id: 'opt_tal2_1', text: 'Father 👨', isCorrect: true },
+        { id: 'opt_tal2_2', text: 'Baby brother 👶', isCorrect: false },
+        { id: 'opt_tal2_3', text: 'Lina 👧', isCorrect: false },
       ],
     },
     explanation: "💡 NCERT Lina's Family: Father 👨 stands the highest, so he is the **TALLEST**! Baby brother is the shortest.",
@@ -119,13 +119,13 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Tallest vs Shortest Plant',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'In the garden: a giant Coconut tree 🌴, a Rose bush 🌹, and tiny grass 🌱. Which plant is the SHORTEST?',
+    question: 'In the garden: a giant Coconut tree 🌴, a Rose bush 🌹, and Grass 🌱. Which plant is the SHORTEST?',
     visualEmoji: '🌴 🌹 🌱',
     payload: {
       options: [
-        { id: 'opt_tal3_1', text: 'Tiny Grass 🌱 is the SHORTEST', isCorrect: true },
-        { id: 'opt_tal3_2', text: 'Coconut tree 🌴 is the SHORTEST', isCorrect: false },
-        { id: 'opt_tal3_3', text: 'Rose bush 🌹 is the SHORTEST', isCorrect: false },
+        { id: 'opt_tal3_1', text: 'Grass 🌱', isCorrect: true },
+        { id: 'opt_tal3_2', text: 'Coconut tree 🌴', isCorrect: false },
+        { id: 'opt_tal3_3', text: 'Rose bush 🌹', isCorrect: false },
       ],
     },
     explanation: '💡 The coconut tree 🌴 is the tallest, and the tiny grass blade 🌱 is the **SHORTEST**!',
@@ -143,12 +143,12 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Heavier vs Lighter Fruits',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Lina visits the fruit shop 🛒. Which fruit is HEAVIER: a big Watermelon 🍉 or a small Strawberry 🍓?',
+    question: 'Lina visits the fruit shop 🛒. Which fruit is HEAVIER: a Watermelon 🍉 or a Strawberry 🍓?',
     visualEmoji: '🍉 vs 🍓',
     payload: {
       options: [
-        { id: 'opt_hvy1_1', text: 'Watermelon 🍉 is HEAVIER', isCorrect: true },
-        { id: 'opt_hvy1_2', text: 'Strawberry 🍓 is HEAVIER', isCorrect: false },
+        { id: 'opt_hvy1_1', text: 'Watermelon 🍉', isCorrect: true },
+        { id: 'opt_hvy1_2', text: 'Strawberry 🍓', isCorrect: false },
       ],
     },
     explanation: '💡 A big watermelon 🍉 has lots of weight and is hard to lift, so it is **HEAVIER**! Strawberry 🍓 is lighter.',
@@ -166,8 +166,8 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🪶 vs 🪨',
     payload: {
       options: [
-        { id: 'opt_hvy2_1', text: 'Bird Feather 🪶 is LIGHTER', isCorrect: true },
-        { id: 'opt_hvy2_2', text: 'Heavy Stone 🪨 is LIGHTER', isCorrect: false },
+        { id: 'opt_hvy2_1', text: 'Bird Feather 🪶', isCorrect: true },
+        { id: 'opt_hvy2_2', text: 'Stone 🪨', isCorrect: false },
       ],
     },
     explanation: '💡 A feather 🪶 has almost no weight, so it is **LIGHTER** than a stone 🪨!',
@@ -185,8 +185,8 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     visualEmoji: '🐻 ⚖️ 🐇',
     payload: {
       options: [
-        { id: 'opt_hvy3_1', text: 'The heavy bear side goes DOWN 🐻', isCorrect: true },
-        { id: 'opt_hvy3_2', text: 'The light rabbit side goes DOWN 🐇', isCorrect: false },
+        { id: 'opt_hvy3_1', text: 'Bear side 🐻', isCorrect: true },
+        { id: 'opt_hvy3_2', text: 'Rabbit side 🐇', isCorrect: false },
       ],
     },
     explanation: '💡 Super Champ rule: On a seesaw or balance scale, the **HEAVIER** object pushes its side down to the ground!',
@@ -204,12 +204,12 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Thicker vs Thinner Tree Parts',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Look at a banyan tree: the big main tree trunk 🪵 and a tiny twig 🌿. Which one is THICKER?',
+    question: 'Look at a banyan tree: the tree trunk 🪵 and a twig 🌿. Which one is THICKER?',
     visualEmoji: '🪵 vs 🌿',
     payload: {
       options: [
-        { id: 'opt_thk1_1', text: 'Tree Trunk 🪵 is THICKER', isCorrect: true },
-        { id: 'opt_thk1_2', text: 'Tiny Twig 🌿 is THICKER', isCorrect: false },
+        { id: 'opt_thk1_1', text: 'Tree Trunk 🪵', isCorrect: true },
+        { id: 'opt_thk1_2', text: 'Twig 🌿', isCorrect: false },
       ],
     },
     explanation: '💡 The main trunk 🪵 is wide and fat, so it is **THICKER**! A twig is thin.',
@@ -223,12 +223,12 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Thicker vs Thinner Books',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'A fat dictionary with 1,000 pages 📕 and a slim comic book with 10 pages 📖. Which book is THINNER?',
+    question: 'A dictionary with 1,000 pages 📕 and a comic book with 10 pages 📖. Which book is THINNER?',
     visualEmoji: '📕 vs 📖',
     payload: {
       options: [
-        { id: 'opt_thk2_1', text: 'Slim Comic Book 📖 is THINNER', isCorrect: true },
-        { id: 'opt_thk2_2', text: 'Fat Dictionary 📕 is THINNER', isCorrect: false },
+        { id: 'opt_thk2_1', text: 'Comic Book 📖', isCorrect: true },
+        { id: 'opt_thk2_2', text: 'Dictionary 📕', isCorrect: false },
       ],
     },
     explanation: '💡 The slim comic book has very few pages, so it is **THINNER**!',

@@ -73,8 +73,8 @@ export function generateDynamicMathQuestion(grade: Grade, chapterTitle?: string)
         visualEmoji: '🐘 🐭',
         payload: {
           options: shuffleArray([
-            { id: 'opt_1', text: '🐘 Big Elephant', isCorrect: true },
-            { id: 'opt_2', text: '🐭 Small Mouse', isCorrect: false },
+            { id: 'opt_1', text: 'Elephant 🐘', isCorrect: true },
+            { id: 'opt_2', text: 'Mouse 🐭', isCorrect: false },
           ]),
         },
         explanation: '💡 An Elephant 🐘 is huge and big! A Mouse 🐭 is small.',
@@ -107,9 +107,9 @@ export function generateDynamicMathQuestion(grade: Grade, chapterTitle?: string)
       };
     } else {
       const color = randomChoice([
-        { q: 'Which one is RED? 🔴', correct: '🍎 Red Apple', wrong: '🍌 Yellow Banana' },
-        { q: 'Which one is YELLOW? 🟡', correct: '🌻 Yellow Sunflower', wrong: '🫐 Blue Berry' },
-        { q: 'Which one is GREEN? 🟢', correct: '🍃 Green Leaf', wrong: '🍓 Red Strawberry' },
+        { q: 'Which one is RED? 🔴', correct: 'Apple 🍎', wrong: 'Banana 🍌', expl: 'An Apple 🍎 is red!' },
+        { q: 'Which one is YELLOW? 🟡', correct: 'Sunflower 🌻', wrong: 'Blueberry 🫐', expl: 'A Sunflower 🌻 is yellow!' },
+        { q: 'Which one is GREEN? 🟢', correct: 'Leaf 🍃', wrong: 'Strawberry 🍓', expl: 'A Leaf 🍃 is green!' },
       ]);
       return {
         id: qId,
@@ -127,7 +127,7 @@ export function generateDynamicMathQuestion(grade: Grade, chapterTitle?: string)
             { id: 'opt_2', text: color.wrong, isCorrect: false },
           ]),
         },
-        explanation: `💡 Yes! ${color.correct}! You know your colors so well! 🎨`,
+        explanation: `💡 Yes! ${color.expl} You know your colors so well! 🎨`,
         points: 10,
       };
     }

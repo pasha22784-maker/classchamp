@@ -22,8 +22,8 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '🏏 ⚽',
     payload: {
       options: [
-        { id: 'opt_l1_1', text: '🏏 Cricket Bat is LONG', isCorrect: true },
-        { id: 'opt_l1_2', text: '⚽ Football is LONG', isCorrect: false },
+        { id: 'opt_l1_1', text: 'Cricket Bat 🏏', isCorrect: true },
+        { id: 'opt_l1_2', text: 'Football ⚽', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: A cricket bat 🏏 has length and extends straight, so it is LONG! A football ⚽ is round.',
@@ -41,9 +41,9 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     visualEmoji: '✏️ 🪙 🔘',
     payload: {
       options: [
-        { id: 'opt_l2_1', text: '✏️ Writing Pencil', isCorrect: true },
-        { id: 'opt_l2_2', text: '🪙 Round Coin', isCorrect: false },
-        { id: 'opt_l2_3', text: '🔘 Shirt Button', isCorrect: false },
+        { id: 'opt_l2_1', text: 'Pencil ✏️', isCorrect: true },
+        { id: 'opt_l2_2', text: 'Coin 🪙', isCorrect: false },
+        { id: 'opt_l2_3', text: 'Button 🔘', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: A pencil ✏️ is long and straight so you can hold and write with it!',
