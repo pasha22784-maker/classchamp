@@ -1,0 +1,171 @@
+﻿S.No,Class / Grade,Subject,Chapter No.,Chapter Title,Status,First Tested Date,Revision Dates,Total Updates,Issues Found & Fixed,App Version,Concept Summary
+1,LKG (Balvatika 2),Maths,Chapter 1,Pre-Math Concepts (Big vs Small & Tall vs Short),Tested & Updated,2026-10-19,2026-10-19,1,"[2026-10-19] Eliminated answer adjective hints in options (Elephant vs Mouse, Giraffe vs Turtle, Strawberry vs Watermelon, Feather vs Stone); cleaned question text clue; cleaned drag-order tokens",v1.3.18 (Build 37),"Pre-Math: Big/Small, Tall/Short, Heavy/Light comparison concepts"
+2,LKG (Balvatika 2),Maths,Chapter 2,Numbers 1 to 5 (Counting & Finger Fun),Pending Manual Test,-,-,0,No issues reported yet,-,"Counting objects 1 to 5, finger counting, visual quantity matching"
+3,LKG (Balvatika 2),Maths,Chapter 3,"Shapes & Colors (Circle, Square, Red, Blue)",Pending Manual Test,-,-,0,No issues reported yet,-,"Basic Shapes (⭕ Circle, ⬛ Square, 🔺 Triangle) & Primary Colors (Red, Blue, Yellow, Green)"
+4,LKG (Balvatika 2),Maths,Chapter 4,More or Less & Matching Pairs,Pending Manual Test,-,-,0,No issues reported yet,-,"Comparing quantities (more vs less), matching related real-world pairs"
+5,LKG (Balvatika 2),Maths,Chapter 5,Visual Patterns & Sorting,Tested & Updated,2026-10-19,2026-10-19,1,[2026-10-19] Cleaned size pattern options from 'Big Elephant'/'Small Mouse' to clean 'Elephant'/'Mouse',v1.3.18 (Build 37),Identifying simple AB patterns (🔴 🔵 🔴 🔵) and sorting by shape & color
+6,LKG (Balvatika 2),English,Chapter 1,Fun with Letters (A to M Recognition),Pending Manual Test,-,-,0,No issues reported yet,-,Letter recognition & visual identification for uppercase letters A through M
+7,LKG (Balvatika 2),English,Chapter 2,Fun with Letters (N to Z Recognition),Pending Manual Test,-,-,0,No issues reported yet,-,Letter recognition & visual identification for uppercase letters N through Z
+8,LKG (Balvatika 2),English,Chapter 3,"First Phonics Sounds (A for Apple, B for Ball)",Pending Manual Test,-,-,0,No issues reported yet,-,Beginning phonetic sounds with everyday familiar objects & picture cues
+9,LKG (Balvatika 2),English,Chapter 4,"Animal Sounds & Rhymes (Woof, Moo, Meow)",Pending Manual Test,-,-,0,No issues reported yet,-,"Connecting animals with their sounds (Dog says Woof, Cat says Meow, Cow says Moo)"
+10,LKG (Balvatika 2),English,Chapter 5,My Body & Everyday Words,Pending Manual Test,-,-,0,No issues reported yet,-,"Identifying body parts (Eyes, Ears, Nose, Hands) and common daily objects"
+11,LKG (Balvatika 2),Hindi,Chapter 1,"स्वर पहचान (अ से ई तक - अनार, आम, इमली, ईख)",Pending Manual Test,-,-,0,No issues reported yet,-,"बाल वाटिका: अ से अनार, आ से आम, इ से इमली, ई से ईख की सचित्र पहचान"
+12,LKG (Balvatika 2),Hindi,Chapter 2,"स्वर पहचान (उ से अः तक - उल्लू, ऊन, ऋषि)",Pending Manual Test,-,-,0,No issues reported yet,-,"बाल वाटिका: उ से उल्लू, ऊ से ऊन, ऋ से ऋषि, ए से एड़ी, ओ से ओखली पहचान"
+13,LKG (Balvatika 2),Hindi,Chapter 3,चित्र देखकर पहला अक्षर पहचानो,Pending Manual Test,-,-,0,No issues reported yet,-,बाल वाटिका: दिए गए चित्र को देखकर उसका पहला स्वर या व्यंजन चुनना
+14,LKG (Balvatika 2),Hindi,Chapter 4,"पशु-पक्षी व उनके नाम (गाय, हाथी, तोता, मोर)",Pending Manual Test,-,-,0,No issues reported yet,-,बाल वाटिका: परिचित पशु-पक्षियों की पहचान व उनके नाम
+15,LKG (Balvatika 2),Hindi,Chapter 5,"रंग, फल व शरीर के अंग (लाल, केला, आँख, कान)",Pending Manual Test,-,-,0,No issues reported yet,-,"बाल वाटिका: प्राथमिक रंग (लाल, पीला, हरा), सरल फल व शरीर के मुख्य अंग"
+16,UKG (Balvatika 3),Maths,Chapter 1,Numbers 1 to 10 (Counting & Number Names),Pending Manual Test,-,-,0,No issues reported yet,-,"Kindergarten: Counting 1 to 10, spelling One to Ten, matching quantities"
+17,UKG (Balvatika 3),Maths,Chapter 2,Numbers 11 to 20 & Missing Numbers,Pending Manual Test,-,-,0,No issues reported yet,-,"Kindergarten: Counting 11 to 20, finding missing numbers in sequences"
+18,UKG (Balvatika 3),Maths,Chapter 3,"Before, After & In-Between Numbers",Pending Manual Test,-,-,0,No issues reported yet,-,"Kindergarten: What comes after, before, and between numbers up to 20"
+19,UKG (Balvatika 3),Maths,Chapter 4,Picture Addition (Counting Together up to 10),Pending Manual Test,-,-,0,No issues reported yet,-,Kindergarten: Adding two sets of objects using picture counters (🍎 + 🍎)
+20,UKG (Balvatika 3),Maths,Chapter 5,Picture Subtraction (Taking Away up to 10),Pending Manual Test,-,-,0,No issues reported yet,-,Kindergarten: Taking away objects from a set using picture counters (🎈 - 🎈)
+21,UKG (Balvatika 3),English,Chapter 1,Uppercase & Lowercase Matching (Aa to Zz),Pending Manual Test,-,-,0,No issues reported yet,-,"Kindergarten: Matching capital letters to small letters (Aa, Bb, Cc...)"
+22,UKG (Balvatika 3),English,Chapter 2,"3-Letter CVC Words (Cat, Bat, Pen, Sun)",Pending Manual Test,-,-,0,No issues reported yet,-,"Kindergarten: Blending CVC phonics words (a, e, i, o, u short vowel sounds)"
+23,UKG (Balvatika 3),English,Chapter 3,"Rhyming Words (Pan-Fan, Dog-Log, Pin-Tin)",Pending Manual Test,-,-,0,No issues reported yet,-,Kindergarten: Identifying words with identical ending sounds
+24,UKG (Balvatika 3),English,Chapter 4,"First Sight Words (is, the, in, on, under)",Pending Manual Test,-,-,0,No issues reported yet,-,Kindergarten: High-frequency sight words and basic prepositions with pictures
+25,UKG (Balvatika 3),English,Chapter 5,"Opposites & Picture Reading (Hot/Cold, Up/Down)",Tested & Updated,2026-10-19,2026-10-19,1,"[2026-10-19] Sanitized opposite questions (Cheetah & Turtle, Rock & Feather) so adjectives are not leaked in options",v1.3.18 (Build 37),"Kindergarten: Everyday antonym pairs (Hot/Cold, Happy/Sad, Big/Small)"
+26,UKG (Balvatika 3),Hindi,Chapter 1,संपूर्ण स्वर (अ से अः की पहचान),Pending Manual Test,-,-,0,No issues reported yet,-,"बाल वाटिका 3: सभी 13 स्वरों का सही क्रम, मौखिक उच्चारण व सचित्र पहचान"
+27,UKG (Balvatika 3),Hindi,Chapter 2,"व्यंजन पहचान (क से ङ - कबूतर, खरगोश, गमला, घर)",Pending Manual Test,-,-,0,No issues reported yet,-,"बाल वाटिका 3: क, ख, ग, घ, ङ की पहचान, उच्चारण व सचित्र संबंध"
+28,UKG (Balvatika 3),Hindi,Chapter 3,"व्यंजन पहचान (च से ज्ञ - चम्मच, टमाटर, पतंग, नल)",Pending Manual Test,-,-,0,No issues reported yet,-,बाल वाटिका 3: च से ज्ञ तक के प्रमुख व्यंजनों की सचित्र पहचान
+29,UKG (Balvatika 3),Hindi,Chapter 4,"दो अक्षर वाले सरल अमात्रिक शब्द (घर, जल, फल, बस)",Pending Manual Test,-,-,0,No issues reported yet,-,बाल वाटिका 3: बिना मात्रा के दो अक्षरों को जोड़कर सरल शब्द पढ़ना
+30,UKG (Balvatika 3),Hindi,Chapter 5,"चित्र मिलान व सरल विलोम (दिन/रात, बड़ा/छोटा)",Pending Manual Test,-,-,0,No issues reported yet,-,बाल वाटिका 3: चित्रों का शब्दों से मिलान व बुनियादी विलोम शब्द
+31,Class 1,Maths,Chapter 1,Finding the Furry Cat (Shapes & Space),Tested & Updated,2026-10-19,2026-10-19,1,[2026-10-19] Removed repeated 'is BIGGER' and 'is SMALLER' from options; removed 'Tiny' from animal sorting drag options,v1.3.18 (Build 37),"NCERT: Inside/Outside, Bigger/Smaller, Rolling/Sliding"
+32,Class 1,Maths,Chapter 2,What is Long? What is Round?,Tested & Updated,2026-10-19,2026-10-19,1,[2026-10-19] Cleaned 'Cricket Bat is LONG' and 'Round Coin' from options to avoid answer giveaways,v1.3.18 (Build 37),NCERT: Identifying round objects vs long objects
+33,Class 1,Maths,Chapter 3,Mango Treats (Numbers 1 to 9),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Counting objects 1 to 9 & concept of Zero
+34,Class 1,Maths,Chapter 4,Making Ten (Numbers 10 to 20),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Bundles of 10, Tens and Ones place concept"
+35,Class 1,Maths,Chapter 5,How Many? (Addition up to 9),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Putting together, counting forward"
+36,Class 1,Maths,Chapter 6,Vegetable Farm (Subtraction up to 9),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Taking away objects, how many left over?"
+37,Class 1,Maths,Chapter 7,Lina's Family (Measurement),Tested & Updated,2026-10-19,2026-10-19,1,"[2026-10-19] Eliminated answer giveaway adjectives (is TALLER, is the TALLEST, is HEAVIER, is LIGHTER, is THICKER, is THINNER) across all 8 measurement questions",v1.3.18 (Build 37),"NCERT: Longer/Shorter, Taller/Shorter, Heavier/Lighter"
+38,Class 1,Maths,Chapter 8,Fun with Numbers (Numbers 21 to 99),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Counting in tens, forward & backward number patterns"
+39,Class 1,Maths,Chapter 9,Utsav (Patterns),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Shapes, color & sequence pattern rules"
+40,Class 1,Maths,Chapter 10,How do I Spend My Day? (Time),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Morning, Afternoon, Evening, Night & activity order"
+41,Class 1,Maths,Chapter 11,How Much Can We Spend? (Money),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Recognizing Indian currency coins (₹1, ₹2, ₹5, ₹10) & notes"
+42,Class 1,Maths,Chapter 12,So Many Toys! (Data Handling),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Sorting, categorizing and counting collections"
+43,Class 1,English,Chapter 1,My Family & Fun with Letters (Phonics),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Letter sounds A-Z, beginning sounds"
+44,Class 1,English,Chapter 2,Picture Reading & Naming Words (Nouns),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Names of animals, birds, fruits & objects"
+45,Class 1,English,Chapter 3,One and Many (Singular & Plural),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Adding ""-s"" to show more than one"
+46,Class 1,English,Chapter 4,Action Words in Play (Verbs),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Action verbs (Clap, Jump, Hop, Dance)"
+47,Class 1,English,Chapter 5,Colors & Describing Words (Adjectives),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Colors, sizes & shapes (Red, Big, Sweet)"
+48,Class 1,English,Chapter 6,"Position Words (In, On, Under)",Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Prepositions of place
+49,Class 1,English,Chapter 7,"Pronouns (He, She, It)",Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: He for boys, She for girls, It for things"
+50,Class 1,English,Chapter 8,Sentence Scramble & Story Words,Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Simple 3-word sentences with full stop
+51,Class 1,Hindi,Chapter 1,"मीना का परिवार (स्वर, व्यंजन व अमात्रिक शब्द)",Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT सारंगी 1: दो और तीन अक्षर वाले शब्द (घर, जल, कमल)"
+52,Class 1,Hindi,Chapter 2,दादा-दादी (आ की मात्रा - ा),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: आ की मात्रा वाले शब्द (आम, कान, बादल, छाता)"
+53,Class 1,Hindi,Chapter 3,"रीना का तोता (इ व ई की मात्रा - ि, ी)",Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: छोटी इ व बड़ी ई की मात्रा में अंतर (दिन, तितली, हाथी)"
+54,Class 1,Hindi,Chapter 4,"चंदा मामा (उ व ऊ की मात्रा - ु, ू)",Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: छोटा उ व बड़ा ऊ की मात्रा (गुलाब, सूरज, भालू)"
+55,Class 1,Hindi,Chapter 5,"वाह! मेरे खिलौने (ए, ऐ, ओ, औ की मात्रा)",Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: केला, सैनिक, तोता, खिलौना"
+56,Class 1,Hindi,Chapter 6,नाम वाले शब्द (संज्ञा परिचय),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: व्यक्तियों, पशु-पक्षियों व वस्तुओं के नाम"
+57,Class 1,Hindi,Chapter 7,उल्टे अर्थ वाले शब्द (विलोम शब्द),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: बड़ा/छोटा, ऊपर/नीचे, दिन/रात"
+58,Class 2,Maths,Chapter 1,A Day at the Beach (Counting in Groups),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Counting in pairs, tens, more than & less than"
+59,Class 2,Maths,Chapter 2,Shapes Around Us (Rolling & Sliding),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: 2D & 3D shapes, flat vs curved surfaces"
+60,Class 2,Maths,Chapter 3,Fun with Numbers (Numbers up to 100),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Place value, tens and ones, expanded form"
+61,Class 2,Maths,Chapter 4,Shadow Story (Addition & Put Together),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: 2-digit addition without carryover
+62,Class 2,Maths,Chapter 5,Playing with Lines (Lines & Shapes),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Standing lines, slanting lines, sleeping lines"
+63,Class 2,Maths,Chapter 6,Decoration for Festival (Subtraction),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: 2-digit subtraction stories
+64,Class 2,Maths,Chapter 7,Rani's Gift (Measurement & Length),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Handspans, paces & simple meter measurement"
+65,Class 2,Maths,Chapter 8,Which Season is it? (Time & Months),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Days of the week, 12 months & seasons"
+66,Class 2,English,Chapter 1,Welcome to School (Rhymes & Phonics),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT Mridang: Rhyming words, vowel blends"
+67,Class 2,English,Chapter 2,Picture Fun & Naming Words,Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Common nouns, places, classroom objects"
+68,Class 2,English,Chapter 3,Action Words & Doing Words (Verbs),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Present action words (-ing words)
+69,Class 2,English,Chapter 4,"Pronouns (I, You, We, They)",Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Replacing naming words with pronouns
+70,Class 2,English,Chapter 5,Describing Words (Adjectives & Opposites),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Opposite word pairs, color & size words"
+71,Class 2,English,Chapter 6,"Position Words (Behind, In Front, Next)",Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Advanced prepositions of place
+72,Class 2,English,Chapter 7,Sentences & Question Marks,Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Capital letters, full stops and question marks"
+73,Class 2,Hindi,Chapter 1,ऊँट चला (संयुक्त व्यंजन व वर्ण ज्ञान),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT सारंगी 2: क्ष, त्र, ज्ञ, श्र व द्वित्व व्यंजन (पत्ता, बिल्ली)"
+74,Class 2,Hindi,Chapter 2,भालू ने खेली फुटबॉल (मात्रा पुनरावृत्ति),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: सभी मात्राओं का सही उच्चारण व वर्तनी
+75,Class 2,Hindi,Chapter 3,"म्याऊँ, म्याऊँ! (नाम वाले शब्द - संज्ञा)",Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: प्राणी, वस्तु, स्थान के नाम"
+76,Class 2,Hindi,Chapter 4,अधिक बलवान कौन? (विशेषण - कैसा/कितना),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: लाल सेब, ठंडी हवा, मीठा आम"
+77,Class 2,Hindi,Chapter 5,दोस्त की मदद (काम वाले शब्द - क्रिया),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: दौड़ना, पढ़ना, हँसना, खाना"
+78,Class 2,Hindi,Chapter 6,एक और अनेक (वचन - लड़का/लड़के),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: एकवचन और बहुवचन की पहचान
+79,Class 2,Hindi,Chapter 7,स्त्रीलिंग और पुल्लिंग (लिंग पहचान),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: राजा/रानी, मोर/मोरनी, लड़का/लड़की"
+80,Class 3,Maths,Chapter 1,Where to Look From? (2D Views & Shapes),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Top, side, front view of objects & dot grids"
+81,Class 3,Maths,Chapter 2,Fun with Numbers (Numbers up to 1000),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: 3-digit numbers, place values, centuries"
+82,Class 3,Maths,Chapter 3,Give and Take (Addition & Subtraction),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Adding and subtracting 3-digit numbers
+83,Class 3,Maths,Chapter 4,Long and Short (Length & Meters),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Centimeters, meters, scale measurement"
+84,Class 3,Maths,Chapter 5,Shapes and Designs (Tangrams & Edges),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Edges, corners, tangram puzzles, tiling patterns"
+85,Class 3,Maths,Chapter 6,Time Goes On (Clocks & Calendars),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Reading clock hands, minutes, years & calendar"
+86,Class 3,Maths,Chapter 7,Who is Heavier? (Kilograms & Grams),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Weight comparison, balance scales"
+87,Class 3,Maths,Chapter 8,How Many Times? (Multiplication),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Multiplication tables, repeated addition"
+88,Class 3,Maths,Chapter 9,Jugs and Mugs (Litres & Millilitres),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Liquid volume capacity measurement
+89,Class 3,Maths,Chapter 10,Rupees and Paise (Money),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Notes, coins, adding money bills"
+90,Class 3,English,Chapter 1,Rhyming Words & Phonics,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Rhyming words, vowel sounds & phonics"
+91,Class 3,English,Chapter 2,Common & Proper Nouns,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Names of specific cities, monuments, persons & capitalization"
+92,Class 3,English,Chapter 3,"Singular and Plural (-s, -es, -ies)",Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Box -> Boxes, Baby -> Babies, Leaf -> Leaves"
+93,Class 3,English,Chapter 4,"Helping Verbs (Is, Am, Are, Was, Were)",Pending Manual Test,-,-,0,No issues reported yet,-,Universal: Subject-verb agreement with singular & plural subjects
+94,Class 3,English,Chapter 5,Adjectives & Degrees of Comparison,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Sweet, sweeter, sweetest & describing words"
+95,Class 3,English,Chapter 6,Prepositions of Time & Place,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: At, in, on, under, between, behind"
+96,Class 3,English,Chapter 7,"Connecting Words (And, But, Because)",Pending Manual Test,-,-,0,No issues reported yet,-,Universal: Conjunctions joining simple sentences
+97,Class 3,Hindi,Chapter 1,संज्ञा व उसके भेद (व्यक्तिवाचक व जातिवाचक),Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: व्यक्तिवाचक, जातिवाचक व भाववाचक संज्ञा पहचान"
+98,Class 3,Hindi,Chapter 2,"सर्वनाम शब्द (मैं, हम, तुम, वह, वे)",Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: पुरुषवाचक सर्वनाम (उत्तम, मध्यम, अन्य पुरुष)"
+99,Class 3,Hindi,Chapter 3,"क्रिया व काल (भूत, वर्तमान, भविष्य)",Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: काम बताने वाले शब्द व तीनों काल (था, है, होगा)"
+100,Class 3,Hindi,Chapter 4,विलोम व पर्यायवाची शब्द,Pending Manual Test,-,-,0,No issues reported yet,-,व्याकरण: विपरीतार्थक (उलटे) व समानार्थक (पर्याय) शब्द
+101,Class 3,Hindi,Chapter 5,मुहावरे व लोकोक्तियाँ,Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: कान भरना, आँख लगना, फूला न समाना, अँगूठा दिखाना"
+102,Class 3,Hindi,Chapter 6,विराम चिह्न व शुद्ध वर्तनी,Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: पूर्ण विराम (।), प्रश्नवाचक (?), विस्मयादिबोधक (!) व शुद्ध शब्द"
+103,Class 4,Maths,Chapter 1,Building with Bricks (Brick Patterns),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Arch designs, wall patterns, 3D bricks"
+104,Class 4,Maths,Chapter 2,Long and Short (Kilometers & Meters),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Marathon running, conversion of km and m"
+105,Class 4,Maths,Chapter 3,A Trip to Bhopal (Word Problems & Estimation),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Bus tickets, boat rides, estimation math"
+106,Class 4,Maths,Chapter 4,Tick-Tick-Tick (12h vs 24h Clock),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Railway clocks, timeline of events"
+107,Class 4,Maths,Chapter 5,The Way The World Looks (3D Perspectives),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Top view vs side view of classroom & park
+108,Class 4,Maths,Chapter 6,The Junk Seller (Currency & Profit),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Loans, interest, multiplication with money"
+109,Class 4,Maths,Chapter 7,Carts and Wheels (Circles & Radius),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Drawing circles, radius, center point"
+110,Class 4,Maths,Chapter 8,Halves and Quarters (Fractions),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: 1/2, 1/4, 3/4 fractional parts"
+111,Class 4,Maths,Chapter 9,Tables and Shares (Division),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Long division with remainders
+112,Class 4,Maths,Chapter 10,Fields and Fences (Perimeter & Area),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Boundary length of fields & gardens
+113,Class 4,English,Chapter 1,"Articles & Determiners (A, An, The)",Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Vowel sounds, indefinite vs definite articles"
+114,Class 4,English,Chapter 2,Collective & Abstract Nouns,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Flocks, herds, prides, swarms, and abstract quality nouns"
+115,Class 4,English,Chapter 3,Past Tense & Irregular Verbs,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Irregular past tense (caught, flew, wrote, thought)"
+116,Class 4,English,Chapter 4,Adverbs of Manner & Time,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Slowly, quickly, happily, bravely, yesterday, soon"
+117,Class 4,English,Chapter 5,Conjunctions & Compound Sentences,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Although, because, so, while, joining independent clauses"
+118,Class 4,English,Chapter 6,Prepositions & Direction Words,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Across, through, into, toward, around, beside"
+119,Class 4,Hindi,Chapter 1,"विशेषण व उसके भेद (गुणवाचक, संख्यावाचक)",Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: गुणवाचक, संख्यावाचक, परिमाणवाचक विशेषण"
+120,Class 4,Hindi,Chapter 2,मुहावरे व लोकोक्तियाँ (प्रयोग व अर्थ),Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: छक्के छुड़ाना, नौ दो ग्यारह होना, फूला न समाना"
+121,Class 4,Hindi,Chapter 3,"काल व उसके भेद (भूत, वर्तमान, भविष्य)",Pending Manual Test,-,-,0,No issues reported yet,-,व्याकरण: तीनों कालों का वाक्य में सही प्रयोग व काल परिवर्तन
+122,Class 4,Hindi,Chapter 4,लिंग व वचन परिवर्तन के नियम,Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: नदी ➔ नदियाँ, दवाई ➔ दवाइयाँ, कवयित्री, विदुषी"
+123,Class 4,Hindi,Chapter 5,विलोम व पर्यायवाची शब्द,Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: बादल, वर्षा, पानी, अग्नि, सूर्य के समानार्थक व विलोम"
+124,Class 4,Hindi,Chapter 6,अनेक शब्दों के लिए एक शब्द,Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: जो खेती करे = किसान, जो कभी न मरे = अमर, आस्तिक"
+125,Class 5,Maths,Chapter 1,The Fish Tale (Large Numbers & Speed),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Lakhs, Crores, Boat speed, Distance calculation"
+126,Class 5,Maths,Chapter 2,"Shapes and Angles (Acute, Right, Obtuse)",Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Angle tester, Clock hand angles, Name angles"
+127,Class 5,Maths,Chapter 3,How Many Squares? (Area & Perimeter Grids),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Grid squares, Stamp areas, Footprint areas"
+128,Class 5,Maths,Chapter 4,Parts and Wholes (Fractions & Equivalent),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Flag fractions, Equivalent fractions, Chocolate sharing"
+129,Class 5,Maths,Chapter 5,Does it Look the Same? (Symmetry & Rotations),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Mirror lines, 1/2 and 1/4 turns"
+130,Class 5,Maths,Chapter 6,Multiples and Factors (LCM & HCF),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Common multiples, Factor trees"
+131,Class 5,Maths,Chapter 7,Tenths and Hundredths (Decimals & Paise),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Millimeters to cm, Rupee decimals"
+132,Class 5,Maths,Chapter 8,Area and its Boundary (Formulas),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Area = L × B, Perimeter = 2 × (L + B)"
+133,Class 5,Maths,Chapter 9,Boxes and Sketches (3D Nets & Cubes),Pending Manual Test,-,-,0,No issues reported yet,-,NCERT: Folding 2D nets into 3D open and closed boxes
+134,Class 5,Maths,Chapter 10,How Big? How Heavy? (Volume),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Volume in cubic cm, water displacement"
+135,Class 5,English,Chapter 1,Types of Sentences & Subject-Predicate,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Assertive, Interrogative, Imperative, Exclamatory & Subject-Predicate"
+136,Class 5,English,Chapter 2,Nouns: Abstract & Collective Mastery,Pending Manual Test,-,-,0,No issues reported yet,-,Universal: Forming abstract nouns from adjectives/verbs & advanced collectives
+137,Class 5,English,Chapter 3,"Tenses: Present, Past & Future (Simple & Continuous)",Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Present, past, and future tense forms and temporal agreement"
+138,Class 5,English,Chapter 4,Active and Passive Voice,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Identifying doer vs receiver, by-agent, past participles"
+139,Class 5,English,Chapter 5,"Idioms, Proverbs & Figurative Language",Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Colorful idioms, proverbs, similes & metaphors"
+140,Class 5,English,Chapter 6,"Punctuation, Quotation Marks & Contractions",Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Direct speech inverted commas, apostrophes for possession & contractions"
+141,Class 5,Hindi,Chapter 1,कारक व उनके विभक्ति चिह्न (परसर्ग),Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: कर्ता, कर्म, करण, संप्रदान, अपादान, संबंध, अधिकरण, संबोधन"
+142,Class 5,Hindi,Chapter 2,उपसर्ग व प्रत्यय (पहचान व शब्द निर्माण),Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: उपसर्ग (सु-, बे-, अन-, दुर्-) और प्रत्यय (-दार, -वान, -ई, -ता)"
+143,Class 5,Hindi,Chapter 3,भाववाचक संज्ञा निर्माण,Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: जातिवाचक संज्ञा, सर्वनाम, विशेषण व क्रिया से भाववाचक संज्ञा बनाना"
+144,Class 5,Hindi,Chapter 4,क्रिया के भेद (सकर्मक व अकर्मक क्रिया),Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: कर्म की पहचान, क्या/किसे प्रश्न नियम, सकर्मक व अकर्मक क्रिया"
+145,Class 5,Hindi,Chapter 5,"मुहावरे, लोकोक्तियाँ व वाक्य प्रयोग",Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: दाँतों तले उँगली दबाना, कमर कसना, आँखें खुलना, लोकोक्ति अर्थ"
+146,Class 5,Hindi,Chapter 6,"विराम चिह्न, वर्तनी शुद्धि व वाक्य रचना",Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: अल्पविराम, पूर्णविराम, उद्धरण चिह्न, शुद्ध वर्तनी व वाक्य रचना"
+147,Class 6,Maths,Chapter 1,Knowing Our Numbers (Lakhs & Roman Numerals),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Indian & International systems, Roman symbols"
+148,Class 6,Maths,Chapter 2,Whole Numbers & Number Line,Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Closure, Commutative & Distributive properties"
+149,Class 6,Maths,Chapter 3,Playing with Numbers (Prime & Composite),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Sieve of Eratosthenes, HCF, LCM"
+150,Class 6,Maths,Chapter 4,"Basic Geometrical Ideas (Points, Lines, Polygons)",Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Rays, Segments, Curves, Triangles, Circles"
+151,Class 6,Maths,Chapter 5,Integers (Positive & Negative Numbers),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Number line integers, temperature & elevation"
+152,Class 6,Maths,Chapter 6,Fractions (Operations & Mixed Fractions),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Like/Unlike fractions, addition & subtraction"
+153,Class 6,Maths,Chapter 7,Decimals & Place Values,Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Tenths, hundredths, thousandths"
+154,Class 6,Maths,Chapter 8,Data Handling (Tally & Bar Graphs),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Organizing data, drawing bar graphs"
+155,Class 6,Maths,Chapter 9,Mensuration (Perimeter & Area),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Regular polygons, squares, rectangles"
+156,Class 6,Maths,Chapter 10,Algebra (Variables & Expressions),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Matchstick patterns, x and y variables"
+157,Class 6,Maths,Chapter 11,Ratio and Proportion (Unitary Method),Pending Manual Test,-,-,0,No issues reported yet,-,"NCERT: Comparing quantities, unitary calculations"
+158,Class 6,English,Chapter 1,Nouns & Pronouns (Advanced Cases & Relative Pronouns),Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Nominative, objective, possessive cases & relative pronouns (who, which, that)"
+159,Class 6,English,Chapter 2,"Kinds of Sentences (Declarative, Question, Exclamatory)",Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Declarative, Interrogative, Imperative, Exclamatory & transformation"
+160,Class 6,English,Chapter 3,Subject-Verb Agreement,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Singular/Plural subjects, collective subjects, either/neither rules"
+161,Class 6,English,Chapter 4,"Verb Tenses (Simple, Continuous, Perfect)",Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Present, Past, Future simple, continuous, and perfect tenses"
+162,Class 6,English,Chapter 5,Prepositions and Phrasal Verbs,Pending Manual Test,-,-,0,No issues reported yet,-,Universal: Prepositions of place/time/direction & common phrasal verbs
+163,Class 6,English,Chapter 6,Direct and Indirect Speech,Pending Manual Test,-,-,0,No issues reported yet,-,"Universal: Reporting verbs, tense backshift, pronoun changes in reported speech"
+164,Class 6,English,Chapter 7,Active and Passive Voice & Conjunctions,Pending Manual Test,-,-,0,No issues reported yet,-,Universal: Active to passive transformation across tenses & coordinating/subordinating conjunctions
+165,Class 6,Hindi,Chapter 1,"संज्ञा, सर्वनाम व पद परिचय",Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: संज्ञा के भेद, सर्वनाम के 6 भेद व वाक्य में पदों का व्याकरणिक परिचय"
+166,Class 6,Hindi,Chapter 2,विशेषण व उसके भेद (प्रविशेषण सहित),Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: गुणवाचक, संख्यावाचक, परिमाणवाचक, सार्वनामिक विशेषण व प्रविशेषण"
+167,Class 6,Hindi,Chapter 3,संधि परिचय (स्वर संधि के भेद),Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: दो वर्णों का मेल, दीर्घ, गुण, वृद्धि, यण व अयादि स्वर संधि नियम"
+168,Class 6,Hindi,Chapter 4,"उपसर्ग, प्रत्यय व शब्द निर्माण",Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: तत्सम, तद्भव व विदेशी उपसर्ग-प्रत्यय द्वारा नवीन शब्द रचना"
+169,Class 6,Hindi,Chapter 5,विराम चिह्न व अशुद्ध वाक्य शोधन,Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: सभी प्रमुख विराम चिह्न, लिंग, वचन, कारक व पदक्रम अशुद्धि सुधार"
+170,Class 6,Hindi,Chapter 6,समास परिचय व मुहावरे-लोकोक्तियाँ,Pending Manual Test,-,-,0,No issues reported yet,-,"व्याकरण: तत्पुरुष, द्वंद्व, द्विगु व अव्ययीभाव समास तथा प्रसिद्ध मुहावरे व लोकोक्तियाँ"

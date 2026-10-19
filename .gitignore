@@ -47,4 +47,5 @@ yarn-error.*
 
 # audit & migration scripts
 scripts/
+!scripts/curriculum_tracker.py
 
