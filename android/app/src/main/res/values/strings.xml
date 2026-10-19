@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BrainLeague</string>
+    <string name="title_activity_main">BrainLeague</string>
+    <string name="package_name">com.bolchaall.brainleague</string>
+    <string name="custom_url_scheme">com.bolchaall.brainleague</string>
+</resources>

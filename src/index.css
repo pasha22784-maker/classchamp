@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-navy-950 text-pearl font-sans overflow-x-hidden min-h-screen;
+    background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #0f172a 60%, #070c18 100%);
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-rajdhani {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Gold shimmer effect */
+.gold-shimmer {
+  background: linear-gradient(90deg, #F59E0B 0%, #FDE68A 50%, #F59E0B 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Glassmorphism containers */
+.glass-panel {
+  background: rgba(30, 27, 75, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.glass-panel-subtle {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+}
+
+.emerald-border-glow {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.crimson-border-glow {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* KBC Option Hexagon or Sleek Pill styling */
+.kbc-option-btn {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kbc-option-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+}
+
+.kbc-option-btn:active:not(:disabled) {
+  transform: translateY(0px);
+}
