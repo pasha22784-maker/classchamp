@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 MATHEMATICS (JOYFUL MATHEMATICS)
 // CHAPTER 4: MAKING TEN (NUMBERS 10 TO 20)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 6 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
@@ -18,8 +18,8 @@ export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
     concept: 'Making a Bundle of Ten',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'How many loose matchsticks tie together to make ONE complete bundle of TEN 🪵?',
-    visualEmoji: '🪵 🔟',
+    question: 'How many loose matchsticks tie together to make ONE complete bundle of TEN 🌲?',
+    visualEmoji: '🌲 🔟',
     payload: {
       options: [
         { id: 'opt_bnd1_1', text: '10 sticks make 1 Ten Bundle', isCorrect: true },
@@ -119,7 +119,7 @@ export const CLASS_1_MATHS_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'How many bundles of TEN make the number 20 (Twenty)?',
-    visualEmoji: '🪵(10) + 🪵(10) = 2️⃣0️⃣',
+    visualEmoji: '🌲(10) + 🌲(10) = 2️⃣0️⃣',
     payload: {
       options: [
         { id: 'opt_pl3_1', text: '2 bundles of Ten', isCorrect: true },

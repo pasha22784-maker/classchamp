@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -18,11 +18,12 @@ import {
   SpeakerButton,
 } from '../components/common';
 import { DynamicQuestionRenderer } from '../components/quiz';
+import { TopicSelectionModal } from '../components/quiz/TopicSelectionModal';
 import { useQuizStore } from '../store/useQuizStore';
 import { useUserStore } from '../store/useUserStore';
 import { triggerHaptic } from '../utils/haptics';
-import { stopSpeaking } from '../utils/speech';
-import { cleanBilingualForEnglish, cleanBilingualForHindi } from '../utils/language';
+import { speakText, stopSpeaking } from '../utils/speech';
+import { cleanBilingualForEnglish, cleanBilingualForHindi, getAdaptedQuestion } from '../utils/language';
 
 interface QuizScreenProps {
   onFinishQuiz: () => void;
@@ -47,10 +48,15 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
     selectAnswer,
     submitAnswer,
     nextQuestion,
+    jumpToQuestion,
     tickTimer,
     isQuizComplete,
     activeChapterTitle,
   } = useQuizStore();
+
+  const [showTopicDrawer, setShowTopicDrawer] = useState(false);
+  const isKindergarten = profile.grade === 'LKG' || profile.grade === 'UKG';
+  const [autoSpeakEnabled, setAutoSpeakEnabled] = useState(isKindergarten);
 
   // Run the 10-minute countdown timer
   useEffect(() => {
@@ -71,21 +77,37 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
     }
   }, [isQuizComplete]);
 
-  // Stop previous speech on new question or screen exit
+  // Stop previous speech on screen unmount
   useEffect(() => {
-    stopSpeaking();
     return () => {
       stopSpeaking();
     };
-  }, [currentQuestionIndex]);
+  }, []);
 
-  const currentQ = questions[currentQuestionIndex];
+  const rawQ = questions[currentQuestionIndex];
+  const isHindi = rawQ ? (rawQ.subject === 'hindi' || (rawQ.subject !== 'english' && profile.preferredLanguage === 'hi')) : false;
+  const currentQ = rawQ ? getAdaptedQuestion(rawQ, isHindi ? 'hi' : 'en') : null;
 
-  if (!currentQ) {
+  // Auto-speak question for pre-readers & young learners upon question load
+  useEffect(() => {
+    stopSpeaking();
+    if (autoSpeakEnabled && rawQ && currentQ) {
+      const textToSpeak = isHindi
+        ? (rawQ.questionHindi || currentQ.question)
+        : currentQ.question;
+      const timer = setTimeout(() => {
+        speakText(textToSpeak);
+      }, 380);
+      return () => {
+        clearTimeout(timer);
+        stopSpeaking();
+      };
+    }
+  }, [currentQuestionIndex, autoSpeakEnabled, isHindi]);
+
+  if (!rawQ || !currentQ) {
     return null;
   }
-
-  const isHindi = currentQ.subject === 'hindi' || (currentQ.subject !== 'english' && profile.preferredLanguage === 'hi');
 
   // Format timer MM:SS
   const minutes = Math.floor(secondsRemaining / 60);
@@ -93,6 +115,7 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
   const timeString = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
   const handleExitPress = () => {
+    stopSpeaking();
     Alert.alert(
       isHindi ? 'अभ्यास छोड़ें?' : 'Leave Practice?',
       isHindi
@@ -174,6 +197,27 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
           </Text>
         </View>
 
+        {/* Voice Auto-Narrate Toggle */}
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={() => {
+            triggerHaptic('light');
+            if (autoSpeakEnabled) {
+              stopSpeaking();
+            }
+            setAutoSpeakEnabled((prev) => !prev);
+          }}
+          style={[styles.audioToggleBtn, !autoSpeakEnabled && styles.audioToggleBtnMuted]}
+          accessibilityLabel={autoSpeakEnabled ? 'Voice assistance on' : 'Voice assistance muted'}
+        >
+          <Text style={styles.audioToggleEmoji}>{autoSpeakEnabled ? '🔊' : '🔇'}</Text>
+        </TouchableOpacity>
+
+        {/* Live Session Coins */}
+        <View style={styles.coinsPill}>
+          <Text style={styles.coinsText}>💰 {starsEarned * 10}</Text>
+        </View>
+
         {/* Live Session Stars */}
         <View style={styles.starsPill}>
           <Text style={styles.starsText}>⭐ {starsEarned}</Text>
@@ -184,12 +228,28 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Progress Bar */}
-        <ChampProgressBar
-          current={currentQuestionIndex + 1}
-          total={questions.length}
-          style={styles.progressBar}
-        />
+        {/* Progress Bar & Topic Jump Trigger */}
+        <View style={styles.progressContainer}>
+          <View style={{ flex: 1 }}>
+            <ChampProgressBar
+              current={currentQuestionIndex + 1}
+              total={questions.length}
+              style={styles.progressBar}
+            />
+          </View>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => {
+              triggerHaptic('light');
+              setShowTopicDrawer(true);
+            }}
+            style={styles.topicDrawerTrigger}
+          >
+            <Text style={styles.topicDrawerText}>
+              📑 {isHindi ? `विषय Q${currentQuestionIndex + 1}/${questions.length}` : `Topics Q${currentQuestionIndex + 1}/${questions.length}`} ▾
+            </Text>
+          </TouchableOpacity>
+        </View>
 
         {/* Chapter & Learning Progression Ladder Header */}
         <View style={styles.chapterHeader}>
@@ -250,12 +310,33 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
                 size="sm"
               />
             </View>
-            <SpeakerButton textToSpeak={currentQ.question} size="md" />
+            <View style={{ flexDirection: 'row', gap: 6, alignItems: 'center' }}>
+              <SpeakerButton
+                textToSpeak={currentQ.question}
+                activeLang={isHindi ? 'hi' : 'en'}
+                size="md"
+              />
+              {rawQ.questionHindi && !isHindi && (
+                <SpeakerButton
+                  textToSpeak={rawQ.questionHindi}
+                  activeLang="hi"
+                  size="sm"
+                  label="हिंदी"
+                  showLabel
+                />
+              )}
+            </View>
           </View>
 
           <Text style={styles.questionText}>
             {currentQ.question}
           </Text>
+
+          {rawQ.questionHindi && !isHindi && (
+            <Text style={styles.questionHindiText}>
+              {rawQ.questionHindi}
+            </Text>
+          )}
 
           {currentQ.visualEmoji ? (
             <View style={styles.emojiHeroBox}>
@@ -278,15 +359,33 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
             style={styles.explanationCard}
             variant={isCorrect ? 'gold' : 'accent'}
           >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
               <Text style={styles.feedbackHeading}>
                 {isCorrect
                   ? (isHindi ? '🎉 शाबाश, सुपर चैंप! बिल्कुल सही!' : '🎉 Super Champ! That’s Right!')
                   : (isHindi ? '💡 अच्छा प्रयास! यह रहा सही संकेत:' : '💡 Good Try! Here’s the Clue:')}
               </Text>
-              <SpeakerButton textToSpeak={currentQ.explanation} size="sm" />
+              <View style={{ flexDirection: 'row', gap: 6, alignItems: 'center' }}>
+                <SpeakerButton
+                  textToSpeak={currentQ.explanation}
+                  activeLang={isHindi ? 'hi' : 'en'}
+                  size="sm"
+                />
+                {rawQ.explanationHindi && !isHindi && (
+                  <SpeakerButton
+                    textToSpeak={rawQ.explanationHindi}
+                    activeLang="hi"
+                    size="sm"
+                    label="हिंदी"
+                    showLabel
+                  />
+                )}
+              </View>
             </View>
             <Text style={styles.explanationBody}>{currentQ.explanation}</Text>
+            {rawQ.explanationHindi && !isHindi && (
+              <Text style={styles.explanationHindiBody}>{rawQ.explanationHindi}</Text>
+            )}
           </ChampCard>
         )}
 
@@ -315,6 +414,26 @@ export const QuizScreen: React.FC<QuizScreenProps> = ({
           )}
         </View>
       </ScrollView>
+
+      {/* Interactive In-Quiz Topic / Question Drawer */}
+      <TopicSelectionModal
+        visible={showTopicDrawer}
+        onClose={() => setShowTopicDrawer(false)}
+        grade={profile.grade}
+        subject={currentQ.subject}
+        chapterTitle={currentQ.chapter || activeChapterTitle || ''}
+        chapterIcon={currentQ.visualEmoji?.split(' ')[0] || '📖'}
+        questions={questions}
+        savedProgress={{
+          lastQuestionIndex: currentQuestionIndex,
+          totalQuestions: questions.length,
+          lastUpdated: new Date().toISOString(),
+        }}
+        onStartAtQuestion={(idx) => {
+          jumpToQuestion(idx);
+          setShowTopicDrawer(false);
+        }}
+      />
     </SafeAreaView>
   );
 };
@@ -345,6 +464,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '800',
   },
+  audioToggleBtn: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255, 255, 255, 0.22)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1.5,
+    borderColor: 'rgba(255, 255, 255, 0.4)',
+  },
+  audioToggleBtnMuted: {
+    backgroundColor: 'rgba(0, 0, 0, 0.28)',
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+  },
+  audioToggleEmoji: {
+    fontSize: 16,
+  },
   timerBadge: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -365,6 +501,19 @@ const styles = StyleSheet.create({
   },
   timerUrgent: {
     color: '#F87171',
+  },
+  coinsPill: {
+    backgroundColor: 'rgba(234, 179, 8, 0.22)',
+    paddingHorizontal: SPACING.md,
+    paddingVertical: 5,
+    borderRadius: BORDER_RADIUS.round,
+    borderWidth: 1,
+    borderColor: '#EAB308',
+  },
+  coinsText: {
+    color: '#FEF08A',
+    fontWeight: '800',
+    fontSize: 13,
   },
   starsPill: {
     backgroundColor: 'rgba(245, 158, 11, 0.25)',
@@ -388,8 +537,29 @@ const styles = StyleSheet.create({
     borderTopRightRadius: BORDER_RADIUS.xl,
     minHeight: '100%',
   },
-  progressBar: {
+  progressContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SPACING.sm,
     marginBottom: SPACING.sm,
+  },
+  progressBar: {
+    marginBottom: 0,
+  },
+  topicDrawerTrigger: {
+    backgroundColor: COLORS.white,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: BORDER_RADIUS.round,
+    borderWidth: 1,
+    borderColor: '#C7D2FE',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  topicDrawerText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: COLORS.primaryDark,
   },
   chapterHeader: {
     backgroundColor: '#EEF2FF',
@@ -448,6 +618,19 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     marginBottom: SPACING.sm,
   },
+  questionHindiText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#4338CA',
+    lineHeight: 24,
+    marginBottom: SPACING.sm,
+    backgroundColor: '#EEF2FF',
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: 6,
+    borderRadius: BORDER_RADIUS.sm,
+    borderLeftWidth: 3,
+    borderLeftColor: COLORS.primary,
+  },
   emojiHeroBox: {
     alignItems: 'center',
     paddingVertical: SPACING.sm,
@@ -468,6 +651,15 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: COLORS.textMedium,
     lineHeight: 18,
+  },
+  explanationHindiBody: {
+    fontSize: 13,
+    color: '#4B5563',
+    lineHeight: 19,
+    marginTop: 6,
+    paddingTop: 6,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(0, 0, 0, 0.08)',
   },
   bottomControl: {
     marginTop: SPACING.sm,

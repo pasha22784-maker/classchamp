@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 6 HINDI (UNIVERSAL VYAKARAN)
 // CHAPTER 2: विशेषण व उसके भेद (प्रविशेषण सहित)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_6_HINDI_LESSON_2_QUESTIONS: Question[] = [
@@ -274,7 +274,7 @@ export const CLASS_6_HINDI_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'विशेषण पद का मानक पद परिचय लिखते समय चरणों को सही क्रम में व्यवस्थित कीजिए:',
-    visualEmoji: '🪜 📝',
+    visualEmoji: '📏 📝',
     payload: {
       tokens: [
         'विशेषण का मुख्य भेद (गुणवाचक / संख्यावाचक आदि)',

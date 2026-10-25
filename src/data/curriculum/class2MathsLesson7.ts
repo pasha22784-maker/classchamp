@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 7: RANI'S GIFT (MEASUREMENT & LENGTH)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (Global Benchmark Standard)
 // 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
@@ -159,7 +159,7 @@ export const CLASS_2_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'drag_order',
     question: 'Arrange these objects from shortest length to longest length:',
-    visualEmoji: '📏 🧼 ✏️ 🪑 🏫',
+    visualEmoji: '📏 🧼 ✏️ 🛋️ 🏫',
     payload: {
       tokens: ['5 cm (Eraser)', '15 cm (Pencil)', '1 meter (Desk)', '10 meters (Classroom)'],
       scrambled: ['1 meter (Desk)', '5 cm (Eraser)', '10 meters (Classroom)', '15 cm (Pencil)'],

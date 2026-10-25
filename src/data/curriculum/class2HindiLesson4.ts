@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 HINDI (सारंगी 2 / RIMJHIM 2)
 // CHAPTER 4: अधिक बलवान कौन? (विशेषण - कैसा/कितना)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (Global Benchmark Standard)
 // 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 

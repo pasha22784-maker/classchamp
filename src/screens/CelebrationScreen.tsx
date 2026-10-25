@@ -44,6 +44,17 @@ export const CelebrationScreen: React.FC<CelebrationScreenProps> = ({
 
       // Advance to next chapter for the subject so student resumes ahead next time
       if (result.chapterTitle) {
+        await useUserStore.getState().setChapterProgress(
+          result.grade,
+          result.subject,
+          result.chapterTitle,
+          result.totalQuestions - 1,
+          result.totalQuestions,
+          true,
+          result.scorePercentage,
+          result.starsEarned
+        );
+
         await useUserStore.getState().recordTopicPerformance(
           result.subject,
           result.chapterTitle,
@@ -108,7 +119,7 @@ export const CelebrationScreen: React.FC<CelebrationScreenProps> = ({
           />
         </View>
 
-        {/* IXL-Grade: Need Extra Practice on this Topic? */}
+        {/* Skill Mastery: Need Extra Practice on this Topic? */}
         {onStartExtraPractice && (
           <ChampCard style={styles.practiceCard} variant="gold">
             <View style={styles.practiceRow}>

@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // NCERT CLASS 6 MATHEMATICS
 // CHAPTER 10: Algebra (Variables & Expressions)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers
+// Global Benchmark Standard | Zero Spoilers
 // ============================================================================
 
 export const CLASS_6_MATHS_LESSON_10_QUESTIONS: Question[] = [
@@ -41,7 +41,7 @@ export const CLASS_6_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'Two matchsticks are required to make one letter "L". How many matchsticks are required to form n such "L"s?\nRule = [BLANK]',
-    visualEmoji: '🪵 📐',
+    visualEmoji: '🌲 📐',
     payload: {
       correctAnswer: '2n',
       wordBank: ['2n', 'n + 2', '2 + n', 'n/2'],
@@ -268,7 +268,7 @@ export const CLASS_6_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'Arrange the logical steps to solve the linear equation 3y - 5 = 16 for y:',
-    visualEmoji: '🪜 ⚖️',
+    visualEmoji: '📏 ⚖️',
     payload: {
       tokens: [
         'Write original equation: 3y - 5 = 16',
@@ -301,7 +301,7 @@ export const CLASS_6_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'fill_blank',
     question: '5 matchsticks are required to make one letter "E". If n letters of "E" are formed, how many matchsticks are required?\nAnswer: [BLANK]',
-    visualEmoji: '🪵 🔤',
+    visualEmoji: '🌲 🔤',
     payload: {
       correctAnswer: '5n',
       wordBank: ['5n', 'n + 5', '5 + n', '5/n'],

@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 5 MATHEMATICS (MATH-MAGIC 5)
 // CHAPTER 2: SHAPES AND ANGLES (ACUTE, RIGHT, OBTUSE)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_MATHS_LESSON_2_QUESTIONS: Question[] = [

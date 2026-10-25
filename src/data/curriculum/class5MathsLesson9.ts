@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 5 MATHEMATICS (MATH-MAGIC 5)
 // CHAPTER 9: BOXES AND SKETCHES (3D NETS & CUBES)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_MATHS_LESSON_9_QUESTIONS: Question[] = [

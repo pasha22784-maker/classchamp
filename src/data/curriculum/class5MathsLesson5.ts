@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 5 MATHEMATICS (MATH-MAGIC 5)
 // CHAPTER 5: DOES IT LOOK THE SAME? (SYMMETRY & ROTATIONS)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_MATHS_LESSON_5_QUESTIONS: Question[] = [
@@ -61,7 +61,7 @@ export const CLASS_5_MATHS_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'What is a straight crease line that divides a flat shape into two identical matching mirror halves called?',
-    visualEmoji: '🪞 ✂️ 📐',
+    visualEmoji: '✨ ✂️ 📐',
     payload: {
       options: [
         { id: 'opt_1', text: 'Line of symmetry', isCorrect: true },
@@ -312,7 +312,7 @@ export const CLASS_5_MATHS_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Which letter has BOTH a horizontal line of symmetry AND a vertical line of symmetry?',
-    visualEmoji: '🔤 ➕ 🪞',
+    visualEmoji: '🔤 ➕ ✨',
     payload: {
       options: [
         { id: 'opt_1', text: 'Letter X', isCorrect: true },

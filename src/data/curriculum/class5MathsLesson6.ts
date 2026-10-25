@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 5 MATHEMATICS (MATH-MAGIC 5)
 // CHAPTER 6: MULTIPLES AND FACTORS (LCM & HCF)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
@@ -206,7 +206,7 @@ export const CLASS_5_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'In the NCERT game, the mouse jumps 2 steps at a time (14, 16, 18...) and the cat jumps 3 steps at a time (3, 6, 9...). Which common multiple step will both land on?',
-    visualEmoji: '🐱 🐭 🪜',
+    visualEmoji: '🐱 🐭 📏',
     payload: {
       options: [
         { id: 'opt_1', text: 'Step 18', isCorrect: true },

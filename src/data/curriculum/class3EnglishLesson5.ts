@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // UNIVERSAL ENGLISH GRAMMAR (CLASS 3)
 // CHAPTER 5: ADJECTIVES & DEGREES OF COMPARISON
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_ENGLISH_LESSON_5_QUESTIONS: Question[] = [

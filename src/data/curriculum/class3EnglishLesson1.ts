@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // UNIVERSAL ENGLISH GRAMMAR & PHONICS (CLASS 3)
 // CHAPTER 1: RHYMING WORDS & PHONICS
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
@@ -79,7 +79,7 @@ export const CLASS_3_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'The frog sat on a wooden log in the morning [BLANK].',
-    visualEmoji: '🐸 🪵 🌫️',
+    visualEmoji: '🐸 🌲 🌫️',
     payload: {
       correctAnswer: 'fog',
       wordBank: ['fog', 'sun', 'rain', 'wind'],
@@ -270,7 +270,7 @@ export const CLASS_3_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Choose the correct homophone word: "The white dove flew [BLANK] the open window into the garden."',
-    visualEmoji: '🕊️ 🪟 🍃',
+    visualEmoji: '🕊️ 🖼️ 🍃',
     payload: {
       options: [
         { id: 'opt_1', text: 'through', isCorrect: true },

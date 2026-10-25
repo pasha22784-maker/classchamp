@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 6 ENGLISH (UNIVERSAL GRAMMAR)
 // CHAPTER 1: Nouns & Pronouns (Advanced Cases & Relative Pronouns)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_6_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
@@ -101,7 +101,7 @@ export const CLASS_6_ENGLISH_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'Select the correct reflexive pronoun:\n"The little puppy saw [BLANK] in the looking glass and barked."',
-    visualEmoji: '🐶 🪞',
+    visualEmoji: '🐶 ✨',
     payload: {
       correctAnswer: 'itself',
       wordBank: ['itself', 'himself', 'herself', 'themselves'],

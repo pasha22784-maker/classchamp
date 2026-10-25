@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 6 ENGLISH (UNIVERSAL GRAMMAR)
 // CHAPTER 4: Verb Tenses (Simple, Continuous, Perfect)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_6_ENGLISH_LESSON_4_QUESTIONS: Question[] = [

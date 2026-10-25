@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 HINDI (सारंगी 1 / RIMJHIM 1)
 // CHAPTER 5: वाह! मेरे खिलौने (ए, ऐ, ओ, औ की मात्रा)
-// Comprehensive Curriculum Covering All 8 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 8 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
@@ -191,7 +191,7 @@ export const CLASS_1_HINDI_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'गमले में पानी देने से छोटा सा हरा-भरा क्या बढ़ता है 🌱?',
-    visualEmoji: '🌱 🪴',
+    visualEmoji: '🌱 🌱',
     payload: {
       options: [
         { id: 'opt_au1_1', text: 'पौधा 🌱', isCorrect: true },

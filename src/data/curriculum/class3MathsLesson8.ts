@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 8: HOW MANY TIMES? (MULTIPLICATION)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_8_QUESTIONS: Question[] = [
@@ -122,7 +122,7 @@ export const CLASS_3_MATHS_LESSON_8_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'An auto-rickshaw has 3 wheels. How many wheels do 12 auto-rickshaws have in total?',
-    visualEmoji: '🛺 3️⃣ ⚙️',
+    visualEmoji: '🛵 3️⃣ ⚙️',
     payload: {
       options: [
         { id: 'opt_1', text: '36 wheels', isCorrect: true },
@@ -182,7 +182,7 @@ export const CLASS_3_MATHS_LESSON_8_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'In a school assembly hall, there are 6 rows of chairs. Each row has 8 chairs. How many chairs are there in total?',
-    visualEmoji: '🪑 6️⃣ ✖️ 8️⃣',
+    visualEmoji: '🛋️ 6️⃣ ✖️ 8️⃣',
     payload: {
       options: [
         { id: 'opt_1', text: '48 chairs', isCorrect: true },
@@ -267,7 +267,7 @@ export const CLASS_3_MATHS_LESSON_8_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Aryan buys 4 packs of crayons at ₹25 each, and 2 drawing notebooks at ₹30 each. What is the total amount he pays?',
-    visualEmoji: '🖍️ 📒 🪙 🏪',
+    visualEmoji: '🖍️ 📒 💰 🏪',
     payload: {
       options: [
         { id: 'opt_1', text: '₹160', isCorrect: true },

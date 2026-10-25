@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // UNIVERSAL ENGLISH GRAMMAR (CLASS 3)
 // CHAPTER 6: PREPOSITIONS OF TIME & PLACE
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
@@ -19,7 +19,7 @@ export const CLASS_3_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'The English grammar textbook is resting [BLANK] the wooden study table.',
-    visualEmoji: '📚 🪑 🔤',
+    visualEmoji: '📚 🛋️ 🔤',
     payload: {
       correctAnswer: 'on',
       wordBank: ['on', 'in', 'under', 'between'],
@@ -158,7 +158,7 @@ export const CLASS_3_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Complete the sentence: "On the front bench, Rohit sat [BLANK] Aman and Kabir."',
-    visualEmoji: '👦 🪑 👦 👦',
+    visualEmoji: '👦 🛋️ 👦 👦',
     payload: {
       options: [
         { id: 'opt_1', text: 'between', isCorrect: true },

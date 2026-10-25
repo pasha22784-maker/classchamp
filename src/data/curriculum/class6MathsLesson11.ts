@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // NCERT CLASS 6 MATHEMATICS
 // CHAPTER 11: Ratio and Proportion (Unitary Method)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers
+// Global Benchmark Standard | Zero Spoilers
 // ============================================================================
 
 export const CLASS_6_MATHS_LESSON_11_QUESTIONS: Question[] = [
@@ -41,7 +41,7 @@ export const CLASS_6_MATHS_LESSON_11_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'What is the ratio of 50 paise to ₹ 1 in simplest form?',
-    visualEmoji: '🪙 🇮🇳',
+    visualEmoji: '💰 🇮🇳',
     payload: {
       options: [
         { id: 'opt_1', text: '1 : 2', isCorrect: true },
@@ -271,7 +271,7 @@ export const CLASS_6_MATHS_LESSON_11_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'Arrange the logical steps to solve a word problem using the unitary method:',
-    visualEmoji: '🪜 🧮',
+    visualEmoji: '📏 🧮',
     payload: {
       tokens: [
         'Identify given total quantity and total cost',

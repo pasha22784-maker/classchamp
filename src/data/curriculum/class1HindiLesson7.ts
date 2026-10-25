@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 HINDI (सारंगी 1 / RIMJHIM 1)
 // CHAPTER 7: उल्टे अर्थ वाले शब्द (विलोम शब्द)
-// Comprehensive Curriculum Covering All 8 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 8 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_HINDI_LESSON_7_QUESTIONS: Question[] = [
@@ -81,13 +81,13 @@ export const CLASS_1_HINDI_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'पतंग आकाश में ऊपर उड़ती है 🪁। पत्थर ज़मीन पर [BLANK] गिरता है।',
-    visualEmoji: '🪁 🪨',
+    visualEmoji: '🪁 🧱',
     payload: {
       correctAnswer: 'नीचे',
       wordBank: ['नीचे', 'दूर', 'छोटा', 'गरम'],
       displayTemplate: 'पत्थर ज़मीन पर [BLANK] गिरता है।',
     },
-    explanation: '💡 ऊपर 🪁 का उल्टा **नीचे** 🪨 होता है!',
+    explanation: '💡 ऊपर 🪁 का उल्टा **नीचे** 🧱 होता है!',
     points: 10,
   },
 

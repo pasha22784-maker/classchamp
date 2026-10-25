@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 5: PLAYING WITH LINES (LINES & SHAPES)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (Global Benchmark Standard)
 // 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
@@ -60,7 +60,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'A ladder leaning against a wall or raindrops falling in the wind form what kind of line?',
-    visualEmoji: '🪜 🌧️ ╱ ╲',
+    visualEmoji: '📏 🌧️ ╱ ╲',
     payload: {
       options: [
         { id: 'opt_sl1_1', text: 'A Slanting line', isCorrect: true },
@@ -181,7 +181,7 @@ export const CLASS_2_MATHS_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'match_pairs',
     question: 'Match each line type with its real-world example:',
-    visualEmoji: '🌳 🚂 🪜 😊',
+    visualEmoji: '🌳 🚂 📏 😊',
     payload: {
       pairs: [
         { id: 'm5_l1', left: 'Standing line', right: 'Straight tree trunk reaching up' },

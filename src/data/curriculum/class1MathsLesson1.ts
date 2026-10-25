@@ -2,7 +2,7 @@ import { Question } from '../../types';
 
 // ============================================================================
 // NCERT CLASS 1 MATHEMATICS — CHAPTER 1: SHAPES AND SPACE (Finding the Furry Cat)
-// Comprehensive Curriculum Covering All 11 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 11 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
@@ -215,11 +215,11 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Top vs Bottom',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'On the playground slide 🛝, Rohan is ready at the highest point. Where is Rohan?',
-    visualEmoji: '🛝 🧒',
+    question: 'On the playground slide 🎢, Rohan is ready at the highest point. Where is Rohan?',
+    visualEmoji: '🎢 🧒',
     payload: {
       options: [
-        { id: 'opt_tb_1', text: 'At the TOP of the slide 🛝', isCorrect: true },
+        { id: 'opt_tb_1', text: 'At the TOP of the slide 🎢', isCorrect: true },
         { id: 'opt_tb_2', text: 'At the BOTTOM on the ground 🌿', isCorrect: false },
       ],
     },
@@ -359,11 +359,11 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'On vs Under',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'The school bag 🎒 is resting ON the study table 🪑. Where is the bag?',
-    visualEmoji: '🪑 🎒',
+    question: 'The school bag 🎒 is resting ON the study table 🛋️. Where is the bag?',
+    visualEmoji: '🛋️ 🎒',
     payload: {
       options: [
-        { id: 'opt_ou_1', text: 'ON the table 🪑', isCorrect: true },
+        { id: 'opt_ou_1', text: 'ON the table 🛋️', isCorrect: true },
         { id: 'opt_ou_2', text: 'UNDER the table 🐾', isCorrect: false },
       ],
     },
@@ -397,8 +397,8 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Spatial Matching',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each item with its correct location relative to the table 🪑:',
-    visualEmoji: '🪑',
+    question: 'Match each item with its correct location relative to the table 🛋️:',
+    visualEmoji: '🛋️',
     payload: {
       pairs: [
         { id: 'p_1', left: '📖 Story Book', right: 'ON the table' },
@@ -423,11 +423,11 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'In your classroom, the electric ceiling fan 🌀 is hanging from the roof. The fan is [BLANK] the study tables.',
-    visualEmoji: '🌀 🪑',
+    visualEmoji: '🌀 🛋️',
     payload: {
       options: [
         { id: 'opt_ab_1', text: 'ABOVE the study tables 🌀', isCorrect: true },
-        { id: 'opt_ab_2', text: 'BELOW the study tables 🪑', isCorrect: false },
+        { id: 'opt_ab_2', text: 'BELOW the study tables 🛋️', isCorrect: false },
       ],
     },
     explanation: '💡 Remember: The ceiling fan hangs high in the air without touching the tables, so it is ABOVE!',
@@ -445,8 +445,8 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Circle in Real Life',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Look at a round wall clock ⏰ and a delicious chapati 🫓. What shape are they?',
-    visualEmoji: '⏰ 🫓',
+    question: 'Look at a round wall clock ⏰ and a delicious chapati 🍪. What shape are they?',
+    visualEmoji: '⏰ 🍪',
     payload: {
       options: [
         { id: 'opt_sh_1', text: 'Round like a CIRCLE ⚪', isCorrect: true },
@@ -531,16 +531,16 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Find the odd one out! Which object does NOT have 4 straight sides?',
-    visualEmoji: '🪙 📱 📖 🚪',
+    visualEmoji: '💰 📱 📖 🚪',
     payload: {
       options: [
-        { id: 'opt_odd_1', text: '🪙 Round ₹5 Coin', isCorrect: true },
+        { id: 'opt_odd_1', text: '💰 Round ₹5 Coin', isCorrect: true },
         { id: 'opt_odd_2', text: '📱 Mobile Phone', isCorrect: false },
         { id: 'opt_odd_3', text: '📖 Notebook', isCorrect: false },
         { id: 'opt_odd_4', text: '🚪 Door', isCorrect: false },
       ],
     },
-    explanation: '💡 The coin 🪙 is circular/round, while the phone, book, and door all have 4 straight sides!',
+    explanation: '💡 The coin 💰 is circular/round, while the phone, book, and door all have 4 straight sides!',
     points: 10,
   },
 
@@ -555,8 +555,8 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Rolling vs Sliding',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'If you push these objects down a children’s slide 🛝, which one will ROLL like a wheel?',
-    visualEmoji: '🛝 ⚽',
+    question: 'If you push these objects down a children’s slide 🎢, which one will ROLL like a wheel?',
+    visualEmoji: '🎢 ⚽',
     payload: {
       options: [
         { id: 'opt_rs_1', text: '⚽ Round Football', isCorrect: true },
@@ -594,15 +594,15 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     concept: 'Dual Property: Roll AND Slide',
     difficulty: 'hard',
     type: 'mcq',
-    question: 'Look at a shiny ₹5 coin 🪙. Can a coin BOTH roll and slide?',
-    visualEmoji: '🪙',
+    question: 'Look at a shiny ₹5 coin 💰. Can a coin BOTH roll and slide?',
+    visualEmoji: '💰',
     payload: {
       options: [
-        { id: 'opt_rs_6', text: 'YES! It can roll on its edge and slide on its flat face 🪙', isCorrect: true },
+        { id: 'opt_rs_6', text: 'YES! It can roll on its edge and slide on its flat face 💰', isCorrect: true },
         { id: 'opt_rs_7', text: 'NO, it can only slide', isCorrect: false },
       ],
     },
-    explanation: '💡 NCERT Wonder: A coin 🪙 has a flat circular face (it slides) AND a round edge (it rolls)!',
+    explanation: '💡 NCERT Wonder: A coin 💰 has a flat circular face (it slides) AND a round edge (it rolls)!',
     points: 10,
   },
   {
@@ -614,7 +614,7 @@ export const CLASS_1_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'match_pairs',
     question: 'Match each object with whether it ROLLS or SLIDES:',
-    visualEmoji: '🛝 ⚽ 📦',
+    visualEmoji: '🎢 ⚽ 📦',
     payload: {
       pairs: [
         { id: 'rsp_1', left: '⚽ Football', right: 'ROLLS (Round) 🔄' },

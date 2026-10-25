@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
 // CHAPTER 6: POSITION WORDS (BEHIND, IN FRONT, NEXT TO, BETWEEN, OVER, UNDER)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (Global Benchmark Standard)
 // 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
@@ -243,7 +243,7 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'fill_blank',
     question: 'When the heavy monsoon rain began to pour, the mother bird and her chicks stayed warm and dry [BLANK] their cozy nest.',
-    visualEmoji: '🌧️ 🪺 🐣',
+    visualEmoji: '🌧️ 🌿 🐣',
     payload: {
       correctAnswer: 'inside',
       wordBank: ['inside', 'outside', 'between', 'under'],
@@ -261,7 +261,7 @@ export const CLASS_2_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'Arrange the stages of a little frog\'s journey using position clues:',
-    visualEmoji: '🐸 🌊 🌿 🪨 🍄',
+    visualEmoji: '🐸 🌊 🌿 🧱 🍄',
     payload: {
       tokens: [
         'Leaped out of the pond',

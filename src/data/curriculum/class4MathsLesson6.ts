@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 4 MATHEMATICS (MATH-MAGIC 4)
 // CHAPTER 6: THE JUNK SELLER (CURRENCY & PROFIT)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_MATHS_LESSON_6_QUESTIONS: Question[] = [
@@ -82,7 +82,7 @@ export const CLASS_4_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'If 1 kg of brass scrap costs ₹ 20, then 5 kg of brass scrap will cost ₹ [BLANK].',
-    visualEmoji: '🪙 5 × 20 = ❓',
+    visualEmoji: '💰 5 × 20 = ❓',
     payload: {
       correctAnswer: '100',
       wordBank: ['100', '80', '120', '25'],
@@ -100,7 +100,7 @@ export const CLASS_4_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Kiran buys an old table for ₹ 300 and sells it to a carpenter for ₹ 360. Did she make a profit or a loss, and by how much?',
-    visualEmoji: '🪑 300 ➔ 360',
+    visualEmoji: '🛋️ 300 ➔ 360',
     payload: {
       options: [
         { id: 'opt_1', text: 'Profit of ₹ 60', isCorrect: true },
@@ -188,7 +188,7 @@ export const CLASS_4_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Kiran counts her cash drawer: 6 notes of ₹ 100, 3 notes of ₹ 50, 7 notes of ₹ 20, and 8 coins of ₹ 5. How much money does she have in total?',
-    visualEmoji: '💵 🪙 🧮',
+    visualEmoji: '💵 💰 🧮',
     payload: {
       options: [
         { id: 'opt_1', text: '₹ 930', isCorrect: true },
@@ -294,7 +294,7 @@ export const CLASS_4_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'fill_blank',
     question: 'Kiran owns 9 cycle-rickshaws. She gives each rickshaw on rent for ₹ 20 per day. In one day, her total earning from all 9 rickshaws is ₹ [BLANK].',
-    visualEmoji: '🛺 9 × ₹ 20',
+    visualEmoji: '🛵 9 × ₹ 20',
     payload: {
       correctAnswer: '180',
       wordBank: ['180', '160', '200', '90'],

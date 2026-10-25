@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // HINDI VYAKARAN (CLASS 3)
 // CHAPTER 2: सर्वनाम शब्द (मैं, हम, तुम, वह, वे)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_HINDI_LESSON_2_QUESTIONS: Question[] = [

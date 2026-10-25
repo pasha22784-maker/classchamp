@@ -63,7 +63,7 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c1_m_08', number: 8, title: 'Fun with Numbers (Numbers 21 to 99)', grade: 1, subject: 'maths', icon: '🔢', conceptSummary: 'NCERT: Counting in tens, forward & backward number patterns' },
   { id: 'c1_m_09', number: 9, title: 'Utsav (Patterns)', grade: 1, subject: 'maths', icon: '🟡', conceptSummary: 'NCERT: Shapes, color & sequence pattern rules' },
   { id: 'c1_m_10', number: 10, title: 'How do I Spend My Day? (Time)', grade: 1, subject: 'maths', icon: '⏰', conceptSummary: 'NCERT: Morning, Afternoon, Evening, Night & activity order' },
-  { id: 'c1_m_11', number: 11, title: 'How Much Can We Spend? (Money)', grade: 1, subject: 'maths', icon: '🪙', conceptSummary: 'NCERT: Recognizing Indian currency coins (₹1, ₹2, ₹5, ₹10) & notes' },
+  { id: 'c1_m_11', number: 11, title: 'How Much Can We Spend? (Money)', grade: 1, subject: 'maths', icon: '💰', conceptSummary: 'NCERT: Recognizing Indian currency coins (₹1, ₹2, ₹5, ₹10) & notes' },
   { id: 'c1_m_12', number: 12, title: 'So Many Toys! (Data Handling)', grade: 1, subject: 'maths', icon: '🧸', conceptSummary: 'NCERT: Sorting, categorizing and counting collections' },
 
   // CLASS 1 — NCERT MRIDANG & MARIGOLD (ENGLISH)
@@ -92,7 +92,7 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c2_e_02', number: 2, title: 'Picture Fun & Naming Words', grade: 2, subject: 'english', icon: '🖼️', conceptSummary: 'NCERT: Common nouns, places, classroom objects' },
   { id: 'c2_e_03', number: 3, title: 'Action Words & Doing Words (Verbs)', grade: 2, subject: 'english', icon: '🏃', conceptSummary: 'NCERT: Present action words (-ing words)' },
   { id: 'c2_e_04', number: 4, title: 'Pronouns (I, You, We, They)', grade: 2, subject: 'english', icon: '👥', conceptSummary: 'NCERT: Replacing naming words with pronouns' },
-  { id: 'c2_e_05', number: 5, title: 'Describing Words (Adjectives & Opposites)', grade: 2, subject: 'english', icon: '🪞', conceptSummary: 'NCERT: Opposite word pairs, color & size words' },
+  { id: 'c2_e_05', number: 5, title: 'Describing Words (Adjectives & Opposites)', grade: 2, subject: 'english', icon: '✨', conceptSummary: 'NCERT: Opposite word pairs, color & size words' },
   { id: 'c2_e_06', number: 6, title: 'Position Words (Behind, In Front, Next)', grade: 2, subject: 'english', icon: '📍', conceptSummary: 'NCERT: Advanced prepositions of place' },
   { id: 'c2_e_07', number: 7, title: 'Sentences & Question Marks', grade: 2, subject: 'english', icon: '❓', conceptSummary: 'NCERT: Capital letters, full stops and question marks' },
 
@@ -108,7 +108,7 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c3_m_07', number: 7, title: 'Who is Heavier? (Kilograms & Grams)', grade: 3, subject: 'maths', icon: '⚖️', conceptSummary: 'NCERT: Weight comparison, balance scales' },
   { id: 'c3_m_08', number: 8, title: 'How Many Times? (Multiplication)', grade: 3, subject: 'maths', icon: '✖️', conceptSummary: 'NCERT: Multiplication tables, repeated addition' },
   { id: 'c3_m_09', number: 9, title: 'Jugs and Mugs (Litres & Millilitres)', grade: 3, subject: 'maths', icon: '🥛', conceptSummary: 'NCERT: Liquid volume capacity measurement' },
-  { id: 'c3_m_10', number: 10, title: 'Rupees and Paise (Money)', grade: 3, subject: 'maths', icon: '🪙', conceptSummary: 'NCERT: Notes, coins, adding money bills' },
+  { id: 'c3_m_10', number: 10, title: 'Rupees and Paise (Money)', grade: 3, subject: 'maths', icon: '💰', conceptSummary: 'NCERT: Notes, coins, adding money bills' },
 
   { id: 'c3_e_01', number: 1, title: 'Rhyming Words & Phonics', grade: 3, subject: 'english', icon: '🔤', conceptSummary: 'Universal: Rhyming words, vowel sounds & phonics' },
   { id: 'c3_e_02', number: 2, title: 'Common & Proper Nouns', grade: 3, subject: 'english', icon: '🏛️', conceptSummary: 'Universal: Names of specific cities, monuments, persons & capitalization' },
@@ -146,9 +146,9 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c5_m_02', number: 2, title: 'Shapes and Angles (Acute, Right, Obtuse)', grade: 5, subject: 'maths', icon: '📐', conceptSummary: 'NCERT: Angle tester, Clock hand angles, Name angles' },
   { id: 'c5_m_03', number: 3, title: 'How Many Squares? (Area & Perimeter Grids)', grade: 5, subject: 'maths', icon: '⏹️', conceptSummary: 'NCERT: Grid squares, Stamp areas, Footprint areas' },
   { id: 'c5_m_04', number: 4, title: 'Parts and Wholes (Fractions & Equivalent)', grade: 5, subject: 'maths', icon: '🍰', conceptSummary: 'NCERT: Flag fractions, Equivalent fractions, Chocolate sharing' },
-  { id: 'c5_m_05', number: 5, title: 'Does it Look the Same? (Symmetry & Rotations)', grade: 5, subject: 'maths', icon: '🪞', conceptSummary: 'NCERT: Mirror lines, 1/2 and 1/4 turns' },
+  { id: 'c5_m_05', number: 5, title: 'Does it Look the Same? (Symmetry & Rotations)', grade: 5, subject: 'maths', icon: '🦋', conceptSummary: 'NCERT: Mirror lines, 1/2 and 1/4 turns' },
   { id: 'c5_m_06', number: 6, title: 'Multiples and Factors (LCM & HCF)', grade: 5, subject: 'maths', icon: '🔢', conceptSummary: 'NCERT: Common multiples, Factor trees' },
-  { id: 'c5_m_07', number: 7, title: 'Tenths and Hundredths (Decimals & Paise)', grade: 5, subject: 'maths', icon: '🪙', conceptSummary: 'NCERT: Millimeters to cm, Rupee decimals' },
+  { id: 'c5_m_07', number: 7, title: 'Tenths and Hundredths (Decimals & Paise)', grade: 5, subject: 'maths', icon: '💰', conceptSummary: 'NCERT: Millimeters to cm, Rupee decimals' },
   { id: 'c5_m_08', number: 8, title: 'Area and its Boundary (Formulas)', grade: 5, subject: 'maths', icon: '📐', conceptSummary: 'NCERT: Area = L × B, Perimeter = 2 × (L + B)' },
   { id: 'c5_m_09', number: 9, title: 'Boxes and Sketches (3D Nets & Cubes)', grade: 5, subject: 'maths', icon: '📦', conceptSummary: 'NCERT: Folding 2D nets into 3D open and closed boxes' },
   { id: 'c5_m_10', number: 10, title: 'How Big? How Heavy? (Volume)', grade: 5, subject: 'maths', icon: '🧊', conceptSummary: 'NCERT: Volume in cubic cm, water displacement' },
@@ -169,7 +169,7 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   { id: 'c6_m_04', number: 4, title: 'Basic Geometrical Ideas (Points, Lines, Polygons)', grade: 6, subject: 'maths', icon: '📐', conceptSummary: 'NCERT: Rays, Segments, Curves, Triangles, Circles' },
   { id: 'c6_m_05', number: 5, title: 'Integers (Positive & Negative Numbers)', grade: 6, subject: 'maths', icon: '❄️', conceptSummary: 'NCERT: Number line integers, temperature & elevation' },
   { id: 'c6_m_06', number: 6, title: 'Fractions (Operations & Mixed Fractions)', grade: 6, subject: 'maths', icon: '🍰', conceptSummary: 'NCERT: Like/Unlike fractions, addition & subtraction' },
-  { id: 'c6_m_07', number: 7, title: 'Decimals & Place Values', grade: 6, subject: 'maths', icon: '🪙', conceptSummary: 'NCERT: Tenths, hundredths, thousandths' },
+  { id: 'c6_m_07', number: 7, title: 'Decimals & Place Values', grade: 6, subject: 'maths', icon: '💰', conceptSummary: 'NCERT: Tenths, hundredths, thousandths' },
   { id: 'c6_m_08', number: 8, title: 'Data Handling (Tally & Bar Graphs)', grade: 6, subject: 'maths', icon: '📊', conceptSummary: 'NCERT: Organizing data, drawing bar graphs' },
   { id: 'c6_m_09', number: 9, title: 'Mensuration (Perimeter & Area)', grade: 6, subject: 'maths', icon: '📏', conceptSummary: 'NCERT: Regular polygons, squares, rectangles' },
   { id: 'c6_m_10', number: 10, title: 'Algebra (Variables & Expressions)', grade: 6, subject: 'maths', icon: '💡', conceptSummary: 'NCERT: Matchstick patterns, x and y variables' },
@@ -248,26 +248,106 @@ export const CURRICULUM_CHAPTERS: ChapterLesson[] = [
   // =========================================================================
   // LKG (BALVATIKA 2) — PRE-SCHOOL FOUNDATION
   // =========================================================================
-  // LKG MATHEMATICS
-  { id: 'c_lkg_m_01', number: 1, title: 'Pre-Math Concepts (Big vs Small & Tall vs Short)', grade: 'LKG', subject: 'maths', icon: '🐘', conceptSummary: 'Pre-Math: Big/Small, Tall/Short, Heavy/Light comparison concepts' },
-  { id: 'c_lkg_m_02', number: 2, title: 'Numbers 1 to 5 (Counting & Finger Fun)', grade: 'LKG', subject: 'maths', icon: '🖐️', conceptSummary: 'Counting objects 1 to 5, finger counting, visual quantity matching' },
-  { id: 'c_lkg_m_03', number: 3, title: 'Shapes & Colors (Circle, Square, Red, Blue)', grade: 'LKG', subject: 'maths', icon: '🔴', conceptSummary: 'Basic Shapes (⭕ Circle, ⬛ Square, 🔺 Triangle) & Primary Colors (Red, Blue, Yellow, Green)' },
-  { id: 'c_lkg_m_04', number: 4, title: 'More or Less & Matching Pairs', grade: 'LKG', subject: 'maths', icon: '⚖️', conceptSummary: 'Comparing quantities (more vs less), matching related real-world pairs' },
-  { id: 'c_lkg_m_05', number: 5, title: 'Visual Patterns & Sorting', grade: 'LKG', subject: 'maths', icon: '🧩', conceptSummary: 'Identifying simple AB patterns (🔴 🔵 🔴 🔵) and sorting by shape & color' },
+  // LKG MATHEMATICS — EXPANDED 30 MICRO-WORKSHEETS (NEP 2020 & JAADUI PITARA)
+  // Module 1: Pre-Math Comparisons (Ch 1 - 12)
+  { id: 'c_lkg_m_01', number: 1, title: 'Big vs Small', titleHindi: 'बड़ा बनाम छोटा', grade: 'LKG', subject: 'maths', icon: '🐘', conceptSummary: 'Pre-Math: Comparing sizes of animals, fruits, balls and vehicles', conceptSummaryHindi: 'पूर्व-संख्या ज्ञान: जानवरों, फलों और खिलौनों के आकार की तुलना' },
+  { id: 'c_lkg_m_02', number: 2, title: 'Tall vs Short', titleHindi: 'लंबा बनाम नाटा', grade: 'LKG', subject: 'maths', icon: '🦒', conceptSummary: 'Pre-Math: Height comparisons with giraffes, trees, buildings and ladders', conceptSummaryHindi: 'ऊंचाई की तुलना: जिराफ़, पेड़, इमारतें और सीढ़ी' },
+  { id: 'c_lkg_m_03', number: 3, title: 'Heavy vs Light', titleHindi: 'भारी बनाम हल्का', grade: 'LKG', subject: 'maths', icon: '🧱', conceptSummary: 'Pre-Math: Weight intuition with bricks, leaves, balloons and seesaws', conceptSummaryHindi: 'वज़न की समझ: ईंट, पत्ता, गुब्बारा और सी-सॉ' },
+  { id: 'c_lkg_m_04', number: 4, title: 'Long vs Short', titleHindi: 'लंबी और छोटी वस्तुएं', grade: 'LKG', subject: 'maths', icon: '📏', conceptSummary: 'Pre-Math: Length comparisons with trains, snakes, pencils and ropes', conceptSummaryHindi: 'लंबाई की तुलना: रेलगाड़ी, सांप, पेंसिल और रस्सी' },
+  { id: 'c_lkg_m_05', number: 5, title: 'Thick vs Thin', titleHindi: 'मोटा बनाम पतला', grade: 'LKG', subject: 'maths', icon: '🌲', conceptSummary: 'Pre-Math: Girth comparisons with tree trunks, candles, books and crayons', conceptSummaryHindi: 'मोटाई की तुलना: पेड़ का तना, मोमबत्ती, किताबें और रंग' },
+  { id: 'c_lkg_m_06', number: 6, title: 'Inside vs Outside', titleHindi: 'अंदर बनाम बाहर', grade: 'LKG', subject: 'maths', icon: '📦', conceptSummary: 'Pre-Math: Position concepts with birds in nest, toys in box and fish in bowl', conceptSummaryHindi: 'स्थान की पहचान: घोंसले में चिड़िया, डिब्बे में खिलौने' },
+  { id: 'c_lkg_m_07', number: 7, title: 'Top vs Bottom', titleHindi: 'ऊपर बनाम नीचे', grade: 'LKG', subject: 'maths', icon: '🔝', conceptSummary: 'Pre-Math: Vertical placement on trees, slides, stars on top & roots below', conceptSummaryHindi: 'ऊपर और नीचे की स्थिति: पेड़ की चोटी, सी-सॉ, सितारा' },
+  { id: 'c_lkg_m_08', number: 8, title: 'Near vs Far', titleHindi: 'पास बनाम दूर', grade: 'LKG', subject: 'maths', icon: '🔍', conceptSummary: 'Pre-Math: Distance intuition with puppy on lap vs Moon in sky', conceptSummaryHindi: 'दूरी की समझ: पास में बैठा पिल्ला, दूर चमकता चाँद' },
+  { id: 'c_lkg_m_09', number: 9, title: 'In Front of vs Behind', titleHindi: 'आगे बनाम पीछे', grade: 'LKG', subject: 'maths', icon: '🚶‍♂️', conceptSummary: 'Pre-Math: Relative positioning in lines, hide-and-seek & mirrors', conceptSummaryHindi: 'सापेक्ष स्थिति: कतार में आगे, पेड़ के पीछे छुपना' },
+  { id: 'c_lkg_m_10', number: 10, title: 'More vs Less', titleHindi: 'ज्यादा बनाम कम', grade: 'LKG', subject: 'maths', icon: '⚖️', conceptSummary: 'Pre-Math: Quantity comparisons with apples, balloons, juice & stars', conceptSummaryHindi: 'मात्रा की तुलना: सेब, गुब्बारे, रस और सितारे' },
+  { id: 'c_lkg_m_11', number: 11, title: 'Same vs Different', titleHindi: 'एक जैसे जोड़े', grade: 'LKG', subject: 'maths', icon: '👯', conceptSummary: 'Pre-Math: Matching identical pairs, footwear sets & spotting differences', conceptSummaryHindi: 'समान जोड़ों की पहचान: मोज़े, जूते और फल' },
+  { id: 'c_lkg_m_12', number: 12, title: 'Odd One Out', titleHindi: 'बेमेल की पहचान', grade: 'LKG', subject: 'maths', icon: '🚫', conceptSummary: 'Pre-Math: Logical categorization, finding the item that does not belong', conceptSummaryHindi: 'तार्किक छँटाई: जो समूह से अलग है उसे पहचानना' },
 
-  // LKG ENGLISH
-  { id: 'c_lkg_e_01', number: 1, title: 'Fun with Letters (A to M Recognition)', grade: 'LKG', subject: 'english', icon: '🔤', conceptSummary: 'Letter recognition & visual identification for uppercase letters A through M' },
-  { id: 'c_lkg_e_02', number: 2, title: 'Fun with Letters (N to Z Recognition)', grade: 'LKG', subject: 'english', icon: '🔡', conceptSummary: 'Letter recognition & visual identification for uppercase letters N through Z' },
-  { id: 'c_lkg_e_03', number: 3, title: 'First Phonics Sounds (A for Apple, B for Ball)', grade: 'LKG', subject: 'english', icon: '🍎', conceptSummary: 'Beginning phonetic sounds with everyday familiar objects & picture cues' },
-  { id: 'c_lkg_e_04', number: 4, title: 'Animal Sounds & Rhymes (Woof, Moo, Meow)', grade: 'LKG', subject: 'english', icon: '🐶', conceptSummary: 'Connecting animals with their sounds (Dog says Woof, Cat says Meow, Cow says Moo)' },
-  { id: 'c_lkg_e_05', number: 5, title: 'My Body & Everyday Words', grade: 'LKG', subject: 'english', icon: '👀', conceptSummary: 'Identifying body parts (Eyes, Ears, Nose, Hands) and common daily objects' },
+  // Module 2: Numbers 1 to 5 Mastery (Ch 13 - 22)
+  { id: 'c_lkg_m_13', number: 13, title: 'Number 1: The Solo Sun & Nose', titleHindi: 'संख्या 1 की पहचान', grade: 'LKG', subject: 'maths', icon: '1️⃣', conceptSummary: 'Number Sense: Deep recognition of 1 Sun, 1 Nose, 1 Moon & digit 1', conceptSummaryHindi: 'संख्या 1 की समझ: एक सूरज, एक नाक, एक चांद' },
+  { id: 'c_lkg_m_14', number: 14, title: 'Number 2: The Pair of Eyes & Shoes', titleHindi: 'संख्या 2 की पहचान', grade: 'LKG', subject: 'maths', icon: '2️⃣', conceptSummary: 'Number Sense: Recognition of 2 eyes, 2 ears, shoes pair & 1+1 addition', conceptSummaryHindi: 'संख्या 2 की समझ: दो आंखें, दो कान, जूतों की जोड़ी' },
+  { id: 'c_lkg_m_15', number: 15, title: 'Number 3: The Triangle Trio', titleHindi: 'संख्या 3 की पहचान', grade: 'LKG', subject: 'maths', icon: '3️⃣', conceptSummary: 'Number Sense: 3 auto wheels, 3 traffic lights & triangle corners', conceptSummaryHindi: 'संख्या 3 की समझ: तीन पहिए, तीन बत्तियाँ' },
+  { id: 'c_lkg_m_16', number: 16, title: 'Number 4: The Four-Legged Chair', titleHindi: 'संख्या 4 की पहचान', grade: 'LKG', subject: 'maths', icon: '4️⃣', conceptSummary: 'Number Sense: 4 chair legs, 4 car wheels, 4 square sides & 4 seasons', conceptSummaryHindi: 'संख्या 4 की समझ: चार पैर, चार पहिए' },
+  { id: 'c_lkg_m_17', number: 17, title: 'Number 5: High Five Hand', titleHindi: 'संख्या 5 की पहचान', grade: 'LKG', subject: 'maths', icon: '5️⃣', conceptSummary: 'Number Sense: 5 hand fingers, 5 star points, 5 senses & High Five', conceptSummaryHindi: 'संख्या 5 की समझ: पाँच उंगलियाँ, हाई-फ़ाइव' },
+  { id: 'c_lkg_m_18', number: 18, title: 'Finger Counting & Subitizing', titleHindi: 'उंगलियों से गिनती', grade: 'LKG', subject: 'maths', icon: '🖐️', conceptSummary: 'Number Sense: Finger math, instant quantity recognition & gestures', conceptSummaryHindi: 'उंगलियों का गणित: तुरंत संख्या पहचानना' },
+  { id: 'c_lkg_m_19', number: 19, title: 'Dice Dots & Dominoes 1 to 5', titleHindi: 'डाइस डॉट्स की पहचान', grade: 'LKG', subject: 'maths', icon: '🎲', conceptSummary: 'Number Sense: Subitizing dice dot patterns from 1 dot to 5 dots', conceptSummaryHindi: 'डाइस के बिंदु देखकर तुरंत संख्या समझना' },
+  { id: 'c_lkg_m_20', number: 20, title: 'The Number Train: Counting 1 to 5', titleHindi: 'नंबर ट्रेन: 1 से 5 गिनती', grade: 'LKG', subject: 'maths', icon: '🔢', conceptSummary: 'Number Sense: Forward counting 1 to 5, number song & rocket countdown', conceptSummaryHindi: 'गिनती का क्रम: आगे गिनती और रॉकेट काउंटडाउन' },
+  { id: 'c_lkg_m_21', number: 21, title: 'Missing Numbers on the Track (1, 2, ?, 4, 5)', titleHindi: 'छूटी हुई संख्या पहचानो', grade: 'LKG', subject: 'maths', icon: '🚂', conceptSummary: 'Number Sense: Filling missing gaps in 1 to 5 number sequences', conceptSummaryHindi: 'क्रम में छूटी हुई संख्या ढूंढना' },
+  { id: 'c_lkg_m_22', number: 22, title: 'Before & After in 1 to 5', titleHindi: 'आगे और पीछे की संख्या', grade: 'LKG', subject: 'maths', icon: '↔️', conceptSummary: 'Number Sense: What comes after, what comes before & in-between (1-5)', conceptSummaryHindi: 'संख्या के पहले, बाद और बीच की पहचान' },
 
-  // LKG HINDI
+  // Module 3: Shapes & Geometry Intuition (Ch 23 - 27)
+  { id: 'c_lkg_m_23', number: 23, title: 'Circle Fun (Round Wheel, Coin & Clock)', titleHindi: 'गोल वृत्त (पहिया, रोटी व सिक्का)', grade: 'LKG', subject: 'maths', icon: '⭕', conceptSummary: 'Geometry: Circular 2D shapes, 0 corners, wheels, rotis, coins & clocks', conceptSummaryHindi: 'आकार: बिना कोने वाला गोल वृत्त, गेंद, घड़ी' },
+  { id: 'c_lkg_m_24', number: 24, title: 'Square Fun (Carrom, Window & Box)', titleHindi: 'चौकोर वर्ग (कैरम व खिड़की)', grade: 'LKG', subject: 'maths', icon: '⬛', conceptSummary: 'Geometry: 4 equal sides, 4 corners, carrom boards, bread & dice faces', conceptSummaryHindi: 'आकार: 4 समान भुजाओं वाला चौकोर वर्ग' },
+  { id: 'c_lkg_m_25', number: 25, title: 'Triangle Fun (Samosa, Pizza Slice & Party Hat)', titleHindi: 'तिकोना (समोसा व पिज़्ज़ा स्लाइस)', grade: 'LKG', subject: 'maths', icon: '🔺', conceptSummary: 'Geometry: 3 straight sides, 3 corners, samosas, pizza slices & party hats', conceptSummaryHindi: 'आकार: 3 कोने और 3 भुजाओं वाला तिकोना' },
+  { id: 'c_lkg_m_26', number: 26, title: 'Rectangle & Shapes Around Us', titleHindi: 'आयत व अन्य आकार', grade: 'LKG', subject: 'maths', icon: '▬', conceptSummary: 'Geometry: 2 long & 2 short sides, doors, smartphones, books & bank notes', conceptSummaryHindi: 'आकार: दरवाज़ा, मोबाइल स्क्रीन, किताब' },
+  { id: 'c_lkg_m_27', number: 27, title: 'Rolling vs Sliding', titleHindi: 'लुढ़कना और फिसलना', grade: 'LKG', subject: 'maths', icon: '🔄', conceptSummary: 'Spatial Physics: Round objects roll, flat objects slide, coins & cans do both', conceptSummaryHindi: 'भौतिक समझ: गोल चीजें लुढ़कती हैं, चपटी फिसलती हैं' },
+
+  // Module 4: Colors, Patterns & Olympiad Review (Ch 28 - 30)
+  { id: 'c_lkg_m_28', number: 28, title: 'Primary Colors (Red, Yellow, Blue & Green)', titleHindi: 'प्राथमिक रंग (लाल, पीला, नीला व हरा)', grade: 'LKG', subject: 'maths', icon: '🔴', conceptSummary: 'Colors: Red apples, yellow bananas, blue sky, green leaves & color mixing', conceptSummaryHindi: 'रंग: लाल, पीला, नीला और हरा' },
+  { id: 'c_lkg_m_29', number: 29, title: 'Repeating AB Patterns', titleHindi: 'पैटर्न समझें (AB पैटर्न)', grade: 'LKG', subject: 'maths', icon: '🧩', conceptSummary: 'Patterns: Alternating color, shape, size & day/night repeating sequences', conceptSummaryHindi: 'पैटर्न: दोहराव वाले रंग, आकार और आकृतियाँ' },
+  { id: 'c_lkg_m_30', number: 30, title: 'Super Kid Pre-Math Olympiad', titleHindi: 'सुपर किड मैथ ओलंपियाड', grade: 'LKG', subject: 'maths', icon: '🏆', conceptSummary: 'Mastery: Grand milestone test across all pre-math, number 1-5 & shape skills', conceptSummaryHindi: 'ओलंपियाड टेस्ट: सभी 29 पाठों का महाअभ्यास' },
+
+  // =========================================================================
+  // LKG (BALVATIKA 2) ENGLISH — 30 EXPANDED MICRO-WORKSHEETS
+  // =========================================================================
+  // Module 1: Pre-Writing Strokes & Visual Letter Patterns (Ch 1 - 4)
+  { id: 'c_lkg_e_01', number: 1, title: 'Standing & Sleeping Lines (| and —)', titleHindi: 'खड़ी व लेटी रेखाएं (| और —)', grade: 'LKG', subject: 'english', icon: '✏️', conceptSummary: 'Pre-Writing: Identifying straight strokes for letters L, T, H, I, E, F', conceptSummaryHindi: 'पूर्व-लेखन: सीधी रेखाएं और उनसे बनने वाले अक्षर' },
+  { id: 'c_lkg_e_02', number: 2, title: 'Slanting Lines & Curves (/ \\ ( ) )', titleHindi: 'तिरछी रेखाएं व घुमाव (/ \\ ( ) )', grade: 'LKG', subject: 'english', icon: '〰️', conceptSummary: 'Pre-Writing: Identifying slants and curves for letters A, V, W, X, C, O', conceptSummaryHindi: 'पूर्व-लेखन: तिरछी रेखाएं और घुमावदार आकृतियाँ' },
+  { id: 'c_lkg_e_03', number: 3, title: 'Same vs Different Letters', titleHindi: 'समान व भिन्न अक्षर', grade: 'LKG', subject: 'english', icon: '👯', conceptSummary: 'Visual Discrimination: Matching identical uppercase letter pairs', conceptSummaryHindi: 'दृश्य विभेदीकरण: एक जैसे अक्षरों की जोड़ी मिलाना' },
+  { id: 'c_lkg_e_04', number: 4, title: 'Odd Letter Out', titleHindi: 'बेमेल अक्षर पहचानें', grade: 'LKG', subject: 'english', icon: '🚫', conceptSummary: 'Visual Discrimination: Finding the letter that does not belong in a group', conceptSummaryHindi: 'तार्किक छँटाई: समूह से अलग अक्षर को पहचानना' },
+
+  // Module 2: Uppercase Alphabet Journey (A to Z in Bite-Sized Steps) (Ch 5 - 11)
+  { id: 'c_lkg_e_05', number: 5, title: 'Letters A, B, C, D', titleHindi: 'अक्षर A, B, C, D', grade: 'LKG', subject: 'english', icon: '🅰️', conceptSummary: 'Letter Recognition: Apple, Ball, Cat, Duck identification and shape', conceptSummaryHindi: 'वर्णमाला: A, B, C, D की पहचान और चित्र संबंध' },
+  { id: 'c_lkg_e_06', number: 6, title: 'Letters E, F, G, H', titleHindi: 'अक्षर E, F, G, H', grade: 'LKG', subject: 'english', icon: '🅱️', conceptSummary: 'Letter Recognition: Elephant, Fish, Grapes, Hat identification', conceptSummaryHindi: 'वर्णमाला: E, F, G, H की पहचान और चित्र संबंध' },
+  { id: 'c_lkg_e_07', number: 7, title: 'Letters I, J, K, L', titleHindi: 'अक्षर I, J, K, L', grade: 'LKG', subject: 'english', icon: '🔤', conceptSummary: 'Letter Recognition: Igloo, Jug, Kite, Lion identification', conceptSummaryHindi: 'वर्णमाला: I, J, K, L की पहचान और चित्र संबंध' },
+  { id: 'c_lkg_e_08', number: 8, title: 'Letters M, N, O, P', titleHindi: 'अक्षर M, N, O, P', grade: 'LKG', subject: 'english', icon: '🔡', conceptSummary: 'Letter Recognition: Mango, Nest, Orange, Parrot identification', conceptSummaryHindi: 'वर्णमाला: M, N, O, P की पहचान और चित्र संबंध' },
+  { id: 'c_lkg_e_09', number: 9, title: 'Letters Q, R, S, T', titleHindi: 'अक्षर Q, R, S, T', grade: 'LKG', subject: 'english', icon: '👑', conceptSummary: 'Letter Recognition: Queen, Rabbit, Sun, Tiger identification', conceptSummaryHindi: 'वर्णमाला: Q, R, S, T की पहचान और चित्र संबंध' },
+  { id: 'c_lkg_e_10', number: 10, title: 'Letters U, V, W, X', titleHindi: 'अक्षर U, V, W, X', grade: 'LKG', subject: 'english', icon: '☂️', conceptSummary: 'Letter Recognition: Umbrella, Van, Watch, Xylophone identification', conceptSummaryHindi: 'वर्णमाला: U, V, W, X की पहचान और चित्र संबंध' },
+  { id: 'c_lkg_e_11', number: 11, title: 'Letters Y & Z and Alphabet Order', titleHindi: 'अक्षर Y, Z व पूरी वर्णमाला', grade: 'LKG', subject: 'english', icon: '🦓', conceptSummary: 'Letter Recognition: Yak, Zebra and forward alphabet sequence', conceptSummaryHindi: 'वर्णमाला: Y, Z और A से Z का सही क्रम' },
+
+  // Module 3: Phonics & Beginning Sound Safari (Ch 12 - 17)
+  { id: 'c_lkg_e_12', number: 12, title: 'Beginning Sounds of A, B, C, D', titleHindi: 'प्रारंभिक ध्वनियाँ: A, B, C, D', grade: 'LKG', subject: 'english', icon: '🍎', conceptSummary: 'Phonics: /æ/ for Apple, /b/ for Ball, /k/ for Cat, /d/ for Duck', conceptSummaryHindi: 'ध्वनि ज्ञान: A, B, C, D की प्रारंभिक ध्वनियाँ' },
+  { id: 'c_lkg_e_13', number: 13, title: 'Beginning Sounds of E, F, G, H', titleHindi: 'प्रारंभिक ध्वनियाँ: E, F, G, H', grade: 'LKG', subject: 'english', icon: '🥚', conceptSummary: 'Phonics: /e/ for Egg, /f/ for Fish, /g/ for Goat, /h/ for Hat', conceptSummaryHindi: 'ध्वनि ज्ञान: E, F, G, H की प्रारंभिक ध्वनियाँ' },
+  { id: 'c_lkg_e_14', number: 14, title: 'Beginning Sounds of I, J, K, L', titleHindi: 'प्रारंभिक ध्वनियाँ: I, J, K, L', grade: 'LKG', subject: 'english', icon: '🪁', conceptSummary: 'Phonics: /ɪ/ for Igloo, /dʒ/ for Jam, /k/ for Kite, /l/ for Leaf', conceptSummaryHindi: 'ध्वनि ज्ञान: I, J, K, L की प्रारंभिक ध्वनियाँ' },
+  { id: 'c_lkg_e_15', number: 15, title: 'Beginning Sounds of M, N, O, P', titleHindi: 'प्रारंभिक ध्वनियाँ: M, N, O, P', grade: 'LKG', subject: 'english', icon: '🥭', conceptSummary: 'Phonics: /m/ for Moon, /n/ for Net, /ɒ/ for Orange, /p/ for Pen', conceptSummaryHindi: 'ध्वनि ज्ञान: M, N, O, P की प्रारंभिक ध्वनियाँ' },
+  { id: 'c_lkg_e_16', number: 16, title: 'Beginning Sounds of Q, R, S, T', titleHindi: 'प्रारंभिक ध्वनियाँ: Q, R, S, T', grade: 'LKG', subject: 'english', icon: '☀️', conceptSummary: 'Phonics: /kw/ for Queen, /r/ for Ring, /s/ for Sun, /t/ for Tub', conceptSummaryHindi: 'ध्वनि ज्ञान: Q, R, S, T की प्रारंभिक ध्वनियाँ' },
+  { id: 'c_lkg_e_17', number: 17, title: 'Beginning Sounds of U to Z', titleHindi: 'प्रारंभिक ध्वनियाँ: U से Z', grade: 'LKG', subject: 'english', icon: '🚐', conceptSummary: 'Phonics: Sounds for U, V, W, X, Y, Z with daily objects', conceptSummaryHindi: 'ध्वनि ज्ञान: U से Z की ध्वनियाँ' },
+
+  // Module 4: Picture-Word Associations & Daily Vocabulary (Ch 18 - 23)
+  { id: 'c_lkg_e_18', number: 18, title: 'Animal Friends & Birds', titleHindi: 'पशु और पक्षी', grade: 'LKG', subject: 'english', icon: '🦁', conceptSummary: 'Vocabulary: Lion, Elephant, Dog, Cat, Duck, Owl, Parrot recognition', conceptSummaryHindi: 'शब्दावली: पशु-पक्षियों के अंग्रेज़ी नाम' },
+  { id: 'c_lkg_e_19', number: 19, title: 'Animal Sounds & Calls', titleHindi: 'जानवरों की आवाज़ें', grade: 'LKG', subject: 'english', icon: '🐶', conceptSummary: 'Auditory Association: Dog Woofs, Cat Meows, Cow Moos, Lion Roars, Duck Quacks', conceptSummaryHindi: 'ध्वनि चेतना: जानवरों की आवाज़ें (Woof, Meow, Moo)' },
+  { id: 'c_lkg_e_20', number: 20, title: 'Fruits & Yummy Vegetables', titleHindi: 'फल और सब्ज़ियाँ', grade: 'LKG', subject: 'english', icon: '🍓', conceptSummary: 'Vocabulary: Apple, Banana, Mango, Grapes, Carrot, Tomato', conceptSummaryHindi: 'शब्दावली: स्वादिष्ट फलों और सब्जियों के नाम' },
+  { id: 'c_lkg_e_21', number: 21, title: 'Colors All Around Us', titleHindi: 'हमारे चारों ओर रंग', grade: 'LKG', subject: 'english', icon: '🎨', conceptSummary: 'Visual Concepts: Red, Blue, Yellow, Green, Pink, White, Black', conceptSummaryHindi: 'रंगों के नाम: Red, Blue, Yellow, Green' },
+  { id: 'c_lkg_e_22', number: 22, title: 'Parts of My Body', titleHindi: 'शरीर के अंग', grade: 'LKG', subject: 'english', icon: '👀', conceptSummary: 'Vocabulary: Eyes, Ears, Nose, Mouth, Hands, Feet and their functions', conceptSummaryHindi: 'शब्दावली: Eyes, Ears, Nose, Hands की पहचान' },
+  { id: 'c_lkg_e_23', number: 23, title: 'Things in My Home & School', titleHindi: 'घर और स्कूल की चीज़ें', grade: 'LKG', subject: 'english', icon: '🎒', conceptSummary: 'Vocabulary: School Bag, Book, Pencil, Table, Chair, Bed, Clock', conceptSummaryHindi: 'शब्दावली: Bag, Book, Pencil, Table' },
+
+  // Module 5: Early Oral Concepts, Rhymes & Opposites (Ch 24 - 28)
+  { id: 'c_lkg_e_24', number: 24, title: 'Rhyming Word Fun', titleHindi: 'तुकबंदी वाले शब्द', grade: 'LKG', subject: 'english', icon: '🎵', conceptSummary: 'Phonics Rhymes: Cat - Bat, Sun - Run, Pen - Hen, Frog - Log', conceptSummaryHindi: 'तुकबंदी: समान ध्वनि वाले अंग्रेज़ी शब्द' },
+  { id: 'c_lkg_e_25', number: 25, title: 'Everyday Opposites', titleHindi: 'विलोम शब्द (Opposites)', grade: 'LKG', subject: 'english', icon: '🔄', conceptSummary: 'Vocabulary: Hot / Cold, Big / Small, Happy / Sad, Up / Down', conceptSummaryHindi: 'विलोम शब्द: Hot/Cold, Big/Small, Up/Down' },
+  { id: 'c_lkg_e_26', number: 26, title: 'Action Words in Play', titleHindi: 'काम बताने वाले शब्द (Action Words)', grade: 'LKG', subject: 'english', icon: '🏃', conceptSummary: 'Early Verbs: Clap, Jump, Run, Sleep, Dance, Eat, Read', conceptSummaryHindi: 'क्रिया शब्द: Clap, Jump, Run, Sleep' },
+  { id: 'c_lkg_e_27', number: 27, title: 'Golden Magic Polite Words', titleHindi: 'जादुई शिष्टाचार शब्द', grade: 'LKG', subject: 'english', icon: '✨', conceptSummary: 'Social Manners: Please, Thank You, Sorry, Good Morning, Welcome', conceptSummaryHindi: 'अच्छे संस्कार: Please, Thank You, Sorry का प्रयोग' },
+  { id: 'c_lkg_e_28', number: 28, title: 'Position Words with Pictures', titleHindi: 'स्थान बताने वाले शब्द (In, On, Under)', grade: 'LKG', subject: 'english', icon: '📦', conceptSummary: 'Prepositions: In the box, On the table, Under the tree', conceptSummaryHindi: 'स्थान ज्ञान: In, On, Under की सचित्र पहचान' },
+
+  // Module 6: Sequence Mastery & English Olympiad (Ch 29 - 30)
+  { id: 'c_lkg_e_29', number: 29, title: 'Alphabet Train & Missing Letters', titleHindi: 'अल्फाबेट ट्रेन व छूटे हुए अक्षर', grade: 'LKG', subject: 'english', icon: '🚂', conceptSummary: 'Sequence: Finding missing letters in A, B, __, D and K, L, __, N sequences', conceptSummaryHindi: 'क्रम ज्ञान: A, B, _, D में छूटा हुआ अक्षर ढूंढना' },
+  { id: 'c_lkg_e_30', number: 30, title: 'Super Kid Pre-School English Olympiad', titleHindi: 'सुपर किड इंग्लिश ओलंपियाड', grade: 'LKG', subject: 'english', icon: '🏆', conceptSummary: 'Mastery: Grand milestone test across all letters, phonics, opposites & words', conceptSummaryHindi: 'ओलंपियाड टेस्ट: सभी 29 पाठों का महाअभ्यास' },
+
+  // LKG HINDI - 15 COMPREHENSIVE BALVATIKA 2 CHAPTERS
   { id: 'c_lkg_h_01', number: 1, title: 'स्वर पहचान (अ से ई तक - अनार, आम, इमली, ईख)', grade: 'LKG', subject: 'hindi', icon: '🥭', conceptSummary: 'बाल वाटिका: अ से अनार, आ से आम, इ से इमली, ई से ईख की सचित्र पहचान' },
-  { id: 'c_lkg_h_02', number: 2, title: 'स्वर पहचान (उ से अः तक - उल्लू, ऊन, ऋषि)', grade: 'LKG', subject: 'hindi', icon: '🦉', conceptSummary: 'बाल वाटिका: उ से उल्लू, ऊ से ऊन, ऋ से ऋषि, ए से एड़ी, ओ से ओखली पहचान' },
-  { id: 'c_lkg_h_03', number: 3, title: 'चित्र देखकर पहला अक्षर पहचानो', grade: 'LKG', subject: 'hindi', icon: '🖼️', conceptSummary: 'बाल वाटिका: दिए गए चित्र को देखकर उसका पहला स्वर या व्यंजन चुनना' },
-  { id: 'c_lkg_h_04', number: 4, title: 'पशु-पक्षी व उनके नाम (गाय, हाथी, तोता, मोर)', grade: 'LKG', subject: 'hindi', icon: '🦜', conceptSummary: 'बाल वाटिका: परिचित पशु-पक्षियों की पहचान व उनके नाम' },
-  { id: 'c_lkg_h_05', number: 5, title: 'रंग, फल व शरीर के अंग (लाल, केला, आँख, कान)', grade: 'LKG', subject: 'hindi', icon: '🍎', conceptSummary: 'बाल वाटिका: प्राथमिक रंग (लाल, पीला, हरा), सरल फल व शरीर के मुख्य अंग' },
+  { id: 'c_lkg_h_02', number: 2, title: 'स्वर पहचान (उ से औ तक - उल्लू, ऊन, ऋषि)', grade: 'LKG', subject: 'hindi', icon: '🦉', conceptSummary: 'बाल वाटिका: उ से उल्लू, ऊ से ऊन, ऋ से ऋषि, ए से एड़ी, ओ से ओखली पहचान' },
+  { id: 'c_lkg_h_03', number: 3, title: 'चित्र देखकर पहला अक्षर पहचानें', grade: 'LKG', subject: 'hindi', icon: '🖼️', conceptSummary: 'बाल वाटिका: दिए गए चित्र को देखकर उसका पहला स्वर अक्षर पहचानना' },
+  { id: 'c_lkg_h_04', number: 4, title: 'पशु-पक्षी व उनकी बोली (गाय, बिल्ली, चिड़िया, शेर)', grade: 'LKG', subject: 'hindi', icon: '🐱', conceptSummary: 'बाल वाटिका: परिचित पशु-पक्षियों की पहचान व उनकी आवाजें' },
+  { id: 'c_lkg_h_05', number: 5, title: 'रंग, फल व शरीर के अंग (लाल, केला, आँख, कान)', grade: 'LKG', subject: 'hindi', icon: '🍎', conceptSummary: 'बाल वाटिका: प्राथमिक रंग (लाल, पीला, हरा), फल व शरीर के मुख्य अंग' },
+  { id: 'c_lkg_h_06', number: 6, title: 'व्यंजन पहचान: क-वर्ग (क, ख, ग, घ - कबूतर, खरगोश, गमला, घर)', grade: 'LKG', subject: 'hindi', icon: '🕊️', conceptSummary: 'बाल वाटिका व्यंजन: क से कबूतर, ख से खरगोश, ग से गमला, घ से घर की सचित्र पहचान' },
+  { id: 'c_lkg_h_07', number: 7, title: 'व्यंजन पहचान: च-वर्ग (च, छ, ज, झ - चम्मच, छाता, जग, झंडा)', grade: 'LKG', subject: 'hindi', icon: '🥄', conceptSummary: 'बाल वाटिका व्यंजन: च से चम्मच, छ से छाता, ज से जग, झ से झंडा की सचित्र पहचान' },
+  { id: 'c_lkg_h_08', number: 8, title: 'व्यंजन पहचान: ट-वर्ग (ट, ठ, ड, ढ, ण - टमाटर, ठठेरा, डमरू, ढक्कन)', grade: 'LKG', subject: 'hindi', icon: '🍅', conceptSummary: 'बाल वाटिका व्यंजन: ट से टमाटर, ठ से ठठेरा, ड से डमरू, ढ से ढक्कन की सचित्र पहचान' },
+  { id: 'c_lkg_h_09', number: 9, title: 'व्यंजन पहचान: त-वर्ग (त, थ, द, ध, न - तितली, थर्मस, दवात, धनुष, नल)', grade: 'LKG', subject: 'hindi', icon: '🦋', conceptSummary: 'बाल वाटिका व्यंजन: त से तितली/तरबूज, थ से थर्मस, द से दवात, ध से धनुष, न से नल पहचान' },
+  { id: 'c_lkg_h_10', number: 10, title: 'व्यंजन पहचान: प-वर्ग (प, फ, ब, भ, म - पतंग, फल, बतख, भालू, मछली)', grade: 'LKG', subject: 'hindi', icon: '🪁', conceptSummary: 'बाल वाटिका व्यंजन: प से पतंग, फ से फल, ब से बतख, भ से भालू, म से मछली पहचान' },
+  { id: 'c_lkg_h_11', number: 11, title: 'सचित्र व्यंजन खोज (क से म तक पहला अक्षर पहचान)', grade: 'LKG', subject: 'hindi', icon: '🔍', conceptSummary: 'बाल वाटिका सुदृढ़ीकरण: फल, पक्षी व वस्तुओं के चित्र देखकर सही प्रारंभिक व्यंजन पहचानना' },
+  { id: 'c_lkg_h_12', number: 12, title: 'भारतीय पशु-पक्षियों की आवाजें (म्याऊं, भौं-भौं, चीं-चीं, काँव-काँव)', grade: 'LKG', subject: 'hindi', icon: '🔊', conceptSummary: 'ध्वनि चेतना: बिल्ली, कुत्ता, चिड़िया, कौआ, गाय, मेंढक की आवाजों की पहचान' },
+  { id: 'c_lkg_h_13', number: 13, title: 'जंगली जानवर व जलचर (शेर, हाथी, बंदर, मछली, बतख)', grade: 'LKG', subject: 'hindi', icon: '🦁', conceptSummary: 'आसपास की प्रकृति: जंगल के राजा शेर, बड़े हाथी, नटखट बंदर व पानी में तैरती मछली' },
+  { id: 'c_lkg_h_14', number: 14, title: 'रंग, आकार व प्रकृति (लाल, पीला, हरा, नीला, गोल, चौकोर, सूरज)', grade: 'LKG', subject: 'hindi', icon: '🌈', conceptSummary: 'दृश्य विभेदीकरण: रंगों के नाम, गोल व चौकोर आकार तथा प्रकृति के दृश्य' },
+  { id: 'c_lkg_h_15', number: 15, title: 'हमारे अंग, स्वास्थ्य व अच्छी आदतें (हाथ धोना, नमस्ते, दांत साफ)', grade: 'LKG', subject: 'hindi', icon: '🌸', conceptSummary: 'संस्कार व स्वच्छता: शरीर के अंग, हाथ धोना, बड़ों को नमस्ते और प्रतिदिन दांत साफ करना' },
 
   // =========================================================================
   // UKG (BALVATIKA 3) — KINDERGARTEN FOUNDATION

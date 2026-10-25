@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 ENGLISH (MRIDANG & MARIGOLD)
 // CHAPTER 2: PICTURE READING & NAMING WORDS (NOUNS)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 6 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
@@ -67,7 +67,7 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     payload: {
       options: [
         { id: 'opt_ani1_1', text: 'Cow 🐄', isCorrect: true },
-        { id: 'opt_ani1_2', text: 'Chair 🪑', isCorrect: false },
+        { id: 'opt_ani1_2', text: 'Chair 🛋️', isCorrect: false },
         { id: 'opt_ani1_3', text: 'Car 🚗', isCorrect: false },
       ],
     },
@@ -108,7 +108,7 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Where do children go to play on swings, see-saws, and green grass 🏞️?',
-    visualEmoji: '🏞️ 🛝',
+    visualEmoji: '🏞️ 🎢',
     payload: {
       options: [
         { id: 'opt_plc1_1', text: 'Park', isCorrect: true },
@@ -172,12 +172,12 @@ export const CLASS_1_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'match_pairs',
     question: 'Match each classroom thing with how we use it:',
-    visualEmoji: '✏️ 📖 🪑 ✂️',
+    visualEmoji: '✏️ 📖 🛋️ ✂️',
     payload: {
       pairs: [
         { id: 'cls_th1', left: 'Pencil ✏️', right: 'To write letters' },
         { id: 'cls_th2', left: 'Book 📖', right: 'To read stories' },
-        { id: 'cls_th3', left: 'Chair 🪑', right: 'To sit on' },
+        { id: 'cls_th3', left: 'Chair 🛋️', right: 'To sit on' },
         { id: 'cls_th4', left: 'Eraser 🧼', right: 'To rub mistakes' },
       ],
     },

@@ -12,12 +12,15 @@ import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { useUserStore } from '../../store/useUserStore';
+import { SpeakerButton } from '../common/SpeakerButton';
+import { stopSpeaking } from '../../utils/speech';
 
 const { width } = Dimensions.get('window');
 
 interface ShapeSorterGameModalProps {
   visible: boolean;
   onClose: () => void;
+  activeLang?: string;
 }
 
 interface ShapeLevel {
@@ -140,8 +143,10 @@ const SHAPE_LEVELS: ShapeLevel[] = [
 export const ShapeSorterGameModal: React.FC<ShapeSorterGameModalProps> = ({
   visible,
   onClose,
+  activeLang,
 }) => {
-  const { addReward } = useUserStore();
+  const { addReward, profile } = useUserStore();
+  const isHindi = (activeLang || profile.preferredLanguage) === 'hi';
   const [levelIndex, setLevelIndex] = useState(0);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -153,12 +158,18 @@ export const ShapeSorterGameModal: React.FC<ShapeSorterGameModalProps> = ({
 
   useEffect(() => {
     if (!visible) return;
+    stopSpeaking();
     setLevelIndex(0);
     setSelectedId(null);
     setIsSuccess(false);
     setIsFinished(false);
     setShowParentInfo(false);
   }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
+    stopSpeaking();
+  }, [levelIndex]);
 
   const handleSelect = (option: { id: string; label: string; emoji: string; color: string }) => {
     if (isSuccess) return;
@@ -202,22 +213,28 @@ export const ShapeSorterGameModal: React.FC<ShapeSorterGameModalProps> = ({
     }
   };
 
+  const handleClose = () => {
+    stopSpeaking();
+    onClose();
+  };
+
   const handleFinish = async () => {
+    stopSpeaking();
     await addReward({ stars: 25, xp: 90 });
     triggerHaptic('success');
     onClose();
   };
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.card}>
           {/* Header */}
           <View style={styles.header}>
             <View>
-              <Text style={styles.title}>🔷 Shape & Color Sorter</Text>
+              <Text style={styles.title}>{isHindi ? '🔷 आकार सॉर्टर' : '🔷 Shape Sorter Lab'}</Text>
               <Text style={styles.sub}>
-                Level {levelIndex + 1} of {SHAPE_LEVELS.length} • NCERT Foundation
+                Level {levelIndex + 1} of {SHAPE_LEVELS.length} • NCERT Balvatika 2
               </Text>
             </View>
             <View style={styles.topRightRow}>
@@ -225,9 +242,9 @@ export const ShapeSorterGameModal: React.FC<ShapeSorterGameModalProps> = ({
                 style={styles.infoPill}
                 onPress={() => setShowParentInfo((v) => !v)}
               >
-                <Text style={styles.infoPillText}>👨‍🏫 Parents</Text>
+                <Text style={styles.infoPillText}>{isHindi ? '👨‍🏫 अभिभावक' : '👨‍🏫 Parents'}</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+              <TouchableOpacity onPress={handleClose} style={styles.closeBtn}>
                 <Text style={styles.closeText}>✕</Text>
               </TouchableOpacity>
             </View>
@@ -241,10 +258,19 @@ export const ShapeSorterGameModal: React.FC<ShapeSorterGameModalProps> = ({
             </View>
           )}
 
-          {/* Mission Target Banner */}
+          {/* Mission Target Banner with Speaker Button */}
           <View style={styles.missionBanner}>
-            <Text style={styles.missionPrompt}>{currentLevel.prompt}</Text>
-            <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>
+            <View style={styles.missionTextCol}>
+              <Text style={styles.missionPrompt}>{currentLevel.prompt}</Text>
+              {isHindi && <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>}
+            </View>
+            <SpeakerButton
+              textToSpeak={isHindi ? currentLevel.hindiPrompt : currentLevel.prompt}
+              size="pill"
+              showLabel
+              activeLang={isHindi ? 'hi' : 'en'}
+              style={styles.speakerPill}
+            />
           </View>
 
           {/* Glowing Stencil Slot Box */}
@@ -276,13 +302,16 @@ export const ShapeSorterGameModal: React.FC<ShapeSorterGameModalProps> = ({
                   style={[
                     styles.choiceCard,
                     { borderColor: opt.color },
-                    isChosen && { backgroundColor: `${opt.color}25` },
+                    isChosen && { backgroundColor: `${opt.color}20` },
                   ]}
                   activeOpacity={0.8}
                   onPress={() => handleSelect(opt)}
                 >
                   <Text style={styles.choiceEmoji}>{opt.emoji}</Text>
-                  <Text style={[styles.choiceLabel, { color: opt.color }]}>{opt.label}</Text>
+                  <View style={styles.choiceLabelRow}>
+                    <Text style={[styles.choiceLabel, { color: opt.color }]}>{opt.label}</Text>
+                    <SpeakerButton textToSpeak={opt.label} size="sm" style={styles.choiceSpeakerBtn} />
+                  </View>
                 </TouchableOpacity>
               );
             })}
@@ -300,7 +329,9 @@ export const ShapeSorterGameModal: React.FC<ShapeSorterGameModalProps> = ({
                 <Text style={styles.successEmoji}>🏆</Text>
                 <Text style={styles.successTitle}>Shape Master Champ!</Text>
                 <Text style={styles.successDesc}>
-                  Aapne saare 8 shapes & colors ko pehchan kar fit kar diya!
+                  {isHindi
+                    ? 'आपने सारे 8 आकारों को सही पहचान कर स्लॉट में फिट कर दिया!'
+                    : 'You accurately identified and matched all 8 shapes & geometric forms!'}
                 </Text>
                 <View style={styles.rewardPill}>
                   <Text style={styles.rewardText}>+25 Stars ⭐  +90 XP ⚡</Text>
@@ -320,18 +351,18 @@ export const ShapeSorterGameModal: React.FC<ShapeSorterGameModalProps> = ({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.85)',
+    backgroundColor: 'rgba(15, 23, 42, 0.45)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: SPACING.md,
   },
   card: {
     width: Math.min(width - 32, 440),
-    backgroundColor: '#0F172A',
+    backgroundColor: '#FFFFFF',
     borderRadius: BORDER_RADIUS.xl,
     padding: SPACING.lg,
     borderWidth: 2,
-    borderColor: '#3B82F6',
+    borderColor: '#BAE6FD',
     ...SHADOWS.card,
   },
   header: {
@@ -346,25 +377,25 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   infoPill: {
-    backgroundColor: '#1E3A8A',
+    backgroundColor: '#F0F9FF',
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: BORDER_RADIUS.full,
     borderWidth: 1,
-    borderColor: '#60A5FA',
+    borderColor: '#BAE6FD',
   },
   infoPillText: {
-    color: '#93C5FD',
+    color: '#0284C7',
     fontSize: 12,
     fontWeight: '700',
   },
   title: {
-    color: '#FFFFFF',
+    color: '#0369A1',
     fontSize: 19,
     fontWeight: '800',
   },
   sub: {
-    color: '#94A3B8',
+    color: '#0284C7',
     fontSize: 12,
     fontWeight: '600',
   },
@@ -372,62 +403,81 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#334155',
+    backgroundColor: '#F1F5F9',
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeText: {
-    color: '#FFFFFF',
+    color: '#475569',
     fontSize: 16,
     fontWeight: '700',
   },
   parentBox: {
-    backgroundColor: '#1E293B',
+    backgroundColor: '#FEF3C7',
     borderRadius: BORDER_RADIUS.md,
     padding: 10,
     marginBottom: SPACING.sm,
     borderLeftWidth: 3,
-    borderLeftColor: '#60A5FA',
+    borderLeftColor: '#F59E0B',
   },
   parentTitle: {
-    color: '#60A5FA',
+    color: '#B45309',
     fontSize: 12,
     fontWeight: '700',
     marginBottom: 2,
   },
   parentDesc: {
-    color: '#E2E8F0',
+    color: '#78350F',
     fontSize: 12,
     lineHeight: 16,
   },
   missionBanner: {
-    backgroundColor: '#1E3A8A',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#F0F9FF',
     borderRadius: BORDER_RADIUS.md,
     padding: SPACING.sm,
-    alignItems: 'center',
     marginBottom: SPACING.md,
-    borderWidth: 1,
-    borderColor: '#3B82F6',
+    borderWidth: 1.5,
+    borderColor: '#BAE6FD',
+    gap: 8,
+  },
+  missionTextCol: {
+    flex: 1,
   },
   missionPrompt: {
-    color: '#FFFFFF',
-    fontSize: 16,
+    color: '#0369A1',
+    fontSize: 15,
     fontWeight: '800',
-    textAlign: 'center',
   },
   missionHindi: {
-    color: '#93C5FD',
+    color: '#0284C7',
     fontSize: 13,
     fontWeight: '600',
     marginTop: 2,
-    textAlign: 'center',
+  },
+  speakerPill: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#38BDF8',
+  },
+  choiceLabelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    marginTop: 2,
+  },
+  choiceSpeakerBtn: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#E2E8F0',
   },
   stencilStage: {
     alignItems: 'center',
     marginVertical: SPACING.md,
   },
   stencilTag: {
-    color: '#94A3B8',
+    color: '#64748B',
     fontSize: 12,
     fontWeight: '600',
     marginBottom: 8,
@@ -438,8 +488,8 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     borderWidth: 3,
     borderStyle: 'dashed',
-    borderColor: '#60A5FA',
-    backgroundColor: '#1E293B',
+    borderColor: '#38BDF8',
+    backgroundColor: '#F8FAFC',
     justifyContent: 'center',
     alignItems: 'center',
     padding: SPACING.xs,
@@ -447,13 +497,13 @@ const styles = StyleSheet.create({
   stencilSlotSuccess: {
     borderColor: '#10B981',
     borderStyle: 'solid',
-    backgroundColor: '#064E3B',
+    backgroundColor: '#DCFCE7',
   },
   stencilTargetEmoji: {
     fontSize: 52,
   },
   stencilGlowLabel: {
-    color: '#93C5FD',
+    color: '#0284C7',
     fontSize: 11,
     fontWeight: '700',
     marginTop: 6,
@@ -467,11 +517,16 @@ const styles = StyleSheet.create({
   },
   choiceCard: {
     flex: 1,
-    backgroundColor: '#1E293B',
+    backgroundColor: '#FFFFFF',
     borderRadius: BORDER_RADIUS.lg,
     paddingVertical: SPACING.md,
     alignItems: 'center',
     borderWidth: 2,
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+    elevation: 2,
   },
   choiceEmoji: {
     fontSize: 40,
@@ -486,7 +541,7 @@ const styles = StyleSheet.create({
     marginTop: SPACING.xs,
   },
   footerNote: {
-    color: '#64748B',
+    color: '#0284C7',
     fontSize: 11,
     fontStyle: 'italic',
   },
@@ -496,7 +551,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(15, 23, 42, 0.96)',
+    backgroundColor: 'rgba(255, 255, 255, 0.97)',
     borderRadius: BORDER_RADIUS.xl,
     justifyContent: 'center',
     alignItems: 'center',
@@ -510,20 +565,20 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   successTitle: {
-    color: '#F59E0B',
+    color: '#0369A1',
     fontSize: 24,
     fontWeight: '900',
     marginBottom: 4,
   },
   successDesc: {
-    color: '#E2E8F0',
+    color: '#334155',
     fontSize: 14,
     textAlign: 'center',
     marginBottom: SPACING.md,
     lineHeight: 20,
   },
   rewardPill: {
-    backgroundColor: '#78350F',
+    backgroundColor: '#FEF3C7',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: BORDER_RADIUS.full,
@@ -532,17 +587,17 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.lg,
   },
   rewardText: {
-    color: '#FDE68A',
+    color: '#B45309',
     fontSize: 15,
     fontWeight: '800',
   },
   claimBtn: {
-    backgroundColor: '#3B82F6',
+    backgroundColor: '#0284C7',
     paddingHorizontal: 32,
     paddingVertical: 14,
     borderRadius: BORDER_RADIUS.xl,
     borderWidth: 1,
-    borderColor: '#60A5FA',
+    borderColor: '#38BDF8',
   },
   claimBtnText: {
     color: '#FFFFFF',

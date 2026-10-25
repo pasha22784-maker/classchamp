@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // NCERT CLASS 6 MATHEMATICS
 // CHAPTER 1: Knowing Our Numbers (Lakhs & Roman Numerals)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers
+// Global Benchmark Standard | Zero Spoilers
 // ============================================================================
 
 export const CLASS_6_MATHS_LESSON_1_QUESTIONS: Question[] = [

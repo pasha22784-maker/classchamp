@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 5 HINDI (UNIVERSAL VYAKARAN)
 // CHAPTER 4: क्रिया के भेद (सकर्मक व अकर्मक क्रिया)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_5_HINDI_LESSON_4_QUESTIONS: Question[] = [

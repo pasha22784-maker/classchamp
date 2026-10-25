@@ -427,8 +427,8 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     concept: 'Short /o/ Vowel: P-O-T',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Look at the picture: 🪴 Plant in a... /p/ - /o/ - /t/?',
-    visualEmoji: '🪴 🔤',
+    question: 'Look at the picture: 🌱 Plant in a... /p/ - /o/ - /t/?',
+    visualEmoji: '🌱 🔤',
     payload: {
       options: [
         { id: 'opt_1', text: 'POT', isCorrect: true },
@@ -436,7 +436,7 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
         { id: 'opt_3', text: 'PIT', isCorrect: false },
       ],
     },
-    explanation: 'P - O - T spells POT 🪴!',
+    explanation: 'P - O - T spells POT 🌱!',
     points: 15,
   },
   {
@@ -653,10 +653,10 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Which word rhymes with DOG 🐶?',
-    visualEmoji: '🐶 🪵',
+    visualEmoji: '🐶 🌲',
     payload: {
       options: [
-        { id: 'opt_1', text: 'LOG 🪵', isCorrect: true },
+        { id: 'opt_1', text: 'LOG 🌲', isCorrect: true },
         { id: 'opt_2', text: 'CAT 🐱', isCorrect: false },
         { id: 'opt_3', text: 'SUN ☀️', isCorrect: false },
       ],
@@ -678,7 +678,7 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
       options: [
         { id: 'opt_1', text: 'TIN 🥫', isCorrect: true },
         { id: 'opt_2', text: 'PEN 🖊️', isCorrect: false },
-        { id: 'opt_3', text: 'POT 🪴', isCorrect: false },
+        { id: 'opt_3', text: 'POT 🌱', isCorrect: false },
       ],
     },
     explanation: 'Pin and TIN rhyme! Pin - Tin - Win!',
@@ -717,7 +717,7 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     payload: {
       options: [
         { id: 'opt_1', text: 'RUN 🏃', isCorrect: true },
-        { id: 'opt_2', text: 'SIT 🪑', isCorrect: false },
+        { id: 'opt_2', text: 'SIT 🛋️', isCorrect: false },
         { id: 'opt_3', text: 'HOP 🐇', isCorrect: false },
       ],
     },
@@ -959,8 +959,8 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     concept: 'Preposition ON',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Where is the book? It is [BLANK] the table! 📖 🪑',
-    visualEmoji: '📖 🪑',
+    question: 'Where is the book? It is [BLANK] the table! 📖 🛋️',
+    visualEmoji: '📖 🛋️',
     payload: {
       options: [
         { id: 'opt_1', text: 'ON', isCorrect: true },
@@ -1388,11 +1388,11 @@ export const UKG_ENGLISH_ALL_QUESTIONS: Question[] = [
     concept: 'Heavy vs Light',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'A rock is HEAVY 🪨. Which object is LIGHT?',
-    visualEmoji: '🪨 🪶',
+    question: 'A rock is HEAVY 🧱. Which object is LIGHT?',
+    visualEmoji: '🧱 🍃',
     payload: {
       options: [
-        { id: 'opt_1', text: 'Feather 🪶', isCorrect: true },
+        { id: 'opt_1', text: 'Feather 🍃', isCorrect: true },
         { id: 'opt_2', text: 'Bus 🚌', isCorrect: false },
         { id: 'opt_3', text: 'Mountain ⛰️', isCorrect: false },
       ],

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { COLORS, BORDER_RADIUS, SPACING, SHADOWS } from '../../constants/theme';
 import { QuizSessionResult, Grade } from '../../types';
+import { cleanBilingualForEnglish } from '../../utils/language';
 
 interface CertificateCardProps {
   studentName: string;
@@ -58,7 +59,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
           </Text>
           {result.chapterTitle ? (
             <Text style={[styles.gradeText, { color: COLORS.primary, fontWeight: '700', marginTop: 2 }]}>
-              Lesson: {result.chapterTitle}
+              Lesson: {cleanBilingualForEnglish(result.chapterTitle)}
             </Text>
           ) : null}
         </View>
@@ -73,6 +74,13 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
           </Text>
           <Text style={[styles.starEmoji, result.starsEarned >= 3 ? styles.starOn : styles.starOff]}>
             ⭐
+          </Text>
+        </View>
+
+        {/* Coins & Stars Won Celebration Badge */}
+        <View style={styles.rewardsWonBanner}>
+          <Text style={styles.rewardsWonText}>
+            🏆 Reward: ⭐ +{result.starsEarned} Stars  •  💰 +{result.starsEarned * 10} Coins!
           </Text>
         </View>
 
@@ -216,6 +224,21 @@ const styles = StyleSheet.create({
   },
   starOff: {
     opacity: 0.25,
+  },
+  rewardsWonBanner: {
+    backgroundColor: '#FEF3C7',
+    borderRadius: BORDER_RADIUS.round,
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    borderWidth: 1.5,
+    borderColor: '#FDE68A',
+    alignSelf: 'center',
+    marginBottom: SPACING.sm,
+  },
+  rewardsWonText: {
+    fontSize: 12,
+    fontWeight: '900',
+    color: '#92400E',
   },
   metricsGrid: {
     flexDirection: 'row',

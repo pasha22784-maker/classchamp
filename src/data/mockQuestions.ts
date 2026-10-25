@@ -1,9 +1,14 @@
+import { CLASS_1_ENGLISH_SKILL_QUESTIONS, CLASS_1_ENGLISH_SKILLS } from './curriculum/class1EnglishSkillDirectory';
 import { Question, Grade, Subject } from '../types';
 import { LKG_MATHS_ALL_QUESTIONS } from './curriculum/lkgMathsLessons';
+import { LKG_MATHS_SKILL_QUESTIONS } from './curriculum/lkgMathsSkillDirectory';
 import { LKG_ENGLISH_ALL_QUESTIONS } from './curriculum/lkgEnglishLessons';
+import { LKG_ENGLISH_ALL_QUESTIONS as LKG_ENGLISH_SKILL_QUESTIONS } from './curriculum/lkgEnglishSkillDirectory';
 import { LKG_HINDI_ALL_QUESTIONS } from './curriculum/lkgHindiLessons';
 import { UKG_MATHS_ALL_QUESTIONS } from './curriculum/ukgMathsLessons';
+import { UKG_MATHS_SKILL_QUESTIONS } from './curriculum/ukgMathsSkillDirectory';
 import { UKG_ENGLISH_ALL_QUESTIONS } from './curriculum/ukgEnglishLessons';
+import { UKG_ENGLISH_SKILL_QUESTIONS } from './curriculum/ukgEnglishSkillDirectory';
 import { UKG_HINDI_ALL_QUESTIONS } from './curriculum/ukgHindiLessons';
 import { CLASS_1_MATHS_LESSON_1_QUESTIONS } from './curriculum/class1MathsLesson1';
 import { CLASS_1_MATHS_LESSON_2_QUESTIONS } from './curriculum/class1MathsLesson2';
@@ -151,14 +156,18 @@ export const MOCK_QUESTIONS: Question[] = [
   // LKG (BALVATIKA 2) — FOUNDATION CURRICULUM (15 CHAPTERS)
   // =========================================================================
   ...LKG_MATHS_ALL_QUESTIONS,
+  ...LKG_MATHS_SKILL_QUESTIONS,
   ...LKG_ENGLISH_ALL_QUESTIONS,
+  ...LKG_ENGLISH_SKILL_QUESTIONS,
   ...LKG_HINDI_ALL_QUESTIONS,
 
   // =========================================================================
-  // UKG (BALVATIKA 3) — KINDERGARTEN CURRICULUM (15 CHAPTERS)
+  // UKG (BALVATIKA 3) — KINDERGARTEN CURRICULUM (15 CHAPTERS + 131 ENGLISH SKILLS + 144 MATHS SKILLS)
   // =========================================================================
   ...UKG_MATHS_ALL_QUESTIONS,
+  ...UKG_MATHS_SKILL_QUESTIONS,
   ...UKG_ENGLISH_ALL_QUESTIONS,
+  ...UKG_ENGLISH_SKILL_QUESTIONS,
   ...UKG_HINDI_ALL_QUESTIONS,
 
   // =========================================================================
@@ -280,6 +289,9 @@ export const MOCK_QUESTIONS: Question[] = [
   // All 6 Concepts (Capital letter start, Full stop ., Word order, Question mark ?, Sight words)
   // =========================================================================
   ...CLASS_1_ENGLISH_LESSON_8_QUESTIONS,
+
+  // CLASS 1 ENGLISH SKILL CURRICULUM (169 Skills, 1690 Questions)
+  ...CLASS_1_ENGLISH_SKILL_QUESTIONS,
 
   // =========================================================================
   // CLASS 2 — NCERT JOYFUL MATHEMATICS 2: CHAPTER 1 (A Day at the Beach - Counting in Groups)
@@ -751,3 +763,6 @@ export const getQuestionsForSession = (
   const gradeFallback = MOCK_QUESTIONS.filter((q) => q.grade === grade);
   return gradeFallback.length > 0 ? gradeFallback : MOCK_QUESTIONS;
 };
+
+
+export { CLASS_1_ENGLISH_SKILLS, CLASS_1_ENGLISH_SKILL_QUESTIONS };

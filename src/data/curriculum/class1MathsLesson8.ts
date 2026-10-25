@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 MATHEMATICS (JOYFUL MATHEMATICS)
 // CHAPTER 8: FUN WITH NUMBERS (NUMBERS 21 TO 99)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_MATHS_LESSON_8_QUESTIONS: Question[] = [

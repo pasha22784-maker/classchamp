@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 4 MATHEMATICS (MATH-MAGIC 4)
 // CHAPTER 1: BUILDING WITH BRICKS (BRICK PATTERNS)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
@@ -306,7 +306,7 @@ export const CLASS_4_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'Arrange the steps a mason takes to build a strong, stable brick wall in proper order:',
-    visualEmoji: '🧱 🏗️ 📐 🪜',
+    visualEmoji: '🧱 🏗️ 📐 📏',
     payload: {
       tokens: [
         'Spread wet cement mortar on the base',

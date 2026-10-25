@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 6 HINDI (UNIVERSAL VYAKARAN)
 // CHAPTER 6: समास परिचय व मुहावरे-लोकोक्तियाँ
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_6_HINDI_LESSON_6_QUESTIONS: Question[] = [

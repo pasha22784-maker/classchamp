@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // NCERT CLASS 6 MATHEMATICS
 // CHAPTER 3: Playing with Numbers (Prime & Composite)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers
+// Global Benchmark Standard | Zero Spoilers
 // ============================================================================
 
 export const CLASS_6_MATHS_LESSON_3_QUESTIONS: Question[] = [
@@ -268,7 +268,7 @@ export const CLASS_6_MATHS_LESSON_3_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'Arrange the steps for finding the HCF of two composite numbers by prime factorisation:',
-    visualEmoji: '🪜 🔝',
+    visualEmoji: '📏 🔝',
     payload: {
       tokens: [
         'Find prime factorisation of both numbers',

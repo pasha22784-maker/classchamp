@@ -15,8 +15,10 @@ interface ChampHeaderProps {
   onBack?: () => void;
   streakDays?: number;
   totalStars?: number;
+  totalCoins?: number;
   avatarEmoji?: string;
   onPressAvatar?: () => void;
+  onPressTitle?: () => void;
   rightComponent?: React.ReactNode;
   style?: ViewStyle;
 }
@@ -27,8 +29,10 @@ export const ChampHeader: React.FC<ChampHeaderProps> = ({
   onBack,
   streakDays,
   totalStars,
+  totalCoins,
   avatarEmoji,
   onPressAvatar,
+  onPressTitle,
   rightComponent,
   style,
 }) => {
@@ -66,7 +70,17 @@ export const ChampHeader: React.FC<ChampHeaderProps> = ({
           </View>
         )}
 
-        <View style={styles.titleColumn}>
+        <TouchableOpacity
+          activeOpacity={onPressTitle ? 0.75 : 1}
+          disabled={!onPressTitle}
+          onPress={() => {
+            if (onPressTitle) {
+              triggerHaptic('light');
+              onPressTitle();
+            }
+          }}
+          style={styles.titleColumn}
+        >
           <Text style={styles.titleText} numberOfLines={1}>
             {title || 'ClassChamp'}
           </Text>
@@ -75,13 +89,18 @@ export const ChampHeader: React.FC<ChampHeaderProps> = ({
               {subtitle}
             </Text>
           ) : null}
-        </View>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.rightRow}>
         {streakDays !== undefined && (
           <View style={styles.streakPill}>
             <Text style={styles.streakText}>🔥 {streakDays}</Text>
+          </View>
+        )}
+        {totalCoins !== undefined && (
+          <View style={styles.coinPill}>
+            <Text style={styles.coinText}>💰 {totalCoins}</Text>
           </View>
         )}
         {totalStars !== undefined && (
@@ -174,6 +193,19 @@ const styles = StyleSheet.create({
   streakText: {
     color: COLORS.white,
     fontWeight: '700',
+    fontSize: 13,
+  },
+  coinPill: {
+    backgroundColor: 'rgba(250, 204, 21, 0.22)',
+    paddingHorizontal: SPACING.md,
+    paddingVertical: 4,
+    borderRadius: BORDER_RADIUS.round,
+    borderWidth: 1,
+    borderColor: '#FACC15',
+  },
+  coinText: {
+    color: '#FEF08A',
+    fontWeight: '800',
     fontSize: 13,
   },
   starPill: {

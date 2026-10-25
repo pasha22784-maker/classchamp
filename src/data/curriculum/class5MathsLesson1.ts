@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 5 MATHEMATICS (MATH-MAGIC 5)
 // CHAPTER 1: THE FISH TALE (LARGE NUMBERS & SPEED)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_MATHS_LESSON_1_QUESTIONS: Question[] = [
@@ -167,7 +167,7 @@ export const CLASS_5_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'When fresh fish is dried, it becomes 1/3 of its original weight. If the women\'s cooperative dries 6,000 kg of fresh fish in a month, how many kilograms of dried fish will they get?',
-    visualEmoji: '🐟 ➔ 🪶 6,000 ÷ 3',
+    visualEmoji: '🐟 ➔ 🍃 6,000 ÷ 3',
     payload: {
       options: [
         { id: 'opt_1', text: '2,000 kg', isCorrect: true },
@@ -252,7 +252,7 @@ export const CLASS_5_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'The cooperative buys 6 kg of fresh fish at ₹ 15 per kg. When dried, 6 kg fresh fish becomes 2 kg dried fish. They sell dried fish at ₹ 70 per kg. How much profit do they earn by drying 6 kg fresh fish?',
-    visualEmoji: '🐟 (6 kg × 15) ➔ 🪶 (2 kg × 70)',
+    visualEmoji: '🐟 (6 kg × 15) ➔ 🍃 (2 kg × 70)',
     payload: {
       options: [
         { id: 'opt_1', text: '₹ 50', isCorrect: true },

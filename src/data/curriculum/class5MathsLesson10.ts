@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 5 MATHEMATICS (MATH-MAGIC 5)
 // CHAPTER 10: HOW BIG? HOW HEAVY? (VOLUME)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
@@ -61,7 +61,7 @@ export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'When a heavy coin or stone is dropped into a glass full of water, why does water spill out or rise in level?',
-    visualEmoji: '🥛 💧 🪙',
+    visualEmoji: '🥛 💧 💰',
     payload: {
       options: [
         { id: 'opt_1', text: 'Because the solid object takes up space and displaces an equal volume of water', isCorrect: true },
@@ -146,7 +146,7 @@ export const CLASS_5_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'A 5-rupee coin weighs exactly 9 grams. A bank cashier weighs a heavy sack containing 1,000 such five-rupee coins. What is the total weight of the coins in kilograms?',
-    visualEmoji: '🪙 1,000 × 9 g',
+    visualEmoji: '💰 1,000 × 9 g',
     payload: {
       options: [
         { id: 'opt_1', text: '9 kg', isCorrect: true },

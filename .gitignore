@@ -49,3 +49,7 @@ yarn-error.*
 scripts/
 !scripts/curriculum_tracker.py
 
+# Scratch scripts
+scratch/
+
+

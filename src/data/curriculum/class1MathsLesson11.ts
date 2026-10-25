@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 MATHEMATICS (JOYFUL MATHEMATICS)
 // CHAPTER 11: HOW MUCH CAN WE SPEND? (MONEY)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
@@ -19,7 +19,7 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'What is the special official symbol used for Indian Rupee?',
-    visualEmoji: '🇮🇳 🪙',
+    visualEmoji: '🇮🇳 💰',
     payload: {
       options: [
         { id: 'opt_cn1_1', text: '₹', isCorrect: true },
@@ -38,8 +38,8 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     concept: 'Recognizing ₹5 Coin',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Ravi has a golden-silver coin stamped with number "5" 🪙. What is the value of this coin?',
-    visualEmoji: '🪙 5️⃣',
+    question: 'Ravi has a golden-silver coin stamped with number "5" 💰. What is the value of this coin?',
+    visualEmoji: '💰 5️⃣',
     payload: {
       options: [
         { id: 'opt_cn2_1', text: '₹5', isCorrect: true },
@@ -62,8 +62,8 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     concept: 'Making ₹10 with Coins',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'How many ₹5 coins 🪙🪙 do you need to make exactly ₹10?',
-    visualEmoji: '🪙 + 🪙 = 🔟',
+    question: 'How many ₹5 coins 💰💰 do you need to make exactly ₹10?',
+    visualEmoji: '💰 + 💰 = 🔟',
     payload: {
       options: [
         { id: 'opt_cb1_1', text: 'Two ₹5 coins', isCorrect: true },
@@ -82,8 +82,8 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     concept: 'Total Amount of Mixed Coins',
     difficulty: 'medium',
     type: 'fill_blank',
-    question: 'Neha has one ₹5 coin and two ₹2 coins in her piggy bank 🪙. Total money = 5 + 2 + 2 = ₹[BLANK].',
-    visualEmoji: '🪙 ₹5 + 🪙 ₹2 + 🪙 ₹2',
+    question: 'Neha has one ₹5 coin and two ₹2 coins in her piggy bank 💰. Total money = 5 + 2 + 2 = ₹[BLANK].',
+    visualEmoji: '💰 ₹5 + 💰 ₹2 + 💰 ₹2',
     payload: {
       correctAnswer: '9',
       wordBank: ['9', '7', '10', '12'],
@@ -171,11 +171,11 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Which has MORE buying power (greater money value)?',
-    visualEmoji: '💵 ₹20 vs 🪙 ₹2',
+    visualEmoji: '💵 ₹20 vs 💰 ₹2',
     payload: {
       options: [
         { id: 'opt_mr1_1', text: 'A ₹20 note 💵', isCorrect: true },
-        { id: 'opt_mr1_2', text: 'A ₹2 coin 🪙', isCorrect: false },
+        { id: 'opt_mr1_2', text: 'A ₹2 coin 💰', isCorrect: false },
         { id: 'opt_mr1_3', text: 'Both are same', isCorrect: false },
       ],
     },
@@ -195,7 +195,7 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'drag_order',
     question: 'Arrange these currency values from SMALLEST to LARGEST:',
-    visualEmoji: '🪙 💵 💰',
+    visualEmoji: '💰 💵 💰',
     payload: {
       tokens: ['₹1 coin', '₹5 coin', '₹10 note', '₹20 note'],
       scrambled: ['₹10 note', '₹1 coin', '₹20 note', '₹5 coin'],
@@ -217,13 +217,13 @@ export const CLASS_1_MATHS_LESSON_11_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'match_pairs',
     question: 'Match each Indian currency with its value in words:',
-    visualEmoji: '🪙 🔤',
+    visualEmoji: '💰 🔤',
     payload: {
       pairs: [
-        { id: 'mny1', left: '₹1 🪙', right: 'One Rupee' },
-        { id: 'mny2', left: '₹2 🪙', right: 'Two Rupees' },
-        { id: 'mny3', left: '₹5 🪙', right: 'Five Rupees' },
-        { id: 'mny4', left: '₹10 🪙', right: 'Ten Rupees' },
+        { id: 'mny1', left: '₹1 💰', right: 'One Rupee' },
+        { id: 'mny2', left: '₹2 💰', right: 'Two Rupees' },
+        { id: 'mny3', left: '₹5 💰', right: 'Five Rupees' },
+        { id: 'mny4', left: '₹10 💰', right: 'Ten Rupees' },
       ],
     },
     explanation: '💡 ₹1 = One Rupee, ₹2 = Two Rupees, ₹5 = Five Rupees, ₹10 = Ten Rupees!',

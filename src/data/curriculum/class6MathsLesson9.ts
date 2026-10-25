@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // NCERT CLASS 6 MATHEMATICS
 // CHAPTER 9: Mensuration (Perimeter & Area)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers
+// Global Benchmark Standard | Zero Spoilers
 // ============================================================================
 
 export const CLASS_6_MATHS_LESSON_9_QUESTIONS: Question[] = [
@@ -247,7 +247,7 @@ export const CLASS_6_MATHS_LESSON_9_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'fill_blank',
     question: 'A wire of length 36 cm is bent to form a square. What is the area of this square?\nSide = 36 / 4 = 9 cm.\nArea = 9 x 9 = [BLANK] sq cm',
-    visualEmoji: '🪢 ⏹️',
+    visualEmoji: '🧵 ⏹️',
     payload: {
       correctAnswer: '81',
       wordBank: ['81', '72', '36', '144'],

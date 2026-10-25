@@ -4,6 +4,7 @@ import {
   View,
   TouchableOpacity,
   ViewStyle,
+  StyleProp,
 } from 'react-native';
 import { COLORS, BORDER_RADIUS, SPACING, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
@@ -11,7 +12,7 @@ import { triggerHaptic } from '../../utils/haptics';
 interface ChampCardProps {
   children: React.ReactNode;
   onPress?: () => void;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   variant?: 'white' | 'gold' | 'blue' | 'accent' | 'outlined';
   shadow?: 'none' | 'small' | 'medium' | 'large';
   padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';

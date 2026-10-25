@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 1: WHERE TO LOOK FROM? (2D VIEWS & SHAPES)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
@@ -58,7 +58,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'When you look at a staircase from the SIDE, what pattern do you see?',
-    visualEmoji: '🪜 📐',
+    visualEmoji: '📏 📐',
     payload: {
       options: [
         { id: 'opt_1', text: 'A zig-zag step ladder going up', isCorrect: true },
@@ -100,7 +100,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'When you look at a rectangular dining or study table directly from the top, can you see its four legs?',
-    visualEmoji: '🪑 ⬇️',
+    visualEmoji: '🛋️ ⬇️',
     payload: {
       options: [
         { id: 'opt_1', text: 'No, the legs are completely hidden under the tabletop', isCorrect: true },
@@ -123,7 +123,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Can the English letter "M" be divided into two identical mirror halves by drawing a straight dotted line down the middle?',
-    visualEmoji: '🔤 🪞',
+    visualEmoji: '🔤 ✨',
     payload: {
       options: [
         { id: 'opt_1', text: 'Yes, with a vertical line down the middle', isCorrect: true },
@@ -144,7 +144,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Which of the following English letters CANNOT be divided into two identical mirror halves by any single straight line?',
-    visualEmoji: '🪞 ❓',
+    visualEmoji: '✨ ❓',
     payload: {
       options: [
         { id: 'opt_1', text: 'F', isCorrect: true },
@@ -165,7 +165,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Can a tea kettle with a pouring spout on the left and a handle on the right be divided into two identical mirror halves?',
-    visualEmoji: '🫖 🪞',
+    visualEmoji: '🫖 ✨',
     payload: {
       options: [
         { id: 'opt_1', text: 'No, because the spout and handle are different on both sides', isCorrect: true },
@@ -244,7 +244,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'How many lines of symmetry does a flat square sheet of origami paper have?',
-    visualEmoji: '🟩 ✂️ 🪞',
+    visualEmoji: '🟩 ✂️ ✨',
     payload: {
       options: [
         { id: 'opt_1', text: '4 lines', isCorrect: true },
@@ -286,7 +286,7 @@ export const CLASS_3_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'If you place a mirror exactly on the dotted line along the left straight side of the letter "B", which complete shape will you see in reflection?',
-    visualEmoji: '🪞 🔤',
+    visualEmoji: '✨ 🔤',
     payload: {
       options: [
         { id: 'opt_1', text: 'A shape with 4 round loops', isCorrect: true },

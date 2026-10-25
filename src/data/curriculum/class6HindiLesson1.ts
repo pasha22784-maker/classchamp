@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 6 HINDI (UNIVERSAL VYAKARAN)
 // CHAPTER 1: संज्ञा, सर्वनाम व पद परिचय
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_6_HINDI_LESSON_1_QUESTIONS: Question[] = [
@@ -271,7 +271,7 @@ export const CLASS_6_HINDI_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'वाक्य में संज्ञा पद का मानक पद परिचय लिखते समय चरणों को सही क्रम में लगाइए:',
-    visualEmoji: '🪜 📋',
+    visualEmoji: '📏 📋',
     payload: {
       tokens: [
         'संज्ञा का मुख्य भेद (व्यक्तिवाचक / जातिवाचक / भाववाचक)',

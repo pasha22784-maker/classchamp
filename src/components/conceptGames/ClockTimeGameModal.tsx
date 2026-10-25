@@ -11,12 +11,15 @@ import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { useUserStore } from '../../store/useUserStore';
+import { SpeakerButton } from '../common/SpeakerButton';
+import { stopSpeaking } from '../../utils/speech';
 
 const { width } = Dimensions.get('window');
 
 interface ClockTimeGameModalProps {
   visible: boolean;
   onClose: () => void;
+  activeLang?: string;
 }
 
 interface ClockLevel {
@@ -116,8 +119,10 @@ const CLOCK_LEVELS: ClockLevel[] = [
 export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
   visible,
   onClose,
+  activeLang,
 }) => {
-  const { addReward } = useUserStore();
+  const { addReward, profile } = useUserStore();
+  const isHindi = (activeLang || profile.preferredLanguage) === 'hi';
   const [levelIndex, setLevelIndex] = useState(0);
   const [currentHour, setCurrentHour] = useState(12);
   const [currentMinute, setCurrentMinute] = useState(0);
@@ -129,6 +134,7 @@ export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
 
   useEffect(() => {
     if (!visible) return;
+    stopSpeaking();
     setLevelIndex(0);
     setCurrentHour(12);
     setCurrentMinute(0);
@@ -136,6 +142,11 @@ export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
     setIsFinished(false);
     setShowParentInfo(false);
   }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
+    stopSpeaking();
+  }, [levelIndex]);
 
   const adjustHour = (delta: number) => {
     soundManager.playPop();
@@ -183,7 +194,13 @@ export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
     }
   };
 
+  const handleClose = () => {
+    stopSpeaking();
+    onClose();
+  };
+
   const handleFinish = async () => {
+    stopSpeaking();
     await addReward({ stars: 25, xp: 90 });
     triggerHaptic('success');
     onClose();
@@ -199,13 +216,13 @@ export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
   const targetFormatted = `${currentLevel.targetHour}:${currentLevel.targetMinute.toString().padStart(2, '0')}`;
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.card}>
           {/* Header */}
           <View style={styles.header}>
             <View>
-              <Text style={styles.title}>🕒 Tick-Tock Clock Lab</Text>
+              <Text style={styles.title}>{isHindi ? '🕒 समय और घड़ी लैब' : '🕒 Tick-Tock Clock Lab'}</Text>
               <Text style={styles.sub}>
                 Level {levelIndex + 1} of {CLOCK_LEVELS.length} • NCERT Class 1-2
               </Text>
@@ -215,9 +232,9 @@ export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
                 style={styles.infoPill}
                 onPress={() => setShowParentInfo((v) => !v)}
               >
-                <Text style={styles.infoPillText}>👨‍🏫 Parents</Text>
+                <Text style={styles.infoPillText}>{isHindi ? '👨‍🏫 अभिभावक' : '👨‍🏫 Parents'}</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+              <TouchableOpacity onPress={handleClose} style={styles.closeBtn}>
                 <Text style={styles.closeText}>✕</Text>
               </TouchableOpacity>
             </View>
@@ -231,12 +248,21 @@ export const ClockTimeGameModal: React.FC<ClockTimeGameModalProps> = ({
             </View>
           )}
 
-          {/* Mission Target Banner */}
+          {/* Mission Target Banner with Speaker Button */}
           <View style={styles.missionBanner}>
-            <Text style={styles.missionPrompt}>
-              {currentLevel.contextEmoji} {currentLevel.prompt}
-            </Text>
-            <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>
+            <View style={styles.missionTextCol}>
+              <Text style={styles.missionPrompt}>
+                {currentLevel.contextEmoji} {currentLevel.prompt}
+              </Text>
+              {isHindi && <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>}
+            </View>
+            <SpeakerButton
+              textToSpeak={isHindi ? currentLevel.hindiPrompt : currentLevel.prompt}
+              size="pill"
+              showLabel
+              activeLang={isHindi ? 'hi' : 'en'}
+              style={styles.speakerPill}
+            />
           </View>
 
           {/* Clock Apparatus */}
@@ -452,26 +478,34 @@ const styles = StyleSheet.create({
     lineHeight: 16,
   },
   missionBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: '#164E63',
     borderRadius: BORDER_RADIUS.md,
     padding: SPACING.sm,
-    alignItems: 'center',
     marginBottom: SPACING.sm,
-    borderWidth: 1,
+    borderWidth: 1.5,
     borderColor: '#06B6D4',
+    gap: 8,
+  },
+  missionTextCol: {
+    flex: 1,
   },
   missionPrompt: {
     color: '#FFFFFF',
     fontSize: 15,
     fontWeight: '800',
-    textAlign: 'center',
   },
   missionHindi: {
     color: '#CFFAFE',
     fontSize: 13,
     fontWeight: '600',
     marginTop: 2,
-    textAlign: 'center',
+  },
+  speakerPill: {
+    backgroundColor: '#0E7490',
+    borderColor: '#22D3EE',
   },
   clockStage: {
     alignItems: 'center',

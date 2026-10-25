@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 4 MATHEMATICS (MATH-MAGIC 4)
 // CHAPTER 7: CARTS AND WHEELS (CIRCLES & RADIUS)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
@@ -100,7 +100,7 @@ export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Which of the following objects has a circular surface with no corners or straight edges?',
-    visualEmoji: '🪙 📦 📐 🧱',
+    visualEmoji: '💰 📦 📐 🧱',
     payload: {
       options: [
         { id: 'opt_1', text: 'One-rupee coin', isCorrect: true },
@@ -125,7 +125,7 @@ export const CLASS_4_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'The diameter of a wooden bullock cart wheel is 80 cm. What is the radius of this wheel?',
-    visualEmoji: '🪵 🎡 d = 80 cm',
+    visualEmoji: '🌲 🎡 d = 80 cm',
     payload: {
       options: [
         { id: 'opt_1', text: '40 cm', isCorrect: true },

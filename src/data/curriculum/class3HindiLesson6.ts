@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // HINDI VYAKARAN (CLASS 3)
 // CHAPTER 6: विराम चिह्न व शुद्ध वर्तनी
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_HINDI_LESSON_6_QUESTIONS: Question[] = [

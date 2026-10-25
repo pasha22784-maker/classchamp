@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 4 HINDI (UNIVERSAL VYAKARAN CURRICULUM)
 // CHAPTER 2: मुहावरे व लोकोक्तियाँ (प्रयोग व अर्थ)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_HINDI_LESSON_2_QUESTIONS: Question[] = [
@@ -273,7 +273,7 @@ export const CLASS_4_HINDI_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'प्रसिद्ध लोकोक्ति "हाथ कंगन को आरसी क्या" का सही अर्थ क्या है?',
-    visualEmoji: '💍 🪞 ✨',
+    visualEmoji: '💍 ✨ ✨',
     payload: {
       options: [
         { id: 'opt_1', text: 'प्रत्यक्ष सामने दिख रही बात को किसी प्रमाण या सबूत की आवश्यकता नहीं होती', isCorrect: true },

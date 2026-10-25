@@ -465,7 +465,7 @@ export function generateDynamicMathQuestion(grade: Grade, chapterTitle?: string)
         difficulty: 'easy',
         type: 'mcq',
         question: `A student has a ₹${note1} note and a ₹${note2} note. How much total money does the student have?`,
-        visualEmoji: '💵 🪙',
+        visualEmoji: '💵 💰',
         payload: {
           options: shuffleArray([
             { id: 'opt_1', text: `₹${total}`, isCorrect: true },
@@ -1358,17 +1358,36 @@ export const generateQuestionsForSession = (
   // 1. Gather curated matching questions from MOCK_QUESTIONS for the specific chapter
   let matchedQuestions: Question[] = [];
   if (chapterTitle) {
-    const cleanChapter = chapterTitle.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
-    const chapterWords = cleanChapter.split(/\s+/).filter((w) => w.length > 2);
+    const targetTrimmed = chapterTitle.trim().toLowerCase();
+
+    // Priority 1: Exact case-insensitive chapter title match
     matchedQuestions = MOCK_QUESTIONS.filter((q) => {
       if (q.grade !== grade || q.subject !== subject) return false;
-      const qChapter = q.chapter.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
-      if (cleanChapter === qChapter) return true;
-      if (cleanChapter.includes(qChapter) || qChapter.includes(cleanChapter)) return true;
-      const qWords = qChapter.split(/\s+/).filter((w) => w.length > 2);
-      const overlap = chapterWords.filter((w) => qWords.includes(w));
-      return overlap.length >= 2 || (chapterWords.length === 1 && overlap.length >= 1);
+      return q.chapter.trim().toLowerCase() === targetTrimmed;
     });
+
+    // Priority 2: Skill Code match (e.g. "A.1: Find the letter..." matches "A.1", or "AA.1", "HH.3")
+    if (matchedQuestions.length === 0) {
+      const codeMatch = chapterTitle.match(/^([A-Z]+(?:\.[0-9]+)?)/i);
+      if (codeMatch) {
+        const code = codeMatch[1].toLowerCase();
+        matchedQuestions = MOCK_QUESTIONS.filter((q) => {
+          if (q.grade !== grade || q.subject !== subject) return false;
+          const qChapter = q.chapter.trim().toLowerCase();
+          return qChapter.startsWith(`${code}:`) || qChapter.startsWith(`${code} `);
+        });
+      }
+    }
+
+    // Priority 3: Substring inclusion match (only if still 0)
+    if (matchedQuestions.length === 0) {
+      const cleanChapter = chapterTitle.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
+      matchedQuestions = MOCK_QUESTIONS.filter((q) => {
+        if (q.grade !== grade || q.subject !== subject) return false;
+        const qClean = q.chapter.toLowerCase().replace(/[^a-z0-9\u0900-\u097F\s]/g, ' ').trim();
+        return cleanChapter === qClean || cleanChapter.includes(qClean) || qClean.includes(cleanChapter);
+      });
+    }
   }
 
   // Fallback if no chapter specified or no match: get all grade and subject questions
@@ -1378,8 +1397,8 @@ export const generateQuestionsForSession = (
     );
   }
 
-  // If still no questions or less than 5 questions available, synthesize dynamic questions
-  if (matchedQuestions.length < 5) {
+  // If still no questions or less than 4 questions available, synthesize dynamic questions
+  if (matchedQuestions.length < 4) {
     const needed = 10 - matchedQuestions.length;
     const dynamicFill = generateExtraPracticeQuestions(grade, subject, chapterTitle, Math.max(needed, 5));
     matchedQuestions = [...matchedQuestions, ...dynamicFill];

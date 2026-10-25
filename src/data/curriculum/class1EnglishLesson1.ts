@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 ENGLISH (MRIDANG & MARIGOLD)
 // CHAPTER 1: MY FAMILY & FUN WITH LETTERS (PHONICS)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_ENGLISH_LESSON_1_QUESTIONS: Question[] = [

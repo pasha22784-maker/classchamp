@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 ENGLISH (MRIDANG & MARIGOLD)
 // CHAPTER 3: ONE AND MANY (SINGULAR & PLURAL)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 6 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_ENGLISH_LESSON_3_QUESTIONS: Question[] = [

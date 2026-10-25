@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 5 ENGLISH (UNIVERSAL GRAMMAR CURRICULUM)
 // CHAPTER 2: NOUNS: ABSTRACT & COLLECTIVE MASTERY
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
@@ -40,7 +40,7 @@ export const CLASS_5_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Which of the following words is a CONCRETE noun that you can see, hear, or touch physically?',
-    visualEmoji: '💍 💎 🪨',
+    visualEmoji: '💍 💎 🧱',
     payload: {
       options: [
         { id: 'opt_1', text: 'Golden ring', isCorrect: true },
@@ -315,7 +315,7 @@ export const CLASS_5_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'fill_blank',
     question: 'The shopkeeper was praised for his absolute [BLANK] when he returned the lost purse intact.',
-    visualEmoji: '👛 🪙 💎',
+    visualEmoji: '👛 💰 💎',
     payload: {
       correctAnswer: 'honesty',
       wordBank: ['honesty', 'honest', 'honestly', 'honorary'],

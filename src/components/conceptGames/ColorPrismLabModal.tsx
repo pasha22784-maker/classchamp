@@ -11,12 +11,15 @@ import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { useUserStore } from '../../store/useUserStore';
+import { SpeakerButton } from '../common/SpeakerButton';
+import { stopSpeaking } from '../../utils/speech';
 
 const { width } = Dimensions.get('window');
 
 interface ColorPrismLabModalProps {
   visible: boolean;
   onClose: () => void;
+  activeLang?: string;
 }
 
 interface ColorLevel {
@@ -116,8 +119,10 @@ const COLOR_LEVELS: ColorLevel[] = [
 export const ColorPrismLabModal: React.FC<ColorPrismLabModalProps> = ({
   visible,
   onClose,
+  activeLang,
 }) => {
-  const { addReward } = useUserStore();
+  const { addReward, profile } = useUserStore();
+  const isHindi = (activeLang || profile.preferredLanguage) === 'hi';
   const [levelIndex, setLevelIndex] = useState(0);
   const [selectedDrops, setSelectedDrops] = useState<string[]>([]);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -128,12 +133,18 @@ export const ColorPrismLabModal: React.FC<ColorPrismLabModalProps> = ({
 
   useEffect(() => {
     if (!visible) return;
+    stopSpeaking();
     setLevelIndex(0);
     setSelectedDrops([]);
     setIsSuccess(false);
     setIsFinished(false);
     setShowParentInfo(false);
   }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
+    stopSpeaking();
+  }, [levelIndex]);
 
   const toggleDrop = (color: string) => {
     if (isSuccess) return;
@@ -172,22 +183,28 @@ export const ColorPrismLabModal: React.FC<ColorPrismLabModalProps> = ({
     }
   };
 
+  const handleClose = () => {
+    stopSpeaking();
+    onClose();
+  };
+
   const handleFinish = async () => {
+    stopSpeaking();
     await addReward({ stars: 25, xp: 90 });
     triggerHaptic('success');
     onClose();
   };
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.card}>
           {/* Header */}
           <View style={styles.header}>
             <View>
-              <Text style={styles.title}>🌈 Color Optics & Prism Lab</Text>
+              <Text style={styles.title}>{isHindi ? '🎨 रंग स्टूडियो और प्रिज्म' : '🎨 Color Studio & Prism Lab'}</Text>
               <Text style={styles.sub}>
-                Experiment {levelIndex + 1} of {COLOR_LEVELS.length} • NCERT Science
+                {isHindi ? `प्रयोग ${levelIndex + 1} / ${COLOR_LEVELS.length} • NCERT बालवाटिका 2` : `Experiment ${levelIndex + 1} of ${COLOR_LEVELS.length} • NCERT Balvatika 2`}
               </Text>
             </View>
             <View style={styles.topRightRow}>
@@ -195,9 +212,9 @@ export const ColorPrismLabModal: React.FC<ColorPrismLabModalProps> = ({
                 style={styles.infoPill}
                 onPress={() => setShowParentInfo((v) => !v)}
               >
-                <Text style={styles.infoPillText}>👨‍🏫 Parents</Text>
+                <Text style={styles.infoPillText}>{isHindi ? '👨‍🏫 अभिभावक' : '👨‍🏫 Parents'}</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+              <TouchableOpacity onPress={handleClose} style={styles.closeBtn}>
                 <Text style={styles.closeText}>✕</Text>
               </TouchableOpacity>
             </View>
@@ -211,10 +228,19 @@ export const ColorPrismLabModal: React.FC<ColorPrismLabModalProps> = ({
             </View>
           )}
 
-          {/* Mission Target Banner */}
+          {/* Mission Target Banner with Speaker Button */}
           <View style={styles.missionBanner}>
-            <Text style={styles.missionPrompt}>{currentLevel.prompt}</Text>
-            <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>
+            <View style={styles.missionTextCol}>
+              <Text style={styles.missionPrompt}>{currentLevel.prompt}</Text>
+              {isHindi && <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>}
+            </View>
+            <SpeakerButton
+              textToSpeak={isHindi ? currentLevel.hindiPrompt : currentLevel.prompt}
+              size="pill"
+              showLabel
+              activeLang={isHindi ? 'hi' : 'en'}
+              style={styles.speakerPill}
+            />
           </View>
 
           {/* Beaker & Prism Stage */}
@@ -314,7 +340,9 @@ export const ColorPrismLabModal: React.FC<ColorPrismLabModalProps> = ({
                 <Text style={styles.successEmoji}>🌈</Text>
                 <Text style={styles.successTitle}>Master Optics Scientist!</Text>
                 <Text style={styles.successDesc}>
-                  Aapne Primary color mixing aur Prism Rainbow dispersion ke saare 8 experiments complete kar liye!
+                  {isHindi
+                    ? 'आपने प्राथमिक रंगों के मिश्रण और इंद्रधनुष के सभी 8 प्रयोग पूरे कर लिए!'
+                    : 'You mastered primary color mixing and the rainbow prism spectrum!'}
                 </Text>
                 <View style={styles.rewardPill}>
                   <Text style={styles.rewardText}>+25 Stars ⭐  +90 XP ⚡</Text>
@@ -334,18 +362,18 @@ export const ColorPrismLabModal: React.FC<ColorPrismLabModalProps> = ({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.85)',
+    backgroundColor: 'rgba(15, 23, 42, 0.45)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: SPACING.md,
   },
   card: {
     width: Math.min(width - 32, 440),
-    backgroundColor: '#0F172A',
+    backgroundColor: '#FFFFFF',
     borderRadius: BORDER_RADIUS.xl,
     padding: SPACING.lg,
     borderWidth: 2,
-    borderColor: '#EC4899',
+    borderColor: '#FBCFE8',
     ...SHADOWS.card,
   },
   header: {
@@ -360,25 +388,25 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   infoPill: {
-    backgroundColor: '#831843',
+    backgroundColor: '#FDF2F8',
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: BORDER_RADIUS.full,
     borderWidth: 1,
-    borderColor: '#F472B6',
+    borderColor: '#FBCFE8',
   },
   infoPillText: {
-    color: '#FCE7F3',
+    color: '#DB2777',
     fontSize: 12,
     fontWeight: '700',
   },
   title: {
-    color: '#FFFFFF',
+    color: '#9D174D',
     fontSize: 17,
     fontWeight: '800',
   },
   sub: {
-    color: '#F472B6',
+    color: '#DB2777',
     fontSize: 12,
     fontWeight: '600',
   },
@@ -386,62 +414,70 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#1E293B',
+    backgroundColor: '#F1F5F9',
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeText: {
-    color: '#FFFFFF',
+    color: '#475569',
     fontSize: 16,
     fontWeight: '700',
   },
   parentBox: {
-    backgroundColor: '#1E293B',
+    backgroundColor: '#FEF3C7',
     borderRadius: BORDER_RADIUS.md,
     padding: 10,
     marginBottom: SPACING.sm,
     borderLeftWidth: 3,
-    borderLeftColor: '#EC4899',
+    borderLeftColor: '#F59E0B',
   },
   parentTitle: {
-    color: '#F472B6',
+    color: '#B45309',
     fontSize: 12,
     fontWeight: '700',
     marginBottom: 2,
   },
   parentDesc: {
-    color: '#E2E8F0',
+    color: '#78350F',
     fontSize: 12,
     lineHeight: 16,
   },
   missionBanner: {
-    backgroundColor: '#831843',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#FDF2F8',
     borderRadius: BORDER_RADIUS.md,
     padding: SPACING.sm,
-    alignItems: 'center',
     marginBottom: SPACING.sm,
-    borderWidth: 1,
-    borderColor: '#EC4899',
+    borderWidth: 1.5,
+    borderColor: '#FBCFE8',
+    gap: 8,
+  },
+  missionTextCol: {
+    flex: 1,
   },
   missionPrompt: {
-    color: '#FFFFFF',
+    color: '#9D174D',
     fontSize: 14,
     fontWeight: '800',
-    textAlign: 'center',
   },
   missionHindi: {
-    color: '#FCE7F3',
+    color: '#DB2777',
     fontSize: 12,
     fontWeight: '600',
     marginTop: 2,
-    textAlign: 'center',
+  },
+  speakerPill: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#F472B6',
   },
   stage: {
     height: 160,
-    backgroundColor: '#020617',
+    backgroundColor: '#F8FAFC',
     borderRadius: BORDER_RADIUS.lg,
     borderWidth: 1,
-    borderColor: '#1E293B',
+    borderColor: '#E2E8F0',
     alignItems: 'center',
     justifyContent: 'center',
     padding: SPACING.sm,
@@ -452,18 +488,23 @@ const styles = StyleSheet.create({
     height: 130,
     borderRadius: 20,
     borderWidth: 3,
-    borderColor: '#475569',
-    backgroundColor: '#1E293B',
+    borderColor: '#CBD5E1',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 8,
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+    elevation: 2,
   },
   beakerEmoji: {
     fontSize: 36,
     marginBottom: 4,
   },
   beakerLabel: {
-    color: '#FFFFFF',
+    color: '#1E293B',
     fontSize: 12,
     fontWeight: '800',
     textAlign: 'center',
@@ -503,7 +544,7 @@ const styles = StyleSheet.create({
     marginTop: SPACING.xs,
   },
   footerNote: {
-    color: '#94A3B8',
+    color: '#DB2777',
     fontSize: 11,
     fontStyle: 'italic',
   },
@@ -513,7 +554,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(15, 23, 42, 0.96)',
+    backgroundColor: 'rgba(255, 255, 255, 0.97)',
     borderRadius: BORDER_RADIUS.xl,
     justifyContent: 'center',
     alignItems: 'center',
@@ -527,39 +568,39 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   successTitle: {
-    color: '#F472B6',
+    color: '#9D174D',
     fontSize: 22,
     fontWeight: '900',
     marginBottom: 4,
   },
   successDesc: {
-    color: '#E2E8F0',
+    color: '#334155',
     fontSize: 14,
     textAlign: 'center',
     marginBottom: SPACING.md,
     lineHeight: 20,
   },
   rewardPill: {
-    backgroundColor: '#831843',
+    backgroundColor: '#FEF3C7',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: BORDER_RADIUS.full,
     borderWidth: 1,
-    borderColor: '#F472B6',
+    borderColor: '#F59E0B',
     marginBottom: SPACING.lg,
   },
   rewardText: {
-    color: '#FDE68A',
+    color: '#B45309',
     fontSize: 15,
     fontWeight: '800',
   },
   claimBtn: {
-    backgroundColor: '#EC4899',
+    backgroundColor: '#DB2777',
     paddingHorizontal: 32,
     paddingVertical: 14,
     borderRadius: BORDER_RADIUS.xl,
     borderWidth: 1,
-    borderColor: '#F472B6',
+    borderColor: '#BE185D',
   },
   claimBtnText: {
     color: '#FFFFFF',

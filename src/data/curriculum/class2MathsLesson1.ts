@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 1: A DAY AT THE BEACH (COUNTING IN GROUPS)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (Global Benchmark Standard)
 // 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
@@ -223,7 +223,7 @@ export const CLASS_2_MATHS_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Ria gathers driftwood sticks on the beach. She ties them into 4 bundles of 10 sticks each, and has 6 loose sticks. How many sticks does Ria have in total?',
-    visualEmoji: '🪵 4 Bundles + 6 Sticks',
+    visualEmoji: '🌲 4 Bundles + 6 Sticks',
     payload: {
       options: [
         { id: 'opt_bd1_1', text: '46 sticks', isCorrect: true },

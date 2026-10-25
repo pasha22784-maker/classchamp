@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 4 ENGLISH (UNIVERSAL GRAMMAR CURRICULUM)
 // CHAPTER 6: PREPOSITIONS & DIRECTION WORDS
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
@@ -206,7 +206,7 @@ export const CLASS_4_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Fill in the blank: "Rohan walked to his desk and sat down ______ his best friend."',
-    visualEmoji: '🪑 👦👦',
+    visualEmoji: '🛋️ 👦👦',
     payload: {
       options: [
         { id: 'opt_1', text: 'beside', isCorrect: true },
@@ -252,7 +252,7 @@ export const CLASS_4_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Fill in the blank: "With a swift leap, the nimble black cat jumped ______ the high kitchen counter."',
-    visualEmoji: '🐈 ⬆️ 🪑',
+    visualEmoji: '🐈 ⬆️ 🛋️',
     payload: {
       options: [
         { id: 'opt_1', text: 'onto', isCorrect: true },

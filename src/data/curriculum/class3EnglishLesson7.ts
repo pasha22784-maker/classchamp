@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // UNIVERSAL ENGLISH GRAMMAR (CLASS 3)
 // CHAPTER 7: CONNECTING WORDS (AND, BUT, BECAUSE)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_ENGLISH_LESSON_7_QUESTIONS: Question[] = [

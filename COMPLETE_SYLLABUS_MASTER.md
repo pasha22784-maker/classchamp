@@ -341,7 +341,7 @@ Each grade covers **365 distinct daily missions** structured across **4 Terms (5
 
 ## 🎯 12. Pedagogical Standards & Question Types
 
-ClassChamp exercises follow a strict **IXL & Khan Academy Gold Standard**:
+ClassChamp exercises follow a strict **Global Early Childhood & Foundational Gold Standard**:
 1. **3-Tier Difficulty Distribution**:
    - 🟢 **5 Easy Questions** (10 points each): Core recognition, foundational definition, visual cues.
    - 🟡 **5 Medium Questions** (15 points each): Standard application, calculation, sentence construction.

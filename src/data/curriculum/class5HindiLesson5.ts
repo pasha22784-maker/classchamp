@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 5 HINDI (UNIVERSAL VYAKARAN)
 // CHAPTER 5: मुहावरे, लोकोक्तियाँ व वाक्य प्रयोग
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_5_HINDI_LESSON_5_QUESTIONS: Question[] = [

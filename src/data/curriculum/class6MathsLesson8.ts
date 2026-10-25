@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // NCERT CLASS 6 MATHEMATICS
 // CHAPTER 8: Data Handling (Tally & Bar Graphs)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers
+// Global Benchmark Standard | Zero Spoilers
 // ============================================================================
 
 export const CLASS_6_MATHS_LESSON_8_QUESTIONS: Question[] = [
@@ -265,7 +265,7 @@ export const CLASS_6_MATHS_LESSON_8_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'Arrange the logical steps to construct a vertical bar graph from raw tabular data:',
-    visualEmoji: '🪜 📊',
+    visualEmoji: '📏 📊',
     payload: {
       tokens: [
         'Draw horizontal and vertical axes perpendicular to each other',

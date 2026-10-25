@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 ENGLISH (MRIDANG & MARIGOLD)
 // CHAPTER 6: POSITION WORDS (IN, ON, UNDER, BEHIND, NEAR)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 6 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
@@ -38,12 +38,12 @@ export const CLASS_1_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     concept: 'Position Word: IN',
     difficulty: 'easy',
     type: 'fill_blank',
-    question: 'A mother bird laid 3 tiny eggs in her warm nest: The eggs are [BLANK] the nest 🪺',
-    visualEmoji: '🪺 🥚',
+    question: 'A mother bird laid 3 tiny eggs in her warm nest: The eggs are [BLANK] the nest 🌿',
+    visualEmoji: '🌿 🥚',
     payload: {
       correctAnswer: 'in',
       wordBank: ['in', 'under', 'far', 'behind'],
-      displayTemplate: 'The eggs are [BLANK] the nest. 🪺',
+      displayTemplate: 'The eggs are [BLANK] the nest. 🌿',
     },
     explanation: '💡 The eggs are **IN** the nest!',
     points: 10,
@@ -81,7 +81,7 @@ export const CLASS_1_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'Rohan put his school notebook flat on top of the wooden study table 📚: The book is [BLANK] the table.',
-    visualEmoji: '📚 🪵',
+    visualEmoji: '📚 🌲',
     payload: {
       correctAnswer: 'on',
       wordBank: ['on', 'in', 'under', 'behind'],
@@ -123,7 +123,7 @@ export const CLASS_1_ENGLISH_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'When the football rolled below the wooden bench ⚽: The ball is [BLANK] the bench.',
-    visualEmoji: '⚽ 🪑',
+    visualEmoji: '⚽ 🛋️',
     payload: {
       correctAnswer: 'under',
       wordBank: ['under', 'on', 'in', 'near'],

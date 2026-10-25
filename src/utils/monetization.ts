@@ -28,8 +28,8 @@ export function getTrialDaysRemaining(profile: UserProfile): number {
   return Math.max(0, TRIAL_DURATION_DAYS - elapsed);
 }
 
-// Global Admin Override: Free for All Mode
-let _isAppFreeForAll = false;
+// Global Admin Override: Free for All Mode (Default to true for unrestricted testing)
+let _isAppFreeForAll = true;
 export function setGlobalFreeAccess(isFree: boolean) {
   _isAppFreeForAll = isFree;
 }

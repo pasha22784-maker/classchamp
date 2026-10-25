@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 4 MATHEMATICS (MATH-MAGIC 4)
 // CHAPTER 5: THE WAY THE WORLD LOOKS (3D PERSPECTIVES)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_MATHS_LESSON_5_QUESTIONS: Question[] = [
@@ -97,7 +97,7 @@ export const CLASS_4_MATHS_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'When viewed from straight above (top view), what 2D shape does a rectangular study desk appear as?',
-    visualEmoji: '🪑 ⬇️ 📄',
+    visualEmoji: '🛋️ ⬇️ 📄',
     payload: {
       options: [
         { id: 'opt_1', text: 'A flat rectangle', isCorrect: true },
@@ -270,7 +270,7 @@ export const CLASS_4_MATHS_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Why does a 5-rupee coin held 2 cm in front of your eye appear BIGGER than the giant Moon in the night sky?',
-    visualEmoji: '🪙 👁️ 🌕',
+    visualEmoji: '💰 👁️ 🌕',
     payload: {
       options: [
         { id: 'opt_1', text: 'Because objects close to the eye cover a much larger viewing angle', isCorrect: true },

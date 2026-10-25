@@ -1,10 +1,20 @@
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { UserProfile, Grade, Subject, CognitiveProfileScores, AppLanguage } from '../types';
+import { UserProfile, Grade, Subject, CognitiveProfileScores, AppLanguage, ChapterProgressItem } from '../types';
 import { syncProfileToCloud } from '../services/supabase';
 import { getDefaultWeakTopicsForGrade } from '../data/cognitiveEngine';
 
 const STORAGE_KEY = '@classchamp_user_profile_v1';
+
+export const getChapterProgressKey = (grade: Grade, subject: Subject, chapterTitle: string): string => {
+  const cleanTitle = (chapterTitle || '')
+    .replace(/\s*\([^)]*[\u0900-\u097F]+[^)]*\)/g, '')
+    .replace(/[\u0900-\u097F]+/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '');
+  return `${grade}_${subject}_${cleanTitle}`;
+};
 
 export const getTodayDateString = (): string => {
   const now = new Date();
@@ -30,6 +40,7 @@ const DEFAULT_PROFILE: UserProfile = {
   preferredLanguage: 'en',
   isPro: false,
   totalStars: 0,
+  totalCoins: 50,
   totalTrophies: 0,
   currentStreak: 0,
   lastActiveDate: '',
@@ -46,6 +57,7 @@ const DEFAULT_PROFILE: UserProfile = {
     problemSolvingScore: 89,
   },
   dailyWorkoutCompletedDates: [],
+  chapterProgress: {},
 };
 
 interface UserState {
@@ -58,10 +70,22 @@ interface UserState {
   setPreferredLanguage: (lang: AppLanguage) => Promise<void>;
   setProStatus: (isPro: boolean) => Promise<void>;
   addStars: (stars: number) => Promise<void>;
-  addReward: (reward: { stars?: number; trophies?: number; xp?: number; streakShields?: number }) => Promise<void>;
+  addCoins: (coins: number) => Promise<void>;
+  addReward: (reward: { stars?: number; coins?: number; trophies?: number; xp?: number; streakShields?: number }) => Promise<void>;
   recordSpinUsed: () => Promise<void>;
   recordQuizCompletion: (starsEarned: number) => Promise<{ newStreak: number; earnedTrophy: boolean }>;
   setLastSubjectLesson: (subject: Subject, chapterTitle: string) => Promise<void>;
+  setChapterProgress: (
+    grade: Grade,
+    subject: Subject,
+    chapterTitle: string,
+    questionIndex: number,
+    totalQuestions: number,
+    isCompleted?: boolean,
+    scorePercentage?: number,
+    starsEarned?: number
+  ) => Promise<void>;
+  getChapterProgress: (grade: Grade, subject: Subject, chapterTitle: string) => ChapterProgressItem | undefined;
   recordTopicPerformance: (subject: Subject, chapterTitle: string, accuracy: number) => Promise<void>;
   markDailyWorkoutDone: () => Promise<void>;
   updateCognitiveScore: (track: keyof CognitiveProfileScores, delta: number) => Promise<void>;
@@ -114,6 +138,7 @@ export const useUserStore = create<UserState>((set, get) => ({
             problemSolvingScore: 89,
           },
           dailyWorkoutCompletedDates: parsed.dailyWorkoutCompletedDates ?? [],
+          chapterProgress: parsed.chapterProgress ?? {},
         };
         set({ profile: updatedProfile, isHydrated: true });
         await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
@@ -169,7 +194,23 @@ export const useUserStore = create<UserState>((set, get) => ({
 
   addStars: async (stars: number) => {
     const current = get().profile;
-    const updated = { ...current, totalStars: current.totalStars + stars };
+    const coinsWon = stars * 10;
+    const updated = {
+      ...current,
+      totalStars: current.totalStars + stars,
+      totalCoins: (current.totalCoins ?? (current.totalStars * 10 + 50)) + coinsWon,
+    };
+    set({ profile: updated });
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+    syncProfileToCloud(updated);
+  },
+
+  addCoins: async (coins: number) => {
+    const current = get().profile;
+    const updated = {
+      ...current,
+      totalCoins: (current.totalCoins ?? (current.totalStars * 10 + 50)) + coins,
+    };
     set({ profile: updated });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
     syncProfileToCloud(updated);
@@ -177,9 +218,11 @@ export const useUserStore = create<UserState>((set, get) => ({
 
   addReward: async (reward) => {
     const current = get().profile;
+    const coinsWon = reward.coins ?? (reward.stars ? reward.stars * 10 : 0);
     const updated: UserProfile = {
       ...current,
       totalStars: current.totalStars + (reward.stars || 0),
+      totalCoins: (current.totalCoins ?? (current.totalStars * 10 + 50)) + coinsWon,
       totalTrophies: current.totalTrophies + (reward.trophies || 0),
       xp: (current.xp || 0) + (reward.xp || 0),
       streakShields: (current.streakShields || 0) + (reward.streakShields || 0),
@@ -256,6 +299,67 @@ export const useUserStore = create<UserState>((set, get) => ({
     };
     set({ profile: updatedProfile });
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
+  },
+
+  setChapterProgress: async (
+    grade: Grade,
+    subject: Subject,
+    chapterTitle: string,
+    questionIndex: number,
+    totalQuestions: number,
+    isCompleted: boolean = false,
+    scorePercentage?: number,
+    starsEarned?: number
+  ) => {
+    const current = get().profile;
+    const key = getChapterProgressKey(grade, subject, chapterTitle);
+    const existing = current.chapterProgress || {};
+    const prevItem = existing[key];
+
+    const updatedProfile: UserProfile = {
+      ...current,
+      chapterProgress: {
+        ...existing,
+        [key]: {
+          lastQuestionIndex: questionIndex,
+          totalQuestions,
+          lastUpdated: new Date().toISOString(),
+          isCompleted: isCompleted || prevItem?.isCompleted || false,
+          scorePercentage: scorePercentage !== undefined ? scorePercentage : prevItem?.scorePercentage,
+          starsEarned: starsEarned !== undefined ? starsEarned : prevItem?.starsEarned,
+          completedAt: isCompleted ? (prevItem?.completedAt || new Date().toISOString()) : prevItem?.completedAt,
+        },
+      },
+    };
+    set({ profile: updatedProfile });
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedProfile));
+  },
+
+  getChapterProgress: (grade: Grade, subject: Subject, chapterTitle: string) => {
+    const current = get().profile;
+    const progressMap = current.chapterProgress || {};
+    const key = getChapterProgressKey(grade, subject, chapterTitle);
+    if (progressMap[key]) {
+      return progressMap[key];
+    }
+    // Backward compatibility: match legacy keys that had raw Devanagari converted to underscores
+    const legacyKey = `${grade}_${subject}_${(chapterTitle || '').toLowerCase().replace(/[^a-z0-9]/g, '_')}`;
+    if (progressMap[legacyKey]) {
+      return progressMap[legacyKey];
+    }
+    // Fallback: match any key starting with clean title
+    const cleanBase = (chapterTitle || '')
+      .replace(/\s*\([^)]*[\u0900-\u097F]+[^)]*\)/g, '')
+      .replace(/[\u0900-\u097F]+/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+    const prefix = `${grade}_${subject}_${cleanBase}`;
+    const foundKey = Object.keys(progressMap).find((k) => k === prefix || k.startsWith(prefix));
+    if (foundKey) {
+      return progressMap[foundKey];
+    }
+    return undefined;
   },
 
   recordTopicPerformance: async (subject: Subject, chapterTitle: string, accuracy: number) => {

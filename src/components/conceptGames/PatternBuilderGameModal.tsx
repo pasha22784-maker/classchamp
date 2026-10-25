@@ -11,12 +11,15 @@ import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { useUserStore } from '../../store/useUserStore';
+import { SpeakerButton } from '../common/SpeakerButton';
+import { stopSpeaking } from '../../utils/speech';
 
 const { width } = Dimensions.get('window');
 
 interface PatternBuilderGameModalProps {
   visible: boolean;
   onClose: () => void;
+  activeLang?: string;
 }
 
 interface PatternLevel {
@@ -107,8 +110,10 @@ const PATTERN_LEVELS: PatternLevel[] = [
 export const PatternBuilderGameModal: React.FC<PatternBuilderGameModalProps> = ({
   visible,
   onClose,
+  activeLang,
 }) => {
-  const { addReward } = useUserStore();
+  const { addReward, profile } = useUserStore();
+  const isHindi = (activeLang || profile.preferredLanguage) === 'hi';
   const [levelIndex, setLevelIndex] = useState(0);
   const [selectedOpt, setSelectedOpt] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -119,12 +124,18 @@ export const PatternBuilderGameModal: React.FC<PatternBuilderGameModalProps> = (
 
   useEffect(() => {
     if (!visible) return;
+    stopSpeaking();
     setLevelIndex(0);
     setSelectedOpt(null);
     setIsSuccess(false);
     setIsFinished(false);
     setShowParentInfo(false);
   }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
+    stopSpeaking();
+  }, [levelIndex]);
 
   const handleSelectOption = (opt: string) => {
     if (isSuccess) return;
@@ -154,22 +165,28 @@ export const PatternBuilderGameModal: React.FC<PatternBuilderGameModalProps> = (
     }
   };
 
+  const handleClose = () => {
+    stopSpeaking();
+    onClose();
+  };
+
   const handleFinish = async () => {
+    stopSpeaking();
     await addReward({ stars: 25, xp: 90 });
     triggerHaptic('success');
     onClose();
   };
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.card}>
           {/* Header */}
           <View style={styles.header}>
             <View>
-              <Text style={styles.title}>🧩 Pattern & Sequence Lab</Text>
+              <Text style={styles.title}>{isHindi ? '🧩 पैटर्न बिल्डर लैब' : '🧩 Pattern Builder Lab'}</Text>
               <Text style={styles.sub}>
-                Level {levelIndex + 1} of {PATTERN_LEVELS.length} • NCERT Class 1-2
+                {isHindi ? `स्तर ${levelIndex + 1} / ${PATTERN_LEVELS.length} • NCERT बालवाटिका 2` : `Level ${levelIndex + 1} of ${PATTERN_LEVELS.length} • NCERT Balvatika 2`}
               </Text>
             </View>
             <View style={styles.topRightRow}>
@@ -177,9 +194,9 @@ export const PatternBuilderGameModal: React.FC<PatternBuilderGameModalProps> = (
                 style={styles.infoPill}
                 onPress={() => setShowParentInfo((v) => !v)}
               >
-                <Text style={styles.infoPillText}>👨‍🏫 Parents</Text>
+                <Text style={styles.infoPillText}>{isHindi ? '👨‍🏫 अभिभावक' : '👨‍🏫 Parents'}</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+              <TouchableOpacity onPress={handleClose} style={styles.closeBtn}>
                 <Text style={styles.closeText}>✕</Text>
               </TouchableOpacity>
             </View>
@@ -193,10 +210,19 @@ export const PatternBuilderGameModal: React.FC<PatternBuilderGameModalProps> = (
             </View>
           )}
 
-          {/* Mission Target Banner */}
+          {/* Mission Target Banner with Speaker Button */}
           <View style={styles.missionBanner}>
-            <Text style={styles.missionPrompt}>{currentLevel.prompt}</Text>
-            <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>
+            <View style={styles.missionTextCol}>
+              <Text style={styles.missionPrompt}>{currentLevel.prompt}</Text>
+              {isHindi && <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>}
+            </View>
+            <SpeakerButton
+              textToSpeak={isHindi ? currentLevel.hindiPrompt : currentLevel.prompt}
+              size="pill"
+              showLabel
+              activeLang={isHindi ? 'hi' : 'en'}
+              style={styles.speakerPill}
+            />
           </View>
 
           {/* Pattern Sequence Strip */}
@@ -261,7 +287,9 @@ export const PatternBuilderGameModal: React.FC<PatternBuilderGameModalProps> = (
                 <Text style={styles.successEmoji}>🧩</Text>
                 <Text style={styles.successTitle}>Pattern Master Champ!</Text>
                 <Text style={styles.successDesc}>
-                  Aapne complex repeating sequences aur skip counting solve kar li!
+                  {isHindi
+                    ? 'आपने सभी 8 पैटर्न और क्रम सफलतापूर्वक पहचान लिए!'
+                    : 'You cracked all 8 sequencing and repeating patterns!'}
                 </Text>
                 <View style={styles.rewardPill}>
                   <Text style={styles.rewardText}>+25 Stars ⭐  +90 XP ⚡</Text>
@@ -281,18 +309,18 @@ export const PatternBuilderGameModal: React.FC<PatternBuilderGameModalProps> = (
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.85)',
+    backgroundColor: 'rgba(15, 23, 42, 0.45)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: SPACING.md,
   },
   card: {
     width: Math.min(width - 32, 440),
-    backgroundColor: '#4C1D95',
+    backgroundColor: '#FFFFFF',
     borderRadius: BORDER_RADIUS.xl,
     padding: SPACING.lg,
     borderWidth: 2,
-    borderColor: '#8B5CF6',
+    borderColor: '#DDD6FE',
     ...SHADOWS.card,
   },
   header: {
@@ -307,25 +335,25 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   infoPill: {
-    backgroundColor: '#6D28D9',
+    backgroundColor: '#FAF5FF',
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: BORDER_RADIUS.full,
     borderWidth: 1,
-    borderColor: '#C4B5FD',
+    borderColor: '#DDD6FE',
   },
   infoPillText: {
-    color: '#EDE9FE',
+    color: '#7C3AED',
     fontSize: 12,
     fontWeight: '700',
   },
   title: {
-    color: '#FFFFFF',
+    color: '#5B21B6',
     fontSize: 18,
     fontWeight: '800',
   },
   sub: {
-    color: '#DDD6FE',
+    color: '#7C3AED',
     fontSize: 12,
     fontWeight: '600',
   },
@@ -333,67 +361,75 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#5B21B6',
+    backgroundColor: '#F1F5F9',
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeText: {
-    color: '#FFFFFF',
+    color: '#475569',
     fontSize: 16,
     fontWeight: '700',
   },
   parentBox: {
-    backgroundColor: '#2E1065',
+    backgroundColor: '#FEF3C7',
     borderRadius: BORDER_RADIUS.md,
     padding: 10,
     marginBottom: SPACING.sm,
     borderLeftWidth: 3,
-    borderLeftColor: '#8B5CF6',
+    borderLeftColor: '#F59E0B',
   },
   parentTitle: {
-    color: '#C4B5FD',
+    color: '#B45309',
     fontSize: 12,
     fontWeight: '700',
     marginBottom: 2,
   },
   parentDesc: {
-    color: '#E2E8F0',
+    color: '#78350F',
     fontSize: 12,
     lineHeight: 16,
   },
   missionBanner: {
-    backgroundColor: '#6D28D9',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#FAF5FF',
     borderRadius: BORDER_RADIUS.md,
     padding: SPACING.sm,
-    alignItems: 'center',
     marginBottom: SPACING.md,
-    borderWidth: 1,
-    borderColor: '#8B5CF6',
+    borderWidth: 1.5,
+    borderColor: '#DDD6FE',
+    gap: 8,
+  },
+  missionTextCol: {
+    flex: 1,
   },
   missionPrompt: {
-    color: '#FFFFFF',
+    color: '#5B21B6',
     fontSize: 15,
     fontWeight: '800',
-    textAlign: 'center',
   },
   missionHindi: {
-    color: '#EDE9FE',
+    color: '#7C3AED',
     fontSize: 13,
     fontWeight: '600',
     marginTop: 2,
-    textAlign: 'center',
+  },
+  speakerPill: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#8B5CF6',
   },
   stripStage: {
-    backgroundColor: '#2E1065',
+    backgroundColor: '#F8FAFC',
     borderRadius: BORDER_RADIUS.lg,
     padding: SPACING.md,
     alignItems: 'center',
     marginBottom: SPACING.md,
     borderWidth: 1,
-    borderColor: '#7C3AED',
+    borderColor: '#E2E8F0',
   },
   stripTag: {
-    color: '#C4B5FD',
+    color: '#64748B',
     fontSize: 12,
     fontWeight: '700',
     marginBottom: 10,
@@ -408,25 +444,25 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderRadius: 12,
-    backgroundColor: '#5B21B6',
+    backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#8B5CF6',
+    borderWidth: 1.5,
+    borderColor: '#CBD5E1',
   },
   stripTokenTarget: {
     borderStyle: 'dashed',
-    borderColor: '#FDE68A',
-    backgroundColor: '#4C1D95',
+    borderColor: '#7C3AED',
+    backgroundColor: '#FAF5FF',
   },
   stripTokenSuccess: {
     borderStyle: 'solid',
     borderColor: '#10B981',
-    backgroundColor: '#065F46',
+    backgroundColor: '#DCFCE7',
   },
   stripTokenText: {
     fontSize: 22,
-    color: '#FFFFFF',
+    color: '#1E1B4B',
     fontWeight: '800',
   },
   optionsBox: {
@@ -434,7 +470,7 @@ const styles = StyleSheet.create({
     marginVertical: SPACING.sm,
   },
   optionsTag: {
-    color: '#DDD6FE',
+    color: '#64748B',
     fontSize: 12,
     fontWeight: '700',
     marginBottom: 8,
@@ -446,32 +482,37 @@ const styles = StyleSheet.create({
   },
   optionCard: {
     flex: 1,
-    backgroundColor: '#5B21B6',
+    backgroundColor: '#FFFFFF',
     paddingVertical: 14,
     borderRadius: BORDER_RADIUS.lg,
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#8B5CF6',
+    borderColor: '#E2E8F0',
+    shadowColor: '#64748B',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+    elevation: 2,
   },
   optionCardChosen: {
-    borderColor: '#FDE68A',
-    backgroundColor: '#6D28D9',
+    borderColor: '#7C3AED',
+    backgroundColor: '#FAF5FF',
   },
   optionCardCorrect: {
     borderColor: '#10B981',
-    backgroundColor: '#065F46',
+    backgroundColor: '#DCFCE7',
   },
   optionText: {
     fontSize: 24,
     fontWeight: '900',
-    color: '#FFFFFF',
+    color: '#1E1B4B',
   },
   footerBar: {
     alignItems: 'center',
     marginTop: SPACING.xs,
   },
   footerNote: {
-    color: '#C4B5FD',
+    color: '#7C3AED',
     fontSize: 11,
     fontStyle: 'italic',
   },
@@ -481,7 +522,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(46, 16, 101, 0.96)',
+    backgroundColor: 'rgba(255, 255, 255, 0.97)',
     borderRadius: BORDER_RADIUS.xl,
     justifyContent: 'center',
     alignItems: 'center',
@@ -495,39 +536,39 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   successTitle: {
-    color: '#DDD6FE',
+    color: '#5B21B6',
     fontSize: 22,
     fontWeight: '900',
     marginBottom: 4,
   },
   successDesc: {
-    color: '#E2E8F0',
+    color: '#334155',
     fontSize: 14,
     textAlign: 'center',
     marginBottom: SPACING.md,
     lineHeight: 20,
   },
   rewardPill: {
-    backgroundColor: '#5B21B6',
+    backgroundColor: '#FEF3C7',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: BORDER_RADIUS.full,
     borderWidth: 1,
-    borderColor: '#8B5CF6',
+    borderColor: '#F59E0B',
     marginBottom: SPACING.lg,
   },
   rewardText: {
-    color: '#FDE68A',
+    color: '#B45309',
     fontSize: 15,
     fontWeight: '800',
   },
   claimBtn: {
-    backgroundColor: '#8B5CF6',
+    backgroundColor: '#7C3AED',
     paddingHorizontal: 32,
     paddingVertical: 14,
     borderRadius: BORDER_RADIUS.xl,
     borderWidth: 1,
-    borderColor: '#C4B5FD',
+    borderColor: '#6D28D9',
   },
   claimBtnText: {
     color: '#FFFFFF',

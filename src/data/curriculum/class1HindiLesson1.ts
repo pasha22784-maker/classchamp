@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 HINDI (सारंगी 1 / RIMJHIM 1)
 // CHAPTER 1: मीना का परिवार (स्वर, व्यंजन व अमात्रिक शब्द)
-// Comprehensive Curriculum Covering All 8 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 8 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
@@ -124,16 +124,16 @@ export const CLASS_1_HINDI_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'match_pairs',
     question: 'व्यंजन वर्ण को सही चित्र के साथ मिलाइए:',
-    visualEmoji: '🪴 🪁 🐟 🚰',
+    visualEmoji: '🌱 🪁 🐟 🚰',
     payload: {
       pairs: [
-        { id: 'vy_p1', left: 'ग', right: '🪴 गमला' },
+        { id: 'vy_p1', left: 'ग', right: '🌱 गमला' },
         { id: 'vy_p2', left: 'न', right: '🚰 नल' },
         { id: 'vy_p3', left: 'प', right: '🪁 पतंग' },
         { id: 'vy_p4', left: 'म', right: '🐟 मछली' },
       ],
     },
-    explanation: '💡 ग से गमला 🪴, न से नल 🚰, प से पतंग 🪁, म से मछली 🐟!',
+    explanation: '💡 ग से गमला 🌱, न से नल 🚰, प से पतंग 🪁, म से मछली 🐟!',
     points: 15,
   },
 

@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 MATHEMATICS (JOYFUL MATHEMATICS)
 // CHAPTER 7: LINA'S FAMILY (MEASUREMENT)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
@@ -57,7 +57,7 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Look at the three wooden ladders leaning against the wall: Ladder A (2 steps), Ladder B (5 steps), Ladder C (10 steps). Which ladder is the LONGEST?',
-    visualEmoji: '🪜 Ladder A, B, C',
+    visualEmoji: '📏 Ladder A, B, C',
     payload: {
       options: [
         { id: 'opt_lng3_1', text: 'Ladder C with 10 steps', isCorrect: true },
@@ -162,15 +162,15 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Heavier vs Lighter Objects',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'If you drop a feather 🪶 and a stone 🪨, which object is LIGHTER and floats gently in the air?',
-    visualEmoji: '🪶 vs 🪨',
+    question: 'If you drop a feather 🍃 and a stone 🧱, which object is LIGHTER and floats gently in the air?',
+    visualEmoji: '🍃 vs 🧱',
     payload: {
       options: [
-        { id: 'opt_hvy2_1', text: 'Bird Feather 🪶', isCorrect: true },
-        { id: 'opt_hvy2_2', text: 'Stone 🪨', isCorrect: false },
+        { id: 'opt_hvy2_1', text: 'Bird Feather 🍃', isCorrect: true },
+        { id: 'opt_hvy2_2', text: 'Stone 🧱', isCorrect: false },
       ],
     },
-    explanation: '💡 A feather 🪶 has almost no weight, so it is **LIGHTER** than a stone 🪨!',
+    explanation: '💡 A feather 🍃 has almost no weight, so it is **LIGHTER** than a stone 🧱!',
     points: 10,
   },
   {
@@ -204,15 +204,15 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
     concept: 'Thicker vs Thinner Tree Parts',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'Look at a banyan tree: the tree trunk 🪵 and a twig 🌿. Which one is THICKER?',
-    visualEmoji: '🪵 vs 🌿',
+    question: 'Look at a banyan tree: the tree trunk 🌲 and a twig 🌿. Which one is THICKER?',
+    visualEmoji: '🌲 vs 🌿',
     payload: {
       options: [
-        { id: 'opt_thk1_1', text: 'Tree Trunk 🪵', isCorrect: true },
+        { id: 'opt_thk1_1', text: 'Tree Trunk 🌲', isCorrect: true },
         { id: 'opt_thk1_2', text: 'Twig 🌿', isCorrect: false },
       ],
     },
-    explanation: '💡 The main trunk 🪵 is wide and fat, so it is **THICKER**! A twig is thin.',
+    explanation: '💡 The main trunk 🌲 is wide and fat, so it is **THICKER**! A twig is thin.',
     points: 10,
   },
   {
@@ -294,8 +294,8 @@ export const CLASS_1_MATHS_LESSON_7_QUESTIONS: Question[] = [
       pairs: [
         { id: 'mop_1', left: 'Longer 📏', right: 'Shorter' },
         { id: 'mop_2', left: 'Taller 🦒', right: 'Shorter' },
-        { id: 'mop_3', left: 'Heavier 🍉', right: 'Lighter 🪶' },
-        { id: 'mop_4', left: 'Thicker 🪵', right: 'Thinner 🌿' },
+        { id: 'mop_3', left: 'Heavier 🍉', right: 'Lighter 🍃' },
+        { id: 'mop_4', left: 'Thicker 🌲', right: 'Thinner 🌿' },
       ],
     },
     explanation: '💡 Longer/Shorter, Taller/Shorter, Heavier/Lighter, and Thicker/Thinner are opposite measurement pairs!',

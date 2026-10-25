@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 MATHEMATICS (JOYFUL MATHEMATICS)
 // CHAPTER 6: VEGETABLE FARM (SUBTRACTION UP TO 9)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_MATHS_LESSON_6_QUESTIONS: Question[] = [

@@ -33,10 +33,11 @@ interface QuizState {
   isQuizComplete: boolean;
 
   // Actions
-  startQuiz: (grade: Grade, subject: Subject, questions: Question[], chapterTitle?: string) => void;
+  startQuiz: (grade: Grade, subject: Subject, questions: Question[], chapterTitle?: string, startIndex?: number) => void;
   selectAnswer: (answer: any) => void;
   submitAnswer: () => void;
   nextQuestion: () => void;
+  jumpToQuestion: (index: number) => void;
   tickTimer: () => void;
   stopTimer: () => void;
   getResultSummary: () => QuizSessionResult;
@@ -65,17 +66,20 @@ export const useQuizStore = create<QuizState>((set, get) => ({
   answersRecord: [],
   isQuizComplete: false,
 
-  startQuiz: (grade: Grade, subject: Subject, questions: Question[], chapterTitle?: string) => {
+  startQuiz: (grade: Grade, subject: Subject, questions: Question[], chapterTitle?: string, startIndex: number = 0) => {
     const userLang = useUserStore.getState().profile.preferredLanguage;
     const targetLang = getSubjectLanguage(subject, userLang);
     const sanitizedQuestions = (questions || []).map((q) => getAdaptedQuestion(q, targetLang));
+    const safeStartIndex = sanitizedQuestions.length > 0
+      ? Math.max(0, Math.min(startIndex, sanitizedQuestions.length - 1))
+      : 0;
 
     set({
       grade,
       subject,
       activeChapterTitle: chapterTitle,
       questions: sanitizedQuestions,
-      currentQuestionIndex: 0,
+      currentQuestionIndex: safeStartIndex,
       secondsRemaining: 600,
       timeSpentSeconds: 0,
       isTimerRunning: true,
@@ -89,6 +93,10 @@ export const useQuizStore = create<QuizState>((set, get) => ({
       answersRecord: [],
       isQuizComplete: false,
     });
+
+    if (chapterTitle && sanitizedQuestions.length > 0) {
+      useUserStore.getState().setChapterProgress(grade, subject, chapterTitle, safeStartIndex, sanitizedQuestions.length, false);
+    }
   },
 
   selectAnswer: (answer: any) => {
@@ -165,6 +173,9 @@ export const useQuizStore = create<QuizState>((set, get) => ({
         isQuizComplete: true,
         isTimerRunning: false,
       });
+      if (state.activeChapterTitle) {
+        useUserStore.getState().setChapterProgress(state.grade, state.subject, state.activeChapterTitle, 0, state.questions.length, true);
+      }
     } else {
       set({
         currentQuestionIndex: nextIndex,
@@ -172,6 +183,24 @@ export const useQuizStore = create<QuizState>((set, get) => ({
         isAnswerSubmitted: false,
         isCorrect: null,
       });
+      if (state.activeChapterTitle) {
+        useUserStore.getState().setChapterProgress(state.grade, state.subject, state.activeChapterTitle, nextIndex, state.questions.length, false);
+      }
+    }
+  },
+
+  jumpToQuestion: (index: number) => {
+    const state = get();
+    if (index >= 0 && index < state.questions.length) {
+      set({
+        currentQuestionIndex: index,
+        selectedAnswer: null,
+        isAnswerSubmitted: false,
+        isCorrect: null,
+      });
+      if (state.activeChapterTitle) {
+        useUserStore.getState().setChapterProgress(state.grade, state.subject, state.activeChapterTitle, index, state.questions.length, false);
+      }
     }
   },
 

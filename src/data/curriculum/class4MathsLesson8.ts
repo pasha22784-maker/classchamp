@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 4 MATHEMATICS (MATH-MAGIC 4)
 // CHAPTER 8: HALVES AND QUARTERS (FRACTIONS)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
@@ -19,7 +19,7 @@ export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'A round chapati is cut into 2 equal parts. What fraction represents one part?',
-    visualEmoji: '🫓 🌗',
+    visualEmoji: '🍪 🌗',
     payload: {
       options: [
         { id: 'opt_1', text: '1/2', isCorrect: true },
@@ -146,7 +146,7 @@ export const CLASS_4_MATHS_LESSON_8_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'How many paise is 1/2 of a Rupee (₹ 1 = 100 paise)?',
-    visualEmoji: '🪙 1/2 of ₹ 1',
+    visualEmoji: '💰 1/2 of ₹ 1',
     payload: {
       options: [
         { id: 'opt_1', text: '50 paise', isCorrect: true },

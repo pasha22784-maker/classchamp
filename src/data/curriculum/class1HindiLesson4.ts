@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 HINDI (सारंगी 1 / RIMJHIM 1)
 // CHAPTER 4: चंदा मामा (उ व ऊ की मात्रा - ु, ू)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
@@ -39,7 +39,7 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'लाल पंखुड़ियों और मीठी खुशबू वाला सुंदर फूल 🌹 कौन सा है?',
-    visualEmoji: '🌹 🪴',
+    visualEmoji: '🌹 🌱',
     payload: {
       options: [
         { id: 'opt_cu2_1', text: 'गुलाब 🌹', isCorrect: true },
@@ -121,12 +121,12 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'match_pairs',
     question: 'बड़ा ऊ (ू) की मात्रा वाले शब्दों को उनके सही चित्र से मिलाइए:',
-    visualEmoji: '🐻 🐁 🛝 🌸',
+    visualEmoji: '🐻 🐁 🎢 🌸',
     payload: {
       pairs: [
         { id: 'oo_p1', left: 'भालू', right: '🐻 नाचने वाला भालू' },
         { id: 'oo_p2', left: 'चूहा', right: '🐁 कुतरने वाला नटखट चूहा' },
-        { id: 'oo_p3', left: 'झूला', right: '🛝 बाग में लगा झूला' },
+        { id: 'oo_p3', left: 'झूला', right: '🎢 बाग में लगा झूला' },
         { id: 'oo_p4', left: 'फूल', right: '🌸 खिलता हुआ फूल' },
       ],
     },
@@ -146,14 +146,14 @@ export const CLASS_1_HINDI_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'विशेष नियम: वर्ण "र" में उ और ऊ की मात्रा नीचे नहीं लगती! वह "र" के पेट (बीच) में लगती है। सही शब्द पहचानिए:',
-    visualEmoji: 'र + ु = रु 🪙',
+    visualEmoji: 'र + ु = रु 💰',
     payload: {
       options: [
-        { id: 'opt_rar1_1', text: 'रुपया 🪙', isCorrect: true },
+        { id: 'opt_rar1_1', text: 'रुपया 💰', isCorrect: true },
         { id: 'opt_rar1_2', text: 'र के नीचे गोल मात्रा', isCorrect: false },
       ],
     },
-    explanation: '💡 बहुत बढ़िया! वर्ण **र** में उ की मात्रा उसके पेट के बीच लगती है: **रु (रुपया 🪙, रुक)** और **रू (रूमाल 🧣, रूप)**!',
+    explanation: '💡 बहुत बढ़िया! वर्ण **र** में उ की मात्रा उसके पेट के बीच लगती है: **रु (रुपया 💰, रुक)** और **रू (रूमाल 🧣, रूप)**!',
     points: 10,
   },
 

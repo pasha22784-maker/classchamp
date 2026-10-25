@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,7 +11,7 @@ import {
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
-import { Grade, AppLanguage } from '../../types';
+import { Grade, AppLanguage, Subject } from '../../types';
 import {
   CONCEPT_LABS_BY_GRADE,
   SCIENCE_STEM_LABS,
@@ -35,6 +35,7 @@ interface ConceptLabHubModalProps {
   totalStars?: number;
   streakDays?: number;
   activeLang?: AppLanguage;
+  initialSubject?: Subject;
 }
 
 type TabKey = GradeGroupKey | 'science_stem' | 'all';
@@ -50,17 +51,58 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
   totalStars = 120,
   streakDays = 5,
   activeLang = 'en',
+  initialSubject = 'maths',
 }) => {
   const isHindi = activeLang === 'hi';
   const defaultTab = getGradeGroupKey(userGrade);
   const [selectedTab, setSelectedTab] = useState<TabKey>(defaultTab);
+  const [selectedSubject, setSelectedSubject] = useState<Subject>(initialSubject || 'maths');
   const [showParentInfo, setShowParentInfo] = useState(false);
   const [showCertModal, setShowCertModal] = useState(false);
+  const [showGradeSelector, setShowGradeSelector] = useState(false);
+
+  useEffect(() => {
+    if (initialSubject) {
+      setSelectedSubject(initialSubject);
+    }
+  }, [initialSubject, visible]);
+
+  // Current grade labs for counting
+  const currentGradeGroup = selectedTab === 'all'
+    ? ALL_CONCEPT_LABS
+    : selectedTab === 'science_stem'
+    ? SCIENCE_STEM_LABS
+    : (CONCEPT_LABS_BY_GRADE[selectedTab] || CONCEPT_LABS_BY_GRADE.lkg_ukg);
+
+  const filteredCurrentGroup = useMemo(() => {
+    if (selectedTab !== 'lkg_ukg') return currentGradeGroup;
+    return currentGradeGroup.filter((lab) => {
+      if (userGrade === 'LKG') {
+        if (lab.grade === 'UKG' || lab.id.startsWith('ukg_') || lab.badge.includes('UKG')) return false;
+      } else if (userGrade === 'UKG') {
+        if (lab.grade === 'LKG' || (lab.id.startsWith('maths_lab_') && !lab.id.startsWith('ukg_maths_lab_')) || (lab.id.startsWith('maths_skill_lab_') && !lab.id.startsWith('ukg_maths_')) || (lab.id.startsWith('skill_lab_') && !lab.id.startsWith('ukg_'))) return false;
+      }
+      return true;
+    });
+  }, [currentGradeGroup, selectedTab, userGrade]);
+
+  const mathsLabsCount = filteredCurrentGroup.filter((l) => !l.subject || l.subject === 'maths').length;
+  const englishLabsCount = filteredCurrentGroup.filter((l) => l.subject === 'english').length;
+  const hindiLabsCount = filteredCurrentGroup.filter((l) => l.subject === 'hindi').length;
 
   const getFilteredLabs = (): ConceptLabItem[] => {
-    if (selectedTab === 'all') return ALL_CONCEPT_LABS;
-    if (selectedTab === 'science_stem') return SCIENCE_STEM_LABS;
-    return CONCEPT_LABS_BY_GRADE[selectedTab] || CONCEPT_LABS_BY_GRADE.class_1_2;
+    let list: ConceptLabItem[];
+    if (selectedTab === 'all') list = ALL_CONCEPT_LABS;
+    else if (selectedTab === 'science_stem') list = SCIENCE_STEM_LABS;
+    else list = filteredCurrentGroup;
+
+    // Strict Subject Separation - 0% Mixing
+    return list.filter((lab) => {
+      if (selectedSubject === 'maths') {
+        return !lab.subject || lab.subject === 'maths';
+      }
+      return lab.subject === selectedSubject;
+    });
   };
 
   const handleLaunch = (labId: string) => {
@@ -83,10 +125,18 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
               </View>
               <View>
                 <Text style={styles.headerTitle}>
-                  {isHindi ? 'एसटीईएम कॉन्सेप्ट लैब' : 'STEM Concept Labs'}
+                  {selectedSubject === 'maths'
+                    ? (isHindi ? '📐 गणित एसटीईएम लैब्स' : '📐 Mathematics STEM Labs')
+                    : selectedSubject === 'english'
+                    ? (isHindi ? '🔤 इंग्लिश फोनिक्स लैब' : '🔤 English Phonics Lab')
+                    : '🇮🇳 हिंदी स्वर व वर्णमाला लैब'}
                 </Text>
                 <Text style={styles.headerSub}>
-                  {isHindi ? 'खेल-खेल में सीखें • प्रैक्टिकल लर्निंग' : 'Hands-On Practical Learning • STEM Labs'}
+                  {selectedSubject === 'maths'
+                    ? (isHindi ? 'प्रैक्टिकल गणित • खेल-खेल में सीखें' : 'Hands-On Practical Mathematics')
+                    : selectedSubject === 'english'
+                    ? (isHindi ? 'अक्षर ध्वनि व उच्चारण • इंग्लिश लैब' : 'Letter Sounds, Rhymes & Phonics')
+                    : 'स्वर, मात्रा व वर्ण पहचान • हिंदी लैब'}
                 </Text>
               </View>
             </View>
@@ -198,94 +248,157 @@ export const ConceptLabHubModal: React.FC<ConceptLabHubModalProps> = ({
             </View>
           </View>
 
-          {/* Grade / Category Filter Scroll */}
-          <View style={styles.tabsContainer}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tabsRow}>
-              <TouchableOpacity
-                style={[styles.tabPill, selectedTab === getGradeGroupKey(userGrade) && styles.tabPillActive]}
-                onPress={() => {
-                  triggerHaptic('light');
-                  setSelectedTab(getGradeGroupKey(userGrade));
-                }}
-              >
-                <Text style={[styles.tabText, selectedTab === getGradeGroupKey(userGrade) && styles.tabTextActive]}>
-                  {isHindi ? '🎯 मेरी क्लास' : '🎯 My Class Labs'}
+          {/* PRIMARY SUBJECT SELECTOR - 100% STRICT SEPARATION */}
+          <View style={styles.hubPrimarySubjectBar}>
+            {/* 1. Mathematics Tab */}
+            <TouchableOpacity
+              style={[
+                styles.hubPrimarySubjectBtn,
+                selectedSubject === 'maths' && styles.hubPrimarySubjectBtnMaths,
+              ]}
+              activeOpacity={0.85}
+              onPress={() => {
+                triggerHaptic('medium');
+                setSelectedSubject('maths');
+              }}
+            >
+              <Text style={styles.hubSubjectBtnEmoji}>📐</Text>
+              <View style={styles.hubSubjectBtnTextBox}>
+                <Text
+                  style={[
+                    styles.hubSubjectBtnTitle,
+                    selectedSubject === 'maths' && styles.hubSubjectBtnTitleActive,
+                  ]}
+                >
+                  {isHindi ? 'गणित' : 'Mathematics'}
                 </Text>
-              </TouchableOpacity>
+                <Text
+                  style={[
+                    styles.hubSubjectBtnCount,
+                    selectedSubject === 'maths' && styles.hubSubjectBtnCountActive,
+                  ]}
+                >
+                  {mathsLabsCount} {isHindi ? 'प्रैक्टिकल लैब्स' : 'Concept Labs'}
+                </Text>
+              </View>
+            </TouchableOpacity>
 
-              <TouchableOpacity
-                style={[styles.tabPill, selectedTab === 'lkg_ukg' && styles.tabPillActive]}
-                onPress={() => {
-                  triggerHaptic('light');
-                  setSelectedTab('lkg_ukg');
-                }}
-              >
-                <Text style={[styles.tabText, selectedTab === 'lkg_ukg' && styles.tabTextActive]}>
-                  {isHindi ? '👶 LKG और UKG' : '👶 LKG & UKG'}
+            {/* 2. English Tab */}
+            <TouchableOpacity
+              style={[
+                styles.hubPrimarySubjectBtn,
+                selectedSubject === 'english' && styles.hubPrimarySubjectBtnEnglish,
+              ]}
+              activeOpacity={0.85}
+              onPress={() => {
+                triggerHaptic('medium');
+                setSelectedSubject('english');
+              }}
+            >
+              <Text style={styles.hubSubjectBtnEmoji}>🔤</Text>
+              <View style={styles.hubSubjectBtnTextBox}>
+                <Text
+                  style={[
+                    styles.hubSubjectBtnTitle,
+                    selectedSubject === 'english' && styles.hubSubjectBtnTitleActive,
+                  ]}
+                >
+                  {isHindi ? 'इंग्लिश' : 'English'}
                 </Text>
-              </TouchableOpacity>
+                <Text
+                  style={[
+                    styles.hubSubjectBtnCount,
+                    selectedSubject === 'english' && styles.hubSubjectBtnCountActive,
+                  ]}
+                >
+                  {englishLabsCount} {isHindi ? 'प्रैक्टिकल लैब्स' : 'Concept Labs'}
+                </Text>
+              </View>
+            </TouchableOpacity>
 
-              <TouchableOpacity
-                style={[styles.tabPill, selectedTab === 'class_1_2' && styles.tabPillActive]}
-                onPress={() => {
-                  triggerHaptic('light');
-                  setSelectedTab('class_1_2');
-                }}
-              >
-                <Text style={[styles.tabText, selectedTab === 'class_1_2' && styles.tabTextActive]}>
-                  {isHindi ? '🎒 कक्षा 1 व 2' : '🎒 Class 1 & 2'}
+            {/* 3. Hindi Tab */}
+            <TouchableOpacity
+              style={[
+                styles.hubPrimarySubjectBtn,
+                selectedSubject === 'hindi' && styles.hubPrimarySubjectBtnHindi,
+              ]}
+              activeOpacity={0.85}
+              onPress={() => {
+                triggerHaptic('medium');
+                setSelectedSubject('hindi');
+              }}
+            >
+              <Text style={styles.hubSubjectBtnEmoji}>🇮🇳</Text>
+              <View style={styles.hubSubjectBtnTextBox}>
+                <Text
+                  style={[
+                    styles.hubSubjectBtnTitle,
+                    selectedSubject === 'hindi' && styles.hubSubjectBtnTitleActive,
+                  ]}
+                >
+                  हिंदी
                 </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={[styles.tabPill, selectedTab === 'class_3_4' && styles.tabPillActive]}
-                onPress={() => {
-                  triggerHaptic('light');
-                  setSelectedTab('class_3_4');
-                }}
-              >
-                <Text style={[styles.tabText, selectedTab === 'class_3_4' && styles.tabTextActive]}>
-                  {isHindi ? '🚀 कक्षा 3 व 4' : '🚀 Class 3 & 4'}
+                <Text
+                  style={[
+                    styles.hubSubjectBtnCount,
+                    selectedSubject === 'hindi' && styles.hubSubjectBtnCountActive,
+                  ]}
+                >
+                  {hindiLabsCount} {isHindi ? 'प्रैक्टिकल लैब्स' : 'Concept Labs'}
                 </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={[styles.tabPill, selectedTab === 'class_5_6' && styles.tabPillActive]}
-                onPress={() => {
-                  triggerHaptic('light');
-                  setSelectedTab('class_5_6');
-                }}
-              >
-                <Text style={[styles.tabText, selectedTab === 'class_5_6' && styles.tabTextActive]}>
-                  {isHindi ? '⚡ कक्षा 5 व 6' : '⚡ Class 5 & 6'}
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={[styles.tabPill, selectedTab === 'science_stem' && styles.tabPillActive]}
-                onPress={() => {
-                  triggerHaptic('light');
-                  setSelectedTab('science_stem');
-                }}
-              >
-                <Text style={[styles.tabText, selectedTab === 'science_stem' && styles.tabTextActive]}>
-                  {isHindi ? '🧲 विज्ञान और प्रकाशिकी' : '🧲 Science & Optics'}
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={[styles.tabPill, selectedTab === 'all' && styles.tabPillActive]}
-                onPress={() => {
-                  triggerHaptic('light');
-                  setSelectedTab('all');
-                }}
-              >
-                <Text style={[styles.tabText, selectedTab === 'all' && styles.tabTextActive]}>
-                  {isHindi ? '🌟 सभी 15 लैब' : '🌟 All 15 Labs'}
-                </Text>
-              </TouchableOpacity>
-            </ScrollView>
+              </View>
+            </TouchableOpacity>
           </View>
+
+          {/* Grade Scope Pill & Optional Switcher */}
+          <View style={styles.hubGradeScopeRow}>
+            <View style={styles.hubGradeScopeBadge}>
+              <Text style={styles.hubGradeScopeBadgeText}>
+                🎓 {typeof userGrade === 'number' ? `Class ${userGrade}` : userGrade} • {selectedSubject === 'maths' ? 'Maths' : selectedSubject === 'english' ? 'English' : 'Hindi'}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.hubChangeGradeBtn}
+              onPress={() => {
+                triggerHaptic('light');
+                setShowGradeSelector((v) => !v);
+              }}
+            >
+              <Text style={styles.hubChangeGradeText}>
+                {showGradeSelector ? (isHindi ? 'छुपायें ▲' : 'Hide Grades ▲') : (isHindi ? 'अन्य कक्षाएँ ▼' : 'Other Grades ▼')}
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          {/* Optional Expandable Grade Selector (Only when user taps 'Other Grades') */}
+          {showGradeSelector && (
+            <View style={styles.hubGradeExpandRow}>
+              {(['lkg_ukg', 'class_1_2', 'class_3_4', 'class_5_6', 'science_stem', 'all'] as const).map((gKey) => (
+                <TouchableOpacity
+                  key={gKey}
+                  style={[styles.hubGradePillCompact, selectedTab === gKey && styles.hubGradePillCompactActive]}
+                  onPress={() => {
+                    triggerHaptic('light');
+                    setSelectedTab(gKey);
+                  }}
+                >
+                  <Text style={[styles.hubGradePillCompactText, selectedTab === gKey && styles.hubGradePillCompactTextActive]}>
+                    {gKey === 'lkg_ukg'
+                      ? '👶 LKG & UKG'
+                      : gKey === 'class_1_2'
+                      ? '🎒 Class 1 & 2'
+                      : gKey === 'class_3_4'
+                      ? '🚀 Class 3 & 4'
+                      : gKey === 'class_5_6'
+                      ? '⚡ Class 5 & 6'
+                      : gKey === 'science_stem'
+                      ? '🧲 Science'
+                      : '🌟 All'}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          )}
 
           {/* Labs List */}
           <ScrollView contentContainerStyle={styles.labsScroll} showsVerticalScrollIndicator={false}>
@@ -602,12 +715,119 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: '900',
   },
-  tabsContainer: {
-    marginVertical: SPACING.xs,
-  },
-  tabsRow: {
+  // PRIMARY SUBJECT SELECTOR
+  hubPrimarySubjectBar: {
+    flexDirection: 'row',
     gap: 8,
+    marginVertical: SPACING.xs + 2,
+  },
+  hubPrimarySubjectBtn: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F8FAFC',
+    borderRadius: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 8,
+    borderWidth: 2,
+    borderColor: '#E2E8F0',
+    gap: 6,
+    ...SHADOWS.small,
+  },
+  hubPrimarySubjectBtnMaths: {
+    backgroundColor: '#2563EB',
+    borderColor: '#1D4ED8',
+  },
+  hubPrimarySubjectBtnEnglish: {
+    backgroundColor: '#BE185D',
+    borderColor: '#9D174D',
+  },
+  hubPrimarySubjectBtnHindi: {
+    backgroundColor: '#059669',
+    borderColor: '#047857',
+  },
+  hubSubjectBtnEmoji: {
+    fontSize: 20,
+  },
+  hubSubjectBtnTextBox: {
+    flex: 1,
+  },
+  hubSubjectBtnTitle: {
+    fontSize: 12,
+    fontWeight: '900',
+    color: '#334155',
+  },
+  hubSubjectBtnTitleActive: {
+    color: '#FFFFFF',
+  },
+  hubSubjectBtnCount: {
+    fontSize: 9,
+    fontWeight: '700',
+    color: '#64748B',
+    marginTop: 1,
+  },
+  hubSubjectBtnCountActive: {
+    color: 'rgba(255, 255, 255, 0.85)',
+  },
+
+  // Grade Scope Indicator
+  hubGradeScopeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 4,
+    marginBottom: 8,
+  },
+  hubGradeScopeBadge: {
+    backgroundColor: '#EFF6FF',
+    paddingHorizontal: 10,
     paddingVertical: 4,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#BFDBFE',
+  },
+  hubGradeScopeBadgeText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#1E40AF',
+  },
+  hubChangeGradeBtn: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  hubChangeGradeText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#64748B',
+  },
+  hubGradeExpandRow: {
+    flexDirection: 'row',
+    gap: 6,
+    flexWrap: 'wrap',
+    marginBottom: 8,
+    backgroundColor: '#F1F5F9',
+    padding: 8,
+    borderRadius: 12,
+  },
+  hubGradePillCompact: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#CBD5E1',
+  },
+  hubGradePillCompactActive: {
+    backgroundColor: '#0F172A',
+    borderColor: '#0F172A',
+  },
+  hubGradePillCompactText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: '#475569',
+  },
+  hubGradePillCompactTextActive: {
+    color: '#FFFFFF',
   },
   tabPill: {
     backgroundColor: '#F1F5F9',

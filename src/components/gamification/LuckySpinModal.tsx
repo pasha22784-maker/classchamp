@@ -28,6 +28,7 @@ interface PrizeWedge {
   color: string;
   reward: {
     stars?: number;
+    coins?: number;
     trophies?: number;
     xp?: number;
     streakShields?: number;
@@ -35,14 +36,14 @@ interface PrizeWedge {
 }
 
 const PRIZES: PrizeWedge[] = [
-  { id: 0, label: '10 Stars', emoji: '⭐', badge: '+10', color: '#F59E0B', reward: { stars: 10, xp: 20 } },
+  { id: 0, label: '10 Stars', emoji: '⭐', badge: '+10', color: '#F59E0B', reward: { stars: 10, coins: 50, xp: 20 } },
   { id: 1, label: 'Streak Shield', emoji: '🛡️', badge: '+1', color: '#06B6D4', reward: { streakShields: 1, xp: 50 } },
-  { id: 2, label: '50 XP', emoji: '⚡', badge: '+50', color: '#8B5CF6', reward: { xp: 50 } },
-  { id: 3, label: 'Trophy 🏆', emoji: '🏆', badge: 'EPIC', color: '#EC4899', reward: { trophies: 1, stars: 15, xp: 100 } },
-  { id: 4, label: '25 Stars', emoji: '⭐', badge: '+25', color: '#F97316', reward: { stars: 25, xp: 30 } },
-  { id: 5, label: '100 XP', emoji: '⚡', badge: '+100', color: '#10B981', reward: { xp: 100 } },
-  { id: 6, label: 'Mystery Gift', emoji: '🎁', badge: 'LUCKY', color: '#3B82F6', reward: { stars: 30, xp: 75, streakShields: 1 } },
-  { id: 7, label: '50 Stars', emoji: '🌟', badge: 'JACKPOT', color: '#EAB308', reward: { stars: 50, xp: 150 } },
+  { id: 2, label: '100 Coins', emoji: '💰', badge: '+100', color: '#8B5CF6', reward: { coins: 100, xp: 50 } },
+  { id: 3, label: 'Trophy 🏆', emoji: '🏆', badge: 'EPIC', color: '#EC4899', reward: { trophies: 1, stars: 15, coins: 150, xp: 100 } },
+  { id: 4, label: '25 Stars', emoji: '⭐', badge: '+25', color: '#F97316', reward: { stars: 25, coins: 100, xp: 30 } },
+  { id: 5, label: '100 XP', emoji: '⚡', badge: '+100', color: '#10B981', reward: { xp: 100, coins: 75 } },
+  { id: 6, label: 'Mystery Gift', emoji: '🎁', badge: 'LUCKY', color: '#3B82F6', reward: { stars: 30, coins: 200, xp: 75, streakShields: 1 } },
+  { id: 7, label: '50 Stars', emoji: '🌟', badge: 'JACKPOT', color: '#EAB308', reward: { stars: 50, coins: 300, xp: 150 } },
 ];
 
 const WHEEL_SIZE = 300;
@@ -210,9 +211,9 @@ export const LuckySpinModal: React.FC<LuckySpinModalProps> = ({ visible, onClose
             </View>
             <View style={styles.lootDivider} />
             <View style={styles.lootItem}>
-              <Text style={styles.lootEmoji}>🛡️</Text>
-              <Text style={styles.lootValue}>{profile.streakShields ?? 0}</Text>
-              <Text style={styles.lootLabel}>Shields</Text>
+              <Text style={styles.lootEmoji}>💰</Text>
+              <Text style={styles.lootValue}>{profile.totalCoins ?? (profile.totalStars * 10 + 50)}</Text>
+              <Text style={styles.lootLabel}>Coins</Text>
             </View>
             <View style={styles.lootDivider} />
             <View style={styles.lootItem}>

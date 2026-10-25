@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // UNIVERSAL ENGLISH GRAMMAR (CLASS 3)
 // CHAPTER 2: COMMON & PROPER NOUNS
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
@@ -167,7 +167,7 @@ export const CLASS_3_ENGLISH_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'fill_blank',
     question: 'Doctor, teacher, pilot, and carpenter all belong to the common noun category of [BLANK].',
-    visualEmoji: '🩺 👨‍🏫 👨‍✈️ 🪵',
+    visualEmoji: '🩺 👨‍🏫 👨‍✈️ 🌲',
     payload: {
       correctAnswer: 'occupations',
       wordBank: ['occupations', 'cities', 'animals', 'monuments'],

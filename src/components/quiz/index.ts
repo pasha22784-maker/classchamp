@@ -3,3 +3,4 @@ export * from './FillBlankRenderer';
 export * from './MatchPairsRenderer';
 export * from './DragOrderRenderer';
 export * from './DynamicQuestionRenderer';
+export * from './TopicSelectionModal';

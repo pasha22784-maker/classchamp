@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 4 HINDI (UNIVERSAL VYAKARAN CURRICULUM)
 // CHAPTER 4: लिंग व वचन परिवर्तन के नियम
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_HINDI_LESSON_4_QUESTIONS: Question[] = [
@@ -61,7 +61,7 @@ export const CLASS_4_HINDI_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: '"मोर" पुल्लिंग शब्द का सही स्त्रीलिंग रूप कौन-सा है?',
-    visualEmoji: '🦚 🪶 ✨',
+    visualEmoji: '🦚 🍃 ✨',
     payload: {
       options: [
         { id: 'opt_1', text: 'मोरनी', isCorrect: true },

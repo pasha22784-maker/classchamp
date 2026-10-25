@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 ENGLISH (MRIDANG & MARIGOLD)
 // CHAPTER 4: ACTION WORDS IN PLAY (VERBS)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 6 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
@@ -149,7 +149,7 @@ export const CLASS_1_ENGLISH_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Which word is an ACTION WORD among these four words?',
-    visualEmoji: '🪑 ⚽ 🏃 🎒',
+    visualEmoji: '🛋️ ⚽ 🏃 🎒',
     payload: {
       options: [
         { id: 'opt_vodd_1', text: 'JUMP', isCorrect: true },

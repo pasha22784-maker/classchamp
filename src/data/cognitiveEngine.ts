@@ -608,7 +608,7 @@ export const getOlympiadMockTestQuestions = (grade: Grade): Question[] => {
       difficulty: 'medium',
       type: 'mcq',
       question: 'If a light ray strikes a plane mirror with an angle of incidence of 35°, what is the angle of reflection?',
-      visualEmoji: '🪞',
+      visualEmoji: '✨',
       payload: {
         options: [
           { id: '1', text: '35°', isCorrect: true },

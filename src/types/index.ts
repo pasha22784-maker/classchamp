@@ -58,10 +58,12 @@ export interface ChapterLesson {
   id: string;
   number: number;
   title: string;
+  titleHindi?: string;
   grade: Grade;
   subject: Subject;
   icon: string;
   conceptSummary: string;
+  conceptSummaryHindi?: string;
 }
 
 export interface AvatarOption {
@@ -71,6 +73,16 @@ export interface AvatarOption {
   badgeColor: string;
 }
 
+export interface ChapterProgressItem {
+  lastQuestionIndex: number;
+  totalQuestions: number;
+  lastUpdated: string; // ISO string
+  isCompleted?: boolean;
+  scorePercentage?: number;
+  starsEarned?: number;
+  completedAt?: string;
+}
+
 export interface UserProfile {
   name: string;
   grade: Grade;
@@ -78,11 +90,13 @@ export interface UserProfile {
   preferredLanguage?: AppLanguage; // 'en' | 'hi' (Default 'en', Hindi subject is always Hindi)
   isPro: boolean;
   totalStars: number;
+  totalCoins?: number;
   totalTrophies: number;
   currentStreak: number;
   lastActiveDate: string; // YYYY-MM-DD
   historyDatesCompleted: string[]; // List of YYYY-MM-DD
   lastLessonBySubject?: Partial<Record<Subject, string>>;
+  chapterProgress?: Record<string, ChapterProgressItem>;
   // 30-Day Free Trial & Cloud Auth Fields
   trialStartedAt?: string; // ISO string
   userId?: string;

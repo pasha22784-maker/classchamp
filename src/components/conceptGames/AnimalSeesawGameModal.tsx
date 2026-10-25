@@ -12,12 +12,15 @@ import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { useUserStore } from '../../store/useUserStore';
+import { SpeakerButton } from '../common/SpeakerButton';
+import { stopSpeaking } from '../../utils/speech';
 
 const { width } = Dimensions.get('window');
 
 interface AnimalSeesawGameModalProps {
   visible: boolean;
   onClose: () => void;
+  activeLang?: string;
 }
 
 interface SeesawLevel {
@@ -65,8 +68,8 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   {
     id: 4,
     prompt: 'Who is LIGHTER?',
-    hindiPrompt: 'दरियाई घोड़ा 🦛 या बिल्ली 🐱 में कौन हल्का है?',
-    leftAnimal: { name: 'Hippo', emoji: '🦛', weight: 45 },
+    hindiPrompt: 'भालू 🐻 या बिल्ली 🐱 में कौन हल्का है?',
+    leftAnimal: { name: 'Big Bear', emoji: '🐻', weight: 45 },
     rightAnimal: { name: 'Cat', emoji: '🐱', weight: 5 },
     questionType: 'who_is_lighter',
     correctSide: 'right',
@@ -85,9 +88,9 @@ const SEESAW_LEVELS: SeesawLevel[] = [
   {
     id: 6,
     prompt: 'Who is LIGHTER?',
-    hindiPrompt: 'किताब 📚 या मोर पंख 🪶 में कौन हल्का है?',
+    hindiPrompt: 'किताब 📚 या मोर पंख 🍃 में कौन हल्का है?',
     leftAnimal: { name: 'Heavy Book', emoji: '📚', weight: 15 },
-    rightAnimal: { name: 'Feather', emoji: '🪶', weight: 1 },
+    rightAnimal: { name: 'Feather', emoji: '🍃', weight: 1 },
     questionType: 'who_is_lighter',
     correctSide: 'right',
     parentNote: 'Extremes of lightness: feathers float, books drop.',
@@ -117,8 +120,10 @@ const SEESAW_LEVELS: SeesawLevel[] = [
 export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
   visible,
   onClose,
+  activeLang,
 }) => {
-  const { addReward } = useUserStore();
+  const { addReward, profile } = useUserStore();
+  const isHindi = (activeLang || profile.preferredLanguage) === 'hi';
   const [levelIndex, setLevelIndex] = useState(0);
   const [selectedSide, setSelectedSide] = useState<'left' | 'right' | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -130,6 +135,7 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
 
   useEffect(() => {
     if (!visible) return;
+    stopSpeaking();
     setLevelIndex(0);
     setSelectedSide(null);
     setIsSuccess(false);
@@ -137,6 +143,11 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
     setShowParentInfo(false);
     seesawTilt.setValue(0);
   }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
+    stopSpeaking();
+  }, [levelIndex]);
 
   const handleSelectSide = (side: 'left' | 'right') => {
     if (isSuccess) return;
@@ -176,7 +187,13 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
     }
   };
 
+  const handleClose = () => {
+    stopSpeaking();
+    onClose();
+  };
+
   const handleFinish = async () => {
+    stopSpeaking();
     await addReward({ stars: 25, xp: 90 });
     triggerHaptic('success');
     onClose();
@@ -188,15 +205,15 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
   });
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.card}>
           {/* Header */}
           <View style={styles.header}>
             <View>
-              <Text style={styles.title}>⚖️ Animal Seesaw Balance</Text>
+              <Text style={styles.title}>{isHindi ? '⚖️ पशु सी-सॉ तराजू' : '⚖️ Animal Seesaw Balance'}</Text>
               <Text style={styles.sub}>
-                Level {levelIndex + 1} of {SEESAW_LEVELS.length} • NCERT Foundation
+                {isHindi ? `स्तर ${levelIndex + 1} / ${SEESAW_LEVELS.length} • NCERT बालवाटिका 2` : `Level ${levelIndex + 1} of ${SEESAW_LEVELS.length} • NCERT Balvatika 2`}
               </Text>
             </View>
             <View style={styles.topRightRow}>
@@ -204,9 +221,9 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
                 style={styles.infoPill}
                 onPress={() => setShowParentInfo((v) => !v)}
               >
-                <Text style={styles.infoPillText}>👨‍🏫 Parents</Text>
+                <Text style={styles.infoPillText}>{isHindi ? '👨‍🏫 अभिभावक' : '👨‍🏫 Parents'}</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+              <TouchableOpacity onPress={handleClose} style={styles.closeBtn}>
                 <Text style={styles.closeText}>✕</Text>
               </TouchableOpacity>
             </View>
@@ -220,10 +237,19 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
             </View>
           )}
 
-          {/* Mission Target Banner */}
+          {/* Mission Target Banner with Speaker */}
           <View style={styles.missionBanner}>
-            <Text style={styles.missionPrompt}>{currentLevel.prompt}</Text>
-            <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>
+            <View style={styles.missionTextCol}>
+              <Text style={styles.missionPrompt}>{currentLevel.prompt}</Text>
+              {isHindi && <Text style={styles.missionHindi}>{currentLevel.hindiPrompt}</Text>}
+            </View>
+            <SpeakerButton
+              textToSpeak={isHindi ? currentLevel.hindiPrompt : currentLevel.prompt}
+              size="pill"
+              showLabel
+              activeLang={isHindi ? 'hi' : 'en'}
+              style={styles.speakerPill}
+            />
           </View>
 
           {/* Realistic Seesaw Physics Stage */}
@@ -315,7 +341,9 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
                 <Text style={styles.successEmoji}>🦚</Text>
                 <Text style={styles.successTitle}>Seesaw Physics Champ!</Text>
                 <Text style={styles.successDesc}>
-                  You have mastered the practical concept of Heavy and Light!
+                  {isHindi
+                    ? 'आपने भारी और हल्के के सभी 8 भौतिक तुलनात्मक परीक्षण पास कर लिए!'
+                    : 'You have mastered the practical concept of Heavy vs Light!'}
                 </Text>
                 <View style={styles.rewardPill}>
                   <Text style={styles.rewardText}>+25 Stars ⭐  +90 XP ⚡</Text>
@@ -335,18 +363,18 @@ export const AnimalSeesawGameModal: React.FC<AnimalSeesawGameModalProps> = ({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.85)',
+    backgroundColor: 'rgba(15, 23, 42, 0.7)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: SPACING.md,
   },
   card: {
     width: Math.min(width - 32, 440),
-    backgroundColor: '#78350F',
+    backgroundColor: '#FFFFFF', // Light, crisp white card
     borderRadius: BORDER_RADIUS.xl,
     padding: SPACING.lg,
     borderWidth: 2,
-    borderColor: '#F59E0B',
+    borderColor: '#FDE68A',
     ...SHADOWS.card,
   },
   header: {
@@ -361,7 +389,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   infoPill: {
-    backgroundColor: '#92400E',
+    backgroundColor: '#FEF3C7',
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: BORDER_RADIUS.full,
@@ -369,82 +397,95 @@ const styles = StyleSheet.create({
     borderColor: '#FDE68A',
   },
   infoPillText: {
-    color: '#FEF3C7',
+    color: '#92400E',
     fontSize: 12,
-    fontWeight: '700',
-  },
-  title: {
-    color: '#FFFFFF',
-    fontSize: 18,
     fontWeight: '800',
   },
+  title: {
+    color: '#1E293B',
+    fontSize: 18,
+    fontWeight: '900',
+  },
   sub: {
-    color: '#FDE68A',
+    color: '#D97706',
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   closeBtn: {
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#92400E',
+    backgroundColor: '#F1F5F9',
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeText: {
-    color: '#FFFFFF',
+    color: '#64748B',
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: '800',
   },
   parentBox: {
-    backgroundColor: '#451A03',
+    backgroundColor: '#FFFBEB',
     borderRadius: BORDER_RADIUS.md,
     padding: 10,
     marginBottom: SPACING.sm,
-    borderLeftWidth: 3,
+    borderLeftWidth: 4,
     borderLeftColor: '#F59E0B',
+    borderWidth: 1,
+    borderColor: '#FDE68A',
   },
   parentTitle: {
-    color: '#F59E0B',
+    color: '#B45309',
     fontSize: 12,
-    fontWeight: '700',
+    fontWeight: '800',
     marginBottom: 2,
   },
   parentDesc: {
-    color: '#E2E8F0',
+    color: '#78350F',
     fontSize: 12,
     lineHeight: 16,
+    fontWeight: '600',
   },
   missionBanner: {
-    backgroundColor: '#92400E',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#FEF3C7',
     borderRadius: BORDER_RADIUS.md,
     padding: SPACING.sm,
-    alignItems: 'center',
     marginBottom: SPACING.md,
-    borderWidth: 1,
-    borderColor: '#F59E0B',
+    borderWidth: 1.5,
+    borderColor: '#FDE68A',
+    gap: 8,
+  },
+  missionTextCol: {
+    flex: 1,
   },
   missionPrompt: {
-    color: '#FFFFFF',
+    color: '#78350F',
     fontSize: 15,
-    fontWeight: '800',
-    textAlign: 'center',
+    fontWeight: '900',
   },
   missionHindi: {
-    color: '#FEF3C7',
+    color: '#92400E',
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: '700',
     marginTop: 2,
-    textAlign: 'center',
+  },
+  speakerPill: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#F59E0B',
   },
   seesawStage: {
-    height: 180,
+    height: 190,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#451A03',
+    backgroundColor: '#F0FDF4', // Park green pasture background
     borderRadius: BORDER_RADIUS.lg,
     padding: SPACING.sm,
     marginBottom: SPACING.md,
+    borderWidth: 1.5,
+    borderColor: '#BBF7D0',
     overflow: 'hidden',
   },
   seesawPlank: {
@@ -459,35 +500,36 @@ const styles = StyleSheet.create({
   },
   seatBox: {
     alignItems: 'center',
-    backgroundColor: '#78350F',
+    backgroundColor: '#FFFFFF',
     borderRadius: BORDER_RADIUS.md,
     padding: 8,
     borderWidth: 2,
     borderColor: '#F59E0B',
     minWidth: 80,
+    ...SHADOWS.small,
   },
   seatBoxSelected: {
-    borderColor: '#FDE68A',
-    backgroundColor: '#92400E',
+    borderColor: '#D97706',
+    backgroundColor: '#FEF3C7',
   },
   seatBoxCorrect: {
     borderColor: '#10B981',
-    backgroundColor: '#065F46',
+    backgroundColor: '#DCFCE7',
   },
   animalEmoji: {
     fontSize: 34,
   },
   animalName: {
-    color: '#FFFFFF',
+    color: '#1E293B',
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: '800',
     marginTop: 2,
   },
   pivotDot: {
     width: 14,
     height: 14,
     borderRadius: 7,
-    backgroundColor: '#FDE68A',
+    backgroundColor: '#D97706',
   },
   fulcrumBase: {
     alignItems: 'center',
@@ -495,12 +537,12 @@ const styles = StyleSheet.create({
   },
   fulcrumEmoji: {
     fontSize: 28,
-    color: '#F59E0B',
+    color: '#D97706',
   },
   groundBar: {
     width: 120,
     height: 6,
-    backgroundColor: '#059669',
+    backgroundColor: '#10B981',
     borderRadius: 3,
     marginTop: -4,
   },
@@ -511,19 +553,19 @@ const styles = StyleSheet.create({
   },
   sideBtn: {
     flex: 1,
-    backgroundColor: '#92400E',
+    backgroundColor: '#F8FAFC',
     paddingVertical: 12,
     borderRadius: BORDER_RADIUS.lg,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#F59E0B',
+    borderWidth: 1.5,
+    borderColor: '#E2E8F0',
   },
   sideBtnChosen: {
-    backgroundColor: '#B45309',
-    borderColor: '#FDE68A',
+    backgroundColor: '#FEF3C7',
+    borderColor: '#F59E0B',
   },
   sideBtnText: {
-    color: '#FFFFFF',
+    color: '#1E293B',
     fontSize: 13,
     fontWeight: '800',
   },
@@ -532,9 +574,9 @@ const styles = StyleSheet.create({
     marginTop: SPACING.xs,
   },
   footerNote: {
-    color: '#FDE68A',
+    color: '#B45309',
     fontSize: 11,
-    fontStyle: 'italic',
+    fontWeight: '600',
   },
   successOverlay: {
     position: 'absolute',
@@ -542,11 +584,13 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(69, 26, 3, 0.96)',
+    backgroundColor: 'rgba(255, 255, 255, 0.96)',
     borderRadius: BORDER_RADIUS.xl,
     justifyContent: 'center',
     alignItems: 'center',
     padding: SPACING.lg,
+    borderWidth: 2,
+    borderColor: '#10B981',
   },
   successBox: {
     alignItems: 'center',
@@ -556,42 +600,41 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   successTitle: {
-    color: '#FDE68A',
+    color: '#065F46',
     fontSize: 22,
     fontWeight: '900',
     marginBottom: 4,
   },
   successDesc: {
-    color: '#E2E8F0',
+    color: '#047857',
     fontSize: 14,
     textAlign: 'center',
     marginBottom: SPACING.md,
     lineHeight: 20,
+    fontWeight: '600',
   },
   rewardPill: {
-    backgroundColor: '#92400E',
+    backgroundColor: '#DCFCE7',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: BORDER_RADIUS.full,
     borderWidth: 1,
-    borderColor: '#FDE68A',
+    borderColor: '#86EFAC',
     marginBottom: SPACING.lg,
   },
   rewardText: {
-    color: '#FDE68A',
+    color: '#15803D',
     fontSize: 15,
-    fontWeight: '800',
+    fontWeight: '900',
   },
   claimBtn: {
-    backgroundColor: '#F59E0B',
+    backgroundColor: '#10B981',
     paddingHorizontal: 32,
     paddingVertical: 14,
     borderRadius: BORDER_RADIUS.xl,
-    borderWidth: 1,
-    borderColor: '#FDE68A',
   },
   claimBtnText: {
-    color: '#451A03',
+    color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '900',
   },

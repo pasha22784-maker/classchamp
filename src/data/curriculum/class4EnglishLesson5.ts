@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 4 ENGLISH (UNIVERSAL GRAMMAR CURRICULUM)
 // CHAPTER 5: CONJUNCTIONS & COMPOUND SENTENCES
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
@@ -312,7 +312,7 @@ export const CLASS_4_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Which conjunction best fills the blank: "Walk cautiously on the wet mossy rocks, ______ you might slip and fall."',
-    visualEmoji: '⚠️ 🪨 🌊',
+    visualEmoji: '⚠️ 🧱 🌊',
     payload: {
       options: [
         { id: 'opt_1', text: 'otherwise', isCorrect: true },

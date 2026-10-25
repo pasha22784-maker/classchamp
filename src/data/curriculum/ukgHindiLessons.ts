@@ -367,8 +367,8 @@ export const UKG_HINDI_ALL_QUESTIONS: Question[] = [
     concept: 'ग से गमला',
     difficulty: 'easy',
     type: 'mcq',
-    question: 'फूलों वाला सुंदर "गमला" 🪴 किस अक्षर से शुरू होता है?',
-    visualEmoji: '🪴 🌸',
+    question: 'फूलों वाला सुंदर "गमला" 🌱 किस अक्षर से शुरू होता है?',
+    visualEmoji: '🌱 🌸',
     payload: {
       options: [
         { id: 'opt_1', text: 'ग', isCorrect: true },
@@ -376,7 +376,7 @@ export const UKG_HINDI_ALL_QUESTIONS: Question[] = [
         { id: 'opt_3', text: 'क', isCorrect: false },
       ],
     },
-    explanation: 'ग से गमला 🪴! ग से गाय 🐄 भी होती है।',
+    explanation: 'ग से गमला 🌱! ग से गाय 🐄 भी होती है।',
     points: 10,
   },
   {
@@ -612,7 +612,7 @@ export const UKG_HINDI_ALL_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'drag_order',
     question: 'क-वर्ग के अक्षरों को सही क्रम में लगाइए:',
-    visualEmoji: '🚂 🕊️ 🐇 🪴 🏠',
+    visualEmoji: '🚂 🕊️ 🐇 🌱 🏠',
     payload: {
       tokens: ['क', 'ख', 'ग', 'घ', 'ङ'],
       scrambled: ['ग', 'क', 'ङ', 'ख', 'घ'],
@@ -1472,8 +1472,8 @@ export const UKG_HINDI_ALL_QUESTIONS: Question[] = [
     concept: 'भारी और हल्का',
     difficulty: 'hard',
     type: 'mcq',
-    question: 'पत्थर 🪨 "भारी" होता है, तो चिड़िया का पंख 🪶 कैसा होता है?',
-    visualEmoji: '🪨 ↔️ 🪶',
+    question: 'पत्थर 🧱 "भारी" होता है, तो चिड़िया का पंख 🍃 कैसा होता है?',
+    visualEmoji: '🧱 ↔️ 🍃',
     payload: {
       options: [
         { id: 'opt_1', text: 'हल्का', isCorrect: true },
@@ -1512,8 +1512,8 @@ export const UKG_HINDI_ALL_QUESTIONS: Question[] = [
     concept: 'चढ़ना का विलोम',
     difficulty: 'hard',
     type: 'mcq',
-    question: 'सीढ़ी पर ऊपर "चढ़ना" 🪜 का विलोम क्या है?',
-    visualEmoji: '🪜 🧗',
+    question: 'सीढ़ी पर ऊपर "चढ़ना" 📏 का विलोम क्या है?',
+    visualEmoji: '📏 🧗',
     payload: {
       options: [
         { id: 'opt_1', text: 'उतरना', isCorrect: true },

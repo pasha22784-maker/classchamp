@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 ENGLISH (MRIDANG 2 & MARIGOLD 2)
 // CHAPTER 5: DESCRIBING WORDS (ADJECTIVES & OPPOSITES)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (Global Benchmark Standard)
 // 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
@@ -58,7 +58,7 @@ export const CLASS_2_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'A bird\'s feather feels very [BLANK], but a heavy river rock feels hard.',
-    visualEmoji: '🪶 vs 🪨',
+    visualEmoji: '🍃 vs 🧱',
     payload: {
       options: [
         { id: 'opt_tc1_1', text: 'Soft', isCorrect: true },

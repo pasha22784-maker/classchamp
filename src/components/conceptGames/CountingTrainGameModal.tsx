@@ -12,12 +12,15 @@ import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { useUserStore } from '../../store/useUserStore';
+import { SpeakerButton } from '../common/SpeakerButton';
+import { stopSpeaking } from '../../utils/speech';
 
 const { width } = Dimensions.get('window');
 
 interface CountingTrainGameModalProps {
   visible: boolean;
   onClose: () => void;
+  activeLang?: string;
 }
 
 interface TrainLevel {
@@ -32,75 +35,77 @@ interface TrainLevel {
 const TRAIN_LEVELS: TrainLevel[] = [
   {
     id: 1,
-    targetCount: 3,
+    targetCount: 1,
     itemEmoji: '🍎',
-    itemName: 'Apples',
-    hindiName: '3 सेब ट्रेन में भरें!',
-    parentNote: 'Counting up to 3 develops subitizing (recognizing small groups instantly).',
+    itemName: '1 Apple',
+    hindiName: '1 सेब ट्रेन में भरें!',
+    parentNote: 'Number 1: Cardinal foundation - representing the concept of a single isolated object.',
   },
   {
     id: 2,
-    targetCount: 5,
-    itemEmoji: '⭐',
-    itemName: 'Golden Stars',
-    hindiName: '5 चमकते सितारे लोड करें!',
-    parentNote: 'Five is an essential benchmark number (fingers on one hand).',
+    targetCount: 2,
+    itemEmoji: '🥭',
+    itemName: '2 Juicy Mangoes',
+    hindiName: '2 आम लोड करें!',
+    parentNote: 'Number 2: Pair concept - connecting left/right and dual items.',
   },
   {
     id: 3,
+    targetCount: 3,
+    itemEmoji: '⭐',
+    itemName: '3 Golden Stars',
+    hindiName: '3 चमकते सितारे लोड करें!',
+    parentNote: 'Counting up to 3 develops subitizing (recognizing small groups instantly).',
+  },
+  {
+    id: 4,
     targetCount: 4,
     itemEmoji: '🎈',
-    itemName: 'Balloons',
+    itemName: '4 Colorful Balloons',
     hindiName: '4 रंग-बिरंगे गुब्बारे भरें!',
     parentNote: 'Reinforces 1-to-1 matching: 1 tap = exactly 1 physical item.',
   },
   {
-    id: 4,
-    targetCount: 6,
-    itemEmoji: '🧁',
-    itemName: 'Cupcakes',
-    hindiName: '6 मीठे कपकेक्स लोड करें!',
-    parentNote: 'Counting beyond 5 (5 + 1 structure) prepares for early addition.',
-  },
-  {
     id: 5,
-    targetCount: 7,
-    itemEmoji: '🍌',
-    itemName: 'Bananas',
-    hindiName: '7 केले ट्रेन में रखें!',
-    parentNote: 'Develops working memory retention during continuous counting.',
+    targetCount: 5,
+    itemEmoji: '🧁',
+    itemName: '5 Sweet Cupcakes',
+    hindiName: '5 मीठे कपकेक्स लोड करें!',
+    parentNote: 'Five is an essential benchmark number (fingers on one hand).',
   },
   {
     id: 6,
-    targetCount: 8,
+    targetCount: 6,
     itemEmoji: '🍓',
-    itemName: 'Strawberries',
-    hindiName: '8 स्ट्रॉबेरी लोड करें!',
-    parentNote: 'Reinforces cardinality: the last number spoken tells "how many in all".',
+    itemName: '6 Red Strawberries',
+    hindiName: '6 स्ट्रॉबेरी लोड करें!',
+    parentNote: 'Counting beyond 5 (5 + 1 structure) prepares for early addition.',
   },
   {
     id: 7,
-    targetCount: 10,
+    targetCount: 8,
     itemEmoji: '🚗',
-    itemName: 'Toy Cars',
-    hindiName: '10 खिलौना कारें ट्रेन में लोड करें!',
-    parentNote: '10 is the king of the decimal base-10 number system.',
+    itemName: '8 Toy Cars',
+    hindiName: '8 खिलौना कारें ट्रेन में लोड करें!',
+    parentNote: 'Reinforces cardinality: the last number spoken tells "how many in all".',
   },
   {
     id: 8,
-    targetCount: 12,
+    targetCount: 10,
     itemEmoji: '💎',
-    itemName: 'Diamonds',
-    hindiName: '12 चमकीले हीरे भरें (एक दर्जन)!',
-    parentNote: 'Teens transition: counting beyond 10 into 11 and 12.',
+    itemName: '10 Shiny Diamonds',
+    hindiName: '10 चमकीले हीरे भरें (पूरे 10)!',
+    parentNote: '10 is the king of the decimal base-10 number system.',
   },
 ];
 
 export const CountingTrainGameModal: React.FC<CountingTrainGameModalProps> = ({
   visible,
   onClose,
+  activeLang,
 }) => {
-  const { addReward } = useUserStore();
+  const { addReward, profile } = useUserStore();
+  const isHindi = (activeLang || profile.preferredLanguage) === 'hi';
   const [levelIndex, setLevelIndex] = useState(0);
   const [currentLoaded, setCurrentLoaded] = useState(0);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -112,12 +117,18 @@ export const CountingTrainGameModal: React.FC<CountingTrainGameModalProps> = ({
 
   useEffect(() => {
     if (!visible) return;
+    stopSpeaking();
     setLevelIndex(0);
     setCurrentLoaded(0);
     setIsSuccess(false);
     setIsFinished(false);
     setShowParentInfo(false);
   }, [visible]);
+
+  useEffect(() => {
+    if (!visible) return;
+    stopSpeaking();
+  }, [levelIndex]);
 
   const handleAddItem = () => {
     if (isSuccess || currentLoaded >= currentLevel.targetCount) return;
@@ -159,14 +170,20 @@ export const CountingTrainGameModal: React.FC<CountingTrainGameModalProps> = ({
     setCurrentLoaded((prev) => prev - 1);
   };
 
+  const handleClose = () => {
+    stopSpeaking();
+    onClose();
+  };
+
   const handleFinish = async () => {
+    stopSpeaking();
     await addReward({ stars: 25, xp: 90 });
     triggerHaptic('success');
     onClose();
   };
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.card}>
           {/* Header */}
@@ -174,7 +191,7 @@ export const CountingTrainGameModal: React.FC<CountingTrainGameModalProps> = ({
             <View>
               <Text style={styles.title}>🚂 Counting Number Train</Text>
               <Text style={styles.sub}>
-                Level {levelIndex + 1} of {TRAIN_LEVELS.length} • NCERT Foundation
+                Level {levelIndex + 1} of {TRAIN_LEVELS.length} • NCERT Balvatika 2
               </Text>
             </View>
             <View style={styles.topRightRow}>
@@ -184,7 +201,7 @@ export const CountingTrainGameModal: React.FC<CountingTrainGameModalProps> = ({
               >
                 <Text style={styles.infoPillText}>👨‍🏫 Parents</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+              <TouchableOpacity onPress={handleClose} style={styles.closeBtn}>
                 <Text style={styles.closeText}>✕</Text>
               </TouchableOpacity>
             </View>
@@ -198,12 +215,21 @@ export const CountingTrainGameModal: React.FC<CountingTrainGameModalProps> = ({
             </View>
           )}
 
-          {/* Mission Target Banner */}
+          {/* Mission Target Banner with Speaker */}
           <View style={styles.missionBanner}>
-            <Text style={styles.missionPrompt}>
-              Load {currentLevel.targetCount} {currentLevel.itemName} into the Train!
-            </Text>
-            <Text style={styles.missionHindi}>{currentLevel.hindiName}</Text>
+            <View style={styles.missionTextCol}>
+              <Text style={styles.missionPrompt}>
+                Load {currentLevel.targetCount} {currentLevel.itemName} into the Train!
+              </Text>
+              {isHindi && <Text style={styles.missionHindi}>{currentLevel.hindiName}</Text>}
+            </View>
+            <SpeakerButton
+              textToSpeak={isHindi ? currentLevel.hindiName : `Load ${currentLevel.targetCount} ${currentLevel.itemName} into the train!`}
+              size="pill"
+              showLabel
+              activeLang={isHindi ? 'hi' : 'en'}
+              style={styles.speakerPill}
+            />
           </View>
 
           {/* Animated Train Cargo Visual */}
@@ -310,18 +336,18 @@ export const CountingTrainGameModal: React.FC<CountingTrainGameModalProps> = ({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.85)',
+    backgroundColor: 'rgba(15, 23, 42, 0.45)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: SPACING.md,
   },
   card: {
     width: Math.min(width - 32, 440),
-    backgroundColor: '#064E3B',
+    backgroundColor: '#FFFFFF',
     borderRadius: BORDER_RADIUS.xl,
     padding: SPACING.lg,
     borderWidth: 2,
-    borderColor: '#10B981',
+    borderColor: '#86EFAC',
     ...SHADOWS.card,
   },
   header: {
@@ -336,25 +362,25 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   infoPill: {
-    backgroundColor: '#047857',
+    backgroundColor: '#ECFDF5',
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: BORDER_RADIUS.full,
     borderWidth: 1,
-    borderColor: '#34D399',
+    borderColor: '#A7F3D0',
   },
   infoPillText: {
-    color: '#A7F3D0',
+    color: '#065F46',
     fontSize: 12,
     fontWeight: '700',
   },
   title: {
-    color: '#FFFFFF',
+    color: '#064E3B',
     fontSize: 18,
     fontWeight: '800',
   },
   sub: {
-    color: '#A7F3D0',
+    color: '#059669',
     fontSize: 12,
     fontWeight: '600',
   },
@@ -362,67 +388,75 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#065F46',
+    backgroundColor: '#F1F5F9',
     justifyContent: 'center',
     alignItems: 'center',
   },
   closeText: {
-    color: '#FFFFFF',
+    color: '#475569',
     fontSize: 16,
     fontWeight: '700',
   },
   parentBox: {
-    backgroundColor: '#022C22',
+    backgroundColor: '#FEF3C7',
     borderRadius: BORDER_RADIUS.md,
     padding: 10,
     marginBottom: SPACING.sm,
     borderLeftWidth: 3,
-    borderLeftColor: '#34D399',
+    borderLeftColor: '#F59E0B',
   },
   parentTitle: {
-    color: '#34D399',
+    color: '#B45309',
     fontSize: 12,
     fontWeight: '700',
     marginBottom: 2,
   },
   parentDesc: {
-    color: '#E2E8F0',
+    color: '#78350F',
     fontSize: 12,
     lineHeight: 16,
   },
   missionBanner: {
-    backgroundColor: '#047857',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#F0FDF4',
     borderRadius: BORDER_RADIUS.md,
     padding: SPACING.sm,
-    alignItems: 'center',
     marginBottom: SPACING.md,
     borderWidth: 1,
-    borderColor: '#10B981',
+    borderColor: '#A7F3D0',
+    gap: 8,
+  },
+  missionTextCol: {
+    flex: 1,
   },
   missionPrompt: {
-    color: '#FFFFFF',
-    fontSize: 16,
+    color: '#064E3B',
+    fontSize: 15,
     fontWeight: '800',
-    textAlign: 'center',
   },
   missionHindi: {
-    color: '#D1FAE5',
+    color: '#047857',
     fontSize: 13,
     fontWeight: '600',
     marginTop: 2,
-    textAlign: 'center',
+  },
+  speakerPill: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#34D399',
   },
   trainStage: {
-    backgroundColor: '#022C22',
+    backgroundColor: '#F8FAFC',
     borderRadius: BORDER_RADIUS.lg,
     padding: SPACING.md,
     borderWidth: 1,
-    borderColor: '#059669',
+    borderColor: '#E2E8F0',
     marginBottom: SPACING.md,
   },
   trainStageSuccess: {
-    borderColor: '#34D399',
-    backgroundColor: '#065F46',
+    borderColor: '#10B981',
+    backgroundColor: '#DCFCE7',
   },
   engineBox: {
     flexDirection: 'row',
@@ -434,17 +468,17 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   engineLabel: {
-    color: '#34D399',
+    color: '#059669',
     fontSize: 12,
     fontWeight: '800',
     letterSpacing: 1,
   },
   wagonBox: {
-    backgroundColor: '#064E3B',
+    backgroundColor: '#FFFFFF',
     borderRadius: BORDER_RADIUS.md,
     padding: SPACING.sm,
     borderWidth: 1,
-    borderColor: '#10B981',
+    borderColor: '#A7F3D0',
   },
   counterRow: {
     flexDirection: 'row',
@@ -453,17 +487,17 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   counterText: {
-    color: '#E2E8F0',
+    color: '#334155',
     fontSize: 13,
     fontWeight: '700',
   },
   counterHighlight: {
-    color: '#FDE68A',
+    color: '#059669',
     fontSize: 16,
     fontWeight: '900',
   },
   chimeCheck: {
-    color: '#34D399',
+    color: '#059669',
     fontSize: 12,
     fontWeight: '800',
   },
@@ -479,15 +513,15 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 8,
-    backgroundColor: '#022C22',
+    backgroundColor: '#F1F5F9',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#047857',
+    borderColor: '#CBD5E1',
   },
   cargoSlotFilled: {
-    backgroundColor: '#059669',
-    borderColor: '#34D399',
+    backgroundColor: '#DCFCE7',
+    borderColor: '#10B981',
   },
   cargoSlotEmoji: {
     fontSize: 20,
@@ -498,12 +532,14 @@ const styles = StyleSheet.create({
     marginVertical: SPACING.sm,
   },
   removeBtn: {
-    backgroundColor: '#991B1B',
+    backgroundColor: '#FEE2E2',
     paddingVertical: 14,
     paddingHorizontal: 16,
     borderRadius: BORDER_RADIUS.lg,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#FCA5A5',
   },
   addBtn: {
     flex: 1,
@@ -513,7 +549,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#34D399',
+    borderColor: '#059669',
   },
   btnSuccess: {
     backgroundColor: '#059669',
@@ -522,7 +558,7 @@ const styles = StyleSheet.create({
     opacity: 0.4,
   },
   btnText: {
-    color: '#FFFFFF',
+    color: '#DC2626',
     fontSize: 14,
     fontWeight: '800',
   },
@@ -536,7 +572,7 @@ const styles = StyleSheet.create({
     marginTop: SPACING.xs,
   },
   footerNote: {
-    color: '#6EE7B7',
+    color: '#059669',
     fontSize: 11,
     fontStyle: 'italic',
   },
@@ -546,7 +582,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(6, 78, 59, 0.96)',
+    backgroundColor: 'rgba(255, 255, 255, 0.96)',
     borderRadius: BORDER_RADIUS.xl,
     justifyContent: 'center',
     alignItems: 'center',
@@ -560,29 +596,29 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.sm,
   },
   successTitle: {
-    color: '#FDE68A',
+    color: '#064E3B',
     fontSize: 22,
     fontWeight: '900',
     marginBottom: 4,
   },
   successDesc: {
-    color: '#E2E8F0',
+    color: '#334155',
     fontSize: 14,
     textAlign: 'center',
     marginBottom: SPACING.md,
     lineHeight: 20,
   },
   rewardPill: {
-    backgroundColor: '#065F46',
+    backgroundColor: '#FEF3C7',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: BORDER_RADIUS.full,
     borderWidth: 1,
-    borderColor: '#34D399',
+    borderColor: '#F59E0B',
     marginBottom: SPACING.lg,
   },
   rewardText: {
-    color: '#FDE68A',
+    color: '#B45309',
     fontSize: 15,
     fontWeight: '800',
   },
@@ -592,7 +628,7 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: BORDER_RADIUS.xl,
     borderWidth: 1,
-    borderColor: '#34D399',
+    borderColor: '#059669',
   },
   claimBtnText: {
     color: '#FFFFFF',

@@ -22,7 +22,7 @@ import { Subject, Grade, ScreenType } from './src/types';
 import { getAdaptedQuestion, getSubjectLanguage } from './src/utils/language';
 
 export default function App() {
-  const { profile, isHydrated, loadProfile, setGrade, setLastSubjectLesson } = useUserStore();
+  const { profile, isHydrated, loadProfile, setGrade, setLastSubjectLesson, getChapterProgress } = useUserStore();
   const { startQuiz } = useQuizStore();
   const [currentScreen, setCurrentScreen] = useState<ScreenType>('dashboard');
   const [vaultSubject, setVaultSubject] = useState<Subject>('maths');
@@ -52,8 +52,8 @@ export default function App() {
   const currentActiveDay = Math.min(365, profile.historyDatesCompleted.length + 1);
   const completedDaysList = profile.historyDatesCompleted.map((_, idx) => idx + 1);
 
-  // Handle Quick Daily Quiz Start — Resumes where student left off with full 10-question drill!
-  const handleStartQuiz = (subject: Subject, specificChapter?: string, isExtraPractice: boolean = false) => {
+  // Handle Quick Daily Quiz Start — Resumes where student left off with full drill!
+  const handleStartQuiz = (subject: Subject, specificChapter?: string, isExtraPractice: boolean = false, startIndex?: number) => {
     const chapters = getChaptersForGradeSubject(profile.grade, subject);
     const targetChapter = specificChapter || profile.lastLessonBySubject?.[subject] || (chapters[0] ? chapters[0].title : undefined);
     
@@ -64,17 +64,26 @@ export default function App() {
     const sessionQuestions = generateQuestionsForSession(profile.grade, subject, targetChapter, isExtraPractice);
     const lang = getSubjectLanguage(subject, profile.preferredLanguage);
     const adaptedQuestions = sessionQuestions.map((q) => getAdaptedQuestion(q, lang));
-    startQuiz(profile.grade, subject, adaptedQuestions, targetChapter);
+
+    let finalStartIndex = startIndex;
+    if (finalStartIndex === undefined && targetChapter && !isExtraPractice) {
+      const savedProg = getChapterProgress(profile.grade, subject, targetChapter);
+      if (savedProg && savedProg.lastQuestionIndex > 0 && !savedProg.isCompleted && savedProg.lastQuestionIndex < adaptedQuestions.length) {
+        finalStartIndex = savedProg.lastQuestionIndex;
+      }
+    }
+
+    startQuiz(profile.grade, subject, adaptedQuestions, targetChapter, finalStartIndex || 0);
     setCurrentScreen('quiz');
   };
 
-  // Handle Lesson-Wise Quiz Start
-  const handleSelectChapter = (subject: Subject, chapterTitle: string) => {
+  // Handle Lesson-Wise Quiz Start with optional starting topic/question index
+  const handleSelectChapter = (subject: Subject, chapterTitle: string, startIndex: number = 0) => {
     setLastSubjectLesson(subject, chapterTitle);
     const chapterQuestions = generateQuestionsForSession(profile.grade, subject, chapterTitle);
     const lang = getSubjectLanguage(subject, profile.preferredLanguage);
     const adaptedQuestions = chapterQuestions.map((q) => getAdaptedQuestion(q, lang));
-    startQuiz(profile.grade, subject, adaptedQuestions, chapterTitle);
+    startQuiz(profile.grade, subject, adaptedQuestions, chapterTitle, startIndex);
     setCurrentScreen('quiz');
   };
 

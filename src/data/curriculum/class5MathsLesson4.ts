@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 5 MATHEMATICS (MATH-MAGIC 5)
 // CHAPTER 4: PARTS AND WHOLES (FRACTIONS & EQUIVALENT)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
@@ -146,7 +146,7 @@ export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'There are 100 paise in one Rupee (₹ 1 = 100 paise). What fraction of a rupee is 25 paise?',
-    visualEmoji: '🪙 25 ÷ 100',
+    visualEmoji: '💰 25 ÷ 100',
     payload: {
       options: [
         { id: 'opt_1', text: '1/4', isCorrect: true },
@@ -231,7 +231,7 @@ export const CLASS_5_MATHS_LESSON_4_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'In the NCERT story, the poet Birbal won 100 gold coins from the King. The second greedy gatekeeper demanded 2/5 of the total coins. How many gold coins did the second gatekeeper get?',
-    visualEmoji: '👑 🪙 2/5 of 100',
+    visualEmoji: '👑 💰 2/5 of 100',
     payload: {
       options: [
         { id: 'opt_1', text: '40 gold coins', isCorrect: true },

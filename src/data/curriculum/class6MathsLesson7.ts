@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // NCERT CLASS 6 MATHEMATICS
 // CHAPTER 7: Decimals & Place Values
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers
+// Global Benchmark Standard | Zero Spoilers
 // ============================================================================
 
 export const CLASS_6_MATHS_LESSON_7_QUESTIONS: Question[] = [
@@ -20,7 +20,7 @@ export const CLASS_6_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'What is the fraction 7/10 written in decimal notation?',
-    visualEmoji: '🪙 🔢',
+    visualEmoji: '💰 🔢',
     payload: {
       options: [
         { id: 'opt_1', text: '0.7', isCorrect: true },
@@ -41,7 +41,7 @@ export const CLASS_6_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'Since 100 paise = ₹ 1, how is 65 paise written in rupees using decimals?\nAnswer: ₹ [BLANK]',
-    visualEmoji: '🪙 🇮🇳',
+    visualEmoji: '💰 🇮🇳',
     payload: {
       correctAnswer: '0.65',
       wordBank: ['0.65', '6.5', '0.065', '65.0'],

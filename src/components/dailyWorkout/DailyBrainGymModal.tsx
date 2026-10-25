@@ -13,6 +13,7 @@ import { soundManager } from '../../utils/soundManager';
 import { Grade, AppLanguage } from '../../types';
 import { getDailyWorkoutForDate, DailyWorkoutData } from '../../data/cognitiveEngine';
 import { useUserStore, getTodayDateString } from '../../store/useUserStore';
+import { SpeakerButton } from '../common/SpeakerButton';
 
 interface DailyBrainGymModalProps {
   visible: boolean;
@@ -128,7 +129,16 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
                 </View>
 
                 <View style={styles.puzzleCard}>
-                  <Text style={styles.puzzleVisual}>{workoutData.puzzle.visualEmoji}</Text>
+                  <View style={styles.cardHeaderWithSpeaker}>
+                    <Text style={styles.puzzleVisual}>{workoutData.puzzle.visualEmoji}</Text>
+                    <SpeakerButton
+                      textToSpeak={`${workoutData.puzzle.title}. ${workoutData.puzzle.question}`}
+                      size="pill"
+                      showLabel
+                      label={isHindi ? 'पहेली सुनें' : 'Listen Puzzle'}
+                      activeLang={activeLang}
+                    />
+                  </View>
                   <Text style={styles.puzzleTitle}>{workoutData.puzzle.title}</Text>
                   <Text style={styles.puzzleQuestion}>{workoutData.puzzle.question}</Text>
 
@@ -176,11 +186,18 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
                   {/* Explanation feedback */}
                   {puzzleAnswered && (
                     <View style={styles.feedbackBox}>
-                      <Text style={styles.feedbackTitle}>
-                        {isPuzzleCorrect
-                          ? (isHindi ? '🎉 शाबाश! बेहतरीन जवाब!' : '🎉 Brilliant Deduction!')
-                          : (isHindi ? '💡 सीखने का अवसर!' : '💡 Learning Moment!')}
-                      </Text>
+                      <View style={styles.feedbackHeaderRow}>
+                        <Text style={styles.feedbackTitle}>
+                          {isPuzzleCorrect
+                            ? (isHindi ? '🎉 शाबाश! बेहतरीन जवाब!' : '🎉 Brilliant Deduction!')
+                            : (isHindi ? '💡 सीखने का अवसर!' : '💡 Learning Moment!')}
+                        </Text>
+                        <SpeakerButton
+                          textToSpeak={workoutData.puzzle.explanation}
+                          size="sm"
+                          activeLang={activeLang}
+                        />
+                      </View>
                       <Text style={styles.feedbackDesc}>
                         {workoutData.puzzle.explanation}
                       </Text>
@@ -211,8 +228,17 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
                 </View>
 
                 <View style={styles.labMissionCard}>
-                  <View style={styles.labMissionIconBox}>
-                    <Text style={styles.labMissionEmoji}>{workoutData.featuredLabIcon}</Text>
+                  <View style={styles.cardHeaderWithSpeaker}>
+                    <View style={styles.labMissionIconBox}>
+                      <Text style={styles.labMissionEmoji}>{workoutData.featuredLabIcon}</Text>
+                    </View>
+                    <SpeakerButton
+                      textToSpeak={`${workoutData.featuredLabTitle}. Target: ${workoutData.labDailyMission}`}
+                      size="pill"
+                      showLabel
+                      label={isHindi ? 'मिशन सुनें' : 'Hear Mission'}
+                      activeLang={activeLang}
+                    />
                   </View>
                   <Text style={styles.labMissionTitle}>{workoutData.featuredLabTitle}</Text>
                   <Text style={styles.labMissionGoalLabel}>TODAY’S HANDS-ON TARGET:</Text>
@@ -251,7 +277,16 @@ export const DailyBrainGymModal: React.FC<DailyBrainGymModalProps> = ({
                 </View>
 
                 <View style={styles.sprintCard}>
-                  <Text style={styles.sprintEmoji}>⚡⏱️</Text>
+                  <View style={styles.cardHeaderWithSpeaker}>
+                    <Text style={styles.sprintEmoji}>⚡⏱️</Text>
+                    <SpeakerButton
+                      textToSpeak={`Sprint challenge. ${workoutData.speedSprintGoal}`}
+                      size="pill"
+                      showLabel
+                      label={isHindi ? 'लक्ष्य सुनें' : 'Hear Goal'}
+                      activeLang={activeLang}
+                    />
+                  </View>
                   <Text style={styles.sprintTitle}>Sprint Challenge</Text>
                   <Text style={styles.sprintGoalText}>{workoutData.speedSprintGoal}</Text>
 
@@ -508,6 +543,19 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1.5,
     borderColor: '#86EFAC',
+  },
+  cardHeaderWithSpeaker: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  feedbackHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 4,
   },
   feedbackTitle: {
     color: '#166534',

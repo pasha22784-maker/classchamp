@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 5 ENGLISH (UNIVERSAL GRAMMAR)
 // CHAPTER 5: Idioms, Proverbs & Figurative Language
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_5_ENGLISH_LESSON_5_QUESTIONS: Question[] = [

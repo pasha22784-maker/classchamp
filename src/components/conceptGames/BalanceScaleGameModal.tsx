@@ -13,6 +13,8 @@ import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { useUserStore } from '../../store/useUserStore';
 import { Grade } from '../../types';
+import { SpeakerButton } from '../common/SpeakerButton';
+import { stopSpeaking } from '../../utils/speech';
 
 interface BalanceScaleGameModalProps {
   visible: boolean;
@@ -84,6 +86,7 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
 
   useEffect(() => {
     if (!visible) return;
+    stopSpeaking();
     setLevelIndex(0);
     setRightCurrentAdded(null);
     setScore(0);
@@ -92,6 +95,11 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
     setShowParentInfo(false);
     tiltAnim.setValue(-12); // Initial tilt towards heavier left side
   }, [visible, grade]);
+
+  useEffect(() => {
+    if (!visible) return;
+    stopSpeaking();
+  }, [levelIndex]);
 
   // Handle placing a weight onto the right pan
   const handleSelectWeight = (weight: number) => {
@@ -148,7 +156,13 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
     }
   };
 
+  const handleClose = () => {
+    stopSpeaking();
+    onClose();
+  };
+
   const handleFinish = async () => {
+    stopSpeaking();
     await addReward({ stars: 20, xp: 80 });
     triggerHaptic('success');
     onClose();
@@ -166,7 +180,7 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
   });
 
   return (
-    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.gameCard}>
           {/* Header */}
@@ -189,7 +203,7 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
               >
                 <Text style={{ color: '#FEF3C7', fontSize: 12, fontWeight: '700' }}>👨‍🏫 Parents</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+              <TouchableOpacity onPress={handleClose} style={styles.closeBtn}>
                 <Text style={styles.closeText}>✕</Text>
               </TouchableOpacity>
             </View>
@@ -214,10 +228,18 @@ export const BalanceScaleGameModal: React.FC<BalanceScaleGameModalProps> = ({
             </View>
           )}
 
-          {/* Mission Objective */}
+          {/* Mission Objective with Speaker */}
           <View style={styles.promptBox}>
-            <Text style={styles.promptTitle}>{currentLevel.prompt}</Text>
-            <Text style={styles.conceptHint}>💡 {currentLevel.conceptNote}</Text>
+            <View style={styles.promptTextCol}>
+              <Text style={styles.promptTitle}>{currentLevel.prompt}</Text>
+              <Text style={styles.conceptHint}>💡 {currentLevel.conceptNote}</Text>
+            </View>
+            <SpeakerButton
+              textToSpeak={`${currentLevel.prompt}. ${currentLevel.conceptNote}`}
+              size="pill"
+              showLabel
+              style={styles.speakerPill}
+            />
           </View>
 
           {/* Interactive Balance Scale Apparatus */}
@@ -390,6 +412,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   promptBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: '#1E293B',
     width: '100%',
     padding: 10,
@@ -397,19 +422,25 @@ const styles = StyleSheet.create({
     marginVertical: SPACING.xs,
     borderWidth: 1,
     borderColor: '#334155',
-    alignItems: 'center',
+    gap: 8,
+  },
+  promptTextCol: {
+    flex: 1,
   },
   promptTitle: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '900',
     color: '#FFFFFF',
-    textAlign: 'center',
   },
   conceptHint: {
     fontSize: 12,
     color: '#38BDF8',
     fontWeight: '700',
     marginTop: 2,
+  },
+  speakerPill: {
+    backgroundColor: '#0F172A',
+    borderColor: '#38BDF8',
   },
   scaleStage: {
     width: '100%',

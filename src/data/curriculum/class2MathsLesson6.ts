@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 6: DECORATION FOR FESTIVAL (SUBTRACTION)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (Global Benchmark Standard)
 // 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
@@ -260,7 +260,7 @@ export const CLASS_2_MATHS_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'A gardener had some flower pots for the flower show. After 16 pots were damaged, he still had 34 good flower pots left. How many flower pots did he have originally?',
-    visualEmoji: '🪴 ❓ - 1️⃣6️⃣ = 3️⃣4️⃣',
+    visualEmoji: '🌱 ❓ - 1️⃣6️⃣ = 3️⃣4️⃣',
     payload: {
       options: [
         { id: 'opt_fp6_1', text: '50 flower pots', isCorrect: true },

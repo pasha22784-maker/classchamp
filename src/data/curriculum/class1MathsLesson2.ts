@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 MATHEMATICS — CHAPTER 2: WHAT IS LONG? WHAT IS ROUND?
 // (क्या है लंबा? क्या है गोल?)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
@@ -38,11 +38,11 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Which item in your school pencil pouch is LONG and straight?',
-    visualEmoji: '✏️ 🪙 🔘',
+    visualEmoji: '✏️ 💰 🔘',
     payload: {
       options: [
         { id: 'opt_l2_1', text: 'Pencil ✏️', isCorrect: true },
-        { id: 'opt_l2_2', text: 'Coin 🪙', isCorrect: false },
+        { id: 'opt_l2_2', text: 'Coin 💰', isCorrect: false },
         { id: 'opt_l2_3', text: 'Button 🔘', isCorrect: false },
       ],
     },
@@ -82,14 +82,14 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Look at the breakfast plate 🍽️. Which delicious food item is completely ROUND?',
-    visualEmoji: '🫓 🍌',
+    visualEmoji: '🍪 🍌',
     payload: {
       options: [
-        { id: 'opt_r1_1', text: '🫓 Soft Roti / Chapati', isCorrect: true },
+        { id: 'opt_r1_1', text: '🍪 Soft Roti / Chapati', isCorrect: true },
         { id: 'opt_r1_2', text: '🍌 Yellow Banana', isCorrect: false },
       ],
     },
-    explanation: '💡 Remember: A roti 🫓 is round all around with zero corners, while a banana 🍌 is long!',
+    explanation: '💡 Remember: A roti 🍪 is round all around with zero corners, while a banana 🍌 is long!',
     points: 10,
   },
   {
@@ -185,15 +185,15 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Stacking: Making a Tower',
     difficulty: 'medium',
     type: 'mcq',
-    question: 'Can you stack 5 flat ₹5 coins 🪙 🪙 🪙 on top of each other to build a small tower?',
-    visualEmoji: '🪙 🪙 🪙',
+    question: 'Can you stack 5 flat ₹5 coins 💰 💰 💰 on top of each other to build a small tower?',
+    visualEmoji: '💰 💰 💰',
     payload: {
       options: [
-        { id: 'opt_tow_1', text: 'YES! Flat coins can balance and form a tower 🪙', isCorrect: true },
+        { id: 'opt_tow_1', text: 'YES! Flat coins can balance and form a tower 💰', isCorrect: true },
         { id: 'opt_tow_2', text: 'NO, coins roll away immediately', isCorrect: false },
       ],
     },
-    explanation: '💡 NCERT Chapter 2: Objects with flat faces like coins 🪙, matchboxes, and books can easily stack to make towers!',
+    explanation: '💡 NCERT Chapter 2: Objects with flat faces like coins 💰, matchboxes, and books can easily stack to make towers!',
     points: 10,
   },
   {
@@ -249,15 +249,15 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'Which of these common objects can BOTH roll and slide?',
-    visualEmoji: '🪙 🧱 ⚽',
+    visualEmoji: '💰 🧱 ⚽',
     payload: {
       options: [
-        { id: 'opt_dual_1', text: '🪙 Coin', isCorrect: true },
+        { id: 'opt_dual_1', text: '💰 Coin', isCorrect: true },
         { id: 'opt_dual_2', text: '🧱 Brick', isCorrect: false },
         { id: 'opt_dual_3', text: '⚽ Ball', isCorrect: false },
       ],
     },
-    explanation: '💡 NCERT Secret: A coin 🪙 has a flat face (slides) and a circular rim (rolls)! Pipes and pencils can also do both.',
+    explanation: '💡 NCERT Secret: A coin 💰 has a flat face (slides) and a circular rim (rolls)! Pipes and pencils can also do both.',
     points: 10,
   },
   {
@@ -268,13 +268,13 @@ export const CLASS_1_MATHS_LESSON_2_QUESTIONS: Question[] = [
     concept: 'Roll vs Slide Classification',
     difficulty: 'medium',
     type: 'match_pairs',
-    question: 'Match each object with how it moves down a park slide 🛝:',
-    visualEmoji: '🛝',
+    question: 'Match each object with how it moves down a park slide 🎢:',
+    visualEmoji: '🎢',
     payload: {
       pairs: [
         { id: 'rsp_1', left: '⚽ Round Football', right: 'It ROLLS 🔄' },
         { id: 'rsp_2', left: '📏 Flat Ruler', right: 'It SLIDES ➡️' },
-        { id: 'rsp_3', left: '🪙 Indian Coin', right: 'BOTH Rolls and Slides ✨' },
+        { id: 'rsp_3', left: '💰 Indian Coin', right: 'BOTH Rolls and Slides ✨' },
         { id: 'rsp_4', left: '🍎 Fresh Apple', right: 'It ROLLS 🔄' },
       ],
     },

@@ -4,7 +4,7 @@ import { Question } from '../../types';
 // CLASS 5 HINDI (UNIVERSAL VYAKARAN)
 // CHAPTER 2: उपसर्ग व प्रत्यय (पहचान व शब्द निर्माण)
 // 15 Questions: 5 Easy, 5 Medium, 5 Hard (Points: 10, 15, 20)
-// IXL Pedagogical Standard | Zero Spoilers | Universal Grammar
+// Global Benchmark Standard | Zero Spoilers | Universal Grammar
 // ============================================================================
 
 export const CLASS_5_HINDI_LESSON_2_QUESTIONS: Question[] = [

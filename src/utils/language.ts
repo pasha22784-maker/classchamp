@@ -1,4 +1,23 @@
-import { AppLanguage, Subject, UserProfile, Question } from '../types/index';
+import { AppLanguage, Subject, UserProfile, Question, ChapterLesson } from '../types/index';
+
+/**
+ * Returns the chapter title adapted strictly to the chosen language.
+ * Guarantees ZERO Hindi in English mode, and pure Hindi when isHindi is true.
+ */
+export const getChapterTitle = (chapter: ChapterLesson, isHindi: boolean): string => {
+  if (isHindi && chapter.titleHindi) return chapter.titleHindi;
+  if (isHindi) return cleanBilingualForHindi(chapter.title);
+  return cleanBilingualForEnglish(chapter.title);
+};
+
+/**
+ * Returns the chapter summary adapted strictly to the chosen language.
+ */
+export const getChapterSummary = (chapter: ChapterLesson, isHindi: boolean): string => {
+  if (isHindi && chapter.conceptSummaryHindi) return chapter.conceptSummaryHindi;
+  if (isHindi) return cleanBilingualForHindi(chapter.conceptSummary);
+  return cleanBilingualForEnglish(chapter.conceptSummary);
+};
 
 /**
  * Returns the active UI language from user profile, defaulting to 'en'
@@ -273,6 +292,20 @@ export const STRINGS = {
     balloonPopDesc: 'Pop the right balloons fast! Beat the clock & score combos 🔥',
     mindMatchTitle: 'Mind Match 3D',
     mindMatchDesc: 'Flip & match memory pairs! Earn 3-star rating & big XP.',
+    kidsArcadeTitle: '🌟 Super Kid Concept Arcade',
+    kidsArcadeSub: '4 Sensory brain games: Big/Small, Heavy/Light, 1-5 Counting & Shapes',
+    kidsArcadeBadge: 'LKG & UKG FAVORITE',
+    kidsArcadeEnterBtn: 'Open Arcade 🎮',
+    bubblePopperName: 'Bubble Popper',
+    bubblePopperSub: 'Big vs Small & Shapes',
+    seesawSlamName: 'Seesaw Slam',
+    seesawSlamSub: 'Heavy vs Light Physics',
+    feedFrenzyName: 'Feed Rush',
+    feedFrenzySub: 'Count 1 to 5 with Bunny',
+    shapeNinjaName: 'Shape Ninja',
+    shapeNinjaSub: 'Shapes & Patterns',
+    alphabetPopName: 'Alphabet Pop',
+    alphabetPopSub: 'Letters A to M Phonics',
 
     // STEM Labs Gateway
     labGatewayBadge: '🔬 STEM LABS',
@@ -390,6 +423,20 @@ export const STRINGS = {
     balloonPopDesc: 'सही गुब्बारे तेजी से फोड़ें! घड़ी को मात दें और कॉम्बो बनाएं 🔥',
     mindMatchTitle: 'माइंड मैच 3D',
     mindMatchDesc: 'जोड़ियों को याद रखकर मिलाएं! 3-स्टार रेटिंग और बड़ा XP पाएं।',
+    kidsArcadeTitle: '🌟 सुपर किड कॉन्सेप्ट आर्केड',
+    kidsArcadeSub: 'छोटे बच्चों के लिए 4 मजेदार खेल: बड़ा/छोटा, भारी/हल्का, 1-5 गिनती व आकृतियां',
+    kidsArcadeBadge: 'LKG और UKG पसंदीदा',
+    kidsArcadeEnterBtn: 'आर्केड खोलें 🎮',
+    bubblePopperName: 'बबल पॉपर',
+    bubblePopperSub: 'बड़ा vs छोटा व आकार',
+    seesawSlamName: 'सी-सॉ स्लैम',
+    seesawSlamSub: 'भारी vs हल्का भौतिकी',
+    feedFrenzyName: 'फीडिंग रश',
+    feedFrenzySub: 'बनी के साथ 1 से 5 गिनती',
+    shapeNinjaName: 'शेप निंजा',
+    shapeNinjaSub: 'आकार व पैटर्न',
+    alphabetPopName: 'अल्फाबेट पॉपर',
+    alphabetPopSub: 'A से M अक्षर व फोनिक्स',
 
     // STEM Labs Gateway
     labGatewayBadge: '🔬 स्टेम लैब्स',

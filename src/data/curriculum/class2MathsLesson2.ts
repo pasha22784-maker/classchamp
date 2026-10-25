@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 2 MATHEMATICS (JOYFUL MATHEMATICS 2)
 // CHAPTER 2: SHAPES AROUND US (ROLLING & SLIDING)
-// Comprehensive Curriculum Covering All Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All Core Concepts (Global Benchmark Standard)
 // 15 Questions: 5 Easy | 5 Medium | 5 Hard
 // ============================================================================
 
@@ -20,7 +20,7 @@ export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'If you push these objects down a playground slide, which one will ROLL smoothly?',
-    visualEmoji: '🛝 ⚽ 📦 📏',
+    visualEmoji: '🎢 ⚽ 📦 📏',
     payload: {
       options: [
         { id: 'opt_rl1_1', text: 'A round football', isCorrect: true },
@@ -119,7 +119,7 @@ export const CLASS_2_MATHS_LESSON_2_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'A coin can slide on its flat side. If you roll it along its circular edge, what happens?',
-    visualEmoji: '🪙 🔄',
+    visualEmoji: '💰 🔄',
     payload: {
       options: [
         { id: 'opt_bt1_1', text: 'It can BOTH roll and slide', isCorrect: true },

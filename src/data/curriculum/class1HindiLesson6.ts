@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 HINDI (सारंगी 1 / RIMJHIM 1)
 // CHAPTER 6: नाम वाले शब्द (संज्ञा परिचय)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_HINDI_LESSON_6_QUESTIONS: Question[] = [
@@ -39,11 +39,11 @@ export const CLASS_1_HINDI_LESSON_6_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'इनमें से कौन सा शब्द किसी व्यक्ति (इंसान) का नाम है?',
-    visualEmoji: '👦 🪑 ⚽',
+    visualEmoji: '👦 🛋️ ⚽',
     payload: {
       options: [
         { id: 'opt_nm2_1', text: 'अमन 👦', isCorrect: true },
-        { id: 'opt_nm2_2', text: 'कुर्सी 🪑', isCorrect: false },
+        { id: 'opt_nm2_2', text: 'कुर्सी 🛋️', isCorrect: false },
         { id: 'opt_nm2_3', text: 'दौड़ना 🏃', isCorrect: false },
       ],
     },

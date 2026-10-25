@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import {
   StyleSheet,
   Text,
@@ -22,6 +22,13 @@ import {
 import { LuckySpinModal } from '../components/gamification/LuckySpinModal';
 import { BalloonPopGameModal } from '../components/gamification/BalloonPopGameModal';
 import { MemoryMatchModal } from '../components/gamification/MemoryMatchModal';
+import { SizeComparisonLabModal } from '../components/conceptGames/SizeComparisonLabModal';
+import { AlphabetPhonicsLabModal } from '../components/conceptGames/AlphabetPhonicsLabModal';
+import { EnglishOppositesRhymesLabModal } from '../components/conceptGames/EnglishOppositesRhymesLabModal';
+import { EnglishWordsVocabularyLabModal } from '../components/conceptGames/EnglishWordsVocabularyLabModal';
+import { HindiVarnamalaLabModal } from '../components/conceptGames/HindiVarnamalaLabModal';
+import { HindiVyanjanLabModal } from '../components/conceptGames/HindiVyanjanLabModal';
+import { HindiPashuPakshiLabModal } from '../components/conceptGames/HindiPashuPakshiLabModal';
 import { BalanceScaleGameModal } from '../components/conceptGames/BalanceScaleGameModal';
 import { FractionPizzaGameModal } from '../components/conceptGames/FractionPizzaGameModal';
 import { AngleShooterGameModal } from '../components/conceptGames/AngleShooterGameModal';
@@ -36,21 +43,27 @@ import { IntegerSubmarineModal } from '../components/conceptGames/IntegerSubmari
 import { MagnetLabModal } from '../components/conceptGames/MagnetLabModal';
 import { ColorPrismLabModal } from '../components/conceptGames/ColorPrismLabModal';
 import { SpeedBrainGameModal } from '../components/conceptGames/SpeedBrainGameModal';
+import { UkgMathsInteractiveLabModal, UkgLabStation } from '../components/conceptGames/UkgMathsInteractiveLabModal';
+import { Class1EnglishInteractiveLabModal, Class1EnglishLabStation } from '../components/conceptGames/Class1EnglishInteractiveLabModal';
 import { ConceptLabHubModal } from '../components/conceptGames/ConceptLabHubModal';
+import { KidsConceptArcadeModal, KidsArcadeGameType } from '../components/conceptGames/KidsConceptArcadeModal';
 import { DailyBrainGymModal } from '../components/dailyWorkout/DailyBrainGymModal';
 import { BrainDevelopmentMatrixModal } from '../components/cognitive/BrainDevelopmentMatrixModal';
 import { WeeklyOlympiadTestModal } from '../components/assessment/WeeklyOlympiadTestModal';
 import { TargetedWeakTopicModal } from '../components/adaptive/TargetedWeakTopicModal';
-import { CONCEPT_LABS_BY_GRADE, getGradeGroupKey } from '../data/conceptLabsRegistry';
+import { CONCEPT_LABS_BY_GRADE, getGradeGroupKey, ALL_CONCEPT_LABS } from '../data/conceptLabsRegistry';
+import { CONCEPT_GAMES_BY_SUBJECT } from '../data/conceptGamesRegistry';
+import { TopicSelectionModal } from '../components/quiz/TopicSelectionModal';
+import { generateQuestionsForSession } from '../data/questionGenerator';
 import { useUserStore, getTodayDateString } from '../store/useUserStore';
 import { getChaptersForGradeSubject, NCERT_BOOKS } from '../data/chaptersData';
 import { fetchGlobalConfig } from '../services/adminConfig';
 import { Subject, Grade, ChapterLesson, AppGlobalConfig, WeakTopicItem, AppLanguage } from '../types';
 import { triggerHaptic } from '../utils/haptics';
-import { getActiveLanguage, STRINGS, cleanBilingualForEnglish, cleanBilingualForHindi } from '../utils/language';
+import { getActiveLanguage, STRINGS, cleanBilingualForEnglish, cleanBilingualForHindi, getChapterTitle } from '../utils/language';
 
 interface DashboardScreenProps {
-  onStartQuiz: (subject: Subject, chapterTitle?: string) => void;
+  onStartQuiz: (subject: Subject, chapterTitle?: string, isExtraPractice?: boolean, startIndex?: number) => void;
   onOpenChapterVault: (subject?: Subject) => void;
   onOpenRoadmap365: () => void;
   onOpenParentZone: () => void;
@@ -62,14 +75,26 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   onOpenRoadmap365,
   onOpenParentZone,
 }) => {
-  const { profile, loadProfile, setAvatar, setPreferredLanguage } = useUserStore();
+  const { profile, loadProfile, setAvatar, setPreferredLanguage, getChapterProgress } = useUserStore();
   const activeLang: AppLanguage = getActiveLanguage(profile);
   const s = STRINGS[activeLang];
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [showPaywallModal, setShowPaywallModal] = useState(false);
   const [showLuckySpinModal, setShowLuckySpinModal] = useState(false);
+  const [selectedTopicData, setSelectedTopicData] = useState<{ subject: Subject; title: string; icon?: string; initialMode?: 'topics' | 'labs' | 'games' | 'questions' } | null>(null);
   const [showBalloonPopModal, setShowBalloonPopModal] = useState(false);
   const [showMemoryMatchModal, setShowMemoryMatchModal] = useState(false);
+  const [showKidsConceptArcadeModal, setShowKidsConceptArcadeModal] = useState(false);
+  const [selectedKidsArcadeGame, setSelectedKidsArcadeGame] = useState<KidsArcadeGameType | string | null>(null);
+  const [arcadeChapterTitle, setArcadeChapterTitle] = useState<string | null>(null);
+  const [arcadeGameTitle, setArcadeGameTitle] = useState<string | null>(null);
+  const [showSizeComparisonModal, setShowSizeComparisonModal] = useState(false);
+  const [showAlphabetPhonicsModal, setShowAlphabetPhonicsModal] = useState(false);
+  const [showHindiVarnamalaModal, setShowHindiVarnamalaModal] = useState(false);
+  const [showHindiVyanjanModal, setShowHindiVyanjanModal] = useState(false);
+  const [showHindiPashuPakshiModal, setShowHindiPashuPakshiModal] = useState(false);
+  const [arcadeFilterSubject, setArcadeFilterSubject] = useState<Subject>('maths');
+  const [labsSubjectFilter, setLabsSubjectFilter] = useState<Subject>('maths');
   const [showBalanceScaleModal, setShowBalanceScaleModal] = useState(false);
   const [showFractionPizzaModal, setShowFractionPizzaModal] = useState(false);
   const [showAngleShooterModal, setShowAngleShooterModal] = useState(false);
@@ -84,6 +109,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const [showMagnetLabModal, setShowMagnetLabModal] = useState(false);
   const [showColorPrismModal, setShowColorPrismModal] = useState(false);
   const [showSpeedBrainModal, setShowSpeedBrainModal] = useState(false);
+  const [showEnglishOppositesLabModal, setShowEnglishOppositesLabModal] = useState(false);
+  const [showEnglishWordsLabModal, setShowEnglishWordsLabModal] = useState(false);
   const [showConceptLabHub, setShowConceptLabHub] = useState(false);
   const [showDailyBrainGymModal, setShowDailyBrainGymModal] = useState(false);
   const [showBrainMatrixModal, setShowBrainMatrixModal] = useState(false);
@@ -93,11 +120,94 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const [globalConfig, setGlobalConfig] = useState<AppGlobalConfig | null>(null);
   const [activeCategory, setActiveCategory] = useState<'subjects' | 'labs' | 'arcade' | 'all'>('subjects');
   const [showOfferDetailsModal, setShowOfferDetailsModal] = useState(false);
+  const [showUkgMathsLabModal, setShowUkgMathsLabModal] = useState(false);
+  const [ukgMathsStation, setUkgMathsStation] = useState<UkgLabStation>('ten_frame');
+  const [showClass1EnglishLabModal, setShowClass1EnglishLabModal] = useState(false);
+  const [class1EnglishStation, setClass1EnglishStation] = useState<Class1EnglishLabStation>('magic_phonics');
   const [showCompletedMissionBanner, setShowCompletedMissionBanner] = useState(true);
+
+  const gradeGroupKey = getGradeGroupKey(profile.grade);
+  const mathsLabsCount = useMemo(() => {
+    const labs = CONCEPT_LABS_BY_GRADE[gradeGroupKey] || [];
+    return labs.filter((l) => {
+      if (l.subject && l.subject !== 'maths') return false;
+      if (profile.grade === 'LKG') {
+        if (l.grade === 'UKG' || l.id.startsWith('ukg_') || l.badge.includes('UKG')) return false;
+      } else if (profile.grade === 'UKG') {
+        if (l.grade === 'LKG' || (l.id.startsWith('maths_lab_') && !l.id.startsWith('ukg_maths_lab_')) || (l.id.startsWith('maths_skill_lab_') && !l.id.startsWith('ukg_maths_')) || (l.id.startsWith('skill_lab_') && !l.id.startsWith('ukg_'))) return false;
+      }
+      return true;
+    }).length;
+  }, [gradeGroupKey, profile.grade]);
+  const englishLabsCount = useMemo(() => {
+    const labs = CONCEPT_LABS_BY_GRADE[gradeGroupKey] || [];
+    return labs.filter((l) => {
+      if (l.subject !== 'english') return false;
+      if (profile.grade === 'LKG') {
+        if (l.grade === 'UKG' || l.id.startsWith('ukg_') || l.badge.includes('UKG')) return false;
+      } else if (profile.grade === 'UKG') {
+        if (l.grade === 'LKG' || (l.id.startsWith('skill_lab_') && !l.id.startsWith('ukg_'))) return false;
+      }
+      return true;
+    }).length;
+  }, [gradeGroupKey, profile.grade]);
+  const hindiLabsCount = useMemo(() => {
+    const labs = CONCEPT_LABS_BY_GRADE[gradeGroupKey] || [];
+    return labs.filter((l) => l.subject === 'hindi').length;
+  }, [gradeGroupKey]);
+
+  const mathsGamesCount = useMemo(() => {
+    const list = CONCEPT_GAMES_BY_SUBJECT.maths || [];
+    return list.filter((g) => {
+      if (profile.grade === 'LKG') {
+        if (g.grade === 'UKG' || g.id.startsWith('game_ukg_') || g.badgeEn.includes('UKG')) return false;
+      } else if (profile.grade === 'UKG') {
+        if (g.grade === 'LKG' || (g.id.startsWith('game_math_ws_') && !g.id.startsWith('game_ukg_math_')) || (g.id.startsWith('game_maths_cat_') && !g.id.startsWith('game_ukg_math_'))) return false;
+      }
+      return true;
+    }).length;
+  }, [profile.grade]);
+
+  const englishGamesCount = useMemo(() => {
+    const list = CONCEPT_GAMES_BY_SUBJECT.english || [];
+    return list.filter((g) => {
+      if (profile.grade === 'LKG') {
+        if (g.grade === 'UKG' || g.grade === 1 || g.id.startsWith('game_ukg_') || g.id.startsWith('game_c1_') || g.badgeEn.includes('UKG') || g.badgeEn.includes('Class 1')) return false;
+      } else if (profile.grade === 'UKG') {
+        if (g.grade === 'LKG' || g.grade === 1 || g.id.startsWith('game_c1_') || g.badgeEn.includes('Class 1') || (g.id.startsWith('game_skill_') && !g.id.startsWith('game_ukg_'))) return false;
+      } else if (profile.grade === 1) {
+        if (g.grade === 'LKG' || g.grade === 'UKG' || g.id.startsWith('game_skill_') || g.id.startsWith('game_ukg_') || g.badgeEn.includes('UKG') || g.badgeEn.includes('LKG')) return false;
+      }
+      return true;
+    }).length;
+  }, [profile.grade]);
+
+  const filteredArcadeGames = useMemo(() => {
+    const list = CONCEPT_GAMES_BY_SUBJECT[arcadeFilterSubject] || [];
+    return list.filter((g) => {
+      if (profile.grade === 'LKG') {
+        if (g.grade === 'UKG' || g.grade === 1 || g.id.startsWith('game_ukg_') || g.id.startsWith('game_c1_') || g.badgeEn.includes('UKG') || g.badgeEn.includes('Class 1')) return false;
+      } else if (profile.grade === 'UKG') {
+        if (g.grade === 'LKG' || g.grade === 1 || g.id.startsWith('game_c1_') || g.badgeEn.includes('Class 1') || (g.id.startsWith('game_skill_') && !g.id.startsWith('game_ukg_'))) return false;
+      } else if (profile.grade === 1) {
+        if (g.grade === 'LKG' || g.grade === 'UKG' || g.id.startsWith('game_skill_') || g.id.startsWith('game_ukg_') || g.badgeEn.includes('UKG') || g.badgeEn.includes('LKG')) return false;
+      }
+      return true;
+    });
+  }, [arcadeFilterSubject, profile.grade]);
+
+  const hindiGamesCount = CONCEPT_GAMES_BY_SUBJECT.hindi?.length || 0;
 
   const handleOpenConceptLab = (labId: string) => {
     triggerHaptic('medium');
-    if (labId === 'shape_sorter') setShowShapeSorterModal(true);
+    if (labId === 'size_scale_lab' || labId === 'size_comparison') setShowSizeComparisonModal(true);
+    else if (labId === 'alphabet_phonics_lab') setShowAlphabetPhonicsModal(true);
+    else if (labId === 'english_opposites_rhymes_lab') setShowEnglishOppositesLabModal(true);
+    else if (labId === 'english_words_vocabulary_lab') setShowEnglishWordsLabModal(true);
+    else if (labId === 'hindi_varnamala_lab') setShowHindiVarnamalaModal(true);
+    else if (labId === 'hindi_vyanjan_lab') setShowHindiVyanjanModal(true);
+    else if (labId === 'hindi_pashu_pakshi_lab') setShowHindiPashuPakshiModal(true);
+    else if (labId === 'shape_sorter') setShowShapeSorterModal(true);
     else if (labId === 'counting_train') setShowCountingTrainModal(true);
     else if (labId === 'animal_seesaw') setShowAnimalSeesawModal(true);
     else if (labId === 'balance_scale') setShowBalanceScaleModal(true);
@@ -112,6 +222,56 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
     else if (labId === 'magnet_lab') setShowMagnetLabModal(true);
     else if (labId === 'color_prism') setShowColorPrismModal(true);
     else if (labId === 'speed_brain') setShowSpeedBrainModal(true);
+    else if (
+      labId === 'ukg_maths_interactive_lab' ||
+      labId === 'ukg_maths_ten_frame_lab' ||
+      labId === 'ukg_maths_add_sub_beaker' ||
+      labId === 'ukg_maths_coin_bank' ||
+      labId === 'ukg_maths_geometry_lab' ||
+      labId === 'ukg_maths_balance_lab' ||
+      labId.startsWith('ukg_maths_')
+    ) {
+      if (labId.includes('ten_frame') || labId.includes('_a_') || labId.includes('_b_') || labId.includes('_c_') || labId.includes('_d_') || labId.endsWith('_a') || labId.endsWith('_b') || labId.endsWith('_c') || labId.endsWith('_d')) {
+        setUkgMathsStation('ten_frame');
+      } else if (labId.includes('add_sub') || labId.includes('_e_') || labId.includes('_f_') || labId.includes('_g_') || labId.includes('_h_') || labId.includes('_i_') || labId.endsWith('_e') || labId.endsWith('_f') || labId.endsWith('_g') || labId.endsWith('_h') || labId.endsWith('_i')) {
+        setUkgMathsStation('add_sub');
+      } else if (labId.includes('balance') || labId.includes('_j_') || labId.includes('_k_') || labId.includes('_l_') || labId.endsWith('_j') || labId.endsWith('_k') || labId.endsWith('_l')) {
+        setUkgMathsStation('balance');
+      } else if (labId.includes('geometry') || labId.includes('_m_') || labId.includes('_n_') || labId.includes('_o_') || labId.endsWith('_m') || labId.endsWith('_n') || labId.endsWith('_o')) {
+        setUkgMathsStation('geometry');
+      } else if (labId.includes('coin') || labId.includes('_p_') || labId.includes('_q_') || labId.includes('_r_') || labId.includes('_s_') || labId.endsWith('_p') || labId.endsWith('_q') || labId.endsWith('_r') || labId.endsWith('_s')) {
+        setUkgMathsStation('coins');
+      } else {
+        setUkgMathsStation('ten_frame');
+      }
+      setShowUkgMathsLabModal(true);
+    }
+    else if (
+      labId === 'class1_english_interactive_lab' ||
+      labId.startsWith('c1_lab_') ||
+      labId.startsWith('class1_english_')
+    ) {
+      if (labId.includes('magic') || labId.includes('phonic')) {
+        setClass1EnglishStation('magic_phonics');
+      } else if (labId.includes('syllable') || labId.includes('compound')) {
+        setClass1EnglishStation('syllable_compound');
+      } else if (labId.includes('vocab') || labId.includes('shade') || labId.includes('prefix')) {
+        setClass1EnglishStation('vocab_shades');
+      } else if (labId.includes('sentence') || labId.includes('grammar') || labId.includes('noun')) {
+        setClass1EnglishStation('grammar_sentence');
+      } else if (labId.includes('tense') || labId.includes('contraction') || labId.includes('verb')) {
+        setClass1EnglishStation('tenses_contractions');
+      } else {
+        setClass1EnglishStation('magic_phonics');
+      }
+      setShowClass1EnglishLabModal(true);
+    }
+    else {
+      const matched = ALL_CONCEPT_LABS.find((l) => l.id === labId);
+      if (matched && matched.chapterTitle) {
+        onStartQuiz(matched.subject || 'english', matched.chapterTitle, false, 0);
+      }
+    }
   };
   
   // App-open Streak Greeting (shown once when app opens, then dismissed)
@@ -199,26 +359,45 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
   const englishInfo = getSubjectResumeInfo('english');
   const hindiInfo = getSubjectResumeInfo('hindi');
 
-  const handleSubjectClick = (subj: Subject, lessonTitle: string) => {
-    if (!profile.isPro && isCompletedToday) {
-      setShowPaywallModal(true);
-    } else {
-      triggerHaptic('medium');
-      onStartQuiz(subj, lessonTitle);
-    }
+  const mathsChapters = getChaptersForGradeSubject(profile.grade, 'maths');
+  const englishChapters = getChaptersForGradeSubject(profile.grade, 'english');
+  const hindiChapters = getChaptersForGradeSubject(profile.grade, 'hindi');
+
+  const completedMathsCount = mathsChapters.filter((c) => getChapterProgress(profile.grade, 'maths', c.title)?.isCompleted).length;
+  const completedEnglishCount = englishChapters.filter((c) => getChapterProgress(profile.grade, 'english', c.title)?.isCompleted).length;
+  const completedHindiCount = hindiChapters.filter((c) => getChapterProgress(profile.grade, 'hindi', c.title)?.isCompleted).length;
+
+  const mathsProg = getChapterProgress(profile.grade, 'maths', mathsInfo.lesson.title);
+  const englishProg = getChapterProgress(profile.grade, 'english', englishInfo.lesson.title);
+  const hindiProg = getChapterProgress(profile.grade, 'hindi', hindiInfo.lesson.title);
+
+  const handleSubjectClick = (subj: Subject, lessonTitle: string, icon?: string, mode: 'topics' | 'labs' | 'games' | 'questions' = 'topics') => {
+    // Paywall/Subscribe disabled for manual testing as requested
+    triggerHaptic('medium');
+    setSelectedTopicData({
+      subject: subj,
+      title: lessonTitle,
+      icon: icon || (subj === 'maths' ? '📐' : subj === 'english' ? '📚' : '🇮🇳'),
+      initialMode: mode,
+    });
   };
 
   return (
     <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
 
-      {/* Clean & Smart Header: Avatar (opens Settings) + Greeting + Stars */}
+      {/* Clean & Smart Header: Avatar (opens Settings) + Greeting + Stars + Coins */}
       <ChampHeader
         title={`${s.greeting}, ${profile.name}! 👋`}
-        subtitle={`${gradeConfig.label} • ${s.ncertTag}`}
+        subtitle={`${gradeConfig.label} ▾ • ${s.ncertTag}`}
         totalStars={profile.totalStars}
+        totalCoins={profile.totalCoins ?? (profile.totalStars * 10 + 50)}
         avatarEmoji={currentAvatar.emoji}
         onPressAvatar={() => {
+          triggerHaptic('light');
+          setShowSettingsModal(true);
+        }}
+        onPressTitle={() => {
           triggerHaptic('light');
           setShowSettingsModal(true);
         }}
@@ -264,7 +443,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Child Gamified Loot Strip: Streak, Shield, Stars, XP */}
+        {/* Child Gamified Loot Strip: Streak, Coins, Stars, XP */}
         <View style={styles.champLootStrip}>
           <View style={styles.lootStripItem}>
             <Text style={styles.lootStripEmoji}>🔥</Text>
@@ -277,10 +456,10 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           <View style={styles.lootStripDivider} />
 
           <View style={styles.lootStripItem}>
-            <Text style={styles.lootStripEmoji}>🛡️</Text>
+            <Text style={styles.lootStripEmoji}>💰</Text>
             <View>
-              <Text style={styles.lootStripVal}>{profile.streakShields ?? 0}</Text>
-              <Text style={styles.lootStripLbl}>{s.shields}</Text>
+              <Text style={styles.lootStripVal}>{profile.totalCoins ?? (profile.totalStars * 10 + 50)}</Text>
+              <Text style={styles.lootStripLbl}>{activeLang === 'hi' ? 'सिक्के' : 'Coins'}</Text>
             </View>
           </View>
 
@@ -403,7 +582,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                     activeCategory === 'labs' && styles.categoryTabBadgeTextActive,
                   ]}
                 >
-                  15+
+                  {`${mathsLabsCount + englishLabsCount + hindiLabsCount}+`}
                 </Text>
               </View>
             </TouchableOpacity>
@@ -518,26 +697,45 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         {/* CATEGORY 1: Core Subjects (CBSE / NCERT) */}
         {(activeCategory === 'subjects' || activeCategory === 'all') && (
           <View style={styles.categorySectionBlock}>
-            {activeCategory === 'all' && (
-              <View style={styles.categorySectionHeaderRow}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={styles.categorySectionHeaderRow}>
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: 4 }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
                   <Text style={styles.categorySectionTitle}>📚 {s.selectSubject}</Text>
                   <View style={styles.categorySectionBadge}>
                     <Text style={styles.categorySectionBadgeText}>CBSE / NCERT</Text>
                   </View>
                 </View>
-                <Text style={styles.categorySectionSub}>{s.subjectSub}</Text>
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  onPress={() => onOpenChapterVault('maths')}
+                  style={styles.allChaptersPill}
+                >
+                  <Text style={styles.allChaptersPillText}>
+                    {activeLang === 'hi' ? '📖 सभी पाठ देखें →' : '📖 All Topics →'}
+                  </Text>
+                </TouchableOpacity>
               </View>
-            )}
+              <Text style={styles.categorySectionSub}>{s.subjectSub}</Text>
+            </View>
 
             {/* 1. Mathematics Smart Card */}
             <TouchableOpacity
-              style={styles.cleanSubjectCard}
-              onPress={() => handleSubjectClick('maths', mathsInfo.lesson.title)}
+              style={[
+                styles.cleanSubjectCard,
+                mathsProg?.isCompleted && styles.cleanSubjectCardCompleted,
+              ]}
+              onPress={() => handleSubjectClick('maths', mathsInfo.lesson.title, mathsInfo.lesson.icon || '📐')}
               activeOpacity={0.85}
             >
-              <View style={[styles.subjectIconBox, { backgroundColor: '#EFF6FF' }]}>
-                <Text style={styles.subjectEmoji}>📐</Text>
+              <View
+                style={[
+                  styles.subjectIconBox,
+                  mathsProg?.isCompleted
+                    ? { backgroundColor: '#DCFCE7' }
+                    : { backgroundColor: '#EFF6FF' },
+                ]}
+              >
+                <Text style={styles.subjectEmoji}>{mathsProg?.isCompleted ? '🏆' : '📐'}</Text>
               </View>
 
               <View style={styles.subjectTextBox}>
@@ -545,88 +743,482 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                   <Text style={styles.subjectName}>
                     {activeLang === 'hi' ? 'गणित (Mathematics)' : 'Mathematics'}
                   </Text>
-                  <View style={[styles.lessonBadge, { backgroundColor: '#DBEAFE' }]}>
-                    <Text style={[styles.lessonBadgeText, { color: '#1E40AF' }]}>
-                      {mathsInfo.isResume ? s.resumeBadge : `${s.chapterPrefix} ${mathsInfo.lesson.number}`}
+                  <View
+                    style={[
+                      styles.lessonBadge,
+                      (mathsProg?.isCompleted || completedMathsCount > 0)
+                        ? { backgroundColor: '#DCFCE7' }
+                        : { backgroundColor: '#DBEAFE' },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.lessonBadgeText,
+                        (mathsProg?.isCompleted || completedMathsCount > 0)
+                          ? { color: '#15803D', fontWeight: '900' }
+                          : { color: '#1E40AF' },
+                      ]}
+                    >
+                      {mathsProg?.isCompleted
+                        ? '🏆 ' + (activeLang === 'hi' ? 'पूरा हुआ ✓' : 'Finished ✓')
+                        : completedMathsCount > 0
+                        ? `🏆 ${completedMathsCount}/${mathsChapters.length} ${activeLang === 'hi' ? 'पूरा ✓' : 'Done ✓'}`
+                        : mathsProg && mathsProg.lastQuestionIndex > 0
+                        ? `Resume Q${mathsProg.lastQuestionIndex + 1} ▶`
+                        : mathsInfo.isResume
+                        ? s.resumeBadge
+                        : `${s.chapterPrefix} ${mathsInfo.lesson.number}`}
                     </Text>
                   </View>
                 </View>
                 <Text style={styles.lessonName} numberOfLines={1}>
-                  {mathsInfo.lesson.title}
+                  {getChapterTitle(mathsInfo.lesson, activeLang === 'hi')}
                 </Text>
                 <Text style={styles.bookSub} numberOfLines={1}>
-                  {bookInfo.mathsBook} • 10 {s.practiceQuestionsSuffix}
+                  {profile.grade === 'LKG'
+                    ? activeLang === 'hi'
+                      ? '30 पाठ • 55 सूक्ष्म कौशल वर्कशीट (A-J)'
+                      : '30 Lessons • 55 Micro-Skill Worksheets (A-J)'
+                    : profile.grade === 'UKG'
+                    ? activeLang === 'hi'
+                      ? '30 पाठ • 144 सूक्ष्म कौशल वर्कशीट (A-S)'
+                      : '30 Lessons • 144 Micro-Skill Worksheets (A-S)'
+                    : `${bookInfo.mathsBook} • ${mathsProg?.isCompleted ? `⭐ ${mathsProg.scorePercentage ?? 100}% Score • Finished` : mathsProg && mathsProg.lastQuestionIndex > 0 ? `Q${mathsProg.lastQuestionIndex + 1} / ${mathsProg.totalQuestions}` : `10-15 ${s.practiceQuestionsSuffix}`}`}
                 </Text>
               </View>
 
-              <View style={[styles.playBtnCircle, { backgroundColor: '#2563EB' }]}>
-                <Text style={styles.playBtnArrow}>▶</Text>
+              <View
+                style={[
+                  styles.playBtnCircle,
+                  mathsProg?.isCompleted
+                    ? { backgroundColor: '#10B981' }
+                    : { backgroundColor: '#2563EB' },
+                ]}
+              >
+                <Text style={styles.playBtnArrow}>{mathsProg?.isCompleted ? '↻' : '▶'}</Text>
               </View>
             </TouchableOpacity>
 
+            {/* Maths Subject Action Shelf: Skills, Labs & Games */}
+            <View style={styles.subjectActionShelf}>
+              {profile.grade === 'LKG' && (
+                <TouchableOpacity
+                  style={[styles.subjectShelfPill, { backgroundColor: '#FEF3C7', borderColor: '#FDE68A' }]}
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    triggerHaptic('medium');
+                    handleSubjectClick('maths', 'A.1: Name the shape', '⭐');
+                  }}
+                >
+                  <Text style={styles.subjectShelfIcon}>⭐</Text>
+                  <Text style={[styles.subjectShelfText, { color: '#B45309' }]}>
+                    {activeLang === 'hi' ? '55 कौशल वर्कशीट (A-J)' : '55 Skill Worksheets (A-J)'}
+                  </Text>
+                  <Text style={[styles.subjectShelfArrow, { color: '#B45309' }]}>→</Text>
+                </TouchableOpacity>
+              )}
+
+              {profile.grade === 'UKG' && (
+                <TouchableOpacity
+                  style={[styles.subjectShelfPill, { backgroundColor: '#EFF6FF', borderColor: '#BFDBFE' }]}
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    triggerHaptic('medium');
+                    handleSubjectClick('maths', 'A.1: Learn to count to 3', '⭐');
+                  }}
+                >
+                  <Text style={styles.subjectShelfIcon}>⭐</Text>
+                  <Text style={[styles.subjectShelfText, { color: '#1D4ED8' }]}>
+                    {activeLang === 'hi' ? '144 कौशल वर्कशीट (A-S)' : '144 Skill Worksheets (A-S)'}
+                  </Text>
+                  <Text style={[styles.subjectShelfArrow, { color: '#1D4ED8' }]}>→</Text>
+                </TouchableOpacity>
+              )}
+
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#F0F9FF', borderColor: '#BAE6FD' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setLabsSubjectFilter('maths');
+                  setShowConceptLabHub(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🔬</Text>
+                <Text style={[styles.subjectShelfText, { color: '#0369A1' }]}>
+                  {activeLang === 'hi' ? `गणित लैब्स (${mathsLabsCount})` : `Maths Labs (${mathsLabsCount})`}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#0369A1' }]}>→</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#FEF3C7', borderColor: '#FDE68A' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setArcadeFilterSubject('maths');
+                  setSelectedKidsArcadeGame(null);
+                  setShowKidsConceptArcadeModal(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🎮</Text>
+                <Text style={[styles.subjectShelfText, { color: '#B45309' }]}>
+                  {activeLang === 'hi' ? `गणित खेल (${mathsGamesCount})` : `Maths Games (${mathsGamesCount})`}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#B45309' }]}>→</Text>
+              </TouchableOpacity>
+            </View>
+
             {/* 2. English Smart Card */}
             <TouchableOpacity
-              style={styles.cleanSubjectCard}
-              onPress={() => handleSubjectClick('english', englishInfo.lesson.title)}
+              style={[
+                styles.cleanSubjectCard,
+                englishProg?.isCompleted && styles.cleanSubjectCardCompleted,
+              ]}
+              onPress={() => handleSubjectClick('english', englishInfo.lesson.title, englishInfo.lesson.icon || '📚')}
               activeOpacity={0.85}
             >
-              <View style={[styles.subjectIconBox, { backgroundColor: '#FEF3C7' }]}>
-                <Text style={styles.subjectEmoji}>📚</Text>
+              <View
+                style={[
+                  styles.subjectIconBox,
+                  englishProg?.isCompleted
+                    ? { backgroundColor: '#DCFCE7' }
+                    : { backgroundColor: '#FEF3C7' },
+                ]}
+              >
+                <Text style={styles.subjectEmoji}>{englishProg?.isCompleted ? '🏆' : '📚'}</Text>
               </View>
 
               <View style={styles.subjectTextBox}>
                 <View style={styles.subjectTitleRow}>
-                  <Text style={styles.subjectName}>English Grammar</Text>
-                  <View style={[styles.lessonBadge, { backgroundColor: '#FEF3C7' }]}>
-                    <Text style={[styles.lessonBadgeText, { color: '#92400E' }]}>
-                      {englishInfo.isResume ? 'Resume ▶' : `Ch ${englishInfo.lesson.number}`}
+                  <Text style={styles.subjectName}>
+                    {profile.grade === 'LKG' || profile.grade === 'UKG'
+                      ? (activeLang === 'hi' ? 'अंग्रेज़ी और फोनिक्स' : 'English & Phonics')
+                      : (activeLang === 'hi' ? 'अंग्रेज़ी व्याकरण' : 'English Grammar')}
+                  </Text>
+                  <View
+                    style={[
+                      styles.lessonBadge,
+                      (englishProg?.isCompleted || completedEnglishCount > 0)
+                        ? { backgroundColor: '#DCFCE7' }
+                        : { backgroundColor: '#FEF3C7' },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.lessonBadgeText,
+                        (englishProg?.isCompleted || completedEnglishCount > 0)
+                          ? { color: '#15803D', fontWeight: '900' }
+                          : { color: '#92400E' },
+                      ]}
+                    >
+                      {englishProg?.isCompleted
+                        ? '🏆 ' + (activeLang === 'hi' ? 'पूरा हुआ ✓' : 'Finished ✓')
+                        : completedEnglishCount > 0
+                        ? `🏆 ${completedEnglishCount}/${englishChapters.length} ${activeLang === 'hi' ? 'पूरा ✓' : 'Done ✓'}`
+                        : englishProg && englishProg.lastQuestionIndex > 0
+                        ? `Resume Q${englishProg.lastQuestionIndex + 1} ▶`
+                        : englishInfo.isResume
+                        ? 'Resume ▶'
+                        : `Ch ${englishInfo.lesson.number}`}
                     </Text>
                   </View>
                 </View>
                 <Text style={styles.lessonName} numberOfLines={1}>
-                  {englishInfo.lesson.title}
+                  {getChapterTitle(englishInfo.lesson, activeLang === 'hi')}
                 </Text>
                 <Text style={styles.bookSub} numberOfLines={1}>
-                  {bookInfo.englishBook} • 10 Practice Questions
+                  {profile.grade === 'LKG'
+                    ? activeLang === 'hi'
+                      ? '30 पाठ • 78 सूक्ष्म कौशल वर्कशीट (A-X)'
+                      : '30 Lessons • 78 Micro-Skill Worksheets (A-X)'
+                    : profile.grade === 'UKG'
+                    ? activeLang === 'hi'
+                      ? '30 पाठ • 131 सूक्ष्म कौशल वर्कशीट (A-HH)'
+                      : '30 Lessons • 131 Micro-Skill Worksheets (A-HH)'
+                    : `${bookInfo.englishBook} • ${englishProg?.isCompleted ? `⭐ ${englishProg.scorePercentage ?? 100}% Score • Finished` : englishProg && englishProg.lastQuestionIndex > 0 ? `Q${englishProg.lastQuestionIndex + 1} / ${englishProg.totalQuestions}` : '10-15 Practice Questions'}`}
                 </Text>
               </View>
 
-              <View style={[styles.playBtnCircle, { backgroundColor: '#D97706' }]}>
-                <Text style={styles.playBtnArrow}>▶</Text>
+              <View
+                style={[
+                  styles.playBtnCircle,
+                  englishProg?.isCompleted
+                    ? { backgroundColor: '#10B981' }
+                    : { backgroundColor: '#D97706' },
+                ]}
+              >
+                <Text style={styles.playBtnArrow}>{englishProg?.isCompleted ? '↻' : '▶'}</Text>
               </View>
             </TouchableOpacity>
 
+            {/* English Subject Action Shelf: Phonics, Opposites & Rhymes, Animals & Games */}
+            <View style={styles.subjectActionShelf}>
+              {profile.grade === 'LKG' && (
+                <TouchableOpacity
+                  style={[styles.subjectShelfPill, { backgroundColor: '#FEF3C7', borderColor: '#FDE68A' }]}
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    triggerHaptic('medium');
+                    handleSubjectClick('english', 'A.1: Find the letter in the alphabet: uppercase', '⭐');
+                  }}
+                >
+                  <Text style={styles.subjectShelfIcon}>⭐</Text>
+                  <Text style={[styles.subjectShelfText, { color: '#B45309' }]}>
+                    {activeLang === 'hi' ? '78 कौशल वर्कशीट (A-X)' : '78 Skill Worksheets (A-X)'}
+                  </Text>
+                  <Text style={[styles.subjectShelfArrow, { color: '#B45309' }]}>→</Text>
+                </TouchableOpacity>
+              )}
+
+              {profile.grade === 'UKG' && (
+                <TouchableOpacity
+                  style={[styles.subjectShelfPill, { backgroundColor: '#FEF3C7', borderColor: '#FDE68A' }]}
+                  activeOpacity={0.8}
+                  onPress={() => {
+                    triggerHaptic('medium');
+                    handleSubjectClick('english', 'A.1: Find the letter in the alphabet: uppercase', '⭐');
+                  }}
+                >
+                  <Text style={styles.subjectShelfIcon}>⭐</Text>
+                  <Text style={[styles.subjectShelfText, { color: '#B45309' }]}>
+                    {activeLang === 'hi' ? '131 कौशल वर्कशीट (A-HH)' : '131 Skill Worksheets (A-HH)'}
+                  </Text>
+                  <Text style={[styles.subjectShelfArrow, { color: '#B45309' }]}>→</Text>
+                </TouchableOpacity>
+              )}
+                {(profile.grade === 1) && (
+                  <>
+                    <TouchableOpacity
+                      style={[styles.subjectShelfPill, { backgroundColor: '#FEF3C7', borderColor: '#FDE68A' }]}
+                      activeOpacity={0.8}
+                      onPress={() => {
+                        triggerHaptic('medium');
+                        handleSubjectClick('english', 'A.1: Sort consonants and vowels', '⭐');
+                      }}
+                    >
+                      <Text style={styles.subjectShelfIcon}>⭐</Text>
+                      <Text style={[styles.subjectShelfText, { color: '#B45309' }]}>
+                        {activeLang === 'hi' ? '169 कौशल वर्कशीट (A-PP)' : '169 Skill Worksheets (A-PP)'}
+                      </Text>
+                      <Text style={[styles.subjectShelfArrow, { color: '#B45309' }]}>→</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={[styles.subjectShelfPill, { backgroundColor: '#EFF6FF', borderColor: '#BFDBFE' }]}
+                      activeOpacity={0.8}
+                      onPress={() => {
+                        triggerHaptic('medium');
+                        setClass1EnglishStation('magic_phonics');
+                        setShowClass1EnglishLabModal(true);
+                      }}
+                    >
+                      <Text style={styles.subjectShelfIcon}>🔬</Text>
+                      <Text style={[styles.subjectShelfText, { color: '#1D4ED8' }]}>
+                        {activeLang === 'hi' ? 'अंग्रेज़ी 5-स्टेशन प्रैक्टिकल लैब →' : 'English 5-Station Practical Lab →'}
+                      </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={[styles.subjectShelfPill, { backgroundColor: '#FDF2F8', borderColor: '#FBCFE8' }]}
+                      activeOpacity={0.8}
+                      onPress={() => {
+                        triggerHaptic('medium');
+                        handleSubjectClick('english', 'A.1: Sort consonants and vowels', '🎮', 'games');
+                      }}
+                    >
+                      <Text style={styles.subjectShelfIcon}>🎮</Text>
+                      <Text style={[styles.subjectShelfText, { color: '#BE185D' }]}>
+                        {activeLang === 'hi' ? `169+ आर्केड गेम्स (${englishGamesCount}) →` : `169+ Arcade Games (${englishGamesCount}) →`}
+                      </Text>
+                    </TouchableOpacity>
+                  </>
+                )}
+
+
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#F0FDF4', borderColor: '#BBF7D0' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setLabsSubjectFilter('english');
+                  setShowConceptLabHub(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🔬</Text>
+                <Text style={[styles.subjectShelfText, { color: '#15803D' }]}>
+                  {activeLang === 'hi' ? `इंग्लिश लैब्स (${englishLabsCount})` : `English Labs (${englishLabsCount})`}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#15803D' }]}>→</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#EFF6FF', borderColor: '#BFDBFE' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setShowAlphabetPhonicsModal(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🔤</Text>
+                <Text style={[styles.subjectShelfText, { color: '#1D4ED8' }]}>
+                  {activeLang === 'hi' ? 'फोनिक्स (A-Z)' : 'Phonics (A-Z)'}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#1D4ED8' }]}>→</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#FDF2F8', borderColor: '#FBCFE8' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setShowEnglishOppositesLabModal(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🔄</Text>
+                <Text style={[styles.subjectShelfText, { color: '#BE185D' }]}>
+                  {activeLang === 'hi' ? 'विलोम व तुकबंदी' : 'Opposites & Rhymes'}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#BE185D' }]}>→</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#F0F9FF', borderColor: '#BAE6FD' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setShowEnglishWordsLabModal(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🦁</Text>
+                <Text style={[styles.subjectShelfText, { color: '#0369A1' }]}>
+                  {activeLang === 'hi' ? 'एनिमल सफारी' : 'Animal Safari'}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#0369A1' }]}>→</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#FDF4FF', borderColor: '#F5D0FE' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setArcadeFilterSubject('english');
+                  setSelectedKidsArcadeGame(null);
+                  setShowKidsConceptArcadeModal(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🎮</Text>
+                <Text style={[styles.subjectShelfText, { color: '#A21CAF' }]}>
+                  {activeLang === 'hi' ? `इंग्लिश खेल (${englishGamesCount})` : `English Games (${englishGamesCount})`}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#A21CAF' }]}>→</Text>
+              </TouchableOpacity>
+            </View>
+
             {/* 3. Hindi Smart Card (Always in pure Hindi) */}
             <TouchableOpacity
-              style={styles.cleanSubjectCard}
-              onPress={() => handleSubjectClick('hindi', hindiInfo.lesson.title)}
+              style={[
+                styles.cleanSubjectCard,
+                hindiProg?.isCompleted && styles.cleanSubjectCardCompleted,
+              ]}
+              onPress={() => handleSubjectClick('hindi', hindiInfo.lesson.title, hindiInfo.lesson.icon || '🇮🇳')}
               activeOpacity={0.85}
             >
-              <View style={[styles.subjectIconBox, { backgroundColor: '#ECFDF5' }]}>
-                <Text style={styles.subjectEmoji}>🇮🇳</Text>
+              <View
+                style={[
+                  styles.subjectIconBox,
+                  hindiProg?.isCompleted
+                    ? { backgroundColor: '#DCFCE7' }
+                    : { backgroundColor: '#ECFDF5' },
+                ]}
+              >
+                <Text style={styles.subjectEmoji}>{hindiProg?.isCompleted ? '🏆' : '🇮🇳'}</Text>
               </View>
 
               <View style={styles.subjectTextBox}>
                 <View style={styles.subjectTitleRow}>
                   <Text style={styles.subjectName}>हिंदी (Hindi)</Text>
-                  <View style={[styles.lessonBadge, { backgroundColor: '#D1FAE5' }]}>
-                    <Text style={[styles.lessonBadgeText, { color: '#065F46' }]}>
-                      {hindiInfo.isResume ? 'जारी रखें ▶' : `पाठ ${hindiInfo.lesson.number}`}
+                  <View
+                    style={[
+                      styles.lessonBadge,
+                      (hindiProg?.isCompleted || completedHindiCount > 0)
+                        ? { backgroundColor: '#DCFCE7' }
+                        : { backgroundColor: '#D1FAE5' },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.lessonBadgeText,
+                        (hindiProg?.isCompleted || completedHindiCount > 0)
+                          ? { color: '#15803D', fontWeight: '900' }
+                          : { color: '#065F46' },
+                      ]}
+                    >
+                      {hindiProg?.isCompleted
+                        ? '🏆 पूरा हुआ ✓'
+                        : completedHindiCount > 0
+                        ? `🏆 ${completedHindiCount}/${hindiChapters.length} पूरा ✓`
+                        : hindiProg && hindiProg.lastQuestionIndex > 0
+                        ? `प्रश्न ${hindiProg.lastQuestionIndex + 1} से जारी रखें ▶`
+                        : hindiInfo.isResume
+                        ? 'जारी रखें ▶'
+                        : `पाठ ${hindiInfo.lesson.number}`}
                     </Text>
                   </View>
                 </View>
                 <Text style={styles.lessonName} numberOfLines={1}>
-                  {hindiInfo.lesson.title}
+                  {getChapterTitle(hindiInfo.lesson, true)}
                 </Text>
                 <Text style={styles.bookSub} numberOfLines={1}>
-                  {bookInfo.hindiBook} • 10 अभ्यास प्रश्न
+                  {bookInfo.hindiBook} • {hindiProg?.isCompleted ? `⭐ ${hindiProg.scorePercentage ?? 100}% स्कोर • पूरा हुआ` : hindiProg && hindiProg.lastQuestionIndex > 0 ? `प्रश्न ${hindiProg.lastQuestionIndex + 1} / ${hindiProg.totalQuestions}` : '10-15 अभ्यास प्रश्न'}
                 </Text>
               </View>
 
-              <View style={[styles.playBtnCircle, { backgroundColor: '#059669' }]}>
-                <Text style={styles.playBtnArrow}>▶</Text>
+              <View
+                style={[
+                  styles.playBtnCircle,
+                  hindiProg?.isCompleted
+                    ? { backgroundColor: '#10B981' }
+                    : { backgroundColor: '#059669' },
+                ]}
+              >
+                <Text style={styles.playBtnArrow}>{hindiProg?.isCompleted ? '↻' : '▶'}</Text>
               </View>
             </TouchableOpacity>
+
+            {/* Hindi Subject Action Shelf: Swar Lab & Swar Pop */}
+            <View style={styles.subjectActionShelf}>
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#ECFDF5', borderColor: '#A7F3D0' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setLabsSubjectFilter('hindi');
+                  setShowConceptLabHub(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🇮🇳</Text>
+                <Text style={[styles.subjectShelfText, { color: '#047857' }]}>
+                  {activeLang === 'hi' ? `हिंदी लैब्स (${hindiLabsCount})` : `Hindi Labs (${hindiLabsCount})`}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#047857' }]}>→</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.subjectShelfPill, { backgroundColor: '#FEF9C3', borderColor: '#FDE047' }]}
+                activeOpacity={0.8}
+                onPress={() => {
+                  triggerHaptic('medium');
+                  setArcadeFilterSubject('hindi');
+                  setSelectedKidsArcadeGame(null);
+                  setShowKidsConceptArcadeModal(true);
+                }}
+              >
+                <Text style={styles.subjectShelfIcon}>🎯</Text>
+                <Text style={[styles.subjectShelfText, { color: '#854D0E' }]}>
+                  {activeLang === 'hi' ? `हिंदी खेल (${hindiGamesCount})` : `Hindi Games (${hindiGamesCount})`}
+                </Text>
+                <Text style={[styles.subjectShelfArrow, { color: '#854D0E' }]}>→</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
 
@@ -678,19 +1270,222 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 </View>
               </TouchableOpacity>
 
+              {/* Subject Filter for Labs - 100% Strictly Separated */}
+              <View style={styles.categorySubjFilterRow}>
+                {([
+                  { key: 'maths', label: activeLang === 'hi' ? `📐 गणित लैब्स (${mathsLabsCount})` : `📐 Maths Labs (${mathsLabsCount})` },
+                  { key: 'english', label: activeLang === 'hi' ? `🔤 इंग्लिश लैब्स (${englishLabsCount})` : `🔤 English Labs (${englishLabsCount})` },
+                  { key: 'hindi', label: activeLang === 'hi' ? `🇮🇳 हिंदी लैब्स (${hindiLabsCount})` : `🇮🇳 Hindi Labs (${hindiLabsCount})` },
+                ] as const).map((filterItem) => (
+                  <TouchableOpacity
+                    key={filterItem.key}
+                    onPress={() => {
+                      triggerHaptic('light');
+                      setLabsSubjectFilter(filterItem.key);
+                    }}
+                    style={[
+                      styles.categorySubjPill,
+                      labsSubjectFilter === filterItem.key && styles.categorySubjPillActive,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.categorySubjPillText,
+                        labsSubjectFilter === filterItem.key && styles.categorySubjPillTextActive,
+                      ]}
+                    >
+                      {filterItem.label}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
               <View style={styles.labGatewayPillsRow}>
-                <View style={[styles.labFeaturePill, { borderColor: '#0284C7', backgroundColor: '#F0F9FF' }]}>
-                  <Text style={[styles.labFeatureText, { color: '#0284C7' }]}>⚡ 60s Booster</Text>
-                </View>
-                <View style={styles.labFeaturePill}>
-                  <Text style={styles.labFeatureText}>⚖️ Balance Beam</Text>
-                </View>
-                <View style={styles.labFeaturePill}>
-                  <Text style={styles.labFeatureText}>🍕 Fraction Slices</Text>
-                </View>
-                <View style={styles.labFeaturePill}>
-                  <Text style={styles.labFeatureText}>🧲 Magnets & Optics</Text>
-                </View>
+                {profile.grade === 1 && labsSubjectFilter === 'english' && (
+                  <>
+                    <TouchableOpacity
+                      activeOpacity={0.8}
+                      onPress={() => handleOpenConceptLab('c1_lab_magic_phonics')}
+                      style={[styles.labFeaturePill, { borderColor: '#2563EB', backgroundColor: '#EFF6FF' }]}
+                    >
+                      <Text style={[styles.labFeatureText, { color: '#2563EB' }]}>🪄 Magic 'e' Lab</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.8}
+                      onPress={() => handleOpenConceptLab('c1_lab_syllables_words')}
+                      style={[styles.labFeaturePill, { borderColor: '#7C3AED', backgroundColor: '#F5F3FF' }]}
+                    >
+                      <Text style={[styles.labFeatureText, { color: '#7C3AED' }]}>⚡ Syllable & Compound</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.8}
+                      onPress={() => handleOpenConceptLab('c1_lab_vocab_shades')}
+                      style={[styles.labFeaturePill, { borderColor: '#EA580C', backgroundColor: '#FFF7ED' }]}
+                    >
+                      <Text style={[styles.labFeatureText, { color: '#EA580C' }]}>🌡️ Shades of Meaning</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.8}
+                      onPress={() => handleOpenConceptLab('c1_lab_sentence_grammar')}
+                      style={[styles.labFeaturePill, { borderColor: '#059669', backgroundColor: '#ECFDF5' }]}
+                    >
+                      <Text style={[styles.labFeatureText, { color: '#059669' }]}>🏗️ Sentence Architect</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      activeOpacity={0.8}
+                      onPress={() => handleOpenConceptLab('c1_lab_tenses_contractions')}
+                      style={[styles.labFeaturePill, { borderColor: '#DB2777', backgroundColor: '#FDF2F8' }]}
+                    >
+                      <Text style={[styles.labFeatureText, { color: '#DB2777' }]}>⏳ Verb Time Machine</Text>
+                    </TouchableOpacity>
+                  </>
+                )}
+                {profile.grade === 'LKG' || profile.grade === 'UKG' ? (
+                  <>
+                    {labsSubjectFilter === 'english' && (
+                      <TouchableOpacity
+                        activeOpacity={0.8}
+                        onPress={() => handleOpenConceptLab('alphabet_phonics_lab')}
+                        style={[styles.labFeaturePill, { borderColor: '#E11D48', backgroundColor: '#FFF1F2' }]}
+                      >
+                        <Text style={[styles.labFeatureText, { color: '#E11D48' }]}>🔤 Phonics Lab (A-M)</Text>
+                      </TouchableOpacity>
+                    )}
+                    {labsSubjectFilter === 'hindi' && (
+                      <>
+                        <TouchableOpacity
+                          activeOpacity={0.8}
+                          onPress={() => handleOpenConceptLab('hindi_varnamala_lab')}
+                          style={[styles.labFeaturePill, { borderColor: '#059669', backgroundColor: '#ECFDF5' }]}
+                        >
+                          <Text style={[styles.labFeatureText, { color: '#059669' }]}>🇮🇳 स्वर व वर्णमाला (अ-अः)</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                          activeOpacity={0.8}
+                          onPress={() => handleOpenConceptLab('hindi_vyanjan_lab')}
+                          style={[styles.labFeaturePill, { borderColor: '#D97706', backgroundColor: '#FEF3C7' }]}
+                        >
+                          <Text style={[styles.labFeatureText, { color: '#B45309' }]}>🔤 व्यंजन लैब (क-म)</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                          activeOpacity={0.8}
+                          onPress={() => handleOpenConceptLab('hindi_pashu_pakshi_lab')}
+                          style={[styles.labFeaturePill, { borderColor: '#0284C7', backgroundColor: '#F0F9FF' }]}
+                        >
+                          <Text style={[styles.labFeatureText, { color: '#0369A1' }]}>🦁 पशु-पक्षी आवाज लैब</Text>
+                        </TouchableOpacity>
+                      </>
+                    )}
+                    {labsSubjectFilter === 'maths' && (
+                      profile.grade === 'UKG' ? (
+                        <>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('ukg_maths_ten_frame_lab')}
+                            style={[styles.labFeaturePill, { borderColor: '#2563EB', backgroundColor: '#EFF6FF' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#2563EB' }]}>🟩 Ten-Frames (1-20)</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('ukg_maths_add_sub_beaker')}
+                            style={[styles.labFeaturePill, { borderColor: '#059669', backgroundColor: '#ECFDF5' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#059669' }]}>🧪 Add/Sub Beaker</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('ukg_maths_coin_bank')}
+                            style={[styles.labFeaturePill, { borderColor: '#D97706', backgroundColor: '#FEF3C7' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#D97706' }]}>🪙 Piggy Bank Coins</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('ukg_maths_geometry_lab')}
+                            style={[styles.labFeaturePill, { borderColor: '#7C3AED', backgroundColor: '#F5F3FF' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#7C3AED' }]}>🔷 2D & 3D Shapes</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('ukg_maths_balance_lab')}
+                            style={[styles.labFeaturePill, { borderColor: '#EA580C', backgroundColor: '#FFF7ED' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#EA580C' }]}>⚖️ Balance Beam</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => setShowConceptLabHub(true)}
+                            style={[styles.labFeaturePill, { borderColor: '#0284C7', backgroundColor: '#F0F9FF' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#0284C7' }]}>⭐ 144 कौशल लैब्स →</Text>
+                          </TouchableOpacity>
+                        </>
+                      ) : (
+                        <>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('size_scale_lab')}
+                            style={[styles.labFeaturePill, { borderColor: '#0284C7', backgroundColor: '#F0F9FF' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#0284C7' }]}>📏 Big & Tall Lab</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('animal_seesaw')}
+                            style={[styles.labFeaturePill, { borderColor: '#D97706', backgroundColor: '#FFFBEB' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#D97706' }]}>⚖️ Animal Seesaw</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('counting_train')}
+                            style={[styles.labFeaturePill, { borderColor: '#059669', backgroundColor: '#F0FDF4' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#059669' }]}>🎈 Counting 1-5</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('shape_sorter')}
+                            style={[styles.labFeaturePill, { borderColor: '#7C3AED', backgroundColor: '#FAF5FF' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#7C3AED' }]}>🔷 Shapes</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('color_prism')}
+                            style={[styles.labFeaturePill, { borderColor: '#DB2777', backgroundColor: '#FDF2F8' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#DB2777' }]}>🎨 Colors</Text>
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            activeOpacity={0.8}
+                            onPress={() => handleOpenConceptLab('pattern_builder')}
+                            style={[styles.labFeaturePill, { borderColor: '#8B5CF6', backgroundColor: '#F5F3FF' }]}
+                          >
+                            <Text style={[styles.labFeatureText, { color: '#8B5CF6' }]}>🧩 Patterns</Text>
+                          </TouchableOpacity>
+                        </>
+                      )
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <View style={[styles.labFeaturePill, { borderColor: '#0284C7', backgroundColor: '#F0F9FF' }]}>
+                      <Text style={[styles.labFeatureText, { color: '#0284C7' }]}>⚡ 60s Booster</Text>
+                    </View>
+                    <View style={styles.labFeaturePill}>
+                      <Text style={styles.labFeatureText}>⚖️ Balance Beam</Text>
+                    </View>
+                    <View style={styles.labFeaturePill}>
+                      <Text style={styles.labFeatureText}>🍕 Fraction Slices</Text>
+                    </View>
+                    <View style={styles.labFeaturePill}>
+                      <Text style={styles.labFeatureText}>🧲 Magnets & Optics</Text>
+                    </View>
+                  </>
+                )}
               </View>
 
               <View style={styles.labGatewayActionsRow}>
@@ -847,6 +1642,104 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
                 <Text style={styles.categorySectionSub}>{s.arcadeSub}</Text>
               </View>
             )}
+
+            {/* 🌟 Super Kid Concept Arcade Flagship (Balvatika & Foundational Concepts) */}
+            <TouchableOpacity
+              style={styles.kidsConceptArcadeBanner}
+              activeOpacity={0.88}
+              onPress={() => {
+                triggerHaptic('medium');
+                setSelectedKidsArcadeGame(null);
+                setShowKidsConceptArcadeModal(true);
+              }}
+            >
+              <View style={styles.kidsArcadeBannerLeft}>
+                <View style={styles.kidsArcadeBadgeRow}>
+                  <View style={styles.kidsArcadeBadge}>
+                    <Text style={styles.kidsArcadeBadgeText}>{s.kidsArcadeBadge}</Text>
+                  </View>
+                  <View style={styles.kidsArcadePill}>
+                    <Text style={styles.kidsArcadePillText}>{`⭐ ${mathsGamesCount + englishGamesCount + hindiGamesCount}+ ARCADE GAMES`}</Text>
+                  </View>
+                </View>
+                <Text style={styles.kidsArcadeTitle}>{s.kidsArcadeTitle}</Text>
+                <Text style={styles.kidsArcadeSub}>{s.kidsArcadeSub}</Text>
+                <View style={styles.kidsArcadePillsRow}>
+                  <Text style={styles.kidsArcadeMiniTag}>🐘 Big/Small</Text>
+                  <Text style={styles.kidsArcadeMiniTag}>⚖️ Heavy/Light</Text>
+                  <Text style={styles.kidsArcadeMiniTag}>🐰 Count 1-5</Text>
+                  <Text style={styles.kidsArcadeMiniTag}>🔷 Shapes</Text>
+                  <Text style={styles.kidsArcadeMiniTag}>🔤 Alphabet</Text>
+                  <Text style={styles.kidsArcadeMiniTag}>🎯 स्वर (Hindi)</Text>
+                </View>
+              </View>
+              <View style={styles.kidsArcadeActionCol}>
+                <View style={styles.kidsArcadePlayBtn}>
+                  <Text style={styles.kidsArcadePlayText}>{s.kidsArcadeEnterBtn}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+
+            {/* Subject Filter for Concept Arcade - 100% Strictly Separated */}
+            <View style={styles.categorySubjFilterRow}>
+              {([
+                { key: 'maths', label: activeLang === 'hi' ? `📐 गणित खेल (${mathsGamesCount})` : `📐 Maths Games (${mathsGamesCount})` },
+                { key: 'english', label: activeLang === 'hi' ? `🔤 इंग्लिश खेल (${englishGamesCount})` : `🔤 English Games (${englishGamesCount})` },
+                { key: 'hindi', label: activeLang === 'hi' ? `🇮🇳 हिंदी खेल (${hindiGamesCount})` : `🇮🇳 Hindi Games (${hindiGamesCount})` },
+              ] as const).map((filterItem) => (
+                <TouchableOpacity
+                  key={filterItem.key}
+                  onPress={() => {
+                    triggerHaptic('light');
+                    setArcadeFilterSubject(filterItem.key);
+                  }}
+                  style={[
+                    styles.categorySubjPill,
+                    arcadeFilterSubject === filterItem.key && styles.categorySubjPillActive,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.categorySubjPillText,
+                      arcadeFilterSubject === filterItem.key && styles.categorySubjPillTextActive,
+                    ]}
+                  >
+                    {filterItem.label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            {/* Quick-Launch Concept Games Row (Separated by Subject) */}
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.conceptMiniGamesScrollContent}
+              style={styles.conceptMiniGamesScrollView}
+            >
+              {filteredArcadeGames.map((game) => (
+                <TouchableOpacity
+                  key={game.id}
+                  style={[styles.conceptMiniCard, { backgroundColor: game.color, borderColor: game.borderColor }]}
+                  activeOpacity={0.88}
+                  onPress={() => {
+                    triggerHaptic('medium');
+                    setSelectedKidsArcadeGame(game.id as KidsArcadeGameType);
+                    setArcadeChapterTitle(game.chapterTitle || null);
+                    setArcadeGameTitle(activeLang === 'hi' ? game.titleHi : game.titleEn);
+                    setShowKidsConceptArcadeModal(true);
+                  }}
+                >
+                  <Text style={styles.conceptMiniEmoji}>{game.emoji}</Text>
+                  <Text style={styles.conceptMiniName} numberOfLines={1}>
+                    {activeLang === 'hi' ? game.titleHi : game.titleEn}
+                  </Text>
+                  <Text style={styles.conceptMiniSub} numberOfLines={1}>
+                    {activeLang === 'hi' ? game.descHi : game.descEn}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
 
             {/* Daily Lucky Spin Banner */}
             <TouchableOpacity
@@ -1193,30 +2086,87 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         grade={profile.grade}
       />
 
+      <KidsConceptArcadeModal
+        visible={showKidsConceptArcadeModal}
+        onClose={() => setShowKidsConceptArcadeModal(false)}
+        grade={profile.grade}
+        initialGame={selectedKidsArcadeGame}
+        filterSubject={arcadeFilterSubject}
+        initialChapterTitle={arcadeChapterTitle}
+        initialGameTitle={arcadeGameTitle}
+      />
+
       {/* Concept Lab Modals */}
+      <SizeComparisonLabModal
+        visible={showSizeComparisonModal}
+        onClose={() => setShowSizeComparisonModal(false)}
+        activeLang={activeLang}
+      />
+
+      <AlphabetPhonicsLabModal
+        visible={showAlphabetPhonicsModal}
+        onClose={() => setShowAlphabetPhonicsModal(false)}
+        activeLang={activeLang}
+      />
+
+      <EnglishOppositesRhymesLabModal
+        visible={showEnglishOppositesLabModal}
+        onClose={() => setShowEnglishOppositesLabModal(false)}
+        activeLang={activeLang}
+      />
+
+      <EnglishWordsVocabularyLabModal
+        visible={showEnglishWordsLabModal}
+        onClose={() => setShowEnglishWordsLabModal(false)}
+        activeLang={activeLang}
+      />
+
+      <HindiVarnamalaLabModal
+        visible={showHindiVarnamalaModal}
+        onClose={() => setShowHindiVarnamalaModal(false)}
+        activeLang={activeLang}
+      />
+
+      <HindiVyanjanLabModal
+        visible={showHindiVyanjanModal}
+        onClose={() => setShowHindiVyanjanModal(false)}
+        activeLang={activeLang}
+      />
+
+      <HindiPashuPakshiLabModal
+        visible={showHindiPashuPakshiModal}
+        onClose={() => setShowHindiPashuPakshiModal(false)}
+        activeLang={activeLang}
+      />
+
       <ShapeSorterGameModal
         visible={showShapeSorterModal}
         onClose={() => setShowShapeSorterModal(false)}
+        activeLang={activeLang}
       />
 
       <CountingTrainGameModal
         visible={showCountingTrainModal}
         onClose={() => setShowCountingTrainModal(false)}
+        activeLang={activeLang}
       />
 
       <AnimalSeesawGameModal
         visible={showAnimalSeesawModal}
         onClose={() => setShowAnimalSeesawModal(false)}
+        activeLang={activeLang}
       />
 
       <ClockTimeGameModal
         visible={showClockTimeModal}
         onClose={() => setShowClockTimeModal(false)}
+        activeLang={activeLang}
       />
 
       <PatternBuilderGameModal
         visible={showPatternBuilderModal}
         onClose={() => setShowPatternBuilderModal(false)}
+        activeLang={activeLang}
       />
 
       <PlaceValueRocketModal
@@ -1258,6 +2208,21 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
       <ColorPrismLabModal
         visible={showColorPrismModal}
         onClose={() => setShowColorPrismModal(false)}
+        activeLang={activeLang}
+      />
+
+      <UkgMathsInteractiveLabModal
+        visible={showUkgMathsLabModal}
+        onClose={() => setShowUkgMathsLabModal(false)}
+        activeLang={activeLang}
+        initialStation={ukgMathsStation}
+      />
+
+      <Class1EnglishInteractiveLabModal
+        visible={showClass1EnglishLabModal}
+        onClose={() => setShowClass1EnglishLabModal(false)}
+        activeLang={activeLang}
+        initialStation={class1EnglishStation}
       />
 
       <ConceptLabHubModal
@@ -1270,6 +2235,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
         totalStars={profile.totalStars}
         streakDays={profile.currentStreak}
         activeLang={activeLang}
+        initialSubject={labsSubjectFilter}
         onSelectLab={(labId) => {
           setShowConceptLabHub(false);
           handleOpenConceptLab(labId);
@@ -1405,6 +2371,37 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({
           </View>
         </View>
       </Modal>
+
+      {/* Topic / Concept Selection Modal */}
+      {selectedTopicData && (
+        <TopicSelectionModal
+          visible={!!selectedTopicData}
+          onClose={() => setSelectedTopicData(null)}
+          grade={profile.grade}
+          subject={selectedTopicData.subject}
+          chapterTitle={selectedTopicData.title}
+          initialMode={selectedTopicData.initialMode || 'topics'}
+          chapterIcon={selectedTopicData.icon || (selectedTopicData.subject === 'maths' ? '📐' : selectedTopicData.subject === 'english' ? '📚' : '🇮🇳')}
+          questions={generateQuestionsForSession(profile.grade, selectedTopicData.subject, selectedTopicData.title)}
+          savedProgress={getChapterProgress(profile.grade, selectedTopicData.subject, selectedTopicData.title)}
+          onStartAtQuestion={(startIndex, targetChapter) => {
+            const finalChapter = targetChapter || selectedTopicData.title;
+            onStartQuiz(selectedTopicData.subject, finalChapter, false, startIndex);
+          }}
+          onOpenConceptLab={(labId) => {
+            setSelectedTopicData(null);
+            handleOpenConceptLab(labId);
+          }}
+          onOpenArcadeGame={(gameType, chapterTitle, gameTitle) => {
+            setSelectedTopicData(null);
+            setArcadeFilterSubject(selectedTopicData.subject);
+            setSelectedKidsArcadeGame(gameType as KidsArcadeGameType);
+            setArcadeChapterTitle(chapterTitle || null);
+            setArcadeGameTitle(gameTitle || null);
+            setShowKidsConceptArcadeModal(true);
+          }}
+        />
+      )}
     </SafeAreaView>
   );
 };
@@ -1865,7 +2862,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 20,
     padding: 16,
-    marginBottom: 14,
+    marginBottom: 8,
     shadowColor: '#64748B',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.08,
@@ -1873,6 +2870,13 @@ const styles = StyleSheet.create({
     elevation: 3,
     borderWidth: 1.5,
     borderColor: '#E2E8F0',
+  },
+  cleanSubjectCardCompleted: {
+    backgroundColor: '#F0FDF4',
+    borderColor: '#10B981',
+    borderWidth: 2,
+    borderLeftWidth: 5,
+    borderLeftColor: '#059669',
   },
   subjectIconBox: {
     width: 52,
@@ -1936,6 +2940,37 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '900',
     marginLeft: 2,
+  },
+
+  // Subject Action Shelf (Quick direct launch for Labs & Games scoped to subject)
+  subjectActionShelf: {
+    flexDirection: 'row',
+    gap: 8,
+    marginTop: -2,
+    marginBottom: 14,
+    paddingHorizontal: 2,
+  },
+  subjectShelfPill: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    borderRadius: 14,
+    borderWidth: 1.5,
+    gap: 6,
+  },
+  subjectShelfIcon: {
+    fontSize: 14,
+  },
+  subjectShelfText: {
+    fontSize: 12,
+    fontWeight: '800',
+    flex: 1,
+  },
+  subjectShelfArrow: {
+    fontSize: 13,
+    fontWeight: '900',
   },
 
   // Modal Styles
@@ -2382,6 +3417,163 @@ const styles = StyleSheet.create({
   },
 
   // 3. Champ Arcade
+  kidsConceptArcadeBanner: {
+    backgroundColor: '#F0FDF4',
+    borderRadius: 22,
+    borderWidth: 1.5,
+    borderColor: '#BBF7D0',
+    padding: 16,
+    marginBottom: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    ...SHADOWS.medium,
+  },
+  kidsArcadeBannerLeft: {
+    flex: 1,
+    paddingRight: 10,
+  },
+  kidsArcadeBadgeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 6,
+  },
+  kidsArcadeBadge: {
+    backgroundColor: '#DCFCE7',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#86EFAC',
+  },
+  kidsArcadeBadgeText: {
+    fontSize: 10,
+    fontWeight: '900',
+    color: '#15803D',
+  },
+  kidsArcadePill: {
+    backgroundColor: '#FEF3C7',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+  },
+  kidsArcadePillText: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: '#B45309',
+  },
+  kidsArcadeTitle: {
+    fontSize: 18,
+    fontWeight: '900',
+    color: '#0F172A',
+    marginBottom: 4,
+  },
+  kidsArcadeSub: {
+    fontSize: 12,
+    color: '#475569',
+    lineHeight: 16,
+    marginBottom: 8,
+  },
+  kidsArcadePillsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  kidsArcadeMiniTag: {
+    backgroundColor: '#FFFFFF',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+    fontSize: 10,
+    fontWeight: '800',
+    color: '#334155',
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
+  kidsArcadeActionCol: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  kidsArcadePlayBtn: {
+    backgroundColor: '#16A34A',
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 16,
+    ...SHADOWS.small,
+  },
+  kidsArcadePlayText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  conceptMiniGamesGrid: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 16,
+  },
+  conceptMiniGamesScrollView: {
+    marginBottom: 16,
+  },
+  conceptMiniGamesScrollContent: {
+    flexDirection: 'row',
+    gap: 8,
+    paddingHorizontal: 2,
+    paddingVertical: 2,
+  },
+  conceptMiniCard: {
+    width: 96,
+    borderRadius: 16,
+    borderWidth: 1.5,
+    paddingVertical: 10,
+    paddingHorizontal: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...SHADOWS.small,
+  },
+  categorySubjFilterRow: {
+    flexDirection: 'row',
+    gap: 6,
+    marginBottom: 10,
+    flexWrap: 'wrap',
+  },
+  categorySubjPill: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 12,
+    backgroundColor: '#F1F5F9',
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
+  categorySubjPillActive: {
+    backgroundColor: '#2563EB',
+    borderColor: '#1D4ED8',
+  },
+  categorySubjPillText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#475569',
+  },
+  categorySubjPillTextActive: {
+    color: '#FFFFFF',
+  },
+  conceptMiniEmoji: {
+    fontSize: 24,
+    marginBottom: 3,
+  },
+  conceptMiniName: {
+    fontSize: 11,
+    fontWeight: '900',
+    color: '#0F172A',
+    textAlign: 'center',
+    marginBottom: 2,
+  },
+  conceptMiniSub: {
+    fontSize: 9,
+    fontWeight: '700',
+    color: '#64748B',
+    textAlign: 'center',
+  },
   arcadeHeaderRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -2821,6 +4013,19 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#64748B',
     marginTop: 2,
+  },
+  allChaptersPill: {
+    backgroundColor: '#EFF6FF',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: BORDER_RADIUS.round,
+    borderWidth: 1,
+    borderColor: '#BFDBFE',
+  },
+  allChaptersPillText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#2563EB',
   },
 
   // Special Launch Offer Modal Styles

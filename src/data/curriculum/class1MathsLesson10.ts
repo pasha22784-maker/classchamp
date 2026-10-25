@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 MATHEMATICS (JOYFUL MATHEMATICS)
 // CHAPTER 10: HOW DO I SPEND MY DAY? (TIME)
-// Comprehensive Curriculum Covering All 7 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 7 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_MATHS_LESSON_10_QUESTIONS: Question[] = [
@@ -87,7 +87,7 @@ export const CLASS_1_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'The school is over and the sun is beginning to set 🌇. What do children usually do in the EVENING?',
-    visualEmoji: '🌇 ⚽ 🛝',
+    visualEmoji: '🌇 ⚽ 🎢',
     payload: {
       options: [
         { id: 'opt_ev1_1', text: 'Play outdoor games in the park with friends ⚽', isCorrect: true },

@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 4 HINDI (UNIVERSAL VYAKARAN CURRICULUM)
 // CHAPTER 6: अनेक शब्दों के लिए एक शब्द
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_HINDI_LESSON_6_QUESTIONS: Question[] = [

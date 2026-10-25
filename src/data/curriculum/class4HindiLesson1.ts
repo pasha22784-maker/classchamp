@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 4 HINDI (UNIVERSAL VYAKARAN CURRICULUM)
 // CHAPTER 1: विशेषण व उसके भेद (गुणवाचक, संख्यावाचक)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_HINDI_LESSON_1_QUESTIONS: Question[] = [
@@ -100,7 +100,7 @@ export const CLASS_4_HINDI_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: '"मेज पर चार पुस्तकें रखी हैं।" इस वाक्य में रेखांकित शब्द "चार" किस प्रकार का विशेषण है?',
-    visualEmoji: '📚 4️⃣ 🪑',
+    visualEmoji: '📚 4️⃣ 🛋️',
     payload: {
       options: [
         { id: 'opt_1', text: 'संख्यावाचक विशेषण', isCorrect: true },
@@ -188,7 +188,7 @@ export const CLASS_4_HINDI_LESSON_1_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'fill_blank',
     question: 'पहाड़ पर चढ़ने वाला रास्ता बहुत [BLANK] और संकरा था।',
-    visualEmoji: '⛰️ 🪨 🧗',
+    visualEmoji: '⛰️ 🧱 🧗',
     payload: {
       correctAnswer: 'पथरीला',
       wordBank: ['पथरीला', 'पत्थर', 'चलना', 'कहाँ'],

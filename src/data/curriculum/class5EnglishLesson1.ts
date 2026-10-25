@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 5 ENGLISH (UNIVERSAL GRAMMAR CURRICULUM)
 // CHAPTER 1: TYPES OF SENTENCES & SUBJECT-PREDICATE
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_ENGLISH_LESSON_1_QUESTIONS: Question[] = [

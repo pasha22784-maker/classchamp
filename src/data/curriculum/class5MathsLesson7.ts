@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 5 MATHEMATICS (MATH-MAGIC 5)
 // CHAPTER 7: TENTHS AND HUNDREDTHS (DECIMALS & PAISE)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_5_MATHS_LESSON_7_QUESTIONS: Question[] = [
@@ -40,7 +40,7 @@ export const CLASS_5_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'One Rupee equals 100 paise (₹ 1 = 100 paise). What is 1 paisa expressed in Rupees?',
-    visualEmoji: '🪙 1 paisa = ❓ ₹',
+    visualEmoji: '💰 1 paisa = ❓ ₹',
     payload: {
       options: [
         { id: 'opt_1', text: '₹ 0.01', isCorrect: true },
@@ -82,7 +82,7 @@ export const CLASS_5_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: '75 paise written in Rupees with a decimal point is ₹ [BLANK].',
-    visualEmoji: '🪙 75 paise = ₹ [BLANK]',
+    visualEmoji: '💰 75 paise = ₹ [BLANK]',
     payload: {
       correctAnswer: '0.75',
       wordBank: ['0.75', '7.5', '75', '0.075'],
@@ -294,7 +294,7 @@ export const CLASS_5_MATHS_LESSON_7_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: 'What is three-quarters (3/4) of a Rupee written in standard decimal notation?',
-    visualEmoji: '🪙 3/4 of ₹ 1',
+    visualEmoji: '💰 3/4 of ₹ 1',
     payload: {
       options: [
         { id: 'opt_1', text: '₹ 0.75', isCorrect: true },

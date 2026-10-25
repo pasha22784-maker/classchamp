@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 5: SHAPES AND DESIGNS (TANGRAMS & EDGES)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_5_QUESTIONS: Question[] = [
@@ -40,7 +40,7 @@ export const CLASS_3_MATHS_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'A round Indian coin or circular bangle has [BLANK] sharp corners.',
-    visualEmoji: '🪙 ⭕ 0️⃣',
+    visualEmoji: '💰 ⭕ 0️⃣',
     payload: {
       correctAnswer: '0',
       wordBank: ['0', '1', '2', '4'],
@@ -58,7 +58,7 @@ export const CLASS_3_MATHS_LESSON_5_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'Which of the following objects will ROLL smoothly down a playground slide?',
-    visualEmoji: '🛝 ⚽ 📦',
+    visualEmoji: '🎢 ⚽ 📦',
     payload: {
       options: [
         { id: 'opt_1', text: 'A round football', isCorrect: true },

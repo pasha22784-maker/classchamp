@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // CLASS 4 ENGLISH (UNIVERSAL GRAMMAR CURRICULUM)
 // CHAPTER 3: PAST TENSE & IRREGULAR VERBS
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_4_ENGLISH_LESSON_3_QUESTIONS: Question[] = [

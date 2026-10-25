@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 1 ENGLISH (MRIDANG & MARIGOLD)
 // CHAPTER 5: COLORS & DESCRIBING WORDS (ADJECTIVES)
-// Comprehensive Curriculum Covering All 6 Core Concepts (IXL Pedagogical Standard)
+// Comprehensive Curriculum Covering All 6 Core Concepts (Global Benchmark Standard)
 // ============================================================================
 
 export const CLASS_1_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
@@ -177,7 +177,7 @@ export const CLASS_1_ENGLISH_LESSON_5_QUESTIONS: Question[] = [
     payload: {
       options: [
         { id: 'opt_tch1_1', text: 'SOFT', isCorrect: true },
-        { id: 'opt_tch1_2', text: 'HARD like a rock 🪨', isCorrect: false },
+        { id: 'opt_tch1_2', text: 'HARD like a rock 🧱', isCorrect: false },
         { id: 'opt_tch1_3', text: 'SHARP like a needle 🪡', isCorrect: false },
       ],
     },

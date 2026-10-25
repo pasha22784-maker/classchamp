@@ -3,7 +3,7 @@ import { Question } from '../../types';
 // ============================================================================
 // NCERT CLASS 3 MATHEMATICS (MATH-MAGIC 3)
 // CHAPTER 10: RUPEES AND PAISE (MONEY)
-// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Strict IXL Pedagogical Ladder)
+// Total 15 Questions: 5 Easy, 5 Medium, 5 Hard (Global Pedagogical Ladder)
 // ============================================================================
 
 export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
@@ -19,7 +19,7 @@ export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'How many paise make 1 Indian Rupee (₹1)?',
-    visualEmoji: '🪙 1️⃣0️⃣0️⃣ 🟰 ₹1️⃣',
+    visualEmoji: '💰 1️⃣0️⃣0️⃣ 🟰 ₹1️⃣',
     payload: {
       options: [
         { id: 'opt_1', text: '100 paise', isCorrect: true },
@@ -40,7 +40,7 @@ export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'fill_blank',
     question: 'Exactly [BLANK] fifty-paise coins make 1 Rupee (₹1).',
-    visualEmoji: '🪙 5️⃣0️⃣p ➕ 5️⃣0️⃣p',
+    visualEmoji: '💰 5️⃣0️⃣p ➕ 5️⃣0️⃣p',
     payload: {
       correctAnswer: '2',
       wordBank: ['2', '4', '5', '10'],
@@ -100,7 +100,7 @@ export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'easy',
     type: 'mcq',
     question: 'How many 1-rupee coins have the exact same total monetary value as one 5-rupee coin?',
-    visualEmoji: '🪙 🪙 🪙 🪙 🪙 🟰 🪙',
+    visualEmoji: '💰 💰 💰 💰 💰 🟰 💰',
     payload: {
       options: [
         { id: 'opt_1', text: 'Five 1-rupee coins', isCorrect: true },
@@ -143,7 +143,7 @@ export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'medium',
     type: 'mcq',
     question: 'Rohan checks his piggy bank and finds: one ₹100 note, two ₹20 notes, and one ₹5 coin. How much money does he have in total?',
-    visualEmoji: '🐷 🪙 💵',
+    visualEmoji: '🐷 💰 💵',
     payload: {
       options: [
         { id: 'opt_1', text: '₹145', isCorrect: true },
@@ -249,7 +249,7 @@ export const CLASS_3_MATHS_LESSON_10_QUESTIONS: Question[] = [
     difficulty: 'hard',
     type: 'mcq',
     question: '750 paise is equal to:',
-    visualEmoji: '🪙 7️⃣5️⃣0️⃣p',
+    visualEmoji: '💰 7️⃣5️⃣0️⃣p',
     payload: {
       options: [
         { id: 'opt_1', text: '₹7.50', isCorrect: true },

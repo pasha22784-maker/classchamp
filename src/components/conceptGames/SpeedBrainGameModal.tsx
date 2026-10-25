@@ -11,6 +11,8 @@ import {
 import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
+import { speakText, stopSpeaking } from '../../utils/speech';
+import { SpeakerButton } from '../common/SpeakerButton';
 import { Grade } from '../../types';
 import { useUserStore } from '../../store/useUserStore';
 
@@ -21,14 +23,29 @@ interface SpeedBrainGameModalProps {
   onClose: () => void;
   userGrade: Grade;
   onEarnStars?: (stars: number) => void;
+  activeLang?: 'en' | 'hi';
 }
 
-interface QuickQuestion {
-  question: string;
+export interface QuickQuestionOption {
+  id: string;
+  labelEn: string;
+  labelHi: string;
+  emoji?: string;
+  color?: string;
+  bgColor?: string;
+  borderColor?: string;
+}
+
+export interface QuickQuestion {
+  questionEn: string;
+  questionHi: string;
+  speechEn: string;
+  speechHi: string;
   visual?: string;
-  options: string[];
-  correctAnswer: string;
-  category: string;
+  options: QuickQuestionOption[];
+  correctAnswerId: string;
+  categoryEn: string;
+  categoryHi: string;
 }
 
 export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
@@ -36,8 +53,11 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
   onClose,
   userGrade,
   onEarnStars,
+  activeLang: activeLangProp,
 }) => {
-  const { addStars } = useUserStore();
+  const { profile, addStars } = useUserStore();
+  const activeLang = activeLangProp || profile.preferredLanguage || 'hi';
+
   const [gameState, setGameState] = useState<'intro' | 'playing' | 'gameover'>('intro');
   const [timeLeft, setTimeLeft] = useState(60);
   const [score, setScore] = useState(0);
@@ -49,74 +69,571 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
   const [feedback, setFeedback] = useState<'correct' | 'wrong' | null>(null);
 
   // Animations
-  const pulseAnim = useRef(new Animated.Value(1)).current;
   const comboScaleAnim = useRef(new Animated.Value(1)).current;
 
-  // Question pool generation based on grade
+  // Clean, high-quality question pool without giveaway prompts
   const getQuestionPool = (): QuickQuestion[] => {
+    // -------------------------------------------------------------
+    // LKG & UKG (BALVATIKA 2 & 3) — SENSORY, PICTURE-FIRST, AGE 3-5
+    // -------------------------------------------------------------
     if (userGrade === 'LKG' || userGrade === 'UKG') {
       return [
-        { question: 'Count the apples!', visual: '🍎 🍎 🍎', options: ['3', '4'], correctAnswer: '3', category: 'Counting' },
-        { question: 'Which animal is BIGGER?', visual: '🐘 vs 🐭', options: ['Elephant', 'Mouse'], correctAnswer: 'Elephant', category: 'Logic' },
-        { question: 'Count the stars!', visual: '⭐ ⭐ ⭐ ⭐', options: ['4', '5'], correctAnswer: '4', category: 'Counting' },
-        { question: 'Which shape is a CIRCLE?', visual: '🔵 or 🔺', options: ['Circle', 'Triangle'], correctAnswer: 'Circle', category: 'Shapes' },
-        { question: 'What comes next? 1, 2, 3, __', visual: '🔢', options: ['4', '5'], correctAnswer: '4', category: 'Sequence' },
-        { question: 'Which is RED color?', visual: '🔴 or 🟢', options: ['Red', 'Green'], correctAnswer: 'Red', category: 'Colors' },
-        { question: 'Count the balloons!', visual: '🎈 🎈', options: ['2', '3'], correctAnswer: '2', category: 'Counting' },
-        { question: 'Which is HEAVIER?', visual: '🪨 Rock vs 🪶 Feather', options: ['Rock', 'Feather'], correctAnswer: 'Rock', category: 'Physics' },
-        { question: 'What comes after 5?', visual: '1, 2, 3, 4, 5, __', options: ['6', '7'], correctAnswer: '6', category: 'Numbers' },
-        { question: 'Which animal FLIES?', visual: '🦅 vs 🦁', options: ['Falcon', 'Lion'], correctAnswer: 'Falcon', category: 'Nature' },
+        {
+          questionEn: 'Which balloon is RED? 🎈',
+          questionHi: 'लाल रंग का गुब्बारा कौन सा है? 🎈',
+          speechEn: 'Which balloon is red color? Tap the red balloon!',
+          speechHi: 'लाल रंग का गुब्बारा कौन सा है? लाल गुब्बारे को छुएं!',
+          categoryEn: 'Colors',
+          categoryHi: 'रंग',
+          options: [
+            { id: 'red', labelEn: 'Red Balloon', labelHi: 'लाल गुब्बारा', emoji: '🎈', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FCA5A5' },
+            { id: 'green', labelEn: 'Green Balloon', labelHi: 'हरा गुब्बारा', emoji: '🎈', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+          ],
+          correctAnswerId: 'red',
+        },
+        {
+          questionEn: 'Which shape is a ROUND CIRCLE? 🔵',
+          questionHi: 'गोल वृत्त (सर्कल) कौन सा है? 🔵',
+          speechEn: 'Which shape is a round circle? Tap the circle!',
+          speechHi: 'गोल वृत्त यानी सर्कल कौन सा है? गोल आकार पर टैप करें!',
+          categoryEn: 'Shapes',
+          categoryHi: 'आकार',
+          options: [
+            { id: 'circle', labelEn: 'Round Circle', labelHi: 'गोल वृत्त', emoji: '🔵', color: '#2563EB', bgColor: '#EFF6FF', borderColor: '#93C5FD' },
+            { id: 'triangle', labelEn: 'Sharp Triangle', labelHi: 'तिकोना त्रिभुज', emoji: '🔺', color: '#EA580C', bgColor: '#FFF7ED', borderColor: '#FDBA74' },
+          ],
+          correctAnswerId: 'circle',
+        },
+        {
+          questionEn: 'How many apples in the basket? 🧺',
+          questionHi: 'टोकरी में कितने सेब हैं? 🧺',
+          speechEn: 'Count the apples! How many apples do you see?',
+          speechHi: 'सेब गिनें! टोकरी में कितने सेब हैं?',
+          visual: '🍎 🍎 🍎',
+          categoryEn: 'Counting',
+          categoryHi: 'गिनती',
+          options: [
+            { id: '3', labelEn: '3 Apples', labelHi: '3 सेब', emoji: '3️⃣', color: '#059669', bgColor: '#ECFDF5', borderColor: '#A7F3D0' },
+            { id: '4', labelEn: '4 Apples', labelHi: '4 सेब', emoji: '4️⃣', color: '#4F46E5', bgColor: '#EEF2FF', borderColor: '#C7D2FE' },
+          ],
+          correctAnswerId: '3',
+        },
+        {
+          questionEn: 'Which animal is BIGGER? 🐘',
+          questionHi: 'बड़ा जानवर कौन सा है? 🐘',
+          speechEn: 'Which animal is bigger? Find the giant animal!',
+          speechHi: 'बड़ा जानवर कौन सा है? बड़े हाथी को पहचानें!',
+          categoryEn: 'Size',
+          categoryHi: 'आकार तुलना',
+          options: [
+            { id: 'elephant', labelEn: 'Big Elephant', labelHi: 'बड़ा हाथी', emoji: '🐘', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+            { id: 'mouse', labelEn: 'Tiny Mouse', labelHi: 'छोटा चूहा', emoji: '🐭', color: '#D97706', bgColor: '#FFFBEB', borderColor: '#FDE68A' },
+          ],
+          correctAnswerId: 'elephant',
+        },
+        {
+          questionEn: 'How many shining stars in the sky? ⭐',
+          questionHi: 'आसमान में कितने तारे चमक रहे हैं? ⭐',
+          speechEn: 'Count the stars! How many shining stars do you see?',
+          speechHi: 'तारे गिनें! आसमान में कितने चमकते तारे हैं?',
+          visual: '⭐ ⭐ ⭐ ⭐',
+          categoryEn: 'Counting',
+          categoryHi: 'गिनती',
+          options: [
+            { id: '4', labelEn: '4 Stars', labelHi: '4 तारे', emoji: '4️⃣', color: '#D97706', bgColor: '#FEF9C3', borderColor: '#FDE047' },
+            { id: '5', labelEn: '5 Stars', labelHi: '5 तारे', emoji: '5️⃣', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+          ],
+          correctAnswerId: '4',
+        },
+        {
+          questionEn: 'Which one is HEAVIER? ⚖️',
+          questionHi: 'भारी चीज़ कौन सी है? ⚖️',
+          speechEn: 'Which one is heavier? Find the heavy object!',
+          speechHi: 'भारी चीज़ कौन सी है? भारी वस्तु पर टैप करें!',
+          categoryEn: 'Weight',
+          categoryHi: 'वजन',
+          options: [
+            { id: 'brick', labelEn: 'Heavy Brick', labelHi: 'भारी ईंट', emoji: '🧱', color: '#B45309', bgColor: '#FEF3C7', borderColor: '#FDE68A' },
+            { id: 'feather', labelEn: 'Light Leaf', labelHi: 'हल्का पत्ता', emoji: '🍃', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#BBF7D0' },
+          ],
+          correctAnswerId: 'brick',
+        },
+        {
+          questionEn: 'Which one is TALLER? 🦒',
+          questionHi: 'ऊंचा लंबा कौन सा है? 🦒',
+          speechEn: 'Which one is taller? Look for the tall giraffe reaching high!',
+          speechHi: 'ऊंचा लंबा कौन सा है? लंबे जिराफ़ को छुएं!',
+          categoryEn: 'Height',
+          categoryHi: 'ऊंचाई',
+          options: [
+            { id: 'giraffe', labelEn: 'Tall Giraffe', labelHi: 'लंबा जिराफ़', emoji: '🦒', color: '#D97706', bgColor: '#FEF3C7', borderColor: '#FDE68A' },
+            { id: 'turtle', labelEn: 'Short Turtle', labelHi: 'छोटा कछुआ', emoji: '🐢', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#BBF7D0' },
+          ],
+          correctAnswerId: 'giraffe',
+        },
+        {
+          questionEn: 'Which one is COLD and sweet? 🍦',
+          questionHi: 'ठंडी और मीठी चीज़ कौन सी है? 🍦',
+          speechEn: 'Which one is cold and sweet? Tap the ice cream!',
+          speechHi: 'ठंडी और मीठी चीज़ कौन सी है? आइसक्रीम पहचानें!',
+          categoryEn: 'Sense',
+          categoryHi: 'अनुभूति',
+          options: [
+            { id: 'icecream', labelEn: 'Cold Ice Cream', labelHi: 'ठंडी आइसक्रीम', emoji: '🍦', color: '#DB2777', bgColor: '#FDF2F8', borderColor: '#FBCFE8' },
+            { id: 'fire', labelEn: 'Hot Fire', labelHi: 'गर्म आग', emoji: '🔥', color: '#EA580C', bgColor: '#FFF7ED', borderColor: '#FDBA74' },
+          ],
+          correctAnswerId: 'icecream',
+        },
+        {
+          questionEn: 'Which animal FLIES in the sky? ☁️',
+          questionHi: 'आसमान में कौन उड़ता है? 🦅',
+          speechEn: 'Which animal has wings and flies in the sky?',
+          speechHi: 'पंख फैलाकर आसमान में कौन उड़ता है?',
+          categoryEn: 'Animals',
+          categoryHi: 'पशु-पक्षी',
+          options: [
+            { id: 'eagle', labelEn: 'Eagle (Flies)', labelHi: 'चील (उड़ती है)', emoji: '🦅', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+            { id: 'lion', labelEn: 'Lion (Walks)', labelHi: 'शेर (दौड़ता है)', emoji: '🦁', color: '#D97706', bgColor: '#FFFBEB', borderColor: '#FDE68A' },
+          ],
+          correctAnswerId: 'eagle',
+        },
+        {
+          questionEn: 'Who says "Meow-Meow"? 🐱',
+          questionHi: '"म्याऊं-म्याऊं" कौन बोलती है? 🐱',
+          speechEn: 'Listen: Meow meow! Who makes this sound?',
+          speechHi: 'सुनो: म्याऊं-म्याऊं! यह आवाज कौन निकालती है?',
+          categoryEn: 'Sounds',
+          categoryHi: 'आवाज',
+          options: [
+            { id: 'cat', labelEn: 'Cat (Meow)', labelHi: 'बिल्ली मौसी', emoji: '🐱', color: '#EA580C', bgColor: '#FFF7ED', borderColor: '#FDBA74' },
+            { id: 'dog', labelEn: 'Dog (Woof)', labelHi: 'वफादार कुत्ता', emoji: '🐕', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+          ],
+          correctAnswerId: 'cat',
+        },
+        {
+          questionEn: 'What number comes next? 1, 2, 3, __ 🔢',
+          questionHi: 'अगली संख्या क्या आएगी? 1, 2, 3, __ 🔢',
+          speechEn: 'What number comes after three? 1, 2, 3...',
+          speechHi: '1, 2, 3 के बाद कौन सा नंबर आता है?',
+          visual: '1️⃣ ➡️ 2️⃣ ➡️ 3️⃣ ➡️ ❓',
+          categoryEn: 'Sequence',
+          categoryHi: 'क्रम',
+          options: [
+            { id: '4', labelEn: 'Number 4', labelHi: 'संख्या 4', emoji: '4️⃣', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#BBF7D0' },
+            { id: '5', labelEn: 'Number 5', labelHi: 'संख्या 5', emoji: '5️⃣', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '4',
+        },
+        {
+          questionEn: 'Which animal gives us sweet MILK? 🥛',
+          questionHi: 'हमें पौष्टिक दूध कौन देती है? 🥛',
+          speechEn: 'Which animal gives us healthy milk to drink?',
+          speechHi: 'हमें स्वस्थ और मीठा दूध कौन देती है? पहचानें!',
+          categoryEn: 'Nature',
+          categoryHi: 'प्रकृति',
+          options: [
+            { id: 'cow', labelEn: 'Cow (Milk)', labelHi: 'गौ माता (दूध)', emoji: '🐄', color: '#059669', bgColor: '#ECFDF5', borderColor: '#A7F3D0' },
+            { id: 'tiger', labelEn: 'Tiger (Wild)', labelHi: 'जंगली बाघ', emoji: '🐅', color: '#D97706', bgColor: '#FFFBEB', borderColor: '#FDE68A' },
+          ],
+          correctAnswerId: 'cow',
+        },
+        {
+          questionEn: 'Which shape is a SQUARE with 4 sides? 🟩',
+          questionHi: '4 बराबर भुजाओं वाला चौकोर (वर्ग) कौन सा है? 🟩',
+          speechEn: 'Which shape is a square with four equal sides? Tap the square!',
+          speechHi: 'चार बराबर भुजाओं वाला चौकोर यानी वर्ग कौन सा है?',
+          categoryEn: 'Shapes',
+          categoryHi: 'आकार',
+          options: [
+            { id: 'square', labelEn: 'Square (4 sides)', labelHi: 'चौकोर (वर्ग)', emoji: '🟩', color: '#059669', bgColor: '#ECFDF5', borderColor: '#A7F3D0' },
+            { id: 'circle', labelEn: 'Round Circle', labelHi: 'गोल वृत्त', emoji: '⚪', color: '#64748B', bgColor: '#F8FAFC', borderColor: '#CBD5E1' },
+          ],
+          correctAnswerId: 'square',
+        },
+        {
+          questionEn: 'Which fruit is bright YELLOW? 🟡',
+          questionHi: 'पीला फल कौन सा है? 🟡',
+          speechEn: 'Which sweet fruit is bright yellow color? Tap the yellow banana!',
+          speechHi: 'पीले रंग का मीठा फल कौन सा है? केले को पहचानें!',
+          categoryEn: 'Colors',
+          categoryHi: 'रंग',
+          options: [
+            { id: 'banana', labelEn: 'Yellow Banana', labelHi: 'पीला केला', emoji: '🍌', color: '#D97706', bgColor: '#FEF9C3', borderColor: '#FDE047' },
+            { id: 'apple', labelEn: 'Red Apple', labelHi: 'लाल सेब', emoji: '🍎', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: 'banana',
+        },
+        {
+          questionEn: 'How many floating balloons? 🎈',
+          questionHi: 'यहाँ कितने गुब्बारे हैं? 🎈',
+          speechEn: 'Count the balloons! How many balloons do you see?',
+          speechHi: 'गुब्बारे गिनें! कितने गुब्बारे उड़ रहे हैं?',
+          visual: '🎈 🎈',
+          categoryEn: 'Counting',
+          categoryHi: 'गिनती',
+          options: [
+            { id: '2', labelEn: '2 Balloons', labelHi: '2 गुब्बारे', emoji: '2️⃣', color: '#DB2777', bgColor: '#FDF2F8', borderColor: '#FBCFE8' },
+            { id: '3', labelEn: '3 Balloons', labelHi: '3 गुब्बारे', emoji: '3️⃣', color: '#2563EB', bgColor: '#EFF6FF', borderColor: '#93C5FD' },
+          ],
+          correctAnswerId: '2',
+        },
       ];
     }
 
+    // -------------------------------------------------------------
+    // CLASS 1 & 2 — FOUNDATIONAL MATHS & PATTERNS
+    // -------------------------------------------------------------
     if (userGrade === 1 || userGrade === 2) {
       return [
-        { question: '5 + 4 = ?', visual: '➕', options: ['9', '8'], correctAnswer: '9', category: 'Addition' },
-        { question: '10 - 3 = ?', visual: '➖', options: ['7', '6'], correctAnswer: '7', category: 'Subtraction' },
-        { question: 'Which is greater?', visual: '🔢', options: ['58', '49'], correctAnswer: '58', category: 'Comparison' },
-        { question: 'Next number: 2, 4, 6, __', visual: '⚡', options: ['8', '7'], correctAnswer: '8', category: 'Pattern' },
-        { question: 'How many sides does a triangle have?', visual: '🔺', options: ['3', '4'], correctAnswer: '3', category: 'Geometry' },
-        { question: '6 + 7 = ?', visual: '➕', options: ['13', '14'], correctAnswer: '13', category: 'Addition' },
-        { question: 'Half of 10 is:', visual: '🍕', options: ['5', '6'], correctAnswer: '5', category: 'Fractions' },
-        { question: '15 - 8 = ?', visual: '➖', options: ['7', '8'], correctAnswer: '7', category: 'Subtraction' },
-        { question: '8 + 8 = ?', visual: '➕', options: ['16', '18'], correctAnswer: '16', category: 'Double' },
-        { question: 'Minutes in 1 hour:', visual: '🕒', options: ['60', '100'], correctAnswer: '60', category: 'Time' },
-        { question: 'Next number: 5, 10, 15, __', visual: '🏃', options: ['20', '25'], correctAnswer: '20', category: 'Skip Count' },
-        { question: 'Is 14 Even or Odd?', visual: '⚖️', options: ['Even', 'Odd'], correctAnswer: 'Even', category: 'Number Sense' },
+        {
+          questionEn: 'What is 5 + 4?',
+          questionHi: '5 + 4 कितना होता है?',
+          speechEn: 'What is five plus four?',
+          speechHi: 'पाँच जमा चार कितना होता है?',
+          visual: '🖐️ + 🖐️ (5 + 4)',
+          categoryEn: 'Addition',
+          categoryHi: 'जोड़',
+          options: [
+            { id: '9', labelEn: '9 (Nine)', labelHi: '9 (नौ)', emoji: '9️⃣', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: '8', labelEn: '8 (Eight)', labelHi: '8 (आठ)', emoji: '8️⃣', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '9',
+        },
+        {
+          questionEn: 'What is 10 - 3?',
+          questionHi: '10 में से 3 घटाने पर क्या बचेगा?',
+          speechEn: 'What is ten minus three?',
+          speechHi: 'दस में से तीन घटाने पर क्या बचेगा?',
+          visual: '🔟 - 3️⃣',
+          categoryEn: 'Subtraction',
+          categoryHi: 'घटाव',
+          options: [
+            { id: '7', labelEn: '7 (Seven)', labelHi: '7 (सात)', emoji: '7️⃣', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: '6', labelEn: '6 (Six)', labelHi: '6 (छह)', emoji: '6️⃣', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '7',
+        },
+        {
+          questionEn: 'Which number is GREATER?',
+          questionHi: 'कौन सी संख्या बड़ी है?',
+          speechEn: 'Which number is greater: 58 or 49?',
+          speechHi: 'कौन सी संख्या बड़ी है: 58 या 49?',
+          categoryEn: 'Comparison',
+          categoryHi: 'संख्या तुलना',
+          options: [
+            { id: '58', labelEn: '58 (Greater)', labelHi: '58 (बड़ी)', emoji: '🔢', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+            { id: '49', labelEn: '49 (Smaller)', labelHi: '49 (छोटी)', emoji: '🔢', color: '#64748B', bgColor: '#F8FAFC', borderColor: '#CBD5E1' },
+          ],
+          correctAnswerId: '58',
+        },
+        {
+          questionEn: 'Next number: 2, 4, 6, __',
+          questionHi: 'अगली संख्या: 2, 4, 6, __',
+          speechEn: 'Skip count by two: 2, 4, 6... what comes next?',
+          speechHi: '2, 4, 6 के बाद अगला अंक क्या होगा?',
+          visual: '⚡ 2 ➡️ 4 ➡️ 6 ➡️ ❓',
+          categoryEn: 'Pattern',
+          categoryHi: 'पैटर्न',
+          options: [
+            { id: '8', labelEn: '8 (Eight)', labelHi: '8 (आठ)', emoji: '8️⃣', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: '7', labelEn: '7 (Seven)', labelHi: '7 (सात)', emoji: '7️⃣', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '8',
+        },
+        {
+          questionEn: 'How many sides in a TRIANGLE?',
+          questionHi: 'एक त्रिभुज की कितनी भुजाएँ (साइड्स) होती हैं?',
+          speechEn: 'How many sides does a triangle have?',
+          speechHi: 'एक त्रिभुज की कितनी भुजाएँ होती हैं?',
+          visual: '🔺',
+          categoryEn: 'Geometry',
+          categoryHi: 'ज्यामिति',
+          options: [
+            { id: '3', labelEn: '3 Sides 🔺', labelHi: '3 भुजाएँ 🔺', emoji: '3️⃣', color: '#D97706', bgColor: '#FEF9C3', borderColor: '#FDE047' },
+            { id: '4', labelEn: '4 Sides ⏹️', labelHi: '4 भुजाएँ ⏹️', emoji: '4️⃣', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+          ],
+          correctAnswerId: '3',
+        },
+        {
+          questionEn: 'What is 6 + 7?',
+          questionHi: '6 + 7 कितना होगा?',
+          speechEn: 'What is six plus seven?',
+          speechHi: 'छह जमा सात कितना होगा?',
+          visual: '➕',
+          categoryEn: 'Addition',
+          categoryHi: 'जोड़',
+          options: [
+            { id: '13', labelEn: '13', labelHi: '13', emoji: '⭐', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: '14', labelEn: '14', labelHi: '14', emoji: '⭐', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '13',
+        },
+        {
+          questionEn: 'What is HALF of 10? 🍕',
+          questionHi: '10 का आधा कितना होता है? 🍕',
+          speechEn: 'What is half of ten?',
+          speechHi: 'दस का आधा कितना होता है?',
+          visual: '🍕 10 ÷ 2',
+          categoryEn: 'Fractions',
+          categoryHi: 'भिन्न',
+          options: [
+            { id: '5', labelEn: '5 (Five)', labelHi: '5 (पाँच)', emoji: '5️⃣', color: '#059669', bgColor: '#ECFDF5', borderColor: '#A7F3D0' },
+            { id: '6', labelEn: '6 (Six)', labelHi: '6 (छह)', emoji: '6️⃣', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '5',
+        },
+        {
+          questionEn: 'How many minutes in 1 HOUR? 🕒',
+          questionHi: '1 घंटे में कितने मिनट होते हैं? 🕒',
+          speechEn: 'How many minutes are in one hour?',
+          speechHi: 'एक घंटे में कितने मिनट होते हैं?',
+          visual: '🕒 ⏰',
+          categoryEn: 'Time',
+          categoryHi: 'समय',
+          options: [
+            { id: '60', labelEn: '60 Minutes', labelHi: '60 मिनट', emoji: '⌛', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+            { id: '100', labelEn: '100 Minutes', labelHi: '100 मिनट', emoji: '⌛', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '60',
+        },
+        {
+          questionEn: 'Next number: 5, 10, 15, __',
+          questionHi: 'अगली संख्या: 5, 10, 15, __',
+          speechEn: 'Count by fives: 5, 10, 15... what comes next?',
+          speechHi: 'पाँच की छलांग: 5, 10, 15 के बाद क्या आएगा?',
+          visual: '🏃 5 ➡️ 10 ➡️ 15 ➡️ ❓',
+          categoryEn: 'Skip Count',
+          categoryHi: 'छलांग गिनती',
+          options: [
+            { id: '20', labelEn: '20', labelHi: '20', emoji: '🎯', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: '25', labelEn: '25', labelHi: '25', emoji: '🎯', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '20',
+        },
+        {
+          questionEn: 'Is number 14 Even or Odd? ⚖️',
+          questionHi: 'क्या 14 सम (Even) संख्या है या विषम (Odd)? ⚖️',
+          speechEn: 'Is the number fourteen even or odd?',
+          speechHi: 'क्या संख्या 14 सम है या विषम?',
+          categoryEn: 'Number Sense',
+          categoryHi: 'सम व विषम',
+          options: [
+            { id: 'even', labelEn: 'Even (सम)', labelHi: 'Even (सम संख्या)', emoji: '⚖️', color: '#2563EB', bgColor: '#EFF6FF', borderColor: '#93C5FD' },
+            { id: 'odd', labelEn: 'Odd (विषम)', labelHi: 'Odd (विषम संख्या)', emoji: '⚖️', color: '#D97706', bgColor: '#FFFBEB', borderColor: '#FDE68A' },
+          ],
+          correctAnswerId: 'even',
+        },
       ];
     }
 
+    // -------------------------------------------------------------
+    // CLASS 3 & 4 — MULTIPLICATION, METRICS & LOGIC
+    // -------------------------------------------------------------
     if (userGrade === 3 || userGrade === 4) {
       return [
-        { question: '7 × 6 = ?', visual: '✖️', options: ['42', '48'], correctAnswer: '42', category: 'Tables' },
-        { question: '8 × 8 = ?', visual: '✖️', options: ['64', '56'], correctAnswer: '64', category: 'Tables' },
-        { question: '1 kilogram = ? grams', visual: '⚖️', options: ['1000g', '100g'], correctAnswer: '1000g', category: 'Metrics' },
-        { question: '1/2 of 80 = ?', visual: '🍕', options: ['40', '30'], correctAnswer: '40', category: 'Fractions' },
-        { question: '45 ÷ 5 = ?', visual: '➗', options: ['9', '8'], correctAnswer: '9', category: 'Division' },
-        { question: 'Perimeter of square with side 6cm:', visual: '📐', options: ['24cm', '36cm'], correctAnswer: '24cm', category: 'Perimeter' },
-        { question: '9 × 4 = ?', visual: '✖️', options: ['36', '38'], correctAnswer: '36', category: 'Tables' },
-        { question: '72 ÷ 8 = ?', visual: '➗', options: ['9', '7'], correctAnswer: '9', category: 'Division' },
-        { question: 'Roman numeral for 10:', visual: '🏛️', options: ['X', 'V'], correctAnswer: 'X', category: 'Roman' },
-        { question: 'Which fraction is larger: 1/2 or 1/4?', visual: '🍕', options: ['1/2', '1/4'], correctAnswer: '1/2', category: 'Fractions' },
-        { question: '12 × 5 = ?', visual: '✖️', options: ['60', '50'], correctAnswer: '60', category: 'Tables' },
-        { question: 'Sides in a Pentagon:', visual: '⬟', options: ['5', '6'], correctAnswer: '5', category: 'Geometry' },
+        {
+          questionEn: 'What is 7 × 6?',
+          questionHi: '7 × 6 कितना होता है?',
+          speechEn: 'What is seven times six?',
+          speechHi: 'सात को छह से गुणा करने पर क्या आएगा?',
+          visual: '✖️ 7 × 6',
+          categoryEn: 'Tables',
+          categoryHi: 'पहाड़े',
+          options: [
+            { id: '42', labelEn: '42', labelHi: '42', emoji: '🎯', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: '48', labelEn: '48', labelHi: '48', emoji: '🎯', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '42',
+        },
+        {
+          questionEn: 'What is 8 × 8?',
+          questionHi: '8 × 8 कितना होता है?',
+          speechEn: 'What is eight times eight?',
+          speechHi: 'आठ को आठ से गुणा करने पर क्या आएगा?',
+          visual: '✖️ 8 × 8',
+          categoryEn: 'Tables',
+          categoryHi: 'पहाड़े',
+          options: [
+            { id: '64', labelEn: '64', labelHi: '64', emoji: '⚡', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: '56', labelEn: '56', labelHi: '56', emoji: '⚡', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '64',
+        },
+        {
+          questionEn: '1 kilogram equals how many grams?',
+          questionHi: '1 किलोग्राम में कितने ग्राम होते हैं?',
+          speechEn: 'One kilogram equals how many grams?',
+          speechHi: 'एक किलोग्राम में कितने ग्राम होते हैं?',
+          visual: '⚖️ 1 kg = ? g',
+          categoryEn: 'Metrics',
+          categoryHi: 'माप-तौल',
+          options: [
+            { id: '1000', labelEn: '1000 g', labelHi: '1000 ग्राम', emoji: '⚖️', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+            { id: '100', labelEn: '100 g', labelHi: '100 ग्राम', emoji: '⚖️', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '1000',
+        },
+        {
+          questionEn: 'What is 1/2 of 80?',
+          questionHi: '80 का आधा (1/2) कितना होगा?',
+          speechEn: 'What is one-half of eighty?',
+          speechHi: 'अस्सी का आधा कितना होगा?',
+          visual: '🍕 80 ÷ 2',
+          categoryEn: 'Fractions',
+          categoryHi: 'भिन्न',
+          options: [
+            { id: '40', labelEn: '40', labelHi: '40', emoji: '🍕', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: '30', labelEn: '30', labelHi: '30', emoji: '🍕', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '40',
+        },
+        {
+          questionEn: 'What is 45 ÷ 5?',
+          questionHi: '45 ÷ 5 कितना होता है?',
+          speechEn: 'What is forty-five divided by five?',
+          speechHi: 'पैंतालीस को पाँच से भाग देने पर क्या आएगा?',
+          visual: '➗ 45 ÷ 5',
+          categoryEn: 'Division',
+          categoryHi: 'भाग',
+          options: [
+            { id: '9', labelEn: '9', labelHi: '9', emoji: '🔢', color: '#059669', bgColor: '#ECFDF5', borderColor: '#A7F3D0' },
+            { id: '8', labelEn: '8', labelHi: '8', emoji: '🔢', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '9',
+        },
+        {
+          questionEn: 'Perimeter of a square with side 6cm:',
+          questionHi: '6 सेमी भुजा वाले वर्ग का परिमाप क्या होगा?',
+          speechEn: 'Perimeter of a square with side six centimeters:',
+          speechHi: '6 सेमी भुजा वाले वर्ग का परिमाप कितना होगा?',
+          visual: '📐 4 × 6cm',
+          categoryEn: 'Perimeter',
+          categoryHi: 'परिमाप',
+          options: [
+            { id: '24', labelEn: '24 cm', labelHi: '24 सेमी', emoji: '📐', color: '#2563EB', bgColor: '#EFF6FF', borderColor: '#93C5FD' },
+            { id: '36', labelEn: '36 cm', labelHi: '36 सेमी', emoji: '📐', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+          ],
+          correctAnswerId: '24',
+        },
+        {
+          questionEn: 'Roman numeral for number 10:',
+          questionHi: 'संख्या 10 का रोमन अंक क्या है?',
+          speechEn: 'What is the Roman numeral for ten?',
+          speechHi: 'संख्या दस का रोमन अंक क्या होता है?',
+          visual: '🏛️ 10 = ?',
+          categoryEn: 'Roman',
+          categoryHi: 'रोमन अंक',
+          options: [
+            { id: 'X', labelEn: 'X (Ten)', labelHi: 'X (दस)', emoji: '🏛️', color: '#D97706', bgColor: '#FEF9C3', borderColor: '#FDE047' },
+            { id: 'V', labelEn: 'V (Five)', labelHi: 'V (पाँच)', emoji: '🏛️', color: '#64748B', bgColor: '#F8FAFC', borderColor: '#CBD5E1' },
+          ],
+          correctAnswerId: 'X',
+        },
+        {
+          questionEn: 'Which fraction is LARGER?',
+          questionHi: 'कौन सी भिन्न बड़ी है: 1/2 या 1/4?',
+          speechEn: 'Which fraction is larger: one-half or one-fourth?',
+          speechHi: 'कौन सी भिन्न बड़ी है: 1/2 या 1/4?',
+          visual: '🍕 1/2 vs 1/4',
+          categoryEn: 'Fractions',
+          categoryHi: 'भिन्न',
+          options: [
+            { id: 'half', labelEn: '1/2 (Half)', labelHi: '1/2 (आधा भाग)', emoji: '🍕', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+            { id: 'fourth', labelEn: '1/4 (Quarter)', labelHi: '1/4 (चौथाई भाग)', emoji: '🍕', color: '#64748B', bgColor: '#F8FAFC', borderColor: '#CBD5E1' },
+          ],
+          correctAnswerId: 'half',
+        },
       ];
     }
 
-    // Class 5 & 6
+    // -------------------------------------------------------------
+    // CLASS 5 & 6 — INTEGERS, ANGLES, ALGEBRA & SCIENCE
+    // -------------------------------------------------------------
     return [
-      { question: '(-5) + 9 = ?', visual: '❄️', options: ['4', '-4'], correctAnswer: '4', category: 'Integers' },
-      { question: 'Right angle measures:', visual: '📐', options: ['90°', '180°'], correctAnswer: '90°', category: 'Angles' },
-      { question: '15 × 6 = ?', visual: '✖️', options: ['90', '80'], correctAnswer: '90', category: 'Multiplication' },
-      { question: 'Square root of 64:', visual: '⚡', options: ['8', '7'], correctAnswer: '8', category: 'Algebra' },
-      { question: '(-4) × (-6) = ?', visual: '🧲', options: ['24', '-24'], correctAnswer: '24', category: 'Integers' },
-      { question: 'Sum of angles in a triangle:', visual: '🔺', options: ['180°', '360°'], correctAnswer: '180°', category: 'Geometry' },
-      { question: '0.50 as a simplified fraction:', visual: '🍕', options: ['1/2', '1/4'], correctAnswer: '1/2', category: 'Decimals' },
-      { question: 'Straight angle measures:', visual: '➖', options: ['180°', '90°'], correctAnswer: '180°', category: 'Angles' },
-      { question: 'Opposite poles of magnet:', visual: '🧲', options: ['Attract', 'Repel'], correctAnswer: 'Attract', category: 'Science' },
-      { question: '12 × 12 = ?', visual: '✖️', options: ['144', '124'], correctAnswer: '144', category: 'Tables' },
-      { question: 'Complement of 40° angle:', visual: '⚡', options: ['50°', '60°'], correctAnswer: '50°', category: 'Geometry' },
-      { question: 'Light prism splits white into how many colors?', visual: '🌈', options: ['7', '5'], correctAnswer: '7', category: 'Optics' },
+      {
+        questionEn: 'What is (-5) + 9?',
+        questionHi: '(-5) + 9 कितना होता है?',
+        speechEn: 'What is negative five plus nine?',
+        speechHi: 'ऋण पाँच जमा नौ कितना होगा?',
+        visual: '❄️ (-5) + 9',
+        categoryEn: 'Integers',
+        categoryHi: 'पूर्णांक',
+        options: [
+          { id: '4', labelEn: '4 (Positive)', labelHi: '4 (धनात्मक)', emoji: '➕', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+          { id: '-4', labelEn: '-4 (Negative)', labelHi: '-4 (ऋणात्मक)', emoji: '➖', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+        ],
+        correctAnswerId: '4',
+      },
+      {
+        questionEn: 'A RIGHT ANGLE measures exactly:',
+        questionHi: 'एक समकोण (Right Angle) का मान कितना होता है?',
+        speechEn: 'A right angle measures exactly how many degrees?',
+        speechHi: 'एक समकोण का माप कितने डिग्री होता है?',
+        visual: '📐 ∟',
+        categoryEn: 'Angles',
+        categoryHi: 'कोण',
+        options: [
+          { id: '90', labelEn: '90° (Right Angle)', labelHi: '90° (समकोण)', emoji: '📐', color: '#0284C7', bgColor: '#F0F9FF', borderColor: '#BAE6FD' },
+          { id: '180', labelEn: '180° (Straight)', labelHi: '180° (ऋजु कोण)', emoji: '📐', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+        ],
+        correctAnswerId: '90',
+      },
+      {
+        questionEn: 'What is 15 × 6?',
+        questionHi: '15 × 6 कितना होता है?',
+        speechEn: 'What is fifteen times six?',
+        speechHi: 'पंद्रह को छह से गुणा करने पर क्या आएगा?',
+        visual: '✖️ 15 × 6',
+        categoryEn: 'Multiplication',
+        categoryHi: 'गुणा',
+        options: [
+          { id: '90', labelEn: '90', labelHi: '90', emoji: '⚡', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+          { id: '80', labelEn: '80', labelHi: '80', emoji: '⚡', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+        ],
+        correctAnswerId: '90',
+      },
+      {
+        questionEn: 'What is (-4) × (-6)?',
+        questionHi: '(-4) × (-6) कितना होता है?',
+        speechEn: 'Negative four multiplied by negative six is:',
+        speechHi: 'ऋण चार गुना ऋण छह का मान क्या होगा?',
+        visual: '🧲 (-) × (-) = (+)',
+        categoryEn: 'Integers',
+        categoryHi: 'पूर्णांक',
+        options: [
+          { id: '24', labelEn: '+24 (Positive)', labelHi: '+24 (धनात्मक)', emoji: '➕', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+          { id: '-24', labelEn: '-24 (Negative)', labelHi: '-24 (ऋणात्मक)', emoji: '➖', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+        ],
+        correctAnswerId: '24',
+      },
+      {
+        questionEn: 'Sum of all angles in a triangle:',
+        questionHi: 'त्रिभुज के तीनों कोणों का योग कितना होता है?',
+        speechEn: 'What is the sum of all angles in a triangle?',
+        speechHi: 'त्रिभुज के तीनों अंतः कोणों का योग कितना होता है?',
+        visual: '🔺 ∠A + ∠B + ∠C',
+        categoryEn: 'Geometry',
+        categoryHi: 'ज्यामिति',
+        options: [
+          { id: '180', labelEn: '180°', labelHi: '180°', emoji: '🔺', color: '#2563EB', bgColor: '#EFF6FF', borderColor: '#93C5FD' },
+          { id: '360', labelEn: '360°', labelHi: '360°', emoji: '🔺', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+        ],
+        correctAnswerId: '180',
+      },
+      {
+        questionEn: 'Opposite poles of two magnets:',
+        questionHi: 'चुंबक के दो विपरीत ध्रुव (North और South) आपस में क्या करते हैं?',
+        speechEn: 'What do opposite poles of two magnets do?',
+        speechHi: 'चुंबक के विपरीत ध्रुव एक-दूसरे को क्या करते हैं?',
+        visual: '🧲 N 🧲 S',
+        categoryEn: 'Science',
+        categoryHi: 'विज्ञान',
+        options: [
+          { id: 'attract', labelEn: 'Attract (आकर्षित)', labelHi: 'Attract (खींचते हैं)', emoji: '🧲', color: '#16A34A', bgColor: '#F0FDF4', borderColor: '#86EFAC' },
+          { id: 'repel', labelEn: 'Repel (प्रतिकर्षित)', labelHi: 'Repel (दूर फेंकते हैं)', emoji: '⚡', color: '#DC2626', bgColor: '#FEF2F2', borderColor: '#FECACA' },
+        ],
+        correctAnswerId: 'attract',
+      },
     ];
   };
 
@@ -125,6 +642,8 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
   useEffect(() => {
     if (visible) {
       resetGame();
+    } else {
+      stopSpeaking();
     }
   }, [visible, userGrade]);
 
@@ -150,6 +669,24 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
     setGameState('playing');
   };
 
+  // Auto-speak question when it appears
+  useEffect(() => {
+    if (gameState === 'playing' && questions.length > 0) {
+      const q = questions[currentQIndex % questions.length];
+      if (q) {
+        const text = activeLang === 'hi' ? q.speechHi : q.speechEn;
+        speakText(text);
+      }
+    }
+  }, [currentQIndex, gameState, activeLang]);
+
+  // Clean speech on unmount
+  useEffect(() => {
+    return () => {
+      stopSpeaking();
+    };
+  }, []);
+
   // Timer countdown
   useEffect(() => {
     let timer: any = null;
@@ -173,6 +710,7 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
   }, [gameState]);
 
   const endGame = () => {
+    stopSpeaking();
     soundManager.playFanfare();
     triggerHaptic('success');
     setGameState('gameover');
@@ -196,11 +734,11 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
     return { label: '1x FOCUS', color: '#64748B' };
   };
 
-  const handleSelectAnswer = (selected: string) => {
+  const handleSelectAnswer = (selectedId: string) => {
     if (feedback !== null || gameState !== 'playing') return;
 
     const currentQ = questions[currentQIndex % questions.length];
-    const isCorrect = selected === currentQ.correctAnswer;
+    const isCorrect = selectedId === currentQ.correctAnswerId;
     setTotalAnswered((prev) => prev + 1);
 
     if (isCorrect) {
@@ -239,15 +777,23 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
     setTimeout(() => {
       setFeedback(null);
       setCurrentQIndex((idx) => (idx + 1) % questions.length);
-    }, 400);
+    }, 500);
+  };
+
+  const handleClose = () => {
+    stopSpeaking();
+    onClose();
   };
 
   const currentQ = questions[currentQIndex % (questions.length || 1)] || {
-    question: 'Loading...',
-    visual: '⚡',
-    options: ['A', 'B'],
-    correctAnswer: 'A',
-    category: 'STEM',
+    questionEn: 'Loading...',
+    questionHi: 'लोड हो रहा है...',
+    speechEn: 'Loading question',
+    speechHi: 'प्रश्न लोड हो रहा है',
+    options: [],
+    correctAnswerId: '',
+    categoryEn: 'STEM',
+    categoryHi: 'अभ्यास',
   };
 
   const comboBadge = getComboBadge(combo);
@@ -255,16 +801,18 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
     totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 100;
 
   return (
-    <Modal visible={visible} animationType="slide" transparent onRequestClose={onClose}>
+    <Modal visible={visible} animationType="slide" transparent onRequestClose={handleClose}>
       <View style={styles.overlay}>
         <View style={styles.container}>
           {/* Top Bar */}
           <View style={styles.topBar}>
             <View style={styles.topBarLeft}>
               <Text style={styles.lightningIcon}>⚡</Text>
-              <Text style={styles.topBarTitle}>Super Kid Brain Booster</Text>
+              <Text style={styles.topBarTitle}>
+                {activeLang === 'hi' ? 'सुपर किड ब्रेन बूस्टर' : 'Super Kid Brain Booster'}
+              </Text>
             </View>
-            <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
+            <TouchableOpacity onPress={handleClose} style={styles.closeBtn}>
               <Text style={styles.closeText}>✕</Text>
             </TouchableOpacity>
           </View>
@@ -276,28 +824,38 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
                 <Text style={styles.heroEmoji}>🦸⚡</Text>
               </View>
 
-              <Text style={styles.introTitle}>60-Second Lightning Reflex</Text>
+              <Text style={styles.introTitle}>
+                {activeLang === 'hi' ? '60-सेकंड सुपर किड स्पीड टेस्ट' : '60-Second Lightning Reflex'}
+              </Text>
               <Text style={styles.introSubtitle}>
-                60 सेकंड में अपने सुपर-किड दिमाग की स्पीड टेस्ट करें!
+                {activeLang === 'hi'
+                  ? '60 सेकंड में अपने सुपर-किड दिमाग की स्पीड और फोकस टेस्ट करें!'
+                  : 'Test your super-kid reflexes and build giant combos in 60s!'}
               </Text>
 
               <View style={styles.rulesList}>
                 <View style={styles.ruleItem}>
                   <Text style={styles.ruleEmoji}>⚡</Text>
                   <Text style={styles.ruleText}>
-                    Quick-fire Math & STEM questions (60s non-stop)
+                    {activeLang === 'hi'
+                      ? 'तेज और मजेदार सचित्र प्रश्न (60 सेकंड नॉन-स्टॉप)'
+                      : 'Quick-fire sensory picture questions (60s non-stop)'}
                   </Text>
                 </View>
                 <View style={styles.ruleItem}>
                   <Text style={styles.ruleEmoji}>🔥</Text>
                   <Text style={styles.ruleText}>
-                    Answer fast to build 2x, 3x, 5x & 10x Combos!
+                    {activeLang === 'hi'
+                      ? 'सही जवाब देकर 2x, 3x, 5x व 10x कॉम्बो बनाएं!'
+                      : 'Answer fast to build 2x, 3x, 5x & 10x Combos!'}
                   </Text>
                 </View>
                 <View style={styles.ruleItem}>
                   <Text style={styles.ruleEmoji}>⭐</Text>
                   <Text style={styles.ruleText}>
-                    Win +50 Bonus Stars & Official Super Kid Ranking!
+                    {activeLang === 'hi'
+                      ? '+50 बोनस स्टार्स जीतें और सुपर किड रैंकिंग पाएं!'
+                      : 'Win +50 Bonus Stars & Official Super Kid Ranking!'}
                   </Text>
                 </View>
               </View>
@@ -307,7 +865,9 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
                 activeOpacity={0.88}
                 onPress={startGame}
               >
-                <Text style={styles.startBtnText}>START 60s RUSH! 🚀</Text>
+                <Text style={styles.startBtnText}>
+                  {activeLang === 'hi' ? 'शुरू करें! (60s RUSH) 🚀' : 'START 60s RUSH! 🚀'}
+                </Text>
               </TouchableOpacity>
             </View>
           )}
@@ -379,42 +939,76 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
                   feedback === 'wrong' && styles.cardWrong,
                 ]}
               >
-                <View style={styles.categoryPill}>
-                  <Text style={styles.categoryText}>{currentQ.category}</Text>
+                {/* Header Row: Category & Speaker Button */}
+                <View style={styles.questionCardHeaderRow}>
+                  <View style={styles.categoryPill}>
+                    <Text style={styles.categoryText}>
+                      {activeLang === 'hi' ? currentQ.categoryHi : currentQ.categoryEn}
+                    </Text>
+                  </View>
+
+                  <SpeakerButton
+                    textToSpeak={activeLang === 'hi' ? currentQ.speechHi : currentQ.speechEn}
+                    size="pill"
+                    showLabel
+                    activeLang={activeLang}
+                  />
                 </View>
 
                 {currentQ.visual && (
                   <Text style={styles.questionVisual}>{currentQ.visual}</Text>
                 )}
 
-                <Text style={styles.questionTitle}>{currentQ.question}</Text>
+                <Text style={styles.questionTitle}>
+                  {activeLang === 'hi' ? currentQ.questionHi : currentQ.questionEn}
+                </Text>
               </View>
 
-              {/* Big Responsive Options Buttons */}
+              {/* Big Sensory Responsive Option Cards */}
               <View style={styles.optionsRow}>
-                {currentQ.options.map((opt, idx) => (
-                  <TouchableOpacity
-                    key={idx}
-                    style={[
-                      styles.optionButton,
-                      feedback === 'correct' &&
-                        opt === currentQ.correctAnswer &&
-                        styles.optCorrect,
-                      feedback === 'wrong' &&
-                        opt !== currentQ.correctAnswer &&
-                        styles.optWrong,
-                    ]}
-                    activeOpacity={0.85}
-                    onPress={() => handleSelectAnswer(opt)}
-                  >
-                    <Text style={styles.optionButtonText}>{opt}</Text>
-                  </TouchableOpacity>
-                ))}
+                {currentQ.options.map((opt) => {
+                  const isSelectedCorrect = feedback === 'correct' && opt.id === currentQ.correctAnswerId;
+                  const isSelectedWrong = feedback === 'wrong' && opt.id !== currentQ.correctAnswerId;
+
+                  return (
+                    <TouchableOpacity
+                      key={opt.id}
+                      style={[
+                        styles.optionCard,
+                        {
+                          backgroundColor: opt.bgColor || '#F0F9FF',
+                          borderColor: opt.borderColor || '#BAE6FD',
+                          borderBottomColor: opt.borderColor || '#7DD3FC',
+                        },
+                        isSelectedCorrect && styles.optCorrect,
+                        isSelectedWrong && styles.optWrong,
+                      ]}
+                      activeOpacity={0.82}
+                      onPress={() => handleSelectAnswer(opt.id)}
+                    >
+                      {opt.emoji && (
+                        <Text style={styles.optionEmoji}>{opt.emoji}</Text>
+                      )}
+                      <Text
+                        style={[
+                          styles.optionLabel,
+                          { color: opt.color || '#0369A1' },
+                          isSelectedCorrect && { color: '#FFFFFF' },
+                          isSelectedWrong && { color: '#FFFFFF' },
+                        ]}
+                      >
+                        {activeLang === 'hi' ? opt.labelHi : opt.labelEn}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
               </View>
 
               <View style={styles.speedHintBox}>
                 <Text style={styles.speedHintText}>
-                  💡 Tip: The faster you answer correctly, the bigger your combo!
+                  {activeLang === 'hi'
+                    ? '💡 टिप: जितनी तेजी से सही जवाब देंगे, कॉम्बो और स्कोर उतना बड़ा होगा!'
+                    : '💡 Tip: The faster you answer correctly, the bigger your combo!'}
                 </Text>
               </View>
             </View>
@@ -424,26 +1018,36 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
           {gameState === 'gameover' && (
             <View style={styles.gameoverBox}>
               <Text style={styles.trophyEmoji}>🏆⚡</Text>
-              <Text style={styles.gameoverTitle}>SUPER KID AGILITY REPORT</Text>
+              <Text style={styles.gameoverTitle}>
+                {activeLang === 'hi' ? 'सुपर किड रिपोर्ट कार्ड' : 'SUPER KID AGILITY REPORT'}
+              </Text>
               <Text style={styles.tierBadge}>🌟 S-TIER SUPER KID GENIUS 🌟</Text>
 
               {/* Results Grid */}
               <View style={styles.resultsGrid}>
                 <View style={styles.resultItem}>
                   <Text style={styles.resultVal}>{score}</Text>
-                  <Text style={styles.resultLabel}>Total Score</Text>
+                  <Text style={styles.resultLabel}>
+                    {activeLang === 'hi' ? 'कुल स्कोर' : 'Total Score'}
+                  </Text>
                 </View>
                 <View style={styles.resultItem}>
                   <Text style={styles.resultVal}>{maxCombo}x</Text>
-                  <Text style={styles.resultLabel}>Max Combo</Text>
+                  <Text style={styles.resultLabel}>
+                    {activeLang === 'hi' ? 'उच्चतम कॉम्बो' : 'Max Combo'}
+                  </Text>
                 </View>
                 <View style={styles.resultItem}>
                   <Text style={styles.resultVal}>{totalAnswered}</Text>
-                  <Text style={styles.resultLabel}>Questions</Text>
+                  <Text style={styles.resultLabel}>
+                    {activeLang === 'hi' ? 'कुल प्रश्न' : 'Questions'}
+                  </Text>
                 </View>
                 <View style={styles.resultItem}>
                   <Text style={styles.resultVal}>{accuracy}%</Text>
-                  <Text style={styles.resultLabel}>Accuracy</Text>
+                  <Text style={styles.resultLabel}>
+                    {activeLang === 'hi' ? 'सटीकता' : 'Accuracy'}
+                  </Text>
                 </View>
               </View>
 
@@ -451,7 +1055,9 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
               <View style={styles.rewardBanner}>
                 <Text style={styles.rewardStars}>⭐ +50 STARS ADDED!</Text>
                 <Text style={styles.rewardSub}>
-                  Your brain speed is in the top 1% of Junior Scientists! 🚀
+                  {activeLang === 'hi'
+                    ? 'आपकी दिमागी गति और सटीकता टॉप 1% सुपर बच्चों में है! 🚀'
+                    : 'Your brain speed is in the top 1% of Junior Scientists! 🚀'}
                 </Text>
               </View>
 
@@ -462,15 +1068,19 @@ export const SpeedBrainGameModal: React.FC<SpeedBrainGameModalProps> = ({
                   activeOpacity={0.88}
                   onPress={startGame}
                 >
-                  <Text style={styles.playAgainText}>Play Again ⚡</Text>
+                  <Text style={styles.playAgainText}>
+                    {activeLang === 'hi' ? 'फिर से खेलें ⚡' : 'Play Again ⚡'}
+                  </Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                   style={styles.doneBtn}
                   activeOpacity={0.85}
-                  onPress={onClose}
+                  onPress={handleClose}
                 >
-                  <Text style={styles.doneBtnText}>Back to Hub 🔬</Text>
+                  <Text style={styles.doneBtnText}>
+                    {activeLang === 'hi' ? 'वापस जाएं 🔬' : 'Back to Hub 🔬'}
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -490,7 +1100,7 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '92%',
-    maxHeight: '90%',
+    maxHeight: '92%',
     backgroundColor: '#FFFFFF',
     borderRadius: 24,
     borderWidth: 2.5,
@@ -606,57 +1216,54 @@ const styles = StyleSheet.create({
     ...SHADOWS.medium,
   },
   startBtnText: {
-    color: '#FFF',
+    color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '900',
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   },
 
   // PLAYING
   playBox: {
     padding: SPACING.md,
-    alignItems: 'center',
   },
   statsBar: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: '100%',
     marginBottom: 10,
   },
   timerBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F0F9FF',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 12,
+    backgroundColor: '#F1F5F9',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: BORDER_RADIUS.full,
     gap: 4,
-    borderWidth: 1.5,
-    borderColor: '#BAE6FD',
+    borderWidth: 1,
+    borderColor: '#CBD5E1',
   },
   timerBoxUrgent: {
-    borderColor: '#EF4444',
-    backgroundColor: '#FEF2F2',
+    backgroundColor: '#FEE2E2',
+    borderColor: '#F87171',
   },
   timerIcon: {
     fontSize: 14,
   },
   timerText: {
-    color: '#0284C7',
+    color: '#0F172A',
+    fontSize: 13,
     fontWeight: '900',
-    fontSize: 14,
   },
   timerTextUrgent: {
-    color: '#EF4444',
+    color: '#DC2626',
   },
   comboBadgeBox: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: BORDER_RADIUS.full,
     borderWidth: 1.5,
-    backgroundColor: '#FFFBEB',
-    borderColor: '#F59E0B',
+    borderRadius: BORDER_RADIUS.full,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    backgroundColor: '#FFFFFF',
   },
   comboBadgeText: {
     fontSize: 11,
@@ -682,7 +1289,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E2E8F0',
     borderRadius: 3,
     overflow: 'hidden',
-    marginBottom: 16,
+    marginBottom: 14,
   },
   progressLineFill: {
     height: '100%',
@@ -708,22 +1315,29 @@ const styles = StyleSheet.create({
     borderColor: '#EF4444',
     backgroundColor: '#FEF2F2',
   },
+  questionCardHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginBottom: 8,
+  },
   categoryPill: {
     backgroundColor: '#E0F2FE',
     paddingHorizontal: 10,
-    paddingVertical: 3,
+    paddingVertical: 4,
     borderRadius: BORDER_RADIUS.full,
-    marginBottom: 8,
   },
   categoryText: {
     color: '#0284C7',
-    fontSize: 10,
+    fontSize: 11,
     fontWeight: '800',
     textTransform: 'uppercase',
   },
   questionVisual: {
     fontSize: 32,
     marginVertical: 4,
+    textAlign: 'center',
   },
   questionTitle: {
     color: '#0F172A',
@@ -731,40 +1345,48 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     textAlign: 'center',
     marginTop: 4,
+    lineHeight: 25,
   },
   optionsRow: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
     gap: 12,
-    marginTop: 18,
+    marginTop: 16,
   },
-  optionButton: {
+  optionCard: {
     flex: 1,
-    backgroundColor: '#0284C7',
-    paddingVertical: 16,
-    borderRadius: 16,
+    minHeight: 96,
+    paddingVertical: 14,
+    paddingHorizontal: 8,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    borderBottomWidth: 4,
-    borderBottomColor: '#0369A1',
+    borderWidth: 2.5,
+    borderBottomWidth: 5,
     ...SHADOWS.medium,
+  },
+  optionEmoji: {
+    fontSize: 34,
+    marginBottom: 6,
+  },
+  optionLabel: {
+    fontSize: 14,
+    fontWeight: '900',
+    textAlign: 'center',
   },
   optCorrect: {
     backgroundColor: '#10B981',
-    borderBottomColor: '#059669',
+    borderColor: '#059669',
+    borderBottomColor: '#047857',
   },
   optWrong: {
     backgroundColor: '#EF4444',
-    borderBottomColor: '#DC2626',
-  },
-  optionButtonText: {
-    color: '#FFF',
-    fontSize: 18,
-    fontWeight: '900',
+    borderColor: '#DC2626',
+    borderBottomColor: '#B91C1C',
   },
   speedHintBox: {
-    marginTop: 16,
+    marginTop: 14,
   },
   speedHintText: {
     color: '#64748B',

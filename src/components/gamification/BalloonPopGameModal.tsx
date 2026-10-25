@@ -12,6 +12,7 @@ import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../../constants/theme';
 import { triggerHaptic } from '../../utils/haptics';
 import { soundManager } from '../../utils/soundManager';
 import { useUserStore } from '../../store/useUserStore';
+import { SpeakerButton } from '../common/SpeakerButton';
 import { Grade } from '../../types';
 
 interface BalloonPopGameModalProps {
@@ -48,21 +49,81 @@ const generateChallenge = (grade: Grade, roundNum: number): GameRound => {
   const isLowerPrimary = grade === 1 || grade === 2;
 
   if (isKindergarten) {
-    const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'M', 'P', 'S', 'T'];
-    const target = letters[Math.floor(Math.random() * letters.length)];
-    const distractors = letters.filter((l) => l !== target).sort(() => 0.5 - Math.random()).slice(0, 3);
-    const all = [target, ...distractors].sort(() => 0.5 - Math.random());
+    const kType = roundNum % 4;
+    if (kType === 0) {
+      // Big vs Small, Tall vs Short
+      const pairs = [
+        { q: '🎈 Pop the BIG elephant! 🐘', a: '🐘 Big', d: ['🐭 Tiny', '🐜 Mini', '🐤 Small'] },
+        { q: '🎈 Pop the TINY mouse! 🐭', a: '🐭 Tiny', d: ['🐘 Huge', '🦁 Big', '🐻 Giant'] },
+        { q: '🎈 Pop the TALL giraffe! 🦒', a: '🦒 Tall', d: ['🐢 Short', '🐇 Tiny', '🐥 Mini'] },
+        { q: '🎈 Pop the TALL tree! 🌲', a: '🌲 Tall', d: ['🌱 Short', '🍄 Tiny', '🌿 Mini'] },
+      ];
+      const item = pairs[Math.floor(Math.random() * pairs.length)];
+      const all = [item.a, ...item.d].sort(() => 0.5 - Math.random());
+      return {
+        prompt: item.q,
+        options: all.map((text, idx) => ({
+          id: `opt_${idx}_${roundNum}`,
+          text,
+          isCorrect: text === item.a,
+          color: BALLOON_COLORS[idx % BALLOON_COLORS.length],
+          xOffset: (idx - 1.5) * 65,
+        })),
+      };
+    } else if (kType === 1) {
+      // Shapes
+      const shapes = [
+        { q: '🎈 Pop the CIRCLE! 🔴', a: '🔴 Circle', d: ['🔺 Triangle', '🟦 Square', '⭐ Star'] },
+        { q: '🎈 Pop the STAR! ⭐', a: '⭐ Star', d: ['🔴 Circle', '🔺 Triangle', '🟦 Square'] },
+        { q: '🎈 Pop the TRIANGLE! 🔺', a: '🔺 Triangle', d: ['🔴 Circle', '🟦 Square', '🌙 Moon'] },
+        { q: '🎈 Pop the SQUARE! 🟦', a: '🟦 Square', d: ['🔴 Circle', '🔺 Triangle', '⭐ Star'] },
+      ];
+      const item = shapes[Math.floor(Math.random() * shapes.length)];
+      const all = [item.a, ...item.d].sort(() => 0.5 - Math.random());
+      return {
+        prompt: item.q,
+        options: all.map((text, idx) => ({
+          id: `opt_${idx}_${roundNum}`,
+          text,
+          isCorrect: text === item.a,
+          color: BALLOON_COLORS[idx % BALLOON_COLORS.length],
+          xOffset: (idx - 1.5) * 65,
+        })),
+      };
+    } else if (kType === 2) {
+      // Numbers 1 to 5
+      const nums = [1, 2, 3, 4, 5];
+      const target = nums[Math.floor(Math.random() * nums.length)];
+      const distractors = nums.filter((n) => n !== target).sort(() => 0.5 - Math.random()).slice(0, 3);
+      const all = [target, ...distractors].sort(() => 0.5 - Math.random());
+      return {
+        prompt: `🎈 Pop the Number "${target}"!`,
+        options: all.map((num, idx) => ({
+          id: `opt_${idx}_${roundNum}`,
+          text: String(num),
+          isCorrect: num === target,
+          color: BALLOON_COLORS[idx % BALLOON_COLORS.length],
+          xOffset: (idx - 1.5) * 65,
+        })),
+      };
+    } else {
+      // Letters
+      const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'M', 'P', 'S', 'T'];
+      const target = letters[Math.floor(Math.random() * letters.length)];
+      const distractors = letters.filter((l) => l !== target).sort(() => 0.5 - Math.random()).slice(0, 3);
+      const all = [target, ...distractors].sort(() => 0.5 - Math.random());
 
-    return {
-      prompt: `🎈 Pop the letter "${target}"!`,
-      options: all.map((item, idx) => ({
-        id: `opt_${idx}_${roundNum}`,
-        text: item,
-        isCorrect: item === target,
-        color: BALLOON_COLORS[idx % BALLOON_COLORS.length],
-        xOffset: (idx - 1.5) * 65,
-      })),
-    };
+      return {
+        prompt: `🎈 Pop the letter "${target}"!`,
+        options: all.map((item, idx) => ({
+          id: `opt_${idx}_${roundNum}`,
+          text: item,
+          isCorrect: item === target,
+          color: BALLOON_COLORS[idx % BALLOON_COLORS.length],
+          xOffset: (idx - 1.5) * 65,
+        })),
+      };
+    }
   }
 
   if (isLowerPrimary) {
@@ -320,7 +381,10 @@ export const BalloonPopGameModal: React.FC<BalloonPopGameModalProps> = ({
 
           {/* Question / Mission Prompt */}
           <View style={styles.promptBanner}>
-            <Text style={styles.promptText}>{challenge.prompt}</Text>
+            <View style={{ flex: 1 }}>
+              <Text style={styles.promptText}>{challenge.prompt}</Text>
+            </View>
+            <SpeakerButton textToSpeak={challenge.prompt} size="sm" />
           </View>
 
           {/* Balloon Sky Area */}
@@ -511,10 +575,13 @@ const styles = StyleSheet.create({
   promptBanner: {
     backgroundColor: '#FFFFFF',
     width: '100%',
-    paddingVertical: 12,
+    paddingVertical: 10,
     paddingHorizontal: SPACING.md,
     borderRadius: BORDER_RADIUS.lg,
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 8,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.2,
