@@ -29,7 +29,10 @@ export default function StoreScreen() {
   const [storeOffers] = useState(() => storageService.getStoreOffers());
   const [purchasedMessage, setPurchasedMessage] = useState('');
 
-  const flashOffer = storeOffers[0] || null;
+  const isStoreHeld = storageService.isFeatureHeld('store');
+  const isFreeAccess = storageService.isFreeAccessActive();
+  const activeOffers = storeOffers.filter(o => o.isActive !== false);
+  const flashOffer = activeOffers[0] || null;
 
   const handleBuyGems = (gemAmount, inrPrice) => {
     soundService.playCorrect();
@@ -50,17 +53,17 @@ export default function StoreScreen() {
 
   const handleInstantRefill = () => {
     if (!currentUser) return;
-    if (currentUser.gems < 20) {
+    if (!isFreeAccess && currentUser.gems < 20) {
       soundService.playWrong();
       alert("You need at least 20 Gems to instantly refill full energy.");
       return;
     }
     soundService.playCorrect();
     updateProfile({
-      gems: currentUser.gems - 20,
+      gems: isFreeAccess ? currentUser.gems : (currentUser.gems - 20),
       energy: 5
     });
-    setPurchasedMessage("Full Energy Refilled! (20 Gems used)");
+    setPurchasedMessage(isFreeAccess ? "🎉 Free Access Gala: Full Energy Refilled for 0 Gems!" : "Full Energy Refilled! (20 Gems used)");
     setTimeout(() => setPurchasedMessage(''), 3000);
   };
 
@@ -87,6 +90,34 @@ export default function StoreScreen() {
         <ShieldCheck size={16} className="shrink-0" />
         <span>100% Ad-Free & Safe: Pure skill learning with verified digital badges & real physical awards!</span>
       </div>
+
+      {/* Store Held by Admin Notice */}
+      {isStoreHeld && (
+        <div className="p-3 rounded-xl bg-crimsonAlert/15 border border-crimsonAlert text-xs text-crimsonAlert flex items-center gap-2 mb-3">
+          <Clock size={16} className="shrink-0" />
+          <span>Paid purchases are temporarily on hold for live maintenance. Free energy refills and offline play remain available!</span>
+        </div>
+      )}
+
+      {/* Free Access Gala Notice */}
+      {isFreeAccess && (
+        <div className="p-3.5 rounded-2xl bg-gradient-to-r from-champGold/25 via-velvet-950 to-navy-900 border border-champGold text-xs text-champGold flex items-center justify-between mb-3 shadow-lg">
+          <div className="flex items-center gap-2">
+            <Sparkles size={18} className="shrink-0" />
+            <div>
+              <strong className="block font-rajdhani uppercase tracking-wider">🎉 Free Access Gala Active!</strong>
+              <span className="text-[11px] text-slate-200">Instant Energy Refills cost 0 Gems for the duration of the Gala!</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={handleInstantRefill}
+            className="px-3 py-1.5 rounded-xl bg-champGold text-navy-950 font-bold text-xs uppercase font-rajdhani hover:brightness-110 shadow"
+          >
+            Refill Free (0 💎)
+          </button>
+        </div>
+      )}
 
       {purchasedMessage && (
         <div className="p-3 rounded-xl bg-champGold/20 border border-champGold text-champGold text-xs font-bold text-center mb-3 animate-fadeIn">

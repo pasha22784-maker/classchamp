@@ -217,6 +217,76 @@ class SoundService {
       // Audio fallback
     }
   }
+
+  // Dramatic KBC-style countdown chime: higher pitch as count goes 5 -> 1
+  playCountdownTick(count = 5) {
+    if (this.muted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const baseFreq = 520 + (5 - Math.max(1, count)) * 80; // 520Hz up to 840Hz
+
+      // Primary chime
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(baseFreq, now);
+      osc.frequency.exponentialRampToValueAtTime(baseFreq * 1.5, now + 0.06);
+
+      gain.gain.setValueAtTime(0.35, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.15);
+
+      // Low sub thud for TV studio weight
+      const subOsc = this.ctx.createOscillator();
+      const subGain = this.ctx.createGain();
+      subOsc.type = 'triangle';
+      subOsc.frequency.setValueAtTime(110, now);
+      subOsc.frequency.exponentialRampToValueAtTime(55, now + 0.12);
+
+      subGain.gain.setValueAtTime(0.3, now);
+      subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+      subOsc.connect(subGain);
+      subGain.connect(this.ctx.destination);
+      subOsc.start(now);
+      subOsc.stop(now + 0.12);
+    } catch {
+      // Audio fallback
+    }
+  }
+
+  // Triumphant GO / START chime
+  playCountdownStart() {
+    if (this.muted) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const chords = [523.25, 659.25, 783.99, 1046.50]; // C-E-G-C
+      chords.forEach((freq, idx) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.03);
+        gain.gain.setValueAtTime(0.3, now + idx * 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now + idx * 0.03);
+        osc.stop(now + 0.6);
+      });
+    } catch {
+      // Audio fallback
+    }
+  }
 }
 
 export const soundService = new SoundService();

@@ -10,6 +10,7 @@
  */
 
 import { proceduralMathEngine } from './proceduralMathEngine';
+import examCategoryService from './examCategoryService';
 
 export const BRACKETS = {
   B1: '1000-10000',
@@ -99,41 +100,65 @@ class QuestionEngine {
   }
 
   // Pull a Fastest Finger First question
-  getFFFQuestion(allQuestions, division, userId) {
+  getFFFQuestion(allQuestions, division, userId, customExamCategory = null, targetGrade = null) {
     const history = this.getUserHistory(userId);
 
     // Filter matching division and bracket
-    const pool = allQuestions.filter(q =>
+    let pool = allQuestions.filter(q =>
       (q.division === division || q.division === 'All') &&
       q.bracket === BRACKETS.FFF &&
       this.isEligibleForUser(q.id, history)
     );
+
+    if ((division === 'Junior' || division === 'Senior') && targetGrade) {
+      const gradeSpecific = pool.filter(q => Number(q.grade) === Number(targetGrade));
+      if (gradeSpecific.length > 0) {
+        return this.shuffle(gradeSpecific)[0];
+      }
+    }
 
     if (pool.length > 0) {
       return this.shuffle(pool)[0];
     }
 
     // Procedural Fallback if exhausted
-    return proceduralMathEngine.generateFFF(division);
+    return proceduralMathEngine.generateFFF(division, targetGrade);
   }
 
   // Fetch 15 Hot-Seat questions matching division and prize brackets
-  getHotSeatMatchQuestions(allQuestions, division, userId) {
+  getHotSeatMatchQuestions(allQuestions, division, userId, customExamCategory = null, targetGrade = null) {
     const history = this.getUserHistory(userId);
+    const activeCategory = customExamCategory || examCategoryService.getActiveCategory();
+    const categoryMeta = examCategoryService.getCategories().find(c => c.id === activeCategory);
+    const targetSubjects = categoryMeta?.subjects || [];
 
     const pullFromBracket = (bracket, neededCount) => {
-      const matching = allQuestions.filter(q =>
+      let matching = allQuestions.filter(q =>
         (q.division === division || q.division === 'All') &&
         q.bracket === bracket &&
         this.isEligibleForUser(q.id, history)
       );
 
-      const shuffled = this.shuffle(matching);
-      const selected = shuffled.slice(0, neededCount);
+      // If Junior or Senior with targetGrade, prioritize questions tagged with that grade
+      if ((division === 'Junior' || division === 'Senior') && targetGrade) {
+        const gradeMatch = matching.filter(q => Number(q.grade) === Number(targetGrade));
+        const otherMatch = matching.filter(q => !q.grade || Number(q.grade) !== Number(targetGrade));
+        matching = [...this.shuffle(gradeMatch), ...this.shuffle(otherMatch)];
+      }
+      // For Champions / Open division: prioritize questions matching target exam category
+      else if (division === 'Open' && activeCategory !== 'ALL' && targetSubjects.length > 0) {
+        const priority = matching.filter(q => targetSubjects.includes(q.subject));
+        const nonPriority = matching.filter(q => !targetSubjects.includes(q.subject));
+        matching = [...this.shuffle(priority), ...this.shuffle(nonPriority)];
+      } else {
+        matching = this.shuffle(matching);
+      }
+
+      const selected = matching.slice(0, neededCount);
 
       // If we need more than available in DB, generate procedurally
       while (selected.length < neededCount) {
-        const procQ = proceduralMathEngine.generate(division, bracket);
+        const procQ = proceduralMathEngine.generate(division, bracket, targetGrade);
         selected.push(procQ);
       }
 

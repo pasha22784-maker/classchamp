@@ -13,6 +13,10 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(() => storageService.getCurrentUser());
   const [adminViewMode, setAdminViewMode] = useState('admin'); // 'admin' | 'player'
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+
+  const openRegisterModal = () => setIsRegisterModalOpen(true);
+  const closeRegisterModal = () => setIsRegisterModalOpen(false);
 
   useEffect(() => {
     if (currentUser) {
@@ -43,6 +47,85 @@ export function AuthProvider({ children }) {
     return { success: false, error: "Invalid email or password." };
   };
 
+  // Play as Guest (Instant Play without Signup)
+  const loginAsGuest = ({ division = 'Junior', grade = 3, nickname = '' } = {}) => {
+    const randomTag = Math.floor(1000 + Math.random() * 9000);
+    const guestName = nickname.trim() || `Guest #${randomTag}`;
+    const gradeNum = Number(grade) || (division === 'Junior' ? 3 : division === 'Senior' ? 8 : 12);
+    const guestUser = {
+      id: `guest_${Date.now()}`,
+      name: guestName,
+      isGuest: true,
+      role: 'player',
+      division: division || 'Junior',
+      grade: gradeNum,
+      city: 'Guest Arena',
+      state: 'Online',
+      energy: 5,
+      maxEnergy: 5,
+      lastEnergyRecharge: Date.now(),
+      gems: 50,
+      trophies: 100,
+      streak: 0,
+      isPro: false,
+      avatar: '🎮',
+      joinedAt: Date.now()
+    };
+
+    setCurrentUser(guestUser);
+    storageService.setCurrentUser(guestUser);
+    return { success: true, user: guestUser };
+  };
+
+  // Convert current Guest user into an official Registered Player (Seamless Progress Migration)
+  const registerGuestAccount = async ({ name, email, password, division, grade, city, state }) => {
+    const cleanEmail = email.trim().toLowerCase();
+    const users = storageService.getUsers();
+    const exists = users.some(u => u.email.toLowerCase() === cleanEmail);
+    if (exists) {
+      return { success: false, error: "An account with this email already exists." };
+    }
+
+    const hashedPassword = await hashPassword(password);
+
+    // Carry over earned progress from guest session
+    const carriedGems = Math.max(100, (currentUser?.gems || 0));
+    const carriedTrophies = Math.max(200, (currentUser?.trophies || 0));
+    const carriedEnergy = currentUser?.energy ?? 5;
+    const carriedStreak = currentUser?.streak || 0;
+    const div = division || currentUser?.division || 'Junior';
+    const gradeNum = Number(grade) || currentUser?.grade || (div === 'Junior' ? 3 : div === 'Senior' ? 8 : 12);
+
+    const registeredUser = {
+      id: `user_${Date.now()}`,
+      name: name.trim(),
+      email: cleanEmail,
+      password: hashedPassword,
+      isGuest: false,
+      role: 'player',
+      division: div,
+      grade: gradeNum,
+      city: city?.trim() || 'New Delhi',
+      state: state?.trim() || 'Delhi',
+      energy: carriedEnergy,
+      maxEnergy: 5,
+      lastEnergyRecharge: Date.now(),
+      gems: carriedGems,
+      trophies: carriedTrophies,
+      streak: carriedStreak,
+      isPro: false,
+      avatar: div === 'Senior' ? '⭐' : div === 'Open' ? '🦁' : '🚀',
+      registeredAt: Date.now()
+    };
+
+    users.push(registeredUser);
+    storageService.saveUsers(users);
+    setCurrentUser(registeredUser);
+    storageService.setCurrentUser(registeredUser);
+    setIsRegisterModalOpen(false);
+    return { success: true, user: registeredUser };
+  };
+
   // Quick Demo Profile Login
   const loginAsDemo = (demoId) => {
     const users = storageService.getUsers();
@@ -60,7 +143,7 @@ export function AuthProvider({ children }) {
   };
 
   // Signup new player
-  const signup = async ({ name, email, password, division, city, state }) => {
+  const signup = async ({ name, email, password, division, grade, city, state }) => {
     const users = storageService.getUsers();
     const exists = users.some(u => u.email.toLowerCase() === email.trim().toLowerCase());
     if (exists) {
@@ -68,6 +151,8 @@ export function AuthProvider({ children }) {
     }
 
     const hashedPassword = await hashPassword(password);
+    const div = division || 'Junior';
+    const gradeNum = Number(grade) || (div === 'Junior' ? 3 : div === 'Senior' ? 8 : 12);
 
     const newUser = {
       id: `user_${Date.now()}`,
@@ -75,7 +160,8 @@ export function AuthProvider({ children }) {
       email: email.trim(),
       password: hashedPassword,
       role: 'player',
-      division: division || 'Junior',
+      division: div,
+      grade: gradeNum,
       city: city || 'New Delhi',
       state: state || 'Delhi',
       energy: 5,
@@ -83,8 +169,9 @@ export function AuthProvider({ children }) {
       lastEnergyRecharge: Date.now(),
       gems: 100, // Welcome gift
       trophies: 200, // Base starting rank
+      streak: 0,
       isPro: false,
-      avatar: '⭐'
+      avatar: div === 'Senior' ? '⭐' : div === 'Open' ? '🦁' : '🚀'
     };
 
     users.push(newUser);
@@ -171,6 +258,8 @@ export function AuthProvider({ children }) {
       value={{
         currentUser,
         login,
+        loginAsGuest,
+        registerGuestAccount,
         loginAsDemo,
         signup,
         logout,
@@ -181,7 +270,10 @@ export function AuthProvider({ children }) {
         updateTrophies,
         adminViewMode,
         setAdminViewMode,
-        toggleAdminViewMode
+        toggleAdminViewMode,
+        isRegisterModalOpen,
+        openRegisterModal,
+        closeRegisterModal
       }}
     >
       {children}

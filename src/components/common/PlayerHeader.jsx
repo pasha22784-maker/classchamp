@@ -5,11 +5,16 @@
 
 import React from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Heart, Award, Sparkles } from 'lucide-react';
+import { useGame } from '../../context/GameContext';
+import examCategoryService from '../../services/examCategoryService';
+import { Heart, Award, Sparkles, Settings } from 'lucide-react';
 
 export default function PlayerHeader() {
-  const { currentUser } = useAuth();
+  const { currentUser, openRegisterModal } = useAuth();
+  const { activeDivision, openSettings, examCategory } = useGame();
   if (!currentUser) return null;
+
+  const categoryMeta = examCategoryService.getCategories().find(c => c.id === examCategory) || examCategoryService.getCategories()[0];
 
   return (
     <div className="bg-navy-900/90 backdrop-blur border-b border-white/10 px-4 py-3 flex items-center justify-between">
@@ -28,14 +33,43 @@ export default function PlayerHeader() {
         <div>
           <div className="text-xs font-bold text-pearl flex items-center gap-1.5 leading-tight">
             <span>{currentUser.name}</span>
-            <span className="text-[10px] text-slate-400 font-normal">
-              • {currentUser.city || 'India'}
-            </span>
+            {currentUser.isGuest ? (
+              <button
+                type="button"
+                onClick={openRegisterModal}
+                className="text-[9px] font-bold text-amber-300 bg-amber-500/25 hover:bg-amber-500/40 border border-amber-400/50 px-1.5 py-0.2 rounded-full flex items-center gap-0.5 transition shadow"
+                title="Register to save your streak and leaderboard rank"
+              >
+                <span>Save Account</span>
+                <span>&rarr;</span>
+              </button>
+            ) : (
+              <span className="text-[10px] text-slate-400 font-normal">
+                • {currentUser.city || 'India'}
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-1 mt-0.5">
             <span className="text-[10px] font-semibold text-champGold bg-champGold/10 px-1.5 py-0.2 rounded border border-champGold/20">
               {currentUser.division} League
             </span>
+            {currentUser.isGuest && (
+              <span className="text-[9px] font-bold text-amber-400 bg-amber-400/15 px-1 rounded border border-amber-400/30">
+                GUEST
+              </span>
+            )}
+            {(activeDivision === 'Open' || currentUser.division === 'Open') && (
+              <button
+                type="button"
+                onClick={openSettings}
+                className="text-[9px] font-semibold text-purple-300 bg-purple-500/15 hover:bg-purple-500/25 px-1.5 py-0.2 rounded border border-purple-500/30 flex items-center gap-1 transition shadow-sm"
+                title="Tap to change Competitive Exam Focus in Settings"
+              >
+                <span>{categoryMeta.badge}</span>
+                <span>{categoryMeta.shortName}</span>
+                <Settings size={9} className="text-purple-400 ml-0.5" />
+              </button>
+            )}
           </div>
         </div>
       </div>

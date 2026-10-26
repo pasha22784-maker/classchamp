@@ -15,7 +15,46 @@ const STORAGE_KEYS = {
   BOT_SETTINGS: 'classchamp_bot_settings',
   STORE_OFFERS: 'classchamp_store_offers',
   PRIZE_CLAIMS: 'classchamp_prize_claims',
-  VIEW_MODE: 'classchamp_view_mode' // 'mobile' | 'desktop'
+  VIEW_MODE: 'classchamp_view_mode', // 'mobile' | 'desktop'
+  CLANS: 'classchamp_clans',
+  SYSTEM_SETTINGS: 'brainleague_system_settings'
+};
+
+const DEFAULT_SYSTEM_SETTINGS = {
+  maintenanceMode: false,
+  maintenanceMessage: 'BrainLeague is undergoing a scheduled live server optimization. All matches and rankings are safely preserved. We will be back shortly!',
+  maintenanceEstResume: '',
+  freeAccess: {
+    enabled: false,
+    title: 'Free Access Gala — All Features & Unlimited Energy Active!',
+    unlimitedEnergy: true,
+    freeTournaments: true,
+    freeLifelines: true,
+    expiresAt: null,
+    durationLabel: '24 Hours'
+  },
+  broadcast: {
+    enabled: true,
+    message: '🏆 BrainLeague National Champions Arena is Live! Compete, earn trophies and study clans rankings!',
+    type: 'gold', // 'gold' | 'emerald' | 'crimson' | 'blue'
+    targetScreen: 'HOME'
+  },
+  featureLocks: {
+    tournaments: 'active', // 'active' | 'held'
+    clans: 'active',
+    privateRooms: 'active',
+    store: 'active',
+    juniorLeague: 'active',
+    seniorLeague: 'active',
+    openLeague: 'active'
+  },
+  economy: {
+    coinMultiplier: 1,
+    trophyMultiplier: 1,
+    energyRefillMinutes: 30,
+    dailyBonusCoins: 100,
+    dailyBonusGems: 10
+  }
 };
 
 const DEFAULT_USERS = [
@@ -141,6 +180,79 @@ const DEFAULT_STORE_OFFERS = [
   }
 ];
 
+const DEFAULT_CLANS = [
+  {
+    id: 'clan_dps9',
+    code: 'CLAN-DPS9',
+    name: 'DPS Superstars Clan',
+    description: 'National Championship Contenders • Delhi Public School Quiz Knights',
+    badge: '🛡️',
+    leaderId: 'bot_leader_1',
+    leaderName: 'Aditya Verma',
+    createdAt: Date.now() - 30 * 24 * 60 * 60 * 1000,
+    gamesPlayed: 142,
+    totalTrophies: 8940,
+    averageTrophies: 1118,
+    members: [
+      { id: 'bot_leader_1', name: 'Aditya Verma', avatar: '👑', trophies: 1450, role: 'Leader', gamesPlayed: 28 },
+      { id: 'bot_mem_2', name: 'Kavya Pillai', avatar: '⭐', trophies: 1380, role: 'Member', gamesPlayed: 24 },
+      { id: 'bot_mem_3', name: 'Zoya Khan', avatar: '🦁', trophies: 1290, role: 'Member', gamesPlayed: 20 },
+      { id: 'bot_mem_4', name: 'Rohan Mehra', avatar: '🚀', trophies: 1150, role: 'Member', gamesPlayed: 18 },
+      { id: 'bot_mem_5', name: 'Sneha Patel', avatar: '💎', trophies: 1040, role: 'Member', gamesPlayed: 16 },
+      { id: 'bot_mem_6', name: 'Tanmay B.', avatar: '⚡', trophies: 960, role: 'Member', gamesPlayed: 14 },
+      { id: 'bot_mem_7', name: 'Priya Sharma', avatar: '🎯', trophies: 880, role: 'Member', gamesPlayed: 12 },
+      { id: 'bot_mem_8', name: 'Arjun Das', avatar: '🔥', trophies: 790, role: 'Member', gamesPlayed: 10 }
+    ]
+  },
+  {
+    id: 'clan_ssc1',
+    code: 'CLAN-SSC1',
+    name: 'SSC Crackers Guild',
+    description: 'Fast-paced trivia & competitive exam aspirants guild',
+    badge: '⚡',
+    leaderId: 'bot_leader_2',
+    leaderName: 'Vikramaditya S.',
+    createdAt: Date.now() - 20 * 24 * 60 * 60 * 1000,
+    gamesPlayed: 198,
+    totalTrophies: 8420,
+    averageTrophies: 842,
+    members: [
+      { id: 'bot_leader_2', name: 'Vikramaditya S.', avatar: '👑', trophies: 1620, role: 'Leader', gamesPlayed: 32 },
+      { id: 'bot_ssc_2', name: 'Ananya Sharma', avatar: '⭐', trophies: 1210, role: 'Member', gamesPlayed: 26 },
+      { id: 'bot_ssc_3', name: 'Deepak Rao', avatar: '🧠', trophies: 1050, role: 'Member', gamesPlayed: 22 },
+      { id: 'bot_ssc_4', name: 'Neha Gupta', avatar: '🦁', trophies: 940, role: 'Member', gamesPlayed: 20 },
+      { id: 'bot_ssc_5', name: 'Siddharth R.', avatar: '🚀', trophies: 820, role: 'Member', gamesPlayed: 18 },
+      { id: 'bot_ssc_6', name: 'Fatima Zahra', avatar: '💎', trophies: 780, role: 'Member', gamesPlayed: 17 },
+      { id: 'bot_ssc_7', name: 'Manish Kumar', avatar: '🎯', trophies: 670, role: 'Member', gamesPlayed: 16 },
+      { id: 'bot_ssc_8', name: 'Pooja Verma', avatar: '🔥', trophies: 550, role: 'Member', gamesPlayed: 15 },
+      { id: 'bot_ssc_9', name: 'Rahul Joshi', avatar: '⚡', trophies: 410, role: 'Member', gamesPlayed: 16 },
+      { id: 'bot_ssc_10', name: 'Divya Nair', avatar: '🎮', trophies: 370, role: 'Member', gamesPlayed: 16 }
+    ]
+  },
+  {
+    id: 'clan_stx3',
+    code: 'CLAN-STX3',
+    name: 'St. Xavier Quiz Champs',
+    description: 'Literature, Science & History Hot-Seat enthusiasts',
+    badge: '🦅',
+    leaderId: 'bot_leader_3',
+    leaderName: 'Rehan Sheikh',
+    createdAt: Date.now() - 15 * 24 * 60 * 60 * 1000,
+    gamesPlayed: 110,
+    totalTrophies: 7850,
+    averageTrophies: 1121,
+    members: [
+      { id: 'bot_leader_3', name: 'Rehan Sheikh', avatar: '👑', trophies: 1520, role: 'Leader', gamesPlayed: 24 },
+      { id: 'bot_stx_2', name: 'Ishaan Roy', avatar: '🦅', trophies: 1390, role: 'Member', gamesPlayed: 20 },
+      { id: 'bot_stx_3', name: 'Simran Kaur', avatar: '⭐', trophies: 1250, role: 'Member', gamesPlayed: 18 },
+      { id: 'bot_stx_4', name: 'Varun Nair', avatar: '🦁', trophies: 1100, role: 'Member', gamesPlayed: 16 },
+      { id: 'bot_stx_5', name: 'Meera Sen', avatar: '🧠', trophies: 990, role: 'Member', gamesPlayed: 12 },
+      { id: 'bot_stx_6', name: 'Kunal Ghosh', avatar: '⚡', trophies: 880, role: 'Member', gamesPlayed: 11 },
+      { id: 'bot_stx_7', name: 'Tarun Sethi', avatar: '🎯', trophies: 720, role: 'Member', gamesPlayed: 9 }
+    ]
+  }
+];
+
 class StorageService {
   constructor() {
     this.init();
@@ -188,6 +300,10 @@ class StorageService {
 
     if (!localStorage.getItem(STORAGE_KEYS.PRIZE_CLAIMS)) {
       localStorage.setItem(STORAGE_KEYS.PRIZE_CLAIMS, JSON.stringify([]));
+    }
+
+    if (!localStorage.getItem(STORAGE_KEYS.CLANS)) {
+      localStorage.setItem(STORAGE_KEYS.CLANS, JSON.stringify(DEFAULT_CLANS));
     }
   }
 
@@ -257,6 +373,35 @@ class StorageService {
     }
   }
 
+  // Downward Fair Play Practice tracking (max 2 per day)
+  getDownwardPracticeUsage(userId) {
+    if (!userId) return { count: 0, date: new Date().toDateString() };
+    try {
+      const key = `brainleague_downward_practice_${userId}`;
+      const raw = localStorage.getItem(key);
+      const today = new Date().toDateString();
+      if (!raw) return { count: 0, date: today };
+      const parsed = JSON.parse(raw);
+      if (parsed.date !== today) {
+        return { count: 0, date: today };
+      }
+      return parsed;
+    } catch {
+      return { count: 0, date: new Date().toDateString() };
+    }
+  }
+
+  recordDownwardPractice(userId) {
+    if (!userId) return;
+    try {
+      const current = this.getDownwardPracticeUsage(userId);
+      const today = new Date().toDateString();
+      const updated = { count: current.count + 1, date: today };
+      localStorage.setItem(`brainleague_downward_practice_${userId}`, JSON.stringify(updated));
+      return updated;
+    } catch {}
+  }
+
   // Recharge 1 Heart every 30 minutes (Halal Daily Energy System)
   checkEnergyRecharge(user) {
     if (!user || user.isPro || user.energy >= user.maxEnergy) {
@@ -287,9 +432,72 @@ class StorageService {
   getQuestions() {
     try {
       const data = localStorage.getItem(STORAGE_KEYS.QUESTIONS);
-      return data ? JSON.parse(data) : INITIAL_QUESTIONS;
-    } catch {
+      if (!data) {
+        localStorage.setItem(STORAGE_KEYS.QUESTIONS, JSON.stringify(INITIAL_QUESTIONS));
+        return INITIAL_QUESTIONS;
+      }
+      const parsed = JSON.parse(data);
+      if (!Array.isArray(parsed) || parsed.length === 0) {
+        localStorage.setItem(STORAGE_KEYS.QUESTIONS, JSON.stringify(INITIAL_QUESTIONS));
+        return INITIAL_QUESTIONS;
+      }
+
+      const existingIds = new Set(parsed.map(q => q.id));
+
+      // 1. Merge updated seed fields (Hindi translations, hints, etc.)
+      const mergedExisting = parsed.map(q => {
+        const seed = INITIAL_QUESTIONS.find(iq => iq.id === q.id);
+        if (seed) {
+          return {
+            ...seed,
+            ...q,
+            text_hi: q.text_hi || seed.text_hi,
+            options_hi: q.options_hi || seed.options_hi,
+            guruHint_hi: q.guruHint_hi || seed.guruHint_hi,
+            explanation_hi: q.explanation_hi || seed.explanation_hi,
+            chapter: q.chapter || seed.chapter,
+            grade: q.grade || seed.grade
+          };
+        }
+        return q;
+      });
+
+      // 2. Automatically inject any newly added NCERT or syllabus questions
+      const newSeedQuestions = INITIAL_QUESTIONS.filter(iq => !existingIds.has(iq.id));
+
+      if (newSeedQuestions.length > 0) {
+        const combined = [...mergedExisting, ...newSeedQuestions];
+        localStorage.setItem(STORAGE_KEYS.QUESTIONS, JSON.stringify(combined));
+        return combined;
+      }
+
+      return mergedExisting;
+    } catch (e) {
+      console.error('Error loading questions from storage, falling back to seed:', e);
       return INITIAL_QUESTIONS;
+    }
+  }
+
+  /**
+   * Force sync all seed questions into local storage (for Auto-Update)
+   */
+  syncSeedQuestions() {
+    try {
+      const current = this.getQuestions();
+      const existingIds = new Set(current.map(q => q.id));
+      const missing = INITIAL_QUESTIONS.filter(q => !existingIds.has(q.id));
+      
+      const refreshed = current.map(q => {
+        const seed = INITIAL_QUESTIONS.find(iq => iq.id === q.id);
+        return seed ? { ...seed, ...q } : q;
+      });
+
+      const finalQuestions = [...refreshed, ...missing];
+      localStorage.setItem(STORAGE_KEYS.QUESTIONS, JSON.stringify(finalQuestions));
+      return { success: true, total: finalQuestions.length, newAdded: missing.length };
+    } catch (e) {
+      console.error('Failed to sync seed questions:', e);
+      return { success: false, error: e.message };
     }
   }
 
@@ -359,6 +567,106 @@ class StorageService {
     localStorage.setItem(STORAGE_KEYS.STORE_OFFERS, JSON.stringify(offers));
   }
 
+  addStoreOffer(offer) {
+    const offers = this.getStoreOffers();
+    const newOffer = {
+      ...offer,
+      id: offer.id || `offer_${Date.now()}`,
+      isActive: offer.isActive !== undefined ? offer.isActive : true,
+      createdAt: new Date().toISOString()
+    };
+    const updated = [newOffer, ...offers];
+    this.saveStoreOffers(updated);
+    return updated;
+  }
+
+  updateStoreOffer(id, partial) {
+    const offers = this.getStoreOffers();
+    const idx = offers.findIndex(o => o.id === id);
+    if (idx !== -1) {
+      offers[idx] = { ...offers[idx], ...partial };
+      this.saveStoreOffers(offers);
+    }
+    return offers;
+  }
+
+  deleteStoreOffer(id) {
+    const offers = this.getStoreOffers().filter(o => o.id !== id);
+    this.saveStoreOffers(offers);
+    return offers;
+  }
+
+  toggleStoreOffer(id) {
+    const offers = this.getStoreOffers();
+    const target = offers.find(o => o.id === id);
+    if (target) {
+      target.isActive = target.isActive === undefined ? false : !target.isActive;
+      this.saveStoreOffers(offers);
+    }
+    return offers;
+  }
+
+  // --- Master System Settings & Feature Gates ---
+  getSystemSettings() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEYS.SYSTEM_SETTINGS);
+      if (!data) return DEFAULT_SYSTEM_SETTINGS;
+      const parsed = JSON.parse(data);
+      return {
+        ...DEFAULT_SYSTEM_SETTINGS,
+        ...parsed,
+        freeAccess: { ...DEFAULT_SYSTEM_SETTINGS.freeAccess, ...(parsed.freeAccess || {}) },
+        broadcast: { ...DEFAULT_SYSTEM_SETTINGS.broadcast, ...(parsed.broadcast || {}) },
+        featureLocks: { ...DEFAULT_SYSTEM_SETTINGS.featureLocks, ...(parsed.featureLocks || {}) },
+        economy: { ...DEFAULT_SYSTEM_SETTINGS.economy, ...(parsed.economy || {}) }
+      };
+    } catch {
+      return DEFAULT_SYSTEM_SETTINGS;
+    }
+  }
+
+  saveSystemSettings(settings) {
+    localStorage.setItem(STORAGE_KEYS.SYSTEM_SETTINGS, JSON.stringify(settings));
+  }
+
+  updateSystemSettings(partial) {
+    const current = this.getSystemSettings();
+    const merged = {
+      ...current,
+      ...partial,
+      freeAccess: partial.freeAccess ? { ...current.freeAccess, ...partial.freeAccess } : current.freeAccess,
+      broadcast: partial.broadcast ? { ...current.broadcast, ...partial.broadcast } : current.broadcast,
+      featureLocks: partial.featureLocks ? { ...current.featureLocks, ...partial.featureLocks } : current.featureLocks,
+      economy: partial.economy ? { ...current.economy, ...partial.economy } : current.economy
+    };
+    this.saveSystemSettings(merged);
+    return merged;
+  }
+
+  isFreeAccessActive() {
+    const s = this.getSystemSettings();
+    if (!s.freeAccess || !s.freeAccess.enabled) return false;
+    if (s.freeAccess.expiresAt) {
+      return new Date(s.freeAccess.expiresAt).getTime() > Date.now();
+    }
+    return true;
+  }
+
+  getFreeAccessExpiresAt() {
+    const s = this.getSystemSettings();
+    return s.freeAccess?.expiresAt || null;
+  }
+
+  isMaintenanceActive() {
+    const s = this.getSystemSettings();
+    return Boolean(s.maintenanceMode);
+  }
+
+  isFeatureHeld(featureKey) {
+    const s = this.getSystemSettings();
+    return s.featureLocks?.[featureKey] === 'held';
+  }
+
   // --- Prize Claims ---
   getPrizeClaims() {
     try {
@@ -403,6 +711,184 @@ class StorageService {
 
   setViewMode(mode) {
     localStorage.setItem(STORAGE_KEYS.VIEW_MODE, mode);
+  }
+
+  // --- Clans System ---
+  getClans() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEYS.CLANS);
+      return data ? JSON.parse(data) : DEFAULT_CLANS;
+    } catch {
+      return DEFAULT_CLANS;
+    }
+  }
+
+  saveClans(clans) {
+    localStorage.setItem(STORAGE_KEYS.CLANS, JSON.stringify(clans));
+  }
+
+  getUserClan(userId) {
+    if (!userId) return null;
+    const clans = this.getClans();
+    return clans.find(c => c.members && c.members.some(m => m.id === userId)) || null;
+  }
+
+  getClanById(clanId) {
+    if (!clanId) return null;
+    const clans = this.getClans();
+    const query = String(clanId).trim().toUpperCase();
+    return clans.find(c => c.id === clanId || c.code.toUpperCase() === query) || null;
+  }
+
+  createClan({ name, description, badge, leaderId, leaderName, leaderAvatar, leaderTrophies }) {
+    if (!leaderId) return { success: false, error: 'You must be signed in to create a clan.' };
+
+    const existing = this.getUserClan(leaderId);
+    if (existing) {
+      return { success: false, error: `You are already a member of "${existing.name}". Leave your current clan first.` };
+    }
+
+    const clans = this.getClans();
+
+    // Check duplicate name
+    if (clans.some(c => c.name.toLowerCase() === name.trim().toLowerCase())) {
+      return { success: false, error: 'A clan with this name already exists. Choose a unique name.' };
+    }
+
+    // Generate unique 4-character ID code (e.g. CLAN-8K9P)
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let code = 'CLAN-';
+    for (let i = 0; i < 4; i++) {
+      code += chars[Math.floor(Math.random() * chars.length)];
+    }
+    while (clans.some(c => c.code === code)) {
+      code = 'CLAN-';
+      for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    const trophies = leaderTrophies || 200;
+    const newClan = {
+      id: `clan_${Date.now()}`,
+      code,
+      name: name.trim(),
+      description: description?.trim() || 'A competitive BrainLeague knowledge clan.',
+      badge: badge || '🛡️',
+      leaderId,
+      leaderName: leaderName || 'Clan Leader',
+      createdAt: Date.now(),
+      gamesPlayed: 0,
+      totalTrophies: trophies,
+      averageTrophies: trophies,
+      members: [
+        {
+          id: leaderId,
+          name: leaderName || 'Clan Leader',
+          avatar: leaderAvatar || '👑',
+          trophies,
+          role: 'Leader',
+          gamesPlayed: 0,
+          joinedAt: Date.now()
+        }
+      ]
+    };
+
+    clans.unshift(newClan);
+    this.saveClans(clans);
+    return { success: true, clan: newClan };
+  }
+
+  joinClan(clanIdOrCode, player) {
+    if (!player || !player.id) {
+      return { success: false, error: 'You must be signed in to join a clan.' };
+    }
+
+    const currentClan = this.getUserClan(player.id);
+    if (currentClan) {
+      return { success: false, error: `You are already a member of "${currentClan.name}". A player can only be in one clan at a time.` };
+    }
+
+    const clans = this.getClans();
+    const query = String(clanIdOrCode).trim().toUpperCase();
+    const target = clans.find(
+      c => c.id === clanIdOrCode ||
+           c.code.toUpperCase() === query ||
+           c.name.toLowerCase() === String(clanIdOrCode).trim().toLowerCase()
+    );
+
+    if (!target) {
+      return { success: false, error: 'Clan not found. Please verify the Clan ID or Name.' };
+    }
+
+    if (target.members.length >= 30) {
+      return { success: false, error: 'This clan is full (maximum 30 members).' };
+    }
+
+    const trophies = player.trophies || 200;
+    target.members.push({
+      id: player.id,
+      name: player.name || 'Member',
+      avatar: player.avatar || '⭐',
+      trophies,
+      role: 'Member',
+      gamesPlayed: 0,
+      joinedAt: Date.now()
+    });
+
+    target.totalTrophies = target.members.reduce((acc, m) => acc + (m.trophies || 0), 0);
+    target.averageTrophies = Math.round(target.totalTrophies / target.members.length);
+
+    this.saveClans(clans);
+    return { success: true, clan: target };
+  }
+
+  leaveClan(clanId, userId) {
+    if (!userId) return { success: false, error: 'User ID missing.' };
+    const clans = this.getClans();
+    const clanIndex = clans.findIndex(c => c.id === clanId);
+    if (clanIndex === -1) return { success: false, error: 'Clan not found.' };
+
+    const clan = clans[clanIndex];
+    clan.members = clan.members.filter(m => m.id !== userId);
+
+    if (clan.members.length === 0) {
+      // Disband empty clan
+      clans.splice(clanIndex, 1);
+      this.saveClans(clans);
+      return { success: true, disbanded: true };
+    }
+
+    // If leader left, promote next member
+    if (clan.leaderId === userId) {
+      clan.members[0].role = 'Leader';
+      clan.leaderId = clan.members[0].id;
+      clan.leaderName = clan.members[0].name;
+    }
+
+    clan.totalTrophies = clan.members.reduce((acc, m) => acc + (m.trophies || 0), 0);
+    clan.averageTrophies = Math.round(clan.totalTrophies / clan.members.length);
+
+    this.saveClans(clans);
+    return { success: true, clan };
+  }
+
+  recordClanMatchForUser(userId, trophyDelta = 0, pointsWon = 0) {
+    if (!userId) return null;
+    const clans = this.getClans();
+    const clan = clans.find(c => c.members && c.members.some(m => m.id === userId));
+    if (!clan) return null;
+
+    const member = clan.members.find(m => m.id === userId);
+    if (member) {
+      member.trophies = Math.max(0, (member.trophies || 0) + trophyDelta);
+      member.gamesPlayed = (member.gamesPlayed || 0) + 1;
+    }
+
+    clan.gamesPlayed = (clan.gamesPlayed || 0) + 1;
+    clan.totalTrophies = clan.members.reduce((acc, m) => acc + (m.trophies || 0), 0);
+    clan.averageTrophies = Math.round(clan.totalTrophies / clan.members.length);
+
+    this.saveClans(clans);
+    return clan;
   }
 }
 

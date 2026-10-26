@@ -4,11 +4,15 @@
  * Manages 10-Player Lobby, FFF ordering, Hot-Seat ladder, lifelines, spectator mode, and rewards.
  */
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, useCallback } from 'react';
 import { useAuth } from './AuthContext';
 import questionEngine, { LADDER_TIERS } from '../services/questionEngine';
 import storageService from '../services/storageService';
 import soundService from '../services/soundService';
+import botService from '../services/botService';
+import examCategoryService from '../services/examCategoryService';
+import fairPlayService from '../services/fairPlayService';
+import { getTranslation, LANGUAGES } from '../services/localizationService';
 
 const GameContext = createContext();
 
@@ -20,6 +24,8 @@ export function GameProvider({ children }) {
 
   // Match configuration
   const [activeDivision, setActiveDivision] = useState('Junior');
+  const [selectedGrade, setSelectedGrade] = useState(() => currentUser?.grade || 3);
+  const [matchFairPlay, setMatchFairPlay] = useState(null);
   const [lobbyPlayers, setLobbyPlayers] = useState([]);
   const [fffQuestion, setFffQuestion] = useState(null);
   const [fffWinner, setFffWinner] = useState(null);
@@ -30,6 +36,7 @@ export function GameProvider({ children }) {
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [lockedOption, setLockedOption] = useState(null);
   const [isAnswerLocked, setIsAnswerLocked] = useState(false);
+  const [sessionAnswers, setSessionAnswers] = useState({}); // { qIndex -> optionKey }
   const [revealState, setRevealState] = useState(null); // null | 'CORRECT' | 'WRONG'
   const [timerRemaining, setTimerRemaining] = useState(30);
   const [isTimerPaused, setIsTimerPaused] = useState(false);
@@ -44,6 +51,121 @@ export function GameProvider({ children }) {
   const [eliminatedOptions, setEliminatedOptions] = useState([]);
   const [audiencePollData, setAudiencePollData] = useState(null);
   const [activeGuruHint, setActiveGuruHint] = useState(null);
+
+  // Orientation & Viewport Mode: 'landscape' | 'portrait'
+  // Auto-transitions to landscape when game starts, player can toggle anytime!
+  const [isLandscapeMode, setIsLandscapeMode] = useState(false);
+  const [hasSeenHotSeatIntro, setHasSeenHotSeatIntro] = useState(false);
+
+  // Language Mode: 'bilingual' | 'hi' | 'en'
+  const [languageMode, setLanguageModeState] = useState(() => {
+    try {
+      return localStorage.getItem('brainleague_lang') || 'bilingual';
+    } catch {
+      return 'bilingual';
+    }
+  });
+
+  const setLanguageMode = (newLang) => {
+    soundService.playClick();
+    setLanguageModeState(newLang);
+    try {
+      localStorage.setItem('brainleague_lang', newLang);
+    } catch {}
+  };
+
+  const t = (key, params) => getTranslation(languageMode, key, params);
+
+  // Settings modal visibility state
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const openSettings = () => {
+    soundService.playClick();
+    setIsSettingsOpen(true);
+  };
+  const closeSettings = () => {
+    setIsSettingsOpen(false);
+  };
+
+  // Champion's / Open Division Competitive Exam Category
+  const [examCategory, setExamCategoryState] = useState(() => examCategoryService.getActiveCategory());
+  const setExamCategory = (newCat) => {
+    soundService.playClick();
+    setExamCategoryState(newCat);
+    examCategoryService.setActiveCategory(newCat);
+  };
+
+  // 5-Second Disappearing Orientation Hint Pill State
+  const [showOrientationHint, setShowOrientationHint] = useState(false);
+  const orientationHintTimeoutRef = useRef(null);
+
+  const triggerOrientationHint = useCallback(() => {
+    if (orientationHintTimeoutRef.current) {
+      clearTimeout(orientationHintTimeoutRef.current);
+    }
+    setShowOrientationHint(true);
+    orientationHintTimeoutRef.current = setTimeout(() => {
+      setShowOrientationHint(false);
+    }, 5000);
+  }, []);
+
+  // Cleanup hint timer on unmount
+  useEffect(() => {
+    return () => {
+      if (orientationHintTimeoutRef.current) {
+        clearTimeout(orientationHintTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const toggleLandscapeMode = () => {
+    soundService.playClick();
+    setIsLandscapeMode(prev => {
+      const next = !prev;
+      try {
+        if (typeof window !== 'undefined' && window.screen?.orientation) {
+          if (next && window.screen.orientation.lock) {
+            window.screen.orientation.lock('landscape').catch(() => {});
+          } else if (!next && window.screen.orientation.lock) {
+            window.screen.orientation.lock('portrait').catch(() => {
+              if (window.screen.orientation.unlock) window.screen.orientation.unlock();
+            });
+          }
+        }
+      } catch (e) {}
+      return next;
+    });
+    // Immediately dismiss hint on manual tap
+    setShowOrientationHint(false);
+  };
+
+  // Listen to orientation change events and show orientation hint if in game screens
+  useEffect(() => {
+    const handleOrientationChange = () => {
+      if (['LOBBY', 'FFF', 'HOTSEAT', 'SPECTATOR'].includes(screen)) {
+        triggerOrientationHint();
+      }
+    };
+
+    window.addEventListener('orientationchange', handleOrientationChange);
+    if (window.screen?.orientation) {
+      window.screen.orientation.addEventListener('change', handleOrientationChange);
+    }
+    let mql = null;
+    try {
+      mql = window.matchMedia?.('(orientation: portrait)');
+      mql?.addEventListener?.('change', handleOrientationChange);
+    } catch (e) {}
+
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      if (window.screen?.orientation) {
+        window.screen.orientation.removeEventListener('change', handleOrientationChange);
+      }
+      try {
+        mql?.removeEventListener?.('change', handleOrientationChange);
+      } catch (e) {}
+    };
+  }, [screen, triggerOrientationHint]);
 
   // Final Match Result
   const [matchResult, setMatchResult] = useState({
@@ -67,18 +189,54 @@ export function GameProvider({ children }) {
     if (currentUser?.division) {
       setActiveDivision(currentUser.division);
     }
+    if (currentUser?.grade) {
+      setSelectedGrade(Number(currentUser.grade));
+    }
   }, [currentUser]);
+
+  // Private Room Match state
+  const [activeRoom, setActiveRoom] = useState(null);
 
   // Navigate between screens
   const navigateTo = (newScreen) => {
     soundService.playClick();
+    if (['HOME', 'STORE', 'ADMIN', 'PRIVATE_ROOM', 'JOIN_ROOM', 'CLAN'].includes(newScreen)) {
+      setIsLandscapeMode(false);
+    }
     setScreen(newScreen);
   };
 
   // Start Matchmaking: enters 10-player lobby
-  const startMatch = (division) => {
+  const startMatch = (division, customGrade = null) => {
     const selectedDivision = division || activeDivision;
     setActiveDivision(selectedDivision);
+    setActiveRoom(null);
+
+    const gradeToUse = customGrade || (
+      selectedDivision === 'Junior'
+        ? (selectedGrade || currentUser?.grade || 3)
+        : (selectedDivision === 'Senior' ? (selectedGrade || currentUser?.grade || 8) : null)
+    );
+    if (gradeToUse) {
+      setSelectedGrade(Number(gradeToUse));
+    }
+
+    const fairPlay = fairPlayService.evaluateMatchPlay(currentUser, selectedDivision, gradeToUse);
+    setMatchFairPlay(fairPlay);
+
+    // Auto-enter Landscape Mode on match start & Request Fullscreen
+    setIsLandscapeMode(true);
+    try {
+      if (typeof window !== 'undefined') {
+        if (window.screen?.orientation?.lock) {
+          window.screen.orientation.lock('landscape').catch(() => {});
+        }
+        if (document.documentElement?.requestFullscreen && !document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        }
+      }
+    } catch (e) {}
+    triggerOrientationHint();
 
     // Reset lifelines & match state
     setLifelinesUsed({
@@ -94,16 +252,99 @@ export function GameProvider({ children }) {
     setIsAnswerLocked(false);
     setRevealState(null);
     setCurrentQIndex(0);
+    setSessionAnswers({});
+    setHasSeenHotSeatIntro(false);
 
     // Prepare questions
     const allQuestions = storageService.getQuestions();
-    const fff = questionEngine.getFFFQuestion(allQuestions, selectedDivision, currentUser?.id);
-    const hotSeat = questionEngine.getHotSeatMatchQuestions(allQuestions, selectedDivision, currentUser?.id);
+    const fff = questionEngine.getFFFQuestion(allQuestions, selectedDivision, currentUser?.id, examCategory, gradeToUse);
+    const hotSeat = questionEngine.getHotSeatMatchQuestions(allQuestions, selectedDivision, currentUser?.id, examCategory, gradeToUse);
 
     setFffQuestion(fff);
     setHotSeatQuestions(hotSeat);
 
     setScreen('LOBBY');
+  };
+
+  // Start Private Match with Friends (Up to 10 players)
+  const startPrivateMatch = (room, customGrade = null) => {
+    const selectedDivision = room?.division || activeDivision;
+    setActiveDivision(selectedDivision);
+    setActiveRoom(room);
+
+    const gradeToUse = customGrade || (
+      selectedDivision === 'Junior'
+        ? (selectedGrade || currentUser?.grade || 3)
+        : (selectedDivision === 'Senior' ? (selectedGrade || currentUser?.grade || 8) : null)
+    );
+    if (gradeToUse) {
+      setSelectedGrade(Number(gradeToUse));
+    }
+
+    const fairPlay = fairPlayService.evaluateMatchPlay(currentUser, selectedDivision, gradeToUse);
+    setMatchFairPlay(fairPlay);
+
+    // Auto-enter Landscape Mode on match start & Request Fullscreen
+    setIsLandscapeMode(true);
+    try {
+      if (typeof window !== 'undefined') {
+        if (window.screen?.orientation?.lock) {
+          window.screen.orientation.lock('landscape').catch(() => {});
+        }
+        if (document.documentElement?.requestFullscreen && !document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        }
+      }
+    } catch (e) {}
+    triggerOrientationHint();
+
+    // Reset lifelines & match state
+    setLifelinesUsed({
+      fiftyFifty: false,
+      audiencePoll: false,
+      guruHint: false,
+      timeFreeze: false
+    });
+    setEliminatedOptions([]);
+    setAudiencePollData(null);
+    setActiveGuruHint(null);
+    setLockedOption(null);
+    setIsAnswerLocked(false);
+    setRevealState(null);
+    setCurrentQIndex(0);
+    setSessionAnswers({});
+    setHasSeenHotSeatIntro(false);
+
+    // Prepare questions
+    const allQuestions = storageService.getQuestions();
+    const fff = questionEngine.getFFFQuestion(allQuestions, selectedDivision, currentUser?.id, examCategory, gradeToUse);
+    const hotSeat = questionEngine.getHotSeatMatchQuestions(allQuestions, selectedDivision, currentUser?.id, examCategory, gradeToUse);
+
+    setFffQuestion(fff);
+    setHotSeatQuestions(hotSeat);
+
+    // Construct 10-player pool with real joined friends + bot fillers if < 10
+    const friends = (room?.players || []).map(p => ({
+      id: p.id,
+      name: p.name,
+      city: p.isHost ? 'Room Host' : 'Friend Contender',
+      avatar: p.avatar || '🎮',
+      isHuman: p.id === currentUser?.id,
+      isFriend: true,
+      ready: true
+    }));
+
+    const neededBots = Math.max(0, 10 - friends.length);
+    let bots = [];
+    if (neededBots > 0) {
+      bots = botService.generateBots(neededBots, selectedDivision, friends.map(f => f.name));
+    }
+
+    const finalPool = [...friends, ...bots];
+    setLobbyPlayers(finalPool);
+
+    // Start directly with Fastest Finger First round
+    setScreen('FFF');
   };
 
   // Trigger FFF round after lobby fills
@@ -171,17 +412,17 @@ export function GameProvider({ children }) {
     const winner = results[0];
     setFffWinner(winner);
 
-    // Auto-route: If human wins -> Hot Seat. If human loses -> Live Spectator Mode!
-    setTimeout(() => {
-      if (winner.isHuman) {
-        soundService.playCorrect();
-        setScreen('HOTSEAT');
-      } else {
+    // Auto-route: If bot wins -> Spectator Mode after 3.2s.
+    // If human wins -> FFFScreen displays the grand HotSeatWinnerModal & 5-second countdown!
+    if (winner.isHuman) {
+      soundService.playCorrect();
+    } else {
+      setTimeout(() => {
         setSpectatorPlayer(winner);
         setSpectatorLevel(1);
         setScreen('SPECTATOR');
-      }
-    }, 2800);
+      }, 4800);
+    }
   };
 
   // Hot Seat: Lock an answer
@@ -189,6 +430,7 @@ export function GameProvider({ children }) {
     if (isAnswerLocked || revealState) return;
     setLockedOption(optionKey);
     setIsAnswerLocked(true);
+    setSessionAnswers(prev => ({ ...prev, [currentQIndex]: optionKey }));
     soundService.playLock();
 
     const currentQ = hotSeatQuestions[currentQIndex];
@@ -285,24 +527,50 @@ export function GameProvider({ children }) {
 
   // Conclude match and compute ELO Trophies
   const finishMatch = ({ wonLevel, points, isWinner, wasWalkAway }) => {
-    // ELO Math: High progression or win = +25 Trophies, early elimination (below Q5) = -10 Trophies
+    let finalPoints = points;
     let trophyDelta = 0;
-    if (isWinner || wonLevel >= 10) {
-      trophyDelta = 25;
-    } else if (wonLevel >= 5 || wasWalkAway) {
-      trophyDelta = 10;
+
+    const isDownward = matchFairPlay?.status === 'DOWNWARD_PRACTICE';
+    const isUpward = matchFairPlay?.status === 'UPWARD_CHALLENGE';
+
+    if (isDownward) {
+      // Anti-Bullying Fair Play Rule:
+      // Strictly 0 Points, 0 Trophies to protect younger children!
+      finalPoints = 0;
+      trophyDelta = 0;
+      if (currentUser?.id) {
+        storageService.recordDownwardPractice(currentUser.id);
+      }
     } else {
-      trophyDelta = -10;
+      // ELO Math: High progression or win = +25 Trophies, early elimination (below Q5) = -10 Trophies
+      if (isWinner || wonLevel >= 10) {
+        trophyDelta = 25;
+      } else if (wonLevel >= 5 || wasWalkAway) {
+        trophyDelta = 10;
+      } else {
+        trophyDelta = -10;
+      }
+
+      // Upward Challenger Bonus (+25% trophies on positive gains)
+      if (isUpward && trophyDelta > 0) {
+        trophyDelta = Math.round(trophyDelta * 1.25);
+      }
+
+      updateTrophies(trophyDelta);
+
+      // Update Clan average rating & statistics
+      if (currentUser?.id) {
+        storageService.recordClanMatchForUser(currentUser.id, trophyDelta, finalPoints);
+      }
     }
 
-    updateTrophies(trophyDelta);
-
     setMatchResult({
-      pointsWon: points,
+      pointsWon: finalPoints,
       levelReached: wonLevel,
       trophyDelta,
       isWinner,
-      wasWalkAway
+      wasWalkAway,
+      fairPlay: matchFairPlay
     });
 
     setScreen('RESULT');
@@ -396,11 +664,18 @@ export function GameProvider({ children }) {
         navigateTo,
         activeDivision,
         setActiveDivision,
+        selectedGrade,
+        setSelectedGrade,
+        matchFairPlay,
+        setMatchFairPlay,
         lobbyPlayers,
         fffQuestion,
         fffWinner,
         fffResults,
         startMatch,
+        startPrivateMatch,
+        activeRoom,
+        setActiveRoom,
         startFFF,
         submitFFF,
         hotSeatQuestions,
@@ -423,6 +698,7 @@ export function GameProvider({ children }) {
         useGuruHint,
         useTimeFreeze,
         matchResult,
+        sessionAnswers,
         spectatorPlayer,
         spectatorLevel,
         setSpectatorLevel,
@@ -431,7 +707,25 @@ export function GameProvider({ children }) {
         spectatorVoted,
         voteSpectatorPoll,
         floatingEmojis,
-        sendSpectatorEmoji
+        sendSpectatorEmoji,
+        isLandscapeMode,
+        setIsLandscapeMode,
+        toggleLandscapeMode,
+        showOrientationHint,
+        triggerOrientationHint,
+        setShowOrientationHint,
+        hasSeenHotSeatIntro,
+        setHasSeenHotSeatIntro,
+        languageMode,
+        setLanguageMode,
+        t,
+        LANGUAGES,
+        isSettingsOpen,
+        setIsSettingsOpen,
+        openSettings,
+        closeSettings,
+        examCategory,
+        setExamCategory
       }}
     >
       {children}

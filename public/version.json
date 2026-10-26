@@ -1,0 +1,13 @@
+{
+  "version": "2.4.0",
+  "buildTimestamp": 1793015400000,
+  "releaseDate": "2026-10-26",
+  "name": "BrainLeague v2.4.0 (Auto-Update + NCERT Curriculum)",
+  "features": [
+    "Over-The-Air (OTA) Instant Auto-Update",
+    "NCERT Class 2 Maths Ch 1 (What is Long, What is Round)",
+    "NCERT Class 2 English Unit 1 (Grammar & Phonics)",
+    "NCERT Class 2 Hindi Ch 1 (Varnamala, Vachan, Vilom)",
+    "Senior League (Classes 6-12) & Fair Play Anti-Bullying"
+  ]
+}

@@ -16,6 +16,9 @@ import { useGame } from '../context/GameContext';
 import { LADDER_TIERS } from '../services/questionEngine';
 import soundService from '../services/soundService';
 import confetti from 'canvas-confetti';
+import KbcQuestionBox from '../components/common/KbcQuestionBox';
+import KbcOptionButton from '../components/common/KbcOptionButton';
+import { getLocalizedQuestion } from '../services/questionLanguageHelper';
 import {
   Eye,
   BarChart2,
@@ -29,7 +32,8 @@ import {
   Trophy,
   Flame,
   Check,
-  Gift
+  Gift,
+  RotateCw
 } from 'lucide-react';
 
 export default function SpectatorScreen() {
@@ -45,12 +49,17 @@ export default function SpectatorScreen() {
     sendSpectatorEmoji,
     navigateTo,
     startMatch,
-    activeDivision
+    activeDivision,
+    isLandscapeMode,
+    toggleLandscapeMode,
+    t,
+    languageMode
   } = useGame();
 
   // Active question on hot seat
   const currentQIndex = Math.min((spectatorLevel || 1) - 1, (hotSeatQuestions?.length || 1) - 1);
   const currentQ = hotSeatQuestions?.[currentQIndex] || null;
+  const localizedQ = getLocalizedQuestion(currentQ, languageMode);
   const currentTier = currentQ?.tierMeta || LADDER_TIERS[currentQIndex] || LADDER_TIERS[0];
 
   // Hot-Seat Contender State Simulation
@@ -76,38 +85,84 @@ export default function SpectatorScreen() {
 
   const emojis = ['👏', '🔥', '💡', '🏆', '⭐', '🎉'];
 
+  // Play Along Welcome Announcement & 5-Second KBC Clock
+  const [showPlayAlongWelcome, setShowPlayAlongWelcome] = useState((spectatorLevel || 1) === 1);
+  const [welcomeCountdown, setWelcomeCountdown] = useState(5);
+
+  // Refs to prevent stale closure state & cleanly manage timeouts
+  const audienceSelectionRef = useRef(null);
+  const timersRef = useRef([]);
+
+  const addTimeout = (fn, delay) => {
+    const id = setTimeout(fn, delay);
+    timersRef.current.push(id);
+    return id;
+  };
+
+  const clearAllTimers = () => {
+    timersRef.current.forEach(id => clearTimeout(id));
+    timersRef.current = [];
+  };
+
+  useEffect(() => {
+    if (!showPlayAlongWelcome) return;
+    soundService.playCountdownTick(welcomeCountdown);
+
+    const interval = setInterval(() => {
+      setWelcomeCountdown(prev => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          soundService.playCountdownStart();
+          setTimeout(() => {
+            setShowPlayAlongWelcome(false);
+          }, 700);
+          return 0;
+        }
+        soundService.playCountdownTick(prev - 1);
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [showPlayAlongWelcome]);
+
   // -------------------------------------------------------------
   // HOT-SEAT SIMULATION CYCLE PER QUESTION
   // -------------------------------------------------------------
   useEffect(() => {
-    if (matchEnded || !currentQ) return;
+    if (matchEnded || !currentQ || showPlayAlongWelcome) return;
 
-    // Reset question state
+    // Reset previous timers
+    clearAllTimers();
+
+    // Reset question state for new level
     setContenderStatus('THINKING');
     setContenderLockedOption(null);
     setContenderTimer(10);
     setAudienceSelection(null);
+    audienceSelectionRef.current = null;
     setPlayAlongLocked(false);
     setPlayAlongResult(null);
 
-    // Question countdown
+    // 1. Question countdown interval
     const clockInterval = setInterval(() => {
       setContenderTimer(prev => {
         if (prev <= 1) {
           clearInterval(clockInterval);
           return 0;
         }
+        soundService.playTick();
         return prev - 1;
       });
     }, 1000);
 
-    // Contender locks answer after 5 seconds
-    const lockTimeout = setTimeout(() => {
-      // 80% chance bot picks correct answer, 20% mistake
+    // 2. Contender locks answer after 5 seconds (gives audience time to pick)
+    addTimeout(() => {
       const correct = currentQ.correctAnswer;
-      const isCorrectBot = spectatorLevel <= 8 ? Math.random() > 0.15 : Math.random() > 0.35;
+      // High accuracy so spectator can enjoy multiple questions of Play Along
+      const isCorrectBot = spectatorLevel <= 10 ? Math.random() > 0.12 : Math.random() > 0.30;
       const options = ['A', 'B', 'C', 'D'];
-      const picked = isCorrectBot ? correct : options.find(o => o !== correct) || 'A';
+      const picked = isCorrectBot ? correct : (options.find(o => o !== correct) || 'A');
 
       setContenderLockedOption(picked);
       setContenderStatus('LOCKED');
@@ -120,28 +175,33 @@ export default function SpectatorScreen() {
         soundService.playLifeline();
       }
 
-      // Reveal answer after 2.5 seconds suspense
-      const revealTimeout = setTimeout(() => {
+      // 3. Reveal answer after 2.5 seconds suspense
+      addTimeout(() => {
         setContenderStatus('REVEALED');
 
+        const userGuess = audienceSelectionRef.current;
+        if (isCorrectBot) {
+          soundService.playCorrect();
+        } else {
+          soundService.playWrong();
+        }
+
         // Evaluate Audience Play Along
-        if (audienceSelection) {
+        if (userGuess) {
           setTotalQuestionsPlayed(prev => prev + 1);
-          if (audienceSelection === correct) {
-            soundService.playCorrect();
+          if (userGuess === correct) {
             setPlayAlongResult('CORRECT');
             setPlayAlongScore(prev => prev + 50);
             setCorrectAnswersCount(prev => prev + 1);
             addGems(5); // +5 Gems instant reward!
           } else {
-            soundService.playWrong();
             setPlayAlongResult('WRONG');
           }
         }
 
-        // Advance or Conclude Match
-        const advanceTimeout = setTimeout(() => {
-          if (isCorrectBot && spectatorLevel < 10) {
+        // 4. Advance or Conclude Match after 2.5 seconds
+        addTimeout(() => {
+          if (isCorrectBot && spectatorLevel < 15) {
             setSpectatorLevel(prev => prev + 1);
           } else {
             // Contender finishes run -> Trigger Grand Finale for Audience!
@@ -153,23 +213,19 @@ export default function SpectatorScreen() {
                 spread: 80,
                 origin: { y: 0.6 }
               });
-            } catch {
-              // fallback
-            }
+            } catch {}
           }
-        }, 2200);
+        }, 2500);
 
-        return () => clearTimeout(advanceTimeout);
       }, 2500);
 
-      return () => clearTimeout(revealTimeout);
-    }, 5500);
+    }, 5000);
 
     return () => {
       clearInterval(clockInterval);
-      clearTimeout(lockTimeout);
+      clearAllTimers();
     };
-  }, [spectatorLevel, matchEnded, currentQIndex]);
+  }, [spectatorLevel, matchEnded, currentQIndex, showPlayAlongWelcome]);
 
   // -------------------------------------------------------------
   // AUDIENCE PLAY ALONG HANDLERS
@@ -178,6 +234,7 @@ export default function SpectatorScreen() {
     if (playAlongLocked || contenderStatus === 'REVEALED') return;
     soundService.playClick();
     setAudienceSelection(optionKey);
+    audienceSelectionRef.current = optionKey;
     setPlayAlongLocked(true);
   };
 
@@ -239,6 +296,17 @@ export default function SpectatorScreen() {
               </span>
             </div>
 
+            {/* Landscape / Portrait Toggle */}
+            <button
+              type="button"
+              onClick={toggleLandscapeMode}
+              className="flex items-center gap-1 px-2 py-1 rounded-lg bg-navy-900 hover:bg-navy-800 border border-white/10 text-[10px] text-champGold hover:text-pearl transition"
+              title="Toggle Landscape / Portrait"
+            >
+              <RotateCw size={12} />
+              <span className="hidden sm:inline">{isLandscapeMode ? "TV" : "Phone"}</span>
+            </button>
+
             <button
               type="button"
               onClick={() => navigateTo('HOME')}
@@ -280,9 +348,9 @@ export default function SpectatorScreen() {
                     ? 'text-emeraldGlow-light'
                     : 'text-slate-400'
               }`}>
-                {contenderStatus === 'THINKING' && 'Considering...'}
-                {contenderStatus === 'LOCKED' && `Locked Option ${contenderLockedOption}`}
-                {contenderStatus === 'REVEALED' && 'Answer Checked'}
+                {contenderStatus === 'THINKING' && t('considering')}
+                {contenderStatus === 'LOCKED' && t('lockedOptionX', { option: contenderLockedOption })}
+                {contenderStatus === 'REVEALED' && t('answerChecked')}
               </span>
             </div>
           </div>
@@ -294,82 +362,68 @@ export default function SpectatorScreen() {
       {/* ========================================================= */}
       {!matchEnded ? (
         <div className="my-auto space-y-3">
-          {/* Question Display Card */}
-          <div className="p-3.5 rounded-2xl bg-velvet-950/90 border border-champGold/30 shadow-2xl relative">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[9px] font-bold bg-champGold/15 text-champGold px-2 py-0.5 rounded border border-champGold/30 uppercase tracking-wider">
-                {currentQ?.subject || 'Trivia'} • Hot Seat Question {spectatorLevel}
-              </span>
-              <span className="text-[10px] font-mono font-bold text-slate-300">
-                {currentTier?.label} Points
-              </span>
-            </div>
-
-            <h3 className="text-xs font-semibold text-pearl leading-relaxed">
-              {currentQ?.text}
-            </h3>
-          </div>
+          {/* Authentic Metallic Question Frame */}
+          <KbcQuestionBox
+            questionText={localizedQ?.displayText || currentQ?.text}
+            levelNumber={spectatorLevel}
+            totalLevels={15}
+            pointsFormatted={currentTier?.label}
+            subject={currentQ?.subject}
+            isPadav={currentTier?.isPadav}
+            questionLabel={t('questionLabel')}
+            padavLabel={t('safeMilestoneBanner')}
+          />
 
           {/* "Play Along" Prompt Header */}
           <div className="flex items-center justify-between px-1">
-            <span className="text-[11px] font-bold text-champGold flex items-center gap-1 uppercase tracking-wider font-cinzel">
+            <span className="text-[11px] sm:text-xs font-bold text-champGold flex items-center gap-1 uppercase tracking-wider font-cinzel">
               <Gamepad2 size={13} className="text-champGold" />
-              Play Along: Pick Your Answer
+              {t('playAlongTitle')}
             </span>
-            <span className="text-[10px] text-emeraldGlow-light font-semibold">
-              +50 Pts on Correct
+            <span className="text-[10px] sm:text-xs text-emeraldGlow-light font-semibold">
+              {t('pointsBonus')}
             </span>
           </div>
 
-          {/* 4 Interactive Options (Audience Tap-To-Play) */}
-          <div className="space-y-2">
+          {/* 4 Interactive Options in 2x2 Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
             {['A', 'B', 'C', 'D'].map(letter => {
               const isAudienceSelected = audienceSelection === letter;
               const isContenderLocked = contenderLockedOption === letter;
               const isCorrect = currentQ?.correctAnswer === letter;
 
-              let btnStyle = "bg-navy-900/90 border-white/10 hover:border-champGold/40 text-slate-200";
+              let status = 'IDLE';
+              let badgeText = null;
 
               if (contenderStatus === 'REVEALED') {
                 if (isCorrect) {
-                  btnStyle = "bg-emeraldGlow/25 border-emeraldGlow text-emeraldGlow-light font-bold";
+                  status = 'CORRECT';
                 } else if (isAudienceSelected && !isCorrect) {
-                  btnStyle = "bg-crimsonAlert/25 border-crimsonAlert text-crimsonAlert";
+                  status = 'WRONG';
+                } else if (isContenderLocked && !isCorrect) {
+                  status = 'WRONG';
                 }
               } else if (isAudienceSelected) {
-                btnStyle = "bg-champGold/20 border-champGold text-pearl shadow-md font-bold";
+                status = 'LOCKED';
+                badgeText = t('yourGuess');
+              }
+
+              if (isContenderLocked && !isAudienceSelected) {
+                badgeText = t('playerPick');
+              } else if (isContenderLocked && isAudienceSelected && contenderStatus !== 'REVEALED') {
+                badgeText = t('bothPicked');
               }
 
               return (
-                <button
+                <KbcOptionButton
                   key={letter}
-                  type="button"
-                  onClick={() => handlePlayAlongSelect(letter)}
+                  letter={letter}
+                  text={localizedQ?.displayOptions?.[letter] || currentQ?.options[letter]}
+                  status={status}
+                  badgeText={badgeText}
                   disabled={playAlongLocked || contenderStatus === 'REVEALED'}
-                  className={`w-full p-2.5 rounded-xl border text-left flex items-center justify-between transition text-xs ${btnStyle}`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <span className={`w-6 h-6 rounded-lg flex items-center justify-center font-bold text-[11px] font-mono ${
-                      isAudienceSelected ? 'bg-champGold text-navy-950' : 'bg-velvet-800 text-champGold'
-                    }`}>
-                      {letter}
-                    </span>
-                    <span className="font-medium text-[11px]">{currentQ?.options[letter]}</span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-[10px]">
-                    {isContenderLocked && (
-                      <span className="bg-blue-500/20 text-blue-300 font-bold px-1.5 py-0.5 rounded text-[9px] border border-blue-500/40">
-                        Player Pick
-                      </span>
-                    )}
-                    {isAudienceSelected && (
-                      <span className="bg-champGold text-navy-950 font-bold px-1.5 py-0.5 rounded text-[9px]">
-                        Your Guess
-                      </span>
-                    )}
-                  </div>
-                </button>
+                  onClick={() => handlePlayAlongSelect(letter)}
+                />
               );
             })}
           </div>
@@ -384,12 +438,12 @@ export default function SpectatorScreen() {
               {playAlongResult === 'CORRECT' ? (
                 <>
                   <CheckCircle2 size={15} />
-                  <span>BINGO! You predicted correctly! +50 Pts & +5 Gems credited!</span>
+                  <span>{t('bingoCorrect')}</span>
                 </>
               ) : (
                 <>
                   <XCircle size={15} />
-                  <span>Wrong guess this round. Watch out for the next question!</span>
+                  <span>{t('wrongGuess')}</span>
                 </>
               )}
             </div>
@@ -492,7 +546,7 @@ export default function SpectatorScreen() {
               <div className="flex items-center gap-1.5">
                 <BarChart2 size={16} className="text-champGold" />
                 <h4 className="text-xs font-bold text-champGold uppercase font-cinzel">
-                  Audience Poll Lifeline Triggered!
+                  {t('audiencePollTriggered')}
                 </h4>
               </div>
               <span className="text-xs font-mono font-bold text-crimsonAlert bg-crimsonAlert/10 px-2 py-0.5 rounded border border-crimsonAlert/30">
@@ -501,7 +555,7 @@ export default function SpectatorScreen() {
             </div>
 
             <p className="text-xs text-pearl mb-3">
-              Hot-Seat player {spectatorPlayer?.name} is asking the audience! Vote now to earn <strong className="text-champGold">+10 Bonus Gems</strong>!
+              {t('voteNowNotice', { name: spectatorPlayer?.name || 'Contender' })}
             </p>
 
             <div className="grid grid-cols-2 gap-2 mb-2">
@@ -525,7 +579,7 @@ export default function SpectatorScreen() {
 
             {pollVotedOption && (
               <div className="text-center text-[11px] text-emeraldGlow-light font-semibold pt-1">
-                ✓ Vote recorded! +10 Bonus Gems added to your balance!
+                {t('voteRecorded')}
               </div>
             )}
           </div>
@@ -538,7 +592,7 @@ export default function SpectatorScreen() {
       <div className="pt-2">
         <div className="flex items-center justify-between bg-navy-900/90 backdrop-blur p-2 rounded-2xl border border-white/10 shadow-lg">
           <span className="text-[10px] text-slate-400 font-semibold pl-2">
-            Send Reaction:
+            {t('sendReaction')}
           </span>
           <div className="flex items-center gap-1.5">
             {emojis.map(e => (
@@ -554,6 +608,78 @@ export default function SpectatorScreen() {
           </div>
         </div>
       </div>
+
+      {/* ========================================================= */}
+      {/* 6. BIG CENTER PLAY ALONG ANNOUNCEMENT & KBC CLOCK MODAL   */}
+      {/* ========================================================= */}
+      {showPlayAlongWelcome && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/92 backdrop-blur-md animate-fade-in">
+          {/* Glowing Aura Background */}
+          <div className="absolute w-96 h-96 rounded-full bg-gradient-to-tr from-cyan-500/20 via-velvet-800/30 to-champGold/20 blur-3xl pointer-events-none" />
+
+          {/* Modal Container */}
+          <div className="relative w-full max-w-sm rounded-3xl p-6 bg-gradient-to-b from-navy-900/98 to-velvet-950/98 border-2 border-cyan-400/40 shadow-[0_0_50px_rgba(6,182,212,0.25)] text-center flex flex-col items-center">
+            
+            {/* Top Live Badge */}
+            <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/50 text-cyan-300 text-xs font-bold tracking-widest uppercase mb-3 shadow">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+              <span className="font-rajdhani">{t('playAlongModalBadge')}</span>
+            </div>
+
+            {/* Contender context */}
+            <div className="flex items-center gap-2 p-2 rounded-xl bg-navy-950/80 border border-white/10 mb-3 w-full justify-center">
+              <span className="text-xl">{spectatorPlayer?.avatar || '👑'}</span>
+              <div className="text-left text-xs">
+                <span className="text-slate-400 block text-[10px]">{t('winnerBadge')}:</span>
+                <span className="font-bold text-pearl">{spectatorPlayer?.name || 'Contender'} ({spectatorPlayer?.city || 'India'})</span>
+              </div>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-xl font-extrabold text-pearl font-cinzel tracking-wider uppercase mb-1 drop-shadow">
+              {t('playAlongModalTitle')}
+            </h3>
+            
+            <p className="text-xs text-slate-300 mb-3 leading-relaxed">
+              {t('playAlongModalSubtext')}
+            </p>
+
+            {/* Feature Perks Chips */}
+            <div className="grid grid-cols-2 gap-2 w-full mb-4 text-[10px]">
+              <div className="p-2 rounded-xl bg-navy-950/70 border border-emeraldGlow/30 text-emeraldGlow-light flex items-center gap-1.5 justify-center">
+                <span>💎</span>
+                <span><strong>{t('gemsPerCorrect')}</strong></span>
+              </div>
+              <div className="p-2 rounded-xl bg-navy-950/70 border border-champGold/30 text-champGold flex items-center gap-1.5 justify-center">
+                <span>⭐</span>
+                <span><strong>{t('ptsPerCorrect')}</strong></span>
+              </div>
+            </div>
+
+            {/* Dramatic Countdown Clock Section */}
+            <div className="w-full pt-2 border-t border-white/10 flex flex-col items-center">
+              <span className="text-[11px] font-bold text-champGold uppercase tracking-wider mb-1 font-rajdhani">
+                {t('firstQArrivesIn')}
+              </span>
+
+              {/* Countdown Circular Display */}
+              <div className="relative w-28 h-28 flex items-center justify-center my-1">
+                <div className="absolute inset-0 rounded-full border-2 border-dashed border-cyan-400/40 animate-spin-slow" />
+                <div className="absolute inset-1 rounded-full bg-gradient-to-b from-velvet-900 to-navy-950 shadow-inner" />
+                
+                <span className="relative z-10 text-5xl font-black font-rajdhani text-transparent bg-clip-text bg-gradient-to-b from-pearl via-cyan-300 to-cyan-500 drop-shadow-[0_4px_16px_rgba(6,182,212,0.6)] animate-scale-up">
+                  {welcomeCountdown > 0 ? welcomeCountdown : 'START!'}
+                </span>
+              </div>
+
+              <span className="text-[10px] text-slate-400 mt-1 font-medium">
+                {t('playAlongReadyNote')}
+              </span>
+            </div>
+
+          </div>
+        </div>
+      )}
     </div>
   );
 }
