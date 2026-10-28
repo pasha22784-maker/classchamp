@@ -2,9 +2,10 @@
  * JoinRoomScreen.jsx
  * Guest screen: Enter a 6-digit room code (or auto-join from URL),
  * view waiting room with joined friends, and transition into the match when host starts.
+ * Enhanced with real-time cloud relay synchronization across different mobile devices.
  */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useGame } from '../context/GameContext';
 import roomService from '../services/roomService';
@@ -21,27 +22,27 @@ import {
   LogIn,
   Clock,
   Wifi,
-  AlertCircle
+  AlertCircle,
+  Loader2
 } from 'lucide-react';
 
 const AVATARS = ['🎮', '🦁', '🚀', '⭐', '🔥', '🧠', '🏆', '⚡', '💎', '🎯'];
 
 const SHARE_CHANNELS = [
   {
+    key: 'native',
+    label: 'Share',
+    emoji: '📲',
+    color: 'bg-gradient-to-r from-champGold via-champGold-light to-champGold-dark text-navy-950 font-black',
+    getUrl: () => '#',
+  },
+  {
     key: 'whatsapp',
     label: 'WhatsApp',
     emoji: '💬',
     color: 'bg-[#25D366] hover:bg-[#20ba59] text-[#003d20]',
     getUrl: (url, code) =>
-      `https://wa.me/?text=${encodeURIComponent(`🎮 Join my BrainLeague private game!\n\nRoom Code: *${code}*\nJoin here 👉 ${url}\n\nMax 10 players • Fastest Finger First • Hot-Seat Arena!`)}`,
-  },
-  {
-    key: 'facebook',
-    label: 'Facebook',
-    emoji: '📘',
-    color: 'bg-[#1877F2] hover:bg-[#1565d8] text-white',
-    getUrl: (url) =>
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+      `https://wa.me/?text=${encodeURIComponent(`🎮 Join our BrainLeague private game!\n\nRoom Code: *${code}*\nJoin here 👉 ${url}\n\nMax 10 players • Fastest Finger First • Hot-Seat Arena!`)}`,
   },
   {
     key: 'sms',
@@ -71,7 +72,40 @@ export default function JoinRoomScreen({ initialCode = '' }) {
   const [room, setRoom] = useState(null);
   const [copied, setCopied] = useState(false);
   const [countdown, setCountdown] = useState(null);
-  const pollRef = useRef(null);
+  const [isJoining, setIsJoining] = useState(false);
+
+  const handleJoin = useCallback(async (targetCode) => {
+    const cleanCode = (targetCode || code).trim().toUpperCase();
+    if (!cleanCode) {
+      setError('Please enter a 6-letter room code.');
+      return;
+    }
+    setError(null);
+    setIsJoining(true);
+    soundService.playClick();
+
+    try {
+      const res = await roomService.joinRoom({
+        code: cleanCode,
+        playerId: currentUser?.id || `guest_${Date.now()}`,
+        playerName: currentUser?.name || 'Guest Player',
+        playerAvatar: selectedAvatar
+      });
+
+      if (!res.success) {
+        soundService.playWrong();
+        setError(res.error);
+      } else {
+        soundService.playCorrect();
+        setRoom(res.room);
+      }
+    } catch (e) {
+      soundService.playWrong();
+      setError('Could not connect to game server. Please try again.');
+    } finally {
+      setIsJoining(false);
+    }
+  }, [code, currentUser, selectedAvatar]);
 
   // Auto-join if initialCode was provided from URL
   useEffect(() => {
@@ -81,11 +115,11 @@ export default function JoinRoomScreen({ initialCode = '' }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialCode]);
 
-  // Subscribe to real-time BroadcastChannel updates
+  // Subscribe to real-time room updates across devices
   useEffect(() => {
     if (!room?.code) return;
-    const unsub = roomService.subscribe((updated) => {
-      if (updated?.code === room.code) {
+    const unsub = roomService.subscribe(room.code, (updated) => {
+      if (updated && updated.code === room.code) {
         if (updated.status === 'dissolved') {
           soundService.playWrong();
           alert('The host has dissolved this room.');
@@ -98,22 +132,6 @@ export default function JoinRoomScreen({ initialCode = '' }) {
     });
     return unsub;
   }, [room?.code, navigateTo]);
-
-  // Poll room updates from storage (for tab or window sync)
-  useEffect(() => {
-    if (!room?.code) return;
-    pollRef.current = setInterval(() => {
-      const fresh = roomService.getRoom(room.code);
-      if (fresh) {
-        setRoom(fresh);
-      } else {
-        // Room was deleted
-        setRoom(null);
-        setError('Room was closed by the host.');
-      }
-    }, 2000);
-    return () => clearInterval(pollRef.current);
-  }, [room?.code]);
 
   // Watch for countdown and game start
   useEffect(() => {
@@ -138,35 +156,10 @@ export default function JoinRoomScreen({ initialCode = '' }) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room?.startCountdown, room]);
 
-  const handleJoin = (targetCode) => {
-    const cleanCode = (targetCode || code).trim().toUpperCase();
-    if (!cleanCode) {
-      setError('Please enter a 6-letter room code.');
-      return;
-    }
-    setError(null);
-    soundService.playClick();
-
-    const res = roomService.joinRoom({
-      code: cleanCode,
-      playerId: currentUser?.id || `guest_${Date.now()}`,
-      playerName: currentUser?.name || 'Guest Player',
-      playerAvatar: selectedAvatar
-    });
-
-    if (!res.success) {
-      soundService.playWrong();
-      setError(res.error);
-    } else {
-      soundService.playCorrect();
-      setRoom(res.room);
-    }
-  };
-
-  const handleLeave = () => {
+  const handleLeave = async () => {
     soundService.playClick();
     if (room?.code && currentUser?.id) {
-      roomService.leaveRoom(room.code, currentUser.id);
+      await roomService.leaveRoom(room.code, currentUser.id);
     }
     setRoom(null);
     navigateTo('HOME');
@@ -176,16 +169,40 @@ export default function JoinRoomScreen({ initialCode = '' }) {
     if (!room) return;
     soundService.playClick();
     const text = `${room.code}  |  ${roomService.getInviteUrl(room.code)}`;
-    navigator.clipboard.writeText(text).catch(() => {});
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }, [room]);
 
-  const handleShare = (channel) => {
+  const handleShare = async (channel) => {
     if (!room) return;
     soundService.playClick();
     const url = roomService.getInviteUrl(room.code);
-    window.open(channel.getUrl(url, room.code), '_blank');
+    const shareText = `🎮 Join our BrainLeague private game!\n\nRoom Code: *${room.code}*\nJoin here 👉 ${url}\n\nMax 10 players • Fastest Finger First • Hot-Seat Arena!`;
+
+    if (channel?.key === 'native' || (!channel && typeof navigator !== 'undefined' && navigator.share)) {
+      if (typeof navigator !== 'undefined' && navigator.share) {
+        try {
+          await navigator.share({
+            title: 'BrainLeague Private Match',
+            text: shareText,
+            url: url
+          });
+          return;
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+        }
+      }
+    }
+
+    if (channel && channel.getUrl) {
+      const shareUrl = channel.getUrl(url, room.code);
+      if (shareUrl && shareUrl !== '#') {
+        window.open(shareUrl, '_blank', 'noopener,noreferrer');
+      }
+    }
   };
 
   // ---------------------------------------------------------------------------
@@ -260,10 +277,20 @@ export default function JoinRoomScreen({ initialCode = '' }) {
             <button
               type="button"
               onClick={() => handleJoin(code)}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-champGold via-champGold-light to-champGold-dark text-navy-950 font-bold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition font-rajdhani flex items-center justify-center gap-1.5"
+              disabled={isJoining}
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-champGold via-champGold-light to-champGold-dark text-navy-950 font-bold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition font-rajdhani flex items-center justify-center gap-1.5 disabled:opacity-50"
             >
-              <LogIn size={15} />
-              <span>Enter Room</span>
+              {isJoining ? (
+                <>
+                  <Loader2 size={15} className="animate-spin" />
+                  <span>Connecting to Room…</span>
+                </>
+              ) : (
+                <>
+                  <LogIn size={15} />
+                  <span>Enter Room</span>
+                </>
+              )}
             </button>
           </div>
         </div>
@@ -279,7 +306,6 @@ export default function JoinRoomScreen({ initialCode = '' }) {
   // ---------------------------------------------------------------------------
   // STATE 2: Waiting in Room
   // ---------------------------------------------------------------------------
-  const inviteUrl = roomService.getInviteUrl(room.code);
   const playerCount = room.players.length;
   const isFull = playerCount >= room.maxPlayers;
 
@@ -289,10 +315,16 @@ export default function JoinRoomScreen({ initialCode = '' }) {
         {/* Header */}
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="text-sm font-cinzel font-bold text-pearl flex items-center gap-2">
-              <Crown size={16} className="text-champGold" /> Room: {room.code}
-            </h2>
-            <p className="text-[11px] text-slate-400">
+            <div className="flex items-center gap-2">
+              <h2 className="text-sm font-cinzel font-bold text-pearl flex items-center gap-2">
+                <Crown size={16} className="text-champGold" /> Room: {room.code}
+              </h2>
+              <span className="inline-flex items-center gap-1 text-[9px] text-emeraldGlow-light bg-emeraldGlow/10 px-1.5 py-0.5 rounded-full border border-emeraldGlow/30 font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-emeraldGlow animate-ping" />
+                CONNECTED
+              </span>
+            </div>
+            <p className="text-[11px] text-slate-400 mt-0.5">
               Host: <strong className="text-champGold">{room.hostName}</strong> • {room.division} League
             </p>
           </div>
@@ -300,6 +332,7 @@ export default function JoinRoomScreen({ initialCode = '' }) {
             type="button"
             onClick={handleLeave}
             className="p-2 rounded-xl bg-navy-900 border border-white/10 text-slate-400 hover:text-crimsonAlert transition"
+            title="Leave Room"
           >
             <X size={16} />
           </button>
@@ -371,7 +404,7 @@ export default function JoinRoomScreen({ initialCode = '' }) {
               </div>
             ))}
 
-            {Array.from({ length: room.maxPlayers - playerCount }).map((_, i) => (
+            {Array.from({ length: Math.max(0, room.maxPlayers - playerCount) }).map((_, i) => (
               <div
                 key={`empty-${i}`}
                 className="flex items-center gap-2 px-3 py-2 rounded-xl border border-dashed border-white/10 text-slate-600"

@@ -2,6 +2,7 @@
  * PrivateRoomScreen.jsx
  * Host view: Create a private room, share invite link, see who has joined,
  * and start the game when ready (or auto-start when full).
+ * Enhanced with real-time cloud relay sync across different mobile devices.
  */
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
@@ -23,11 +24,18 @@ import {
   Wifi,
   WifiOff,
   Shield,
-  Zap
+  Zap,
+  Globe
 } from 'lucide-react';
 
-// WhatsApp green, Facebook blue, SMS teal
 const SHARE_CHANNELS = [
+  {
+    key: 'native',
+    label: 'All Apps',
+    emoji: '📲',
+    color: 'bg-gradient-to-r from-champGold via-champGold-light to-champGold-dark text-navy-950 font-black',
+    getUrl: () => '#',
+  },
   {
     key: 'whatsapp',
     label: 'WhatsApp',
@@ -35,14 +43,6 @@ const SHARE_CHANNELS = [
     color: 'bg-[#25D366] hover:bg-[#20ba59] text-[#003d20]',
     getUrl: (url, code) =>
       `https://wa.me/?text=${encodeURIComponent(`🎮 Join my BrainLeague private game!\n\nRoom Code: *${code}*\nJoin here 👉 ${url}\n\nMax 10 players • Fastest Finger First • Hot-Seat Arena!`)}`,
-  },
-  {
-    key: 'facebook',
-    label: 'Facebook',
-    emoji: '📘',
-    color: 'bg-[#1877F2] hover:bg-[#1565d8] text-white',
-    getUrl: (url) =>
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
   },
   {
     key: 'sms',
@@ -62,7 +62,6 @@ const SHARE_CHANNELS = [
   },
 ];
 
-// Avatar emoji pool
 const AVATARS = ['🎮','🦁','🚀','⭐','🔥','🧠','🏆','⚡','💎','🎯'];
 
 export default function PrivateRoomScreen() {
@@ -71,43 +70,46 @@ export default function PrivateRoomScreen() {
 
   const [room, setRoom]           = useState(null);
   const [copied, setCopied]       = useState(false);
-  const [countdown, setCountdown] = useState(null); // seconds left
+  const [countdown, setCountdown] = useState(null);
   const [maxPlayers, setMaxPlayers] = useState(10);
-  const [creating, setCreating]   = useState(false);
-  const pollRef = useRef(null);
+  const [creating, setCreating]   = useState(true);
 
-  // ── Create room on mount ────────────────────────────────────────────────
+  // ── Create or restore room on mount ──────────────────────────────────
   useEffect(() => {
-    if (!currentUser) return;
-    setCreating(true);
-    const newRoom = roomService.createRoom({
-      hostId:      currentUser.id,
-      hostName:    currentUser.name,
-      hostAvatar:  AVATARS[Math.floor(Math.random() * AVATARS.length)],
-      division:    activeDivision,
-      maxPlayers
-    });
-    setRoom(newRoom);
-    setCreating(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    let mounted = true;
+    async function initRoom() {
+      if (!currentUser) return;
+      setCreating(true);
+      try {
+        const newRoom = await roomService.createRoom({
+          hostId:      currentUser.id,
+          hostName:    currentUser.name,
+          hostAvatar:  currentUser.avatar || AVATARS[Math.floor(Math.random() * AVATARS.length)],
+          division:    activeDivision,
+          maxPlayers
+        });
+        if (mounted) {
+          setRoom(newRoom);
+          setCreating(false);
+        }
+      } catch (e) {
+        console.error('Failed to create room:', e);
+        if (mounted) setCreating(false);
+      }
+    }
+    initRoom();
+    return () => { mounted = false; };
+  }, [currentUser, activeDivision, maxPlayers]);
 
-  // ── Subscribe to BroadcastChannel updates ──────────────────────────────
-  useEffect(() => {
-    const unsub = roomService.subscribe((updated) => {
-      if (updated?.code === room?.code) setRoom(updated);
-    });
-    return unsub;
-  }, [room?.code]);
-
-  // ── Poll localStorage (for cross-tab / cross-device via shared server) ─
+  // ── Subscribe to real-time cloud + websocket room updates ─────────────
   useEffect(() => {
     if (!room?.code) return;
-    pollRef.current = setInterval(() => {
-      const fresh = roomService.getRoom(room.code);
-      if (fresh) setRoom(fresh);
-    }, 2000);
-    return () => clearInterval(pollRef.current);
+    const unsub = roomService.subscribe(room.code, (updated) => {
+      if (updated && updated.code === room.code) {
+        setRoom(updated);
+      }
+    });
+    return unsub;
   }, [room?.code]);
 
   // ── Countdown to auto-start ────────────────────────────────────────────
@@ -129,51 +131,70 @@ export default function PrivateRoomScreen() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room?.startCountdown]);
 
-  // ── Cleanup: leave room when this screen unmounts ──────────────────────
-  useEffect(() => {
-    return () => {
-      if (room?.code && room?.hostId === currentUser?.id && room?.status === 'waiting') {
-        // Host navigated away before starting — dissolve room
-        roomService.leaveRoom(room.code, currentUser.id);
-      }
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [room?.code]);
+  // NOTE: We intentionally DO NOT dissolve the room on component unmount
+  // so that when the host switches to WhatsApp to share, the room stays alive!
 
   // ── Handlers ───────────────────────────────────────────────────────────
   const handleCopy = useCallback(() => {
     if (!room) return;
     soundService.playClick();
     const text = `${room.code}  |  ${roomService.getInviteUrl(room.code)}`;
-    navigator.clipboard.writeText(text).catch(() => {});
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }, [room]);
 
-  const handleShare = (channel) => {
+  const handleShare = async (channel) => {
     if (!room) return;
     soundService.playClick();
     const url = roomService.getInviteUrl(room.code);
-    window.open(channel.getUrl(url, room.code), '_blank');
+    const shareText = `🎮 Join my BrainLeague private game!\n\nRoom Code: *${room.code}*\nJoin here 👉 ${url}\n\nMax 10 players • Fastest Finger First • Hot-Seat Arena!`;
+
+    // If native share clicked or supported
+    if (channel?.key === 'native' || (!channel && typeof navigator !== 'undefined' && navigator.share)) {
+      if (typeof navigator !== 'undefined' && navigator.share) {
+        try {
+          await navigator.share({
+            title: 'BrainLeague Private Match',
+            text: shareText,
+            url: url
+          });
+          return;
+        } catch (err) {
+          if (err.name === 'AbortError') return; // User closed sheet
+        }
+      }
+    }
+
+    if (channel && channel.getUrl) {
+      const shareUrl = channel.getUrl(url, room.code);
+      if (shareUrl && shareUrl !== '#') {
+        window.open(shareUrl, '_blank', 'noopener,noreferrer');
+      }
+    }
   };
 
-  const handleForceStart = () => {
+  const handleForceStart = async () => {
     if (!room || room.players.length < 2) return;
     soundService.playClick();
-    const updated = roomService.startRoom(room.code, currentUser.id);
+    const updated = await roomService.startRoom(room.code, currentUser.id);
     if (updated) setRoom(updated);
   };
 
-  const handleKick = (playerId) => {
+  const handleKick = async (playerId) => {
     if (!room) return;
     soundService.playClick();
-    const updated = roomService.kickPlayer(room.code, currentUser.id, playerId);
+    const updated = await roomService.kickPlayer(room.code, currentUser.id, playerId);
     if (updated) setRoom(updated);
   };
 
-  const handleLeave = () => {
+  const handleLeave = async () => {
     soundService.playClick();
-    if (room?.code) roomService.leaveRoom(room.code, currentUser.id);
+    if (room?.code && currentUser?.id) {
+      await roomService.leaveRoom(room.code, currentUser.id);
+    }
     navigateTo('HOME');
   };
 
@@ -181,12 +202,12 @@ export default function PrivateRoomScreen() {
     return (
       <div className="flex-1 flex items-center justify-center flex-col gap-3">
         <div className="w-10 h-10 rounded-full border-4 border-champGold border-t-transparent animate-spin" />
-        <p className="text-slate-400 text-sm">Creating your room…</p>
+        <p className="text-slate-400 text-sm">Connecting to game server…</p>
       </div>
     );
   }
 
-  const inviteUrl  = roomService.getInviteUrl(room.code);
+  const inviteUrl   = roomService.getInviteUrl(room.code);
   const playerCount = room.players.length;
   const isFull      = playerCount >= room.maxPlayers;
   const canStart    = playerCount >= 2 && room.status === 'waiting';
@@ -200,12 +221,19 @@ export default function PrivateRoomScreen() {
           <h2 className="text-sm font-cinzel font-bold text-pearl tracking-wider flex items-center gap-2">
             <Crown size={16} className="text-champGold" /> Private Game Room
           </h2>
-          <p className="text-[11px] text-slate-400 mt-0.5">{activeDivision} League • Up to {room.maxPlayers} Players</p>
+          <div className="flex items-center gap-2 mt-0.5">
+            <span className="text-[11px] text-slate-400">{activeDivision} League • Up to {room.maxPlayers} Players</span>
+            <span className="inline-flex items-center gap-1 text-[9px] text-emeraldGlow-light bg-emeraldGlow/10 px-1.5 py-0.5 rounded-full border border-emeraldGlow/30 font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-emeraldGlow animate-ping" />
+              LIVE SYNC
+            </span>
+          </div>
         </div>
         <button
           type="button"
           onClick={handleLeave}
           className="p-2 rounded-xl bg-navy-900 border border-white/10 text-slate-400 hover:text-crimsonAlert transition"
+          title="Leave Room"
         >
           <X size={16} />
         </button>
@@ -222,6 +250,7 @@ export default function PrivateRoomScreen() {
             type="button"
             onClick={handleCopy}
             className={`p-2 rounded-xl border transition ${copied ? 'bg-emeraldGlow/20 border-emeraldGlow text-emeraldGlow' : 'bg-navy-950/60 border-white/10 text-slate-400 hover:text-pearl'}`}
+            title="Copy Code & Link"
           >
             {copied ? <Check size={16} /> : <Copy size={16} />}
           </button>
@@ -237,7 +266,9 @@ export default function PrivateRoomScreen() {
         </div>
 
         {/* Share Buttons */}
-        <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold mb-2 text-center">Share Invite Via</p>
+        <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-2 text-center">
+          Share Invite With Friends
+        </p>
         <div className="grid grid-cols-4 gap-2">
           {SHARE_CHANNELS.map(ch => (
             <button
@@ -269,7 +300,7 @@ export default function PrivateRoomScreen() {
 
         {/* Player slots */}
         <div className="space-y-1.5">
-          {room.players.map((p, idx) => (
+          {room.players.map((p) => (
             <div
               key={p.id}
               className={`flex items-center justify-between px-3 py-2 rounded-xl border ${
@@ -296,6 +327,7 @@ export default function PrivateRoomScreen() {
                   type="button"
                   onClick={() => handleKick(p.id)}
                   className="text-slate-500 hover:text-crimsonAlert transition p-1"
+                  title="Remove Player"
                 >
                   <X size={13} />
                 </button>
@@ -304,13 +336,13 @@ export default function PrivateRoomScreen() {
           ))}
 
           {/* Empty slots */}
-          {Array.from({ length: room.maxPlayers - playerCount }).map((_, i) => (
+          {Array.from({ length: Math.max(0, room.maxPlayers - playerCount) }).map((_, i) => (
             <div
               key={`empty-${i}`}
               className="flex items-center gap-2 px-3 py-2 rounded-xl border border-dashed border-white/10 text-slate-600"
             >
               <span className="text-base opacity-30">👤</span>
-              <span className="text-[11px]">Waiting for player…</span>
+              <span className="text-[11px]">Waiting for friend to join…</span>
             </div>
           ))}
         </div>
@@ -330,7 +362,7 @@ export default function PrivateRoomScreen() {
           {playerCount < 2 && (
             <div className="p-3 rounded-xl bg-velvet-950/60 border border-yellow-500/20 text-center">
               <p className="text-[11px] text-yellow-400 flex items-center justify-center gap-1.5">
-                <WifiOff size={12} /> Waiting for at least 1 more player to join
+                <WifiOff size={12} /> Share the code with friends to start the match
               </p>
             </div>
           )}
@@ -359,7 +391,7 @@ export default function PrivateRoomScreen() {
       <div className="rounded-xl bg-blue-950/40 border border-blue-500/20 p-3 flex gap-2">
         <Wifi size={14} className="text-blue-400 flex-shrink-0 mt-0.5" />
         <p className="text-[11px] text-blue-200/70 leading-relaxed">
-          Friends can join by opening the invite link or entering room code&nbsp;<strong className="text-champGold">{room.code}</strong>&nbsp;on the home screen. All players need to have the app open to play together.
+          Friends can join by opening the invite link or entering room code&nbsp;<strong className="text-champGold">{room.code}</strong>&nbsp;in the <strong>Group Game</strong> tab. Real-time sync connects all players automatically.
         </p>
       </div>
     </div>
