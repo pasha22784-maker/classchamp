@@ -159,3 +159,19 @@
   animation: kbcCorrectAura 0.8s infinite ease-in-out;
 }
 
+/* Zero-Scrolling Landscape TV Studio Rules */
+@media (orientation: landscape) and (max-height: 540px) {
+  html, body, #root {
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+    touch-action: pan-x pan-y;
+  }
+  /* Ensure option buttons and question box stay compact in mobile landscape */
+  .kbc-frame-inner {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+}
+
+

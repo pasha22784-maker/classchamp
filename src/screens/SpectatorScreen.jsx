@@ -361,94 +361,194 @@ export default function SpectatorScreen() {
       {/* 2. MAIN TELECAST: LIVE QUESTION & AUDIENCE "PLAY ALONG"   */}
       {/* ========================================================= */}
       {!matchEnded ? (
-        <div className="my-auto space-y-3">
-          {/* Authentic Metallic Question Frame */}
-          <KbcQuestionBox
-            questionText={localizedQ?.displayText || currentQ?.text}
-            levelNumber={spectatorLevel}
-            totalLevels={15}
-            pointsFormatted={currentTier?.label}
-            subject={currentQ?.subject}
-            isPadav={currentTier?.isPadav}
-            questionLabel={t('questionLabel')}
-            padavLabel={t('safeMilestoneBanner')}
-          />
+        isLandscapeMode ? (
+          /* ZERO-SCROLLING LANDSCAPE TV STUDIO (SIDE-BY-SIDE) */
+          <div className="flex-1 w-full grid grid-cols-12 gap-3 items-center overflow-hidden min-h-0 py-0.5">
+            {/* Left: Question Box */}
+            <div className="col-span-6 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0">
+              <KbcQuestionBox
+                questionText={localizedQ?.displayText || currentQ?.text}
+                levelNumber={spectatorLevel}
+                totalLevels={15}
+                pointsFormatted={currentTier?.label}
+                subject={currentQ?.subject}
+                isPadav={currentTier?.isPadav}
+                questionLabel={t('questionLabel')}
+                padavLabel={t('safeMilestoneBanner')}
+                isCompact={true}
+              />
+            </div>
 
-          {/* "Play Along" Prompt Header */}
-          <div className="flex items-center justify-between px-1">
-            <span className="text-[11px] sm:text-xs font-bold text-champGold flex items-center gap-1 uppercase tracking-wider font-cinzel">
-              <Gamepad2 size={13} className="text-champGold" />
-              {t('playAlongTitle')}
-            </span>
-            <span className="text-[10px] sm:text-xs text-emeraldGlow-light font-semibold">
-              {t('pointsBonus')}
-            </span>
-          </div>
+            {/* Right: Play-Along Options & Status */}
+            <div className="col-span-6 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0">
+              <div className="flex items-center justify-between px-1 mb-1">
+                <span className="text-[11px] font-bold text-champGold flex items-center gap-1 uppercase tracking-wider font-cinzel">
+                  <Gamepad2 size={12} className="text-champGold" />
+                  <span>{t('playAlongTitle')}</span>
+                </span>
+                <span className="text-[10px] text-emeraldGlow-light font-semibold">
+                  {t('pointsBonus')}
+                </span>
+              </div>
 
-          {/* 4 Interactive Options in 2x2 Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
-            {['A', 'B', 'C', 'D'].map(letter => {
-              const isAudienceSelected = audienceSelection === letter;
-              const isContenderLocked = contenderLockedOption === letter;
-              const isCorrect = currentQ?.correctAnswer === letter;
+              <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+                {['A', 'B', 'C', 'D'].map(letter => {
+                  const isAudienceSelected = audienceSelection === letter;
+                  const isContenderLocked = contenderLockedOption === letter;
+                  const isCorrect = currentQ?.correctAnswer === letter;
 
-              let status = 'IDLE';
-              let badgeText = null;
+                  let status = 'IDLE';
+                  let badgeText = null;
 
-              if (contenderStatus === 'REVEALED') {
-                if (isCorrect) {
-                  status = 'CORRECT';
-                } else if (isAudienceSelected && !isCorrect) {
-                  status = 'WRONG';
-                } else if (isContenderLocked && !isCorrect) {
-                  status = 'WRONG';
-                }
-              } else if (isAudienceSelected) {
-                status = 'LOCKED';
-                badgeText = t('yourGuess');
-              }
+                  if (contenderStatus === 'REVEALED') {
+                    if (isCorrect) {
+                      status = 'CORRECT';
+                    } else if (isAudienceSelected && !isCorrect) {
+                      status = 'WRONG';
+                    } else if (isContenderLocked && !isCorrect) {
+                      status = 'WRONG';
+                    }
+                  } else if (isAudienceSelected) {
+                    status = 'LOCKED';
+                    badgeText = t('yourGuess');
+                  }
 
-              if (isContenderLocked && !isAudienceSelected) {
-                badgeText = t('playerPick');
-              } else if (isContenderLocked && isAudienceSelected && contenderStatus !== 'REVEALED') {
-                badgeText = t('bothPicked');
-              }
+                  if (isContenderLocked && !isAudienceSelected) {
+                    badgeText = t('playerPick');
+                  } else if (isContenderLocked && isAudienceSelected && contenderStatus !== 'REVEALED') {
+                    badgeText = t('bothPicked');
+                  }
 
-              return (
-                <KbcOptionButton
-                  key={letter}
-                  letter={letter}
-                  text={localizedQ?.displayOptions?.[letter] || currentQ?.options[letter]}
-                  status={status}
-                  badgeText={badgeText}
-                  disabled={playAlongLocked || contenderStatus === 'REVEALED'}
-                  onClick={() => handlePlayAlongSelect(letter)}
-                />
-              );
-            })}
-          </div>
+                  return (
+                    <KbcOptionButton
+                      key={letter}
+                      letter={letter}
+                      text={localizedQ?.displayOptions?.[letter] || currentQ?.options[letter]}
+                      status={status}
+                      badgeText={badgeText}
+                      disabled={playAlongLocked || contenderStatus === 'REVEALED'}
+                      isCompact={true}
+                      onClick={() => handlePlayAlongSelect(letter)}
+                    />
+                  );
+                })}
+              </div>
 
-          {/* Feedback banner after reveal */}
-          {playAlongResult && (
-            <div className={`p-2 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5 animate-fadeIn ${
-              playAlongResult === 'CORRECT'
-                ? 'bg-emeraldGlow/20 border border-emeraldGlow text-emeraldGlow-light'
-                : 'bg-navy-900 border border-white/10 text-slate-300'
-            }`}>
-              {playAlongResult === 'CORRECT' ? (
-                <>
-                  <CheckCircle2 size={15} />
-                  <span>{t('bingoCorrect')}</span>
-                </>
-              ) : (
-                <>
-                  <XCircle size={15} />
-                  <span>{t('wrongGuess')}</span>
-                </>
+              {/* Feedback banner after reveal */}
+              {playAlongResult && (
+                <div className={`mt-2 p-1.5 rounded-xl text-[11px] font-bold text-center flex items-center justify-center gap-1.5 animate-fadeIn ${
+                  playAlongResult === 'CORRECT'
+                    ? 'bg-emeraldGlow/20 border border-emeraldGlow text-emeraldGlow-light'
+                    : 'bg-navy-900 border border-white/10 text-slate-300'
+                }`}>
+                  {playAlongResult === 'CORRECT' ? (
+                    <>
+                      <CheckCircle2 size={13} />
+                      <span>{t('bingoCorrect')}</span>
+                    </>
+                  ) : (
+                    <>
+                      <XCircle size={13} />
+                      <span>{t('wrongGuess')}</span>
+                    </>
+                  )}
+                </div>
               )}
             </div>
-          )}
-        </div>
+          </div>
+        ) : (
+          /* PORTRAIT LAYOUT */
+          <div className="my-auto space-y-3">
+            {/* Authentic Metallic Question Frame */}
+            <KbcQuestionBox
+              questionText={localizedQ?.displayText || currentQ?.text}
+              levelNumber={spectatorLevel}
+              totalLevels={15}
+              pointsFormatted={currentTier?.label}
+              subject={currentQ?.subject}
+              isPadav={currentTier?.isPadav}
+              questionLabel={t('questionLabel')}
+              padavLabel={t('safeMilestoneBanner')}
+              isCompact={false}
+            />
+
+            {/* "Play Along" Prompt Header */}
+            <div className="flex items-center justify-between px-1">
+              <span className="text-[11px] sm:text-xs font-bold text-champGold flex items-center gap-1 uppercase tracking-wider font-cinzel">
+                <Gamepad2 size={13} className="text-champGold" />
+                {t('playAlongTitle')}
+              </span>
+              <span className="text-[10px] sm:text-xs text-emeraldGlow-light font-semibold">
+                {t('pointsBonus')}
+              </span>
+            </div>
+
+            {/* 4 Interactive Options in 2x2 Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
+              {['A', 'B', 'C', 'D'].map(letter => {
+                const isAudienceSelected = audienceSelection === letter;
+                const isContenderLocked = contenderLockedOption === letter;
+                const isCorrect = currentQ?.correctAnswer === letter;
+
+                let status = 'IDLE';
+                let badgeText = null;
+
+                if (contenderStatus === 'REVEALED') {
+                  if (isCorrect) {
+                    status = 'CORRECT';
+                  } else if (isAudienceSelected && !isCorrect) {
+                    status = 'WRONG';
+                  } else if (isContenderLocked && !isCorrect) {
+                    status = 'WRONG';
+                  }
+                } else if (isAudienceSelected) {
+                  status = 'LOCKED';
+                  badgeText = t('yourGuess');
+                }
+
+                if (isContenderLocked && !isAudienceSelected) {
+                  badgeText = t('playerPick');
+                } else if (isContenderLocked && isAudienceSelected && contenderStatus !== 'REVEALED') {
+                  badgeText = t('bothPicked');
+                }
+
+                return (
+                  <KbcOptionButton
+                    key={letter}
+                    letter={letter}
+                    text={localizedQ?.displayOptions?.[letter] || currentQ?.options[letter]}
+                    status={status}
+                    badgeText={badgeText}
+                    disabled={playAlongLocked || contenderStatus === 'REVEALED'}
+                    isCompact={false}
+                    onClick={() => handlePlayAlongSelect(letter)}
+                  />
+                );
+              })}
+            </div>
+
+            {/* Feedback banner after reveal */}
+            {playAlongResult && (
+              <div className={`p-2 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5 animate-fadeIn ${
+                playAlongResult === 'CORRECT'
+                  ? 'bg-emeraldGlow/20 border border-emeraldGlow text-emeraldGlow-light'
+                  : 'bg-navy-900 border border-white/10 text-slate-300'
+              }`}>
+                {playAlongResult === 'CORRECT' ? (
+                  <>
+                    <CheckCircle2 size={15} />
+                    <span>{t('bingoCorrect')}</span>
+                  </>
+                ) : (
+                  <>
+                    <XCircle size={15} />
+                    <span>{t('wrongGuess')}</span>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+        )
       ) : (
         /* ========================================================= */
         /* 3. AUDIENCE PLAY ALONG FINALE & PRIZE DISTRIBUTION        */

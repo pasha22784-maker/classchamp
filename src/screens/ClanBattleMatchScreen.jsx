@@ -265,102 +265,109 @@ export default function ClanBattleMatchScreen() {
         })}
       </div>
 
-      {/* Question Card */}
-      <div className="bg-navy-900/90 rounded-2xl p-4 border border-champGold/30 shadow-xl mb-3 relative">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] uppercase font-bold text-champGold tracking-wider bg-champGold/10 px-2 py-0.5 rounded border border-champGold/30">
-            Question {room.currentQIndex + 1} of {room.questions.length} • {(room.currentQIndex + 1) * 10000} Pts
-          </span>
-          <span className="text-[10px] text-amber-300 font-bold uppercase">
-            Anti-Cheat Protected
-          </span>
+      {/* Main Battle Area: Side-by-side on Landscape / Widescreen with zero scrolling */}
+      <div className="flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3 items-center overflow-hidden min-h-0">
+        {/* Left: Question Card + Member Voice Status */}
+        <div className="lg:col-span-7 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0">
+          <div className="bg-navy-900/90 rounded-2xl p-3 sm:p-4 border border-champGold/30 shadow-xl relative">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase font-bold text-champGold tracking-wider bg-champGold/10 px-2 py-0.5 rounded border border-champGold/30">
+                Question {room.currentQIndex + 1} of {room.questions.length} • {(room.currentQIndex + 1) * 10000} Pts
+              </span>
+              <span className="text-[10px] text-amber-300 font-bold uppercase">
+                Anti-Cheat 20s Window
+              </span>
+            </div>
+
+            <h3 className="text-xs sm:text-sm md:text-base font-bold text-pearl leading-snug font-cinzel mb-1">
+              {currentQ.text}
+            </h3>
+            {currentQ.text_hi && (
+              <p className="text-[11px] sm:text-xs text-amber-200/90 font-medium leading-relaxed">
+                {currentQ.text_hi}
+              </p>
+            )}
+          </div>
         </div>
 
-        <h3 className="text-sm md:text-base font-bold text-pearl leading-snug font-cinzel mb-1">
-          {currentQ.text}
-        </h3>
-        {currentQ.text_hi && (
-          <p className="text-xs text-amber-200/90 font-medium leading-relaxed">
-            {currentQ.text_hi}
-          </p>
-        )}
-      </div>
+        {/* Right: 4 Options + Lock Action Bar */}
+        <div className="lg:col-span-5 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0">
+          <div className="grid grid-cols-2 gap-1.5 sm:gap-2 mb-2">
+            {['A', 'B', 'C', 'D'].map(key => {
+              const isSelected = selectedProposal === key;
+              const isLocked = myTeamLockedAnswer === key;
+              const text = currentQ.options?.[key] || '';
 
-      {/* 4 Options Grid */}
-      <div className="grid grid-cols-2 gap-2 mb-3">
-        {['A', 'B', 'C', 'D'].map(key => {
-          const isSelected = selectedProposal === key;
-          const isLocked = myTeamLockedAnswer === key;
-          const text = currentQ.options?.[key] || '';
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => handlePropose(key)}
+                  disabled={Boolean(myTeamLockedAnswer)}
+                  className={`p-2 sm:p-2.5 rounded-xl border text-left transition flex flex-col justify-between relative ${
+                    isLocked
+                      ? 'bg-emerald-600/30 border-emerald-400 ring-2 ring-emerald-400 text-pearl shadow-lg'
+                      : isSelected
+                        ? 'bg-amber-500/20 border-champGold ring-1 ring-champGold text-pearl'
+                        : 'bg-navy-950/80 hover:bg-navy-800/80 border-white/10 text-pearl'
+                  }`}
+                >
+                  <div className="flex items-center justify-between w-full mb-0.5">
+                    <span className={`w-5 h-5 rounded-md flex items-center justify-center font-bold text-[11px] ${
+                      isLocked ? 'bg-emerald-500 text-navy-950' : isSelected ? 'bg-champGold text-navy-950' : 'bg-white/10 text-champGold'
+                    }`}>
+                      {key}
+                    </span>
 
-          return (
+                    {isLocked && (
+                      <span className="text-[9px] font-bold text-emerald-400 flex items-center gap-0.5">
+                        <Lock size={10} /> Locked
+                      </span>
+                    )}
+                  </div>
+
+                  <span className="text-[11px] sm:text-xs font-semibold leading-tight line-clamp-2">
+                    {text}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Lock Action Bar */}
+          <div className="bg-navy-950/90 rounded-2xl p-1.5 sm:p-2 border border-white/10 flex items-center justify-between gap-1.5 shadow">
             <button
-              key={key}
               type="button"
-              onClick={() => handlePropose(key)}
-              disabled={Boolean(myTeamLockedAnswer)}
-              className={`p-3 rounded-xl border text-left transition flex flex-col justify-between relative ${
-                isLocked
-                  ? 'bg-emerald-600/30 border-emerald-400 ring-2 ring-emerald-400 text-pearl shadow-lg'
-                  : isSelected
-                    ? 'bg-amber-500/20 border-champGold ring-1 ring-champGold text-pearl'
-                    : 'bg-navy-950/80 hover:bg-navy-800/80 border-white/10 text-pearl'
+              onClick={() => setShowAudiencePollModal(true)}
+              className="px-2.5 py-1.5 rounded-xl bg-navy-900 border border-champGold/30 text-champGold font-bold text-[11px] uppercase flex items-center gap-1 hover:bg-navy-800 transition"
+            >
+              <BarChart3 size={12} />
+              <span>Poll</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={handleLockAnswer}
+              disabled={!selectedProposal || Boolean(myTeamLockedAnswer)}
+              className={`flex-1 py-1.5 sm:py-2 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition ${
+                myTeamLockedAnswer
+                  ? 'bg-emerald-600 text-pearl opacity-90 cursor-not-allowed'
+                  : selectedProposal
+                    ? 'bg-gradient-to-r from-champGold to-champGold-dark text-navy-950 shadow-lg active:scale-95'
+                    : 'bg-navy-900 text-slate-500 border border-white/5 cursor-not-allowed'
               }`}
             >
-              <div className="flex items-center justify-between w-full mb-1">
-                <span className={`w-6 h-6 rounded-md flex items-center justify-center font-bold text-xs ${
-                  isLocked ? 'bg-emerald-500 text-navy-950' : isSelected ? 'bg-champGold text-navy-950' : 'bg-white/10 text-champGold'
-                }`}>
-                  {key}
-                </span>
-
-                {isLocked && (
-                  <span className="text-[9px] font-bold text-emerald-400 flex items-center gap-0.5">
-                    <Lock size={10} /> Locked
-                  </span>
-                )}
-              </div>
-
-              <span className="text-xs font-semibold leading-tight">
-                {text}
+              <Lock size={12} />
+              <span>
+                {myTeamLockedAnswer
+                  ? `Locked Option [${myTeamLockedAnswer}]`
+                  : selectedProposal
+                    ? `ताला लगाया जाए? Lock [${selectedProposal}]`
+                    : 'Select an Option'}
               </span>
             </button>
-          );
-        })}
-      </div>
-
-      {/* Lock Action Bar */}
-      <div className="bg-navy-950/90 rounded-2xl p-2.5 border border-white/10 flex items-center justify-between gap-2 shadow">
-        <button
-          type="button"
-          onClick={() => setShowAudiencePollModal(true)}
-          className="px-3 py-2 rounded-xl bg-navy-900 border border-champGold/30 text-champGold font-bold text-xs uppercase flex items-center gap-1.5 hover:bg-navy-800 transition"
-        >
-          <BarChart3 size={14} />
-          <span>Audience Poll</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={handleLockAnswer}
-          disabled={!selectedProposal || Boolean(myTeamLockedAnswer)}
-          className={`flex-1 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition ${
-            myTeamLockedAnswer
-              ? 'bg-emerald-600 text-pearl opacity-90 cursor-not-allowed'
-              : selectedProposal
-                ? 'bg-gradient-to-r from-champGold to-champGold-dark text-navy-950 shadow-lg active:scale-95'
-                : 'bg-navy-900 text-slate-500 border border-white/5 cursor-not-allowed'
-          }`}
-        >
-          <Lock size={14} />
-          <span>
-            {myTeamLockedAnswer
-              ? `Locked Option [${myTeamLockedAnswer}]`
-              : selectedProposal
-                ? `ताला लगाया जाए? Lock [${selectedProposal}]`
-                : 'Select an Option'}
-          </span>
-        </button>
+          </div>
+        </div>
       </div>
 
       {/* Live Audience Poll Telemetry Modal */}

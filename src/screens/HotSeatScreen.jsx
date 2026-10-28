@@ -292,13 +292,160 @@ export default function HotSeatScreen() {
       {/* ========================================================= */}
       {/* MAIN STAGE: Dual-Column in Landscape, Single-Column in Portrait */}
       {/* ========================================================= */}
-      <div className={`flex-1 w-full gap-3 sm:gap-4 items-stretch ${
-        isLandscapeMode ? 'grid grid-cols-1 lg:grid-cols-12' : 'flex flex-col justify-between'
-      }`}>
-        {/* LEFT / CENTER BROADCAST ARENA (Column 1-9 in Landscape, Full Width in Portrait) */}
-        <div className={`flex flex-col justify-between ${
-          isLandscapeMode ? 'lg:col-span-8 xl:col-span-9' : 'w-full flex-1'
-        }`}>
+      {isLandscapeMode ? (
+        /* ========================================================= */
+        /* ZERO-SCROLLING LANDSCAPE TV STUDIO (SIDE-BY-SIDE 2-COLUMN)*/
+        /* ========================================================= */
+        <div className="flex-1 w-full grid grid-cols-12 gap-2 sm:gap-3 items-stretch overflow-hidden min-h-0 py-0.5">
+          {/* LEFT COLUMN: Question Box + Banners + Walk Away */}
+          <div className="col-span-7 xl:col-span-6 flex flex-col justify-between h-full max-h-full overflow-hidden min-h-0 pr-1">
+            {/* Active AI Guru Hint Banner */}
+            {activeGuruHint && (
+              <div className="mb-1 p-1.5 rounded-lg bg-emeraldGlow/15 border border-emeraldGlow/40 text-pearl text-[10px] flex items-center gap-1.5 shadow shrink-0">
+                <Brain size={13} className="text-emeraldGlow-light shrink-0" />
+                <span className="truncate">{activeGuruHint}</span>
+              </div>
+            )}
+
+            {/* Safe Padav Banner Notification */}
+            {tierMeta.isPadav && (
+              <div className="mb-1 px-2.5 py-1 rounded-lg bg-gradient-to-r from-amber-500/20 via-champGold/20 to-amber-500/20 border border-champGold/50 text-champGold text-[11px] font-bold flex items-center justify-between shadow shrink-0">
+                <span className="flex items-center gap-1 font-rajdhani uppercase tracking-wider">
+                  <Shield size={12} className="text-champGold" />
+                  {t('safeMilestoneBanner')}
+                </span>
+                <span className="font-mono text-[10px]">{tierMeta.label} {t('guaranteedPts')}</span>
+              </div>
+            )}
+
+            {/* Audience Poll Inline Result */}
+            {audiencePollData && (
+              <div className="mb-1 p-1.5 rounded-lg bg-velvet-950 border border-blue-500/40 shadow shrink-0">
+                <div className="grid grid-cols-4 gap-1 text-center">
+                  {['A', 'B', 'C', 'D'].map(k => (
+                    <div key={k} className="text-[10px] font-mono font-bold text-blue-300">
+                      {k}: {audiencePollData[k] || 0}%
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Authentic KBC Metallic Question Frame */}
+            <div className="my-auto flex items-center justify-center">
+              <KbcQuestionBox
+                questionText={localizedQ?.displayText || currentQ.text}
+                levelNumber={currentQIndex + 1}
+                totalLevels={15}
+                pointsFormatted={tierMeta.label}
+                subject={currentQ.subject}
+                isPadav={tierMeta.isPadav}
+                questionLabel={t('questionLabel')}
+                padavLabel={t('safeMilestoneBanner')}
+                isCompact={true}
+              />
+            </div>
+
+            {/* Bottom Walk Away / Guaranteed Status */}
+            <div className="flex items-center justify-between pt-1 border-t border-white/10 shrink-0">
+              <button
+                type="button"
+                onClick={walkAway}
+                disabled={isAnswerLocked || revealState}
+                className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-navy-900 hover:bg-navy-800 border border-white/10 text-[11px] font-semibold text-slate-400 hover:text-pearl transition disabled:opacity-40 active:scale-95"
+              >
+                <LogOut size={12} />
+                <span>{t('walkAwayBtn')}</span>
+              </button>
+
+              <div className="flex items-center gap-1 text-[10px] font-mono text-slate-400">
+                <span>{t('guaranteedSafe')}</span>
+                <span className="text-champGold font-bold">{safeGuaranteed} pts</span>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: 2x2 Options Grid + Confirm Lock Button */}
+          <div className="col-span-5 xl:col-span-4 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0 pl-1">
+            <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+              {['A', 'B', 'C', 'D'].map((letter) => {
+                const status = getOptionStatus(letter);
+                return (
+                  <KbcOptionButton
+                    key={letter}
+                    letter={letter}
+                    text={localizedQ?.displayOptions?.[letter] || currentQ.options[letter]}
+                    status={status}
+                    disabled={isAnswerLocked || eliminatedOptions.includes(letter)}
+                    isCompact={true}
+                    onClick={() => handleOptionClick(letter)}
+                  />
+                );
+              })}
+            </div>
+
+            {/* Manual Lock Action Button: "ताला लगाया जाए?" */}
+            {selectedOption && !isAnswerLocked && !revealState ? (
+              <div className="mt-2 animate-scaleIn">
+                <button
+                  type="button"
+                  onClick={handleConfirmLock}
+                  className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 via-champGold to-amber-500 text-navy-950 font-black text-xs font-rajdhani uppercase tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.55)] border border-champGold hover:brightness-110 active:scale-[0.98] transition flex items-center justify-center gap-1.5"
+                >
+                  <Lock size={13} className="text-navy-950" />
+                  <span>ताला लगाया जाए? Lock [{selectedOption}]</span>
+                  <span className="text-[9px] bg-navy-950 text-champGold px-1.5 py-0.5 rounded-full font-mono font-bold">
+                    CONFIRM
+                  </span>
+                </button>
+              </div>
+            ) : (
+              <div className="mt-2 text-center text-[10px] text-slate-400 font-rajdhani">
+                {isAnswerLocked ? 'Answer Locked • Checking...' : 'Double-tap option or select & confirm'}
+              </div>
+            )}
+          </div>
+
+          {/* RIGHT COLUMN (DESKTOP XL ONLY): Persistent 15-Step Ladder on Ultra-Wide Monitors */}
+          <div className="hidden xl:flex xl:col-span-2 flex-col justify-between bg-navy-900/90 rounded-2xl border border-champGold/30 p-2 shadow-xl overflow-hidden backdrop-blur-md h-full">
+            <div>
+              <div className="text-[10px] font-bold text-champGold font-cinzel tracking-wider uppercase mb-1 flex items-center justify-between">
+                <span>{t('ladderTitle')}</span>
+                <span className="text-[9px] font-mono text-slate-400">Padavs</span>
+              </div>
+
+              <div className="space-y-0.5 overflow-y-auto max-h-[300px] pr-0.5">
+                {[...LADDER_TIERS].reverse().map(tier => {
+                  const isCurrent = tier.level === currentQIndex + 1;
+                  const isPassed = tier.level < currentQIndex + 1;
+
+                  return (
+                    <div
+                      key={tier.level}
+                      className={`flex items-center justify-between px-1.5 py-0.5 rounded text-[10px] font-mono font-bold transition-all ${
+                        isCurrent
+                          ? 'bg-gradient-to-r from-amber-500 via-champGold to-amber-500 text-navy-950 shadow font-black'
+                          : isPassed
+                            ? 'bg-emeraldGlow/15 text-emeraldGlow-light'
+                            : tier.isPadav
+                              ? 'bg-velvet-900 text-champGold border border-champGold/40'
+                              : 'text-slate-400'
+                      }`}
+                    >
+                      <span>Q{tier.level}</span>
+                      <span>{tier.label}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        /* ========================================================= */
+        /* PORTRAIT PHONE LAYOUT (STANDARD VERTICAL STACK)           */
+        /* ========================================================= */
+        <div className="flex-1 w-full flex flex-col justify-between">
           <div>
             {/* Safe Padav Banner Notification */}
             {tierMeta.isPadav && (
@@ -360,15 +507,13 @@ export default function HotSeatScreen() {
               isPadav={tierMeta.isPadav}
               questionLabel={t('questionLabel')}
               padavLabel={t('safeMilestoneBanner')}
-              isCompact={isLandscapeMode}
+              isCompact={false}
             />
           </div>
 
           {/* Authentic KBC 2x2 Hexagonal Options Grid */}
-          <div className={isLandscapeMode ? 'my-1 sm:my-2' : 'my-2 sm:my-3'}>
-            <div className={`grid gap-1.5 sm:gap-2.5 ${
-              isLandscapeMode ? 'grid-cols-2' : 'grid-cols-1 sm:grid-cols-2'
-            }`}>
+          <div className="my-2 sm:my-3">
+            <div className="grid gap-1.5 sm:gap-2.5 grid-cols-1 sm:grid-cols-2">
               {['A', 'B', 'C', 'D'].map((letter) => {
                 const status = getOptionStatus(letter);
                 return (
@@ -378,7 +523,7 @@ export default function HotSeatScreen() {
                     text={localizedQ?.displayOptions?.[letter] || currentQ.options[letter]}
                     status={status}
                     disabled={isAnswerLocked || eliminatedOptions.includes(letter)}
-                    isCompact={isLandscapeMode}
+                    isCompact={false}
                     onClick={() => handleOptionClick(letter)}
                   />
                 );
@@ -404,7 +549,7 @@ export default function HotSeatScreen() {
           </div>
 
           {/* Bottom Controls: Walk Away / Quit & Safe Balance */}
-          <div className={`flex items-center justify-between ${isLandscapeMode ? 'pt-1 sm:pt-2' : 'pt-2'} border-t border-white/10 mt-auto shrink-0`}>
+          <div className="flex items-center justify-between pt-2 border-t border-white/10 mt-auto shrink-0">
             <button
               type="button"
               onClick={walkAway}
@@ -421,73 +566,7 @@ export default function HotSeatScreen() {
             </div>
           </div>
         </div>
-
-        {/* RIGHT SIDEBAR: Persistent 15-Step KBC Ladder (Widescreen Landscape Mode) */}
-        {isLandscapeMode && (
-          <div className="hidden lg:flex lg:col-span-4 xl:col-span-3 flex-col justify-between bg-navy-900/90 rounded-2xl border border-champGold/30 p-3 shadow-2xl overflow-hidden backdrop-blur-md">
-            <div>
-              {/* Contestant Profile Header */}
-              <div className="flex items-center gap-2 mb-2 pb-2 border-b border-white/10">
-                <div className="w-8 h-8 rounded-full bg-champGold/20 border border-champGold/40 flex items-center justify-center text-sm shadow">
-                  {currentUser?.avatar || '👤'}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="text-xs font-bold text-pearl truncate">
-                    {currentUser?.name || 'Contender'}
-                  </div>
-                  <div className="text-[10px] text-slate-400 font-mono">
-                    Hot Seat Contestant
-                  </div>
-                </div>
-              </div>
-
-              {/* Ladder Title */}
-              <div className="text-[11px] font-bold text-champGold font-cinzel tracking-wider uppercase mb-1.5 flex items-center justify-between">
-                <span>{t('ladderTitle')}</span>
-                <span className="text-[10px] font-mono text-slate-400">Safe Padavs</span>
-              </div>
-
-              {/* Persistent 15 Rows */}
-              <div className="space-y-1 overflow-y-auto max-h-[460px] pr-0.5">
-                {[...LADDER_TIERS].reverse().map(tier => {
-                  const isCurrent = tier.level === currentQIndex + 1;
-                  const isPassed = tier.level < currentQIndex + 1;
-
-                  return (
-                    <div
-                      key={tier.level}
-                      className={`flex items-center justify-between px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all ${
-                        isCurrent
-                          ? 'bg-gradient-to-r from-amber-500 via-champGold to-amber-500 text-navy-950 shadow-lg font-black scale-[1.02]'
-                          : isPassed
-                            ? 'bg-emeraldGlow/15 text-emeraldGlow-light border border-emeraldGlow/20'
-                            : tier.isPadav
-                              ? 'bg-velvet-900 text-champGold border border-champGold/40'
-                              : 'bg-navy-950/60 text-slate-400 hover:text-slate-200'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <span className="w-4 text-[11px]">{tier.level}</span>
-                        {tier.isPadav && (
-                          <span className="text-[9px] px-1 py-0.2 rounded bg-champGold/20 text-champGold font-sans">
-                            {tier.level === 15 ? '👑 CRORE' : '🛡️ PADAV'}
-                          </span>
-                        )}
-                      </div>
-                      <span className="text-[11px]">{tier.label}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Bottom Ladder Footnote */}
-            <div className="pt-2 border-t border-white/10 text-[10px] text-slate-400 text-center font-mono">
-              {t('padavLegend')}
-            </div>
-          </div>
-        )}
-      </div>
+      )}
 
       {/* ========================================================= */}
       {/* 15-LEVEL LADDER DRAWER MODAL (For Portrait Mode)          */}

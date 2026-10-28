@@ -202,61 +202,121 @@ export default function FFFScreen() {
             </button>
           </div>
         </div>
-
-        {/* Authentic Metallic Question Frame */}
-        <KbcQuestionBox
-          questionText={localizedFff?.displayText || fffQuestion.text}
-          subject={fffQuestion.subject || "Chronological / Numerical Order"}
-          pointsFormatted="Hot Seat Qualifier"
-          isCompact={isLandscapeMode}
-        />
       </div>
 
-      {/* STAGE A: 4 Interactive Option Buttons in 2x2 Grid (During Question) */}
+      {/* Main Content: Side-by-side in landscape, vertical in portrait */}
       {!isSubmitted ? (
-        <div className={`my-auto ${isLandscapeMode ? 'py-0.5' : 'py-2'}`}>
-          <div className={`grid gap-1.5 sm:gap-3 ${isLandscapeMode ? 'grid-cols-2' : 'grid-cols-1 sm:grid-cols-2'}`}>
-            {['A', 'B', 'C', 'D'].map((letter) => {
-              const isSelected = selectedOrder.includes(letter);
-              const orderIndex = selectedOrder.indexOf(letter) + 1; // 1, 2, 3, 4
+        isLandscapeMode ? (
+          /* ZERO-SCROLLING LANDSCAPE TV STUDIO (SIDE-BY-SIDE) */
+          <div className="flex-1 w-full grid grid-cols-12 gap-3 items-center overflow-hidden min-h-0 py-0.5">
+            {/* Left: Question Box */}
+            <div className="col-span-6 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0">
+              <KbcQuestionBox
+                questionText={localizedFff?.displayText || fffQuestion.text}
+                subject={fffQuestion.subject || "Chronological / Numerical Order"}
+                pointsFormatted="Hot Seat Qualifier"
+                isCompact={true}
+              />
+            </div>
 
-              return (
-                <KbcOptionButton
-                  key={letter}
-                  letter={letter}
-                  text={localizedFff?.displayOptions?.[letter] || fffQuestion.options[letter]}
-                  status={isSelected ? 'LOCKED' : 'IDLE'}
-                  orderNumber={isSelected ? orderIndex : null}
-                  isCompact={isLandscapeMode}
-                  onClick={() => handleOptionClick(letter)}
-                />
-              );
-            })}
+            {/* Right: 4 Options + Controls */}
+            <div className="col-span-6 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0">
+              <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
+                {['A', 'B', 'C', 'D'].map((letter) => {
+                  const isSelected = selectedOrder.includes(letter);
+                  const orderIndex = selectedOrder.indexOf(letter) + 1; // 1, 2, 3, 4
+
+                  return (
+                    <KbcOptionButton
+                      key={letter}
+                      letter={letter}
+                      text={localizedFff?.displayOptions?.[letter] || fffQuestion.options[letter]}
+                      status={isSelected ? 'LOCKED' : 'IDLE'}
+                      orderNumber={isSelected ? orderIndex : null}
+                      isCompact={true}
+                      onClick={() => handleOptionClick(letter)}
+                    />
+                  );
+                })}
+              </div>
+
+              {/* Reset and Lock Controls */}
+              <div className="flex items-center gap-2 pt-2 w-full">
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  disabled={selectedOrder.length === 0}
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-navy-900 text-slate-400 hover:text-pearl border border-white/10 text-xs font-semibold disabled:opacity-40 transition active:scale-95"
+                >
+                  <RotateCcw size={12} />
+                  <span>{t('reset')}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={selectedOrder.length !== 4}
+                  className="flex-1 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 via-champGold to-amber-500 text-navy-950 font-bold text-xs shadow-lg hover:brightness-110 active:scale-[0.98] transition uppercase tracking-wider font-rajdhani flex items-center justify-center gap-1.5 disabled:opacity-40"
+                >
+                  <CheckCircle2 size={13} />
+                  <span>{t('lockMyOrder')} ({selectedOrder.length}/4)</span>
+                </button>
+              </div>
+            </div>
           </div>
+        ) : (
+          /* PORTRAIT LAYOUT */
+          <div className="my-auto space-y-2">
+            <KbcQuestionBox
+              questionText={localizedFff?.displayText || fffQuestion.text}
+              subject={fffQuestion.subject || "Chronological / Numerical Order"}
+              pointsFormatted="Hot Seat Qualifier"
+              isCompact={false}
+            />
 
-          {/* Reset and Lock Controls */}
-          <div className={`flex items-center gap-2 ${isLandscapeMode ? 'pt-1.5' : 'pt-3'} max-w-xl mx-auto`}>
-            <button
-              type="button"
-              onClick={handleReset}
-              disabled={selectedOrder.length === 0}
-              className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-xl bg-navy-900 text-slate-400 hover:text-pearl border border-white/10 text-xs font-semibold disabled:opacity-40 transition active:scale-95"
-            >
-              <RotateCcw size={13} />
-              <span>{t('reset')}</span>
-            </button>
+            <div className="grid gap-1.5 sm:gap-3 grid-cols-1 sm:grid-cols-2">
+              {['A', 'B', 'C', 'D'].map((letter) => {
+                const isSelected = selectedOrder.includes(letter);
+                const orderIndex = selectedOrder.indexOf(letter) + 1; // 1, 2, 3, 4
 
-            <button
-              type="button"
-              onClick={handleSubmit}
-              disabled={selectedOrder.length !== 4}
-              className="flex-1 py-1.5 sm:py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-champGold to-amber-500 text-navy-950 font-bold text-xs sm:text-sm shadow-lg hover:brightness-110 active:scale-[0.98] transition uppercase tracking-wider font-rajdhani flex items-center justify-center gap-1.5 disabled:opacity-40"
-            >
-              <CheckCircle2 size={15} />
-              <span>{t('lockMyOrder')} ({selectedOrder.length}/4)</span>
-            </button>
+                return (
+                  <KbcOptionButton
+                    key={letter}
+                    letter={letter}
+                    text={localizedFff?.displayOptions?.[letter] || fffQuestion.options[letter]}
+                    status={isSelected ? 'LOCKED' : 'IDLE'}
+                    orderNumber={isSelected ? orderIndex : null}
+                    isCompact={false}
+                    onClick={() => handleOptionClick(letter)}
+                  />
+                );
+              })}
+            </div>
+
+            {/* Reset and Lock Controls */}
+            <div className="flex items-center gap-2 pt-2 max-w-xl mx-auto">
+              <button
+                type="button"
+                onClick={handleReset}
+                disabled={selectedOrder.length === 0}
+                className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-xl bg-navy-900 text-slate-400 hover:text-pearl border border-white/10 text-xs font-semibold disabled:opacity-40 transition active:scale-95"
+              >
+                <RotateCcw size={13} />
+                <span>{t('reset')}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleSubmit}
+                disabled={selectedOrder.length !== 4}
+                className="flex-1 py-1.5 sm:py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-champGold to-amber-500 text-navy-950 font-bold text-xs sm:text-sm shadow-lg hover:brightness-110 active:scale-[0.98] transition uppercase tracking-wider font-rajdhani flex items-center justify-center gap-1.5 disabled:opacity-40"
+              >
+                <CheckCircle2 size={15} />
+                <span>{t('lockMyOrder')} ({selectedOrder.length}/4)</span>
+              </button>
+            </div>
           </div>
-        </div>
+        )
       ) : (
         /* STAGE B: TRANSPARENT RESULTS BOARD (Sahi Kram + Shortest Time Rankings) */
         <div className="my-auto space-y-3 max-w-3xl mx-auto w-full animate-fadeIn py-1">

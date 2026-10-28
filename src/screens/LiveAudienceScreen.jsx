@@ -138,195 +138,195 @@ export default function LiveAudienceScreen() {
         </div>
       </div>
 
-      {/* Match Context Card */}
-      {match?.type === 'CLAN_4V4' ? (
-        <div className="grid grid-cols-11 items-center gap-2 p-3 bg-gradient-to-r from-velvet-950 via-navy-900 to-velvet-950 rounded-2xl border border-white/10 mb-3 shadow-lg">
-          {/* Clan A */}
-          <div className="col-span-5 flex items-center gap-2">
-            <div className="w-11 h-11 rounded-xl bg-velvet-900 border border-champGold/40 flex items-center justify-center text-2xl shadow">
-              {match.clanA?.badge || '🦅'}
-            </div>
-            <div className="min-w-0">
-              <div className="text-xs font-bold text-pearl truncate font-cinzel">
-                {match.clanA?.name || 'Clan Alpha'}
-              </div>
-              <div className="text-xs text-champGold font-bold">
-                {match.clanA?.score?.toLocaleString() || 0} Pts
-              </div>
-              <div className="flex items-center gap-1 mt-0.5">
-                <Volume2 size={11} className="text-emerald-400 animate-pulse" />
-                <span className="text-[10px] text-emerald-400 font-bold">Team Voice Active</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-span-1 text-center font-bold text-xs text-crimsonAlert font-cinzel">
-            VS
-          </div>
-
-          {/* Clan B */}
-          <div className="col-span-5 flex items-center justify-end gap-2 text-right">
-            <div className="min-w-0">
-              <div className="text-xs font-bold text-pearl truncate font-cinzel">
-                {match.clanB?.name || 'Clan Bravo'}
-              </div>
-              <div className="text-xs text-champGold font-bold">
-                {match.clanB?.score?.toLocaleString() || 0} Pts
-              </div>
-              <div className="flex items-center justify-end gap-1 mt-0.5">
-                <span className="text-[10px] text-slate-400">Tactics In-Sync</span>
-                <Volume2 size={11} className="text-blue-400" />
-              </div>
-            </div>
-            <div className="w-11 h-11 rounded-xl bg-navy-800 border border-blue-400/40 flex items-center justify-center text-2xl shadow">
-              {match.clanB?.badge || '🐅'}
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="flex items-center justify-between p-3 bg-navy-950/80 rounded-2xl border border-white/10 mb-3 shadow">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-full bg-champGold/20 border border-champGold flex items-center justify-center text-xl">
-              {match?.soloPlayer?.avatar || '👑'}
-            </div>
-            <div>
-              <div className="text-xs font-bold text-pearl font-cinzel">
-                {match?.soloPlayer?.name || match?.title}
-              </div>
-              <div className="text-[11px] text-slate-400">
-                Playing for {match?.currentPrize || '1 Crore'} • Solo Hot-Seat
-              </div>
-            </div>
-          </div>
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-champGold/20 text-champGold font-bold border border-champGold/30">
-            Level {currentQ.levelIndex || 8}
-          </span>
-        </div>
-      )}
-
-      {/* Live Question Display */}
-      <div className="bg-navy-900/90 rounded-2xl p-4 border border-champGold/30 shadow-xl mb-3 relative">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] uppercase font-bold text-champGold tracking-wider bg-champGold/10 px-2 py-0.5 rounded border border-champGold/30">
-            {currentQ.subject || 'General Knowledge'} • Question {currentQ.levelIndex || 8}
-          </span>
-          <span className="text-[10px] text-slate-400 uppercase font-semibold">
-            Anti-Cheat 20s Window
-          </span>
-        </div>
-
-        <h3 className="text-sm md:text-base font-bold text-pearl leading-snug font-cinzel mb-1">
-          {currentQ.text}
-        </h3>
-        {currentQ.text_hi && (
-          <p className="text-xs text-amber-200/90 font-medium leading-relaxed font-sans">
-            {currentQ.text_hi}
-          </p>
-        )}
-      </div>
-
-      {/* Audience Play-Along Options (A, B, C, D) */}
-      <div className="mb-3">
-        <div className="flex items-center justify-between mb-1.5 px-1">
-          <span className="text-[11px] font-bold text-pearl uppercase tracking-wider flex items-center gap-1">
-            <Sparkles size={12} className="text-champGold" />
-            Play-Along: Cast Your Answer (ऑडियंस पोल वोट)
-          </span>
-          {audienceChoice && (
-            <span className="text-[10px] font-bold text-emerald-400 flex items-center gap-1">
-              <CheckCircle2 size={12} />
-              Voted Option {audienceChoice}
-            </span>
-          )}
-        </div>
-
-        <div className="grid grid-cols-2 gap-2">
-          {['A', 'B', 'C', 'D'].map(key => {
-            const isSelected = audienceChoice === key;
-            const text = currentQ.options?.[key] || '';
-            const percent = pollPercentages[key] || 0;
-
-            return (
-              <button
-                key={key}
-                type="button"
-                onClick={() => handleCastVote(key)}
-                className={`p-2.5 rounded-xl border text-left transition flex flex-col justify-between relative overflow-hidden ${
-                  isSelected
-                    ? 'bg-gradient-to-r from-champGold/30 to-amber-500/20 border-champGold shadow-lg ring-1 ring-champGold'
-                    : 'bg-navy-950/70 hover:bg-navy-800/80 border-white/10 hover:border-white/30 text-pearl'
-                }`}
-              >
-                {/* Background vote progress bar */}
-                <div
-                  className="absolute inset-y-0 left-0 bg-blue-500/15 pointer-events-none transition-all duration-500"
-                  style={{ width: `${percent}%` }}
-                />
-
-                <div className="flex items-center justify-between relative z-10 w-full mb-1">
-                  <span className={`w-6 h-6 rounded-md flex items-center justify-center font-bold text-xs ${
-                    isSelected ? 'bg-champGold text-navy-950' : 'bg-white/10 text-champGold'
-                  }`}>
-                    {key}
-                  </span>
-                  <span className="text-[11px] font-bold text-slate-300">
-                    {percent}%
-                  </span>
+      {/* Main Content Area: Side-by-side on Landscape / Widescreen */}
+      <div className="flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-2 sm:gap-3 items-stretch overflow-hidden min-h-0">
+        {/* Left: Context Card + Question Box + Cheers */}
+        <div className="lg:col-span-6 flex flex-col justify-between h-full max-h-full overflow-hidden min-h-0 pr-0.5">
+          {/* Match Context Card */}
+          {match?.type === 'CLAN_4V4' ? (
+            <div className="grid grid-cols-11 items-center gap-2 p-2 bg-gradient-to-r from-velvet-950 via-navy-900 to-velvet-950 rounded-2xl border border-white/10 mb-2 shadow">
+              {/* Clan A */}
+              <div className="col-span-5 flex items-center gap-1.5">
+                <div className="w-8 h-8 rounded-xl bg-velvet-900 border border-champGold/40 flex items-center justify-center text-lg shadow">
+                  {match.clanA?.badge || '🦅'}
                 </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] font-bold text-pearl truncate font-cinzel">
+                    {match.clanA?.name || 'Clan Alpha'}
+                  </div>
+                  <div className="text-[11px] text-champGold font-bold">
+                    {match.clanA?.score?.toLocaleString() || 0} Pts
+                  </div>
+                </div>
+              </div>
 
-                <span className="text-xs font-semibold relative z-10 leading-tight">
-                  {text}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
+              <div className="col-span-1 text-center font-bold text-[10px] text-crimsonAlert font-cinzel">
+                VS
+              </div>
 
-      {/* Live Audience Poll Distribution Chart */}
-      <div className="bg-navy-950/90 rounded-2xl p-3 border border-white/10 mb-3 shadow">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-[11px] font-bold text-champGold uppercase tracking-wider flex items-center gap-1.5">
-            <BarChart3 size={13} />
-            Live "Audience Poll" Telemetry ({pollPercentages.totalVotes} Total Votes)
-          </span>
-          <span className="text-[10px] text-slate-400">
-            Real spectator data supplied to Hot Seat
-          </span>
-        </div>
-
-        <div className="grid grid-cols-4 gap-2 text-center">
-          {['A', 'B', 'C', 'D'].map(k => (
-            <div key={k} className="bg-navy-900 p-2 rounded-xl border border-white/5">
-              <div className="text-[10px] font-bold text-slate-400">Option {k}</div>
-              <div className="text-sm font-bold text-pearl my-0.5">{pollPercentages[k] || 0}%</div>
-              <div className="w-full bg-navy-950 rounded-full h-1.5 overflow-hidden">
-                <div
-                  className="bg-gradient-to-r from-blue-500 to-champGold h-full rounded-full transition-all duration-500"
-                  style={{ width: `${pollPercentages[k] || 0}%` }}
-                />
+              {/* Clan B */}
+              <div className="col-span-5 flex items-center justify-end gap-1.5 text-right">
+                <div className="min-w-0">
+                  <div className="text-[11px] font-bold text-pearl truncate font-cinzel">
+                    {match.clanB?.name || 'Clan Bravo'}
+                  </div>
+                  <div className="text-[11px] text-champGold font-bold">
+                    {match.clanB?.score?.toLocaleString() || 0} Pts
+                  </div>
+                </div>
+                <div className="w-8 h-8 rounded-xl bg-navy-800 border border-blue-400/40 flex items-center justify-center text-lg shadow">
+                  {match.clanB?.badge || '🐅'}
+                </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
+          ) : (
+            <div className="flex items-center justify-between p-2 bg-navy-950/80 rounded-2xl border border-white/10 mb-2 shadow">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-champGold/20 border border-champGold flex items-center justify-center text-base">
+                  {match?.soloPlayer?.avatar || '👑'}
+                </div>
+                <div>
+                  <div className="text-[11px] font-bold text-pearl font-cinzel">
+                    {match?.soloPlayer?.name || match?.title}
+                  </div>
+                  <div className="text-[10px] text-slate-400">
+                    Playing for {match?.currentPrize || '1 Crore'}
+                  </div>
+                </div>
+              </div>
+              <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-champGold/20 text-champGold font-bold border border-champGold/30">
+                Level {currentQ.levelIndex || 8}
+              </span>
+            </div>
+          )}
 
-      {/* Floating Cheers Bar */}
-      <div className="flex items-center justify-between bg-navy-900/90 p-2 rounded-2xl border border-white/10">
-        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider pl-1">
-          Cheer Players:
-        </span>
-        <div className="flex items-center gap-2">
-          {['🔥', '👏', '🏆', '💡', '❤️'].map(emoji => (
-            <button
-              key={emoji}
-              type="button"
-              onClick={() => sendCheer(emoji)}
-              className="w-9 h-9 rounded-xl bg-navy-950 hover:bg-navy-800 border border-white/10 flex items-center justify-center text-lg active:scale-125 transition"
-            >
-              {emoji}
-            </button>
-          ))}
+          {/* Live Question Display */}
+          <div className="bg-navy-900/90 rounded-2xl p-3 border border-champGold/30 shadow-xl my-auto relative">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[9px] uppercase font-bold text-champGold tracking-wider bg-champGold/10 px-1.5 py-0.5 rounded border border-champGold/30">
+                {currentQ.subject || 'General Knowledge'} • Question {currentQ.levelIndex || 8}
+              </span>
+              <span className="text-[9px] text-slate-400 uppercase font-semibold">
+                Anti-Cheat 20s
+              </span>
+            </div>
+
+            <h3 className="text-xs sm:text-sm font-bold text-pearl leading-snug font-cinzel mb-0.5">
+              {currentQ.text}
+            </h3>
+            {currentQ.text_hi && (
+              <p className="text-[11px] text-amber-200/90 font-medium leading-relaxed font-sans">
+                {currentQ.text_hi}
+              </p>
+            )}
+          </div>
+
+          {/* Floating Cheers Bar */}
+          <div className="flex items-center justify-between bg-navy-900/90 p-1.5 rounded-2xl border border-white/10 shrink-0">
+            <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider pl-1">
+              Cheer:
+            </span>
+            <div className="flex items-center gap-1.5">
+              {['🔥', '👏', '🏆', '💡', '❤️'].map(emoji => (
+                <button
+                  key={emoji}
+                  type="button"
+                  onClick={() => sendCheer(emoji)}
+                  className="w-7 h-7 rounded-xl bg-navy-950 hover:bg-navy-800 border border-white/10 flex items-center justify-center text-sm active:scale-125 transition"
+                >
+                  {emoji}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Play-Along Options & Live Audience Poll Telemetry */}
+        <div className="lg:col-span-6 flex flex-col justify-between h-full max-h-full overflow-hidden min-h-0 pl-0.5">
+          {/* Audience Play-Along Options (A, B, C, D) */}
+          <div className="mb-2">
+            <div className="flex items-center justify-between mb-1 px-1">
+              <span className="text-[10px] font-bold text-pearl uppercase tracking-wider flex items-center gap-1">
+                <Sparkles size={11} className="text-champGold" />
+                Play-Along: Cast Your Vote
+              </span>
+              {audienceChoice && (
+                <span className="text-[9px] font-bold text-emerald-400 flex items-center gap-0.5">
+                  <CheckCircle2 size={11} />
+                  Voted [{audienceChoice}]
+                </span>
+              )}
+            </div>
+
+            <div className="grid grid-cols-2 gap-1.5">
+              {['A', 'B', 'C', 'D'].map(key => {
+                const isSelected = audienceChoice === key;
+                const text = currentQ.options?.[key] || '';
+                const percent = pollPercentages[key] || 0;
+
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => handleCastVote(key)}
+                    className={`p-2 rounded-xl border text-left transition flex flex-col justify-between relative overflow-hidden ${
+                      isSelected
+                        ? 'bg-gradient-to-r from-champGold/30 to-amber-500/20 border-champGold shadow ring-1 ring-champGold'
+                        : 'bg-navy-950/70 hover:bg-navy-800/80 border-white/10 hover:border-white/30 text-pearl'
+                    }`}
+                  >
+                    <div
+                      className="absolute inset-y-0 left-0 bg-blue-500/15 pointer-events-none transition-all duration-500"
+                      style={{ width: `${percent}%` }}
+                    />
+
+                    <div className="flex items-center justify-between relative z-10 w-full mb-0.5">
+                      <span className={`w-5 h-5 rounded-md flex items-center justify-center font-bold text-[11px] ${
+                        isSelected ? 'bg-champGold text-navy-950' : 'bg-white/10 text-champGold'
+                      }`}>
+                        {key}
+                      </span>
+                      <span className="text-[10px] font-bold text-slate-300">
+                        {percent}%
+                      </span>
+                    </div>
+
+                    <span className="text-[11px] font-semibold relative z-10 leading-tight line-clamp-2">
+                      {text}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Live Audience Poll Distribution Chart */}
+          <div className="bg-navy-950/90 rounded-2xl p-2 border border-white/10 shadow shrink-0">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] font-bold text-champGold uppercase tracking-wider flex items-center gap-1">
+                <BarChart3 size={11} />
+                Live Telemetry ({pollPercentages.totalVotes} Votes)
+              </span>
+              <span className="text-[9px] text-slate-400">
+                Supplied to Hot Seat
+              </span>
+            </div>
+
+            <div className="grid grid-cols-4 gap-1.5 text-center">
+              {['A', 'B', 'C', 'D'].map(k => (
+                <div key={k} className="bg-navy-900 p-1.5 rounded-xl border border-white/5">
+                  <div className="text-[9px] font-bold text-slate-400">Opt {k}</div>
+                  <div className="text-xs font-bold text-pearl my-0.5">{pollPercentages[k] || 0}%</div>
+                  <div className="w-full bg-navy-950 rounded-full h-1 overflow-hidden">
+                    <div
+                      className="bg-gradient-to-r from-blue-500 to-champGold h-full rounded-full transition-all duration-500"
+                      style={{ width: `${pollPercentages[k] || 0}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

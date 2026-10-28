@@ -51,7 +51,15 @@ export default function AppLayout({ children }) {
     return unsub;
   }, []);
 
-  const isGameScreen = ['LOBBY', 'FFF', 'HOTSEAT', 'SPECTATOR'].includes(screen);
+  const isGameScreen = [
+    'LOBBY',
+    'FFF',
+    'HOTSEAT',
+    'SPECTATOR',
+    'CLAN_BATTLE_LOBBY',
+    'CLAN_BATTLE_MATCH',
+    'LIVE_AUDIENCE'
+  ].includes(screen);
 
   const toggleSound = () => {
     const muted = soundService.toggleMute();
@@ -70,9 +78,9 @@ export default function AppLayout({ children }) {
   const isAdmin = currentUser?.role === 'admin';
 
   return (
-    <div className={`min-h-screen bg-navy-950 text-pearl flex flex-col justify-between selection:bg-champGold selection:text-navy-950 font-sans ${isGameScreen ? 'h-[100dvh] max-h-[100dvh] overflow-hidden' : ''}`}>
+    <div className={`min-h-screen bg-navy-950 text-pearl flex flex-col justify-between selection:bg-champGold selection:text-navy-950 font-sans ${isGameScreen || isLandscapeMode ? 'h-[100dvh] max-h-[100dvh] overflow-hidden' : ''}`}>
       {/* Top Universal Utility Bar */}
-      <header className={`w-full bg-navy-900/95 backdrop-blur-md border-b border-white/10 px-3 sm:px-4 pt-safe-header pb-2.5 flex items-center justify-between text-xs z-50 transition-all ${isGameScreen ? 'hidden md:flex' : 'flex'}`}>
+      <header className={`w-full bg-navy-900/95 backdrop-blur-md border-b border-white/10 px-3 sm:px-4 pt-safe-header pb-2.5 flex items-center justify-between text-xs z-50 transition-all ${isGameScreen || isLandscapeMode ? 'hidden' : 'flex'}`}>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1 font-cinzel font-bold text-champGold tracking-wider text-sm sm:text-base">
             <span>🏆</span>
@@ -220,16 +228,14 @@ export default function AppLayout({ children }) {
       })()}
 
       {/* Main Viewport Container */}
-      <main className={`flex-1 flex items-center justify-center p-0 ${isGameScreen ? 'h-full max-h-full overflow-hidden' : 'md:p-3 overflow-y-auto'}`}>
+      <main className={`flex-1 flex items-center justify-center p-0 ${isGameScreen || isLandscapeMode ? 'h-[100dvh] max-h-[100dvh] overflow-hidden' : 'md:p-3 overflow-y-auto'}`}>
         <div
           className={`w-full transition-all duration-300 ${
-            isGameScreen
-              ? 'max-w-6xl w-full h-full max-h-[100dvh] md:max-h-[96vh] md:rounded-2xl md:border border-champGold/25 shadow-[0_0_50px_rgba(0,0,0,0.85)] relative bg-navy-950/95 backdrop-blur-xl flex flex-col justify-between overflow-hidden pt-safe pb-safe pl-safe pr-safe'
-              : isLandscapeMode || (!isMobileFrame && ['LOBBY', 'FFF', 'HOTSEAT', 'SPECTATOR'].includes(screen))
-                ? 'max-w-6xl w-full min-h-[580px] md:min-h-[660px] md:rounded-2xl md:border border-champGold/25 shadow-[0_0_50px_rgba(0,0,0,0.85)] relative bg-navy-950/95 backdrop-blur-xl flex flex-col justify-between overflow-hidden'
-                : isMobileFrame
-                  ? 'max-w-[440px] min-h-[820px] md:rounded-[36px] md:border-[6px] md:border-slate-800 shadow-2xl relative bg-navy-950 flex flex-col justify-between overflow-hidden'
-                  : 'max-w-5xl min-h-[800px] md:rounded-2xl md:border border-white/10 shadow-2xl relative bg-navy-950/80 backdrop-blur-xl flex flex-col justify-between overflow-hidden'
+            isGameScreen || isLandscapeMode
+              ? 'w-full h-full max-h-[100dvh] relative bg-navy-950/95 backdrop-blur-xl flex flex-col justify-between overflow-hidden'
+              : isMobileFrame
+                ? 'max-w-[440px] min-h-[820px] md:rounded-[36px] md:border-[6px] md:border-slate-800 shadow-2xl relative bg-navy-950 flex flex-col justify-between overflow-hidden'
+                : 'max-w-5xl min-h-[800px] md:rounded-2xl md:border border-white/10 shadow-2xl relative bg-navy-950/80 backdrop-blur-xl flex flex-col justify-between overflow-hidden'
           }`}
         >
           {/* Subtle Phone Notch Simulation when in Mobile Portrait Frame */}
@@ -243,10 +249,10 @@ export default function AppLayout({ children }) {
           )}
 
           {/* Screen Content */}
-          <div className={`flex-1 flex flex-col ${isGameScreen ? 'h-full max-h-full overflow-hidden' : 'overflow-y-auto'}`}>{children}</div>
+          <div className={`flex-1 flex flex-col ${isGameScreen || isLandscapeMode ? 'h-full max-h-full overflow-hidden' : 'overflow-y-auto'}`}>{children}</div>
 
-          {/* Bottom Mobile Navigation (Visible on Home, Store, Result) */}
-          {currentUser && ['HOME', 'STORE', 'RESULT'].includes(screen) && (
+          {/* Bottom Mobile Navigation (Visible on Home, Store, Result in Portrait) */}
+          {currentUser && ['HOME', 'STORE', 'RESULT'].includes(screen) && !isLandscapeMode && (
             <nav className="bg-navy-900/95 backdrop-blur border-t border-white/10 px-6 py-2.5 flex items-center justify-around z-40">
               <button
                 onClick={() => navigateTo('HOME')}
