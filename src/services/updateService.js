@@ -7,8 +7,8 @@
 
 import storageService from './storageService';
 
-export const CURRENT_APP_VERSION = '2.5.1';
-export const CURRENT_BUILD_TIMESTAMP = 1793166600000;
+export const CURRENT_APP_VERSION = '2.6.0';
+export const CURRENT_BUILD_TIMESTAMP = 1793169600000;
 
 class UpdateService {
   constructor() {

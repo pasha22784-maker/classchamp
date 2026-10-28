@@ -12,6 +12,7 @@ import soundService from '../services/soundService';
 import botService from '../services/botService';
 import examCategoryService from '../services/examCategoryService';
 import fairPlayService from '../services/fairPlayService';
+import clanBattleService from '../services/clanBattleService';
 import { getTranslation, LANGUAGES } from '../services/localizationService';
 
 const GameContext = createContext();
@@ -93,6 +94,16 @@ export function GameProvider({ children }) {
     soundService.playClick();
     setExamCategoryState(newCat);
     examCategoryService.setActiveCategory(newCat);
+  };
+
+  // Live Spectator & Audience Play-Along State
+  const [selectedLiveMatch, setSelectedLiveMatch] = useState(null);
+
+  // 4v4 Clan Battle launcher
+  const startClanBattle = (division = 'Senior', clanName = 'Clan Alpha') => {
+    const room = clanBattleService.createRoom(currentUser, division, clanName);
+    setScreen('CLAN_BATTLE_LOBBY');
+    return room;
   };
 
   // 5-Second Disappearing Orientation Hint Pill State
@@ -746,7 +757,10 @@ export function GameProvider({ children }) {
         openSettings,
         closeSettings,
         examCategory,
-        setExamCategory
+        setExamCategory,
+        selectedLiveMatch,
+        setSelectedLiveMatch,
+        startClanBattle
       }}
     >
       {children}

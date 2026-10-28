@@ -25,6 +25,10 @@ import AdminScreen from './screens/AdminScreen';
 import PrivateRoomScreen from './screens/PrivateRoomScreen';
 import JoinRoomScreen from './screens/JoinRoomScreen';
 import ClanScreen from './screens/ClanScreen';
+import LiveGamesHubScreen from './screens/LiveGamesHubScreen';
+import LiveAudienceScreen from './screens/LiveAudienceScreen';
+import ClanBattleLobbyScreen from './screens/ClanBattleLobbyScreen';
+import ClanBattleMatchScreen from './screens/ClanBattleMatchScreen';
 
 function AppContent() {
   const { currentUser, adminViewMode, logout } = useAuth();
@@ -122,6 +126,14 @@ function AppContent() {
       return <JoinRoomScreen initialCode={pendingRoomCode} />;
     case 'CLAN':
       return <ClanScreen />;
+    case 'LIVE_HUB':
+      return <LiveGamesHubScreen />;
+    case 'LIVE_AUDIENCE':
+      return <LiveAudienceScreen />;
+    case 'CLAN_BATTLE_LOBBY':
+      return <ClanBattleLobbyScreen />;
+    case 'CLAN_BATTLE_MATCH':
+      return <ClanBattleMatchScreen />;
     case 'HOME':
     default:
       return <HomeScreen />;

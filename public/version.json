@@ -1,15 +1,15 @@
 {
-  "version": "2.5.1",
-  "buildTimestamp": 1793166600000,
+  "version": "2.6.0",
+  "buildTimestamp": 1793169600000,
   "releaseDate": "2026-10-28",
-  "name": "BrainLeague v2.5.1 (Strict 6-Month Zero-Repeat Question Guarantee)",
+  "name": "BrainLeague v2.6.0 (4v4 Clan Battles, WebRTC Voice Chat & Live Audience Radar)",
   "features": [
-    "Strict 180-Day (6 Months) Zero-Repeat Question Rule across all divisions",
-    "Device-Level and User-Level Seen Question Tracking (Protects Guests & Accounts)",
-    "Match-Start Encounter Registration (Prevents Immediate Repeats on Early Exit)",
-    "Infinite Procedural Fallback ensuring questions never run out",
-    "Weekly/Monthly Current Affairs Lifecycle with 6-Month Shelf Life",
-    "Manual Lock Answer Button ('ताला लगाया जाए?') with Safe Selection",
-    "Interstitial Next Question Points Announcement Modal"
+    "4v4 Clan Battle Mode: 2 Clans (up to 4v4 = 8 players) with in-game voice chat",
+    "PUBG-Style Dynamic Voice Switching: Warm-up Lobby All-Chat to Match Team-Only Voice",
+    "Live Games Running Radar: Discover and spectate live clan & solo battles with 0 room code",
+    "Interactive Audience Play-Along: Real-time fan voting with floating cheer reactions",
+    "Real Audience Poll: Spectator live votes dynamically feed into the Hot Seat lifeline",
+    "20-Second Anti-Cheat Fast Timers: Prevents internet search or AI bot assistance",
+    "Strict 180-Day (6 Months) Zero-Repeat Question Rule across all divisions"
   ]
 }

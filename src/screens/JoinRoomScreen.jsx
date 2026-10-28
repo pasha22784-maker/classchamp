@@ -9,6 +9,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useGame } from '../context/GameContext';
 import roomService from '../services/roomService';
+import clanBattleService from '../services/clanBattleService';
 import soundService from '../services/soundService';
 import {
   Users,
@@ -85,6 +86,23 @@ export default function JoinRoomScreen({ initialCode = '' }) {
     soundService.playClick();
 
     try {
+      // 1. Check if this is a 4v4 Clan Battle room code
+      try {
+        const clanRoom = clanBattleService.joinRoom(cleanCode, {
+          id: currentUser?.id || `player_${Date.now()}`,
+          name: currentUser?.name || 'Guest Contender',
+          avatar: selectedAvatar
+        });
+        if (clanRoom) {
+          soundService.playCorrect();
+          navigateTo('CLAN_BATTLE_LOBBY');
+          return;
+        }
+      } catch (err) {
+        // If room full or error, continue to standard room check
+      }
+
+      // 2. Standard Private Room Join
       const res = await roomService.joinRoom({
         code: cleanCode,
         playerId: currentUser?.id || `guest_${Date.now()}`,

@@ -30,7 +30,10 @@ import {
   Star,
   Crown,
   LogIn,
-  Gift
+  Gift,
+  Radio,
+  Swords,
+  Mic
 } from 'lucide-react';
 
 import examCategoryService from '../services/examCategoryService';
@@ -38,7 +41,7 @@ import fairPlayService, { JUNIOR_GRADES, SENIOR_GRADES, MAX_DOWNWARD_PRACTICE_DA
 
 export default function HomeScreen() {
   const { currentUser, deductEnergy, isRegisterModalOpen, openRegisterModal, closeRegisterModal } = useAuth();
-  const { activeDivision, setActiveDivision, selectedGrade, setSelectedGrade, startMatch, navigateTo, openSettings, examCategory } = useGame();
+  const { activeDivision, setActiveDivision, selectedGrade, setSelectedGrade, startMatch, startClanBattle, navigateTo, openSettings, examCategory } = useGame();
   const categoryMeta = examCategoryService.getCategories().find(c => c.id === examCategory) || examCategoryService.getCategories()[0];
 
   const [championships, setChampionships] = useState(() => storageService.getChampionships());
@@ -674,6 +677,88 @@ export default function HomeScreen() {
               <span>Join with Code</span>
             </button>
           </div>
+        </div>
+
+        {/* 4B. ⚔️ 4v4 Clan Battle Arena (Voice Chat & Clan Wars) */}
+        <div className="rounded-2xl p-3.5 bg-gradient-to-r from-crimsonAlert/20 via-navy-900 to-velvet-950 border border-crimsonAlert/40 shadow-xl relative overflow-hidden">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-xl bg-crimsonAlert/20 border border-crimsonAlert flex items-center justify-center text-sm shadow">
+                <Swords size={16} className="text-crimsonAlert" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-pearl font-cinzel flex items-center gap-1.5">
+                  <span>4v4 Clan Battle Mode</span>
+                  <span className="px-1.5 py-0.2 rounded bg-crimsonAlert text-pearl text-[9px] uppercase font-bold">
+                    NEW
+                  </span>
+                </h4>
+                <p className="text-[10px] text-slate-300">
+                  Lobby: All-Chat • Match: Team-Only Voice • 20s Anti-Cheat
+                </p>
+              </div>
+            </div>
+            <span className="text-[9px] bg-champGold/20 text-champGold px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-champGold/30">
+              🎙️ Voice Chat
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2 mt-2.5">
+            <button
+              type="button"
+              onClick={() => {
+                soundService.playClick();
+                if (startClanBattle) startClanBattle(activeDivision);
+                else navigateTo('CLAN_BATTLE_LOBBY');
+              }}
+              className="py-2.5 px-3 rounded-xl bg-gradient-to-r from-crimsonAlert to-velvet-800 hover:brightness-110 text-pearl font-bold text-xs flex items-center justify-center gap-1.5 shadow transition active:scale-95 font-rajdhani uppercase tracking-wider"
+            >
+              <Swords size={14} />
+              <span>Create 4v4 War</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { soundService.playClick(); navigateTo('JOIN_ROOM'); }}
+              className="py-2.5 px-3 rounded-xl bg-navy-950/80 hover:bg-navy-800 border border-white/10 hover:border-white/30 text-pearl font-bold text-xs flex items-center justify-center gap-1.5 shadow transition active:scale-95 font-rajdhani uppercase tracking-wider"
+            >
+              <LogIn size={14} className="text-champGold" />
+              <span>Join Clan War</span>
+            </button>
+          </div>
+        </div>
+
+        {/* 4C. 🔴 LIVE Games Running (Audience Spectator & Play-Along Hub - No Code Needed) */}
+        <div className="rounded-2xl p-3.5 bg-gradient-to-r from-velvet-950 via-navy-950 to-navy-900 border border-champGold/40 shadow-xl relative overflow-hidden">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-xl bg-champGold/20 border border-champGold flex items-center justify-center text-sm shadow">
+                <Radio size={16} className="text-crimsonAlert animate-pulse" />
+              </div>
+              <div>
+                <h4 className="text-xs font-bold text-pearl font-cinzel flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-crimsonAlert animate-ping" />
+                  <span>🔴 Live Games Running</span>
+                </h4>
+                <p className="text-[10px] text-slate-300">
+                  बिना कोड के दर्शक बनें • Play-Along करें और जनता पोल में वोट दें!
+                </p>
+              </div>
+            </div>
+            <span className="text-[9px] bg-crimsonAlert/20 text-crimsonAlert px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-crimsonAlert/30">
+              No Code Needed
+            </span>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => { soundService.playClick(); navigateTo('LIVE_HUB'); }}
+            className="w-full mt-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-champGold via-amber-400 to-champGold-dark text-navy-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg hover:scale-[1.01] active:scale-95 transition font-rajdhani uppercase tracking-wider"
+          >
+            <Radio size={14} className="text-navy-950 animate-pulse" />
+            <span>लाइव मुकाबले देखें (Watch Live & Play-Along)</span>
+            <ChevronRight size={15} />
+          </button>
         </div>
 
         {/* 5. Hall of Fame Showcase */}
