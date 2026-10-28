@@ -21,6 +21,7 @@ import soundService from '../services/soundService';
 import KbcQuestionBox from '../components/common/KbcQuestionBox';
 import KbcOptionButton from '../components/common/KbcOptionButton';
 import CountdownClockOverlay from '../components/common/CountdownClockOverlay';
+import NextQuestionPromptModal from '../components/common/NextQuestionPromptModal';
 import { getLocalizedQuestion } from '../services/questionLanguageHelper';
 import {
   Timer,
@@ -36,7 +37,8 @@ import {
   Shield,
   User,
   Volume2,
-  VolumeX
+  VolumeX,
+  Lock
 } from 'lucide-react';
 
 export default function HotSeatScreen() {
@@ -47,6 +49,8 @@ export default function HotSeatScreen() {
     lockedOption,
     isAnswerLocked,
     revealState,
+    showNextPromptModal,
+    proceedToNextQuestion,
     timerRemaining,
     setTimerRemaining,
     isTimerPaused,
@@ -69,12 +73,19 @@ export default function HotSeatScreen() {
   } = useGame();
 
   const { currentUser } = useAuth();
+  const [selectedOption, setSelectedOption] = useState(null);
   const [showLadderDrawer, setShowLadderDrawer] = useState(false);
   const [showHotSeatIntro, setShowHotSeatIntro] = useState(!hasSeenHotSeatIntro && currentQIndex === 0);
 
   const currentQ = hotSeatQuestions[currentQIndex];
   const localizedQ = getLocalizedQuestion(currentQ, languageMode);
   const tierMeta = currentQ?.tierMeta || LADDER_TIERS[currentQIndex] || LADDER_TIERS[0];
+  const nextTierMeta = LADDER_TIERS[currentQIndex + 1] || LADDER_TIERS[currentQIndex];
+
+  // Reset selected option when question index advances
+  useEffect(() => {
+    setSelectedOption(null);
+  }, [currentQIndex]);
 
   // Tension Audio Loop: tick-tick and heartbeat
   useEffect(() => {
@@ -84,7 +95,12 @@ export default function HotSeatScreen() {
       setTimerRemaining(prev => {
         if (prev <= 1) {
           clearInterval(timer);
-          handleTimeOut();
+          if (selectedOption) {
+            lockAnswer(selectedOption);
+            setSelectedOption(null);
+          } else {
+            handleTimeOut();
+          }
           return 0;
         }
 
@@ -99,7 +115,7 @@ export default function HotSeatScreen() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [currentQIndex, isAnswerLocked, revealState, isTimerPaused, showHotSeatIntro]);
+  }, [currentQIndex, isAnswerLocked, revealState, isTimerPaused, showHotSeatIntro, selectedOption]);
 
   if (!currentQ) return null;
 
@@ -110,7 +126,26 @@ export default function HotSeatScreen() {
     if (revealState === 'WRONG' && lockedOption === letter) return 'WRONG';
     if (revealState === 'WRONG' && currentQ.correctAnswer === letter) return 'REVEALED_CORRECT';
     if (lockedOption === letter) return 'LOCKED';
+    if (selectedOption === letter && !isAnswerLocked) return 'SELECTED';
     return 'IDLE';
+  };
+
+  const handleOptionClick = (letter) => {
+    if (isAnswerLocked || revealState || eliminatedOptions.includes(letter)) return;
+    soundService.playClick();
+    if (selectedOption === letter) {
+      // Second tap on the already selected option locks it immediately!
+      lockAnswer(letter);
+      setSelectedOption(null);
+    } else {
+      setSelectedOption(letter);
+    }
+  };
+
+  const handleConfirmLock = () => {
+    if (!selectedOption || isAnswerLocked || revealState) return;
+    lockAnswer(selectedOption);
+    setSelectedOption(null);
   };
 
   // Safe Padav guaranteed points
@@ -344,11 +379,28 @@ export default function HotSeatScreen() {
                     status={status}
                     disabled={isAnswerLocked || eliminatedOptions.includes(letter)}
                     isCompact={isLandscapeMode}
-                    onClick={() => lockAnswer(letter)}
+                    onClick={() => handleOptionClick(letter)}
                   />
                 );
               })}
             </div>
+
+            {/* Manual Lock Action Button: "ताला लगाया जाए?" */}
+            {selectedOption && !isAnswerLocked && !revealState && (
+              <div className="mt-2 animate-scaleIn">
+                <button
+                  type="button"
+                  onClick={handleConfirmLock}
+                  className="w-full py-2.5 sm:py-3 px-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amber-500 via-champGold to-amber-500 text-navy-950 font-black text-xs sm:text-sm font-rajdhani uppercase tracking-wider shadow-[0_0_25px_rgba(245,158,11,0.55)] border border-champGold hover:brightness-110 active:scale-[0.98] transition flex items-center justify-center gap-2"
+                >
+                  <Lock size={15} className="text-navy-950" />
+                  <span>ताला लगाया जाए? Lock Option [{selectedOption}]</span>
+                  <span className="text-[10px] bg-navy-950 text-champGold px-2 py-0.5 rounded-full font-mono font-bold shadow">
+                    CONFIRM
+                  </span>
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Bottom Controls: Walk Away / Quit & Safe Balance */}
@@ -494,6 +546,20 @@ export default function HotSeatScreen() {
             {t('backToQuestion')}
           </button>
         </div>
+      )}
+
+      {/* ========================================================= */}
+      {/* INTERSTITIAL: "Next Question is for XXXXXX Points"        */}
+      {/* ========================================================= */}
+      {showNextPromptModal && currentQIndex < 14 && (
+        <NextQuestionPromptModal
+          currentLevel={currentQIndex + 1}
+          currentPoints={tierMeta.label}
+          nextLevel={currentQIndex + 2}
+          nextPoints={nextTierMeta.label}
+          isNextPadav={nextTierMeta.isPadav}
+          onProceed={proceedToNextQuestion}
+        />
       )}
 
       {/* ========================================================= */}

@@ -38,6 +38,7 @@ export function GameProvider({ children }) {
   const [isAnswerLocked, setIsAnswerLocked] = useState(false);
   const [sessionAnswers, setSessionAnswers] = useState({}); // { qIndex -> optionKey }
   const [revealState, setRevealState] = useState(null); // null | 'CORRECT' | 'WRONG'
+  const [showNextPromptModal, setShowNextPromptModal] = useState(false);
   const [timerRemaining, setTimerRemaining] = useState(30);
   const [isTimerPaused, setIsTimerPaused] = useState(false);
 
@@ -251,6 +252,7 @@ export function GameProvider({ children }) {
     setLockedOption(null);
     setIsAnswerLocked(false);
     setRevealState(null);
+    setShowNextPromptModal(false);
     setCurrentQIndex(0);
     setSessionAnswers({});
     setHasSeenHotSeatIntro(false);
@@ -311,6 +313,7 @@ export function GameProvider({ children }) {
     setLockedOption(null);
     setIsAnswerLocked(false);
     setRevealState(null);
+    setShowNextPromptModal(false);
     setCurrentQIndex(0);
     setSessionAnswers({});
     setHasSeenHotSeatIntro(false);
@@ -458,10 +461,12 @@ export function GameProvider({ children }) {
             });
           }, 2000);
         } else {
-          // Advance to next question after 1.5s
+          // Pause timer during interstitial composure
+          setIsTimerPaused(true);
+          // Show "Next Question is for XXXXXX Points" modal after celebration
           setTimeout(() => {
-            advanceToNextQuestion();
-          }, 1500);
+            setShowNextPromptModal(true);
+          }, 1400);
         }
       } else {
         soundService.playWrong();
@@ -480,6 +485,7 @@ export function GameProvider({ children }) {
     setLockedOption(null);
     setIsAnswerLocked(false);
     setRevealState(null);
+    setShowNextPromptModal(false);
     setEliminatedOptions([]);
     setAudiencePollData(null);
     setActiveGuruHint(null);
@@ -487,6 +493,11 @@ export function GameProvider({ children }) {
 
     const nextQ = hotSeatQuestions[nextIdx];
     setTimerRemaining(nextQ?.tierMeta?.timeLimit || 45);
+  };
+
+  const proceedToNextQuestion = () => {
+    setShowNextPromptModal(false);
+    advanceToNextQuestion();
   };
 
   // Handle wrong answer / drop
@@ -683,6 +694,8 @@ export function GameProvider({ children }) {
         lockedOption,
         isAnswerLocked,
         revealState,
+        showNextPromptModal,
+        proceedToNextQuestion,
         timerRemaining,
         setTimerRemaining,
         isTimerPaused,

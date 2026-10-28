@@ -27,6 +27,7 @@ export default function KbcOptionButton({
   className = ""
 }) {
   const isEliminated = status === 'ELIMINATED';
+  const isSelected = status === 'SELECTED';
   const isLocked = status === 'LOCKED';
   const isCorrect = status === 'CORRECT' || status === 'REVEALED_CORRECT';
   const isWrong = status === 'WRONG';
@@ -49,6 +50,12 @@ export default function KbcOptionButton({
     textColor = "text-amber-100 font-bold";
     diamondColor = "text-amber-300";
     auraClass = "kbc-locked-glow animate-pulse";
+  } else if (isSelected) {
+    borderGradient = "bg-gradient-to-r from-champGold via-amber-300 to-champGold ring-2 ring-champGold/60";
+    innerBg = "bg-gradient-to-b from-amber-950/70 via-navy-900 to-[#0e172a]";
+    textColor = "text-amber-200 font-bold";
+    diamondColor = "text-champGold";
+    auraClass = "shadow-[0_0_20px_rgba(245,158,11,0.6)] animate-pulse";
   } else if (isCorrect) {
     borderGradient = "bg-gradient-to-r from-emerald-600 via-emerald-400 to-emerald-600";
     innerBg = "bg-gradient-to-b from-emerald-950/80 via-emerald-900/60 to-black";
@@ -84,11 +91,13 @@ export default function KbcOptionButton({
             <span className={`px-1 sm:px-1.5 py-0.2 sm:py-0.5 rounded font-mono font-bold text-[11px] sm:text-sm ${
               isLocked
                 ? 'bg-amber-400 text-navy-950 shadow'
-                : isCorrect
-                  ? 'bg-emerald-400 text-navy-950 shadow'
-                  : isWrong
-                    ? 'bg-red-500 text-white shadow'
-                    : 'bg-navy-900/90 text-champGold border border-champGold/30 group-hover:border-champGold'
+                : isSelected
+                  ? 'bg-champGold text-navy-950 shadow font-black'
+                  : isCorrect
+                    ? 'bg-emerald-400 text-navy-950 shadow'
+                    : isWrong
+                      ? 'bg-red-500 text-white shadow'
+                      : 'bg-navy-900/90 text-champGold border border-champGold/30 group-hover:border-champGold'
             }`}>
               {letter}
             </span>
@@ -113,6 +122,12 @@ export default function KbcOptionButton({
           {orderNumber && (
             <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-champGold text-navy-950 font-black text-xs sm:text-sm flex items-center justify-center shadow-lg font-mono">
               #{orderNumber}
+            </span>
+          )}
+
+          {isSelected && !isLocked && !isCorrect && !isWrong && (
+            <span className="flex items-center gap-1 text-[10px] sm:text-xs font-bold text-champGold uppercase tracking-wider font-rajdhani px-2 py-0.5 rounded bg-champGold/20 border border-champGold/50 animate-pulse">
+              <span>Selected</span>
             </span>
           )}
 
