@@ -1,17 +1,32 @@
 /**
  * questionEngine.js
- * 365-Day Zero-Repeat & Infinite Question Selection Engine
- * Features:
- * 1. SeenQuestionsTracker: logs [questionId, timestamp, wasCorrect] per user.
- * 2. 365-Day exclusion for correctly answered questions.
- * 3. 45-Day revision challenge cooldown for incorrectly answered questions.
- * 4. Bracket-mapped pull: 5 from B1, 5 from B2, 3 from B3, 2 from B4 + 1 FFF.
- * 5. Procedural fall-back injection if unseen pool is exhausted.
+ * 6-Month (180-Day) Zero-Repeat & Infinite Question Selection Engine
+ * 
+ * Rules:
+ * 1. Strict 180-Day (6 Months) Zero-Repeat Guarantee:
+ *    Any question seen, encountered, or answered incorrectly by a player is strictly excluded
+ *    from appearing again for at least 180 days (6 full months).
+ * 2. 365-Day (1 Year) Exclusion for Correct Answers:
+ *    Questions answered correctly remain locked out for a full 365 days.
+ * 3. Cross-Profile & Device-Level Protection:
+ *    History is tracked per user account AND mirrored to device-level storage ('classchamp_seen_device'),
+ *    ensuring Guest players and new accounts on the same phone never see repeated questions within 6 months.
+ * 4. Match-Start Encounter Registration:
+ *    All 15 Hot-Seat questions + FFF question are immediately registered as encountered upon match generation.
+ *    Even if a player walks away or exits the app mid-game, those questions will not repeat for 6 months.
+ * 5. Procedural Dynamic Question Generator Fallback:
+ *    When static questions in a bracket are exhausted (seen within 180 days), proceduralMathEngine
+ *    seamlessly synthesizes unlimited, unique math/logic/GK questions on the fly. No repeat static question is ever forced.
  */
 
 import { proceduralMathEngine } from './proceduralMathEngine';
 import examCategoryService from './examCategoryService';
 import currentAffairsService from './currentAffairsService';
+
+export const MIN_REPEAT_COOLDOWN_DAYS = 180; // 6 Months strict zero-repetition rule
+export const CORRECT_ANSWER_COOLDOWN_DAYS = 365; // 1 Year cooldown for correctly answered questions
+export const DEVICE_SEEN_KEY = 'classchamp_seen_device';
+export const USER_SEEN_KEY_PREFIX = 'classchamp_seen_';
 
 export const BRACKETS = {
   B1: '1000-10000',
@@ -41,53 +56,215 @@ export const LADDER_TIERS = [
 
 class QuestionEngine {
   constructor() {
-    this.seenKeyPrefix = 'classchamp_seen_';
+    this.seenKeyPrefix = USER_SEEN_KEY_PREFIX;
+    this.deviceSeenKey = DEVICE_SEEN_KEY;
   }
 
-  // Get user seen history: [{ questionId, timestamp, wasCorrect }]
-  getUserHistory(userId) {
-    if (!userId) return [];
+  /**
+   * Helper: safely load records from a localStorage key
+   */
+  _loadStorageKey(key) {
+    if (typeof window === 'undefined' || !window.localStorage) return [];
     try {
-      const data = localStorage.getItem(`${this.seenKeyPrefix}${userId}`);
-      return data ? JSON.parse(data) : [];
+      const data = localStorage.getItem(key);
+      if (!data) return [];
+      const parsed = JSON.parse(data);
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
       return [];
     }
   }
 
-  // Save answer record to persistent user log
-  recordAnswer(userId, questionId, wasCorrect) {
-    if (!userId || !questionId) return;
+  /**
+   * Helper: safely save records to a localStorage key (caps at 4000 most recent items)
+   */
+  _saveStorageKey(key, records) {
+    if (typeof window === 'undefined' || !window.localStorage) return;
     try {
-      const history = this.getUserHistory(userId);
-      // Remove any previous entry for this question
-      const filtered = history.filter(item => item.questionId !== questionId);
-      filtered.push({
-        questionId,
-        timestamp: Date.now(),
-        wasCorrect: Boolean(wasCorrect)
-      });
-      localStorage.setItem(`${this.seenKeyPrefix}${userId}`, JSON.stringify(filtered));
+      const trimmed = records.slice(-4000);
+      localStorage.setItem(key, JSON.stringify(trimmed));
     } catch {
-      // Storage fallback
+      // Storage quota fallback
     }
   }
 
-  // Check if a question is eligible for a specific user under 365-day rule
+  /**
+   * Get user + device seen history:
+   * Returns merged array of { questionId, timestamp, wasCorrect, encountered }
+   * Even for Guest sessions (userId == null), returns device-level history.
+   */
+  getUserHistory(userId) {
+    const map = new Map();
+
+    // 1. Device history (protects guests & cross-profile sessions on same physical phone)
+    const deviceRecords = this._loadStorageKey(this.deviceSeenKey);
+    deviceRecords.forEach(rec => {
+      if (rec && rec.questionId) {
+        map.set(rec.questionId, { ...rec });
+      }
+    });
+
+    // 2. User account history
+    if (userId) {
+      const userRecords = this._loadStorageKey(`${this.seenKeyPrefix}${userId}`);
+      userRecords.forEach(rec => {
+        if (!rec || !rec.questionId) return;
+        const existing = map.get(rec.questionId);
+        if (!existing) {
+          map.set(rec.questionId, { ...rec });
+        } else {
+          // Merge taking the most recent timestamp and maintaining correct status
+          map.set(rec.questionId, {
+            questionId: rec.questionId,
+            timestamp: Math.max(existing.timestamp || 0, rec.timestamp || 0),
+            wasCorrect: Boolean(existing.wasCorrect || rec.wasCorrect),
+            encountered: Boolean(existing.encountered || rec.encountered)
+          });
+        }
+      });
+    }
+
+    return Array.from(map.values());
+  }
+
+  /**
+   * Save answer record to persistent user log AND mirror to device history
+   */
+  recordAnswer(userId, questionId, wasCorrect) {
+    if (!questionId) return;
+    const now = Date.now();
+    const isCorr = Boolean(wasCorrect);
+
+    const updateList = (list) => {
+      const filtered = list.filter(item => item.questionId !== questionId);
+      filtered.push({
+        questionId,
+        timestamp: now,
+        wasCorrect: isCorr,
+        encountered: true
+      });
+      return filtered;
+    };
+
+    // Update Device storage
+    const devList = this._loadStorageKey(this.deviceSeenKey);
+    this._saveStorageKey(this.deviceSeenKey, updateList(devList));
+
+    // Update User storage if logged in
+    if (userId) {
+      const userList = this._loadStorageKey(`${this.seenKeyPrefix}${userId}`);
+      this._saveStorageKey(`${this.seenKeyPrefix}${userId}`, updateList(userList));
+    }
+  }
+
+  /**
+   * Immediately register questions presented in a match (15 Hot-Seat + 1 FFF).
+   * Ensures that if a player exits, disconnects, or walks away, these questions
+   * cannot repeat for at least 180 days (6 months).
+   */
+  recordQuestionsEncountered(userId, questionIds = []) {
+    if (!Array.isArray(questionIds) || questionIds.length === 0) return;
+    const now = Date.now();
+    const idSet = new Set(questionIds.filter(Boolean));
+
+    const applyBatch = (currentList) => {
+      const existingMap = new Map();
+      currentList.forEach(item => {
+        if (item && item.questionId) existingMap.set(item.questionId, item);
+      });
+
+      idSet.forEach(qid => {
+        const existing = existingMap.get(qid);
+        if (existing) {
+          // Update timestamp so cooldown starts now, preserving wasCorrect
+          existingMap.set(qid, {
+            ...existing,
+            timestamp: now,
+            encountered: true
+          });
+        } else {
+          existingMap.set(qid, {
+            questionId: qid,
+            timestamp: now,
+            wasCorrect: false,
+            encountered: true
+          });
+        }
+      });
+
+      return Array.from(existingMap.values());
+    };
+
+    // Save to Device storage
+    const devList = this._loadStorageKey(this.deviceSeenKey);
+    this._saveStorageKey(this.deviceSeenKey, applyBatch(devList));
+
+    // Save to User storage if logged in
+    if (userId) {
+      const userList = this._loadStorageKey(`${this.seenKeyPrefix}${userId}`);
+      this._saveStorageKey(`${this.seenKeyPrefix}${userId}`, applyBatch(userList));
+    }
+  }
+
+  /**
+   * Strict 6-Month Zero-Repeat Check
+   * Returns true ONLY if:
+   * 1. The question was NEVER seen before, OR
+   * 2. It has been at least 180 days (6 months) since it was last seen/attempted, AND
+   * 3. If answered correctly, it has been at least 365 days (1 year).
+   */
   isEligibleForUser(questionId, history) {
+    if (!questionId) return false;
     const record = history.find(h => h.questionId === questionId);
-    if (!record) return true; // Never seen
+    if (!record) return true; // Never seen -> completely eligible
 
     const now = Date.now();
     const elapsedDays = (now - record.timestamp) / (1000 * 60 * 60 * 24);
 
-    if (record.wasCorrect) {
-      // If answered correctly, strictly exclude for 365 days
-      return elapsedDays >= 365;
-    } else {
-      // If answered incorrectly, allow revision challenge after 45 days
-      return elapsedDays >= 45;
+    // Strict 180-Day (6 Months) Zero Repeat Rule:
+    // Under NO circumstance may any question repeat within 180 days!
+    if (elapsedDays < MIN_REPEAT_COOLDOWN_DAYS) {
+      return false;
     }
+
+    // If answered correctly in the past, lock out for 365 days (1 year)
+    if (record.wasCorrect) {
+      return elapsedDays >= CORRECT_ANSWER_COOLDOWN_DAYS;
+    }
+
+    // Encountered or incorrect: eligible after 180 days (6 months)
+    return elapsedDays >= MIN_REPEAT_COOLDOWN_DAYS;
+  }
+
+  /**
+   * Diagnostic statistics on 6-month question lockout
+   */
+  getZeroRepeatStats(userId) {
+    const history = this.getUserHistory(userId);
+    const now = Date.now();
+
+    let lockedUnder6Months = 0;
+    let lockedUnder1YearCorrect = 0;
+    let eligibleAfterCooldown = 0;
+
+    history.forEach(rec => {
+      const elapsedDays = (now - rec.timestamp) / (1000 * 60 * 60 * 24);
+      if (elapsedDays < MIN_REPEAT_COOLDOWN_DAYS) {
+        lockedUnder6Months++;
+      } else if (rec.wasCorrect && elapsedDays < CORRECT_ANSWER_COOLDOWN_DAYS) {
+        lockedUnder1YearCorrect++;
+      } else {
+        eligibleAfterCooldown++;
+      }
+    });
+
+    return {
+      totalTracked: history.length,
+      lockedUnder6Months,
+      lockedUnder1YearCorrect,
+      eligibleAfterCooldown,
+      cooldownDays: MIN_REPEAT_COOLDOWN_DAYS
+    };
   }
 
   // Shuffle array helper
@@ -100,7 +277,7 @@ class QuestionEngine {
     return arr;
   }
 
-  // Pull a Fastest Finger First question
+  // Pull a Fastest Finger First question with strict 6-month zero-repeat guarantee
   getFFFQuestion(allQuestions, division, userId, customExamCategory = null, targetGrade = null) {
     const history = this.getUserHistory(userId);
 
@@ -123,7 +300,7 @@ class QuestionEngine {
       return this.shuffle(pool)[0];
     }
 
-    // Procedural Fallback if exhausted
+    // Procedural Fallback if exhausted (guarantees infinite unique questions without repetition)
     return proceduralMathEngine.generateFFF(division, targetGrade);
   }
 
@@ -159,7 +336,7 @@ class QuestionEngine {
 
       const selected = matching.slice(0, neededCount);
 
-      // If we need more than available in DB, generate procedurally
+      // If we need more than available in DB (or if static pool is exhausted by 6-month rule), generate procedurally
       while (selected.length < neededCount) {
         const procQ = proceduralMathEngine.generate(division, bracket, targetGrade);
         selected.push(procQ);

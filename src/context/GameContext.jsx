@@ -265,6 +265,10 @@ export function GameProvider({ children }) {
     setFffQuestion(fff);
     setHotSeatQuestions(hotSeat);
 
+    // Register all match questions immediately into 6-month zero-repeat tracker (User + Device level)
+    const matchQuestionIds = [fff?.id, ...(hotSeat || []).map(q => q.id)].filter(Boolean);
+    questionEngine.recordQuestionsEncountered(currentUser?.id, matchQuestionIds);
+
     setScreen('LOBBY');
   };
 
@@ -326,6 +330,10 @@ export function GameProvider({ children }) {
     setFffQuestion(fff);
     setHotSeatQuestions(hotSeat);
 
+    // Register all match questions immediately into 6-month zero-repeat tracker (User + Device level)
+    const matchQuestionIds = [fff?.id, ...(hotSeat || []).map(q => q.id)].filter(Boolean);
+    questionEngine.recordQuestionsEncountered(currentUser?.id, matchQuestionIds);
+
     // Construct 10-player pool with real joined friends + bot fillers if < 10
     const friends = (room?.players || []).map(p => ({
       id: p.id,
@@ -363,10 +371,8 @@ export function GameProvider({ children }) {
     const isCorrect = playerSequence === fffQuestion.correctAnswer;
     const botSettings = storageService.getBotSettings();
 
-    // Record answer in 365-day seen tracker
-    if (currentUser?.id) {
-      questionEngine.recordAnswer(currentUser.id, fffQuestion.id, isCorrect);
-    }
+    // Record answer in 180-day zero-repeat tracker (User + Device)
+    questionEngine.recordAnswer(currentUser?.id, fffQuestion.id, isCorrect);
 
     // Evaluate bot completion times
     const [minSpeed, maxSpeed] = activeDivision === 'Junior'
@@ -439,10 +445,8 @@ export function GameProvider({ children }) {
     const currentQ = hotSeatQuestions[currentQIndex];
     const isCorrect = optionKey === currentQ.correctAnswer;
 
-    // Record in 365-day seen tracker
-    if (currentUser?.id) {
-      questionEngine.recordAnswer(currentUser.id, currentQ.id, isCorrect);
-    }
+    // Record in 180-day zero-repeat tracker (User + Device)
+    questionEngine.recordAnswer(currentUser?.id, currentQ.id, isCorrect);
 
     // Dramatic reveal after 1.8 seconds suspense
     setTimeout(() => {
@@ -533,6 +537,10 @@ export function GameProvider({ children }) {
   // Time Out handler
   const handleTimeOut = () => {
     soundService.playWrong();
+    const currentQ = hotSeatQuestions[currentQIndex];
+    if (currentQ?.id) {
+      questionEngine.recordAnswer(currentUser?.id, currentQ.id, false);
+    }
     handleDropOut(currentQIndex);
   };
 

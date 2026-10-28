@@ -1,14 +1,15 @@
 {
-  "version": "2.5.0",
-  "buildTimestamp": 1793165400000,
+  "version": "2.5.1",
+  "buildTimestamp": 1793166600000,
   "releaseDate": "2026-10-28",
-  "name": "BrainLeague v2.5.0 (Current Affairs Lifecycle & KBC Engine Enhancements)",
+  "name": "BrainLeague v2.5.1 (Strict 6-Month Zero-Repeat Question Guarantee)",
   "features": [
-    "Weekly/Monthly Current Affairs Upload with 6-Month Shelf Life",
-    "Auto-Expiration & Disappearance of Outdated News Questions",
-    "Smart Modern History & Flashback GK Archive for Future Reuse",
+    "Strict 180-Day (6 Months) Zero-Repeat Question Rule across all divisions",
+    "Device-Level and User-Level Seen Question Tracking (Protects Guests & Accounts)",
+    "Match-Start Encounter Registration (Prevents Immediate Repeats on Early Exit)",
+    "Infinite Procedural Fallback ensuring questions never run out",
+    "Weekly/Monthly Current Affairs Lifecycle with 6-Month Shelf Life",
     "Manual Lock Answer Button ('ताला लगाया जाए?') with Safe Selection",
-    "Interstitial Next Question Points Announcement Modal ('Playing for XXXXXX Pts')",
-    "Global Real-Time Cloud Relay Multiplayer Rooms"
+    "Interstitial Next Question Points Announcement Modal"
   ]
 }
