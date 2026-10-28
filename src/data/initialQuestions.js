@@ -4412,6 +4412,133 @@ export const INITIAL_QUESTIONS = [
     guruHint: "Constantinople fell in 1453; Napoleon's Waterloo happened in 1815.",
     guruHint_hi: "कांस्टेंटिनोपल 1453 में गिरा और नेपोलियन का वाटरलू युद्ध 1815 में हुआ।",
     explanation: "Constantinople (1453) -> American Independence (1776) -> French Revolution (1789) -> Waterloo (1815)."
+  },
+  // -------------------------------------------------------------
+  // SEED CURRENT AFFAIRS (6-MONTH VALIDITY LIFECYCLE)
+  // -------------------------------------------------------------
+  {
+    id: "ca_seed_001",
+    division: "Open",
+    bracket: "1000-10000",
+    subject: "Current Affairs",
+    topic: "Sports & Championships",
+    examCategory: "SSC",
+    isCurrentAffairs: true,
+    validityMonths: 6,
+    validUntil: 1809000000000,
+    publishedAt: 1793164800000,
+    status: "active",
+    text: "Which nation won the ICC Men's T20 World Cup title by defeating South Africa in the final?",
+    text_hi: "फाइनल में दक्षिण अफ्रीका को हराकर आईसीसी पुरुष टी20 विश्व कप का खिताब किस देश ने जीता?",
+    options: {
+      A: "India",
+      B: "Australia",
+      C: "England",
+      D: "New Zealand"
+    },
+    options_hi: {
+      A: "भारत",
+      B: "ऑस्ट्रेलिया",
+      C: "इंग्लैंड",
+      D: "न्यूजीलैंड"
+    },
+    correctAnswer: "A",
+    guruHint: "Rohit Sharma was the victorious captain.",
+    guruHint_hi: "रोहित शर्मा विजयी कप्तान थे।",
+    explanation: "India defeated South Africa by 7 runs in Barbados to lift their second Men's T20 World Cup title."
+  },
+  {
+    id: "ca_seed_002",
+    division: "Open",
+    bracket: "1000-10000",
+    subject: "Current Affairs",
+    topic: "Science, Defence & Technology",
+    examCategory: "UPSC",
+    isCurrentAffairs: true,
+    validityMonths: 6,
+    validUntil: 1809000000000,
+    publishedAt: 1793164800000,
+    status: "active",
+    text: "Which space agency launched the 'Europa Clipper' mission to investigate whether Jupiter's icy moon could support life?",
+    text_hi: "बृहस्पति के बर्फीले चंद्रमा यूरोपा पर जीवन की संभावना तलाशने हेतु 'यूरोपा क्लिपर' मिशन किस अंतरिक्ष एजेंसी ने लॉन्च किया?",
+    options: {
+      A: "ISRO",
+      B: "NASA",
+      C: "ESA",
+      D: "JAXA"
+    },
+    options_hi: {
+      A: "इसरो (ISRO)",
+      B: "नासा (NASA)",
+      C: "ईएसए (ESA)",
+      D: "जाक्सा (JAXA)"
+    },
+    correctAnswer: "B",
+    guruHint: "Launched aboard a SpaceX Falcon Heavy from Kennedy Space Center.",
+    guruHint_hi: "केनेडी स्पेस सेंटर से फाल्कन हेवी रॉकेट द्वारा प्रक्षेपित किया गया।",
+    explanation: "NASA's Europa Clipper is the largest spacecraft NASA has ever developed for a planetary mission."
+  },
+  {
+    id: "ca_seed_003",
+    division: "Open",
+    bracket: "10000-340000",
+    subject: "Current Affairs",
+    topic: "Economy, Banking & Finance",
+    examCategory: "BANKING",
+    isCurrentAffairs: true,
+    validityMonths: 6,
+    validUntil: 1809000000000,
+    publishedAt: 1793164800000,
+    status: "active",
+    text: "What benchmark policy repo rate was maintained by the Reserve Bank of India (RBI) in its recent monetary policy committee meetings?",
+    text_hi: "भारतीय रिज़र्व बैंक (RBI) की मौद्रिक नीति समिति ने हालिया बैठकों में प्रमुख नीतिगत रेपो दर (Repo Rate) क्या रखी है?",
+    options: {
+      A: "5.50%",
+      B: "6.50%",
+      C: "7.25%",
+      D: "6.00%"
+    },
+    options_hi: {
+      A: "5.50%",
+      B: "6.50%",
+      C: "7.25%",
+      D: "6.00%"
+    },
+    correctAnswer: "B",
+    guruHint: "Kept unchanged across successive MPC bi-monthly policy reviews.",
+    guruHint_hi: "लगातार द्विमासिक समीक्षाओं में इसे अपरिवर्तित रखा गया है।",
+    explanation: "The RBI MPC held the benchmark repo rate at 6.50% to balance retail inflation and economic growth."
+  },
+  {
+    id: "ca_seed_004",
+    division: "Senior",
+    bracket: "1000-10000",
+    subject: "Current Affairs",
+    topic: "Sports & Championships",
+    examCategory: "ALL",
+    isCurrentAffairs: true,
+    validityMonths: 6,
+    validUntil: 1809000000000,
+    publishedAt: 1793164800000,
+    status: "active",
+    text: "Which city hosted the 2024 Summer Olympic Games?",
+    text_hi: "2024 ग्रीष्मकालीन ओलंपिक खेलों की मेजबानी किस शहर ने की?",
+    options: {
+      A: "Tokyo",
+      B: "Paris",
+      C: "Los Angeles",
+      D: "London"
+    },
+    options_hi: {
+      A: "टोक्यो",
+      B: "पेरिस",
+      C: "लॉस एंजिल्स",
+      D: "लंदन"
+    },
+    correctAnswer: "B",
+    guruHint: "Famous opening ceremony took place along the River Seine.",
+    guruHint_hi: "उद्घाटन समारोह प्रसिद्ध सीन नदी के किनारे हुआ था।",
+    explanation: "Paris hosted the 2024 Summer Olympics from July 26 to August 11, 2024."
   }
 ];
 

@@ -456,7 +456,12 @@ class StorageService {
             guruHint_hi: q.guruHint_hi || seed.guruHint_hi,
             explanation_hi: q.explanation_hi || seed.explanation_hi,
             chapter: q.chapter || seed.chapter,
-            grade: q.grade || seed.grade
+            grade: q.grade || seed.grade,
+            isCurrentAffairs: q.isCurrentAffairs !== undefined ? q.isCurrentAffairs : seed.isCurrentAffairs,
+            validUntil: q.validUntil || seed.validUntil,
+            validityMonths: q.validityMonths || seed.validityMonths,
+            status: q.status || seed.status,
+            topic: q.topic || seed.topic
           };
         }
         return q;
@@ -522,6 +527,16 @@ class StorageService {
   deleteQuestion(id) {
     const list = this.getQuestions().filter(q => q.id !== id);
     this.saveQuestions(list);
+    return list;
+  }
+
+  updateQuestion(updatedQ) {
+    const list = this.getQuestions();
+    const idx = list.findIndex(q => q.id === updatedQ.id);
+    if (idx !== -1) {
+      list[idx] = updatedQ;
+      this.saveQuestions(list);
+    }
     return list;
   }
 

@@ -11,6 +11,7 @@
 
 import { proceduralMathEngine } from './proceduralMathEngine';
 import examCategoryService from './examCategoryService';
+import currentAffairsService from './currentAffairsService';
 
 export const BRACKETS = {
   B1: '1000-10000',
@@ -103,11 +104,12 @@ class QuestionEngine {
   getFFFQuestion(allQuestions, division, userId, customExamCategory = null, targetGrade = null) {
     const history = this.getUserHistory(userId);
 
-    // Filter matching division and bracket
+    // Filter matching division and bracket (excluding expired/archived Current Affairs)
     let pool = allQuestions.filter(q =>
       (q.division === division || q.division === 'All') &&
       q.bracket === BRACKETS.FFF &&
-      this.isEligibleForUser(q.id, history)
+      this.isEligibleForUser(q.id, history) &&
+      currentAffairsService.isQuestionActive(q)
     );
 
     if ((division === 'Junior' || division === 'Senior') && targetGrade) {
@@ -136,7 +138,8 @@ class QuestionEngine {
       let matching = allQuestions.filter(q =>
         (q.division === division || q.division === 'All') &&
         q.bracket === bracket &&
-        this.isEligibleForUser(q.id, history)
+        this.isEligibleForUser(q.id, history) &&
+        currentAffairsService.isQuestionActive(q)
       );
 
       // If Junior or Senior with targetGrade, prioritize questions tagged with that grade

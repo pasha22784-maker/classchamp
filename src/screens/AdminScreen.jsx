@@ -20,10 +20,12 @@ import storageService from '../services/storageService';
 import csvTemplateService, { VALID_DIVISIONS, VALID_BRACKETS } from '../services/csvTemplateService';
 import soundService from '../services/soundService';
 import { EXAM_CATEGORIES } from '../services/examCategoryService';
+import CurrentAffairsManager from '../components/admin/CurrentAffairsManager';
 import {
   ShieldAlert,
   Calendar,
   FileQuestion,
+  Newspaper,
   Settings2,
   Package,
   Sparkles,
@@ -598,6 +600,17 @@ Ensure verified facts, correct answer validation, and zero repeated questions.`;
         >
           <FileQuestion size={14} />
           <span>Question Bank ({questions.length})</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => { soundService.playClick(); setActiveTab('currentAffairs'); }}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold transition whitespace-nowrap ${
+            activeTab === 'currentAffairs' ? 'bg-velvet-800 text-champGold shadow ring-1 ring-champGold/40' : 'text-slate-400 hover:text-pearl'
+          }`}
+        >
+          <Newspaper size={14} className="text-champGold" />
+          <span>Current Affairs ({questions.filter(q => q.isCurrentAffairs).length})</span>
         </button>
 
         <button
@@ -1773,6 +1786,18 @@ Ensure verified facts, correct answer validation, and zero repeated questions.`;
             </div>
           </div>
         </div>
+      )}
+
+      {/* ======================================================== */}
+      {/* TAB: WEEKLY & MONTHLY CURRENT AFFAIRS HUB                */}
+      {/* ======================================================== */}
+      {activeTab === 'currentAffairs' && (
+        <CurrentAffairsManager
+          questions={questions}
+          onQuestionsUpdated={(updatedList) => {
+            setQuestions(updatedList);
+          }}
+        />
       )}
 
       {/* ======================================================== */}

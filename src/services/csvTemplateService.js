@@ -7,6 +7,72 @@
 export const VALID_DIVISIONS = ['Junior', 'Senior', 'Open', 'All'];
 export const VALID_BRACKETS = ['1000-10000', '10000-340000', '340000-2500000', '2500000-10000000', 'FFF'];
 
+export const SAMPLE_CA_CSV_ROWS = [
+  {
+    Division: "Open",
+    Exam_Category: "SSC",
+    Prize_Bracket: "1000-10000",
+    Topic: "Sports & Championships",
+    Question_Text: "Who won the ICC Men's T20 World Cup title most recently?",
+    Option_A: "India",
+    Option_B: "South Africa",
+    Option_C: "Australia",
+    Option_D: "England",
+    Correct_Answer: "A",
+    Validity_Months: "6",
+    Guru_Hint: "Defeated South Africa in an edge-of-the-seat final.",
+    Explanation: "India won the ICC Men's T20 World Cup 2024 by defeating South Africa.",
+    Question_Text_HI: "आईसीसी पुरुष टी20 विश्व कप का खिताब हाल ही में किस देश ने जीता?",
+    Option_A_HI: "भारत",
+    Option_B_HI: "दक्षिण अफ्रीका",
+    Option_C_HI: "ऑस्ट्रेलिया",
+    Option_D_HI: "इंग्लैंड",
+    Guru_Hint_HI: "फाइनल में दक्षिण अफ्रीका को रोमांचक मुकाबले में हराया।"
+  },
+  {
+    Division: "Open",
+    Exam_Category: "UPSC",
+    Prize_Bracket: "10000-340000",
+    Topic: "Science, Defence & Technology",
+    Question_Text: "Which space agency recently launched the Europa Clipper mission to explore Jupiter's icy moon?",
+    Option_A: "ISRO",
+    Option_B: "NASA",
+    Option_C: "ESA",
+    Option_D: "JAXA",
+    Correct_Answer: "B",
+    Validity_Months: "6",
+    Guru_Hint: "Launched aboard a SpaceX Falcon Heavy rocket.",
+    Explanation: "NASA launched the Europa Clipper spacecraft to investigate if Europa could support life.",
+    Question_Text_HI: "बृहस्पति के बर्फीले चंद्रमा यूरोपा के अध्ययन हेतु 'यूरोपा क्लिपर' मिशन किस अंतरिक्ष एजेंसी ने प्रक्षेपित किया?",
+    Option_A_HI: "इसरो (ISRO)",
+    Option_B_HI: "नासा (NASA)",
+    Option_C_HI: "ईएसए (ESA)",
+    Option_D_HI: "जाक्सा (JAXA)",
+    Guru_Hint_HI: "स्पेसएक्स के फाल्कन हेवी रॉकेट द्वारा लॉन्च किया गया।"
+  },
+  {
+    Division: "Open",
+    Exam_Category: "BANKING",
+    Prize_Bracket: "1000-10000",
+    Topic: "Economy, Banking & Finance",
+    Question_Text: "What is the policy repo rate currently maintained by the Reserve Bank of India (RBI)?",
+    Option_A: "5.50%",
+    Option_B: "6.50%",
+    Option_C: "7.00%",
+    Option_D: "6.00%",
+    Correct_Answer: "B",
+    Validity_Months: "6",
+    Guru_Hint: "Has remained stable throughout recent bi-monthly monetary policies.",
+    Explanation: "The RBI Monetary Policy Committee has held the benchmark policy repo rate steady at 6.50%.",
+    Question_Text_HI: "भारतीय रिज़र्व बैंक (RBI) द्वारा वर्तमान में रेपो दर (Repo Rate) क्या रखी गई है?",
+    Option_A_HI: "5.50%",
+    Option_B_HI: "6.50%",
+    Option_C_HI: "7.00%",
+    Option_D_HI: "6.00%",
+    Guru_Hint_HI: "हालिया द्विमासिक मौद्रिक नीतियों में यह स्थिर रखी गई है।"
+  }
+];
+
 export const SAMPLE_CSV_ROWS = [
   {
     Division: "Junior",
@@ -354,6 +420,95 @@ export const csvTemplateService = {
       validQuestions,
       duplicates,
       errors
+    };
+  },
+
+  /**
+   * Generates Current Affairs CSV template string
+   */
+  generateCurrentAffairsTemplate() {
+    const headers = [
+      'Division',
+      'Exam_Category',
+      'Prize_Bracket',
+      'Topic',
+      'Question_Text',
+      'Option_A',
+      'Option_B',
+      'Option_C',
+      'Option_D',
+      'Correct_Answer',
+      'Validity_Months',
+      'Guru_Hint',
+      'Explanation',
+      'Question_Text_HI',
+      'Option_A_HI',
+      'Option_B_HI',
+      'Option_C_HI',
+      'Option_D_HI',
+      'Guru_Hint_HI'
+    ];
+
+    const lines = [headers.join(',')];
+
+    SAMPLE_CA_CSV_ROWS.forEach(row => {
+      const escaped = headers.map(h => {
+        let val = (row[h] !== undefined && row[h] !== null) ? String(row[h]) : '';
+        if (val.includes(',') || val.includes('"') || val.includes('\n')) {
+          val = `"${val.replace(/"/g, '""')}"`;
+        }
+        return val;
+      });
+      lines.push(escaped.join(','));
+    });
+
+    return lines.join('\r\n');
+  },
+
+  /**
+   * Trigger download of Current Affairs CSV template
+   */
+  downloadCurrentAffairsTemplate() {
+    const csvContent = this.generateCurrentAffairsTemplate();
+    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `BrainLeague_Current_Affairs_Template_${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  },
+
+  /**
+   * Parse Current Affairs CSV with custom shelf life (default 6 months)
+   */
+  parseCurrentAffairsCsv(csvContent, defaultMonths = 6, existingQuestions = []) {
+    const parsed = this.parseCsv(csvContent, existingQuestions);
+    const now = Date.now();
+
+    const caQuestions = parsed.validQuestions.map(q => {
+      // Find row in CSV or use default months
+      const months = Number(defaultMonths) || 6;
+      const validUntil = now + months * 30 * 24 * 60 * 60 * 1000;
+
+      return {
+        ...q,
+        id: `ca_${now}_${Math.random().toString(36).substring(2, 7)}`,
+        isCurrentAffairs: true,
+        subject: 'Current Affairs',
+        topic: q.topic || 'National News & Governance',
+        publishedAt: now,
+        validityMonths: months,
+        validUntil: validUntil,
+        status: 'active'
+      };
+    });
+
+    return {
+      ...parsed,
+      validQuestions: caQuestions
     };
   }
 };
