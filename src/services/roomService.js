@@ -75,7 +75,82 @@ function broadcastLocal(room) {
   } catch {}
 }
 
+/**
+ * Deterministic multi-key sort for Fastest Finger First submissions:
+ * 1. Correctness (True beats False)
+ * 2. Completion Time (seconds, up to millisecond precision)
+ * 3. Human Contender over Bot if identical time
+ * 4. Joined timestamp (earlier joiner wins)
+ * 5. Deterministic string sort on player ID
+ * Guarantees device agreement on the winner on 100% of platforms.
+ */
+export function sortFFFResults(submissions) {
+  if (!submissions) return [];
+  const list = Array.isArray(submissions) ? [...submissions] : Object.values(submissions);
+  return list.sort((a, b) => {
+    const aCorr = Boolean(a?.isCorrect);
+    const bCorr = Boolean(b?.isCorrect);
+    if (aCorr !== bCorr) return aCorr ? -1 : 1;
+
+    const timeA = typeof a?.timeTaken === 'number' ? a.timeTaken : 999;
+    const timeB = typeof b?.timeTaken === 'number' ? b.timeTaken : 999;
+    const diff = timeA - timeB;
+    if (Math.abs(diff) > 0.001) return diff;
+
+    if (Boolean(a?.isHuman) !== Boolean(b?.isHuman)) {
+      return a?.isHuman ? -1 : 1;
+    }
+
+    const joinA = a?.joinedAt || 0;
+    const joinB = b?.joinedAt || 0;
+    if (joinA !== joinB) return joinA - joinB;
+
+    return String(a?.id || '').localeCompare(String(b?.id || ''));
+  });
+}
+
 const roomService = {
+  /**
+   * Publishes lightweight delta packets (~150 bytes) instead of 20KB full room
+   * Prevents HTTP 429 rate limits on public relay and optimizes mobile bandwidth.
+   */
+  async publishDelta(code, delta) {
+    const cleanCode = sanitizeCode(code);
+    if (!cleanCode) return;
+    const deltaPayload = {
+      _isDelta: true,
+      code: cleanCode,
+      ...delta,
+      updatedAt: Date.now()
+    };
+
+    // Update local cache & broadcast locally
+    const current = readLocal(cleanCode);
+    if (current) {
+      if (delta.matchProgress) {
+        current.matchProgress = { ...(current.matchProgress || {}), ...delta.matchProgress };
+      }
+      if (delta.fffResults) {
+        current.fffResults = { ...(current.fffResults || {}), ...delta.fffResults };
+      }
+      current.updatedAt = deltaPayload.updatedAt;
+      writeLocal(current);
+      broadcastLocal(current);
+    }
+
+    // Universal cloud relay
+    const payload = JSON.stringify(deltaPayload);
+    fetch(`${RELAY_BASE_URL}/${topicForRoom(cleanCode)}`, {
+      method: 'POST',
+      body: payload,
+      headers: {
+        'Title': 'BrainLeague Delta',
+        'Priority': 'default',
+        'Tags': 'delta'
+      }
+    }).catch(() => {});
+  },
+
   /**
    * Publishes room state to all channels:
    * LocalStorage -> BroadcastChannel -> Cloud Relay -> Local PHP API
@@ -136,18 +211,47 @@ const roomService = {
       if (cloudRes.ok) {
         const text = await cloudRes.text();
         const lines = text.trim().split('\n').filter(Boolean);
+        let collectedDelta = null;
+
         for (let i = lines.length - 1; i >= 0; i--) {
           try {
             const entry = JSON.parse(lines[i]);
             if (entry.event === 'message' && entry.message) {
               const parsed = JSON.parse(entry.message);
               if (parsed && sanitizeCode(parsed.code) === cleanCode) {
-                freshestRoom = parsed;
-                writeLocal(parsed);
-                return freshestRoom;
+                if (parsed._isDelta) {
+                  if (!collectedDelta) {
+                    collectedDelta = parsed;
+                  }
+                } else {
+                  // Full room base found
+                  if (collectedDelta) {
+                    if (collectedDelta.matchProgress) {
+                      parsed.matchProgress = { ...(parsed.matchProgress || {}), ...collectedDelta.matchProgress };
+                    }
+                    if (collectedDelta.fffResults) {
+                      parsed.fffResults = { ...(parsed.fffResults || {}), ...collectedDelta.fffResults };
+                    }
+                  }
+                  freshestRoom = parsed;
+                  writeLocal(parsed);
+                  return freshestRoom;
+                }
               }
             }
           } catch {}
+        }
+
+        // If only deltas found in window, merge onto local cache if exists
+        if (collectedDelta && freshestRoom) {
+          if (collectedDelta.matchProgress) {
+            freshestRoom.matchProgress = { ...(freshestRoom.matchProgress || {}), ...collectedDelta.matchProgress };
+          }
+          if (collectedDelta.fffResults) {
+            freshestRoom.fffResults = { ...(freshestRoom.fffResults || {}), ...collectedDelta.fffResults };
+          }
+          writeLocal(freshestRoom);
+          return freshestRoom;
         }
       }
     } catch (e) {
@@ -412,11 +516,11 @@ const roomService = {
     writeLocal(room);
     broadcastLocal(room);
 
-    // Relay to cloud (debounced to avoid rate limiting)
+    // Relay lightweight delta to cloud (debounced to avoid rate limiting)
     const now = Date.now();
-    if (!this._lastSyncPost || now - this._lastSyncPost > 400) {
+    if (!this._lastSyncPost || now - this._lastSyncPost > 350) {
       this._lastSyncPost = now;
-      this.publishRoomState(room);
+      this.publishDelta(cleanCode, { matchProgress: room.matchProgress });
     }
   },
 
@@ -432,15 +536,9 @@ const roomService = {
     if (!room.fffResults) room.fffResults = {};
     room.fffResults[playerResult.id] = playerResult;
 
-    // Evaluate fastest correct winner
-    const submissions = Object.values(room.fffResults);
-    submissions.sort((a, b) => {
-      if (a.isCorrect && !b.isCorrect) return -1;
-      if (!a.isCorrect && b.isCorrect) return 1;
-      return a.timeTaken - b.timeTaken;
-    });
-
-    const winner = submissions[0];
+    // Evaluate fastest correct winner deterministically
+    const sortedSubmissions = sortFFFResults(room.fffResults);
+    const winner = sortedSubmissions[0];
     if (winner && winner.isCorrect) {
       room.matchProgress = {
         ...(room.matchProgress || {}),
@@ -455,6 +553,49 @@ const roomService = {
   /**
    * Host kicks a player
    */
+  /**
+   * Promotes the next fastest eligible player to Hot Seat if current contender disconnects or leaves.
+   * Prevents remaining players from being frozen!
+   */
+  async promoteNextContender(code) {
+    const cleanCode = sanitizeCode(code);
+    if (!cleanCode) return null;
+    let room = readLocal(cleanCode) || await this.fetchRoomOnline(cleanCode);
+    if (!room || !room.matchProgress) return null;
+
+    const currentHotSeatId = room.matchProgress.hotSeatPlayer?.id;
+    const sortedSubmissions = sortFFFResults(room.fffResults || {});
+
+    // Find next eligible player who is not the disconnected player
+    const nextPlayer = sortedSubmissions.find(p => p.id !== currentHotSeatId && p.isCorrect);
+
+    if (nextPlayer) {
+      room.matchProgress = {
+        ...room.matchProgress,
+        hotSeatPlayer: nextPlayer,
+        isAnswerLocked: false,
+        lockedOption: null,
+        revealState: null,
+        timeRemaining: 45,
+        contenderPromoted: true,
+        previousContenderId: currentHotSeatId,
+        updatedAt: Date.now()
+      };
+      await this.publishRoomState(room);
+      return { promotedPlayer: nextPlayer, isMatchFinished: false, room };
+    } else {
+      // No more eligible players -> Conclude match gracefully so spectators claim rewards
+      room.matchProgress = {
+        ...room.matchProgress,
+        isFinished: true,
+        contenderLeft: true,
+        updatedAt: Date.now()
+      };
+      await this.publishRoomState(room);
+      return { promotedPlayer: null, isMatchFinished: true, room };
+    }
+  },
+
   async kickPlayer(code, hostId, kickPlayerId) {
     const room = await this.fetchRoomOnline(code);
     if (!room || room.hostId !== hostId) return null;
@@ -527,6 +668,9 @@ const roomService = {
         ch.onmessage = (e) => {
           if (e.data?.type === 'ROOM_UPDATE' && sanitizeCode(e.data.room?.code) === cleanCode) {
             callback(e.data.room);
+          } else if (e.data?.type === 'ROOM_DELTA' && sanitizeCode(e.data.code) === cleanCode) {
+            const current = readLocal(cleanCode);
+            if (current) callback(current);
           }
         };
       }
@@ -535,15 +679,33 @@ const roomService = {
     // B. Real-time WebSocket connection to Cloud Relay
     try {
       ws = new WebSocket(`${RELAY_WS_BASE}/${topicForRoom(cleanCode)}/ws`);
-      ws.onmessage = (event) => {
+      ws.onmessage = async (event) => {
         if (isDisposed) return;
         try {
           const data = JSON.parse(event.data);
           if (data.event === 'message' && data.message) {
-            const parsedRoom = JSON.parse(data.message);
-            if (parsedRoom && sanitizeCode(parsedRoom.code) === cleanCode) {
-              writeLocal(parsedRoom);
-              callback(parsedRoom);
+            const parsed = JSON.parse(data.message);
+            if (parsed && sanitizeCode(parsed.code) === cleanCode) {
+              if (parsed._isDelta) {
+                let current = readLocal(cleanCode);
+                if (!current) {
+                  current = await this.fetchRoomOnline(cleanCode);
+                }
+                if (current) {
+                  if (parsed.matchProgress) {
+                    current.matchProgress = { ...(current.matchProgress || {}), ...parsed.matchProgress };
+                  }
+                  if (parsed.fffResults) {
+                    current.fffResults = { ...(current.fffResults || {}), ...parsed.fffResults };
+                  }
+                  current.updatedAt = parsed.updatedAt || Date.now();
+                  writeLocal(current);
+                  callback(current);
+                }
+              } else {
+                writeLocal(parsed);
+                callback(parsed);
+              }
             }
           }
         } catch {}

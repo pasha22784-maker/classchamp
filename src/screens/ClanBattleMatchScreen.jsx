@@ -244,6 +244,20 @@ export default function ClanBattleMatchScreen() {
         </div>
       </div>
 
+      {/* Mic Permission Denied / Recovery Helper */}
+      {voiceState.isPermissionDenied && (
+        <div className="mb-2 px-2.5 py-1 rounded-xl bg-amber-500/15 border border-amber-500/30 text-[10px] text-amber-300 flex items-center justify-between">
+          <span>🎤 माइक की अनुमति बंद है (नीचे Quick-Chat एक्टिव है)</span>
+          <button
+            type="button"
+            onClick={() => voiceChatService.initLocalMicrophone(currentUser?.id, myClanId)}
+            className="text-champGold underline font-bold"
+          >
+            पुनः प्रयास
+          </button>
+        </div>
+      )}
+
       {/* Clan Member Speaking Bar */}
       <div className="flex items-center justify-center gap-2 mb-2">
         {myTeam.members?.map(m => {

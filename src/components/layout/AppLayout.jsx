@@ -273,7 +273,7 @@ export default function AppLayout({ children }) {
         <div
           className={`w-full transition-all duration-300 ${
             isGameScreen || isLandscapeMode
-              ? 'w-full h-full max-h-[100dvh] relative bg-navy-950/95 backdrop-blur-xl flex flex-col justify-between overflow-hidden'
+              ? 'w-full h-full max-h-[100dvh] relative bg-navy-950/95 backdrop-blur-xl flex flex-col justify-between overflow-hidden pl-safe pr-safe'
               : isMobileFrame
                 ? 'max-w-[440px] min-h-[820px] md:rounded-[36px] md:border-[6px] md:border-slate-800 shadow-2xl relative bg-navy-950 flex flex-col justify-between overflow-hidden'
                 : 'max-w-5xl min-h-[800px] md:rounded-2xl md:border border-white/10 shadow-2xl relative bg-navy-950/80 backdrop-blur-xl flex flex-col justify-between overflow-hidden'

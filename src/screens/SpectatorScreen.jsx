@@ -36,7 +36,8 @@ import {
   Check,
   Gift,
   RotateCw,
-  UserPlus
+  UserPlus,
+  AlertTriangle
 } from 'lucide-react';
 
 export default function SpectatorScreen() {
@@ -88,6 +89,13 @@ export default function SpectatorScreen() {
   const [prizesClaimed, setPrizesClaimed] = useState(false);
   const [hasSentContenderRequest, setHasSentContenderRequest] = useState(false);
 
+  // Disconnect & Inactivity Monitor for Contender Recovery
+  const [isContenderInactive, setIsContenderInactive] = useState(false);
+  const [disconnectCountdown, setDisconnectCountdown] = useState(10);
+  const [promotedNotice, setPromotedNotice] = useState(null);
+  const lastActivityTimestampRef = useRef(Date.now());
+  const isRecoveringRef = useRef(false);
+
   // Automatically record contender into recent players for social play-along connecting
   useEffect(() => {
     if (currentUser?.id && spectatorPlayer) {
@@ -97,9 +105,27 @@ export default function SpectatorScreen() {
 
   const emojis = ['👏', '🔥', '💡', '🏆', '⭐', '🎉'];
 
-  // Play Along Welcome Announcement & 5-Second KBC Clock
-  const [showPlayAlongWelcome, setShowPlayAlongWelcome] = useState((spectatorLevel || 1) === 1);
+  // Play Along Welcome Announcement & 5-Second KBC Clock (bypassed if joining mid-match)
+  const isMidMatchJoin = Boolean(activeRoom?.matchProgress?.currentLevel && activeRoom.matchProgress.currentLevel > 1);
+  const [showPlayAlongWelcome, setShowPlayAlongWelcome] = useState(!isMidMatchJoin && (spectatorLevel || 1) === 1);
   const [welcomeCountdown, setWelcomeCountdown] = useState(5);
+
+  // Instant Mid-Match Level & Contender State Adoption
+  useEffect(() => {
+    if (activeRoom?.matchProgress) {
+      const mp = activeRoom.matchProgress;
+      if (mp.currentLevel && mp.currentLevel !== spectatorLevel) {
+        setSpectatorLevel(mp.currentLevel);
+      }
+      if (typeof mp.timeRemaining === 'number') {
+        setContenderTimer(mp.timeRemaining);
+      }
+      if (mp.isAnswerLocked) {
+        setContenderLockedOption(mp.lockedOption);
+        setContenderStatus(mp.revealState ? 'REVEALED' : 'LOCKED');
+      }
+    }
+  }, [activeRoom?.code]);
 
   // Refs to prevent stale closure state & cleanly manage timeouts
   const audienceSelectionRef = useRef(null);
@@ -148,6 +174,17 @@ export default function SpectatorScreen() {
     const unsub = roomService.subscribe(cleanCode, (updatedRoom) => {
       if (!updatedRoom || !updatedRoom.matchProgress) return;
       const mp = updatedRoom.matchProgress;
+
+      // Reset activity timestamp on receiving updates from contender/room
+      lastActivityTimestampRef.current = Date.now();
+      setIsContenderInactive(false);
+
+      // Handle runner-up contender promotion
+      if (mp.contenderPromoted) {
+        setPromotedNotice(mp.hotSeatPlayer?.name || 'Next Contender');
+        isRecoveringRef.current = false;
+        setTimeout(() => setPromotedNotice(null), 5000);
+      }
 
       // 1. Sync level progression
       if (mp.currentLevel && mp.currentLevel !== spectatorLevel) {
@@ -212,6 +249,33 @@ export default function SpectatorScreen() {
       if (unsub) unsub();
     };
   }, [activeRoom?.code, spectatorLevel, currentQ, playAlongResult]);
+
+  // Contender Inactivity & Disconnect Recovery Monitor
+  useEffect(() => {
+    if (!activeRoom?.code || matchEnded) return;
+
+    const checkInterval = setInterval(() => {
+      const now = Date.now();
+      const elapsed = now - lastActivityTimestampRef.current;
+
+      // Inactivity threshold: 18 seconds without heartbeat or timer sync
+      if (elapsed > 18000) {
+        setIsContenderInactive(true);
+        const remaining = Math.max(0, 28 - Math.floor(elapsed / 1000));
+        setDisconnectCountdown(remaining);
+
+        if (remaining <= 0 && !isRecoveringRef.current) {
+          isRecoveringRef.current = true;
+          roomService.promoteNextContender(activeRoom.code);
+        }
+      } else {
+        setIsContenderInactive(false);
+        setDisconnectCountdown(10);
+      }
+    }, 1000);
+
+    return () => clearInterval(checkInterval);
+  }, [activeRoom?.code, matchEnded]);
 
   // -------------------------------------------------------------
   // HOT-SEAT SIMULATION CYCLE PER QUESTION (SOLO BOT MATCH ONLY)
@@ -444,6 +508,25 @@ export default function SpectatorScreen() {
             </div>
           </div>
         </div>
+
+        {/* Disconnect Alert & Promotion Banner */}
+        {isContenderInactive && (
+          <div className="mb-2.5 p-2 rounded-xl bg-crimsonAlert/20 border border-crimsonAlert/50 flex items-center justify-between text-xs text-crimsonAlert animate-pulse">
+            <div className="flex items-center gap-1.5 font-bold">
+              <AlertTriangle size={15} />
+              <span>हॉट सीट खिलाड़ी डिस्कनेक्ट हो गया है!</span>
+            </div>
+            <span className="font-mono text-[11px] bg-crimsonAlert text-white px-2 py-0.5 rounded-full font-bold">
+              अगले दावेदार को मौका: {disconnectCountdown}s
+            </span>
+          </div>
+        )}
+        {promotedNotice && (
+          <div className="mb-2.5 p-2 rounded-xl bg-champGold/20 border border-champGold/50 flex items-center gap-1.5 text-xs text-champGold font-bold animate-bounce">
+            <Sparkles size={15} />
+            <span>नए दावेदार {promotedNotice} को हॉट सीट पर प्रमोट किया गया है!</span>
+          </div>
+        )}
       </div>
 
       {/* ========================================================= */}

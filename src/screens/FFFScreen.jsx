@@ -30,7 +30,8 @@ import {
   Crown,
   Eye,
   Check,
-  X
+  X,
+  RefreshCw
 } from 'lucide-react';
 
 export default function FFFScreen() {
@@ -382,6 +383,12 @@ export default function FFFScreen() {
 
           {/* 2. 10 Contenders Ranked List by Accuracy & Shortest Time */}
           <div className="glass-panel rounded-2xl p-3 shadow-2xl">
+            {activeRoom?.code && reviewCountdown > 0 && (
+              <div className="mb-2 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/30 flex items-center justify-center gap-1.5 text-[11px] text-blue-300 font-semibold animate-pulse">
+                <RefreshCw size={11} className="animate-spin text-blue-400" />
+                <span>3G/4G नेटवर्क के खिलाड़ियों के जवाब का मिलान हो रहा है: {reviewCountdown}s...</span>
+              </div>
+            )}
             <div className="flex items-center justify-between mb-2 px-1 text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono border-b border-white/10 pb-1.5">
               <span>{t('rankContender')}</span>
               <div className="flex items-center gap-6">

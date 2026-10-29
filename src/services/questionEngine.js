@@ -76,15 +76,28 @@ class QuestionEngine {
   }
 
   /**
-   * Helper: safely save records to a localStorage key (caps at 4000 most recent items)
+   * Helper: safely save records to a localStorage key.
+   * Includes LRU auto-pruning of records older than 185 days (no longer needed by 180-day rule)
+   * and auto-pruning fallback if QuotaExceededError occurs to prevent 5MB storage crashes.
    */
   _saveStorageKey(key, records) {
     if (typeof window === 'undefined' || !window.localStorage) return;
     try {
-      const trimmed = records.slice(-4000);
+      // 1. Auto-purge records older than 185 days (eligible for repeat anyway)
+      const cutoff185Days = Date.now() - (185 * 24 * 60 * 60 * 1000);
+      const activeRecords = (records || []).filter(r => (r?.timestamp || 0) >= cutoff185Days);
+
+      // 2. Cap at 2000 most recent records
+      const trimmed = activeRecords.slice(-2000);
       localStorage.setItem(key, JSON.stringify(trimmed));
-    } catch {
-      // Storage quota fallback
+    } catch (e) {
+      // 3. Quota Recovery: If 5MB limit hit, aggressively prune to latest 500 items
+      try {
+        const emergencyTrim = (records || []).slice(-500);
+        localStorage.setItem(key, JSON.stringify(emergencyTrim));
+      } catch (err2) {
+        console.warn('[QuestionEngine] LocalStorage quota reached, unable to persist seen log:', err2);
+      }
     }
   }
 

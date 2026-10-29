@@ -33,6 +33,8 @@ class VoiceChatService {
     this.stateListeners = new Set();
     this.speakingCheckInterval = null;
     this.isSpeaking = false;
+    this.micPermissionDenied = false;
+    this.micError = null;
   }
 
   // Subscribe to speaking state updates (e.g. { peerId, isSpeaking })
@@ -61,12 +63,14 @@ class VoiceChatService {
       currentMode: this.currentMode,
       myClanId: this.myClanId,
       isSpeaking: this.isSpeaking,
-      hasMicPermission: Boolean(this.localStream)
+      hasMicPermission: Boolean(this.localStream),
+      isPermissionDenied: this.micPermissionDenied,
+      micError: this.micError
     };
   }
 
   /**
-   * Initialize local microphone
+   * Initialize local microphone with graceful error capture & recovery
    */
   async initLocalMicrophone(myPeerId, clanId = 'A') {
     this.myPeerId = myPeerId;
@@ -74,6 +78,9 @@ class VoiceChatService {
 
     if (typeof window === 'undefined' || !navigator.mediaDevices?.getUserMedia) {
       console.warn('[VoiceChat] getUserMedia not supported in this environment');
+      this.micPermissionDenied = true;
+      this.micError = 'NOT_SUPPORTED';
+      this._notifyState();
       return false;
     }
 
@@ -86,6 +93,9 @@ class VoiceChatService {
         },
         video: false
       });
+
+      this.micPermissionDenied = false;
+      this.micError = null;
 
       // Setup Web Audio analyser to measure speaking volume
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -102,6 +112,8 @@ class VoiceChatService {
       return true;
     } catch (err) {
       console.warn('[VoiceChat] Microphone permission denied or unavailable:', err);
+      this.micPermissionDenied = true;
+      this.micError = err?.name === 'NotAllowedError' ? 'PERMISSION_DENIED' : 'UNAVAILABLE';
       this._notifyState();
       return false;
     }

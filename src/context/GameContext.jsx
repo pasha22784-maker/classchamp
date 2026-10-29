@@ -13,7 +13,7 @@ import botService from '../services/botService';
 import examCategoryService from '../services/examCategoryService';
 import fairPlayService from '../services/fairPlayService';
 import clanBattleService from '../services/clanBattleService';
-import roomService from '../services/roomService';
+import roomService, { sortFFFResults } from '../services/roomService';
 import friendService from '../services/friendService';
 import { getTranslation, LANGUAGES } from '../services/localizationService';
 
@@ -269,11 +269,7 @@ export function GameProvider({ children }) {
 
       // Synchronize live FFF submissions & determine single winner across all devices
       if (updatedRoom.fffResults) {
-        const sortedResults = Object.values(updatedRoom.fffResults).sort((a, b) => {
-          if (a.isCorrect && !b.isCorrect) return -1;
-          if (!a.isCorrect && b.isCorrect) return 1;
-          return a.timeTaken - b.timeTaken;
-        });
+        const sortedResults = sortFFFResults(updatedRoom.fffResults);
         setFffResults(sortedResults);
         if (sortedResults.length > 0) {
           setFffWinner(sortedResults[0]);
@@ -284,12 +280,33 @@ export function GameProvider({ children }) {
       if (updatedRoom.matchProgress?.hotSeatPlayer) {
         setSpectatorPlayer(updatedRoom.matchProgress.hotSeatPlayer);
       }
+
+      // Check for contender auto-promotion on disconnect (game seamlessly continues!)
+      if (updatedRoom.matchProgress?.contenderPromoted) {
+        const newContender = updatedRoom.matchProgress.hotSeatPlayer;
+        if (newContender?.id === currentUser?.id && screen === 'SPECTATOR') {
+          soundService.playCorrect();
+          const targetLevel = updatedRoom.matchProgress.currentLevel || 1;
+          setCurrentQIndex(Math.max(0, targetLevel - 1));
+          setHasSeenHotSeatIntro(true);
+          setScreen('HOTSEAT');
+        }
+      }
     });
 
     return () => {
       if (unsub) unsub();
     };
-  }, [activeRoom?.code]);
+  }, [activeRoom?.code, currentUser?.id, screen]);
+
+  // Hot Seat contender heartbeat to notify spectators of active presence
+  useEffect(() => {
+    if (screen !== 'HOTSEAT' || !activeRoom?.code) return;
+    const interval = setInterval(() => {
+      roomService.syncMatchProgress(activeRoom.code, { heartbeat: Date.now() });
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [screen, activeRoom?.code]);
 
   // Navigate between screens
   const navigateTo = (newScreen) => {
@@ -455,11 +472,7 @@ export function GameProvider({ children }) {
 
     // Seed initial fffResults if room has pre-generated results
     if (room?.fffResults) {
-      const sorted = Object.values(room.fffResults).sort((a, b) => {
-        if (a.isCorrect && !b.isCorrect) return -1;
-        if (!a.isCorrect && b.isCorrect) return 1;
-        return a.timeTaken - b.timeTaken;
-      });
+      const sorted = sortFFFResults(room.fffResults);
       setFffResults(sorted);
       if (sorted.length > 0) {
         setFffWinner(sorted[0]);
@@ -510,11 +523,7 @@ export function GameProvider({ children }) {
       };
       const updated = await roomService.submitPlayerFFF(activeRoom.code, playerResult);
       if (updated?.fffResults) {
-        const sorted = Object.values(updated.fffResults).sort((a, b) => {
-          if (a.isCorrect && !b.isCorrect) return -1;
-          if (!a.isCorrect && b.isCorrect) return 1;
-          return a.timeTaken - b.timeTaken;
-        });
+        const sorted = sortFFFResults(updated.fffResults);
         setFffResults(sorted);
         const winner = sorted[0];
         setFffWinner(winner);
@@ -561,15 +570,11 @@ export function GameProvider({ children }) {
       }
     });
 
-    // Sort: Correct answers first sorted by fastest time
-    results.sort((a, b) => {
-      if (a.isCorrect && !b.isCorrect) return -1;
-      if (!a.isCorrect && b.isCorrect) return 1;
-      return a.timeTaken - b.timeTaken;
-    });
+    // Sort: Correct answers first sorted deterministically by fastest time
+    const sorted = sortFFFResults(results);
 
-    setFffResults(results);
-    const winner = results[0];
+    setFffResults(sorted);
+    const winner = sorted[0];
     setFffWinner(winner);
 
     // Auto-route: If bot wins -> Spectator Mode after 3.2s.
