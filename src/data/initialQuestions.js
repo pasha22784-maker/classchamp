@@ -17,6 +17,7 @@ import ncertMathsClass3 from './ncertClass3MathsQuestions.js';
 import ncertEnglishClass3 from './ncertClass3EnglishQuestions.js';
 import ncertHindiClass3 from './ncertClass3HindiQuestions.js';
 import ncertWorldAroundUsClass3 from './ncertClass3WorldAroundUsQuestions.js';
+import ncertGIClass3 from './ncertClass3GeneralIntelligenceQuestions.js';
 
 export const INITIAL_QUESTIONS = [
   // ==========================================
@@ -4818,5 +4819,39 @@ const formattedNcertWorld3 = ncertWorldAroundUsClass3.map(q => ({
 }));
 
 INITIAL_QUESTIONS.push(...formattedNcertWorld3);
+
+// Append Class 3 General Intelligence & Mental Ability curriculum questions
+const formattedGI3 = ncertGIClass3.map(q => ({
+  id: q.id,
+  division: "Junior",
+  grade: 3,
+  bracket: q.difficulty === "Easy" ? "1000-10000" : "10000-340000",
+  subject: "General Intelligence",
+  chapter: `Section ${q.section_num}: ${q.section_title}`,
+  chapterCode: `C3_GI_SEC${q.section_num}`,
+  category: q.topic,
+  text: q.question_en,
+  text_hi: q.question_hi,
+  text_en: q.question_en,
+  options: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  options_hi: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  correctAnswer: q.correct_option,
+  guruHint: q.explanation_en,
+  guruHint_hi: q.explanation_hi,
+  guruHint_en: q.explanation_en,
+  explanation: `${q.explanation_en} | ${q.explanation_hi}`
+}));
+
+INITIAL_QUESTIONS.push(...formattedGI3);
 
 export default INITIAL_QUESTIONS;
