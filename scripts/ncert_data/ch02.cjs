@@ -1,5 +1,6 @@
 // Chapter 2: Shapes Around Us (3D Shapes) - Pages 16 to 22
 module.exports = [
+  // Page 16
   {
     id: "M2_C02_P16_Q01",
     chapter_num: 2,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C02_P16_Q02",
+    chapter_num: 2,
+    chapter_title: "Shapes Around Us",
+    topic: "Shapes that Slide or Roll",
+    page_book: 16,
+    question_en: "Which object will roll smoothly when pushed across a flat floor?",
+    question_hi: "समतल फर्श पर धक्का देने पर कौन सी वस्तु आसानी से लुढ़केगी (roll)?",
+    option_a: "A round tennis ball",
+    option_b: "A rectangular wooden brick",
+    option_c: "A square notebook",
+    option_d: "A matchbox",
+    correct_option: "A",
+    explanation_en: "Objects with round curved surfaces like balls roll smoothly.",
+    explanation_hi: "गोल घुमावदार सतह वाली वस्तुएं (जैसे गेंद) फर्श पर लुढ़कती हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 17
+  {
     id: "M2_C02_P17_Q01",
     chapter_num: 2,
     chapter_title: "Shapes Around Us",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "ड्रम, ढोलक और बांसुरी बेलन (Cylinder) के आकार के होते हैं।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C02_P17_Q02",
+    chapter_num: 2,
+    chapter_title: "Shapes Around Us",
+    topic: "Round Pots and Instruments",
+    page_book: 17,
+    question_en: "The musical instrument 'Ghatam' (an earthen clay pot) is round in shape similar to a:",
+    question_hi: "वाद्य यंत्र 'घटम' (मिट्टी का मटका) किसके समान गोल आकार का होता है?",
+    option_a: "Sphere / Pot (Matka)",
+    option_b: "Cube",
+    option_c: "Sharp cone",
+    option_d: "Flat triangle",
+    correct_option: "A",
+    explanation_en: "A ghatam is an earthen pot with a round, spherical body.",
+    explanation_hi: "घटम मिट्टी का मटका होता है जिसका मुख्य भाग गोल (गोलाकार) होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 18
   {
     id: "M2_C02_P18_Q01",
     chapter_num: 2,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C02_P18_Q02",
+    chapter_num: 2,
+    chapter_title: "Shapes Around Us",
+    topic: "Matching Box with Solid Shapes",
+    page_book: 18,
+    question_en: "A harmonium or a shoebox matches which solid 3D geometrical shape?",
+    question_hi: "एक हारमोनियम या जूते का डिब्बा किस ठोस 3D ज्यामितीय आकार से मेल खाता है?",
+    option_a: "Cuboid",
+    option_b: "Sphere",
+    option_c: "Cone",
+    option_d: "Cylinder",
+    correct_option: "A",
+    explanation_en: "A harmonium and shoebox have 6 rectangular faces, making them a cuboid.",
+    explanation_hi: "हारमोनियम और जूते के डिब्बे का आकार घनाभ (Cuboid) होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 19
+  {
     id: "M2_C02_P19_Q01",
     chapter_num: 2,
     chapter_title: "Shapes Around Us",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "एक घनाभ (cuboid) में 12 किनारे (edges) होते हैं, इसलिए 12 रिबन चाहिए।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C02_P19_Q02",
+    chapter_num: 2,
+    chapter_title: "Shapes Around Us",
+    topic: "Edges of a Cube",
+    page_book: 19,
+    question_en: "How many straight edges does a playing dice (cube) have?",
+    question_hi: "खेलने वाले पासे (Cube) में कुल कितने सीधे किनारे (Edges) होते हैं?",
+    option_a: "12 edges",
+    option_b: "6 edges",
+    option_c: "8 edges",
+    option_d: "10 edges",
+    correct_option: "A",
+    explanation_en: "Both a cube and a cuboid have exactly 12 edges.",
+    explanation_hi: "घन (Cube) और घनाभ दोनों में ठीक 12 किनारे होते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 20
   {
     id: "M2_C02_P20_Q01",
     chapter_num: 2,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C02_P20_Q02",
+    chapter_num: 2,
+    chapter_title: "Shapes Around Us",
+    topic: "Corners of a Party Cone",
+    page_book: 20,
+    question_en: "How many sharp corners (pointed tips) does a party cone hat have?",
+    question_hi: "एक पार्टी टोपी (Cone) में कितने नुकीले कोने (pointed tip/vertex) होते हैं?",
+    option_a: "Only 1 corner",
+    option_b: "4 corners",
+    option_c: "8 corners",
+    option_d: "0 corners",
+    correct_option: "A",
+    explanation_en: "A cone has only 1 pointed vertex (corner) at the top.",
+    explanation_hi: "शंकु (Cone) के शीर्ष पर केवल 1 कोना होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 21
+  {
     id: "M2_C02_P21_Q01",
     chapter_num: 2,
     chapter_title: "Shapes Around Us",
@@ -103,6 +199,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C02_P21_Q02",
+    chapter_num: 2,
+    chapter_title: "Shapes Around Us",
+    topic: "Faces of a Cube",
+    page_book: 21,
+    question_en: "How many flat faces does a playing dice (cube) have in total?",
+    question_hi: "एक पासे (Cube) में कुल कितने समतल फलक (Faces) होते हैं?",
+    option_a: "6 faces",
+    option_b: "8 faces",
+    option_c: "12 faces",
+    option_d: "4 faces",
+    correct_option: "A",
+    explanation_en: "A cube has 6 equal square faces, numbered 1 to 6 on a dice.",
+    explanation_hi: "पासे में 6 फलक होते हैं जिन पर 1 से 6 तक के अंक होते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 22
+  {
     id: "M2_C02_P22_Q01",
     chapter_num: 2,
     chapter_title: "Shapes Around Us",
@@ -118,5 +233,22 @@ module.exports = [
     explanation_en: "A sphere has only 1 curved surface with 0 edges and 0 corners.",
     explanation_hi: "गोले (Sphere) में 0 कोने, 0 किनारे होते हैं और यह केवल घुमावदार सतह वाला होता है।",
     difficulty: "Easy"
+  },
+  {
+    id: "M2_C02_P22_Q02",
+    chapter_num: 2,
+    chapter_title: "Shapes Around Us",
+    topic: "Roll and Slide Shape",
+    page_book: 22,
+    question_en: "Which shape can BOTH roll on its curved surface AND slide on its flat surface?",
+    question_hi: "कौन सा आकार अपनी घुमावदार सतह पर लुढ़क (roll) भी सकता है और समतल सतह पर फिसल (slide) भी सकता है?",
+    option_a: "A Cylinder / Cone",
+    option_b: "A Sphere only",
+    option_c: "A Cube only",
+    option_d: "None of these",
+    correct_option: "A",
+    explanation_en: "A cylinder (or cone) has both a flat face to slide on and a curved surface to roll on.",
+    explanation_hi: "बेलन और शंकु दोनों में समतल और घुमावदार सतहें होती हैं, इसलिए वे लुढ़क और फिसल दोनों सकते हैं।",
+    difficulty: "Medium"
   }
 ];

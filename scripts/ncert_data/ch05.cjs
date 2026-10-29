@@ -1,5 +1,6 @@
 // Chapter 5: Playing with Lines (Orientations of a line) - Pages 44 to 49
 module.exports = [
+  // Page 44
   {
     id: "M2_C05_P44_Q01",
     chapter_num: 5,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C05_P44_Q02",
+    chapter_num: 5,
+    chapter_title: "Playing with Lines",
+    topic: "Sleeping Lines in Yoga",
+    page_book: 44,
+    question_en: "When lying completely flat on the floor in Shavasana (Corpse Pose), which line orientation does the body represent?",
+    question_hi: "शवासन में जमीन पर बिल्कुल सीधा लेटने पर शरीर किस प्रकार की रेखा को दर्शाता है?",
+    option_a: "Horizontal (sleeping) line",
+    option_b: "Vertical line",
+    option_c: "Slanting line",
+    option_d: "Spiral line",
+    correct_option: "A",
+    explanation_en: "Lying flat horizontally forms a horizontal (sleeping) line.",
+    explanation_hi: "समतल लेटने की मुद्रा लेटी हुई (क्षैतिज / Horizontal) रेखा को दर्शाती है।",
+    difficulty: "Easy"
+  },
+
+  // Page 45
+  {
     id: "M2_C05_P45_Q01",
     chapter_num: 5,
     chapter_title: "Playing with Lines",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "बाएं से दाएं खींची जाने वाली लेटी हुई सीधी रेखा को क्षैतिज रेखा (horizontal line) कहते हैं।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C05_P45_Q02",
+    chapter_num: 5,
+    chapter_title: "Playing with Lines",
+    topic: "Thread Activity for Straight Line",
+    page_book: 45,
+    question_en: "In the thread activity from the textbook, how do you make a piece of thread form a perfectly STRAIGHT line?",
+    question_hi: "किताब की धागे वाली गतिविधि में, धागे के टुकड़े से बिल्कुल सीधी रेखा कैसे बनाई जाती है?",
+    option_a: "By holding both ends tightly and pulling it tight",
+    option_b: "By holding it very loose",
+    option_c: "By dipping it in water",
+    option_d: "By tying a knot in it",
+    correct_option: "A",
+    explanation_en: "Pulling a thread tight between both hands makes it straight; letting it loose makes a curved line.",
+    explanation_hi: "धागे को दोनों हाथों से तानकर पकड़ने पर सीधी रेखा बनती है; ढीला छोड़ने पर घुमावदार रेखा बनती है।",
+    difficulty: "Easy"
+  },
+
+  // Page 46
   {
     id: "M2_C05_P46_Q01",
     chapter_num: 5,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C05_P46_Q02",
+    chapter_num: 5,
+    chapter_title: "Playing with Lines",
+    topic: "Slanting Lines in Kites",
+    page_book: 46,
+    question_en: "When drawing a flying kite on a dot grid, which type of lines form the diamond sides of the kite?",
+    question_hi: "डॉट ग्रिड पर पतंग का चित्र बनाते समय पतंग के किनारे किस प्रकार की रेखाओं से बनते हैं?",
+    option_a: "Slanting lines (tirchhi rekha)",
+    option_b: "Horizontal lines only",
+    option_c: "Vertical lines only",
+    option_d: "Circles",
+    correct_option: "A",
+    explanation_en: "The four sides of a diamond kite are slanting (diagonal) straight lines.",
+    explanation_hi: "पतंग के किनारे तिरछी (slanting) रेखाओं से बनते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 47
+  {
     id: "M2_C05_P47_Q01",
     chapter_num: 5,
     chapter_title: "Playing with Lines",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "इंद्रधनुष और बादल घुमावदार रेखाओं (curved lines) से बनते हैं।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C05_P47_Q02",
+    chapter_num: 5,
+    chapter_title: "Playing with Lines",
+    topic: "Animals Drawn with Curved Lines",
+    page_book: 47,
+    question_en: "Which animal's shell or body is drawn using circular curved spiral lines?",
+    question_hi: "किस जीव का खोल या शरीर घुमावदार (spiral) रेखाओं से बनाया जाता है?",
+    option_a: "A snail / sea conch shell",
+    option_b: "A straight ladder",
+    option_c: "A rectangular table",
+    option_d: "A cardboard box",
+    correct_option: "A",
+    explanation_en: "A snail's shell has a spiraling curved line.",
+    explanation_hi: "घोंघे (snail) का खोल घुमावदार (curved spiral) रेखा से बनता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 48
   {
     id: "M2_C05_P48_Q01",
     chapter_num: 5,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C05_P48_Q02",
+    chapter_num: 5,
+    chapter_title: "Playing with Lines",
+    topic: "Design with Two Types of Lines",
+    page_book: 48,
+    question_en: "A simple grid pattern (like on a chess board) is drawn using which two types of straight lines?",
+    question_hi: "शतरंज के बोर्ड जैसा जालीदार पैटर्न किन दो प्रकार की सीधी रेखाओं से बनता है?",
+    option_a: "Vertical lines and Horizontal lines",
+    option_b: "Curved lines only",
+    option_c: "Slanting lines only",
+    option_d: "Circles and ovals",
+    correct_option: "A",
+    explanation_en: "Square grids are created by crossing horizontal and vertical lines.",
+    explanation_hi: "खड़ी (vertical) और लेटी (horizontal) रेखाओं के परस्पर कटने से ग्रिड बनता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 49
+  {
     id: "M2_C05_P49_Q01",
     chapter_num: 5,
     chapter_title: "Playing with Lines",
@@ -101,5 +197,22 @@ module.exports = [
     explanation_en: "Warli figures use geometric shapes: circles for heads, two touching triangles for bodies, and straight lines for limbs.",
     explanation_hi: "वर्ली कला में सिर के लिए वृत्त, शरीर के लिए दो त्रिभुज और हाथ-पैर के लिए सीधी रेखाओं का उपयोग होता है।",
     difficulty: "Medium"
+  },
+  {
+    id: "M2_C05_P49_Q02",
+    chapter_num: 5,
+    chapter_title: "Playing with Lines",
+    topic: "Folk Arts Mentioned in Book",
+    page_book: 49,
+    question_en: "Which traditional Indian art forms are famous for distinct line drawings as discussed in the textbook?",
+    question_hi: "रेखा चित्रों के लिए प्रसिद्ध किन पारंपरिक भारतीय कला रूपों का उल्लेख पाठ्यपुस्तक में किया गया है?",
+    option_a: "Madhubani, Kalamkari, and Warli art",
+    option_b: "Oil painting on canvas only",
+    option_c: "Digital computer graphics",
+    option_d: "Photography",
+    correct_option: "A",
+    explanation_en: "Madhubani, Kalamkari, and Warli are celebrated Indian traditional folk arts using expressive lines and motifs.",
+    explanation_hi: "मधुबनी, कलमकारी और वर्ली कला में रेखाओं और प्राकृतिक रूपांकनों का सुंदर प्रयोग होता है।",
+    difficulty: "Easy"
   }
 ];

@@ -1,5 +1,6 @@
 // Chapter 11: Data Handling and Puzzles - Pages 123 to 137
 module.exports = [
+  // Page 123
   {
     id: "M2_C11_P123_Q01",
     chapter_num: 11,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C11_P123_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Least Liked Colour",
+    page_book: 123,
+    question_en: "From the same table (Red: 9, Green: 4, Blue: 12, Yellow: 7), which colour was liked by the LEAST number of children?",
+    question_hi: "उसी तालिका (लाल: 9, हरा: 4, नीला: 12, पीला: 7) में सबसे कम बच्चों द्वारा कौन सा रंग पसंद किया गया?",
+    option_a: "Green (4 children)",
+    option_b: "Red",
+    option_c: "Yellow",
+    option_d: "Blue",
+    correct_option: "A",
+    explanation_en: "Green has the lowest number of votes (4 children).",
+    explanation_hi: "हरे रंग को सबसे कम केवल 4 बच्चों ने पसंद किया।",
+    difficulty: "Easy"
+  },
+
+  // Page 124
+  {
     id: "M2_C11_P124_Q01",
     chapter_num: 11,
     chapter_title: "Data Handling and Puzzles",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "15 − 8 = 7 अधिक बच्चों ने केले खाए।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C11_P124_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Total Fruits Eaten at Picnic",
+    page_book: 124,
+    question_en: "How many children ate fruit in total if 8 ate apples, 15 ate bananas, and 10 ate oranges?",
+    question_hi: "यदि 8 बच्चों ने सेब, 15 ने केले और 10 ने संतरे खाए, तो कुल कितने बच्चों ने फल खाए?",
+    option_a: "33 children",
+    option_b: "30 children",
+    option_c: "35 children",
+    option_d: "28 children",
+    correct_option: "A",
+    explanation_en: "8 + 15 + 10 = 33 children.",
+    explanation_hi: "8 + 15 + 10 = 33 बच्चे।",
+    difficulty: "Easy"
+  },
+
+  // Page 125
   {
     id: "M2_C11_P125_Q01",
     chapter_num: 11,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C11_P125_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Most Common Mode of Transport",
+    page_book: 125,
+    question_en: "From the school travel data (Walking: 14, Bicycle: 8, Bus: 20, Auto: 6), which mode of coming to school is used by the MOST students?",
+    question_hi: "स्कूल आने के साधनों में सबसे अधिक विद्यार्थी किस साधन से आते हैं?",
+    option_a: "School Bus (20 students)",
+    option_b: "Walking",
+    option_c: "Bicycle",
+    option_d: "Auto",
+    correct_option: "A",
+    explanation_en: "School Bus has the highest number of students (20).",
+    explanation_hi: "स्कूल बस से सबसे ज्यादा 20 विद्यार्थी आते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 126
+  {
     id: "M2_C11_P126_Q01",
     chapter_num: 11,
     chapter_title: "Data Handling and Puzzles",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "1 स्माइली = 1 विद्यार्थी, अतः 7 विद्यार्थियों के लिए 7 स्माइली बनेंगे।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C11_P126_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Reading Smiley Symbols",
+    page_book: 126,
+    question_en: "If a row in a pictograph has 5 smileys (where 😊 = 1 student), how many students does that row represent?",
+    question_hi: "यदि चित्रालेख की एक पंक्ति में 5 स्माइली बने हों (जहाँ 😊 = 1 छात्र), तो वह पंक्ति कितने छात्रों को दर्शाती है?",
+    option_a: "5 students",
+    option_b: "10 students",
+    option_c: "1 student",
+    option_d: "15 students",
+    correct_option: "A",
+    explanation_en: "5 smileys × 1 student each = 5 students.",
+    explanation_hi: "5 स्माइली = 5 विद्यार्थी।",
+    difficulty: "Easy"
+  },
+
+  // Page 127
   {
     id: "M2_C11_P127_Q01",
     chapter_num: 11,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C11_P127_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Most Popular Game",
+    page_book: 127,
+    question_en: "From the games table (Cricket: 10, Football: 8, Kho-Kho: 12, Kabaddi: 6), which game has the HIGHEST number of players?",
+    question_hi: "खेलों की तालिका में सबसे अधिक खिलाड़ी किस खेल के हैं?",
+    option_a: "Kho-Kho (12 children)",
+    option_b: "Cricket",
+    option_c: "Football",
+    option_d: "Kabaddi",
+    correct_option: "A",
+    explanation_en: "Kho-Kho has 12 players, which is the highest in the group.",
+    explanation_hi: "खो-खो में सबसे ज्यादा 12 बच्चे हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 128
+  {
     id: "M2_C11_P128_Q01",
     chapter_num: 11,
     chapter_title: "Data Handling and Puzzles",
@@ -102,6 +198,25 @@ module.exports = [
     explanation_hi: "5 + 11 = 16 बच्चे।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C11_P128_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Difference in Vegetable Votes",
+    page_book: 128,
+    question_en: "How many MORE votes did Carrot (11 votes) receive than Spinach (5 votes)?",
+    question_hi: "गाजर (11 वोट) को पालक (5 वोट) से कितने अधिक वोट मिले?",
+    option_a: "6 more votes",
+    option_b: "5 more votes",
+    option_c: "7 more votes",
+    option_d: "16 more votes",
+    correct_option: "A",
+    explanation_en: "11 − 5 = 6 more votes.",
+    explanation_hi: "11 − 5 = 6 अधिक वोट।",
+    difficulty: "Easy"
+  },
+
+  // Page 129
   {
     id: "M2_C11_P129_Q01",
     chapter_num: 11,
@@ -120,6 +235,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C11_P129_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Joint Family Concept",
+    page_book: 129,
+    question_en: "When children live in a house together with their parents and grandparents, what is such a family called?",
+    question_hi: "जब बच्चे अपने माता-पिता और दादा-दादी के साथ एक ही घर में रहते हैं, तो ऐसे परिवार को क्या कहा जाता है?",
+    option_a: "Joint Family (संयुक्त परिवार)",
+    option_b: "Nuclear family only",
+    option_c: "Single person family",
+    option_d: "Temporary family",
+    correct_option: "A",
+    explanation_en: "A family with parents, grandparents, and children living together is a joint family.",
+    explanation_hi: "माता-पिता और दादा-दादी के साथ रहने वाले परिवार को संयुक्त परिवार कहते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 130
+  {
     id: "M2_C11_P130_Q01",
     chapter_num: 11,
     chapter_title: "Data Handling and Puzzles",
@@ -136,6 +270,25 @@ module.exports = [
     explanation_hi: "जोड़ने वाली रेखाएं कभी एक-दूसरे को काटेंगी या छुएंगी नहीं।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C11_P130_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Pattern Sum Puzzle",
+    page_book: 130,
+    question_en: "Complete the puzzle: 2 + 1 = 3, 3 + 1 = 4. What is 4 + 1?",
+    question_hi: "पैटर्न पूरा करें: 2 + 1 = 3, 3 + 1 = 4। 4 + 1 का मान क्या होगा?",
+    option_a: "5",
+    option_b: "6",
+    option_c: "4",
+    option_d: "3",
+    correct_option: "A",
+    explanation_en: "4 + 1 = 5.",
+    explanation_hi: "4 + 1 = 5।",
+    difficulty: "Easy"
+  },
+
+  // Page 131
   {
     id: "M2_C11_P131_Q01",
     chapter_num: 11,
@@ -154,6 +307,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C11_P131_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Doubling Numbers",
+    page_book: 131,
+    question_en: "In the math magic trick, what does 'Double that number' mean mathematically?",
+    question_hi: "गणित के जादू में 'संख्या को दोगुना करने' का क्या अर्थ है?",
+    option_a: "Multiply the number by 2 (or add the number to itself)",
+    option_b: "Divide the number by 2",
+    option_c: "Add 2 to the number",
+    option_d: "Subtract 2",
+    correct_option: "A",
+    explanation_en: "Doubling a number means multiplying it by 2 (e.g. double of 5 is 10).",
+    explanation_hi: "दोगुना करने का अर्थ है 2 से गुणा करना (जैसे 5 का दोगुना 10)।",
+    difficulty: "Easy"
+  },
+
+  // Page 132
+  {
     id: "M2_C11_P132_Q01",
     chapter_num: 11,
     chapter_title: "Data Handling and Puzzles",
@@ -170,6 +342,25 @@ module.exports = [
     explanation_hi: "2 × 3 = 6 अलग-अलग रास्ते।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C11_P132_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Number Names Search (11 to 20)",
+    page_book: 132,
+    question_en: "In the word search puzzle on page 132, which number name spells out 'S-I-X-T-E-E-N'?",
+    question_hi: "पेज 132 की शब्द पहेली में 'S-I-X-T-E-E-N' किस संख्या का नाम है?",
+    option_a: "16",
+    option_b: "60",
+    option_c: "6",
+    option_d: "19",
+    correct_option: "A",
+    explanation_en: "SIXTEEN is the number name for 16.",
+    explanation_hi: "SIXTEEN संख्या 16 का नाम है।",
+    difficulty: "Easy"
+  },
+
+  // Page 133
   {
     id: "M2_C11_P133_Q01",
     chapter_num: 11,
@@ -188,6 +379,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C11_P133_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Cat Returning to House (Number of Paths)",
+    page_book: 133,
+    question_en: "The cat puzzle shows 6 numbered door paths (1 to 6) leading into the house. How many different doors can the cat enter through?",
+    question_hi: "बिल्ली की पहेली में घर जाने के 6 क्रमांकित दरवाजे (1 से 6) दिखाए गए हैं। बिल्ली कितने अलग-अलग रास्तों से घर जा सकती है?",
+    option_a: "6 different ways",
+    option_b: "3 ways",
+    option_c: "4 ways",
+    option_d: "12 ways",
+    correct_option: "A",
+    explanation_en: "With 6 doors available, there are 6 distinct ways.",
+    explanation_hi: "6 क्रमांकित रास्तों के कारण कुल 6 रास्ते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 134
+  {
     id: "M2_C11_P134_Q01",
     chapter_num: 11,
     chapter_title: "Data Handling and Puzzles",
@@ -204,6 +414,25 @@ module.exports = [
     explanation_hi: "पहिया (Wheel) गोल होता है और वाहनों को चलाता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C11_P134_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Two-Digit Numbers Using Same Digit",
+    page_book: 134,
+    question_en: "Which of the following is a two-digit number made by using only ONE digit repeated?",
+    question_hi: "केवल एक ही अंक को दोहराकर बनने वाली दो अंकों की संख्या कौन सी है?",
+    option_a: "44 (using only digit 4)",
+    option_b: "45",
+    option_c: "40",
+    option_d: "54",
+    correct_option: "A",
+    explanation_en: "Numbers like 11, 22, 33, 44... use only one digit repeated in both tens and ones places.",
+    explanation_hi: "44 में दोनों स्थानों पर केवल अंक 4 का प्रयोग हुआ है।",
+    difficulty: "Easy"
+  },
+
+  // Page 135
   {
     id: "M2_C11_P135_Q01",
     chapter_num: 11,
@@ -222,6 +451,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C11_P135_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Third Animal on Path",
+    page_book: 135,
+    question_en: "Following the order on the path (Squirrel 1st, Zebra 2nd, Bird 3rd), which animal was in THIRD position?",
+    question_hi: "रास्ते में जिराफ को तीसरे (3rd) स्थान पर कौन सा जीव मिला?",
+    option_a: "Bird (Chidiya)",
+    option_b: "Squirrel",
+    option_c: "Zebra",
+    option_d: "Lion",
+    correct_option: "A",
+    explanation_en: "The third animal on the route is the bird.",
+    explanation_hi: "तीसरे स्थान पर चिड़िया मिली।",
+    difficulty: "Easy"
+  },
+
+  // Page 136
+  {
     id: "M2_C11_P136_Q01",
     chapter_num: 11,
     chapter_title: "Data Handling and Puzzles",
@@ -239,6 +487,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C11_P136_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Number Bonds for 9",
+    page_book: 136,
+    question_en: "In the number wheel puzzle on page 136, which expression ALSO equals 9?",
+    question_hi: "पेज 136 के संख्या चक्र में, कौन सा विकल्प भी 9 के बराबर है?",
+    option_a: "18 − 9 and 6 + 3",
+    option_b: "10 + 2",
+    option_c: "15 − 3",
+    option_d: "4 + 4",
+    correct_option: "A",
+    explanation_en: "18 − 9 = 9 and 6 + 3 = 9. Both give the target number 9.",
+    explanation_hi: "18 − 9 = 9 और 6 + 3 = 9 दोनों का मान 9 है।",
+    difficulty: "Easy"
+  },
+
+  // Page 137
+  {
     id: "M2_C11_P137_Q01",
     chapter_num: 11,
     chapter_title: "Data Handling and Puzzles",
@@ -254,5 +521,22 @@ module.exports = [
     explanation_en: "Letter 'A' has vertical mirror symmetry, so its half reflection reconstructs the full letter A.",
     explanation_hi: "अक्षर 'A' में ऊर्ध्वाधर सममिति होती है, इसलिए दर्पण में यह पूरा 'A' ही दिखेगा।",
     difficulty: "Easy"
+  },
+  {
+    id: "M2_C11_P137_Q02",
+    chapter_num: 11,
+    chapter_title: "Data Handling and Puzzles",
+    topic: "Cutting Cloth Puzzle",
+    page_book: 137,
+    question_en: "Riddle from page 137: 'A tailor wants to cut a 6-meter-long cloth into 1-meter pieces. If he makes one cut each time, how many CUTS are needed in total?'",
+    question_hi: "पेज 137 की पहेली: 'एक दर्जी 6 मीटर लंबे कपड़े को 1-1 मीटर के टुकड़ों में काटना चाहता है। 1-1 मीटर के टुकड़े अलग करने के लिए उसे कुल कितनी बार कैंची चलानी (cuts) पड़ेगी?'",
+    option_a: "5 cuts",
+    option_b: "6 cuts",
+    option_c: "7 cuts",
+    option_d: "4 cuts",
+    correct_option: "A",
+    explanation_en: "Cutting 5 times produces 6 pieces of 1 meter each. The 5th cut separates both the 5th and 6th pieces simultaneously!",
+    explanation_hi: "5 बार काटने पर ही 6 टुकड़े बन जाते हैं; 5वें कट पर अंतिम दोनों टुकड़े अलग हो जाते हैं!",
+    difficulty: "Medium"
   }
 ];

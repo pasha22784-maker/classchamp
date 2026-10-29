@@ -1,5 +1,6 @@
 // Chapter 1: A Day at the Beach (Counting in Groups) - Pages 1 to 15
 module.exports = [
+  // Page 1
   {
     id: "M2_C01_P01_Q01",
     chapter_num: 1,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P01_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Counting in Groups vs One by One",
+    page_book: 1,
+    question_en: "Which way of counting a large collection of objects like coconuts or oranges is faster and easier?",
+    question_hi: "नारियल या संतरों के बड़े ढेर को गिनने का कौन सा तरीका अधिक तेज़ और आसान होता है?",
+    option_a: "Counting in equal groups or bunches (like groups of 2, 5, or 10)",
+    option_b: "Counting one by one very slowly",
+    option_c: "Guessing without counting",
+    option_d: "Counting backward from 100",
+    correct_option: "A",
+    explanation_en: "Counting in groups of 2s, 5s, or 10s is faster and prevents counting errors.",
+    explanation_hi: "2, 5 या 10 के समूह बनाकर गिनना एक-एक करके गिनने से तेज़ और सरल होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 2
+  {
     id: "M2_C01_P02_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -35,6 +55,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P02_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Bunches of Bananas (Tens and Loose)",
+    page_book: 2,
+    question_en: "At the beach fruit stall, there are 5 bunches of bananas with 10 bananas in each bunch, and 6 loose bananas. How many bananas in all?",
+    question_hi: "दुकान पर 10-10 केलों के 5 गुच्छे हैं और 6 खुले केले हैं। दुकान में कुल कितने केले हैं?",
+    option_a: "56",
+    option_b: "65",
+    option_c: "50",
+    option_d: "60",
+    correct_option: "A",
+    explanation_en: "5 bunches of 10 = 50. 50 + 6 loose = 56 bananas.",
+    explanation_hi: "10-10 के 5 गुच्छे = 50। 50 + 6 = 56 केले।",
+    difficulty: "Easy"
+  },
+
+  // Page 3
+  {
     id: "M2_C01_P03_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -51,6 +90,42 @@ module.exports = [
     explanation_hi: "10-10 चीकू की 5 ट्रे = 5 × 10 = 50 चीकू।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C01_P03_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Packing Chikoos into Trays",
+    page_book: 3,
+    question_en: "Manoj has 43 chikoos to arrange into trays of 10. How many full trays will he fill, and how many loose chikoos will remain?",
+    question_hi: "मनोज को 43 चीकू 10-10 की ट्रे में सजाने हैं। कितनी पूरी ट्रे भरेंगी और कितने चीकू खुले बचेंगे?",
+    option_a: "4 trays of ten and 3 loose chikoos",
+    option_b: "3 trays of ten and 4 loose chikoos",
+    option_c: "5 trays of ten and 0 loose chikoos",
+    option_d: "4 trays of ten and 5 loose chikoos",
+    correct_option: "A",
+    explanation_en: "43 = 4 tens (4 trays of 10) and 3 ones (3 loose chikoos).",
+    explanation_hi: "43 = 4 दहाई (4 ट्रे) और 3 इकाई (3 खुले चीकू)।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C01_P03_Q03",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Packing 58 Chikoos",
+    page_book: 3,
+    question_en: "If Manoj has 58 chikoos, how many trays of 10 can he fill and how many chikoos will be left over?",
+    question_hi: "यदि मनोज के पास 58 चीकू हों, तो 10-10 की कितनी ट्रे भरेंगी और कितने चीकू शेष बचेंगे?",
+    option_a: "5 trays and 8 left over",
+    option_b: "8 trays and 5 left over",
+    option_c: "6 trays and 2 left over",
+    option_d: "50 trays and 8 left over",
+    correct_option: "A",
+    explanation_en: "58 = 5 tens (5 trays) and 8 ones (8 left over).",
+    explanation_hi: "58 = 10-10 की 5 ट्रे और 8 खुले चीकू।",
+    difficulty: "Easy"
+  },
+
+  // Page 4
   {
     id: "M2_C01_P04_Q01",
     chapter_num: 1,
@@ -86,6 +161,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P04_Q03",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Matching 80 Chikoos with Strips",
+    page_book: 4,
+    question_en: "How many ten-strips are needed to represent 80 chikoos with zero loose blocks?",
+    question_hi: "80 चीकू दर्शाने के लिए 10-10 की कितनी पट्टियों की आवश्यकता होगी?",
+    option_a: "8 ten-strips",
+    option_b: "7 ten-strips",
+    option_c: "10 ten-strips",
+    option_d: "80 ten-strips",
+    correct_option: "A",
+    explanation_en: "80 = 8 tens = 8 ten-strips with 0 ones.",
+    explanation_hi: "80 = 8 दहाई = 10 की 8 पट्टियां।",
+    difficulty: "Easy"
+  },
+
+  // Page 5
+  {
     id: "M2_C01_P05_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -102,6 +196,25 @@ module.exports = [
     explanation_hi: "10-10 के 4 बंडल = 40। 40 + 6 खुली तीलियां = 46 तीलियां।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C01_P05_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Decomposing 69 into Tens and Ones",
+    page_book: 5,
+    question_en: "In the number table, how will the number 69 be split into ten-strips and unit blocks?",
+    question_hi: "संख्या तालिका में, संख्या 69 को दस की पट्टियों और इकाई ब्लॉकों में कैसे लिखा जाएगा?",
+    option_a: "6 ten-strips and 9 units",
+    option_b: "9 ten-strips and 6 units",
+    option_c: "60 ten-strips and 9 units",
+    option_d: "7 ten-strips and 0 units",
+    correct_option: "A",
+    explanation_en: "69 has 6 tens and 9 ones, so 6 ten-strips and 9 units.",
+    explanation_hi: "69 में 6 दहाई (6 दस की पट्टियां) और 9 इकाई (9 खुले ब्लॉक) होते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 6
   {
     id: "M2_C01_P06_Q01",
     chapter_num: 1,
@@ -120,6 +233,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P06_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Combinations Making 100",
+    page_book: 6,
+    question_en: "If a 100-grid is made of 7 yellow ten-strips (70 units) and some red ten-strips, how many red ten-strips are needed to complete 100?",
+    question_hi: "यदि 100 का ग्रिड बनाने के लिए 7 पीली दस की पट्टियां (70 इकाइयां) हैं, तो 100 पूरा करने के लिए कितनी लाल दस की पट्टियां चाहिए?",
+    option_a: "3 red ten-strips (30 units)",
+    option_b: "4 red ten-strips (40 units)",
+    option_c: "2 red ten-strips (20 units)",
+    option_d: "5 red ten-strips (50 units)",
+    correct_option: "A",
+    explanation_en: "10 ten-strips − 7 ten-strips = 3 ten-strips (70 + 30 = 100).",
+    explanation_hi: "7 दहाई + 3 दहाई = 10 दहाई (70 + 30 = 100 इकाइयां)।",
+    difficulty: "Easy"
+  },
+
+  // Page 7
+  {
     id: "M2_C01_P07_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -136,6 +268,25 @@ module.exports = [
     explanation_hi: "10 खुले ब्लॉक देकर बैंक से 1 दस की पट्टी (ten-strip) ली जाती है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C01_P07_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Items used as Unit Counters",
+    page_book: 7,
+    question_en: "Which everyday small items are suggested in the textbook to be used as unit counters in counting games?",
+    question_hi: "गिनती के खेल में इकाइयों के रूप में उपयोग करने के लिए पाठ्यपुस्तक में किन घरेलू वस्तुओं का सुझाव दिया गया है?",
+    option_a: "Rajma beans, pebbles, or chana seeds",
+    option_b: "Heavy bricks",
+    option_c: "Glass bottles",
+    option_d: "Water cups",
+    correct_option: "A",
+    explanation_en: "Rajma, pebbles, and chana seeds are safe, small everyday items for hands-on counting.",
+    explanation_hi: "राजमा, कंकड़ और चने के दानों का उपयोग बच्चों के लिए गिनने की इकाइयों के रूप में किया जाता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 8
   {
     id: "M2_C01_P08_Q01",
     chapter_num: 1,
@@ -154,6 +305,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P08_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Expanded Form of 25",
+    page_book: 8,
+    question_en: "How is the number 25 written as sum of tens and ones?",
+    question_hi: "संख्या 25 को दहाई और इकाई के जोड़ के रूप में कैसे लिखा जाएगा?",
+    option_a: "20 + 5",
+    option_b: "2 + 5",
+    option_c: "20 + 50",
+    option_d: "10 + 15",
+    correct_option: "A",
+    explanation_en: "25 = 2 tens (20) + 5 ones (5) = 20 + 5.",
+    explanation_hi: "25 = 2 दहाई (20) + 5 इकाई (5) = 20 + 5।",
+    difficulty: "Easy"
+  },
+
+  // Page 9
+  {
     id: "M2_C01_P09_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -170,6 +340,25 @@ module.exports = [
     explanation_hi: "52 बनाने के लिए 50 और 2 के कार्ड को मिलाया जाता है (50 + 2 = 52)।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C01_P09_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Making Number 27",
+    page_book: 9,
+    question_en: "Which two cards form the number twenty-seven (27)?",
+    question_hi: "संख्या सत्ताईस (27) बनाने के लिए कौन से दो कार्ड मिलाए जाएंगे?",
+    option_a: "20 and 7",
+    option_b: "2 and 7",
+    option_c: "70 and 2",
+    option_d: "20 and 70",
+    correct_option: "A",
+    explanation_en: "20 + 7 = 27.",
+    explanation_hi: "20 और 7 के कार्ड मिलकर 27 बनाते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 10
   {
     id: "M2_C01_P10_Q01",
     chapter_num: 1,
@@ -188,6 +377,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P10_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Comparing 27 and 72",
+    page_book: 10,
+    question_en: "Which is less: 27 oranges or 72 oranges?",
+    question_hi: "27 संतरे और 72 संतरे में से कौन सा कम है?",
+    option_a: "27 is less because it has only 2 tens (20)",
+    option_b: "72 is less because it ends in 2",
+    option_c: "Both are equal",
+    option_d: "72 is smaller than 27",
+    correct_option: "A",
+    explanation_en: "27 has 2 tens (20) whereas 72 has 7 tens (70). So 27 is less.",
+    explanation_hi: "27 में केवल 2 दहाई (20) हैं, जबकि 72 में 7 दहाई (70) हैं, इसलिए 27 कम है।",
+    difficulty: "Easy"
+  },
+
+  // Page 11
+  {
     id: "M2_C01_P11_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -205,6 +413,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P11_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Comparing Same Tens (43 vs 47)",
+    page_book: 11,
+    question_en: "Both 43 and 47 have 4 tens. Which one is greater, and why?",
+    question_hi: "43 और 47 दोनों में 4 दहाई हैं। कौन सी संख्या बड़ी है और क्यों?",
+    option_a: "47, because 7 ones is more than 3 ones",
+    option_b: "43, because 3 comes first",
+    option_c: "Both are exactly equal",
+    option_d: "43, because 3 is smaller",
+    correct_option: "A",
+    explanation_en: "When tens are equal, compare the ones place: 7 ones > 3 ones, so 47 > 43.",
+    explanation_hi: "दहाई बराबर होने पर इकाई देखी जाती है: 7 इकाई > 3 इकाई, इसलिए 47 बड़ा है।",
+    difficulty: "Easy"
+  },
+
+  // Page 12
+  {
     id: "M2_C01_P12_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -221,6 +448,25 @@ module.exports = [
     explanation_hi: "बड़े अंक (5) को दहाई के स्थान पर रखने से 53 बनता है, जो सबसे बड़ी संख्या है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C01_P12_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Smallest Number with Digits 3 and 5",
+    page_book: 12,
+    question_en: "Using the cards 3 and 5, what is the smallest two-digit number you can make?",
+    question_hi: "अंक कार्ड 3 और 5 से बनने वाली सबसे छोटी दो अंकों की संख्या कौन सी है?",
+    option_a: "35",
+    option_b: "53",
+    option_c: "33",
+    option_d: "50",
+    correct_option: "A",
+    explanation_en: "Placing the smaller digit (3) at the tens place gives 35.",
+    explanation_hi: "छोटे अंक 3 को दहाई पर रखने से सबसे छोटी संख्या 35 बनती है।",
+    difficulty: "Easy"
+  },
+
+  // Page 13
   {
     id: "M2_C01_P13_Q01",
     chapter_num: 1,
@@ -256,6 +502,42 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P13_Q03",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Smallest 2-Digit with 3 at Tens Place",
+    page_book: 13,
+    question_en: "Riddle: 'I am the smallest two-digit number with 3 at the tens place.' Who am I?",
+    question_hi: "पहेली: 'मैं दो अंकों की सबसे छोटी संख्या हूँ जिसकी दहाई के स्थान पर 3 है।' मैं कौन हूँ?",
+    option_a: "30",
+    option_b: "31",
+    option_c: "33",
+    option_d: "39",
+    correct_option: "A",
+    explanation_en: "The numbers with 3 at tens place are 30 to 39. The smallest is 30.",
+    explanation_hi: "3 दहाई वाली संख्याओं (30 से 39) में सबसे छोटी संख्या 30 है।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C01_P13_Q04",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Largest 2-Digit with 2 at Ones Place",
+    page_book: 13,
+    question_en: "Riddle: 'I am the largest two-digit number with 2 at the ones place.' Who am I?",
+    question_hi: "पहेली: 'मैं दो अंकों की सबसे बड़ी संख्या हूँ जिसकी इकाई के स्थान पर 2 है।' मैं कौन हूँ?",
+    option_a: "92",
+    option_b: "82",
+    option_c: "29",
+    option_d: "22",
+    correct_option: "A",
+    explanation_en: "To make the number largest, put the largest single digit (9) at the tens place: 92.",
+    explanation_hi: "सबसे बड़ी संख्या के लिए दहाई पर 9 रखेंगे, इसलिए संख्या 92 होगी।",
+    difficulty: "Medium"
+  },
+
+  // Page 14
+  {
     id: "M2_C01_P14_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -273,6 +555,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C01_P14_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "August Calendar (Independence Day)",
+    page_book: 14,
+    question_en: "On which date of August is India's Independence Day celebrated every year?",
+    question_hi: "भारत का स्वतंत्रता दिवस (Independence Day) हर साल अगस्त की किस तारीख को मनाया जाता है?",
+    option_a: "15th August",
+    option_b: "26th August",
+    option_c: "1st August",
+    option_d: "31st August",
+    correct_option: "A",
+    explanation_en: "India's Independence Day is celebrated on 15th August.",
+    explanation_hi: "भारत का स्वतंत्रता दिवस प्रत्येक वर्ष 15 अगस्त को मनाया जाता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 15
+  {
     id: "M2_C01_P15_Q01",
     chapter_num: 1,
     chapter_title: "A Day at the Beach",
@@ -287,6 +588,23 @@ module.exports = [
     correct_option: "A",
     explanation_en: "Bus numbers, house numbers, and roll numbers are used as labels or identifiers.",
     explanation_hi: "बस नंबर, मकान नंबर और रोल नंबर का उपयोग नाम/पहचान (label) के रूप में होता है।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C01_P15_Q02",
+    chapter_num: 1,
+    chapter_title: "A Day at the Beach",
+    topic: "Historical Origin of Modern Digits",
+    page_book: 15,
+    question_en: "In which country did the modern decimal digits 0 and 1 to 9 originally develop?",
+    question_hi: "आज पूरे विश्व में प्रयुक्त होने वाले आधुनिक अंक 0 और 1 से 9 मूल रूप से किस देश में विकसित हुए?",
+    option_a: "India (Bharat)",
+    option_b: "Greece",
+    option_c: "Egypt",
+    option_d: "Rome",
+    correct_option: "A",
+    explanation_en: "The decimal numeral system using digits 0 and 1–9 originated in ancient India.",
+    explanation_hi: "अंक 0 और 1 से 9 की दशमलव प्रणाली की खोज प्राचीन भारत में हुई थी।",
     difficulty: "Easy"
   }
 ];

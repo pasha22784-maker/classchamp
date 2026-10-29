@@ -17,6 +17,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P01_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Counting in Groups vs One by One",
+    "page_book": 1,
+    "question_en": "Which way of counting a large collection of objects like coconuts or oranges is faster and easier?",
+    "question_hi": "नारियल या संतरों के बड़े ढेर को गिनने का कौन सा तरीका अधिक तेज़ और आसान होता है?",
+    "option_a": "Counting in equal groups or bunches (like groups of 2, 5, or 10)",
+    "option_b": "Counting one by one very slowly",
+    "option_c": "Guessing without counting",
+    "option_d": "Counting backward from 100",
+    "correct_option": "A",
+    "explanation_en": "Counting in groups of 2s, 5s, or 10s is faster and prevents counting errors.",
+    "explanation_hi": "2, 5 या 10 के समूह बनाकर गिनना एक-एक करके गिनने से तेज़ और सरल होता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C01_P02_Q01",
     "chapter_num": 1,
     "chapter_title": "A Day at the Beach",
@@ -34,6 +51,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P02_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Bunches of Bananas (Tens and Loose)",
+    "page_book": 2,
+    "question_en": "At the beach fruit stall, there are 5 bunches of bananas with 10 bananas in each bunch, and 6 loose bananas. How many bananas in all?",
+    "question_hi": "दुकान पर 10-10 केलों के 5 गुच्छे हैं और 6 खुले केले हैं। दुकान में कुल कितने केले हैं?",
+    "option_a": "56",
+    "option_b": "65",
+    "option_c": "50",
+    "option_d": "60",
+    "correct_option": "A",
+    "explanation_en": "5 bunches of 10 = 50. 50 + 6 loose = 56 bananas.",
+    "explanation_hi": "10-10 के 5 गुच्छे = 50। 50 + 6 = 56 केले।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C01_P03_Q01",
     "chapter_num": 1,
     "chapter_title": "A Day at the Beach",
@@ -48,6 +82,40 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "C",
     "explanation_en": "5 trays of 10 chikoos each = 5 × 10 = 50 chikoos.",
     "explanation_hi": "10-10 चीकू की 5 ट्रे = 5 × 10 = 50 चीकू।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C01_P03_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Packing Chikoos into Trays",
+    "page_book": 3,
+    "question_en": "Manoj has 43 chikoos to arrange into trays of 10. How many full trays will he fill, and how many loose chikoos will remain?",
+    "question_hi": "मनोज को 43 चीकू 10-10 की ट्रे में सजाने हैं। कितनी पूरी ट्रे भरेंगी और कितने चीकू खुले बचेंगे?",
+    "option_a": "4 trays of ten and 3 loose chikoos",
+    "option_b": "3 trays of ten and 4 loose chikoos",
+    "option_c": "5 trays of ten and 0 loose chikoos",
+    "option_d": "4 trays of ten and 5 loose chikoos",
+    "correct_option": "A",
+    "explanation_en": "43 = 4 tens (4 trays of 10) and 3 ones (3 loose chikoos).",
+    "explanation_hi": "43 = 4 दहाई (4 ट्रे) और 3 इकाई (3 खुले चीकू)।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C01_P03_Q03",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Packing 58 Chikoos",
+    "page_book": 3,
+    "question_en": "If Manoj has 58 chikoos, how many trays of 10 can he fill and how many chikoos will be left over?",
+    "question_hi": "यदि मनोज के पास 58 चीकू हों, तो 10-10 की कितनी ट्रे भरेंगी और कितने चीकू शेष बचेंगे?",
+    "option_a": "5 trays and 8 left over",
+    "option_b": "8 trays and 5 left over",
+    "option_c": "6 trays and 2 left over",
+    "option_d": "50 trays and 8 left over",
+    "correct_option": "A",
+    "explanation_en": "58 = 5 tens (5 trays) and 8 ones (8 left over).",
+    "explanation_hi": "58 = 10-10 की 5 ट्रे और 8 खुले चीकू।",
     "difficulty": "Easy"
   },
   {
@@ -85,6 +153,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P04_Q03",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Matching 80 Chikoos with Strips",
+    "page_book": 4,
+    "question_en": "How many ten-strips are needed to represent 80 chikoos with zero loose blocks?",
+    "question_hi": "80 चीकू दर्शाने के लिए 10-10 की कितनी पट्टियों की आवश्यकता होगी?",
+    "option_a": "8 ten-strips",
+    "option_b": "7 ten-strips",
+    "option_c": "10 ten-strips",
+    "option_d": "80 ten-strips",
+    "correct_option": "A",
+    "explanation_en": "80 = 8 tens = 8 ten-strips with 0 ones.",
+    "explanation_hi": "80 = 8 दहाई = 10 की 8 पट्टियां।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C01_P05_Q01",
     "chapter_num": 1,
     "chapter_title": "A Day at the Beach",
@@ -99,6 +184,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "B",
     "explanation_en": "4 bundles of 10 = 40. 40 + 6 loose sticks = 46 sticks.",
     "explanation_hi": "10-10 के 4 बंडल = 40। 40 + 6 खुली तीलियां = 46 तीलियां।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C01_P05_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Decomposing 69 into Tens and Ones",
+    "page_book": 5,
+    "question_en": "In the number table, how will the number 69 be split into ten-strips and unit blocks?",
+    "question_hi": "संख्या तालिका में, संख्या 69 को दस की पट्टियों और इकाई ब्लॉकों में कैसे लिखा जाएगा?",
+    "option_a": "6 ten-strips and 9 units",
+    "option_b": "9 ten-strips and 6 units",
+    "option_c": "60 ten-strips and 9 units",
+    "option_d": "7 ten-strips and 0 units",
+    "correct_option": "A",
+    "explanation_en": "69 has 6 tens and 9 ones, so 6 ten-strips and 9 units.",
+    "explanation_hi": "69 में 6 दहाई (6 दस की पट्टियां) और 9 इकाई (9 खुले ब्लॉक) होते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -119,6 +221,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P06_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Combinations Making 100",
+    "page_book": 6,
+    "question_en": "If a 100-grid is made of 7 yellow ten-strips (70 units) and some red ten-strips, how many red ten-strips are needed to complete 100?",
+    "question_hi": "यदि 100 का ग्रिड बनाने के लिए 7 पीली दस की पट्टियां (70 इकाइयां) हैं, तो 100 पूरा करने के लिए कितनी लाल दस की पट्टियां चाहिए?",
+    "option_a": "3 red ten-strips (30 units)",
+    "option_b": "4 red ten-strips (40 units)",
+    "option_c": "2 red ten-strips (20 units)",
+    "option_d": "5 red ten-strips (50 units)",
+    "correct_option": "A",
+    "explanation_en": "10 ten-strips − 7 ten-strips = 3 ten-strips (70 + 30 = 100).",
+    "explanation_hi": "7 दहाई + 3 दहाई = 10 दहाई (70 + 30 = 100 इकाइयां)।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C01_P07_Q01",
     "chapter_num": 1,
     "chapter_title": "A Day at the Beach",
@@ -133,6 +252,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "10 loose unit blocks are exchanged for 1 ten-strip.",
     "explanation_hi": "10 खुले ब्लॉक देकर बैंक से 1 दस की पट्टी (ten-strip) ली जाती है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C01_P07_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Items used as Unit Counters",
+    "page_book": 7,
+    "question_en": "Which everyday small items are suggested in the textbook to be used as unit counters in counting games?",
+    "question_hi": "गिनती के खेल में इकाइयों के रूप में उपयोग करने के लिए पाठ्यपुस्तक में किन घरेलू वस्तुओं का सुझाव दिया गया है?",
+    "option_a": "Rajma beans, pebbles, or chana seeds",
+    "option_b": "Heavy bricks",
+    "option_c": "Glass bottles",
+    "option_d": "Water cups",
+    "correct_option": "A",
+    "explanation_en": "Rajma, pebbles, and chana seeds are safe, small everyday items for hands-on counting.",
+    "explanation_hi": "राजमा, कंकड़ और चने के दानों का उपयोग बच्चों के लिए गिनने की इकाइयों के रूप में किया जाता है।",
     "difficulty": "Easy"
   },
   {
@@ -153,6 +289,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P08_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Expanded Form of 25",
+    "page_book": 8,
+    "question_en": "How is the number 25 written as sum of tens and ones?",
+    "question_hi": "संख्या 25 को दहाई और इकाई के जोड़ के रूप में कैसे लिखा जाएगा?",
+    "option_a": "20 + 5",
+    "option_b": "2 + 5",
+    "option_c": "20 + 50",
+    "option_d": "10 + 15",
+    "correct_option": "A",
+    "explanation_en": "25 = 2 tens (20) + 5 ones (5) = 20 + 5.",
+    "explanation_hi": "25 = 2 दहाई (20) + 5 इकाई (5) = 20 + 5।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C01_P09_Q01",
     "chapter_num": 1,
     "chapter_title": "A Day at the Beach",
@@ -167,6 +320,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "B",
     "explanation_en": "52 is formed by putting card 50 and card 2 together (50 + 2 = 52).",
     "explanation_hi": "52 बनाने के लिए 50 और 2 के कार्ड को मिलाया जाता है (50 + 2 = 52)।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C01_P09_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Making Number 27",
+    "page_book": 9,
+    "question_en": "Which two cards form the number twenty-seven (27)?",
+    "question_hi": "संख्या सत्ताईस (27) बनाने के लिए कौन से दो कार्ड मिलाए जाएंगे?",
+    "option_a": "20 and 7",
+    "option_b": "2 and 7",
+    "option_c": "70 and 2",
+    "option_d": "20 and 70",
+    "correct_option": "A",
+    "explanation_en": "20 + 7 = 27.",
+    "explanation_hi": "20 और 7 के कार्ड मिलकर 27 बनाते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -187,6 +357,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P10_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Comparing 27 and 72",
+    "page_book": 10,
+    "question_en": "Which is less: 27 oranges or 72 oranges?",
+    "question_hi": "27 संतरे और 72 संतरे में से कौन सा कम है?",
+    "option_a": "27 is less because it has only 2 tens (20)",
+    "option_b": "72 is less because it ends in 2",
+    "option_c": "Both are equal",
+    "option_d": "72 is smaller than 27",
+    "correct_option": "A",
+    "explanation_en": "27 has 2 tens (20) whereas 72 has 7 tens (70). So 27 is less.",
+    "explanation_hi": "27 में केवल 2 दहाई (20) हैं, जबकि 72 में 7 दहाई (70) हैं, इसलिए 27 कम है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C01_P11_Q01",
     "chapter_num": 1,
     "chapter_title": "A Day at the Beach",
@@ -204,6 +391,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P11_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Comparing Same Tens (43 vs 47)",
+    "page_book": 11,
+    "question_en": "Both 43 and 47 have 4 tens. Which one is greater, and why?",
+    "question_hi": "43 और 47 दोनों में 4 दहाई हैं। कौन सी संख्या बड़ी है और क्यों?",
+    "option_a": "47, because 7 ones is more than 3 ones",
+    "option_b": "43, because 3 comes first",
+    "option_c": "Both are exactly equal",
+    "option_d": "43, because 3 is smaller",
+    "correct_option": "A",
+    "explanation_en": "When tens are equal, compare the ones place: 7 ones > 3 ones, so 47 > 43.",
+    "explanation_hi": "दहाई बराबर होने पर इकाई देखी जाती है: 7 इकाई > 3 इकाई, इसलिए 47 बड़ा है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C01_P12_Q01",
     "chapter_num": 1,
     "chapter_title": "A Day at the Beach",
@@ -218,6 +422,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "B",
     "explanation_en": "Placing the larger digit (5) in the tens place gives 53, which is the largest.",
     "explanation_hi": "बड़े अंक (5) को दहाई के स्थान पर रखने से 53 बनता है, जो सबसे बड़ी संख्या है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C01_P12_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Smallest Number with Digits 3 and 5",
+    "page_book": 12,
+    "question_en": "Using the cards 3 and 5, what is the smallest two-digit number you can make?",
+    "question_hi": "अंक कार्ड 3 और 5 से बनने वाली सबसे छोटी दो अंकों की संख्या कौन सी है?",
+    "option_a": "35",
+    "option_b": "53",
+    "option_c": "33",
+    "option_d": "50",
+    "correct_option": "A",
+    "explanation_en": "Placing the smaller digit (3) at the tens place gives 35.",
+    "explanation_hi": "छोटे अंक 3 को दहाई पर रखने से सबसे छोटी संख्या 35 बनती है।",
     "difficulty": "Easy"
   },
   {
@@ -255,6 +476,40 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P13_Q03",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Smallest 2-Digit with 3 at Tens Place",
+    "page_book": 13,
+    "question_en": "Riddle: 'I am the smallest two-digit number with 3 at the tens place.' Who am I?",
+    "question_hi": "पहेली: 'मैं दो अंकों की सबसे छोटी संख्या हूँ जिसकी दहाई के स्थान पर 3 है।' मैं कौन हूँ?",
+    "option_a": "30",
+    "option_b": "31",
+    "option_c": "33",
+    "option_d": "39",
+    "correct_option": "A",
+    "explanation_en": "The numbers with 3 at tens place are 30 to 39. The smallest is 30.",
+    "explanation_hi": "3 दहाई वाली संख्याओं (30 से 39) में सबसे छोटी संख्या 30 है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C01_P13_Q04",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Largest 2-Digit with 2 at Ones Place",
+    "page_book": 13,
+    "question_en": "Riddle: 'I am the largest two-digit number with 2 at the ones place.' Who am I?",
+    "question_hi": "पहेली: 'मैं दो अंकों की सबसे बड़ी संख्या हूँ जिसकी इकाई के स्थान पर 2 है।' मैं कौन हूँ?",
+    "option_a": "92",
+    "option_b": "82",
+    "option_c": "29",
+    "option_d": "22",
+    "correct_option": "A",
+    "explanation_en": "To make the number largest, put the largest single digit (9) at the tens place: 92.",
+    "explanation_hi": "सबसे बड़ी संख्या के लिए दहाई पर 9 रखेंगे, इसलिए संख्या 92 होगी।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C01_P14_Q01",
     "chapter_num": 1,
     "chapter_title": "A Day at the Beach",
@@ -269,6 +524,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "B",
     "explanation_en": "The boat in 1st (First) position crosses the finish line ahead of everyone.",
     "explanation_hi": "प्रथम (1st) स्थान पर रहने वाली नाव सबसे आगे फिनिश लाइन पार करती है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C01_P14_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "August Calendar (Independence Day)",
+    "page_book": 14,
+    "question_en": "On which date of August is India's Independence Day celebrated every year?",
+    "question_hi": "भारत का स्वतंत्रता दिवस (Independence Day) हर साल अगस्त की किस तारीख को मनाया जाता है?",
+    "option_a": "15th August",
+    "option_b": "26th August",
+    "option_c": "1st August",
+    "option_d": "31st August",
+    "correct_option": "A",
+    "explanation_en": "India's Independence Day is celebrated on 15th August.",
+    "explanation_hi": "भारत का स्वतंत्रता दिवस प्रत्येक वर्ष 15 अगस्त को मनाया जाता है।",
     "difficulty": "Easy"
   },
   {
@@ -289,6 +561,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C01_P15_Q02",
+    "chapter_num": 1,
+    "chapter_title": "A Day at the Beach",
+    "topic": "Historical Origin of Modern Digits",
+    "page_book": 15,
+    "question_en": "In which country did the modern decimal digits 0 and 1 to 9 originally develop?",
+    "question_hi": "आज पूरे विश्व में प्रयुक्त होने वाले आधुनिक अंक 0 और 1 से 9 मूल रूप से किस देश में विकसित हुए?",
+    "option_a": "India (Bharat)",
+    "option_b": "Greece",
+    "option_c": "Egypt",
+    "option_d": "Rome",
+    "correct_option": "A",
+    "explanation_en": "The decimal numeral system using digits 0 and 1–9 originated in ancient India.",
+    "explanation_hi": "अंक 0 और 1 से 9 की दशमलव प्रणाली की खोज प्राचीन भारत में हुई थी।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C02_P16_Q01",
     "chapter_num": 2,
     "chapter_title": "Shapes Around Us",
@@ -303,6 +592,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "A laddu or cricket ball is completely round in 3D, which is a sphere.",
     "explanation_hi": "लड्डू या क्रिकेट की गेंद पूरी तरह गोल होती है, जिसे गोला (Sphere) कहते हैं।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C02_P16_Q02",
+    "chapter_num": 2,
+    "chapter_title": "Shapes Around Us",
+    "topic": "Shapes that Slide or Roll",
+    "page_book": 16,
+    "question_en": "Which object will roll smoothly when pushed across a flat floor?",
+    "question_hi": "समतल फर्श पर धक्का देने पर कौन सी वस्तु आसानी से लुढ़केगी (roll)?",
+    "option_a": "A round tennis ball",
+    "option_b": "A rectangular wooden brick",
+    "option_c": "A square notebook",
+    "option_d": "A matchbox",
+    "correct_option": "A",
+    "explanation_en": "Objects with round curved surfaces like balls roll smoothly.",
+    "explanation_hi": "गोल घुमावदार सतह वाली वस्तुएं (जैसे गेंद) फर्श पर लुढ़कती हैं।",
     "difficulty": "Easy"
   },
   {
@@ -323,6 +629,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C02_P17_Q02",
+    "chapter_num": 2,
+    "chapter_title": "Shapes Around Us",
+    "topic": "Round Pots and Instruments",
+    "page_book": 17,
+    "question_en": "The musical instrument 'Ghatam' (an earthen clay pot) is round in shape similar to a:",
+    "question_hi": "वाद्य यंत्र 'घटम' (मिट्टी का मटका) किसके समान गोल आकार का होता है?",
+    "option_a": "Sphere / Pot (Matka)",
+    "option_b": "Cube",
+    "option_c": "Sharp cone",
+    "option_d": "Flat triangle",
+    "correct_option": "A",
+    "explanation_en": "A ghatam is an earthen pot with a round, spherical body.",
+    "explanation_hi": "घटम मिट्टी का मटका होता है जिसका मुख्य भाग गोल (गोलाकार) होता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C02_P18_Q01",
     "chapter_num": 2,
     "chapter_title": "Shapes Around Us",
@@ -337,6 +660,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "A party cap and ice-cream cone have a cone shape with a circular base and a pointed tip.",
     "explanation_hi": "पार्टी कैप और आइसक्रीम कोन का आकार शंकु (Cone) होता है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C02_P18_Q02",
+    "chapter_num": 2,
+    "chapter_title": "Shapes Around Us",
+    "topic": "Matching Box with Solid Shapes",
+    "page_book": 18,
+    "question_en": "A harmonium or a shoebox matches which solid 3D geometrical shape?",
+    "question_hi": "एक हारमोनियम या जूते का डिब्बा किस ठोस 3D ज्यामितीय आकार से मेल खाता है?",
+    "option_a": "Cuboid",
+    "option_b": "Sphere",
+    "option_c": "Cone",
+    "option_d": "Cylinder",
+    "correct_option": "A",
+    "explanation_en": "A harmonium and shoebox have 6 rectangular faces, making them a cuboid.",
+    "explanation_hi": "हारमोनियम और जूते के डिब्बे का आकार घनाभ (Cuboid) होता है।",
     "difficulty": "Easy"
   },
   {
@@ -357,6 +697,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C02_P19_Q02",
+    "chapter_num": 2,
+    "chapter_title": "Shapes Around Us",
+    "topic": "Edges of a Cube",
+    "page_book": 19,
+    "question_en": "How many straight edges does a playing dice (cube) have?",
+    "question_hi": "खेलने वाले पासे (Cube) में कुल कितने सीधे किनारे (Edges) होते हैं?",
+    "option_a": "12 edges",
+    "option_b": "6 edges",
+    "option_c": "8 edges",
+    "option_d": "10 edges",
+    "correct_option": "A",
+    "explanation_en": "Both a cube and a cuboid have exactly 12 edges.",
+    "explanation_hi": "घन (Cube) और घनाभ दोनों में ठीक 12 किनारे होते हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C02_P20_Q01",
     "chapter_num": 2,
     "chapter_title": "Shapes Around Us",
@@ -371,6 +728,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "C",
     "explanation_en": "A cube and cuboid have exactly 8 corners (vertices).",
     "explanation_hi": "घन और घनाभ में ठीक 8 कोने (शीर्ष) होते हैं।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C02_P20_Q02",
+    "chapter_num": 2,
+    "chapter_title": "Shapes Around Us",
+    "topic": "Corners of a Party Cone",
+    "page_book": 20,
+    "question_en": "How many sharp corners (pointed tips) does a party cone hat have?",
+    "question_hi": "एक पार्टी टोपी (Cone) में कितने नुकीले कोने (pointed tip/vertex) होते हैं?",
+    "option_a": "Only 1 corner",
+    "option_b": "4 corners",
+    "option_c": "8 corners",
+    "option_d": "0 corners",
+    "correct_option": "A",
+    "explanation_en": "A cone has only 1 pointed vertex (corner) at the top.",
+    "explanation_hi": "शंकु (Cone) के शीर्ष पर केवल 1 कोना होता है।",
     "difficulty": "Easy"
   },
   {
@@ -391,6 +765,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C02_P21_Q02",
+    "chapter_num": 2,
+    "chapter_title": "Shapes Around Us",
+    "topic": "Faces of a Cube",
+    "page_book": 21,
+    "question_en": "How many flat faces does a playing dice (cube) have in total?",
+    "question_hi": "एक पासे (Cube) में कुल कितने समतल फलक (Faces) होते हैं?",
+    "option_a": "6 faces",
+    "option_b": "8 faces",
+    "option_c": "12 faces",
+    "option_d": "4 faces",
+    "correct_option": "A",
+    "explanation_en": "A cube has 6 equal square faces, numbered 1 to 6 on a dice.",
+    "explanation_hi": "पासे में 6 फलक होते हैं जिन पर 1 से 6 तक के अंक होते हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C02_P22_Q01",
     "chapter_num": 2,
     "chapter_title": "Shapes Around Us",
@@ -408,6 +799,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C02_P22_Q02",
+    "chapter_num": 2,
+    "chapter_title": "Shapes Around Us",
+    "topic": "Roll and Slide Shape",
+    "page_book": 22,
+    "question_en": "Which shape can BOTH roll on its curved surface AND slide on its flat surface?",
+    "question_hi": "कौन सा आकार अपनी घुमावदार सतह पर लुढ़क (roll) भी सकता है और समतल सतह पर फिसल (slide) भी सकता है?",
+    "option_a": "A Cylinder / Cone",
+    "option_b": "A Sphere only",
+    "option_c": "A Cube only",
+    "option_d": "None of these",
+    "correct_option": "A",
+    "explanation_en": "A cylinder (or cone) has both a flat face to slide on and a curved surface to roll on.",
+    "explanation_hi": "बेलन और शंकु दोनों में समतल और घुमावदार सतहें होती हैं, इसलिए वे लुढ़क और फिसल दोनों सकते हैं।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C03_P23_Q01",
     "chapter_num": 3,
     "chapter_title": "Fun with Numbers",
@@ -422,6 +830,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "B",
     "explanation_en": "Ginladi beads are grouped in sets of 10 red and 10 white beads alternately.",
     "explanation_hi": "गिनलाड़ी में 10-10 लाल और सफेद मनकों के समूह एकांतर क्रम में होते हैं।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C03_P23_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Locating Beads on Ginladi",
+    "page_book": 23,
+    "question_en": "To locate bead number 22 on the Ginladi, you count past 2 full groups of 10 beads, and then count how many more beads?",
+    "question_hi": "गिनलाड़ी पर 22वें मनके तक पहुँचने के लिए 10-10 के 2 पूरे समूह गिनने के बाद कितने और मनके गिनेंगे?",
+    "option_a": "2 more beads",
+    "option_b": "5 more beads",
+    "option_c": "10 more beads",
+    "option_d": "1 more bead",
+    "correct_option": "A",
+    "explanation_en": "22 = 2 tens (20) + 2 more beads.",
+    "explanation_hi": "22 = 20 मनके + 2 और मनके।",
     "difficulty": "Easy"
   },
   {
@@ -442,6 +867,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C03_P24_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Yes/No Questioning Strategy",
+    "page_book": 24,
+    "question_en": "In the 'Guess My Number' game, which question helps you cut the numbers from 1 to 100 into half immediately?",
+    "question_hi": "'गेस माय नंबर' खेल में 1 से 100 की संख्याओं को तुरंत आधा करने में कौन सा प्रश्न मदद करता है?",
+    "option_a": "Is the number more than 50?",
+    "option_b": "Is the number 7?",
+    "option_c": "Is the number blue?",
+    "option_d": "Is the number heavy?",
+    "correct_option": "A",
+    "explanation_en": "Asking 'Is it more than 50?' narrows down the search to either 1-50 or 51-100 instantly.",
+    "explanation_hi": "'क्या यह 50 से बड़ी है?' पूछने से आधी संख्याएं तुरंत अलग हो जाती हैं।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C03_P25_Q01",
     "chapter_num": 3,
     "chapter_title": "Fun with Numbers",
@@ -456,6 +898,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "B",
     "explanation_en": "Adding 2 to 8 gives 10 (skip counting in twos: 2, 4, 6, 8, 10).",
     "explanation_hi": "8 में 2 जोड़ने पर 10 आता है (दो-दो की गिनती: 2, 4, 6, 8, 10)।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C03_P25_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Jumpy Frog (Skip Counting in 3s)",
+    "page_book": 25,
+    "question_en": "If Jumpy hops by 3s starting from 3: 3, 6, 9, ... which number comes next?",
+    "question_hi": "यदि जम्पी 3 से शुरू करके 3-3 की छलांग लगाए: 3, 6, 9, ... तो आगे कौन सा अंक आएगा?",
+    "option_a": "12",
+    "option_b": "10",
+    "option_c": "11",
+    "option_d": "15",
+    "correct_option": "A",
+    "explanation_en": "9 + 3 = 12.",
+    "explanation_hi": "9 + 3 = 12।",
     "difficulty": "Easy"
   },
   {
@@ -476,6 +935,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C03_P26_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Common Numbers in 2s and 5s Skips",
+    "page_book": 26,
+    "question_en": "Which of the following numbers appears in BOTH skip counting by 2s AND skip counting by 5s?",
+    "question_hi": "इनमें से कौन सी संख्या 2-2 की गिनती और 5-5 की गिनती दोनों में आती है?",
+    "option_a": "10",
+    "option_b": "15",
+    "option_c": "8",
+    "option_d": "25",
+    "correct_option": "A",
+    "explanation_en": "Multiples of 10 (10, 20, 30...) appear in both 2s and 5s skip counting.",
+    "explanation_hi": "10 संख्या 2 के पहाड़े और 5 के पहाड़े दोनों में आती है।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C03_P27_Q01",
     "chapter_num": 3,
     "chapter_title": "Fun with Numbers",
@@ -491,6 +967,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "explanation_en": "Counting backward, the number just before 6 is 5.",
     "explanation_hi": "उल्टी गिनती में 6 से ठीक पहले (छोटा) 5 आता है।",
     "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C03_P27_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Backward Skips by 3s",
+    "page_book": 27,
+    "question_en": "Observe the backward pattern: 40, 37, 34, ... What comes next?",
+    "question_hi": "उल्टी छलांग का पैटर्न देखें: 40, 37, 34, ... आगे क्या आएगा?",
+    "option_a": "31",
+    "option_b": "32",
+    "option_c": "30",
+    "option_d": "33",
+    "correct_option": "A",
+    "explanation_en": "The pattern subtracts 3 each time: 34 − 3 = 31.",
+    "explanation_hi": "हर बार 3 घटाया जा रहा है: 34 − 3 = 31।",
+    "difficulty": "Medium"
   },
   {
     "id": "M2_C03_P28_Q01",
@@ -510,6 +1003,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C03_P28_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Counting Forwards vs Backwards",
+    "page_book": 28,
+    "question_en": "Rizwan counts forwards starting from 20 onwards (20, 21, 22...). Will he say 19 in his count?",
+    "question_hi": "रिजवान 20 से आगे की ओर गिनती गिनता है (20, 21, 22...)। क्या उसकी गिनती में 19 आएगा?",
+    "option_a": "No, because 19 comes before 20 and he is counting forward",
+    "option_b": "Yes, after 20",
+    "option_c": "Yes, after 29",
+    "option_d": "Cannot say",
+    "correct_option": "A",
+    "explanation_en": "Forward counting from 20 goes to higher numbers: 21, 22... 19 is smaller than 20.",
+    "explanation_hi": "20 से आगे बढ़ते क्रम में केवल 20 से बड़ी संख्याएं आएंगी, 19 छोटा है इसलिए नहीं आएगा।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C03_P29_Q01",
     "chapter_num": 3,
     "chapter_title": "Fun with Numbers",
@@ -524,6 +1034,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Just before 30 is 29 (30 - 1 = 29), and just before 40 is 39 (40 - 1 = 39).",
     "explanation_hi": "30 से ठीक पहले 29 आता है और 40 से ठीक पहले 39 आता है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C03_P29_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Pattern in Numbers Ending with 9",
+    "page_book": 29,
+    "question_en": "What pattern do you notice in numbers that come just before 10, 20, 30, 40, 50...?",
+    "question_hi": "10, 20, 30, 40, 50... से ठीक पहले आने वाली संख्याओं में क्या समानता (पैटर्न) होती है?",
+    "option_a": "They all end with the digit 9 (9, 19, 29, 39, 49)",
+    "option_b": "They all end with 0",
+    "option_c": "They all end with 5",
+    "option_d": "There is no pattern",
+    "correct_option": "A",
+    "explanation_en": "One less than every round ten ends with digit 9: 10−1=9, 20−1=19, 30−1=29.",
+    "explanation_hi": "दहाई से ठीक पहले आने वाली प्रत्येक संख्या की इकाई 9 होती है (9, 19, 29, 39, 49)।",
     "difficulty": "Easy"
   },
   {
@@ -544,6 +1071,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C03_P30_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Number Grid Cross (Up from 53)",
+    "page_book": 30,
+    "question_en": "On a 100-number grid, moving one step directly UP from number 53 gives which number?",
+    "question_hi": "100 के संख्या ग्रिड पर, संख्या 53 से ठीक एक कदम ऊपर जाने पर कौन सी संख्या मिलती है?",
+    "option_a": "43",
+    "option_b": "63",
+    "option_c": "52",
+    "option_d": "54",
+    "correct_option": "A",
+    "explanation_en": "Moving one step up subtracts 10: 53 − 10 = 43.",
+    "explanation_hi": "ग्रिड में ऊपर जाने पर 10 घटता है: 53 − 10 = 43।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C03_P31_Q01",
     "chapter_num": 3,
     "chapter_title": "Fun with Numbers",
@@ -558,6 +1102,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "C",
     "explanation_en": "A grid of 3 rows and 4 columns contains 3 × 4 = 12 boxes.",
     "explanation_hi": "3 पंक्तियों और 4 कॉलम वाले ग्रिड में 3 × 4 = 12 खाने होते हैं।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C03_P31_Q02",
+    "chapter_num": 3,
+    "chapter_title": "Fun with Numbers",
+    "topic": "Rolling Two Dice in Bingo",
+    "page_book": 31,
+    "question_en": "When rolling two standard 1-to-6 dice together in the Bingo game, what is the SMALLEST possible sum you can get?",
+    "question_hi": "बिंगो खेल में दो 1 से 6 वाले पासों को एक साथ फेंकने पर आने वाला सबसे छोटा संभावित जोड़ क्या हो सकता है?",
+    "option_a": "2 (1 + 1)",
+    "option_b": "1",
+    "option_c": "0",
+    "option_d": "3",
+    "correct_option": "A",
+    "explanation_en": "The lowest number on each dice is 1, so the minimum sum is 1 + 1 = 2.",
+    "explanation_hi": "दोनों पासों पर न्यूनतम 1 आने पर सबसे छोटा जोड़ 1 + 1 = 2 होता है।",
     "difficulty": "Easy"
   },
   {
@@ -578,6 +1139,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C04_P32_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Finger Shadow Animals",
+    "page_book": 32,
+    "question_en": "When Nakul and his friends made bird and deer shadows on the wall, what was required to form the shadows?",
+    "question_hi": "जब नकुल और दोस्तों ने दीवार पर हिरण और पक्षी की छाया बनाई, तो छाया बनने के लिए क्या आवश्यक था?",
+    "option_a": "A source of light (torch/lamp) and hands blocking the light",
+    "option_b": "Complete darkness with no light",
+    "option_c": "A paintbrush and colors",
+    "option_d": "A mirror only",
+    "correct_option": "A",
+    "explanation_en": "A shadow forms when an opaque object (like hands) blocks light from a light source.",
+    "explanation_hi": "जब कोई वस्तु (जैसे हाथ) प्रकाश के मार्ग को रोकती है, तो पर्दे पर छाया बनती है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C04_P33_Q01",
     "chapter_num": 4,
     "chapter_title": "Shadow Story (Togalu)",
@@ -595,6 +1173,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C04_P33_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Sun Shadows at Different Times",
+    "page_book": 33,
+    "question_en": "At what time of the day is your outdoor shadow caused by the Sun the SHORTEST?",
+    "question_hi": "दिन के किस समय धूप में आपकी परछाईं (छाया) सबसे छोटी (Shortest) बनती है?",
+    "option_a": "At noon (midday) when the Sun is directly overhead",
+    "option_b": "Early in the morning at sunrise",
+    "option_c": "Late in the evening at sunset",
+    "option_d": "At midnight",
+    "correct_option": "A",
+    "explanation_en": "At noon, the Sun is directly above our head, making our shadow the shortest.",
+    "explanation_hi": "दोपहर 12 बजे सूरज ठीक सिर के ऊपर होता है, जिससे छाया सबसे छोटी बनती है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C04_P34_Q01",
     "chapter_num": 4,
     "chapter_title": "Shadow Story (Togalu)",
@@ -609,6 +1204,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "B",
     "explanation_en": "Tracing the base of a coin creates a circle.",
     "explanation_hi": "सिक्के का किनारा गोल होता है, इसलिए ट्रेस करने पर वृत्त (Circle) बनता है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C04_P34_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Tracing a Matchbox",
+    "page_book": 34,
+    "question_en": "Which 2D flat shape do you get when you trace the base of an ordinary matchbox on paper?",
+    "question_hi": "माचिस की डिब्बी को कागज पर रखकर किनारे-किनारे पेंसिल चलाने पर कौन सा 2D आकार मिलता है?",
+    "option_a": "Rectangle",
+    "option_b": "Circle",
+    "option_c": "Triangle",
+    "option_d": "Pentagon",
+    "correct_option": "A",
+    "explanation_en": "The flat face of a matchbox is a rectangle with opposite sides equal.",
+    "explanation_hi": "माचिस का फलक आयताकार होता है, इसलिए आयत (Rectangle) बनता है।",
     "difficulty": "Easy"
   },
   {
@@ -629,6 +1241,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C04_P35_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Where Can Circle Hide?",
+    "page_book": 35,
+    "question_en": "Behind which object can the flat shape 'Circle' hide so that its shape matches perfectly?",
+    "question_hi": "समतल आकृति 'वृत्त' (Circle) किस वस्तु के पीछे छिप सकती है जिसका फलक गोल हो?",
+    "option_a": "Behind a round wall clock or a round drum face",
+    "option_b": "Behind a book",
+    "option_c": "Behind a shoe box",
+    "option_d": "Behind a ruler",
+    "correct_option": "A",
+    "explanation_en": "A round clock face has a circular shape.",
+    "explanation_hi": "गोल दीवार घड़ी का फलक वृत्ताकार होता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C04_P36_Q01",
     "chapter_num": 4,
     "chapter_title": "Shadow Story (Togalu)",
@@ -643,6 +1272,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "A cut sandwich slice and a sloping roof gable have 3 straight sides, forming a triangle.",
     "explanation_hi": "सैंडविच का कटा हुआ टुकड़ा 3 भुजाओं वाला त्रिभुजाकार होता है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C04_P36_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Where Square Can Hide",
+    "page_book": 36,
+    "question_en": "A Square shape can hide behind which of the following objects having 4 equal sides?",
+    "question_hi": "वर्ग (Square) किस वस्तु के पीछे छिप सकता है जिसकी चारों भुजाएं बराबर हों?",
+    "option_a": "A square carrom board or square handkerchief",
+    "option_b": "A round wheel",
+    "option_c": "A long pencil",
+    "option_d": "A triangular flag",
+    "correct_option": "A",
+    "explanation_en": "A carrom board has a square shape with 4 equal sides.",
+    "explanation_hi": "कैरम बोर्ड की चारों भुजाएं बराबर होती हैं, जो वर्ग के समान है।",
     "difficulty": "Easy"
   },
   {
@@ -663,6 +1309,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C04_P37_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Colouring Geometric Carpet",
+    "page_book": 37,
+    "question_en": "In the 'Colour the Carpet' activity, which color was assigned to all the Triangles?",
+    "question_hi": "'कलर द कारपेट' गतिविधि में सभी त्रिभुजों (Triangles) को किस रंग से भरने को कहा गया है?",
+    "option_a": "Red",
+    "option_b": "Green",
+    "option_c": "Yellow",
+    "option_d": "Blue",
+    "correct_option": "A",
+    "explanation_en": "The textbook activity specifies: 'Colour the Triangles red, Circles green, Rectangles yellow, Squares blue.'",
+    "explanation_hi": "किताब में निर्देश है: 'त्रिभुजों को लाल, वृत्तों को हरा, आयतों को पीला और वर्गों को नीला रंग भरें।'",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C04_P38_Q01",
     "chapter_num": 4,
     "chapter_title": "Shadow Story (Togalu)",
@@ -677,6 +1340,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "A circular table has a continuously curved edge and has zero corners.",
     "explanation_hi": "वृत्त (Circle) में कोई कोना नहीं होता (0 corners)।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C04_P38_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Corners of a Rectangular Table",
+    "page_book": 38,
+    "question_en": "How many children can occupy the corners of an ordinary rectangular table in 'Catch the Corner'?",
+    "question_hi": "एक आयताकार मेज के कोनों पर 'कैच द कॉर्नर' खेल में अधिकतम कितने बच्चे खड़े हो सकते हैं?",
+    "option_a": "4 children (one at each of the 4 corners)",
+    "option_b": "2 children",
+    "option_c": "6 children",
+    "option_d": "8 children",
+    "correct_option": "A",
+    "explanation_en": "A rectangle has exactly 4 corners, so 4 children can each stand at one corner.",
+    "explanation_hi": "आयत में 4 कोने होते हैं, इसलिए 4 बच्चे कोनों पर खड़े हो सकते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -697,6 +1377,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C04_P39_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Folding Square in Half Diagonally",
+    "page_book": 39,
+    "question_en": "If you fold a square piece of paper in half by joining its opposite corners diagonally, what shapes do you get?",
+    "question_hi": "यदि एक वर्गाकार कागज को उसके विपरीत कोनों को मिलाकर बीच से मोड़ें, तो कौन सा आकार मिलता है?",
+    "option_a": "A Triangle",
+    "option_b": "A Circle",
+    "option_c": "A Cube",
+    "option_d": "An Oval",
+    "correct_option": "A",
+    "explanation_en": "Folding a square diagonally along its corner line divides it into triangles.",
+    "explanation_hi": "वर्ग को तिरछे मोड़ने पर त्रिभुज (Triangle) बनता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C04_P40_Q01",
     "chapter_num": 4,
     "chapter_title": "Shadow Story (Togalu)",
@@ -711,6 +1408,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "The rim of a bottle cap is circular, so it stamps a circle.",
     "explanation_hi": "बोतल के ढक्कन का किनारा गोल होता है, इसलिए वृत्त (Circle) छपेगा।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C04_P40_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Mehandi Patterns on Hand",
+    "page_book": 40,
+    "question_en": "Radha applies mehandi patterns on her hands. What mathematical feature is seen in traditional mehandi designs?",
+    "question_hi": "राधा हाथ पर मेहंदी लगाती है। पारंपरिक मेहंदी डिजाइनों में कौन सी गणितीय सुंदरता दिखाई देती है?",
+    "option_a": "Repeating symmetrical patterns and lines",
+    "option_b": "Random scribbles",
+    "option_c": "Only numbers 1 to 10",
+    "option_d": "Weighing scales",
+    "correct_option": "A",
+    "explanation_en": "Mehandi designs use repetitive geometric shapes, curved loops, and symmetrical patterns.",
+    "explanation_hi": "मेहंदी डिजाइनों में दोहरावदार ज्यामितीय पैटर्न और सुंदर सममिति होती है।",
     "difficulty": "Easy"
   },
   {
@@ -731,6 +1445,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C04_P41_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Leaf Size Pattern",
+    "page_book": 41,
+    "question_en": "If a pattern follows: 1 Big Leaf, 2 Small Leaves, 1 Big Leaf, 2 Small Leaves... what comes next?",
+    "question_hi": "यदि पैटर्न है: 1 बड़ा पत्ता, 2 छोटे पत्ते, 1 बड़ा पत्ता, 2 छोटे पत्ते... तो आगे क्या आएगा?",
+    "option_a": "1 Big Leaf",
+    "option_b": "3 Small Leaves",
+    "option_c": "4 Big Leaves",
+    "option_d": "No leaves",
+    "correct_option": "A",
+    "explanation_en": "The repeating unit is (1 Big, 2 Small), so next is 1 Big Leaf.",
+    "explanation_hi": "पैटर्न की पुनरावृत्ति के अनुसार अगला 1 बड़ा पत्ता होगा।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C04_P42_Q01",
     "chapter_num": 4,
     "chapter_title": "Shadow Story (Togalu)",
@@ -745,6 +1476,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Each pair takes the second letter of previous pair and the next alphabetical letter: DE followed by EF.",
     "explanation_hi": "प्रत्येक जोड़ा पिछले अक्षर और अगले वर्णमाला अक्षर से बनता है: DE के बाद EF आएगा।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C04_P42_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Repeated Letter Pattern",
+    "page_book": 42,
+    "question_en": "Observe the pattern: AA, BB, CC, DD, ... What comes next?",
+    "question_hi": "पैटर्न को पहचानें: AA, BB, CC, DD, ... आगे क्या आएगा?",
+    "option_a": "EE",
+    "option_b": "EF",
+    "option_c": "ED",
+    "option_d": "FF",
+    "correct_option": "A",
+    "explanation_en": "Each English alphabet letter is repeated twice in alphabetical order: EE.",
+    "explanation_hi": "वर्णमाला का प्रत्येक अक्षर दो बार दोहराया गया है: DD के बाद EE आएगा।",
     "difficulty": "Easy"
   },
   {
@@ -765,6 +1513,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C04_P43_Q02",
+    "chapter_num": 4,
+    "chapter_title": "Shadow Story (Togalu)",
+    "topic": "Number Hop Pattern (+7)",
+    "page_book": 43,
+    "question_en": "Extend the number pattern from the book: 7, 14, 21, ... What is the next number?",
+    "question_hi": "किताब के संख्या पैटर्न को आगे बढ़ाएं: 7, 14, 21, ... अगला अंक क्या होगा?",
+    "option_a": "28",
+    "option_b": "25",
+    "option_c": "30",
+    "option_d": "35",
+    "correct_option": "A",
+    "explanation_en": "The pattern adds 7 each time (multiples of 7): 21 + 7 = 28.",
+    "explanation_hi": "7 का पहाड़ा / 7 जोड़ने का नियम: 21 + 7 = 28।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C05_P44_Q01",
     "chapter_num": 5,
     "chapter_title": "Playing with Lines",
@@ -779,6 +1544,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Standing straight upright forms a vertical (standing) line.",
     "explanation_hi": "बिल्कुल सीधे खड़े होने की मुद्रा खड़ी रेखा (vertical line) बनाती है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C05_P44_Q02",
+    "chapter_num": 5,
+    "chapter_title": "Playing with Lines",
+    "topic": "Sleeping Lines in Yoga",
+    "page_book": 44,
+    "question_en": "When lying completely flat on the floor in Shavasana (Corpse Pose), which line orientation does the body represent?",
+    "question_hi": "शवासन में जमीन पर बिल्कुल सीधा लेटने पर शरीर किस प्रकार की रेखा को दर्शाता है?",
+    "option_a": "Horizontal (sleeping) line",
+    "option_b": "Vertical line",
+    "option_c": "Slanting line",
+    "option_d": "Spiral line",
+    "correct_option": "A",
+    "explanation_en": "Lying flat horizontally forms a horizontal (sleeping) line.",
+    "explanation_hi": "समतल लेटने की मुद्रा लेटी हुई (क्षैतिज / Horizontal) रेखा को दर्शाती है।",
     "difficulty": "Easy"
   },
   {
@@ -799,6 +1581,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C05_P45_Q02",
+    "chapter_num": 5,
+    "chapter_title": "Playing with Lines",
+    "topic": "Thread Activity for Straight Line",
+    "page_book": 45,
+    "question_en": "In the thread activity from the textbook, how do you make a piece of thread form a perfectly STRAIGHT line?",
+    "question_hi": "किताब की धागे वाली गतिविधि में, धागे के टुकड़े से बिल्कुल सीधी रेखा कैसे बनाई जाती है?",
+    "option_a": "By holding both ends tightly and pulling it tight",
+    "option_b": "By holding it very loose",
+    "option_c": "By dipping it in water",
+    "option_d": "By tying a knot in it",
+    "correct_option": "A",
+    "explanation_en": "Pulling a thread tight between both hands makes it straight; letting it loose makes a curved line.",
+    "explanation_hi": "धागे को दोनों हाथों से तानकर पकड़ने पर सीधी रेखा बनती है; ढीला छोड़ने पर घुमावदार रेखा बनती है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C05_P46_Q01",
     "chapter_num": 5,
     "chapter_title": "Playing with Lines",
@@ -813,6 +1612,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Triangles, squares, and kites are formed with straight lines; circles and crescents require curved lines.",
     "explanation_hi": "त्रिभुज, वर्ग और पतंग सीधी रेखाओं से बनते हैं, जबकि वृत्त और अर्धचंद्र घुमावदार रेखाओं से बनते हैं।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C05_P46_Q02",
+    "chapter_num": 5,
+    "chapter_title": "Playing with Lines",
+    "topic": "Slanting Lines in Kites",
+    "page_book": 46,
+    "question_en": "When drawing a flying kite on a dot grid, which type of lines form the diamond sides of the kite?",
+    "question_hi": "डॉट ग्रिड पर पतंग का चित्र बनाते समय पतंग के किनारे किस प्रकार की रेखाओं से बनते हैं?",
+    "option_a": "Slanting lines (tirchhi rekha)",
+    "option_b": "Horizontal lines only",
+    "option_c": "Vertical lines only",
+    "option_d": "Circles",
+    "correct_option": "A",
+    "explanation_en": "The four sides of a diamond kite are slanting (diagonal) straight lines.",
+    "explanation_hi": "पतंग के किनारे तिरछी (slanting) रेखाओं से बनते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -833,6 +1649,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C05_P47_Q02",
+    "chapter_num": 5,
+    "chapter_title": "Playing with Lines",
+    "topic": "Animals Drawn with Curved Lines",
+    "page_book": 47,
+    "question_en": "Which animal's shell or body is drawn using circular curved spiral lines?",
+    "question_hi": "किस जीव का खोल या शरीर घुमावदार (spiral) रेखाओं से बनाया जाता है?",
+    "option_a": "A snail / sea conch shell",
+    "option_b": "A straight ladder",
+    "option_c": "A rectangular table",
+    "option_d": "A cardboard box",
+    "correct_option": "A",
+    "explanation_en": "A snail's shell has a spiraling curved line.",
+    "explanation_hi": "घोंघे (snail) का खोल घुमावदार (curved spiral) रेखा से बनता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C05_P48_Q01",
     "chapter_num": 5,
     "chapter_title": "Playing with Lines",
@@ -847,6 +1680,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Straight lines have 3 orientations: vertical (standing), horizontal (sleeping), and slanting (diagonal).",
     "explanation_hi": "सीधी रेखाओं के 3 प्रकार होते हैं: खड़ी (vertical), लेटी (horizontal), और तिरछी (slanting)।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C05_P48_Q02",
+    "chapter_num": 5,
+    "chapter_title": "Playing with Lines",
+    "topic": "Design with Two Types of Lines",
+    "page_book": 48,
+    "question_en": "A simple grid pattern (like on a chess board) is drawn using which two types of straight lines?",
+    "question_hi": "शतरंज के बोर्ड जैसा जालीदार पैटर्न किन दो प्रकार की सीधी रेखाओं से बनता है?",
+    "option_a": "Vertical lines and Horizontal lines",
+    "option_b": "Curved lines only",
+    "option_c": "Slanting lines only",
+    "option_d": "Circles and ovals",
+    "correct_option": "A",
+    "explanation_en": "Square grids are created by crossing horizontal and vertical lines.",
+    "explanation_hi": "खड़ी (vertical) और लेटी (horizontal) रेखाओं के परस्पर कटने से ग्रिड बनता है।",
     "difficulty": "Easy"
   },
   {
@@ -867,6 +1717,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C05_P49_Q02",
+    "chapter_num": 5,
+    "chapter_title": "Playing with Lines",
+    "topic": "Folk Arts Mentioned in Book",
+    "page_book": 49,
+    "question_en": "Which traditional Indian art forms are famous for distinct line drawings as discussed in the textbook?",
+    "question_hi": "रेखा चित्रों के लिए प्रसिद्ध किन पारंपरिक भारतीय कला रूपों का उल्लेख पाठ्यपुस्तक में किया गया है?",
+    "option_a": "Madhubani, Kalamkari, and Warli art",
+    "option_b": "Oil painting on canvas only",
+    "option_c": "Digital computer graphics",
+    "option_d": "Photography",
+    "correct_option": "A",
+    "explanation_en": "Madhubani, Kalamkari, and Warli are celebrated Indian traditional folk arts using expressive lines and motifs.",
+    "explanation_hi": "मधुबनी, कलमकारी और वर्ली कला में रेखाओं और प्राकृतिक रूपांकनों का सुंदर प्रयोग होता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P50_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -881,6 +1748,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "3 garlands of 10 = 30 flowers. 30 + 4 = 34 flowers.",
     "explanation_hi": "10 फूलों की 3 माला = 30 फूल। 30 + 4 खुले फूल = 34 फूल।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C06_P50_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Flowers for Zoha",
+    "page_book": 50,
+    "question_en": "Zoha has 2 garlands of 10 flowers each and 8 loose flowers. How many flowers does Zoha have?",
+    "question_hi": "ज़ोहा के पास 10-10 फूलों की 2 मालाएं और 8 खुले फूल हैं। ज़ोहा के पास कुल कितने फूल हैं?",
+    "option_a": "28 flowers",
+    "option_b": "20 flowers",
+    "option_c": "82 flowers",
+    "option_d": "38 flowers",
+    "correct_option": "A",
+    "explanation_en": "2 tens (20) + 8 ones = 28 flowers.",
+    "explanation_hi": "20 + 8 = 28 फूल।",
     "difficulty": "Easy"
   },
   {
@@ -901,6 +1785,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C06_P51_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Tens and Ones Addition Strategy",
+    "page_book": 51,
+    "question_en": "When adding 12 (10 + 2) and 53 (50 + 3), what is the sum of the tens (10 + 50)?",
+    "question_hi": "12 (10 + 2) और 53 (50 + 3) को जोड़ते समय दहाईयों का जोड़ (10 + 50) कितना होता है?",
+    "option_a": "60",
+    "option_b": "50",
+    "option_c": "70",
+    "option_d": "40",
+    "correct_option": "A",
+    "explanation_en": "1 ten (10) + 5 tens (50) = 6 tens = 60.",
+    "explanation_hi": "10 + 50 = 60।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P52_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -915,6 +1816,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "20 + 43 = 63 (2 tens + 4 tens = 6 tens = 60; 0 + 3 = 3; total 63).",
     "explanation_hi": "20 + 43 = 63 (20 + 40 = 60, और 60 + 3 = 63)।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C06_P52_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Adding Round Tens (20 + 20)",
+    "page_book": 52,
+    "question_en": "Zoha brings 20 flowers and Akash brings 20 flowers. How many flowers do they bring together?",
+    "question_hi": "ज़ोहा 20 फूल लाती है और आकाश भी 20 फूल लाता है। दोनों मिलकर कुल कितने फूल लाते हैं?",
+    "option_a": "40 flowers",
+    "option_b": "22 flowers",
+    "option_c": "50 flowers",
+    "option_d": "30 flowers",
+    "correct_option": "A",
+    "explanation_en": "20 + 20 = 40 flowers (2 tens + 2 tens = 4 tens).",
+    "explanation_hi": "20 + 20 = 40 फूल (4 दहाई)।",
     "difficulty": "Easy"
   },
   {
@@ -935,6 +1853,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C06_P53_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Ginladi Addition Exercise (25 + 12)",
+    "page_book": 53,
+    "question_en": "Solve the textbook problem: 25 + 12 = ?",
+    "question_hi": "किताब का सवाल हल करें: 25 + 12 = ?",
+    "option_a": "37",
+    "option_b": "35",
+    "option_c": "47",
+    "option_d": "33",
+    "correct_option": "A",
+    "explanation_en": "25 + 12 = 25 + 10 + 2 = 35 + 2 = 37.",
+    "explanation_hi": "25 + 12 = 37।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P54_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -949,6 +1884,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "24 + 16: Jump 10 from 24 to reach 34, then jump 6 to reach 40.",
     "explanation_hi": "24 + 16: 24 से 10 आगे कूदे तो 34, फिर 6 आगे कूदे तो 40।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C06_P54_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Number Line Jump (11 + 22)",
+    "page_book": 54,
+    "question_en": "Solve using the number line: 11 + 22 = ?",
+    "question_hi": "संख्या रेखा की मदद से हल करें: 11 + 22 = ?",
+    "option_a": "33",
+    "option_b": "44",
+    "option_c": "31",
+    "option_d": "32",
+    "correct_option": "A",
+    "explanation_en": "11 + 22 = 33.",
+    "explanation_hi": "11 + 22 = 33।",
     "difficulty": "Easy"
   },
   {
@@ -969,6 +1921,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C06_P55_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Blocks with Regrouping (11 Ones)",
+    "page_book": 55,
+    "question_en": "If you have 5 tens and 11 ones blocks, how can 11 ones be regrouped?",
+    "question_hi": "यदि आपके पास 5 दहाई और 11 इकाई ब्लॉक हों, तो 11 इकाइयों को कैसे बदलेंगे?",
+    "option_a": "1 ten and 1 one, making a total of 6 tens and 1 one (61)",
+    "option_b": "2 tens and 1 one",
+    "option_c": "11 tens",
+    "option_d": "5 tens and 11 ones cannot be changed",
+    "correct_option": "A",
+    "explanation_en": "11 ones = 1 ten + 1 one. Adding 1 ten to 5 tens gives 6 tens and 1 one = 61.",
+    "explanation_hi": "11 इकाई = 1 दहाई और 1 इकाई। 5 दहाई + 1 दहाई = 6 दहाई और 1 इकाई (61)।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C06_P56_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -983,6 +1952,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "13 ones = 10 ones + 3 ones = 1 ten and 3 ones.",
     "explanation_hi": "13 इकाई = 1 दहाई और 3 इकाई।",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "M2_C06_P56_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Adding with Carry (45 + 49)",
+    "page_book": 56,
+    "question_en": "Solve the textbook problem: 45 + 49 = ?",
+    "question_hi": "किताब का सवाल हल करें: 45 + 49 = ?",
+    "option_a": "94",
+    "option_b": "84",
+    "option_c": "95",
+    "option_d": "89",
+    "correct_option": "A",
+    "explanation_en": "5 + 9 = 14 (4 ones, 1 ten carry); 4 + 4 + 1 = 9 tens = 94.",
+    "explanation_hi": "5 + 9 = 14 (1 हासिल); 4 + 4 + 1 = 9; उत्तर = 94।",
     "difficulty": "Medium"
   },
   {
@@ -1003,6 +1989,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C06_P57_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Cricket Century Concept",
+    "page_book": 57,
+    "question_en": "In cricket, scored 101 runs across two matches means Rahim has scored more than:",
+    "question_hi": "क्रिकेट में दो मैचों में 101 रन बनाने का मतलब है कि रहीम ने किससे अधिक रन बनाए?",
+    "option_a": "A century (100 runs)",
+    "option_b": "A double century (200 runs)",
+    "option_c": "Only 50 runs",
+    "option_d": "150 runs",
+    "correct_option": "A",
+    "explanation_en": "A century in cricket is 100 runs. 101 is 1 run more than a century.",
+    "explanation_hi": "क्रिकेट में 100 रन को शतक (Century) कहते हैं। 101 रन शतक से अधिक हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P58_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -1020,6 +2023,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C06_P58_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Heena's Marbles Problem",
+    "page_book": 58,
+    "question_en": "Heena collected 34 red marbles and 57 blue marbles. How many total marbles did Heena collect?",
+    "question_hi": "हिना ने 34 लाल कंचे और 57 नीले कंचे इकट्ठे किए। हिना ने कुल कितने कंचे इकट्ठे किए?",
+    "option_a": "91 marbles",
+    "option_b": "81 marbles",
+    "option_c": "97 marbles",
+    "option_d": "87 marbles",
+    "correct_option": "A",
+    "explanation_en": "34 + 57 = 91 marbles (4 + 7 = 11; 3 + 5 + 1 = 9).",
+    "explanation_hi": "34 + 57 = 91 कंचे।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C06_P59_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -1034,6 +2054,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "75 − 35 = 40 (7 tens − 3 tens = 4 tens = 40; 5 ones − 5 ones = 0).",
     "explanation_hi": "75 − 35 = 40।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C06_P59_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Subtraction by Taking Away Tens",
+    "page_book": 59,
+    "question_en": "If you have 60 diyas and take away 20 diyas, how many diyas are left?",
+    "question_hi": "यदि आपके पास 60 दीये हैं और आप 20 दीये हटा लेते हैं, तो कितने दीये बचेंगे?",
+    "option_a": "40 diyas",
+    "option_b": "30 diyas",
+    "option_c": "50 diyas",
+    "option_d": "80 diyas",
+    "correct_option": "A",
+    "explanation_en": "6 tens − 2 tens = 4 tens = 40 diyas.",
+    "explanation_hi": "60 − 20 = 40 दीये।",
     "difficulty": "Easy"
   },
   {
@@ -1054,6 +2091,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C06_P60_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Take Away 18 from 30",
+    "page_book": 60,
+    "question_en": "Solve the textbook problem: 30 − 18 = ?",
+    "question_hi": "किताब का सवाल हल करें: 30 − 18 = ?",
+    "option_a": "12",
+    "option_b": "14",
+    "option_c": "10",
+    "option_d": "18",
+    "correct_option": "A",
+    "explanation_en": "30 − 18: 30 − 10 = 20; 20 − 8 = 12.",
+    "explanation_hi": "30 − 18 = 12।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P61_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -1068,6 +2122,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "20 − 7 = 13 diyas remained lit.",
     "explanation_hi": "20 में से 7 बुझे: 20 − 7 = 13 दीये।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C06_P61_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Diyas Problem (20 − 9)",
+    "page_book": 61,
+    "question_en": "Out of 20 lit diyas, if 9 diyas go out, how many are still burning?",
+    "question_hi": "20 जलते दीयों में से यदि 9 दीये बुझ जाएं, तो कितने दीये जलते रहेंगे?",
+    "option_a": "11 diyas",
+    "option_b": "10 diyas",
+    "option_c": "12 diyas",
+    "option_d": "9 diyas",
+    "correct_option": "A",
+    "explanation_en": "20 − 9 = 11.",
+    "explanation_hi": "20 − 9 = 11 दीये।",
     "difficulty": "Easy"
   },
   {
@@ -1088,6 +2159,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C06_P62_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Number Line Subtraction (26 − 9)",
+    "page_book": 62,
+    "question_en": "Solve on the number line: 26 − 9 = ?",
+    "question_hi": "संख्या रेखा पर हल करें: 26 − 9 = ?",
+    "option_a": "17",
+    "option_b": "18",
+    "option_c": "19",
+    "option_d": "16",
+    "correct_option": "A",
+    "explanation_en": "26 − 9 = 17.",
+    "explanation_hi": "26 − 9 = 17।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P63_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -1102,6 +2190,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "₹82 − ₹22 = ₹60.",
     "explanation_hi": "₹82 − ₹22 = ₹60 बचे।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C06_P63_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Ruby's Notebook Expense",
+    "page_book": 63,
+    "question_en": "Ruby has ₹60. She buys a notebook for ₹20. How much money is left with Ruby?",
+    "question_hi": "रूबी के पास ₹60 हैं। उसने ₹20 की एक कॉपी खरीदी। रूबी के पास कितने रुपये बचे?",
+    "option_a": "₹40",
+    "option_b": "₹30",
+    "option_c": "₹50",
+    "option_d": "₹20",
+    "correct_option": "A",
+    "explanation_en": "₹60 − ₹20 = ₹40.",
+    "explanation_hi": "₹60 − ₹20 = ₹40 बचे।",
     "difficulty": "Easy"
   },
   {
@@ -1122,6 +2227,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C06_P64_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Garlands Remaining after Opening",
+    "page_book": 64,
+    "question_en": "After opening 1 garland out of 4 garlands of ten, how many full garlands remain?",
+    "question_hi": "4 मालाओं में से 1 माला खोल देने के बाद कितनी पूरी मालाएं बचीं?",
+    "option_a": "3 full garlands",
+    "option_b": "2 full garlands",
+    "option_c": "4 full garlands",
+    "option_d": "5 full garlands",
+    "correct_option": "A",
+    "explanation_en": "4 − 1 = 3 full garlands remaining.",
+    "explanation_hi": "4 में से 1 माला खुली, तो 3 पूरी मालाएं बचीं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P65_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -1139,6 +2261,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C06_P65_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Giving 5 Flowers from 28",
+    "page_book": 65,
+    "question_en": "Jyoti now has 28 flowers. She gives 5 flowers to her brother. How many flowers are left with her?",
+    "question_hi": "ज्योति के पास 28 फूल हैं। वह 5 फूल अपने भाई को दे देती है। अब उसके पास कितने फूल बचे?",
+    "option_a": "23 flowers",
+    "option_b": "20 flowers",
+    "option_c": "25 flowers",
+    "option_d": "18 flowers",
+    "correct_option": "A",
+    "explanation_en": "28 − 5 = 23 flowers.",
+    "explanation_hi": "28 − 5 = 23 फूल।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P66_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -1153,6 +2292,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "54 − 28 = 26 flowers.",
     "explanation_hi": "54 − 28 = 26 फूल।",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "M2_C06_P66_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Subtracting 47 from 73",
+    "page_book": 66,
+    "question_en": "Solve the textbook problem: 73 − 47 = ?",
+    "question_hi": "किताब का सवाल हल करें: 73 − 47 = ?",
+    "option_a": "26",
+    "option_b": "36",
+    "option_c": "24",
+    "option_d": "34",
+    "correct_option": "A",
+    "explanation_en": "73 − 47: 13 − 7 = 6; 6 tens − 4 tens = 2 tens = 26.",
+    "explanation_hi": "73 − 47 = 26 (13 − 7 = 6, 6 − 4 = 2)।",
     "difficulty": "Medium"
   },
   {
@@ -1173,20 +2329,54 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C06_P67_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Subtracting a Number from Itself",
+    "page_book": 67,
+    "question_en": "Solve the textbook exercise: 27 − 27 = ?",
+    "question_hi": "किताब का अभ्यास सवाल हल करें: 27 − 27 = ?",
+    "option_a": "0",
+    "option_b": "1",
+    "option_c": "27",
+    "option_d": "54",
+    "correct_option": "A",
+    "explanation_en": "Subtracting any number from itself always results in 0.",
+    "explanation_hi": "किसी संख्या में से वही संख्या घटाने पर शून्य (0) बचता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P68_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
     "topic": "Bus Passengers Word Problem",
     "page_book": 68,
-    "question_en": "There were 54 passengers sitting in a bus. At the bus stop, 18 passengers got down. How many passengers are still in the bus?",
-    "question_hi": "एक बस में 54 यात्री बैठे थे। बस स्टॉप पर 18 यात्री उतर गए। अब बस में कितने यात्री बचे हैं?",
-    "option_a": "36 passengers",
-    "option_b": "34 passengers",
-    "option_c": "46 passengers",
-    "option_d": "38 passengers",
+    "question_en": "There were 54 passengers sitting in a bus. At the bus stand, 16 passengers got down. How many passengers are still in the bus?",
+    "question_hi": "एक बस में 54 यात्री बैठे थे। बस स्टैंड पर 16 यात्री उतर गए। अब बस में कितने यात्री बचे हैं?",
+    "option_a": "38 passengers",
+    "option_b": "36 passengers",
+    "option_c": "48 passengers",
+    "option_d": "40 passengers",
     "correct_option": "A",
-    "explanation_en": "54 − 18: 14 − 8 = 6; 4 − 1 = 3 = 36 passengers.",
-    "explanation_hi": "54 − 18 = 36 यात्री।",
+    "explanation_en": "54 − 16: 14 − 6 = 8; 4 − 1 = 3 = 38 passengers.",
+    "explanation_hi": "54 − 16 = 38 यात्री।",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "M2_C06_P68_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Anushka's Seashells Problem",
+    "page_book": 68,
+    "question_en": "Anushka collected 63 shells. She gave 26 shells to her brother. How many shells are left with her?",
+    "question_hi": "अनुष्का ने 63 सीपियां इकट्ठी कीं। उसने 26 सीपियां अपने भाई को दे दीं। उसके पास कितनी सीपियां बचीं?",
+    "option_a": "37 shells",
+    "option_b": "47 shells",
+    "option_c": "35 shells",
+    "option_d": "39 shells",
+    "correct_option": "A",
+    "explanation_en": "63 − 26: 13 − 6 = 7; 5 − 2 = 3 = 37 shells.",
+    "explanation_hi": "63 − 26 = 37 सीपियां बचीं।",
     "difficulty": "Medium"
   },
   {
@@ -1207,6 +2397,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C06_P69_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Fact Family of 20, 80, 100",
+    "page_book": 69,
+    "question_en": "In the fact family (20, 80, 100), what is 100 − 80?",
+    "question_hi": "संख्या परिवार (20, 80, 100) में, 100 − 80 का मान क्या होगा?",
+    "option_a": "20",
+    "option_b": "80",
+    "option_c": "10",
+    "option_d": "50",
+    "correct_option": "A",
+    "explanation_en": "Since 80 + 20 = 100, 100 − 80 = 20.",
+    "explanation_hi": "चूँकि 80 + 20 = 100, अतः 100 − 80 = 20।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C06_P70_Q01",
     "chapter_num": 6,
     "chapter_title": "Decoration for Festival",
@@ -1221,6 +2428,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "60 − 40 = 20, so 40 + 20 = 60.",
     "explanation_hi": "60 − 40 = 20, इसलिए 40 + 20 = 60।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C06_P70_Q02",
+    "chapter_num": 6,
+    "chapter_title": "Decoration for Festival",
+    "topic": "Hania and Mansi's Gift Expense",
+    "page_book": 70,
+    "question_en": "Hania and Mansi have ₹78 in their piggy bank. They spent ₹35 on ribbons and gift wrappers. How much money is left in the piggy bank?",
+    "question_hi": "हानिया और मानसी की गुल्लक में ₹78 हैं। उन्होंने रिबन और गिफ्ट रैपर पर ₹35 खर्च किए। अब गुल्लक में कितने रुपये बचे हैं?",
+    "option_a": "₹43",
+    "option_b": "₹45",
+    "option_c": "₹33",
+    "option_d": "₹53",
+    "correct_option": "A",
+    "explanation_en": "₹78 − ₹35 = ₹43 left.",
+    "explanation_hi": "78 − 35 = ₹43 बचे।",
     "difficulty": "Easy"
   },
   {
@@ -1241,6 +2465,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C07_P71_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Non-standard Body Units",
+    "page_book": 71,
+    "question_en": "Which of the following is also an ancient non-standard unit of measuring length using feet?",
+    "question_hi": "पैरों से लंबाई नापने की प्राचीन गैर-मानक इकाई कौन सी है?",
+    "option_a": "Pace / Footstep (कदम)",
+    "option_b": "Kilogram",
+    "option_c": "Litre",
+    "option_d": "Hour",
+    "correct_option": "A",
+    "explanation_en": "Paces (footsteps) are non-standard body units used to measure floor length or classroom distance.",
+    "explanation_hi": "कदम (footstep) प्राचीन समय में दूरी नापने की शारीरिक इकाई थी।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C07_P72_Q01",
     "chapter_num": 7,
     "chapter_title": "Rani's Gift",
@@ -1255,6 +2496,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Different people have different hand sizes. The carpenter's handspan was smaller than the King's, causing confusion.",
     "explanation_hi": "अलग-अलग लोगों के हाथ का नाप अलग होता है। बढ़ई का हाथ राजा के हाथ से छोटा था।",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "M2_C07_P72_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Mantri's Wise Solution",
+    "page_book": 72,
+    "question_en": "What did the wise minister (Mantri) do to ensure the bed was made exactly to the King's measurement?",
+    "question_hi": "चतुर मंत्री ने राजा के नाप का सही बिस्तर बनाने के लिए क्या उपाय किया?",
+    "option_a": "He measured the King's handspan with a stick/rope and gave that exact stick to the carpenter",
+    "option_b": "He told the King to sleep on the floor",
+    "option_c": "He brought another carpenter",
+    "option_d": "He doubled the number of handspans",
+    "correct_option": "A",
+    "explanation_en": "The minister used a fixed stick/ribbon matching the King's handspan as a uniform measuring rod.",
+    "explanation_hi": "मंत्री ने राजा के बित्ते के नाप की लकड़ी/रस्सी बनाई और उसी से बढ़ई को नापने को कहा।",
     "difficulty": "Medium"
   },
   {
@@ -1275,6 +2533,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C07_P73_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Longest Path Between Points",
+    "page_book": 73,
+    "question_en": "If path 1 is straight, path 2 has 2 curves, and path 3 has many long loops, which path is the LONGEST?",
+    "question_hi": "यदि रास्ता 1 सीधा है, रास्ता 2 में 2 मोड़ हैं, और रास्ता 3 में कई बड़े घुमाव हैं, तो कौन सा रास्ता सबसे लंबा होगा?",
+    "option_a": "Path 3 with many long loops",
+    "option_b": "Path 1 (straight)",
+    "option_c": "Path 2",
+    "option_d": "All three have equal length",
+    "correct_option": "A",
+    "explanation_en": "Paths with larger loops and detours cover more distance and are longer.",
+    "explanation_hi": "अधिक घुमाव और चक्कर वाला रास्ता सबसे लंबा होता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C07_P74_Q01",
     "chapter_num": 7,
     "chapter_title": "Rani's Gift",
@@ -1289,6 +2564,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "10 − 4 = 6 blocks taller.",
     "explanation_hi": "10 − 4 = 6 ब्लॉक अधिक लंबा है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C07_P74_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Animal Height Comparison",
+    "page_book": 74,
+    "question_en": "If the monkey is 7 blocks tall and the dog is 4 blocks tall, how many blocks taller is the monkey than the dog?",
+    "question_hi": "यदि बंदर 7 ब्लॉक ऊंचा है और कुत्ता 4 ब्लॉक ऊंचा है, तो बंदर कुत्ते से कितने ब्लॉक ऊंचा है?",
+    "option_a": "3 blocks",
+    "option_b": "4 blocks",
+    "option_c": "11 blocks",
+    "option_d": "2 blocks",
+    "correct_option": "A",
+    "explanation_en": "7 − 4 = 3 blocks taller.",
+    "explanation_hi": "7 − 4 = 3 ब्लॉक ऊंचा है।",
     "difficulty": "Easy"
   },
   {
@@ -1309,6 +2601,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C07_P75_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Tracing Your Hand",
+    "page_book": 75,
+    "question_en": "When you place your palm flat on paper and trace its boundary, what can you measure with fingers?",
+    "question_hi": "कागज पर अपनी हथेली रखकर रेखा खींचने पर उंगलियों से क्या नापा जा सकता है?",
+    "option_a": "The length and width of the hand and fingers",
+    "option_b": "The weight of the hand in kilograms",
+    "option_c": "The temperature of the hand",
+    "option_d": "The time of day",
+    "correct_option": "A",
+    "explanation_en": "Tracing the hand allows measurement of the length of each finger and palm span.",
+    "explanation_hi": "हाथ ट्रेस करके हथेली और उंगलियों की लंबाई मापी जा सकती है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C07_P76_Q01",
     "chapter_num": 7,
     "chapter_title": "Rani's Gift",
@@ -1323,6 +2632,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "A large pumpkin is much heavier than a small lemon, chilli, or pea pod.",
     "explanation_hi": "एक बड़ा कद्दू छोटे नींबू की तुलना में बहुत अधिक भारी होता है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C07_P76_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Watermelon vs Muskmelon",
+    "page_book": 76,
+    "question_en": "Which fruit is generally heavier: a large watermelon or a small muskmelon?",
+    "question_hi": "सामान्यतः कौन सा फल अधिक भारी होता है: बड़ा तरबूज या छोटा खरबूजा?",
+    "option_a": "A large watermelon",
+    "option_b": "A small muskmelon",
+    "option_c": "Both have identical weight",
+    "option_d": "Muskmelon is always heavier",
+    "correct_option": "A",
+    "explanation_en": "A large watermelon has greater mass and weight than a small muskmelon.",
+    "explanation_hi": "बड़ा तरबूज सामान्यतः छोटे खरबूजे से अधिक भारी होता है।",
     "difficulty": "Easy"
   },
   {
@@ -1343,6 +2669,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C07_P77_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Classroom Objects Weight Comparison",
+    "page_book": 77,
+    "question_en": "Which of the following items in your school bag is typically the LIGHTEST?",
+    "question_hi": "आपके स्कूल बस्ते में से कौन सी वस्तु आमतौर पर सबसे हल्की (Lightest) होती है?",
+    "option_a": "A single rubber eraser",
+    "option_b": "A thick maths textbook",
+    "option_c": "A steel water bottle filled with water",
+    "option_d": "The entire bag itself",
+    "correct_option": "A",
+    "explanation_en": "An eraser is much lighter than books or a filled water bottle.",
+    "explanation_hi": "रबर (इरेज़र) का वजन किताबों या पानी की भरी बोतल से बहुत कम होता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C07_P78_Q01",
     "chapter_num": 7,
     "chapter_title": "Rani's Gift",
@@ -1357,6 +2700,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Gravity pulls the heavier object down, so its pan goes lower than the lighter pan.",
     "explanation_hi": "भारी वस्तु का पलड़ा नीचे झुक जाता है और हल्का पलड़ा ऊपर उठ जाता है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C07_P78_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Equal Weight on Balance",
+    "page_book": 78,
+    "question_en": "When two objects placed on opposite pans of a weighing scale have the EXACT SAME weight, what do the pans do?",
+    "question_hi": "जब तराजू के दोनों पलड़ों में रखी वस्तुओं का वजन बिल्कुल बराबर हो, तो दोनों पलड़े किस स्थिति में रहते हैं?",
+    "option_a": "Both pans stay perfectly level (balanced in the middle)",
+    "option_b": "Left pan falls down",
+    "option_c": "Right pan falls down",
+    "option_d": "Both pans keep spinning",
+    "correct_option": "A",
+    "explanation_en": "Equal weights balance each other out horizontally at the same level.",
+    "explanation_hi": "वजन बराबर होने पर तराजू के दोनों पलड़े बिल्कुल सीधे बराबर स्तर पर संतुलित रहते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -1377,6 +2737,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C07_P79_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Types of Balances",
+    "page_book": 79,
+    "question_en": "Which tool does a vegetable vendor use in the market to weigh potatoes and onions?",
+    "question_hi": "बाजार में सब्जी विक्रेता आलू और प्याज का वजन तोलने के लिए किस उपकरण का उपयोग करता है?",
+    "option_a": "A weighing balance / scale",
+    "option_b": "A measuring tape",
+    "option_c": "A thermometer",
+    "option_d": "A clock",
+    "correct_option": "A",
+    "explanation_en": "A weighing scale/balance measures mass and weight in kilograms or grams.",
+    "explanation_hi": "सब्जी विक्रेता वजन तोलने के लिए तराजू (Weighing scale) का उपयोग करता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C07_P80_Q01",
     "chapter_num": 7,
     "chapter_title": "Rani's Gift",
@@ -1391,6 +2768,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "A heavy watermelon requires many mangoes together on the other side to balance its weight.",
     "explanation_hi": "एक आम भारी तरबूज से बहुत हल्का होता है; उसे उठाने के लिए कई आमों की ज़रूरत होगी।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C07_P80_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Balancing the See-Saw",
+    "page_book": 80,
+    "question_en": "If 1 watermelon weighs about the same as 6 mangoes, how many mangoes are needed to balance the watermelon on a see-saw?",
+    "question_hi": "यदि 1 तरबूज का वजन लगभग 6 आमों के बराबर हो, तो झूले पर तरबूज को संतुलित करने के लिए कितने आम चाहिए?",
+    "option_a": "6 mangoes",
+    "option_b": "1 mango",
+    "option_c": "2 mangoes",
+    "option_d": "12 mangoes",
+    "correct_option": "A",
+    "explanation_en": "6 mangoes will provide equal weight to balance the single watermelon.",
+    "explanation_hi": "तरबूज के बराबर वजन के लिए 6 आम चाहिए।",
     "difficulty": "Easy"
   },
   {
@@ -1411,6 +2805,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C07_P81_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Sugar Spoons in Nimbu Pani",
+    "page_book": 81,
+    "question_en": "If Raghu puts 1 spoon of sugar in 1 glass of nimbu pani, how many spoons of sugar will he put in 5 glasses?",
+    "question_hi": "यदि रघु 1 गिलास नींबू पानी में 1 चम्मच चीनी डालता है, तो 5 गिलास में कितने चम्मच चीनी डालेगा?",
+    "option_a": "5 spoons",
+    "option_b": "1 spoon",
+    "option_c": "10 spoons",
+    "option_d": "2 spoons",
+    "correct_option": "A",
+    "explanation_en": "1 spoon per glass × 5 glasses = 5 spoons of sugar.",
+    "explanation_hi": "1 × 5 = 5 चम्मच चीनी।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C07_P82_Q01",
     "chapter_num": 7,
     "chapter_title": "Rani's Gift",
@@ -1428,6 +2839,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C07_P82_Q02",
+    "chapter_num": 7,
+    "chapter_title": "Rani's Gift",
+    "topic": "Container Capacity (Bucket vs Glass)",
+    "page_book": 82,
+    "question_en": "Which of the following containers can hold the LARGEST quantity of water?",
+    "question_hi": "इनमें से कौन सा बर्तन सबसे अधिक मात्रा में पानी धारण कर सकता है (सबसे बड़ी धारिता)?",
+    "option_a": "A large bathing bucket",
+    "option_b": "A drinking tea cup",
+    "option_c": "A small water glass",
+    "option_d": "A soup spoon",
+    "correct_option": "A",
+    "explanation_en": "A large bucket can hold many litres of water, far more than a cup, glass, or spoon.",
+    "explanation_hi": "एक बड़ी बाल्टी में कप या गिलास की तुलना में कई लीटर अधिक पानी आता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C08_P83_Q01",
     "chapter_num": 8,
     "chapter_title": "Grouping and Sharing",
@@ -1442,6 +2870,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Adding 2 four times means 4 bicycles with 2 wheels each.",
     "explanation_hi": "2 को 4 बार जोड़ा गया है, यानी 4 साइकिलें।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C08_P83_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Car Wheels Problem (7 Cars)",
+    "page_book": 83,
+    "question_en": "In the parking lot, there are 7 cars. Each car has 4 wheels. How many wheels are there in total?",
+    "question_hi": "पार्किंग में 7 कारें खड़ी हैं। प्रत्येक कार के 4 पहिये हैं। कुल मिलाकर कितने पहिये हैं?",
+    "option_a": "28 wheels",
+    "option_b": "24 wheels",
+    "option_c": "32 wheels",
+    "option_d": "21 wheels",
+    "correct_option": "A",
+    "explanation_en": "7 cars × 4 wheels each = 7 × 4 = 28 wheels.",
+    "explanation_hi": "7 × 4 = 28 पहिये।",
     "difficulty": "Easy"
   },
   {
@@ -1462,6 +2907,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C08_P84_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Bicycles Wheels (4 × 2)",
+    "page_book": 84,
+    "question_en": "There are 4 bicycles and each bicycle has 2 wheels. What is 4 × 2?",
+    "question_hi": "4 साइकिलें हैं और प्रत्येक के 2 पहिये हैं। 4 × 2 कितना होगा?",
+    "option_a": "8 wheels",
+    "option_b": "6 wheels",
+    "option_c": "10 wheels",
+    "option_d": "12 wheels",
+    "correct_option": "A",
+    "explanation_en": "4 × 2 = 8 wheels.",
+    "explanation_hi": "4 × 2 = 8 पहिये।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C08_P85_Q01",
     "chapter_num": 8,
     "chapter_title": "Grouping and Sharing",
@@ -1476,6 +2938,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "3 × 2 = 6 wings (2 + 2 + 2 = 6).",
     "explanation_hi": "3 × 2 = 6 पंख (2 + 2 + 2 = 6)।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C08_P85_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Octopus Legs (Groups of 8)",
+    "page_book": 85,
+    "question_en": "An octopus has 8 legs. If there are 3 octopuses swimming in the sea, how many legs do they have in all?",
+    "question_hi": "एक ऑक्टोपस के 8 पैर होते हैं। यदि समुद्र में 3 ऑक्टोपस तैर रहे हैं, तो उनके कुल मिलाकर कितने पैर होंगे?",
+    "option_a": "24 legs",
+    "option_b": "16 legs",
+    "option_c": "20 legs",
+    "option_d": "32 legs",
+    "correct_option": "A",
+    "explanation_en": "3 octopuses × 8 legs = 3 × 8 = 24 legs (8 + 8 + 8 = 24).",
+    "explanation_hi": "3 × 8 = 24 पैर।",
     "difficulty": "Easy"
   },
   {
@@ -1496,6 +2975,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C08_P86_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Matching 9 Added 3 Times",
+    "page_book": 86,
+    "question_en": "Match the repeated addition: 9 + 9 + 9 equals which multiplication?",
+    "question_hi": "9 + 9 + 9 किस गुणा के बराबर होता है?",
+    "option_a": "3 × 9 = 27",
+    "option_b": "9 × 9 = 81",
+    "option_c": "3 + 9 = 12",
+    "option_d": "2 × 9 = 18",
+    "correct_option": "A",
+    "explanation_en": "9 added 3 times = 3 × 9 = 27.",
+    "explanation_hi": "3 × 9 = 27।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C08_P87_Q01",
     "chapter_num": 8,
     "chapter_title": "Grouping and Sharing",
@@ -1510,6 +3006,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "3 × 4 = 12.",
     "explanation_hi": "3 × 4 = 12।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C08_P87_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Table of 2 (2 × 6)",
+    "page_book": 87,
+    "question_en": "Complete the table: '2 sixes are ________' (2 × 6)?",
+    "question_hi": "पहाड़ा पूरा करें: '2 छक्के (2 × 6) कितने होते हैं'?",
+    "option_a": "12",
+    "option_b": "10",
+    "option_c": "14",
+    "option_d": "16",
+    "correct_option": "A",
+    "explanation_en": "2 × 6 = 12.",
+    "explanation_hi": "2 × 6 = 12।",
     "difficulty": "Easy"
   },
   {
@@ -1530,6 +3043,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C08_P88_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Table of 10 (10 × 4)",
+    "page_book": 88,
+    "question_en": "What is 10 fours (10 × 4)?",
+    "question_hi": "10 चौक (10 × 4) कितना होता है?",
+    "option_a": "40",
+    "option_b": "14",
+    "option_c": "44",
+    "option_d": "30",
+    "correct_option": "A",
+    "explanation_en": "10 × 4 = 40.",
+    "explanation_hi": "10 × 4 = 40।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C08_P89_Q01",
     "chapter_num": 8,
     "chapter_title": "Grouping and Sharing",
@@ -1544,6 +3074,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "4 groups of 5 = 4 × 5 = 20 gulab jamuns.",
     "explanation_hi": "5-5 के 4 समूह = 4 × 5 = 20 गुलाब जामुन।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C08_P89_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Bouquets of Flowers (3 × 4)",
+    "page_book": 89,
+    "question_en": "Gopal made 3 flower bouquets with 4 flowers in each bouquet. How many flowers did Gopal use in all?",
+    "question_hi": "गोपाल ने 3 गुलदस्ते बनाए और हर गुलदस्ते में 4 फूल लगाए। गोपाल ने कुल कितने फूल इस्तेमाल किए?",
+    "option_a": "12 flowers",
+    "option_b": "7 flowers",
+    "option_c": "15 flowers",
+    "option_d": "16 flowers",
+    "correct_option": "A",
+    "explanation_en": "3 groups of 4 = 3 × 4 = 12 flowers.",
+    "explanation_hi": "3 × 4 = 12 फूल।",
     "difficulty": "Easy"
   },
   {
@@ -1564,6 +3111,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C08_P90_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Bindi Packets Word Problem",
+    "page_book": 90,
+    "question_en": "There are 8 packets of bindis. Each packet contains 5 bindis. How many bindis are there in total?",
+    "question_hi": "बिंदी के 8 पैकेट हैं। प्रत्येक पैकेट में 5 बिंदियाँ हैं। कुल कितनी बिंदियाँ हैं?",
+    "option_a": "40 bindis",
+    "option_b": "35 bindis",
+    "option_c": "45 bindis",
+    "option_d": "13 bindis",
+    "correct_option": "A",
+    "explanation_en": "8 packets × 5 bindis = 8 × 5 = 40 bindis.",
+    "explanation_hi": "8 × 5 = 40 बिंदियाँ।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C08_P91_Q01",
     "chapter_num": 8,
     "chapter_title": "Grouping and Sharing",
@@ -1579,6 +3143,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "explanation_en": "6 pencils × ₹4 each = ₹24.",
     "explanation_hi": "6 × ₹4 = ₹24।",
     "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C08_P91_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Table of 6 from Table of 3",
+    "page_book": 91,
+    "question_en": "To find 6 × 3 using the table of 3, how can you double the result?",
+    "question_hi": "3 के पहाड़े से 6 × 3 का मान निकालने के लिए 3 × 3 के मान (9) को क्या करेंगे?",
+    "option_a": "Double 9: 9 + 9 = 18",
+    "option_b": "Subtract 3",
+    "option_c": "Multiply by 10",
+    "option_d": "Divide by 2",
+    "correct_option": "A",
+    "explanation_en": "Since 6 is double of 3, (3 × 3) + (3 × 3) = 9 + 9 = 18.",
+    "explanation_hi": "6, 3 का दोगुना है, अतः 9 + 9 = 18।",
+    "difficulty": "Medium"
   },
   {
     "id": "M2_C08_P92_Q01",
@@ -1598,6 +3179,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C08_P92_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Arrays of 24 Objects",
+    "page_book": 92,
+    "question_en": "Which of the following arrangements of 24 buttons forms equal rows and columns?",
+    "question_hi": "24 बटनों को बराबर पंक्तियों में सजाने का कौन सा तरीका सही है?",
+    "option_a": "4 rows of 6 buttons (4 × 6 = 24)",
+    "option_b": "5 rows of 5 buttons",
+    "option_c": "3 rows of 7 buttons",
+    "option_d": "2 rows of 10 buttons",
+    "correct_option": "A",
+    "explanation_en": "4 × 6 = 24 buttons.",
+    "explanation_hi": "6-6 बटनों की 4 पंक्तियाँ = 4 × 6 = 24 बटन।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C08_P93_Q01",
     "chapter_num": 8,
     "chapter_title": "Grouping and Sharing",
@@ -1612,6 +3210,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Equal sharing means distributing so that every person gets an equal share.",
     "explanation_hi": "बराबर बांटने का मतलब है कि प्रत्येक को एक समान संख्या में वस्तुएं मिलें।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C08_P93_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "One by One Sharing",
+    "page_book": 93,
+    "question_en": "In the story, when 2 children share gulab jamuns one by one, after 2 rounds how many does each child have?",
+    "question_hi": "कहानी में जब दो बच्चे एक-एक करके गुलाब जामुन बांटते हैं, तो 2 चक्रों के बाद प्रत्येक को कितने मिलेंगे?",
+    "option_a": "2 gulab jamuns each",
+    "option_b": "1 gulab jamun each",
+    "option_c": "4 gulab jamuns each",
+    "option_d": "0",
+    "correct_option": "A",
+    "explanation_en": "Round 1: 1 each. Round 2: 1 more each = 2 each.",
+    "explanation_hi": "1-1 करके दो बार देने पर प्रत्येक को 2 गुलाब जामुन मिलते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -1632,6 +3247,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C08_P94_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Ritu's Craft Bindis (12 ÷ 2)",
+    "page_book": 94,
+    "question_en": "Ritu has 12 bindis to stick equally on 2 paper ice cream cones. How many bindis will she paste on each cone?",
+    "question_hi": "रितु के पास 12 बिंदियाँ हैं जिन्हें 2 आइसक्रीम कोन पर बराबर चिपकाना है। प्रत्येक कोन पर कितनी बिंदियाँ चिपकेंगी?",
+    "option_a": "6 bindis",
+    "option_b": "4 bindis",
+    "option_c": "5 bindis",
+    "option_d": "10 bindis",
+    "correct_option": "A",
+    "explanation_en": "12 ÷ 2 = 6 bindis on each cone.",
+    "explanation_hi": "12 को 2 बराबर भागों में बांटने पर: 12 ÷ 2 = 6 बिंदियाँ।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C08_P95_Q01",
     "chapter_num": 8,
     "chapter_title": "Grouping and Sharing",
@@ -1646,6 +3278,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "15 beads divided in groups of 5 = 15 ÷ 5 = 3 bracelets.",
     "explanation_hi": "15 ÷ 5 = 3 कंगन (5 + 5 + 5 = 15)।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C08_P95_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Beads Left After 2 Bracelets",
+    "page_book": 95,
+    "question_en": "If you have 15 beads and have made 2 bracelets (5 beads each), how many beads are left?",
+    "question_hi": "यदि आपके पास 15 मनके हैं और आपने 5-5 मनकों के 2 कंगन बना लिए, तो कितने मनके बचेंगे?",
+    "option_a": "5 beads",
+    "option_b": "10 beads",
+    "option_c": "0 beads",
+    "option_d": "2 beads",
+    "correct_option": "A",
+    "explanation_en": "Used = 2 × 5 = 10 beads. Left = 15 − 10 = 5 beads.",
+    "explanation_hi": "15 − 10 = 5 मनके शेष बचेंगे।",
     "difficulty": "Easy"
   },
   {
@@ -1666,6 +3315,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C08_P96_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Roses in Vases (25 ÷ 5)",
+    "page_book": 96,
+    "question_en": "There are 25 roses. If 5 roses are put in each flower vase, how many vases are needed?",
+    "question_hi": "यहाँ 25 गुलाब के फूल हैं। यदि एक फूलदान में 5 गुलाब रखे जाएं, तो कितने फूलदानों की आवश्यकता होगी?",
+    "option_a": "5 vases",
+    "option_b": "4 vases",
+    "option_c": "6 vases",
+    "option_d": "10 vases",
+    "correct_option": "A",
+    "explanation_en": "25 ÷ 5 = 5 flower vases.",
+    "explanation_hi": "25 ÷ 5 = 5 फूलदान।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C08_P97_Q01",
     "chapter_num": 8,
     "chapter_title": "Grouping and Sharing",
@@ -1680,6 +3346,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "30 buttons ÷ 6 buttons per shirt = 5 shirts (5 × 6 = 30).",
     "explanation_hi": "30 ÷ 6 = 5 कमीजें।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C08_P97_Q02",
+    "chapter_num": 8,
+    "chapter_title": "Grouping and Sharing",
+    "topic": "Candles in Boxes (27 ÷ 3)",
+    "page_book": 97,
+    "question_en": "There are 27 candles. If they are packed equally into 3 boxes, how many candles will be in each box?",
+    "question_hi": "यहाँ 27 मोमबत्तियाँ हैं। यदि उन्हें 3 डिब्बों में बराबर पैक किया जाए, तो प्रत्येक डिब्बे में कितनी मोमबत्तियाँ होंगी?",
+    "option_a": "9 candles",
+    "option_b": "8 candles",
+    "option_c": "7 candles",
+    "option_d": "10 candles",
+    "correct_option": "A",
+    "explanation_en": "27 ÷ 3 = 9 candles per box (3 × 9 = 27).",
+    "explanation_hi": "27 ÷ 3 = 9 मोमबत्तियाँ प्रत्येक डिब्बे में।",
     "difficulty": "Easy"
   },
   {
@@ -1700,6 +3383,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C09_P98_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Rainy Season Animals",
+    "page_book": 98,
+    "question_en": "According to the textbook poem, which bird dances with joy and which creature hops when raindrops fall in the rainy season?",
+    "question_hi": "पाठ्यपुस्तक की कविता के अनुसार, बारिश की बूँदें गिरने पर कौन सा पक्षी नाचता है और कौन सा जीव फुदकता है?",
+    "option_a": "Peacock dances and frog hops",
+    "option_b": "Crow dances and cat hops",
+    "option_c": "Sparrow dances and elephant hops",
+    "option_d": "Parrot dances and dog hops",
+    "correct_option": "A",
+    "explanation_en": "The poem says: 'Peacock dances and the frog hops' when rainy season comes.",
+    "explanation_hi": "कविता के अनुसार: मोर नाचता है और मेंढक फुदकता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C09_P99_Q01",
     "chapter_num": 9,
     "chapter_title": "Which Season is it?",
@@ -1714,6 +3414,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Woollen clothes are worn during winter to keep our body warm.",
     "explanation_hi": "सर्दी के मौसम में ठंड से बचने के लिए ऊनी कपड़े पहने जाते हैं।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C09_P99_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Autumn Season (Falling Leaves)",
+    "page_book": 99,
+    "question_en": "In which season do many trees shed their old leaves and leaves fall on the ground?",
+    "question_hi": "किस मौसम में पेड़ों से पुराने पत्ते झड़कर जमीन पर गिरते हैं?",
+    "option_a": "Autumn season (Patjhad)",
+    "option_b": "Peak Summer",
+    "option_c": "Heavy Monsoon",
+    "option_d": "Freezing Cold only",
+    "correct_option": "A",
+    "explanation_en": "Autumn (पतझड़) is the season when deciduous trees shed their leaves.",
+    "explanation_hi": "पतझड़ (Autumn) के मौसम में पेड़ों की पत्तियां झड़ती हैं।",
     "difficulty": "Easy"
   },
   {
@@ -1734,6 +3451,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C09_P100_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Winter Festivals",
+    "page_book": 100,
+    "question_en": "Which of the following festivals falls during the Winter season?",
+    "question_hi": "इनमें से कौन सा त्योहार शीत ऋतु (Winter) में मनाया जाता है?",
+    "option_a": "Christmas / Lohri / Republic Day",
+    "option_b": "Holi",
+    "option_c": "Baisakhi",
+    "option_d": "Gudi Padwa",
+    "correct_option": "A",
+    "explanation_en": "Christmas (December) and Lohri/Republic Day (January) are celebrated during winter.",
+    "explanation_hi": "क्रिसमस (दिसंबर) और लोहड़ी/गणतंत्र दिवस (जनवरी) सर्दियों में आते हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C09_P101_Q01",
     "chapter_num": 9,
     "chapter_title": "Which Season is it?",
@@ -1748,6 +3482,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "A week has 7 days. 1 + 7 = 8th date.",
     "explanation_hi": "सप्ताह में 7 दिन होते हैं, इसलिए 1 + 7 = 8 तारीख को अगला रविवार होगा।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C09_P101_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Days of the Week Sequence",
+    "page_book": 101,
+    "question_en": "Which day comes immediately after Friday in a weekly calendar?",
+    "question_hi": "कैलेंडर में शुक्रवार (Friday) के ठीक बाद कौन सा दिन आता है?",
+    "option_a": "Saturday (Shanivar)",
+    "option_b": "Sunday",
+    "option_c": "Thursday",
+    "option_d": "Wednesday",
+    "correct_option": "A",
+    "explanation_en": "The days of the week in order are Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.",
+    "explanation_hi": "शुक्रवार के ठीक बाद शनिवार आता है।",
     "difficulty": "Easy"
   },
   {
@@ -1768,6 +3519,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C09_P102_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Days in February",
+    "page_book": 102,
+    "question_en": "How many days does the month of February usually have in an ordinary year?",
+    "question_hi": "सामान्य वर्ष में फरवरी के महीने में कितने दिन होते हैं?",
+    "option_a": "28 days",
+    "option_b": "30 days",
+    "option_c": "31 days",
+    "option_d": "25 days",
+    "correct_option": "A",
+    "explanation_en": "February has 28 days in a standard year and 29 days in a leap year.",
+    "explanation_hi": "सामान्य वर्ष में फरवरी में 28 दिन (और लीप वर्ष में 29 दिन) होते हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C09_P103_Q01",
     "chapter_num": 9,
     "chapter_title": "Which Season is it?",
@@ -1782,6 +3550,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Blinking eyes takes seconds; knitting takes days/weeks, and vacations take months.",
     "explanation_hi": "पलक झपकाना या चुटकी बजाना केवल कुछ सेकंड में होता है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C09_P103_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Activities Taking Months",
+    "page_book": 103,
+    "question_en": "Which activity takes several MONTHS to complete?",
+    "question_hi": "इनमें से कौन सा काम पूरा होने में कई 'महीने' (months) का समय लगता है?",
+    "option_a": "Wheat crop growing from seed to harvest / Summer vacation",
+    "option_b": "Drinking a glass of water",
+    "option_c": "Clapping hands",
+    "option_d": "Brushing teeth",
+    "correct_option": "A",
+    "explanation_en": "Farming crops and season changes take months, whereas drinking water takes minutes.",
+    "explanation_hi": "फसल पकने और ऋतु चक्र बदलने में कई महीने लगते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -1802,6 +3587,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C09_P104_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Morning Sightseeing Time",
+    "page_book": 104,
+    "question_en": "The family plans to visit Mangalagiri hills at 11:00 in the morning. Which part of the day is 11:00 AM?",
+    "question_hi": "परिवार सुबह 11:00 बजे मंगलगिरि पहाड़ी घूमने जाने की योजना बनाता है। सुबह 11:00 बजे दिन का कौन सा भाग होता है?",
+    "option_a": "Morning (सुबह)",
+    "option_b": "Night (रात)",
+    "option_c": "Evening (शाम)",
+    "option_d": "Midnight (मध्यरात्रि)",
+    "correct_option": "A",
+    "explanation_en": "11:00 AM is late morning, before noon.",
+    "explanation_hi": "11:00 AM सुबह (Morning) का समय होता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C09_P105_Q01",
     "chapter_num": 9,
     "chapter_title": "Which Season is it?",
@@ -1819,6 +3621,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C09_P105_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Duration of Sightseeing Trip",
+    "page_book": 105,
+    "question_en": "If the family leaves for the fort at 9:00 AM and returns after 8 hours, what time will they come back?",
+    "question_hi": "यदि परिवार सुबह 9:00 बजे किले के लिए निकला और 8 घंटे बाद लौटा, तो वे कितने बजे वापस आएंगे?",
+    "option_a": "5:00 PM in the evening",
+    "option_b": "4:00 PM",
+    "option_c": "6:00 PM",
+    "option_d": "8:00 PM",
+    "correct_option": "A",
+    "explanation_en": "9 + 8 hours = 17:00 (5:00 PM in the evening).",
+    "explanation_hi": "सुबह 9:00 से 8 घंटे बाद शाम के 5:00 बजे होंगे।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C09_P106_Q01",
     "chapter_num": 9,
     "chapter_title": "Which Season is it?",
@@ -1833,6 +3652,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Saturday, Sunday, Monday, and Tuesday = 4 days.",
     "explanation_hi": "शनिवार, रविवार, सोमवार और मंगलवार मिलाकर कुल 4 दिन।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C09_P106_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Day Before and Day After",
+    "page_book": 106,
+    "question_en": "Which day of the week comes immediately BEFORE Saturday?",
+    "question_hi": "शनिवार (Saturday) से ठीक पहले कौन सा दिन आता है?",
+    "option_a": "Friday (Shukravar)",
+    "option_b": "Sunday",
+    "option_c": "Thursday",
+    "option_d": "Monday",
+    "correct_option": "A",
+    "explanation_en": "Friday immediately precedes Saturday.",
+    "explanation_hi": "शनिवार से ठीक पहले शुक्रवार आता है।",
     "difficulty": "Easy"
   },
   {
@@ -1853,6 +3689,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C09_P107_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Gargi's Evening Play Time",
+    "page_book": 107,
+    "question_en": "At what time in the evening does Gargi go to the playground to play with her friends?",
+    "question_hi": "गार्गी शाम को कितने बजे अपने दोस्तों के साथ मैदान में खेलने जाती है?",
+    "option_a": "5:00 in the evening",
+    "option_b": "12:00 midnight",
+    "option_c": "2:00 in the night",
+    "option_d": "6:00 in the morning",
+    "correct_option": "A",
+    "explanation_en": "Children usually play outdoors in the evening around 5:00 PM.",
+    "explanation_hi": "शाम को 5:00 बजे खेल का समय होता है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C09_P108_Q01",
     "chapter_num": 9,
     "chapter_title": "Which Season is it?",
@@ -1867,6 +3720,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "The shorter hand is the hour hand and the longer hand is the minute hand.",
     "explanation_hi": "छोटी सुई घंटे (Hours) और बड़ी सुई मिनट (Minutes) बताती है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C09_P108_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Reading Exact Hour on Clock",
+    "page_book": 108,
+    "question_en": "When the long minute hand points to 12 and the short hour hand points to 3, what is the exact time?",
+    "question_hi": "जब बड़ी सुई 12 पर हो और छोटी सुई 3 पर हो, तो घड़ी में कितना समय हुआ है?",
+    "option_a": "3 O'clock",
+    "option_b": "12 O'clock",
+    "option_c": "3:12",
+    "option_d": "15 minutes past 12",
+    "correct_option": "A",
+    "explanation_en": "Minute hand at 12 and hour hand at 3 means exactly 3 O'clock.",
+    "explanation_hi": "बड़ी सुई 12 पर और छोटी 3 पर होने का मतलब ठीक 3 बजे (3 O'clock) है।",
     "difficulty": "Easy"
   },
   {
@@ -1887,6 +3757,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C09_P109_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Grandparents Age Comparison",
+    "page_book": 109,
+    "question_en": "Grandpa is 65 years old and Grandma is 60 years old. How many years older is Grandpa than Grandma?",
+    "question_hi": "दादाजी 65 वर्ष के हैं और दादीजी 60 वर्ष की हैं। दादाजी दादीजी से कितने वर्ष बड़े हैं?",
+    "option_a": "5 years",
+    "option_b": "10 years",
+    "option_c": "15 years",
+    "option_d": "2 years",
+    "correct_option": "A",
+    "explanation_en": "65 − 60 = 5 years older.",
+    "explanation_hi": "65 − 60 = 5 वर्ष बड़े हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C09_P110_Q01",
     "chapter_num": 9,
     "chapter_title": "Which Season is it?",
@@ -1901,6 +3788,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Following navigation paths relies on spatial turns: straight, left, and right.",
     "explanation_hi": "रास्ता खोजने के लिए दिशाओं (सीधे, बाएं, दाएं) का ज्ञान आवश्यक है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C09_P110_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Modern Navigation Tools",
+    "page_book": 110,
+    "question_en": "What tool on a mobile smartphone is commonly used today to find routes and directions to a place?",
+    "question_hi": "आजकल किसी स्थान का रास्ता और दिशा खोजने के लिए मोबाइल फोन में किस ऐप का उपयोग किया जाता है?",
+    "option_a": "Maps / GPS Navigation app",
+    "option_b": "Calculator",
+    "option_c": "Alarm clock",
+    "option_d": "Gallery",
+    "correct_option": "A",
+    "explanation_en": "Map apps help navigate roads and find destinations.",
+    "explanation_hi": "मैप (मानचित्र) ऐप रास्तों और दिशाओं का पता लगाने के लिए उपयोग होते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -1921,6 +3825,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C09_P111_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Left Arm Direction Facing Rising Sun",
+    "page_book": 111,
+    "question_en": "When you face the rising Sun in the morning, which direction does your LEFT hand point towards?",
+    "question_hi": "सुबह उगते सूरज की ओर मुंह करके खड़े होने पर आपका बायाँ (Left) हाथ किस दिशा की ओर संकेत करता है?",
+    "option_a": "North (Uttar)",
+    "option_b": "South (Dakshin)",
+    "option_c": "West (Pashchim)",
+    "option_d": "East (Poorv)",
+    "correct_option": "A",
+    "explanation_en": "Facing East, your left arm points North and your right arm points South.",
+    "explanation_hi": "पूर्व की ओर मुंह करने पर बायां हाथ उत्तर (North) दिशा की ओर होता है।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C09_P112_Q01",
     "chapter_num": 9,
     "chapter_title": "Which Season is it?",
@@ -1935,6 +3856,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "The marked magnetic needle of a compass always aligns itself pointing towards the North direction.",
     "explanation_hi": "कम्पास की सुई हमेशा उत्तर (North) दिशा की ओर ठहरती है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C09_P112_Q02",
+    "chapter_num": 9,
+    "chapter_title": "Which Season is it?",
+    "topic": "Opposite Directions",
+    "page_book": 112,
+    "question_en": "Which direction is directly OPPOSITE to North on a map or compass?",
+    "question_hi": "मानचित्र या कम्पास पर उत्तर (North) दिशा के ठीक विपरीत (सामने) कौन सी दिशा होती है?",
+    "option_a": "South (Dakshin)",
+    "option_b": "East (Poorv)",
+    "option_c": "West (Pashchim)",
+    "option_d": "North-West",
+    "correct_option": "A",
+    "explanation_en": "South is directly opposite to North (and West is opposite to East).",
+    "explanation_hi": "उत्तर के ठीक सामने दक्षिण (South) दिशा होती है।",
     "difficulty": "Easy"
   },
   {
@@ -1955,6 +3893,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C10_P113_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Fair Rides Tickets Cost",
+    "page_book": 113,
+    "question_en": "If a toy train ride costs ₹15 and a giant wheel costs ₹25, how much total money is needed to enjoy both rides?",
+    "question_hi": "यदि टॉय ट्रेन की टिकट ₹15 और बड़े झूले की टिकट ₹25 है, तो दोनों झूलों के लिए कुल कितने रुपये चाहिए?",
+    "option_a": "₹40",
+    "option_b": "₹35",
+    "option_c": "₹50",
+    "option_d": "₹45",
+    "correct_option": "A",
+    "explanation_en": "₹15 + ₹25 = ₹40.",
+    "explanation_hi": "₹15 + ₹25 = ₹40।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C10_P114_Q01",
     "chapter_num": 10,
     "chapter_title": "Fun at the Fair",
@@ -1969,6 +3924,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Amount spent = Total money − Money left = ₹50 − ₹8 = ₹42.",
     "explanation_hi": "खर्च किए गए रुपये = ₹50 − ₹8 = ₹42।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C10_P114_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Counting Money in Steps",
+    "page_book": 114,
+    "question_en": "To find how much money was spent from ₹50 leaving ₹8, Rupal's friend counted in steps: 8 + 20 = 28, 28 + 20 = 48, and 48 + 2 = 50. What is 20 + 20 + 2?",
+    "question_hi": "रूपाली की सहेली ने चरणों में गिना: 8 + 20 = 28, 28 + 20 = 48, और 48 + 2 = 50। कुल खर्च (20 + 20 + 2) कितना हुआ?",
+    "option_a": "₹42",
+    "option_b": "₹40",
+    "option_c": "₹44",
+    "option_d": "₹50",
+    "correct_option": "A",
+    "explanation_en": "20 + 20 + 2 = ₹42.",
+    "explanation_hi": "20 + 20 + 2 = 42 रुपये।",
     "difficulty": "Easy"
   },
   {
@@ -1989,6 +3961,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C10_P115_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Common Indian Currency Notes",
+    "page_book": 115,
+    "question_en": "Which of the following is a genuine Indian currency paper note?",
+    "question_hi": "इनमें से कौन सा एक प्रामाणिक भारतीय कागज़ी नोट है?",
+    "option_a": "₹20 note",
+    "option_b": "₹25 note",
+    "option_c": "₹30 note",
+    "option_d": "₹40 note",
+    "correct_option": "A",
+    "explanation_en": "Indian currency notes include ₹10, ₹20, ₹50, ₹100, ₹200, and ₹500.",
+    "explanation_hi": "भारत में ₹10, ₹20, ₹50, ₹100, ₹200 और ₹500 के नोट चलते हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C10_P116_Q01",
     "chapter_num": 10,
     "chapter_title": "Fun at the Fair",
@@ -2003,6 +3992,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "The note shows the numeric value 500 prominently and writes 'Five Hundred Rupees' in words in multiple official languages.",
     "explanation_hi": "नोट पर अंकों में '500' और शब्दों में 'पाँच सौ रुपये' स्पष्ट रूप से लिखा होता है।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C10_P116_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Portrait on Indian Currency Notes",
+    "page_book": 116,
+    "question_en": "Whose portrait is printed on all modern Indian paper currency notes?",
+    "question_hi": "सभी आधुनिक भारतीय कागजी नोटों पर किसका चित्र अंकित होता है?",
+    "option_a": "Mahatma Gandhi",
+    "option_b": "Jawaharlal Nehru",
+    "option_c": "Subhash Chandra Bose",
+    "option_d": "Bhagat Singh",
+    "correct_option": "A",
+    "explanation_en": "Mahatma Gandhi's portrait is featured on modern Indian banknotes.",
+    "explanation_hi": "भारतीय नोटों पर राष्ट्रपिता महात्मा गांधी का चित्र छपा होता है।",
     "difficulty": "Easy"
   },
   {
@@ -2023,6 +4029,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C10_P117_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Making ₹1 with 50 Paise Coins",
+    "page_book": 117,
+    "question_en": "How many 50-paise coins make 1 Rupee (100 paise)?",
+    "question_hi": "50 पैसे के कितने सिक्के मिलकर 1 रुपया बनाते हैं?",
+    "option_a": "2 coins",
+    "option_b": "4 coins",
+    "option_c": "5 coins",
+    "option_d": "1 coin",
+    "correct_option": "A",
+    "explanation_en": "50 + 50 = 100 paise = ₹1 (two 50-paise coins).",
+    "explanation_hi": "50 + 50 = 100 पैसे = 1 रुपया (2 सिक्के)।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C10_P118_Q01",
     "chapter_num": 10,
     "chapter_title": "Fun at the Fair",
@@ -2037,6 +4060,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "₹10 + ₹15 + ₹20 = ₹45 total prize money.",
     "explanation_hi": "₹10 + ₹15 + ₹20 = ₹45 जीते।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C10_P118_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Cost of Playing Balloon Game",
+    "page_book": 118,
+    "question_en": "The ticket for 'Pop the Balloon' gives 3 chances for ₹10. If Matru plays the game twice (6 chances), how much will he pay?",
+    "question_hi": "गुब्बारा फोड़ने के खेल में ₹10 में 3 मौके मिलते हैं। यदि माटरू दो बार खेलता है (6 मौके), तो वह कितने रुपये देगा?",
+    "option_a": "₹20",
+    "option_b": "₹15",
+    "option_c": "₹30",
+    "option_d": "₹10",
+    "correct_option": "A",
+    "explanation_en": "₹10 × 2 = ₹20.",
+    "explanation_hi": "₹10 + ₹10 = ₹20।",
     "difficulty": "Easy"
   },
   {
@@ -2057,6 +4097,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C10_P119_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Four Chances Prize Total",
+    "page_book": 119,
+    "question_en": "If Matru had 4 chances and popped balloons worth ₹17, ₹22, ₹31, and ₹10, what was his total prize won?",
+    "question_hi": "यदि माटरू को 4 मौके मिले और उसने ₹17, ₹22, ₹31 और ₹10 वाले गुब्बारे फोड़े, तो उसका कुल इनाम कितना हुआ?",
+    "option_a": "₹80",
+    "option_b": "₹70",
+    "option_c": "₹75",
+    "option_d": "₹85",
+    "correct_option": "A",
+    "explanation_en": "17 + 22 + 31 + 10 = ₹80.",
+    "explanation_hi": "17 + 22 + 31 + 10 = ₹80।",
+    "difficulty": "Medium"
+  },
+  {
     "id": "M2_C10_P120_Q01",
     "chapter_num": 10,
     "chapter_title": "Fun at the Fair",
@@ -2071,6 +4128,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "50 + 10 + 5 + 1 = ₹66.",
     "explanation_hi": "₹50 + ₹10 + ₹5 + ₹1 = ₹66।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C10_P120_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Making ₹54 with Notes and Coins",
+    "page_book": 120,
+    "question_en": "Which combination makes exactly ₹54?",
+    "question_hi": "कौन सा संयोजन ठीक ₹54 बनाता है?",
+    "option_a": "One ₹50 note and two ₹2 coins (50 + 2 + 2)",
+    "option_b": "Five ₹10 notes and one ₹5 coin",
+    "option_c": "Two ₹20 notes only",
+    "option_d": "One ₹50 note and one ₹5 coin",
+    "correct_option": "A",
+    "explanation_en": "₹50 + ₹2 + ₹2 = ₹54.",
+    "explanation_hi": "₹50 + ₹2 + ₹2 = ₹54।",
     "difficulty": "Easy"
   },
   {
@@ -2091,6 +4165,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C10_P121_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Buying Ball and Pencil",
+    "page_book": 121,
+    "question_en": "A play ball costs ₹20 and a pencil costs ₹3. How much money do both items cost together?",
+    "question_hi": "एक गेंद की कीमत ₹20 और पेंसिल की कीमत ₹3 है। दोनों वस्तुओं की कुल कीमत कितनी होगी?",
+    "option_a": "₹23",
+    "option_b": "₹25",
+    "option_c": "₹17",
+    "option_d": "₹26",
+    "correct_option": "A",
+    "explanation_en": "₹20 + ₹3 = ₹23.",
+    "explanation_hi": "₹20 + ₹3 = ₹23।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C10_P122_Q01",
     "chapter_num": 10,
     "chapter_title": "Fun at the Fair",
@@ -2105,6 +4196,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "18 + 32: 8 + 2 = 10 (1 carry); 1 + 3 + 1 = 5; total = ₹50.",
     "explanation_hi": "₹18 + ₹32 = ₹50।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C10_P122_Q02",
+    "chapter_num": 10,
+    "chapter_title": "Fun at the Fair",
+    "topic": "Adding Currency (₹47 + ₹50)",
+    "page_book": 122,
+    "question_en": "Solve the textbook addition: ₹47 + ₹50 = ?",
+    "question_hi": "किताब का जोड़ हल करें: ₹47 + ₹50 = ?",
+    "option_a": "₹97",
+    "option_b": "₹87",
+    "option_c": "₹90",
+    "option_d": "₹95",
+    "correct_option": "A",
+    "explanation_en": "47 + 50 = ₹97.",
+    "explanation_hi": "₹47 + ₹50 = ₹97।",
     "difficulty": "Easy"
   },
   {
@@ -2125,6 +4233,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C11_P123_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Least Liked Colour",
+    "page_book": 123,
+    "question_en": "From the same table (Red: 9, Green: 4, Blue: 12, Yellow: 7), which colour was liked by the LEAST number of children?",
+    "question_hi": "उसी तालिका (लाल: 9, हरा: 4, नीला: 12, पीला: 7) में सबसे कम बच्चों द्वारा कौन सा रंग पसंद किया गया?",
+    "option_a": "Green (4 children)",
+    "option_b": "Red",
+    "option_c": "Yellow",
+    "option_d": "Blue",
+    "correct_option": "A",
+    "explanation_en": "Green has the lowest number of votes (4 children).",
+    "explanation_hi": "हरे रंग को सबसे कम केवल 4 बच्चों ने पसंद किया।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C11_P124_Q01",
     "chapter_num": 11,
     "chapter_title": "Data Handling and Puzzles",
@@ -2139,6 +4264,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "15 bananas − 8 apples = 7 more children ate bananas.",
     "explanation_hi": "15 − 8 = 7 अधिक बच्चों ने केले खाए।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C11_P124_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Total Fruits Eaten at Picnic",
+    "page_book": 124,
+    "question_en": "How many children ate fruit in total if 8 ate apples, 15 ate bananas, and 10 ate oranges?",
+    "question_hi": "यदि 8 बच्चों ने सेब, 15 ने केले और 10 ने संतरे खाए, तो कुल कितने बच्चों ने फल खाए?",
+    "option_a": "33 children",
+    "option_b": "30 children",
+    "option_c": "35 children",
+    "option_d": "28 children",
+    "correct_option": "A",
+    "explanation_en": "8 + 15 + 10 = 33 children.",
+    "explanation_hi": "8 + 15 + 10 = 33 बच्चे।",
     "difficulty": "Easy"
   },
   {
@@ -2159,6 +4301,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C11_P125_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Most Common Mode of Transport",
+    "page_book": 125,
+    "question_en": "From the school travel data (Walking: 14, Bicycle: 8, Bus: 20, Auto: 6), which mode of coming to school is used by the MOST students?",
+    "question_hi": "स्कूल आने के साधनों में सबसे अधिक विद्यार्थी किस साधन से आते हैं?",
+    "option_a": "School Bus (20 students)",
+    "option_b": "Walking",
+    "option_c": "Bicycle",
+    "option_d": "Auto",
+    "correct_option": "A",
+    "explanation_en": "School Bus has the highest number of students (20).",
+    "explanation_hi": "स्कूल बस से सबसे ज्यादा 20 विद्यार्थी आते हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C11_P126_Q01",
     "chapter_num": 11,
     "chapter_title": "Data Handling and Puzzles",
@@ -2173,6 +4332,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "Each smiley = 1 student, so 7 students need 7 smileys.",
     "explanation_hi": "1 स्माइली = 1 विद्यार्थी, अतः 7 विद्यार्थियों के लिए 7 स्माइली बनेंगे।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C11_P126_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Reading Smiley Symbols",
+    "page_book": 126,
+    "question_en": "If a row in a pictograph has 5 smileys (where 😊 = 1 student), how many students does that row represent?",
+    "question_hi": "यदि चित्रालेख की एक पंक्ति में 5 स्माइली बने हों (जहाँ 😊 = 1 छात्र), तो वह पंक्ति कितने छात्रों को दर्शाती है?",
+    "option_a": "5 students",
+    "option_b": "10 students",
+    "option_c": "1 student",
+    "option_d": "15 students",
+    "correct_option": "A",
+    "explanation_en": "5 smileys × 1 student each = 5 students.",
+    "explanation_hi": "5 स्माइली = 5 विद्यार्थी।",
     "difficulty": "Easy"
   },
   {
@@ -2193,6 +4369,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C11_P127_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Most Popular Game",
+    "page_book": 127,
+    "question_en": "From the games table (Cricket: 10, Football: 8, Kho-Kho: 12, Kabaddi: 6), which game has the HIGHEST number of players?",
+    "question_hi": "खेलों की तालिका में सबसे अधिक खिलाड़ी किस खेल के हैं?",
+    "option_a": "Kho-Kho (12 children)",
+    "option_b": "Cricket",
+    "option_c": "Football",
+    "option_d": "Kabaddi",
+    "correct_option": "A",
+    "explanation_en": "Kho-Kho has 12 players, which is the highest in the group.",
+    "explanation_hi": "खो-खो में सबसे ज्यादा 12 बच्चे हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C11_P128_Q01",
     "chapter_num": 11,
     "chapter_title": "Data Handling and Puzzles",
@@ -2207,6 +4400,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "5 + 11 = 16 children.",
     "explanation_hi": "5 + 11 = 16 बच्चे।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C11_P128_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Difference in Vegetable Votes",
+    "page_book": 128,
+    "question_en": "How many MORE votes did Carrot (11 votes) receive than Spinach (5 votes)?",
+    "question_hi": "गाजर (11 वोट) को पालक (5 वोट) से कितने अधिक वोट मिले?",
+    "option_a": "6 more votes",
+    "option_b": "5 more votes",
+    "option_c": "7 more votes",
+    "option_d": "16 more votes",
+    "correct_option": "A",
+    "explanation_en": "11 − 5 = 6 more votes.",
+    "explanation_hi": "11 − 5 = 6 अधिक वोट।",
     "difficulty": "Easy"
   },
   {
@@ -2227,6 +4437,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C11_P129_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Joint Family Concept",
+    "page_book": 129,
+    "question_en": "When children live in a house together with their parents and grandparents, what is such a family called?",
+    "question_hi": "जब बच्चे अपने माता-पिता और दादा-दादी के साथ एक ही घर में रहते हैं, तो ऐसे परिवार को क्या कहा जाता है?",
+    "option_a": "Joint Family (संयुक्त परिवार)",
+    "option_b": "Nuclear family only",
+    "option_c": "Single person family",
+    "option_d": "Temporary family",
+    "correct_option": "A",
+    "explanation_en": "A family with parents, grandparents, and children living together is a joint family.",
+    "explanation_hi": "माता-पिता और दादा-दादी के साथ रहने वाले परिवार को संयुक्त परिवार कहते हैं।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C11_P130_Q01",
     "chapter_num": 11,
     "chapter_title": "Data Handling and Puzzles",
@@ -2241,6 +4468,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "The puzzle requires connecting each pair such that paths do not cross or touch each other.",
     "explanation_hi": "जोड़ने वाली रेखाएं कभी एक-दूसरे को काटेंगी या छुएंगी नहीं।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C11_P130_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Pattern Sum Puzzle",
+    "page_book": 130,
+    "question_en": "Complete the puzzle: 2 + 1 = 3, 3 + 1 = 4. What is 4 + 1?",
+    "question_hi": "पैटर्न पूरा करें: 2 + 1 = 3, 3 + 1 = 4। 4 + 1 का मान क्या होगा?",
+    "option_a": "5",
+    "option_b": "6",
+    "option_c": "4",
+    "option_d": "3",
+    "correct_option": "A",
+    "explanation_en": "4 + 1 = 5.",
+    "explanation_hi": "4 + 1 = 5।",
     "difficulty": "Easy"
   },
   {
@@ -2261,6 +4505,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C11_P131_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Doubling Numbers",
+    "page_book": 131,
+    "question_en": "In the math magic trick, what does 'Double that number' mean mathematically?",
+    "question_hi": "गणित के जादू में 'संख्या को दोगुना करने' का क्या अर्थ है?",
+    "option_a": "Multiply the number by 2 (or add the number to itself)",
+    "option_b": "Divide the number by 2",
+    "option_c": "Add 2 to the number",
+    "option_d": "Subtract 2",
+    "correct_option": "A",
+    "explanation_en": "Doubling a number means multiplying it by 2 (e.g. double of 5 is 10).",
+    "explanation_hi": "दोगुना करने का अर्थ है 2 से गुणा करना (जैसे 5 का दोगुना 10)।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C11_P132_Q01",
     "chapter_num": 11,
     "chapter_title": "Data Handling and Puzzles",
@@ -2278,6 +4539,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C11_P132_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Number Names Search (11 to 20)",
+    "page_book": 132,
+    "question_en": "In the word search puzzle on page 132, which number name spells out 'S-I-X-T-E-E-N'?",
+    "question_hi": "पेज 132 की शब्द पहेली में 'S-I-X-T-E-E-N' किस संख्या का नाम है?",
+    "option_a": "16",
+    "option_b": "60",
+    "option_c": "6",
+    "option_d": "19",
+    "correct_option": "A",
+    "explanation_en": "SIXTEEN is the number name for 16.",
+    "explanation_hi": "SIXTEEN संख्या 16 का नाम है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C11_P133_Q01",
     "chapter_num": 11,
     "chapter_title": "Data Handling and Puzzles",
@@ -2292,6 +4570,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "A square has 4 equal straight sides, requiring 4 matchsticks.",
     "explanation_hi": "वर्ग में 4 भुजाएं होती हैं, इसलिए 4 तीलियां चाहिए।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C11_P133_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Cat Returning to House (Number of Paths)",
+    "page_book": 133,
+    "question_en": "The cat puzzle shows 6 numbered door paths (1 to 6) leading into the house. How many different doors can the cat enter through?",
+    "question_hi": "बिल्ली की पहेली में घर जाने के 6 क्रमांकित दरवाजे (1 से 6) दिखाए गए हैं। बिल्ली कितने अलग-अलग रास्तों से घर जा सकती है?",
+    "option_a": "6 different ways",
+    "option_b": "3 ways",
+    "option_c": "4 ways",
+    "option_d": "12 ways",
+    "correct_option": "A",
+    "explanation_en": "With 6 doors available, there are 6 distinct ways.",
+    "explanation_hi": "6 क्रमांकित रास्तों के कारण कुल 6 रास्ते हैं।",
     "difficulty": "Easy"
   },
   {
@@ -2312,6 +4607,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Easy"
   },
   {
+    "id": "M2_C11_P134_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Two-Digit Numbers Using Same Digit",
+    "page_book": 134,
+    "question_en": "Which of the following is a two-digit number made by using only ONE digit repeated?",
+    "question_hi": "केवल एक ही अंक को दोहराकर बनने वाली दो अंकों की संख्या कौन सी है?",
+    "option_a": "44 (using only digit 4)",
+    "option_b": "45",
+    "option_c": "40",
+    "option_d": "54",
+    "correct_option": "A",
+    "explanation_en": "Numbers like 11, 22, 33, 44... use only one digit repeated in both tens and ones places.",
+    "explanation_hi": "44 में दोनों स्थानों पर केवल अंक 4 का प्रयोग हुआ है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C11_P135_Q01",
     "chapter_num": 11,
     "chapter_title": "Data Handling and Puzzles",
@@ -2326,6 +4638,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "correct_option": "A",
     "explanation_en": "The first animal encountered on the path was the squirrel.",
     "explanation_hi": "रास्ते में जिराफ को सबसे पहले गिलहरी मिली।",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C11_P135_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Third Animal on Path",
+    "page_book": 135,
+    "question_en": "Following the order on the path (Squirrel 1st, Zebra 2nd, Bird 3rd), which animal was in THIRD position?",
+    "question_hi": "रास्ते में जिराफ को तीसरे (3rd) स्थान पर कौन सा जीव मिला?",
+    "option_a": "Bird (Chidiya)",
+    "option_b": "Squirrel",
+    "option_c": "Zebra",
+    "option_d": "Lion",
+    "correct_option": "A",
+    "explanation_en": "The third animal on the route is the bird.",
+    "explanation_hi": "तीसरे स्थान पर चिड़िया मिली।",
     "difficulty": "Easy"
   },
   {
@@ -2346,6 +4675,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "difficulty": "Medium"
   },
   {
+    "id": "M2_C11_P136_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Number Bonds for 9",
+    "page_book": 136,
+    "question_en": "In the number wheel puzzle on page 136, which expression ALSO equals 9?",
+    "question_hi": "पेज 136 के संख्या चक्र में, कौन सा विकल्प भी 9 के बराबर है?",
+    "option_a": "18 − 9 and 6 + 3",
+    "option_b": "10 + 2",
+    "option_c": "15 − 3",
+    "option_d": "4 + 4",
+    "correct_option": "A",
+    "explanation_en": "18 − 9 = 9 and 6 + 3 = 9. Both give the target number 9.",
+    "explanation_hi": "18 − 9 = 9 और 6 + 3 = 9 दोनों का मान 9 है।",
+    "difficulty": "Easy"
+  },
+  {
     "id": "M2_C11_P137_Q01",
     "chapter_num": 11,
     "chapter_title": "Data Handling and Puzzles",
@@ -2361,6 +4707,23 @@ export const NCERT_CLASS2_MATHS_QUESTIONS = [
     "explanation_en": "Letter 'A' has vertical mirror symmetry, so its half reflection reconstructs the full letter A.",
     "explanation_hi": "अक्षर 'A' में ऊर्ध्वाधर सममिति होती है, इसलिए दर्पण में यह पूरा 'A' ही दिखेगा।",
     "difficulty": "Easy"
+  },
+  {
+    "id": "M2_C11_P137_Q02",
+    "chapter_num": 11,
+    "chapter_title": "Data Handling and Puzzles",
+    "topic": "Cutting Cloth Puzzle",
+    "page_book": 137,
+    "question_en": "Riddle from page 137: 'A tailor wants to cut a 6-meter-long cloth into 1-meter pieces. If he makes one cut each time, how many CUTS are needed in total?'",
+    "question_hi": "पेज 137 की पहेली: 'एक दर्जी 6 मीटर लंबे कपड़े को 1-1 मीटर के टुकड़ों में काटना चाहता है। 1-1 मीटर के टुकड़े अलग करने के लिए उसे कुल कितनी बार कैंची चलानी (cuts) पड़ेगी?'",
+    "option_a": "5 cuts",
+    "option_b": "6 cuts",
+    "option_c": "7 cuts",
+    "option_d": "4 cuts",
+    "correct_option": "A",
+    "explanation_en": "Cutting 5 times produces 6 pieces of 1 meter each. The 5th cut separates both the 5th and 6th pieces simultaneously!",
+    "explanation_hi": "5 बार काटने पर ही 6 टुकड़े बन जाते हैं; 5वें कट पर अंतिम दोनों टुकड़े अलग हो जाते हैं!",
+    "difficulty": "Medium"
   }
 ];
 export default NCERT_CLASS2_MATHS_QUESTIONS;

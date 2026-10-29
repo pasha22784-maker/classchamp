@@ -1,5 +1,6 @@
 // Chapter 3: Fun with Numbers (Numbers 1 to 100) - Pages 23 to 31
 module.exports = [
+  // Page 23
   {
     id: "M2_C03_P23_Q01",
     chapter_num: 3,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C03_P23_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Locating Beads on Ginladi",
+    page_book: 23,
+    question_en: "To locate bead number 22 on the Ginladi, you count past 2 full groups of 10 beads, and then count how many more beads?",
+    question_hi: "गिनलाड़ी पर 22वें मनके तक पहुँचने के लिए 10-10 के 2 पूरे समूह गिनने के बाद कितने और मनके गिनेंगे?",
+    option_a: "2 more beads",
+    option_b: "5 more beads",
+    option_c: "10 more beads",
+    option_d: "1 more bead",
+    correct_option: "A",
+    explanation_en: "22 = 2 tens (20) + 2 more beads.",
+    explanation_hi: "22 = 20 मनके + 2 और मनके।",
+    difficulty: "Easy"
+  },
+
+  // Page 24
+  {
     id: "M2_C03_P24_Q01",
     chapter_num: 3,
     chapter_title: "Fun with Numbers",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "50 और 60 के बीच समान अंकों वाली एकमात्र संख्या 55 है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C03_P24_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Yes/No Questioning Strategy",
+    page_book: 24,
+    question_en: "In the 'Guess My Number' game, which question helps you cut the numbers from 1 to 100 into half immediately?",
+    question_hi: "'गेस माय नंबर' खेल में 1 से 100 की संख्याओं को तुरंत आधा करने में कौन सा प्रश्न मदद करता है?",
+    option_a: "Is the number more than 50?",
+    option_b: "Is the number 7?",
+    option_c: "Is the number blue?",
+    option_d: "Is the number heavy?",
+    correct_option: "A",
+    explanation_en: "Asking 'Is it more than 50?' narrows down the search to either 1-50 or 51-100 instantly.",
+    explanation_hi: "'क्या यह 50 से बड़ी है?' पूछने से आधी संख्याएं तुरंत अलग हो जाती हैं।",
+    difficulty: "Medium"
+  },
+
+  // Page 25
   {
     id: "M2_C03_P25_Q01",
     chapter_num: 3,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C03_P25_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Jumpy Frog (Skip Counting in 3s)",
+    page_book: 25,
+    question_en: "If Jumpy hops by 3s starting from 3: 3, 6, 9, ... which number comes next?",
+    question_hi: "यदि जम्पी 3 से शुरू करके 3-3 की छलांग लगाए: 3, 6, 9, ... तो आगे कौन सा अंक आएगा?",
+    option_a: "12",
+    option_b: "10",
+    option_c: "11",
+    option_d: "15",
+    correct_option: "A",
+    explanation_en: "9 + 3 = 12.",
+    explanation_hi: "9 + 3 = 12।",
+    difficulty: "Easy"
+  },
+
+  // Page 26
+  {
     id: "M2_C03_P26_Q01",
     chapter_num: 3,
     chapter_title: "Fun with Numbers",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "5 के अंतराल वाली संख्याओं की इकाई का अंक हमेशा 0 या 5 होता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C03_P26_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Common Numbers in 2s and 5s Skips",
+    page_book: 26,
+    question_en: "Which of the following numbers appears in BOTH skip counting by 2s AND skip counting by 5s?",
+    question_hi: "इनमें से कौन सी संख्या 2-2 की गिनती और 5-5 की गिनती दोनों में आती है?",
+    option_a: "10",
+    option_b: "15",
+    option_c: "8",
+    option_d: "25",
+    correct_option: "A",
+    explanation_en: "Multiples of 10 (10, 20, 30...) appear in both 2s and 5s skip counting.",
+    explanation_hi: "10 संख्या 2 के पहाड़े और 5 के पहाड़े दोनों में आती है।",
+    difficulty: "Medium"
+  },
+
+  // Page 27
   {
     id: "M2_C03_P27_Q01",
     chapter_num: 3,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C03_P27_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Backward Skips by 3s",
+    page_book: 27,
+    question_en: "Observe the backward pattern: 40, 37, 34, ... What comes next?",
+    question_hi: "उल्टी छलांग का पैटर्न देखें: 40, 37, 34, ... आगे क्या आएगा?",
+    option_a: "31",
+    option_b: "32",
+    option_c: "30",
+    option_d: "33",
+    correct_option: "A",
+    explanation_en: "The pattern subtracts 3 each time: 34 − 3 = 31.",
+    explanation_hi: "हर बार 3 घटाया जा रहा है: 34 − 3 = 31।",
+    difficulty: "Medium"
+  },
+
+  // Page 28
+  {
     id: "M2_C03_P28_Q01",
     chapter_num: 3,
     chapter_title: "Fun with Numbers",
@@ -102,6 +198,25 @@ module.exports = [
     explanation_hi: "10 से दो-दो की गिनती में केवल सम (even) संख्याएँ आती हैं। 43 विषम है, इसलिए वह 42 के बाद 44 बोलेगी।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C03_P28_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Counting Forwards vs Backwards",
+    page_book: 28,
+    question_en: "Rizwan counts forwards starting from 20 onwards (20, 21, 22...). Will he say 19 in his count?",
+    question_hi: "रिजवान 20 से आगे की ओर गिनती गिनता है (20, 21, 22...)। क्या उसकी गिनती में 19 आएगा?",
+    option_a: "No, because 19 comes before 20 and he is counting forward",
+    option_b: "Yes, after 20",
+    option_c: "Yes, after 29",
+    option_d: "Cannot say",
+    correct_option: "A",
+    explanation_en: "Forward counting from 20 goes to higher numbers: 21, 22... 19 is smaller than 20.",
+    explanation_hi: "20 से आगे बढ़ते क्रम में केवल 20 से बड़ी संख्याएं आएंगी, 19 छोटा है इसलिए नहीं आएगा।",
+    difficulty: "Easy"
+  },
+
+  // Page 29
   {
     id: "M2_C03_P29_Q01",
     chapter_num: 3,
@@ -120,6 +235,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C03_P29_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Pattern in Numbers Ending with 9",
+    page_book: 29,
+    question_en: "What pattern do you notice in numbers that come just before 10, 20, 30, 40, 50...?",
+    question_hi: "10, 20, 30, 40, 50... से ठीक पहले आने वाली संख्याओं में क्या समानता (पैटर्न) होती है?",
+    option_a: "They all end with the digit 9 (9, 19, 29, 39, 49)",
+    option_b: "They all end with 0",
+    option_c: "They all end with 5",
+    option_d: "There is no pattern",
+    correct_option: "A",
+    explanation_en: "One less than every round ten ends with digit 9: 10−1=9, 20−1=19, 30−1=29.",
+    explanation_hi: "दहाई से ठीक पहले आने वाली प्रत्येक संख्या की इकाई 9 होती है (9, 19, 29, 39, 49)।",
+    difficulty: "Easy"
+  },
+
+  // Page 30
+  {
     id: "M2_C03_P30_Q01",
     chapter_num: 3,
     chapter_title: "Fun with Numbers",
@@ -137,6 +271,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C03_P30_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Number Grid Cross (Up from 53)",
+    page_book: 30,
+    question_en: "On a 100-number grid, moving one step directly UP from number 53 gives which number?",
+    question_hi: "100 के संख्या ग्रिड पर, संख्या 53 से ठीक एक कदम ऊपर जाने पर कौन सी संख्या मिलती है?",
+    option_a: "43",
+    option_b: "63",
+    option_c: "52",
+    option_d: "54",
+    correct_option: "A",
+    explanation_en: "Moving one step up subtracts 10: 53 − 10 = 43.",
+    explanation_hi: "ग्रिड में ऊपर जाने पर 10 घटता है: 53 − 10 = 43।",
+    difficulty: "Medium"
+  },
+
+  // Page 31
+  {
     id: "M2_C03_P31_Q01",
     chapter_num: 3,
     chapter_title: "Fun with Numbers",
@@ -151,6 +304,23 @@ module.exports = [
     correct_option: "C",
     explanation_en: "A grid of 3 rows and 4 columns contains 3 × 4 = 12 boxes.",
     explanation_hi: "3 पंक्तियों और 4 कॉलम वाले ग्रिड में 3 × 4 = 12 खाने होते हैं।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C03_P31_Q02",
+    chapter_num: 3,
+    chapter_title: "Fun with Numbers",
+    topic: "Rolling Two Dice in Bingo",
+    page_book: 31,
+    question_en: "When rolling two standard 1-to-6 dice together in the Bingo game, what is the SMALLEST possible sum you can get?",
+    question_hi: "बिंगो खेल में दो 1 से 6 वाले पासों को एक साथ फेंकने पर आने वाला सबसे छोटा संभावित जोड़ क्या हो सकता है?",
+    option_a: "2 (1 + 1)",
+    option_b: "1",
+    option_c: "0",
+    option_d: "3",
+    correct_option: "A",
+    explanation_en: "The lowest number on each dice is 1, so the minimum sum is 1 + 1 = 2.",
+    explanation_hi: "दोनों पासों पर न्यूनतम 1 आने पर सबसे छोटा जोड़ 1 + 1 = 2 होता है।",
     difficulty: "Easy"
   }
 ];

@@ -1,5 +1,6 @@
 // Chapter 9: Which Season is it? (Measurement of Time) - Pages 98 to 112
 module.exports = [
+  // Page 98
   {
     id: "M2_C09_P98_Q01",
     chapter_num: 9,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C09_P98_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Rainy Season Animals",
+    page_book: 98,
+    question_en: "According to the textbook poem, which bird dances with joy and which creature hops when raindrops fall in the rainy season?",
+    question_hi: "पाठ्यपुस्तक की कविता के अनुसार, बारिश की बूँदें गिरने पर कौन सा पक्षी नाचता है और कौन सा जीव फुदकता है?",
+    option_a: "Peacock dances and frog hops",
+    option_b: "Crow dances and cat hops",
+    option_c: "Sparrow dances and elephant hops",
+    option_d: "Parrot dances and dog hops",
+    correct_option: "A",
+    explanation_en: "The poem says: 'Peacock dances and the frog hops' when rainy season comes.",
+    explanation_hi: "कविता के अनुसार: मोर नाचता है और मेंढक फुदकता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 99
+  {
     id: "M2_C09_P99_Q01",
     chapter_num: 9,
     chapter_title: "Which Season is it?",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "सर्दी के मौसम में ठंड से बचने के लिए ऊनी कपड़े पहने जाते हैं।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C09_P99_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Autumn Season (Falling Leaves)",
+    page_book: 99,
+    question_en: "In which season do many trees shed their old leaves and leaves fall on the ground?",
+    question_hi: "किस मौसम में पेड़ों से पुराने पत्ते झड़कर जमीन पर गिरते हैं?",
+    option_a: "Autumn season (Patjhad)",
+    option_b: "Peak Summer",
+    option_c: "Heavy Monsoon",
+    option_d: "Freezing Cold only",
+    correct_option: "A",
+    explanation_en: "Autumn (पतझड़) is the season when deciduous trees shed their leaves.",
+    explanation_hi: "पतझड़ (Autumn) के मौसम में पेड़ों की पत्तियां झड़ती हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 100
   {
     id: "M2_C09_P100_Q01",
     chapter_num: 9,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C09_P100_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Winter Festivals",
+    page_book: 100,
+    question_en: "Which of the following festivals falls during the Winter season?",
+    question_hi: "इनमें से कौन सा त्योहार शीत ऋतु (Winter) में मनाया जाता है?",
+    option_a: "Christmas / Lohri / Republic Day",
+    option_b: "Holi",
+    option_c: "Baisakhi",
+    option_d: "Gudi Padwa",
+    correct_option: "A",
+    explanation_en: "Christmas (December) and Lohri/Republic Day (January) are celebrated during winter.",
+    explanation_hi: "क्रिसमस (दिसंबर) और लोहड़ी/गणतंत्र दिवस (जनवरी) सर्दियों में आते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 101
+  {
     id: "M2_C09_P101_Q01",
     chapter_num: 9,
     chapter_title: "Which Season is it?",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "सप्ताह में 7 दिन होते हैं, इसलिए 1 + 7 = 8 तारीख को अगला रविवार होगा।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C09_P101_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Days of the Week Sequence",
+    page_book: 101,
+    question_en: "Which day comes immediately after Friday in a weekly calendar?",
+    question_hi: "कैलेंडर में शुक्रवार (Friday) के ठीक बाद कौन सा दिन आता है?",
+    option_a: "Saturday (Shanivar)",
+    option_b: "Sunday",
+    option_c: "Thursday",
+    option_d: "Wednesday",
+    correct_option: "A",
+    explanation_en: "The days of the week in order are Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.",
+    explanation_hi: "शुक्रवार के ठीक बाद शनिवार आता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 102
   {
     id: "M2_C09_P102_Q01",
     chapter_num: 9,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C09_P102_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Days in February",
+    page_book: 102,
+    question_en: "How many days does the month of February usually have in an ordinary year?",
+    question_hi: "सामान्य वर्ष में फरवरी के महीने में कितने दिन होते हैं?",
+    option_a: "28 days",
+    option_b: "30 days",
+    option_c: "31 days",
+    option_d: "25 days",
+    correct_option: "A",
+    explanation_en: "February has 28 days in a standard year and 29 days in a leap year.",
+    explanation_hi: "सामान्य वर्ष में फरवरी में 28 दिन (और लीप वर्ष में 29 दिन) होते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 103
+  {
     id: "M2_C09_P103_Q01",
     chapter_num: 9,
     chapter_title: "Which Season is it?",
@@ -102,6 +198,25 @@ module.exports = [
     explanation_hi: "पलक झपकाना या चुटकी बजाना केवल कुछ सेकंड में होता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C09_P103_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Activities Taking Months",
+    page_book: 103,
+    question_en: "Which activity takes several MONTHS to complete?",
+    question_hi: "इनमें से कौन सा काम पूरा होने में कई 'महीने' (months) का समय लगता है?",
+    option_a: "Wheat crop growing from seed to harvest / Summer vacation",
+    option_b: "Drinking a glass of water",
+    option_c: "Clapping hands",
+    option_d: "Brushing teeth",
+    correct_option: "A",
+    explanation_en: "Farming crops and season changes take months, whereas drinking water takes minutes.",
+    explanation_hi: "फसल पकने और ऋतु चक्र बदलने में कई महीने लगते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 104
   {
     id: "M2_C09_P104_Q01",
     chapter_num: 9,
@@ -120,6 +235,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C09_P104_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Morning Sightseeing Time",
+    page_book: 104,
+    question_en: "The family plans to visit Mangalagiri hills at 11:00 in the morning. Which part of the day is 11:00 AM?",
+    question_hi: "परिवार सुबह 11:00 बजे मंगलगिरि पहाड़ी घूमने जाने की योजना बनाता है। सुबह 11:00 बजे दिन का कौन सा भाग होता है?",
+    option_a: "Morning (सुबह)",
+    option_b: "Night (रात)",
+    option_c: "Evening (शाम)",
+    option_d: "Midnight (मध्यरात्रि)",
+    correct_option: "A",
+    explanation_en: "11:00 AM is late morning, before noon.",
+    explanation_hi: "11:00 AM सुबह (Morning) का समय होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 105
+  {
     id: "M2_C09_P105_Q01",
     chapter_num: 9,
     chapter_title: "Which Season is it?",
@@ -136,6 +270,25 @@ module.exports = [
     explanation_hi: "5:00 बजे छोटी सुई (घंटा) 5 पर और बड़ी सुई (मिनट) 12 पर होती है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C09_P105_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Duration of Sightseeing Trip",
+    page_book: 105,
+    question_en: "If the family leaves for the fort at 9:00 AM and returns after 8 hours, what time will they come back?",
+    question_hi: "यदि परिवार सुबह 9:00 बजे किले के लिए निकला और 8 घंटे बाद लौटा, तो वे कितने बजे वापस आएंगे?",
+    option_a: "5:00 PM in the evening",
+    option_b: "4:00 PM",
+    option_c: "6:00 PM",
+    option_d: "8:00 PM",
+    correct_option: "A",
+    explanation_en: "9 + 8 hours = 17:00 (5:00 PM in the evening).",
+    explanation_hi: "सुबह 9:00 से 8 घंटे बाद शाम के 5:00 बजे होंगे।",
+    difficulty: "Medium"
+  },
+
+  // Page 106
   {
     id: "M2_C09_P106_Q01",
     chapter_num: 9,
@@ -154,6 +307,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C09_P106_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Day Before and Day After",
+    page_book: 106,
+    question_en: "Which day of the week comes immediately BEFORE Saturday?",
+    question_hi: "शनिवार (Saturday) से ठीक पहले कौन सा दिन आता है?",
+    option_a: "Friday (Shukravar)",
+    option_b: "Sunday",
+    option_c: "Thursday",
+    option_d: "Monday",
+    correct_option: "A",
+    explanation_en: "Friday immediately precedes Saturday.",
+    explanation_hi: "शनिवार से ठीक पहले शुक्रवार आता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 107
+  {
     id: "M2_C09_P107_Q01",
     chapter_num: 9,
     chapter_title: "Which Season is it?",
@@ -170,6 +342,25 @@ module.exports = [
     explanation_hi: "दोपहर 1:00 बजे दोपहर का भोजन (लंच) किया जाता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C09_P107_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Gargi's Evening Play Time",
+    page_book: 107,
+    question_en: "At what time in the evening does Gargi go to the playground to play with her friends?",
+    question_hi: "गार्गी शाम को कितने बजे अपने दोस्तों के साथ मैदान में खेलने जाती है?",
+    option_a: "5:00 in the evening",
+    option_b: "12:00 midnight",
+    option_c: "2:00 in the night",
+    option_d: "6:00 in the morning",
+    correct_option: "A",
+    explanation_en: "Children usually play outdoors in the evening around 5:00 PM.",
+    explanation_hi: "शाम को 5:00 बजे खेल का समय होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 108
   {
     id: "M2_C09_P108_Q01",
     chapter_num: 9,
@@ -188,6 +379,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C09_P108_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Reading Exact Hour on Clock",
+    page_book: 108,
+    question_en: "When the long minute hand points to 12 and the short hour hand points to 3, what is the exact time?",
+    question_hi: "जब बड़ी सुई 12 पर हो और छोटी सुई 3 पर हो, तो घड़ी में कितना समय हुआ है?",
+    option_a: "3 O'clock",
+    option_b: "12 O'clock",
+    option_c: "3:12",
+    option_d: "15 minutes past 12",
+    correct_option: "A",
+    explanation_en: "Minute hand at 12 and hour hand at 3 means exactly 3 O'clock.",
+    explanation_hi: "बड़ी सुई 12 पर और छोटी 3 पर होने का मतलब ठीक 3 बजे (3 O'clock) है।",
+    difficulty: "Easy"
+  },
+
+  // Page 109
+  {
     id: "M2_C09_P109_Q01",
     chapter_num: 9,
     chapter_title: "Which Season is it?",
@@ -204,6 +414,25 @@ module.exports = [
     explanation_hi: "11 − 7 = 4 वर्ष बड़ी है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C09_P109_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Grandparents Age Comparison",
+    page_book: 109,
+    question_en: "Grandpa is 65 years old and Grandma is 60 years old. How many years older is Grandpa than Grandma?",
+    question_hi: "दादाजी 65 वर्ष के हैं और दादीजी 60 वर्ष की हैं। दादाजी दादीजी से कितने वर्ष बड़े हैं?",
+    option_a: "5 years",
+    option_b: "10 years",
+    option_c: "15 years",
+    option_d: "2 years",
+    correct_option: "A",
+    explanation_en: "65 − 60 = 5 years older.",
+    explanation_hi: "65 − 60 = 5 वर्ष बड़े हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 110
   {
     id: "M2_C09_P110_Q01",
     chapter_num: 9,
@@ -222,6 +451,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C09_P110_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Modern Navigation Tools",
+    page_book: 110,
+    question_en: "What tool on a mobile smartphone is commonly used today to find routes and directions to a place?",
+    question_hi: "आजकल किसी स्थान का रास्ता और दिशा खोजने के लिए मोबाइल फोन में किस ऐप का उपयोग किया जाता है?",
+    option_a: "Maps / GPS Navigation app",
+    option_b: "Calculator",
+    option_c: "Alarm clock",
+    option_d: "Gallery",
+    correct_option: "A",
+    explanation_en: "Map apps help navigate roads and find destinations.",
+    explanation_hi: "मैप (मानचित्र) ऐप रास्तों और दिशाओं का पता लगाने के लिए उपयोग होते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 111
+  {
     id: "M2_C09_P111_Q01",
     chapter_num: 9,
     chapter_title: "Which Season is it?",
@@ -239,6 +487,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C09_P111_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Left Arm Direction Facing Rising Sun",
+    page_book: 111,
+    question_en: "When you face the rising Sun in the morning, which direction does your LEFT hand point towards?",
+    question_hi: "सुबह उगते सूरज की ओर मुंह करके खड़े होने पर आपका बायाँ (Left) हाथ किस दिशा की ओर संकेत करता है?",
+    option_a: "North (Uttar)",
+    option_b: "South (Dakshin)",
+    option_c: "West (Pashchim)",
+    option_d: "East (Poorv)",
+    correct_option: "A",
+    explanation_en: "Facing East, your left arm points North and your right arm points South.",
+    explanation_hi: "पूर्व की ओर मुंह करने पर बायां हाथ उत्तर (North) दिशा की ओर होता है।",
+    difficulty: "Medium"
+  },
+
+  // Page 112
+  {
     id: "M2_C09_P112_Q01",
     chapter_num: 9,
     chapter_title: "Which Season is it?",
@@ -253,6 +520,23 @@ module.exports = [
     correct_option: "A",
     explanation_en: "The marked magnetic needle of a compass always aligns itself pointing towards the North direction.",
     explanation_hi: "कम्पास की सुई हमेशा उत्तर (North) दिशा की ओर ठहरती है।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C09_P112_Q02",
+    chapter_num: 9,
+    chapter_title: "Which Season is it?",
+    topic: "Opposite Directions",
+    page_book: 112,
+    question_en: "Which direction is directly OPPOSITE to North on a map or compass?",
+    question_hi: "मानचित्र या कम्पास पर उत्तर (North) दिशा के ठीक विपरीत (सामने) कौन सी दिशा होती है?",
+    option_a: "South (Dakshin)",
+    option_b: "East (Poorv)",
+    option_c: "West (Pashchim)",
+    option_d: "North-West",
+    correct_option: "A",
+    explanation_en: "South is directly opposite to North (and West is opposite to East).",
+    explanation_hi: "उत्तर के ठीक सामने दक्षिण (South) दिशा होती है।",
     difficulty: "Easy"
   }
 ];

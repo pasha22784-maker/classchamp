@@ -1,5 +1,6 @@
 // Chapter 10: Fun at the Fair (Money) - Pages 113 to 122
 module.exports = [
+  // Page 113
   {
     id: "M2_C10_P113_Q01",
     chapter_num: 10,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C10_P113_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Fair Rides Tickets Cost",
+    page_book: 113,
+    question_en: "If a toy train ride costs ₹15 and a giant wheel costs ₹25, how much total money is needed to enjoy both rides?",
+    question_hi: "यदि टॉय ट्रेन की टिकट ₹15 और बड़े झूले की टिकट ₹25 है, तो दोनों झूलों के लिए कुल कितने रुपये चाहिए?",
+    option_a: "₹40",
+    option_b: "₹35",
+    option_c: "₹50",
+    option_d: "₹45",
+    correct_option: "A",
+    explanation_en: "₹15 + ₹25 = ₹40.",
+    explanation_hi: "₹15 + ₹25 = ₹40।",
+    difficulty: "Easy"
+  },
+
+  // Page 114
+  {
     id: "M2_C10_P114_Q01",
     chapter_num: 10,
     chapter_title: "Fun at the Fair",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "खर्च किए गए रुपये = ₹50 − ₹8 = ₹42।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C10_P114_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Counting Money in Steps",
+    page_book: 114,
+    question_en: "To find how much money was spent from ₹50 leaving ₹8, Rupal's friend counted in steps: 8 + 20 = 28, 28 + 20 = 48, and 48 + 2 = 50. What is 20 + 20 + 2?",
+    question_hi: "रूपाली की सहेली ने चरणों में गिना: 8 + 20 = 28, 28 + 20 = 48, और 48 + 2 = 50। कुल खर्च (20 + 20 + 2) कितना हुआ?",
+    option_a: "₹42",
+    option_b: "₹40",
+    option_c: "₹44",
+    option_d: "₹50",
+    correct_option: "A",
+    explanation_en: "20 + 20 + 2 = ₹42.",
+    explanation_hi: "20 + 20 + 2 = 42 रुपये।",
+    difficulty: "Easy"
+  },
+
+  // Page 115
   {
     id: "M2_C10_P115_Q01",
     chapter_num: 10,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C10_P115_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Common Indian Currency Notes",
+    page_book: 115,
+    question_en: "Which of the following is a genuine Indian currency paper note?",
+    question_hi: "इनमें से कौन सा एक प्रामाणिक भारतीय कागज़ी नोट है?",
+    option_a: "₹20 note",
+    option_b: "₹25 note",
+    option_c: "₹30 note",
+    option_d: "₹40 note",
+    correct_option: "A",
+    explanation_en: "Indian currency notes include ₹10, ₹20, ₹50, ₹100, ₹200, and ₹500.",
+    explanation_hi: "भारत में ₹10, ₹20, ₹50, ₹100, ₹200 और ₹500 के नोट चलते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 116
+  {
     id: "M2_C10_P116_Q01",
     chapter_num: 10,
     chapter_title: "Fun at the Fair",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "नोट पर अंकों में '500' और शब्दों में 'पाँच सौ रुपये' स्पष्ट रूप से लिखा होता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C10_P116_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Portrait on Indian Currency Notes",
+    page_book: 116,
+    question_en: "Whose portrait is printed on all modern Indian paper currency notes?",
+    question_hi: "सभी आधुनिक भारतीय कागजी नोटों पर किसका चित्र अंकित होता है?",
+    option_a: "Mahatma Gandhi",
+    option_b: "Jawaharlal Nehru",
+    option_c: "Subhash Chandra Bose",
+    option_d: "Bhagat Singh",
+    correct_option: "A",
+    explanation_en: "Mahatma Gandhi's portrait is featured on modern Indian banknotes.",
+    explanation_hi: "भारतीय नोटों पर राष्ट्रपिता महात्मा गांधी का चित्र छपा होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 117
   {
     id: "M2_C10_P117_Q01",
     chapter_num: 10,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C10_P117_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Making ₹1 with 50 Paise Coins",
+    page_book: 117,
+    question_en: "How many 50-paise coins make 1 Rupee (100 paise)?",
+    question_hi: "50 पैसे के कितने सिक्के मिलकर 1 रुपया बनाते हैं?",
+    option_a: "2 coins",
+    option_b: "4 coins",
+    option_c: "5 coins",
+    option_d: "1 coin",
+    correct_option: "A",
+    explanation_en: "50 + 50 = 100 paise = ₹1 (two 50-paise coins).",
+    explanation_hi: "50 + 50 = 100 पैसे = 1 रुपया (2 सिक्के)।",
+    difficulty: "Easy"
+  },
+
+  // Page 118
+  {
     id: "M2_C10_P118_Q01",
     chapter_num: 10,
     chapter_title: "Fun at the Fair",
@@ -102,6 +198,25 @@ module.exports = [
     explanation_hi: "₹10 + ₹15 + ₹20 = ₹45 जीते।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C10_P118_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Cost of Playing Balloon Game",
+    page_book: 118,
+    question_en: "The ticket for 'Pop the Balloon' gives 3 chances for ₹10. If Matru plays the game twice (6 chances), how much will he pay?",
+    question_hi: "गुब्बारा फोड़ने के खेल में ₹10 में 3 मौके मिलते हैं। यदि माटरू दो बार खेलता है (6 मौके), तो वह कितने रुपये देगा?",
+    option_a: "₹20",
+    option_b: "₹15",
+    option_c: "₹30",
+    option_d: "₹10",
+    correct_option: "A",
+    explanation_en: "₹10 × 2 = ₹20.",
+    explanation_hi: "₹10 + ₹10 = ₹20।",
+    difficulty: "Easy"
+  },
+
+  // Page 119
   {
     id: "M2_C10_P119_Q01",
     chapter_num: 10,
@@ -120,6 +235,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C10_P119_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Four Chances Prize Total",
+    page_book: 119,
+    question_en: "If Matru had 4 chances and popped balloons worth ₹17, ₹22, ₹31, and ₹10, what was his total prize won?",
+    question_hi: "यदि माटरू को 4 मौके मिले और उसने ₹17, ₹22, ₹31 और ₹10 वाले गुब्बारे फोड़े, तो उसका कुल इनाम कितना हुआ?",
+    option_a: "₹80",
+    option_b: "₹70",
+    option_c: "₹75",
+    option_d: "₹85",
+    correct_option: "A",
+    explanation_en: "17 + 22 + 31 + 10 = ₹80.",
+    explanation_hi: "17 + 22 + 31 + 10 = ₹80।",
+    difficulty: "Medium"
+  },
+
+  // Page 120
+  {
     id: "M2_C10_P120_Q01",
     chapter_num: 10,
     chapter_title: "Fun at the Fair",
@@ -136,6 +270,25 @@ module.exports = [
     explanation_hi: "₹50 + ₹10 + ₹5 + ₹1 = ₹66।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C10_P120_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Making ₹54 with Notes and Coins",
+    page_book: 120,
+    question_en: "Which combination makes exactly ₹54?",
+    question_hi: "कौन सा संयोजन ठीक ₹54 बनाता है?",
+    option_a: "One ₹50 note and two ₹2 coins (50 + 2 + 2)",
+    option_b: "Five ₹10 notes and one ₹5 coin",
+    option_c: "Two ₹20 notes only",
+    option_d: "One ₹50 note and one ₹5 coin",
+    correct_option: "A",
+    explanation_en: "₹50 + ₹2 + ₹2 = ₹54.",
+    explanation_hi: "₹50 + ₹2 + ₹2 = ₹54।",
+    difficulty: "Easy"
+  },
+
+  // Page 121
   {
     id: "M2_C10_P121_Q01",
     chapter_num: 10,
@@ -154,6 +307,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C10_P121_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Buying Ball and Pencil",
+    page_book: 121,
+    question_en: "A play ball costs ₹20 and a pencil costs ₹3. How much money do both items cost together?",
+    question_hi: "एक गेंद की कीमत ₹20 और पेंसिल की कीमत ₹3 है। दोनों वस्तुओं की कुल कीमत कितनी होगी?",
+    option_a: "₹23",
+    option_b: "₹25",
+    option_c: "₹17",
+    option_d: "₹26",
+    correct_option: "A",
+    explanation_en: "₹20 + ₹3 = ₹23.",
+    explanation_hi: "₹20 + ₹3 = ₹23।",
+    difficulty: "Easy"
+  },
+
+  // Page 122
+  {
     id: "M2_C10_P122_Q01",
     chapter_num: 10,
     chapter_title: "Fun at the Fair",
@@ -168,6 +340,23 @@ module.exports = [
     correct_option: "A",
     explanation_en: "18 + 32: 8 + 2 = 10 (1 carry); 1 + 3 + 1 = 5; total = ₹50.",
     explanation_hi: "₹18 + ₹32 = ₹50।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C10_P122_Q02",
+    chapter_num: 10,
+    chapter_title: "Fun at the Fair",
+    topic: "Adding Currency (₹47 + ₹50)",
+    page_book: 122,
+    question_en: "Solve the textbook addition: ₹47 + ₹50 = ?",
+    question_hi: "किताब का जोड़ हल करें: ₹47 + ₹50 = ?",
+    option_a: "₹97",
+    option_b: "₹87",
+    option_c: "₹90",
+    option_d: "₹95",
+    correct_option: "A",
+    explanation_en: "47 + 50 = ₹97.",
+    explanation_hi: "₹47 + ₹50 = ₹97।",
     difficulty: "Easy"
   }
 ];

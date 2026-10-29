@@ -1,5 +1,6 @@
 // Chapter 6: Decoration for Festival (Addition and Subtraction) - Pages 50 to 70
 module.exports = [
+  // Page 50
   {
     id: "M2_C06_P50_Q01",
     chapter_num: 6,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C06_P50_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Flowers for Zoha",
+    page_book: 50,
+    question_en: "Zoha has 2 garlands of 10 flowers each and 8 loose flowers. How many flowers does Zoha have?",
+    question_hi: "ज़ोहा के पास 10-10 फूलों की 2 मालाएं और 8 खुले फूल हैं। ज़ोहा के पास कुल कितने फूल हैं?",
+    option_a: "28 flowers",
+    option_b: "20 flowers",
+    option_c: "82 flowers",
+    option_d: "38 flowers",
+    correct_option: "A",
+    explanation_en: "2 tens (20) + 8 ones = 28 flowers.",
+    explanation_hi: "20 + 8 = 28 फूल।",
+    difficulty: "Easy"
+  },
+
+  // Page 51
+  {
     id: "M2_C06_P51_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "12 + 53 = 65 फूल।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C06_P51_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Tens and Ones Addition Strategy",
+    page_book: 51,
+    question_en: "When adding 12 (10 + 2) and 53 (50 + 3), what is the sum of the tens (10 + 50)?",
+    question_hi: "12 (10 + 2) और 53 (50 + 3) को जोड़ते समय दहाईयों का जोड़ (10 + 50) कितना होता है?",
+    option_a: "60",
+    option_b: "50",
+    option_c: "70",
+    option_d: "40",
+    correct_option: "A",
+    explanation_en: "1 ten (10) + 5 tens (50) = 6 tens = 60.",
+    explanation_hi: "10 + 50 = 60।",
+    difficulty: "Easy"
+  },
+
+  // Page 52
   {
     id: "M2_C06_P52_Q01",
     chapter_num: 6,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C06_P52_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Adding Round Tens (20 + 20)",
+    page_book: 52,
+    question_en: "Zoha brings 20 flowers and Akash brings 20 flowers. How many flowers do they bring together?",
+    question_hi: "ज़ोहा 20 फूल लाती है और आकाश भी 20 फूल लाता है। दोनों मिलकर कुल कितने फूल लाते हैं?",
+    option_a: "40 flowers",
+    option_b: "22 flowers",
+    option_c: "50 flowers",
+    option_d: "30 flowers",
+    correct_option: "A",
+    explanation_en: "20 + 20 = 40 flowers (2 tens + 2 tens = 4 tens).",
+    explanation_hi: "20 + 20 = 40 फूल (4 दहाई)।",
+    difficulty: "Easy"
+  },
+
+  // Page 53
+  {
     id: "M2_C06_P53_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "20 से 15 मनके आगे गिनने पर 35 आता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C06_P53_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Ginladi Addition Exercise (25 + 12)",
+    page_book: 53,
+    question_en: "Solve the textbook problem: 25 + 12 = ?",
+    question_hi: "किताब का सवाल हल करें: 25 + 12 = ?",
+    option_a: "37",
+    option_b: "35",
+    option_c: "47",
+    option_d: "33",
+    correct_option: "A",
+    explanation_en: "25 + 12 = 25 + 10 + 2 = 35 + 2 = 37.",
+    explanation_hi: "25 + 12 = 37।",
+    difficulty: "Easy"
+  },
+
+  // Page 54
   {
     id: "M2_C06_P54_Q01",
     chapter_num: 6,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C06_P54_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Number Line Jump (11 + 22)",
+    page_book: 54,
+    question_en: "Solve using the number line: 11 + 22 = ?",
+    question_hi: "संख्या रेखा की मदद से हल करें: 11 + 22 = ?",
+    option_a: "33",
+    option_b: "44",
+    option_c: "31",
+    option_d: "32",
+    correct_option: "A",
+    explanation_en: "11 + 22 = 33.",
+    explanation_hi: "11 + 22 = 33।",
+    difficulty: "Easy"
+  },
+
+  // Page 55
+  {
     id: "M2_C06_P55_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -102,6 +198,25 @@ module.exports = [
     explanation_hi: "2 दहाई + 1 दहाई = 3 दहाई; 3 इकाई + 5 इकाई = 8 इकाई। कुल 38 ब्लॉक।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C06_P55_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Blocks with Regrouping (11 Ones)",
+    page_book: 55,
+    question_en: "If you have 5 tens and 11 ones blocks, how can 11 ones be regrouped?",
+    question_hi: "यदि आपके पास 5 दहाई और 11 इकाई ब्लॉक हों, तो 11 इकाइयों को कैसे बदलेंगे?",
+    option_a: "1 ten and 1 one, making a total of 6 tens and 1 one (61)",
+    option_b: "2 tens and 1 one",
+    option_c: "11 tens",
+    option_d: "5 tens and 11 ones cannot be changed",
+    correct_option: "A",
+    explanation_en: "11 ones = 1 ten + 1 one. Adding 1 ten to 5 tens gives 6 tens and 1 one = 61.",
+    explanation_hi: "11 इकाई = 1 दहाई और 1 इकाई। 5 दहाई + 1 दहाई = 6 दहाई और 1 इकाई (61)।",
+    difficulty: "Medium"
+  },
+
+  // Page 56
   {
     id: "M2_C06_P56_Q01",
     chapter_num: 6,
@@ -120,6 +235,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C06_P56_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Adding with Carry (45 + 49)",
+    page_book: 56,
+    question_en: "Solve the textbook problem: 45 + 49 = ?",
+    question_hi: "किताब का सवाल हल करें: 45 + 49 = ?",
+    option_a: "94",
+    option_b: "84",
+    option_c: "95",
+    option_d: "89",
+    correct_option: "A",
+    explanation_en: "5 + 9 = 14 (4 ones, 1 ten carry); 4 + 4 + 1 = 9 tens = 94.",
+    explanation_hi: "5 + 9 = 14 (1 हासिल); 4 + 4 + 1 = 9; उत्तर = 94।",
+    difficulty: "Medium"
+  },
+
+  // Page 57
+  {
     id: "M2_C06_P57_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -136,6 +270,25 @@ module.exports = [
     explanation_hi: "43 + 58: 3 + 8 = 11 (1 हासिल); 4 + 5 + 1 = 10; कुल 101 रन।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C06_P57_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Cricket Century Concept",
+    page_book: 57,
+    question_en: "In cricket, scored 101 runs across two matches means Rahim has scored more than:",
+    question_hi: "क्रिकेट में दो मैचों में 101 रन बनाने का मतलब है कि रहीम ने किससे अधिक रन बनाए?",
+    option_a: "A century (100 runs)",
+    option_b: "A double century (200 runs)",
+    option_c: "Only 50 runs",
+    option_d: "150 runs",
+    correct_option: "A",
+    explanation_en: "A century in cricket is 100 runs. 101 is 1 run more than a century.",
+    explanation_hi: "क्रिकेट में 100 रन को शतक (Century) कहते हैं। 101 रन शतक से अधिक हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 58
   {
     id: "M2_C06_P58_Q01",
     chapter_num: 6,
@@ -154,6 +307,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C06_P58_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Heena's Marbles Problem",
+    page_book: 58,
+    question_en: "Heena collected 34 red marbles and 57 blue marbles. How many total marbles did Heena collect?",
+    question_hi: "हिना ने 34 लाल कंचे और 57 नीले कंचे इकट्ठे किए। हिना ने कुल कितने कंचे इकट्ठे किए?",
+    option_a: "91 marbles",
+    option_b: "81 marbles",
+    option_c: "97 marbles",
+    option_d: "87 marbles",
+    correct_option: "A",
+    explanation_en: "34 + 57 = 91 marbles (4 + 7 = 11; 3 + 5 + 1 = 9).",
+    explanation_hi: "34 + 57 = 91 कंचे।",
+    difficulty: "Medium"
+  },
+
+  // Page 59
+  {
     id: "M2_C06_P59_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -170,6 +342,25 @@ module.exports = [
     explanation_hi: "75 − 35 = 40।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C06_P59_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Subtraction by Taking Away Tens",
+    page_book: 59,
+    question_en: "If you have 60 diyas and take away 20 diyas, how many diyas are left?",
+    question_hi: "यदि आपके पास 60 दीये हैं और आप 20 दीये हटा लेते हैं, तो कितने दीये बचेंगे?",
+    option_a: "40 diyas",
+    option_b: "30 diyas",
+    option_c: "50 diyas",
+    option_d: "80 diyas",
+    correct_option: "A",
+    explanation_en: "6 tens − 2 tens = 4 tens = 40 diyas.",
+    explanation_hi: "60 − 20 = 40 दीये।",
+    difficulty: "Easy"
+  },
+
+  // Page 60
   {
     id: "M2_C06_P60_Q01",
     chapter_num: 6,
@@ -188,6 +379,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C06_P60_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Take Away 18 from 30",
+    page_book: 60,
+    question_en: "Solve the textbook problem: 30 − 18 = ?",
+    question_hi: "किताब का सवाल हल करें: 30 − 18 = ?",
+    option_a: "12",
+    option_b: "14",
+    option_c: "10",
+    option_d: "18",
+    correct_option: "A",
+    explanation_en: "30 − 18: 30 − 10 = 20; 20 − 8 = 12.",
+    explanation_hi: "30 − 18 = 12।",
+    difficulty: "Easy"
+  },
+
+  // Page 61
+  {
     id: "M2_C06_P61_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -204,6 +414,25 @@ module.exports = [
     explanation_hi: "20 में से 7 बुझे: 20 − 7 = 13 दीये।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C06_P61_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Diyas Problem (20 − 9)",
+    page_book: 61,
+    question_en: "Out of 20 lit diyas, if 9 diyas go out, how many are still burning?",
+    question_hi: "20 जलते दीयों में से यदि 9 दीये बुझ जाएं, तो कितने दीये जलते रहेंगे?",
+    option_a: "11 diyas",
+    option_b: "10 diyas",
+    option_c: "12 diyas",
+    option_d: "9 diyas",
+    correct_option: "A",
+    explanation_en: "20 − 9 = 11.",
+    explanation_hi: "20 − 9 = 11 दीये।",
+    difficulty: "Easy"
+  },
+
+  // Page 62
   {
     id: "M2_C06_P62_Q01",
     chapter_num: 6,
@@ -222,6 +451,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C06_P62_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Number Line Subtraction (26 − 9)",
+    page_book: 62,
+    question_en: "Solve on the number line: 26 − 9 = ?",
+    question_hi: "संख्या रेखा पर हल करें: 26 − 9 = ?",
+    option_a: "17",
+    option_b: "18",
+    option_c: "19",
+    option_d: "16",
+    correct_option: "A",
+    explanation_en: "26 − 9 = 17.",
+    explanation_hi: "26 − 9 = 17।",
+    difficulty: "Easy"
+  },
+
+  // Page 63
+  {
     id: "M2_C06_P63_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -238,6 +486,25 @@ module.exports = [
     explanation_hi: "₹82 − ₹22 = ₹60 बचे।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C06_P63_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Ruby's Notebook Expense",
+    page_book: 63,
+    question_en: "Ruby has ₹60. She buys a notebook for ₹20. How much money is left with Ruby?",
+    question_hi: "रूबी के पास ₹60 हैं। उसने ₹20 की एक कॉपी खरीदी। रूबी के पास कितने रुपये बचे?",
+    option_a: "₹40",
+    option_b: "₹30",
+    option_c: "₹50",
+    option_d: "₹20",
+    correct_option: "A",
+    explanation_en: "₹60 − ₹20 = ₹40.",
+    explanation_hi: "₹60 − ₹20 = ₹40 बचे।",
+    difficulty: "Easy"
+  },
+
+  // Page 64
   {
     id: "M2_C06_P64_Q01",
     chapter_num: 6,
@@ -256,6 +523,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C06_P64_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Garlands Remaining after Opening",
+    page_book: 64,
+    question_en: "After opening 1 garland out of 4 garlands of ten, how many full garlands remain?",
+    question_hi: "4 मालाओं में से 1 माला खोल देने के बाद कितनी पूरी मालाएं बचीं?",
+    option_a: "3 full garlands",
+    option_b: "2 full garlands",
+    option_c: "4 full garlands",
+    option_d: "5 full garlands",
+    correct_option: "A",
+    explanation_en: "4 − 1 = 3 full garlands remaining.",
+    explanation_hi: "4 में से 1 माला खुली, तो 3 पूरी मालाएं बचीं।",
+    difficulty: "Easy"
+  },
+
+  // Page 65
+  {
     id: "M2_C06_P65_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -272,6 +558,25 @@ module.exports = [
     explanation_hi: "46 − 18 = 28 (16 − 8 = 8, और 3 − 1 = 2)।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C06_P65_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Giving 5 Flowers from 28",
+    page_book: 65,
+    question_en: "Jyoti now has 28 flowers. She gives 5 flowers to her brother. How many flowers are left with her?",
+    question_hi: "ज्योति के पास 28 फूल हैं। वह 5 फूल अपने भाई को दे देती है। अब उसके पास कितने फूल बचे?",
+    option_a: "23 flowers",
+    option_b: "20 flowers",
+    option_c: "25 flowers",
+    option_d: "18 flowers",
+    correct_option: "A",
+    explanation_en: "28 − 5 = 23 flowers.",
+    explanation_hi: "28 − 5 = 23 फूल।",
+    difficulty: "Easy"
+  },
+
+  // Page 66
   {
     id: "M2_C06_P66_Q01",
     chapter_num: 6,
@@ -290,6 +595,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C06_P66_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Subtracting 47 from 73",
+    page_book: 66,
+    question_en: "Solve the textbook problem: 73 − 47 = ?",
+    question_hi: "किताब का सवाल हल करें: 73 − 47 = ?",
+    option_a: "26",
+    option_b: "36",
+    option_c: "24",
+    option_d: "34",
+    correct_option: "A",
+    explanation_en: "73 − 47: 13 − 7 = 6; 6 tens − 4 tens = 2 tens = 26.",
+    explanation_hi: "73 − 47 = 26 (13 − 7 = 6, 6 − 4 = 2)।",
+    difficulty: "Medium"
+  },
+
+  // Page 67
+  {
     id: "M2_C06_P67_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -307,22 +631,60 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C06_P67_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Subtracting a Number from Itself",
+    page_book: 67,
+    question_en: "Solve the textbook exercise: 27 − 27 = ?",
+    question_hi: "किताब का अभ्यास सवाल हल करें: 27 − 27 = ?",
+    option_a: "0",
+    option_b: "1",
+    option_c: "27",
+    option_d: "54",
+    correct_option: "A",
+    explanation_en: "Subtracting any number from itself always results in 0.",
+    explanation_hi: "किसी संख्या में से वही संख्या घटाने पर शून्य (0) बचता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 68
+  {
     id: "M2_C06_P68_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
     topic: "Bus Passengers Word Problem",
     page_book: 68,
-    question_en: "There were 54 passengers sitting in a bus. At the bus stop, 18 passengers got down. How many passengers are still in the bus?",
-    question_hi: "एक बस में 54 यात्री बैठे थे। बस स्टॉप पर 18 यात्री उतर गए। अब बस में कितने यात्री बचे हैं?",
-    option_a: "36 passengers",
-    option_b: "34 passengers",
-    option_c: "46 passengers",
-    option_d: "38 passengers",
+    question_en: "There were 54 passengers sitting in a bus. At the bus stand, 16 passengers got down. How many passengers are still in the bus?",
+    question_hi: "एक बस में 54 यात्री बैठे थे। बस स्टैंड पर 16 यात्री उतर गए। अब बस में कितने यात्री बचे हैं?",
+    option_a: "38 passengers",
+    option_b: "36 passengers",
+    option_c: "48 passengers",
+    option_d: "40 passengers",
     correct_option: "A",
-    explanation_en: "54 − 18: 14 − 8 = 6; 4 − 1 = 3 = 36 passengers.",
-    explanation_hi: "54 − 18 = 36 यात्री।",
+    explanation_en: "54 − 16: 14 − 6 = 8; 4 − 1 = 3 = 38 passengers.",
+    explanation_hi: "54 − 16 = 38 यात्री।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C06_P68_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Anushka's Seashells Problem",
+    page_book: 68,
+    question_en: "Anushka collected 63 shells. She gave 26 shells to her brother. How many shells are left with her?",
+    question_hi: "अनुष्का ने 63 सीपियां इकट्ठी कीं। उसने 26 सीपियां अपने भाई को दे दीं। उसके पास कितनी सीपियां बचीं?",
+    option_a: "37 shells",
+    option_b: "47 shells",
+    option_c: "35 shells",
+    option_d: "39 shells",
+    correct_option: "A",
+    explanation_en: "63 − 26: 13 − 6 = 7; 5 − 2 = 3 = 37 shells.",
+    explanation_hi: "63 − 26 = 37 सीपियां बचीं।",
+    difficulty: "Medium"
+  },
+
+  // Page 69
   {
     id: "M2_C06_P69_Q01",
     chapter_num: 6,
@@ -341,6 +703,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C06_P69_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Fact Family of 20, 80, 100",
+    page_book: 69,
+    question_en: "In the fact family (20, 80, 100), what is 100 − 80?",
+    question_hi: "संख्या परिवार (20, 80, 100) में, 100 − 80 का मान क्या होगा?",
+    option_a: "20",
+    option_b: "80",
+    option_c: "10",
+    option_d: "50",
+    correct_option: "A",
+    explanation_en: "Since 80 + 20 = 100, 100 − 80 = 20.",
+    explanation_hi: "चूँकि 80 + 20 = 100, अतः 100 − 80 = 20।",
+    difficulty: "Easy"
+  },
+
+  // Page 70
+  {
     id: "M2_C06_P70_Q01",
     chapter_num: 6,
     chapter_title: "Decoration for Festival",
@@ -355,6 +736,23 @@ module.exports = [
     correct_option: "A",
     explanation_en: "60 − 40 = 20, so 40 + 20 = 60.",
     explanation_hi: "60 − 40 = 20, इसलिए 40 + 20 = 60।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C06_P70_Q02",
+    chapter_num: 6,
+    chapter_title: "Decoration for Festival",
+    topic: "Hania and Mansi's Gift Expense",
+    page_book: 70,
+    question_en: "Hania and Mansi have ₹78 in their piggy bank. They spent ₹35 on ribbons and gift wrappers. How much money is left in the piggy bank?",
+    question_hi: "हानिया और मानसी की गुल्लक में ₹78 हैं। उन्होंने रिबन और गिफ्ट रैपर पर ₹35 खर्च किए। अब गुल्लक में कितने रुपये बचे हैं?",
+    option_a: "₹43",
+    option_b: "₹45",
+    option_c: "₹33",
+    option_d: "₹53",
+    correct_option: "A",
+    explanation_en: "₹78 − ₹35 = ₹43 left.",
+    explanation_hi: "78 − 35 = ₹43 बचे।",
     difficulty: "Easy"
   }
 ];

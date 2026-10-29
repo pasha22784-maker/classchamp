@@ -1,5 +1,6 @@
 // Chapter 7: Rani's Gift (Measurement) - Pages 71 to 82
 module.exports = [
+  // Page 71
   {
     id: "M2_C07_P71_Q01",
     chapter_num: 7,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C07_P71_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Non-standard Body Units",
+    page_book: 71,
+    question_en: "Which of the following is also an ancient non-standard unit of measuring length using feet?",
+    question_hi: "पैरों से लंबाई नापने की प्राचीन गैर-मानक इकाई कौन सी है?",
+    option_a: "Pace / Footstep (कदम)",
+    option_b: "Kilogram",
+    option_c: "Litre",
+    option_d: "Hour",
+    correct_option: "A",
+    explanation_en: "Paces (footsteps) are non-standard body units used to measure floor length or classroom distance.",
+    explanation_hi: "कदम (footstep) प्राचीन समय में दूरी नापने की शारीरिक इकाई थी।",
+    difficulty: "Easy"
+  },
+
+  // Page 72
+  {
     id: "M2_C07_P72_Q01",
     chapter_num: 7,
     chapter_title: "Rani's Gift",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "अलग-अलग लोगों के हाथ का नाप अलग होता है। बढ़ई का हाथ राजा के हाथ से छोटा था।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C07_P72_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Mantri's Wise Solution",
+    page_book: 72,
+    question_en: "What did the wise minister (Mantri) do to ensure the bed was made exactly to the King's measurement?",
+    question_hi: "चतुर मंत्री ने राजा के नाप का सही बिस्तर बनाने के लिए क्या उपाय किया?",
+    option_a: "He measured the King's handspan with a stick/rope and gave that exact stick to the carpenter",
+    option_b: "He told the King to sleep on the floor",
+    option_c: "He brought another carpenter",
+    option_d: "He doubled the number of handspans",
+    correct_option: "A",
+    explanation_en: "The minister used a fixed stick/ribbon matching the King's handspan as a uniform measuring rod.",
+    explanation_hi: "मंत्री ने राजा के बित्ते के नाप की लकड़ी/रस्सी बनाई और उसी से बढ़ई को नापने को कहा।",
+    difficulty: "Medium"
+  },
+
+  // Page 73
   {
     id: "M2_C07_P73_Q01",
     chapter_num: 7,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C07_P73_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Longest Path Between Points",
+    page_book: 73,
+    question_en: "If path 1 is straight, path 2 has 2 curves, and path 3 has many long loops, which path is the LONGEST?",
+    question_hi: "यदि रास्ता 1 सीधा है, रास्ता 2 में 2 मोड़ हैं, और रास्ता 3 में कई बड़े घुमाव हैं, तो कौन सा रास्ता सबसे लंबा होगा?",
+    option_a: "Path 3 with many long loops",
+    option_b: "Path 1 (straight)",
+    option_c: "Path 2",
+    option_d: "All three have equal length",
+    correct_option: "A",
+    explanation_en: "Paths with larger loops and detours cover more distance and are longer.",
+    explanation_hi: "अधिक घुमाव और चक्कर वाला रास्ता सबसे लंबा होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 74
+  {
     id: "M2_C07_P74_Q01",
     chapter_num: 7,
     chapter_title: "Rani's Gift",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "10 − 4 = 6 ब्लॉक अधिक लंबा है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C07_P74_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Animal Height Comparison",
+    page_book: 74,
+    question_en: "If the monkey is 7 blocks tall and the dog is 4 blocks tall, how many blocks taller is the monkey than the dog?",
+    question_hi: "यदि बंदर 7 ब्लॉक ऊंचा है और कुत्ता 4 ब्लॉक ऊंचा है, तो बंदर कुत्ते से कितने ब्लॉक ऊंचा है?",
+    option_a: "3 blocks",
+    option_b: "4 blocks",
+    option_c: "11 blocks",
+    option_d: "2 blocks",
+    correct_option: "A",
+    explanation_en: "7 − 4 = 3 blocks taller.",
+    explanation_hi: "7 − 4 = 3 ब्लॉक ऊंचा है।",
+    difficulty: "Easy"
+  },
+
+  // Page 75
   {
     id: "M2_C07_P75_Q01",
     chapter_num: 7,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C07_P75_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Tracing Your Hand",
+    page_book: 75,
+    question_en: "When you place your palm flat on paper and trace its boundary, what can you measure with fingers?",
+    question_hi: "कागज पर अपनी हथेली रखकर रेखा खींचने पर उंगलियों से क्या नापा जा सकता है?",
+    option_a: "The length and width of the hand and fingers",
+    option_b: "The weight of the hand in kilograms",
+    option_c: "The temperature of the hand",
+    option_d: "The time of day",
+    correct_option: "A",
+    explanation_en: "Tracing the hand allows measurement of the length of each finger and palm span.",
+    explanation_hi: "हाथ ट्रेस करके हथेली और उंगलियों की लंबाई मापी जा सकती है।",
+    difficulty: "Easy"
+  },
+
+  // Page 76
+  {
     id: "M2_C07_P76_Q01",
     chapter_num: 7,
     chapter_title: "Rani's Gift",
@@ -102,6 +198,25 @@ module.exports = [
     explanation_hi: "एक बड़ा कद्दू छोटे नींबू की तुलना में बहुत अधिक भारी होता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C07_P76_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Watermelon vs Muskmelon",
+    page_book: 76,
+    question_en: "Which fruit is generally heavier: a large watermelon or a small muskmelon?",
+    question_hi: "सामान्यतः कौन सा फल अधिक भारी होता है: बड़ा तरबूज या छोटा खरबूजा?",
+    option_a: "A large watermelon",
+    option_b: "A small muskmelon",
+    option_c: "Both have identical weight",
+    option_d: "Muskmelon is always heavier",
+    correct_option: "A",
+    explanation_en: "A large watermelon has greater mass and weight than a small muskmelon.",
+    explanation_hi: "बड़ा तरबूज सामान्यतः छोटे खरबूजे से अधिक भारी होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 77
   {
     id: "M2_C07_P77_Q01",
     chapter_num: 7,
@@ -120,6 +235,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C07_P77_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Classroom Objects Weight Comparison",
+    page_book: 77,
+    question_en: "Which of the following items in your school bag is typically the LIGHTEST?",
+    question_hi: "आपके स्कूल बस्ते में से कौन सी वस्तु आमतौर पर सबसे हल्की (Lightest) होती है?",
+    option_a: "A single rubber eraser",
+    option_b: "A thick maths textbook",
+    option_c: "A steel water bottle filled with water",
+    option_d: "The entire bag itself",
+    correct_option: "A",
+    explanation_en: "An eraser is much lighter than books or a filled water bottle.",
+    explanation_hi: "रबर (इरेज़र) का वजन किताबों या पानी की भरी बोतल से बहुत कम होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 78
+  {
     id: "M2_C07_P78_Q01",
     chapter_num: 7,
     chapter_title: "Rani's Gift",
@@ -136,6 +270,25 @@ module.exports = [
     explanation_hi: "भारी वस्तु का पलड़ा नीचे झुक जाता है और हल्का पलड़ा ऊपर उठ जाता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C07_P78_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Equal Weight on Balance",
+    page_book: 78,
+    question_en: "When two objects placed on opposite pans of a weighing scale have the EXACT SAME weight, what do the pans do?",
+    question_hi: "जब तराजू के दोनों पलड़ों में रखी वस्तुओं का वजन बिल्कुल बराबर हो, तो दोनों पलड़े किस स्थिति में रहते हैं?",
+    option_a: "Both pans stay perfectly level (balanced in the middle)",
+    option_b: "Left pan falls down",
+    option_c: "Right pan falls down",
+    option_d: "Both pans keep spinning",
+    correct_option: "A",
+    explanation_en: "Equal weights balance each other out horizontally at the same level.",
+    explanation_hi: "वजन बराबर होने पर तराजू के दोनों पलड़े बिल्कुल सीधे बराबर स्तर पर संतुलित रहते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 79
   {
     id: "M2_C07_P79_Q01",
     chapter_num: 7,
@@ -154,6 +307,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C07_P79_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Types of Balances",
+    page_book: 79,
+    question_en: "Which tool does a vegetable vendor use in the market to weigh potatoes and onions?",
+    question_hi: "बाजार में सब्जी विक्रेता आलू और प्याज का वजन तोलने के लिए किस उपकरण का उपयोग करता है?",
+    option_a: "A weighing balance / scale",
+    option_b: "A measuring tape",
+    option_c: "A thermometer",
+    option_d: "A clock",
+    correct_option: "A",
+    explanation_en: "A weighing scale/balance measures mass and weight in kilograms or grams.",
+    explanation_hi: "सब्जी विक्रेता वजन तोलने के लिए तराजू (Weighing scale) का उपयोग करता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 80
+  {
     id: "M2_C07_P80_Q01",
     chapter_num: 7,
     chapter_title: "Rani's Gift",
@@ -170,6 +342,25 @@ module.exports = [
     explanation_hi: "एक आम भारी तरबूज से बहुत हल्का होता है; उसे उठाने के लिए कई आमों की ज़रूरत होगी।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C07_P80_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Balancing the See-Saw",
+    page_book: 80,
+    question_en: "If 1 watermelon weighs about the same as 6 mangoes, how many mangoes are needed to balance the watermelon on a see-saw?",
+    question_hi: "यदि 1 तरबूज का वजन लगभग 6 आमों के बराबर हो, तो झूले पर तरबूज को संतुलित करने के लिए कितने आम चाहिए?",
+    option_a: "6 mangoes",
+    option_b: "1 mango",
+    option_c: "2 mangoes",
+    option_d: "12 mangoes",
+    correct_option: "A",
+    explanation_en: "6 mangoes will provide equal weight to balance the single watermelon.",
+    explanation_hi: "तरबूज के बराबर वजन के लिए 6 आम चाहिए।",
+    difficulty: "Easy"
+  },
+
+  // Page 81
   {
     id: "M2_C07_P81_Q01",
     chapter_num: 7,
@@ -188,6 +379,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C07_P81_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Sugar Spoons in Nimbu Pani",
+    page_book: 81,
+    question_en: "If Raghu puts 1 spoon of sugar in 1 glass of nimbu pani, how many spoons of sugar will he put in 5 glasses?",
+    question_hi: "यदि रघु 1 गिलास नींबू पानी में 1 चम्मच चीनी डालता है, तो 5 गिलास में कितने चम्मच चीनी डालेगा?",
+    option_a: "5 spoons",
+    option_b: "1 spoon",
+    option_c: "10 spoons",
+    option_d: "2 spoons",
+    correct_option: "A",
+    explanation_en: "1 spoon per glass × 5 glasses = 5 spoons of sugar.",
+    explanation_hi: "1 × 5 = 5 चम्मच चीनी।",
+    difficulty: "Easy"
+  },
+
+  // Page 82
+  {
     id: "M2_C07_P82_Q01",
     chapter_num: 7,
     chapter_title: "Rani's Gift",
@@ -203,5 +413,22 @@ module.exports = [
     explanation_en: "12 glasses ÷ 4 glasses per bottle = 3 bottles (4 + 4 + 4 = 12).",
     explanation_hi: "12 गिलास ÷ 4 गिलास = 3 बोतलें (4 + 4 + 4 = 12)।",
     difficulty: "Medium"
+  },
+  {
+    id: "M2_C07_P82_Q02",
+    chapter_num: 7,
+    chapter_title: "Rani's Gift",
+    topic: "Container Capacity (Bucket vs Glass)",
+    page_book: 82,
+    question_en: "Which of the following containers can hold the LARGEST quantity of water?",
+    question_hi: "इनमें से कौन सा बर्तन सबसे अधिक मात्रा में पानी धारण कर सकता है (सबसे बड़ी धारिता)?",
+    option_a: "A large bathing bucket",
+    option_b: "A drinking tea cup",
+    option_c: "A small water glass",
+    option_d: "A soup spoon",
+    correct_option: "A",
+    explanation_en: "A large bucket can hold many litres of water, far more than a cup, glass, or spoon.",
+    explanation_hi: "एक बड़ी बाल्टी में कप या गिलास की तुलना में कई लीटर अधिक पानी आता है।",
+    difficulty: "Easy"
   }
 ];

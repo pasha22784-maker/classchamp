@@ -1,5 +1,6 @@
 // Chapter 8: Grouping and Sharing (Multiplication and Division) - Pages 83 to 97
 module.exports = [
+  // Page 83
   {
     id: "M2_C08_P83_Q01",
     chapter_num: 8,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C08_P83_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Car Wheels Problem (7 Cars)",
+    page_book: 83,
+    question_en: "In the parking lot, there are 7 cars. Each car has 4 wheels. How many wheels are there in total?",
+    question_hi: "पार्किंग में 7 कारें खड़ी हैं। प्रत्येक कार के 4 पहिये हैं। कुल मिलाकर कितने पहिये हैं?",
+    option_a: "28 wheels",
+    option_b: "24 wheels",
+    option_c: "32 wheels",
+    option_d: "21 wheels",
+    correct_option: "A",
+    explanation_en: "7 cars × 4 wheels each = 7 × 4 = 28 wheels.",
+    explanation_hi: "7 × 4 = 28 पहिये।",
+    difficulty: "Easy"
+  },
+
+  // Page 84
+  {
     id: "M2_C08_P84_Q01",
     chapter_num: 8,
     chapter_title: "Grouping and Sharing",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "3-3 पहियों के 2 समूह = 2 × 3 = 6 पहिये।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C08_P84_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Bicycles Wheels (4 × 2)",
+    page_book: 84,
+    question_en: "There are 4 bicycles and each bicycle has 2 wheels. What is 4 × 2?",
+    question_hi: "4 साइकिलें हैं और प्रत्येक के 2 पहिये हैं। 4 × 2 कितना होगा?",
+    option_a: "8 wheels",
+    option_b: "6 wheels",
+    option_c: "10 wheels",
+    option_d: "12 wheels",
+    correct_option: "A",
+    explanation_en: "4 × 2 = 8 wheels.",
+    explanation_hi: "4 × 2 = 8 पहिये।",
+    difficulty: "Easy"
+  },
+
+  // Page 85
   {
     id: "M2_C08_P85_Q01",
     chapter_num: 8,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C08_P85_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Octopus Legs (Groups of 8)",
+    page_book: 85,
+    question_en: "An octopus has 8 legs. If there are 3 octopuses swimming in the sea, how many legs do they have in all?",
+    question_hi: "एक ऑक्टोपस के 8 पैर होते हैं। यदि समुद्र में 3 ऑक्टोपस तैर रहे हैं, तो उनके कुल मिलाकर कितने पैर होंगे?",
+    option_a: "24 legs",
+    option_b: "16 legs",
+    option_c: "20 legs",
+    option_d: "32 legs",
+    correct_option: "A",
+    explanation_en: "3 octopuses × 8 legs = 3 × 8 = 24 legs (8 + 8 + 8 = 24).",
+    explanation_hi: "3 × 8 = 24 पैर।",
+    difficulty: "Easy"
+  },
+
+  // Page 86
+  {
     id: "M2_C08_P86_Q01",
     chapter_num: 8,
     chapter_title: "Grouping and Sharing",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "5 को 7 बार जोड़ना = 7 × 5 = 35।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C08_P86_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Matching 9 Added 3 Times",
+    page_book: 86,
+    question_en: "Match the repeated addition: 9 + 9 + 9 equals which multiplication?",
+    question_hi: "9 + 9 + 9 किस गुणा के बराबर होता है?",
+    option_a: "3 × 9 = 27",
+    option_b: "9 × 9 = 81",
+    option_c: "3 + 9 = 12",
+    option_d: "2 × 9 = 18",
+    correct_option: "A",
+    explanation_en: "9 added 3 times = 3 × 9 = 27.",
+    explanation_hi: "3 × 9 = 27।",
+    difficulty: "Easy"
+  },
+
+  // Page 87
   {
     id: "M2_C08_P87_Q01",
     chapter_num: 8,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C08_P87_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Table of 2 (2 × 6)",
+    page_book: 87,
+    question_en: "Complete the table: '2 sixes are ________' (2 × 6)?",
+    question_hi: "पहाड़ा पूरा करें: '2 छक्के (2 × 6) कितने होते हैं'?",
+    option_a: "12",
+    option_b: "10",
+    option_c: "14",
+    option_d: "16",
+    correct_option: "A",
+    explanation_en: "2 × 6 = 12.",
+    explanation_hi: "2 × 6 = 12।",
+    difficulty: "Easy"
+  },
+
+  // Page 88
+  {
     id: "M2_C08_P88_Q01",
     chapter_num: 8,
     chapter_title: "Grouping and Sharing",
@@ -102,6 +198,25 @@ module.exports = [
     explanation_hi: "5 × 6 = 30।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C08_P88_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Table of 10 (10 × 4)",
+    page_book: 88,
+    question_en: "What is 10 fours (10 × 4)?",
+    question_hi: "10 चौक (10 × 4) कितना होता है?",
+    option_a: "40",
+    option_b: "14",
+    option_c: "44",
+    option_d: "30",
+    correct_option: "A",
+    explanation_en: "10 × 4 = 40.",
+    explanation_hi: "10 × 4 = 40।",
+    difficulty: "Easy"
+  },
+
+  // Page 89
   {
     id: "M2_C08_P89_Q01",
     chapter_num: 8,
@@ -120,6 +235,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C08_P89_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Bouquets of Flowers (3 × 4)",
+    page_book: 89,
+    question_en: "Gopal made 3 flower bouquets with 4 flowers in each bouquet. How many flowers did Gopal use in all?",
+    question_hi: "गोपाल ने 3 गुलदस्ते बनाए और हर गुलदस्ते में 4 फूल लगाए। गोपाल ने कुल कितने फूल इस्तेमाल किए?",
+    option_a: "12 flowers",
+    option_b: "7 flowers",
+    option_c: "15 flowers",
+    option_d: "16 flowers",
+    correct_option: "A",
+    explanation_en: "3 groups of 4 = 3 × 4 = 12 flowers.",
+    explanation_hi: "3 × 4 = 12 फूल।",
+    difficulty: "Easy"
+  },
+
+  // Page 90
+  {
     id: "M2_C08_P90_Q01",
     chapter_num: 8,
     chapter_title: "Grouping and Sharing",
@@ -136,6 +270,25 @@ module.exports = [
     explanation_hi: "6 × 4 = 24 और 4 × 6 = 24; क्रम बदलने पर भी गुणनफल समान रहता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C08_P90_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Bindi Packets Word Problem",
+    page_book: 90,
+    question_en: "There are 8 packets of bindis. Each packet contains 5 bindis. How many bindis are there in total?",
+    question_hi: "बिंदी के 8 पैकेट हैं। प्रत्येक पैकेट में 5 बिंदियाँ हैं। कुल कितनी बिंदियाँ हैं?",
+    option_a: "40 bindis",
+    option_b: "35 bindis",
+    option_c: "45 bindis",
+    option_d: "13 bindis",
+    correct_option: "A",
+    explanation_en: "8 packets × 5 bindis = 8 × 5 = 40 bindis.",
+    explanation_hi: "8 × 5 = 40 बिंदियाँ।",
+    difficulty: "Easy"
+  },
+
+  // Page 91
   {
     id: "M2_C08_P91_Q01",
     chapter_num: 8,
@@ -154,6 +307,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C08_P91_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Table of 6 from Table of 3",
+    page_book: 91,
+    question_en: "To find 6 × 3 using the table of 3, how can you double the result?",
+    question_hi: "3 के पहाड़े से 6 × 3 का मान निकालने के लिए 3 × 3 के मान (9) को क्या करेंगे?",
+    option_a: "Double 9: 9 + 9 = 18",
+    option_b: "Subtract 3",
+    option_c: "Multiply by 10",
+    option_d: "Divide by 2",
+    correct_option: "A",
+    explanation_en: "Since 6 is double of 3, (3 × 3) + (3 × 3) = 9 + 9 = 18.",
+    explanation_hi: "6, 3 का दोगुना है, अतः 9 + 9 = 18।",
+    difficulty: "Medium"
+  },
+
+  // Page 92
+  {
     id: "M2_C08_P92_Q01",
     chapter_num: 8,
     chapter_title: "Grouping and Sharing",
@@ -170,6 +342,25 @@ module.exports = [
     explanation_hi: "7 × 5 = 15 + 20 = 35।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C08_P92_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Arrays of 24 Objects",
+    page_book: 92,
+    question_en: "Which of the following arrangements of 24 buttons forms equal rows and columns?",
+    question_hi: "24 बटनों को बराबर पंक्तियों में सजाने का कौन सा तरीका सही है?",
+    option_a: "4 rows of 6 buttons (4 × 6 = 24)",
+    option_b: "5 rows of 5 buttons",
+    option_c: "3 rows of 7 buttons",
+    option_d: "2 rows of 10 buttons",
+    correct_option: "A",
+    explanation_en: "4 × 6 = 24 buttons.",
+    explanation_hi: "6-6 बटनों की 4 पंक्तियाँ = 4 × 6 = 24 बटन।",
+    difficulty: "Easy"
+  },
+
+  // Page 93
   {
     id: "M2_C08_P93_Q01",
     chapter_num: 8,
@@ -188,6 +379,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C08_P93_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "One by One Sharing",
+    page_book: 93,
+    question_en: "In the story, when 2 children share gulab jamuns one by one, after 2 rounds how many does each child have?",
+    question_hi: "कहानी में जब दो बच्चे एक-एक करके गुलाब जामुन बांटते हैं, तो 2 चक्रों के बाद प्रत्येक को कितने मिलेंगे?",
+    option_a: "2 gulab jamuns each",
+    option_b: "1 gulab jamun each",
+    option_c: "4 gulab jamuns each",
+    option_d: "0",
+    correct_option: "A",
+    explanation_en: "Round 1: 1 each. Round 2: 1 more each = 2 each.",
+    explanation_hi: "1-1 करके दो बार देने पर प्रत्येक को 2 गुलाब जामुन मिलते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 94
+  {
     id: "M2_C08_P94_Q01",
     chapter_num: 8,
     chapter_title: "Grouping and Sharing",
@@ -204,6 +414,25 @@ module.exports = [
     explanation_hi: "8 को 2 में बराबर बांटने पर: 8 ÷ 2 = 4 गुलाब जामुन प्रत्येक को।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C08_P94_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Ritu's Craft Bindis (12 ÷ 2)",
+    page_book: 94,
+    question_en: "Ritu has 12 bindis to stick equally on 2 paper ice cream cones. How many bindis will she paste on each cone?",
+    question_hi: "रितु के पास 12 बिंदियाँ हैं जिन्हें 2 आइसक्रीम कोन पर बराबर चिपकाना है। प्रत्येक कोन पर कितनी बिंदियाँ चिपकेंगी?",
+    option_a: "6 bindis",
+    option_b: "4 bindis",
+    option_c: "5 bindis",
+    option_d: "10 bindis",
+    correct_option: "A",
+    explanation_en: "12 ÷ 2 = 6 bindis on each cone.",
+    explanation_hi: "12 को 2 बराबर भागों में बांटने पर: 12 ÷ 2 = 6 बिंदियाँ।",
+    difficulty: "Easy"
+  },
+
+  // Page 95
   {
     id: "M2_C08_P95_Q01",
     chapter_num: 8,
@@ -222,6 +451,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C08_P95_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Beads Left After 2 Bracelets",
+    page_book: 95,
+    question_en: "If you have 15 beads and have made 2 bracelets (5 beads each), how many beads are left?",
+    question_hi: "यदि आपके पास 15 मनके हैं और आपने 5-5 मनकों के 2 कंगन बना लिए, तो कितने मनके बचेंगे?",
+    option_a: "5 beads",
+    option_b: "10 beads",
+    option_c: "0 beads",
+    option_d: "2 beads",
+    correct_option: "A",
+    explanation_en: "Used = 2 × 5 = 10 beads. Left = 15 − 10 = 5 beads.",
+    explanation_hi: "15 − 10 = 5 मनके शेष बचेंगे।",
+    difficulty: "Easy"
+  },
+
+  // Page 96
+  {
     id: "M2_C08_P96_Q01",
     chapter_num: 8,
     chapter_title: "Grouping and Sharing",
@@ -239,6 +487,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C08_P96_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Roses in Vases (25 ÷ 5)",
+    page_book: 96,
+    question_en: "There are 25 roses. If 5 roses are put in each flower vase, how many vases are needed?",
+    question_hi: "यहाँ 25 गुलाब के फूल हैं। यदि एक फूलदान में 5 गुलाब रखे जाएं, तो कितने फूलदानों की आवश्यकता होगी?",
+    option_a: "5 vases",
+    option_b: "4 vases",
+    option_c: "6 vases",
+    option_d: "10 vases",
+    correct_option: "A",
+    explanation_en: "25 ÷ 5 = 5 flower vases.",
+    explanation_hi: "25 ÷ 5 = 5 फूलदान।",
+    difficulty: "Easy"
+  },
+
+  // Page 97
+  {
     id: "M2_C08_P97_Q01",
     chapter_num: 8,
     chapter_title: "Grouping and Sharing",
@@ -253,6 +520,23 @@ module.exports = [
     correct_option: "A",
     explanation_en: "30 buttons ÷ 6 buttons per shirt = 5 shirts (5 × 6 = 30).",
     explanation_hi: "30 ÷ 6 = 5 कमीजें।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C08_P97_Q02",
+    chapter_num: 8,
+    chapter_title: "Grouping and Sharing",
+    topic: "Candles in Boxes (27 ÷ 3)",
+    page_book: 97,
+    question_en: "There are 27 candles. If they are packed equally into 3 boxes, how many candles will be in each box?",
+    question_hi: "यहाँ 27 मोमबत्तियाँ हैं। यदि उन्हें 3 डिब्बों में बराबर पैक किया जाए, तो प्रत्येक डिब्बे में कितनी मोमबत्तियाँ होंगी?",
+    option_a: "9 candles",
+    option_b: "8 candles",
+    option_c: "7 candles",
+    option_d: "10 candles",
+    correct_option: "A",
+    explanation_en: "27 ÷ 3 = 9 candles per box (3 × 9 = 27).",
+    explanation_hi: "27 ÷ 3 = 9 मोमबत्तियाँ प्रत्येक डिब्बे में।",
     difficulty: "Easy"
   }
 ];

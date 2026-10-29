@@ -1,5 +1,6 @@
 // Chapter 4: Shadow Story (Togalu) (2D Shapes) - Pages 32 to 43
 module.exports = [
+  // Page 32
   {
     id: "M2_C04_P32_Q01",
     chapter_num: 4,
@@ -18,6 +19,25 @@ module.exports = [
     difficulty: "Medium"
   },
   {
+    id: "M2_C04_P32_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Finger Shadow Animals",
+    page_book: 32,
+    question_en: "When Nakul and his friends made bird and deer shadows on the wall, what was required to form the shadows?",
+    question_hi: "जब नकुल और दोस्तों ने दीवार पर हिरण और पक्षी की छाया बनाई, तो छाया बनने के लिए क्या आवश्यक था?",
+    option_a: "A source of light (torch/lamp) and hands blocking the light",
+    option_b: "Complete darkness with no light",
+    option_c: "A paintbrush and colors",
+    option_d: "A mirror only",
+    correct_option: "A",
+    explanation_en: "A shadow forms when an opaque object (like hands) blocks light from a light source.",
+    explanation_hi: "जब कोई वस्तु (जैसे हाथ) प्रकाश के मार्ग को रोकती है, तो पर्दे पर छाया बनती है।",
+    difficulty: "Easy"
+  },
+
+  // Page 33
+  {
     id: "M2_C04_P33_Q01",
     chapter_num: 4,
     chapter_title: "Shadow Story (Togalu)",
@@ -34,6 +54,25 @@ module.exports = [
     explanation_hi: "रोशनी के स्रोत को वस्तु के पास लाने पर छाया का आकार बड़ा (bigger) हो जाता है।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C04_P33_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Sun Shadows at Different Times",
+    page_book: 33,
+    question_en: "At what time of the day is your outdoor shadow caused by the Sun the SHORTEST?",
+    question_hi: "दिन के किस समय धूप में आपकी परछाईं (छाया) सबसे छोटी (Shortest) बनती है?",
+    option_a: "At noon (midday) when the Sun is directly overhead",
+    option_b: "Early in the morning at sunrise",
+    option_c: "Late in the evening at sunset",
+    option_d: "At midnight",
+    correct_option: "A",
+    explanation_en: "At noon, the Sun is directly above our head, making our shadow the shortest.",
+    explanation_hi: "दोपहर 12 बजे सूरज ठीक सिर के ऊपर होता है, जिससे छाया सबसे छोटी बनती है।",
+    difficulty: "Easy"
+  },
+
+  // Page 34
   {
     id: "M2_C04_P34_Q01",
     chapter_num: 4,
@@ -52,6 +91,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C04_P34_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Tracing a Matchbox",
+    page_book: 34,
+    question_en: "Which 2D flat shape do you get when you trace the base of an ordinary matchbox on paper?",
+    question_hi: "माचिस की डिब्बी को कागज पर रखकर किनारे-किनारे पेंसिल चलाने पर कौन सा 2D आकार मिलता है?",
+    option_a: "Rectangle",
+    option_b: "Circle",
+    option_c: "Triangle",
+    option_d: "Pentagon",
+    correct_option: "A",
+    explanation_en: "The flat face of a matchbox is a rectangle with opposite sides equal.",
+    explanation_hi: "माचिस का फलक आयताकार होता है, इसलिए आयत (Rectangle) बनता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 35
+  {
     id: "M2_C04_P35_Q01",
     chapter_num: 4,
     chapter_title: "Shadow Story (Togalu)",
@@ -68,6 +126,25 @@ module.exports = [
     explanation_hi: "जूते के डिब्बे (shoebox) का फलक आयताकार होता है।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C04_P35_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Where Can Circle Hide?",
+    page_book: 35,
+    question_en: "Behind which object can the flat shape 'Circle' hide so that its shape matches perfectly?",
+    question_hi: "समतल आकृति 'वृत्त' (Circle) किस वस्तु के पीछे छिप सकती है जिसका फलक गोल हो?",
+    option_a: "Behind a round wall clock or a round drum face",
+    option_b: "Behind a book",
+    option_c: "Behind a shoe box",
+    option_d: "Behind a ruler",
+    correct_option: "A",
+    explanation_en: "A round clock face has a circular shape.",
+    explanation_hi: "गोल दीवार घड़ी का फलक वृत्ताकार होता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 36
   {
     id: "M2_C04_P36_Q01",
     chapter_num: 4,
@@ -86,6 +163,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C04_P36_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Where Square Can Hide",
+    page_book: 36,
+    question_en: "A Square shape can hide behind which of the following objects having 4 equal sides?",
+    question_hi: "वर्ग (Square) किस वस्तु के पीछे छिप सकता है जिसकी चारों भुजाएं बराबर हों?",
+    option_a: "A square carrom board or square handkerchief",
+    option_b: "A round wheel",
+    option_c: "A long pencil",
+    option_d: "A triangular flag",
+    correct_option: "A",
+    explanation_en: "A carrom board has a square shape with 4 equal sides.",
+    explanation_hi: "कैरम बोर्ड की चारों भुजाएं बराबर होती हैं, जो वर्ग के समान है।",
+    difficulty: "Easy"
+  },
+
+  // Page 37
+  {
     id: "M2_C04_P37_Q01",
     chapter_num: 4,
     chapter_title: "Shadow Story (Togalu)",
@@ -102,6 +198,25 @@ module.exports = [
     explanation_hi: "प्रत्येक त्रिभुज में 3 भुजाएँ और 3 कोने होते हैं।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C04_P37_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Colouring Geometric Carpet",
+    page_book: 37,
+    question_en: "In the 'Colour the Carpet' activity, which color was assigned to all the Triangles?",
+    question_hi: "'कलर द कारपेट' गतिविधि में सभी त्रिभुजों (Triangles) को किस रंग से भरने को कहा गया है?",
+    option_a: "Red",
+    option_b: "Green",
+    option_c: "Yellow",
+    option_d: "Blue",
+    correct_option: "A",
+    explanation_en: "The textbook activity specifies: 'Colour the Triangles red, Circles green, Rectangles yellow, Squares blue.'",
+    explanation_hi: "किताब में निर्देश है: 'त्रिभुजों को लाल, वृत्तों को हरा, आयतों को पीला और वर्गों को नीला रंग भरें।'",
+    difficulty: "Easy"
+  },
+
+  // Page 38
   {
     id: "M2_C04_P38_Q01",
     chapter_num: 4,
@@ -120,6 +235,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C04_P38_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Corners of a Rectangular Table",
+    page_book: 38,
+    question_en: "How many children can occupy the corners of an ordinary rectangular table in 'Catch the Corner'?",
+    question_hi: "एक आयताकार मेज के कोनों पर 'कैच द कॉर्नर' खेल में अधिकतम कितने बच्चे खड़े हो सकते हैं?",
+    option_a: "4 children (one at each of the 4 corners)",
+    option_b: "2 children",
+    option_c: "6 children",
+    option_d: "8 children",
+    correct_option: "A",
+    explanation_en: "A rectangle has exactly 4 corners, so 4 children can each stand at one corner.",
+    explanation_hi: "आयत में 4 कोने होते हैं, इसलिए 4 बच्चे कोनों पर खड़े हो सकते हैं।",
+    difficulty: "Easy"
+  },
+
+  // Page 39
+  {
     id: "M2_C04_P39_Q01",
     chapter_num: 4,
     chapter_title: "Shadow Story (Togalu)",
@@ -136,6 +270,25 @@ module.exports = [
     explanation_hi: "एक कोना मोड़ने पर उस किनारे पर दो नए कोने बन जाते हैं, जिससे कुल 5 कोने हो जाते हैं।",
     difficulty: "Medium"
   },
+  {
+    id: "M2_C04_P39_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Folding Square in Half Diagonally",
+    page_book: 39,
+    question_en: "If you fold a square piece of paper in half by joining its opposite corners diagonally, what shapes do you get?",
+    question_hi: "यदि एक वर्गाकार कागज को उसके विपरीत कोनों को मिलाकर बीच से मोड़ें, तो कौन सा आकार मिलता है?",
+    option_a: "A Triangle",
+    option_b: "A Circle",
+    option_c: "A Cube",
+    option_d: "An Oval",
+    correct_option: "A",
+    explanation_en: "Folding a square diagonally along its corner line divides it into triangles.",
+    explanation_hi: "वर्ग को तिरछे मोड़ने पर त्रिभुज (Triangle) बनता है।",
+    difficulty: "Easy"
+  },
+
+  // Page 40
   {
     id: "M2_C04_P40_Q01",
     chapter_num: 4,
@@ -154,6 +307,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C04_P40_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Mehandi Patterns on Hand",
+    page_book: 40,
+    question_en: "Radha applies mehandi patterns on her hands. What mathematical feature is seen in traditional mehandi designs?",
+    question_hi: "राधा हाथ पर मेहंदी लगाती है। पारंपरिक मेहंदी डिजाइनों में कौन सी गणितीय सुंदरता दिखाई देती है?",
+    option_a: "Repeating symmetrical patterns and lines",
+    option_b: "Random scribbles",
+    option_c: "Only numbers 1 to 10",
+    option_d: "Weighing scales",
+    correct_option: "A",
+    explanation_en: "Mehandi designs use repetitive geometric shapes, curved loops, and symmetrical patterns.",
+    explanation_hi: "मेहंदी डिजाइनों में दोहरावदार ज्यामितीय पैटर्न और सुंदर सममिति होती है।",
+    difficulty: "Easy"
+  },
+
+  // Page 41
+  {
     id: "M2_C04_P41_Q01",
     chapter_num: 4,
     chapter_title: "Shadow Story (Togalu)",
@@ -170,6 +342,25 @@ module.exports = [
     explanation_hi: "एकांतर क्रम (ऊपर, नीचे, ऊपर, नीचे...) में अगला पत्ता ऊपर (Upward) की ओर होगा।",
     difficulty: "Easy"
   },
+  {
+    id: "M2_C04_P41_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Leaf Size Pattern",
+    page_book: 41,
+    question_en: "If a pattern follows: 1 Big Leaf, 2 Small Leaves, 1 Big Leaf, 2 Small Leaves... what comes next?",
+    question_hi: "यदि पैटर्न है: 1 बड़ा पत्ता, 2 छोटे पत्ते, 1 बड़ा पत्ता, 2 छोटे पत्ते... तो आगे क्या आएगा?",
+    option_a: "1 Big Leaf",
+    option_b: "3 Small Leaves",
+    option_c: "4 Big Leaves",
+    option_d: "No leaves",
+    correct_option: "A",
+    explanation_en: "The repeating unit is (1 Big, 2 Small), so next is 1 Big Leaf.",
+    explanation_hi: "पैटर्न की पुनरावृत्ति के अनुसार अगला 1 बड़ा पत्ता होगा।",
+    difficulty: "Easy"
+  },
+
+  // Page 42
   {
     id: "M2_C04_P42_Q01",
     chapter_num: 4,
@@ -188,6 +379,25 @@ module.exports = [
     difficulty: "Easy"
   },
   {
+    id: "M2_C04_P42_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Repeated Letter Pattern",
+    page_book: 42,
+    question_en: "Observe the pattern: AA, BB, CC, DD, ... What comes next?",
+    question_hi: "पैटर्न को पहचानें: AA, BB, CC, DD, ... आगे क्या आएगा?",
+    option_a: "EE",
+    option_b: "EF",
+    option_c: "ED",
+    option_d: "FF",
+    correct_option: "A",
+    explanation_en: "Each English alphabet letter is repeated twice in alphabetical order: EE.",
+    explanation_hi: "वर्णमाला का प्रत्येक अक्षर दो बार दोहराया गया है: DD के बाद EE आएगा।",
+    difficulty: "Easy"
+  },
+
+  // Page 43
+  {
     id: "M2_C04_P43_Q01",
     chapter_num: 4,
     chapter_title: "Shadow Story (Togalu)",
@@ -202,6 +412,23 @@ module.exports = [
     correct_option: "B",
     explanation_en: "The rule is adding 5 each jump: 16 + 5 = 21.",
     explanation_hi: "हर बार 5 जोड़ा जा रहा है: 1 + 5 = 6; 6 + 5 = 11; 11 + 5 = 16; 16 + 5 = 21।",
+    difficulty: "Easy"
+  },
+  {
+    id: "M2_C04_P43_Q02",
+    chapter_num: 4,
+    chapter_title: "Shadow Story (Togalu)",
+    topic: "Number Hop Pattern (+7)",
+    page_book: 43,
+    question_en: "Extend the number pattern from the book: 7, 14, 21, ... What is the next number?",
+    question_hi: "किताब के संख्या पैटर्न को आगे बढ़ाएं: 7, 14, 21, ... अगला अंक क्या होगा?",
+    option_a: "28",
+    option_b: "25",
+    option_c: "30",
+    option_d: "35",
+    correct_option: "A",
+    explanation_en: "The pattern adds 7 each time (multiples of 7): 21 + 7 = 28.",
+    explanation_hi: "7 का पहाड़ा / 7 जोड़ने का नियम: 21 + 7 = 28।",
     difficulty: "Easy"
   }
 ];
