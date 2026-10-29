@@ -11,6 +11,7 @@
 
 import ncertMathsClass2 from './ncertClass2MathsQuestions.js';
 import ncertEnglishClass2 from './ncertClass2EnglishQuestions.js';
+import ncertHindiClass2 from './ncertClass2HindiQuestions.js';
 
 export const INITIAL_QUESTIONS = [
   // ==========================================
@@ -4608,5 +4609,39 @@ const formattedNcertEnglish = ncertEnglishClass2.map(q => ({
 }));
 
 INITIAL_QUESTIONS.push(...formattedNcertEnglish);
+
+// Append NCERT Class 2 Hindi (सारंगी 2) language, grammar & phonics curriculum questions
+const formattedNcertHindi = ncertHindiClass2.map(q => ({
+  id: q.id,
+  division: "Junior",
+  grade: 2,
+  bracket: q.difficulty === "Easy" ? "1000-10000" : "10000-340000",
+  subject: "Hindi",
+  chapter: `पाठ ${q.chapter_num}: ${q.chapter_title}`,
+  chapterCode: `C2_HIN_CH${q.chapter_num}`,
+  category: q.topic,
+  text: q.question_hi,
+  text_hi: q.question_hi,
+  text_en: q.question_en,
+  options: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  options_hi: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  correctAnswer: q.correct_option,
+  guruHint: q.explanation_hi,
+  guruHint_hi: q.explanation_hi,
+  guruHint_en: q.explanation_en,
+  explanation: `${q.explanation_hi} | ${q.explanation_en}`
+}));
+
+INITIAL_QUESTIONS.push(...formattedNcertHindi);
 
 export default INITIAL_QUESTIONS;
