@@ -100,6 +100,23 @@ export function GameProvider({ children }) {
     setIsFriendsOpen(false);
   };
 
+  // Compulsory First-Time App Tour Guide state
+  const [isTourOpen, setIsTourOpen] = useState(() => {
+    try {
+      const completed = localStorage.getItem('brainleague_has_completed_tour');
+      return completed !== 'true';
+    } catch {
+      return false;
+    }
+  });
+  const openTour = () => {
+    soundService.playClick();
+    setIsTourOpen(true);
+  };
+  const closeTour = () => {
+    setIsTourOpen(false);
+  };
+
   // PUBG-Style Presence Heartbeat across the app
   useEffect(() => {
     if (!currentUser?.id) return;
@@ -938,6 +955,10 @@ export function GameProvider({ children }) {
         setIsFriendsOpen,
         openFriends,
         closeFriends,
+        isTourOpen,
+        setIsTourOpen,
+        openTour,
+        closeTour,
         examCategory,
         setExamCategory,
         selectedLiveMatch,

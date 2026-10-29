@@ -31,7 +31,7 @@ import {
 
 export default function SettingsModal({ isOpen, onClose }) {
   const { currentUser } = useAuth();
-  const { languageMode, setLanguageMode, LANGUAGES, t } = useGame();
+  const { languageMode, setLanguageMode, LANGUAGES, t, openTour } = useGame();
 
   const [activeCategory, setActiveCategory] = useState(() => examCategoryService.getActiveCategory());
   const [isMuted, setIsMuted] = useState(() => soundService.isMuted());
@@ -290,6 +290,18 @@ export default function SettingsModal({ isOpen, onClose }) {
               </div>
             )}
           </div>
+
+          {/* Replay App Tour Guide Button */}
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              openTour();
+            }}
+            className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500/20 via-champGold/20 to-amber-500/20 hover:from-amber-500/30 hover:to-amber-500/30 border border-champGold/40 text-champGold font-bold text-xs flex items-center justify-center gap-2 transition active:scale-95 font-rajdhani uppercase tracking-wider shadow"
+          >
+            <span>🏆 Replay App Tour Guide (ऐप गाइड फिर देखें)</span>
+          </button>
 
           {/* ============================================================== */}
           {/* SECTION 5: PLAYER PROFILE OVERVIEW                              */}

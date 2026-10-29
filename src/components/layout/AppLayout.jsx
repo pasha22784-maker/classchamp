@@ -28,6 +28,7 @@ import {
 import SettingsModal from '../common/SettingsModal';
 import FriendsCenterModal from '../common/FriendsCenterModal';
 import GameInviteNotificationBanner from '../common/GameInviteNotificationBanner';
+import AppTourGuideModal from '../common/AppTourGuideModal';
 import friendService from '../../services/friendService';
 import storageService from '../../services/storageService';
 
@@ -47,7 +48,9 @@ export default function AppLayout({ children }) {
     openSettings,
     isFriendsOpen,
     closeFriends,
-    openFriends
+    openFriends,
+    isTourOpen,
+    closeTour
   } = useGame();
   const [isMuted, setIsMuted] = useState(() => soundService.isMuted());
   const [isMobileFrame, setIsMobileFrame] = useState(true);
@@ -344,6 +347,9 @@ export default function AppLayout({ children }) {
 
           {/* PUBG-Style In-App Real-Time Game Invite Banner */}
           <GameInviteNotificationBanner />
+
+          {/* Compulsory First-Time App Tour Guide */}
+          <AppTourGuideModal isOpen={isTourOpen} onClose={closeTour} />
         </div>
       </main>
 
