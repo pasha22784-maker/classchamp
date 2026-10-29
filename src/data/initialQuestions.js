@@ -10,6 +10,7 @@
  */
 
 import ncertMathsClass2 from './ncertClass2MathsQuestions.js';
+import ncertEnglishClass2 from './ncertClass2EnglishQuestions.js';
 
 export const INITIAL_QUESTIONS = [
   // ==========================================
@@ -4575,5 +4576,37 @@ const formattedNcertMaths = ncertMathsClass2.map(q => ({
 }));
 
 INITIAL_QUESTIONS.push(...formattedNcertMaths);
+
+// Append NCERT Class 2 English (Mridang) language, grammar & phonics curriculum questions
+const formattedNcertEnglish = ncertEnglishClass2.map(q => ({
+  id: q.id,
+  division: "Junior",
+  grade: 2,
+  bracket: q.difficulty === "Easy" ? "1000-10000" : "10000-340000",
+  subject: "English",
+  chapter: `Chapter ${q.chapter_num}: ${q.chapter_title}`,
+  chapterCode: `C2_ENG_CH${q.chapter_num}`,
+  category: q.topic,
+  text: q.question_en,
+  text_hi: q.question_hi,
+  options: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  options_hi: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  correctAnswer: q.correct_option,
+  guruHint: q.explanation_en,
+  guruHint_hi: q.explanation_hi,
+  explanation: `${q.explanation_en} | ${q.explanation_hi}`
+}));
+
+INITIAL_QUESTIONS.push(...formattedNcertEnglish);
 
 export default INITIAL_QUESTIONS;

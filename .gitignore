@@ -40,3 +40,6 @@ NCERT BOOKS/
 dumped_pages/
 dump_pages.cjs
 inspect_all_chapters.cjs
+dumped_english_pages/
+dump_english_pages.cjs
+scripts/all_english_raw_text.txt
