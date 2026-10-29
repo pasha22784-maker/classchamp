@@ -280,7 +280,7 @@ export default function LoginScreen() {
                   Play Instantly as Guest
                 </h3>
                 <p className="text-[10px] text-slate-300">
-                  No signup required! Jump into Hot-Seat & Fastest Finger First matches right now.
+                  No signup required! Jump into Hot-Seat & Rapid Round matches right now.
                 </p>
               </div>
             </div>

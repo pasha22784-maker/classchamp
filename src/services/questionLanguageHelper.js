@@ -7,7 +7,7 @@
  * - 'hi': Pure Hindi (Devanagari) Question & Options
  * - 'bilingual': Dual-Language (Hindi on top, English below / Hindi + English options)
  * 
- * Automatically applies to Hot Seat, Fastest Finger First, and Spectator Play Along.
+ * Automatically applies to Hot Seat, Rapid Round, and Spectator Play Along.
  */
 
 export function getLocalizedQuestion(question, languageMode = 'bilingual') {

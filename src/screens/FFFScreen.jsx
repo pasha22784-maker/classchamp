@@ -1,8 +1,8 @@
 /**
  * FFFScreen.jsx
- * Fastest Finger First (FFF) 15-Second Interactive Ordering Engine.
+ * Rapid Round (RR) 15-Second Interactive Ordering Engine.
  * Features:
- * - Authentic TV Broadcast KBC Question Frame & 2x2 Hexagonal Options Grid
+ * - BrainLeague Royal Question Frame & 2x2 Options Grid
  * - Tap-to-order (1st, 2nd, 3rd, 4th) with glowing gold diamond badges
  * - Sahi Kram (Correct Order) reveal & transparent 10-contender leaderboard
  * - Detailed Accuracy (✓ Sahi / ✗ Galat) and Shortest Time verification
@@ -15,8 +15,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useGame } from '../context/GameContext';
 import soundService from '../services/soundService';
-import KbcQuestionBox from '../components/common/KbcQuestionBox';
-import KbcOptionButton from '../components/common/KbcOptionButton';
+import BLQuestionBox from '../components/common/BLQuestionBox';
+import BLOptionButton from '../components/common/BLOptionButton';
 import HotSeatWinnerModal from '../components/common/HotSeatWinnerModal';
 import { getLocalizedQuestion } from '../services/questionLanguageHelper';
 import {
@@ -227,7 +227,7 @@ export default function FFFScreen() {
           <div className="flex-1 w-full grid grid-cols-12 gap-3 items-center overflow-hidden min-h-0 py-0.5">
             {/* Left: Question Box */}
             <div className="col-span-6 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0">
-              <KbcQuestionBox
+              <BLQuestionBox
                 questionText={localizedFff?.displayText || fffQuestion.text}
                 subject={fffQuestion.subject || "Chronological / Numerical Order"}
                 pointsFormatted="Hot Seat Qualifier"
@@ -243,7 +243,7 @@ export default function FFFScreen() {
                   const orderIndex = selectedOrder.indexOf(letter) + 1; // 1, 2, 3, 4
 
                   return (
-                    <KbcOptionButton
+                    <BLOptionButton
                       key={letter}
                       letter={letter}
                       text={localizedFff?.displayOptions?.[letter] || fffQuestion.options[letter]}
@@ -283,7 +283,7 @@ export default function FFFScreen() {
         ) : (
           /* PORTRAIT LAYOUT */
           <div className="my-auto space-y-2">
-            <KbcQuestionBox
+            <BLQuestionBox
               questionText={localizedFff?.displayText || fffQuestion.text}
               subject={fffQuestion.subject || "Chronological / Numerical Order"}
               pointsFormatted="Hot Seat Qualifier"
@@ -296,7 +296,7 @@ export default function FFFScreen() {
                 const orderIndex = selectedOrder.indexOf(letter) + 1; // 1, 2, 3, 4
 
                 return (
-                  <KbcOptionButton
+                  <BLOptionButton
                     key={letter}
                     letter={letter}
                     text={localizedFff?.displayOptions?.[letter] || fffQuestion.options[letter]}

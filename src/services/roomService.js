@@ -76,7 +76,7 @@ function broadcastLocal(room) {
 }
 
 /**
- * Deterministic multi-key sort for Fastest Finger First submissions:
+ * Deterministic multi-key sort for Rapid Round submissions:
  * 1. Correctness (True beats False)
  * 2. Completion Time (seconds, up to millisecond precision)
  * 3. Human Contender over Bot if identical time

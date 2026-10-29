@@ -108,7 +108,7 @@ export default function FriendsCenterModal({ isOpen, onClose }) {
   // Handle WhatsApp / Web Share
   const handleShareCode = () => {
     soundService.playClick();
-    const shareText = `🎮 Play BrainLeague National KBC Quiz with me! Add me as your friend using my Friend Code: *${myFriendCode}* on https://play.bolchaall.com`;
+    const shareText = `🎮 Play BrainLeague Champions Arena Quiz with me! Add me as your friend using my Friend Code: *${myFriendCode}* on https://play.bolchaall.com`;
     if (navigator.share) {
       navigator.share({
         title: 'BrainLeague Friend Code',
@@ -450,7 +450,7 @@ export default function FriendsCenterModal({ isOpen, onClose }) {
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs text-slate-400 pb-1">
                 <span>Players Played With Recently ({recentPlayers.length})</span>
-                <span className="text-[10px] text-champGold">Fastest Finger & Play Alongs</span>
+                <span className="text-[10px] text-champGold">Rapid Round & Play Alongs</span>
               </div>
 
               {recentPlayers.length === 0 ? (

@@ -34,3 +34,6 @@ android/local.properties
 android/*.iml
 android/app/*.iml
 .gradle/
+
+# Local Study Books & Raw PDFs
+NCERT BOOKS/

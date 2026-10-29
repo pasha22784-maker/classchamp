@@ -6,7 +6,7 @@
  * - Bracket 2: 10000-340000 (Intermediate, Q6-Q10)
  * - Bracket 3: 340000-2500000 (Advanced, Q11-Q13)
  * - Bracket 4: 2500000-10000000 (Jackpot, Q14-Q15)
- * - Bracket 5: FFF (Fastest Finger First Chronological Ordering)
+ * - Bracket 5: FFF (Rapid Round Chronological Ordering)
  */
 
 export const INITIAL_QUESTIONS = [
@@ -3753,7 +3753,7 @@ export const INITIAL_QUESTIONS = [
     explanation: "Sir C. V. Raman won the Nobel Prize in Physics in 1930 for the 'Raman Effect'."
   },
 
-  // Bracket 5 (FFF - Fastest Finger First)
+  // Bracket 5 (FFF - Rapid Round Ordering)
   {
     id: "Q_JUN_FFF_01",
     division: "Junior",

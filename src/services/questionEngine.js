@@ -37,21 +37,21 @@ export const BRACKETS = {
 };
 
 export const LADDER_TIERS = [
-  { level: 1, points: 1000, label: "1,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: false },
-  { level: 2, points: 2000, label: "2,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: false },
-  { level: 3, points: 3000, label: "3,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: false },
-  { level: 4, points: 5000, label: "5,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: false },
-  { level: 5, points: 10000, label: "10,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: true }, // PADAV 1
-  { level: 6, points: 20000, label: "20,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: false },
-  { level: 7, points: 40000, label: "40,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: false },
-  { level: 8, points: 80000, label: "80,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: false },
-  { level: 9, points: 160000, label: "1,60,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: false },
-  { level: 10, points: 320000, label: "3,20,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: true }, // PADAV 2
-  { level: 11, points: 640000, label: "6,40,000", bracket: BRACKETS.B3, timeLimit: 60, isPadav: false },
-  { level: 12, points: 1250000, label: "12,50,000", bracket: BRACKETS.B3, timeLimit: 60, isPadav: false },
-  { level: 13, points: 2500000, label: "25,00,000", bracket: BRACKETS.B3, timeLimit: 60, isPadav: false },
-  { level: 14, points: 5000000, label: "50,00,000", bracket: BRACKETS.B4, timeLimit: 60, isPadav: false },
-  { level: 15, points: 10000000, label: "1 Crore", bracket: BRACKETS.B4, timeLimit: 60, isPadav: true } // CHAMPION CROWN
+  { level: 1, points: 1000, label: "1,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: false, isSafeMilestone: false },
+  { level: 2, points: 2000, label: "2,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: false, isSafeMilestone: false },
+  { level: 3, points: 3000, label: "3,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: false, isSafeMilestone: false },
+  { level: 4, points: 5000, label: "5,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: false, isSafeMilestone: false },
+  { level: 5, points: 10000, label: "10,000", bracket: BRACKETS.B1, timeLimit: 30, isPadav: true, isSafeMilestone: true }, // SAFE MILESTONE 1
+  { level: 6, points: 20000, label: "20,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: false, isSafeMilestone: false },
+  { level: 7, points: 40000, label: "40,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: false, isSafeMilestone: false },
+  { level: 8, points: 80000, label: "80,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: false, isSafeMilestone: false },
+  { level: 9, points: 160000, label: "1,60,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: false, isSafeMilestone: false },
+  { level: 10, points: 320000, label: "3,20,000", bracket: BRACKETS.B2, timeLimit: 45, isPadav: true, isSafeMilestone: true }, // SAFE MILESTONE 2
+  { level: 11, points: 640000, label: "6,40,000", bracket: BRACKETS.B3, timeLimit: 60, isPadav: false, isSafeMilestone: false },
+  { level: 12, points: 1250000, label: "12,50,000", bracket: BRACKETS.B3, timeLimit: 60, isPadav: false, isSafeMilestone: false },
+  { level: 13, points: 2500000, label: "25,00,000", bracket: BRACKETS.B3, timeLimit: 60, isPadav: false, isSafeMilestone: false },
+  { level: 14, points: 5000000, label: "50,00,000", bracket: BRACKETS.B4, timeLimit: 60, isPadav: false, isSafeMilestone: false },
+  { level: 15, points: 10000000, label: "1 Crore", bracket: BRACKETS.B4, timeLimit: 60, isPadav: true, isSafeMilestone: true } // GRAND CHAMPION CROWN
 ];
 
 class QuestionEngine {
@@ -290,7 +290,7 @@ class QuestionEngine {
     return arr;
   }
 
-  // Pull a Fastest Finger First question with strict 6-month zero-repeat guarantee
+  // Pull a Rapid Round question with strict 6-month zero-repeat guarantee
   getFFFQuestion(allQuestions, division, userId, customExamCategory = null, targetGrade = null) {
     const history = this.getUserHistory(userId);
 

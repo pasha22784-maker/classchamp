@@ -84,7 +84,7 @@ export default function FFFLobbyScreen() {
     };
   }, [activeDivision, botSettings]);
 
-  // Once seconds reach 0, show dramatic KBC Countdown Clock before FFF round
+  // Once seconds reach 0, show dramatic Countdown Clock before Rapid Round
   useEffect(() => {
     if (secondsLeft === 0 && !showCountdownClock) {
       soundService.playLock();
@@ -150,7 +150,7 @@ export default function FFFLobbyScreen() {
         {/* Safeguard indicator */}
         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emeraldGlow/10 border border-emeraldGlow/30 text-emeraldGlow-light text-[11px] mb-3">
           <ShieldCheck size={14} />
-          <span>Fair Matchmaking: 10 contenders selected for Fastest Finger First</span>
+          <span>Fair Matchmaking: 10 contenders selected for Rapid Round</span>
         </div>
 
         {/* Language Selection Bar (Select before first question) */}

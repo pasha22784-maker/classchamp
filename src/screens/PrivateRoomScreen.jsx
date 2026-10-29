@@ -42,7 +42,7 @@ const SHARE_CHANNELS = [
     emoji: '💬',
     color: 'bg-[#25D366] hover:bg-[#20ba59] text-[#003d20]',
     getUrl: (url, code) =>
-      `https://wa.me/?text=${encodeURIComponent(`🎮 Join my BrainLeague private game!\n\nRoom Code: *${code}*\nJoin here 👉 ${url}\n\nMax 10 players • Fastest Finger First • Hot-Seat Arena!`)}`,
+      `https://wa.me/?text=${encodeURIComponent(`🎮 Join my BrainLeague private game!\n\nRoom Code: *${code}*\nJoin here 👉 ${url}\n\nMax 10 players • Rapid Round • Hot-Seat Arena!`)}`,
   },
   {
     key: 'sms',
@@ -150,7 +150,7 @@ export default function PrivateRoomScreen() {
     if (!room) return;
     soundService.playClick();
     const url = roomService.getInviteUrl(room.code);
-    const shareText = `🎮 Join my BrainLeague private game!\n\nRoom Code: *${room.code}*\nJoin here 👉 ${url}\n\nMax 10 players • Fastest Finger First • Hot-Seat Arena!`;
+    const shareText = `🎮 Join my BrainLeague private game!\n\nRoom Code: *${room.code}*\nJoin here 👉 ${url}\n\nMax 10 players • Rapid Round • Hot-Seat Arena!`;
 
     // If native share clicked or supported
     if (channel?.key === 'native' || (!channel && typeof navigator !== 'undefined' && navigator.share)) {

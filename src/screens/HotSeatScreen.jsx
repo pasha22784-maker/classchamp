@@ -1,15 +1,15 @@
 /**
  * HotSeatScreen.jsx
- * Authentic TV Broadcast KBC Hot-Seat Engine.
+ * BrainLeague Royal Champion Arena Hot-Seat Engine.
  * Features:
- * - Real KBC Hexagonal Question Frame & 2x2 Hexagonal Options Grid
+ * - Real BrainLeague Question Frame & 2x2 Options Grid
  * - Dynamic Landscape Mode (Broadcast TV Studio Layout with 15-tier Persistent Tree Sidebar)
  * - Flexible Portrait Mode (Mobile vertical stack with slide-up ladder drawer)
  * - 1-Tap Landscape / Portrait mode toggle in HUD
- * - 15-Level Point Ladder with Safe Padavs (Q5: 10,000, Q10: 3,20,000, Q15: 1 Crore)
- * - 4 Interactive Lifelines: 50:50, Audience Poll, Ask AI Guru, Time Freeze
+ * - 15-Level Point Ladder with Safe Milestones (Q5: 10,000, Q10: 3,20,000, Q15: 1 Crore)
+ * - 4 Interactive Lifelines: Duo Strike, Audience Poll, Ask AI Guru, Time Freeze
  * - Tension tick-tick and heartbeat audio loop
- * - "Lock Kiya Jaye" amber pulse suspense & emerald victory aura
+ * - "Lock Answer" amber pulse suspense & emerald victory aura
  * - Walk Away / Take Points functionality
  */
 
@@ -18,8 +18,8 @@ import { useGame } from '../context/GameContext';
 import { useAuth } from '../context/AuthContext';
 import { LADDER_TIERS } from '../services/questionEngine';
 import soundService from '../services/soundService';
-import KbcQuestionBox from '../components/common/KbcQuestionBox';
-import KbcOptionButton from '../components/common/KbcOptionButton';
+import BLQuestionBox from '../components/common/BLQuestionBox';
+import BLOptionButton from '../components/common/BLOptionButton';
 import CountdownClockOverlay from '../components/common/CountdownClockOverlay';
 import NextQuestionPromptModal from '../components/common/NextQuestionPromptModal';
 import { getLocalizedQuestion } from '../services/questionLanguageHelper';
@@ -331,17 +331,17 @@ export default function HotSeatScreen() {
               </div>
             )}
 
-            {/* Authentic KBC Metallic Question Frame */}
+            {/* BrainLeague Royal Question Frame */}
             <div className="my-auto flex items-center justify-center">
-              <KbcQuestionBox
+              <BLQuestionBox
                 questionText={localizedQ?.displayText || currentQ.text}
                 levelNumber={currentQIndex + 1}
                 totalLevels={15}
                 pointsFormatted={tierMeta.label}
                 subject={currentQ.subject}
-                isPadav={tierMeta.isPadav}
+                isSafeMilestone={tierMeta.isPadav}
                 questionLabel={t('questionLabel')}
-                padavLabel={t('safeMilestoneBanner')}
+                safeMilestoneLabel={t('safeMilestoneBanner')}
                 isCompact={true}
               />
             </div>
@@ -371,7 +371,7 @@ export default function HotSeatScreen() {
               {['A', 'B', 'C', 'D'].map((letter) => {
                 const status = getOptionStatus(letter);
                 return (
-                  <KbcOptionButton
+                  <BLOptionButton
                     key={letter}
                     letter={letter}
                     text={localizedQ?.displayOptions?.[letter] || currentQ.options[letter]}
@@ -497,27 +497,27 @@ export default function HotSeatScreen() {
               </div>
             )}
 
-            {/* Authentic KBC Metallic Question Frame */}
-            <KbcQuestionBox
+            {/* BrainLeague Royal Question Frame */}
+            <BLQuestionBox
               questionText={localizedQ?.displayText || currentQ.text}
               levelNumber={currentQIndex + 1}
               totalLevels={15}
               pointsFormatted={tierMeta.label}
               subject={currentQ.subject}
-              isPadav={tierMeta.isPadav}
+              isSafeMilestone={tierMeta.isPadav}
               questionLabel={t('questionLabel')}
-              padavLabel={t('safeMilestoneBanner')}
+              safeMilestoneLabel={t('safeMilestoneBanner')}
               isCompact={false}
             />
           </div>
 
-          {/* Authentic KBC 2x2 Hexagonal Options Grid */}
+          {/* BrainLeague 2x2 Options Grid */}
           <div className="my-2 sm:my-3">
             <div className="grid gap-1.5 sm:gap-2.5 grid-cols-1 sm:grid-cols-2">
               {['A', 'B', 'C', 'D'].map((letter) => {
                 const status = getOptionStatus(letter);
                 return (
-                  <KbcOptionButton
+                  <BLOptionButton
                     key={letter}
                     letter={letter}
                     text={localizedQ?.displayOptions?.[letter] || currentQ.options[letter]}

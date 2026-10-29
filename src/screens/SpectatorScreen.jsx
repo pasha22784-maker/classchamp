@@ -18,8 +18,8 @@ import soundService from '../services/soundService';
 import roomService from '../services/roomService';
 import friendService from '../services/friendService';
 import confetti from 'canvas-confetti';
-import KbcQuestionBox from '../components/common/KbcQuestionBox';
-import KbcOptionButton from '../components/common/KbcOptionButton';
+import BLQuestionBox from '../components/common/BLQuestionBox';
+import BLOptionButton from '../components/common/BLOptionButton';
 import { getLocalizedQuestion } from '../services/questionLanguageHelper';
 import {
   Eye,
@@ -105,7 +105,7 @@ export default function SpectatorScreen() {
 
   const emojis = ['👏', '🔥', '💡', '🏆', '⭐', '🎉'];
 
-  // Play Along Welcome Announcement & 5-Second KBC Clock (bypassed if joining mid-match)
+  // Play Along Welcome Announcement & 5-Second Arena Clock (bypassed if joining mid-match)
   const isMidMatchJoin = Boolean(activeRoom?.matchProgress?.currentLevel && activeRoom.matchProgress.currentLevel > 1);
   const [showPlayAlongWelcome, setShowPlayAlongWelcome] = useState(!isMidMatchJoin && (spectatorLevel || 1) === 1);
   const [welcomeCountdown, setWelcomeCountdown] = useState(5);
@@ -538,15 +538,15 @@ export default function SpectatorScreen() {
           <div className="flex-1 w-full grid grid-cols-12 gap-3 items-center overflow-hidden min-h-0 py-0.5">
             {/* Left: Question Box */}
             <div className="col-span-6 flex flex-col justify-center h-full max-h-full overflow-hidden min-h-0">
-              <KbcQuestionBox
+              <BLQuestionBox
                 questionText={localizedQ?.displayText || currentQ?.text}
                 levelNumber={spectatorLevel}
                 totalLevels={15}
                 pointsFormatted={currentTier?.label}
                 subject={currentQ?.subject}
-                isPadav={currentTier?.isPadav}
+                isSafeMilestone={currentTier?.isPadav}
                 questionLabel={t('questionLabel')}
-                padavLabel={t('safeMilestoneBanner')}
+                safeMilestoneLabel={t('safeMilestoneBanner')}
                 isCompact={true}
               />
             </div>
@@ -592,7 +592,7 @@ export default function SpectatorScreen() {
                   }
 
                   return (
-                    <KbcOptionButton
+                    <BLOptionButton
                       key={letter}
                       letter={letter}
                       text={localizedQ?.displayOptions?.[letter] || currentQ?.options[letter]}
@@ -631,16 +631,16 @@ export default function SpectatorScreen() {
         ) : (
           /* PORTRAIT LAYOUT */
           <div className="my-auto space-y-3">
-            {/* Authentic Metallic Question Frame */}
-            <KbcQuestionBox
+            {/* BrainLeague Question Frame */}
+            <BLQuestionBox
               questionText={localizedQ?.displayText || currentQ?.text}
               levelNumber={spectatorLevel}
               totalLevels={15}
               pointsFormatted={currentTier?.label}
               subject={currentQ?.subject}
-              isPadav={currentTier?.isPadav}
+              isSafeMilestone={currentTier?.isPadav}
               questionLabel={t('questionLabel')}
-              padavLabel={t('safeMilestoneBanner')}
+              safeMilestoneLabel={t('safeMilestoneBanner')}
               isCompact={false}
             />
 
@@ -685,7 +685,7 @@ export default function SpectatorScreen() {
                 }
 
                 return (
-                  <KbcOptionButton
+                  <BLOptionButton
                     key={letter}
                     letter={letter}
                     text={localizedQ?.displayOptions?.[letter] || currentQ?.options[letter]}
@@ -912,7 +912,7 @@ export default function SpectatorScreen() {
       </div>
 
       {/* ========================================================= */}
-      {/* 6. BIG CENTER PLAY ALONG ANNOUNCEMENT & KBC CLOCK MODAL   */}
+      {/* 6. BIG CENTER PLAY ALONG ANNOUNCEMENT & COUNTDOWN MODAL   */}
       {/* ========================================================= */}
       {showPlayAlongWelcome && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/92 backdrop-blur-md animate-fade-in">

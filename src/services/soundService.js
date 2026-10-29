@@ -218,7 +218,7 @@ class SoundService {
     }
   }
 
-  // Dramatic KBC-style countdown chime: higher pitch as count goes 5 -> 1
+  // Dramatic suspense countdown chime: higher pitch as count goes 5 -> 1
   playCountdownTick(count = 5) {
     if (this.muted) return;
     this.init();

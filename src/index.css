@@ -81,31 +81,37 @@
   box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
 }
 
-/* KBC Option Hexagon & TV Broadcast styling */
+/* BrainLeague Option & Arena styling */
+.bl-option-btn,
 .kbc-option-btn {
   position: relative;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.bl-option-btn:hover:not(:disabled),
 .kbc-option-btn:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
 }
 
+.bl-option-btn:active:not(:disabled),
 .kbc-option-btn:active:not(:disabled) {
   transform: translateY(0px);
 }
 
-/* Authentic KBC Chevron/Hexagonal Geometry */
+/* BrainLeague Royal Shield/Angled Geometry */
+.bl-hex-box,
 .kbc-hex-box {
   clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 18px 100%, 0% 50%);
 }
 
+.bl-hex-box-sm,
 .kbc-hex-box-sm {
   clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%);
 }
 
-/* KBC Studio Metallic Border Frame */
+/* BrainLeague Arena Metallic Gold Border Frame */
+.bl-frame-border,
 .kbc-frame-border {
   position: relative;
   background: linear-gradient(90deg, #b45309 0%, #D4AF37 25%, #FDE68A 50%, #D4AF37 75%, #b45309 100%);
@@ -114,6 +120,7 @@
   filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.6));
 }
 
+.bl-frame-inner,
 .kbc-frame-inner {
   width: 100%;
   height: 100%;
@@ -121,7 +128,8 @@
   clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 18px 100%, 0% 50%);
 }
 
-/* KBC Studio Lateral Laser Lines */
+/* BrainLeague Arena Lateral Laser Lines */
+.bl-laser-line,
 .kbc-laser-line {
   position: absolute;
   top: 50%;
@@ -131,7 +139,17 @@
   pointer-events: none;
 }
 
-/* Suspense "Lock Kiya Jaye" Amber Glow */
+/* Suspense "Lock Answer" Amber Glow */
+@keyframes blLockSuspense {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.7), inset 0 0 15px rgba(245, 158, 11, 0.5);
+    border-color: #F59E0B;
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(245, 158, 11, 1), inset 0 0 25px rgba(251, 191, 36, 0.8);
+    border-color: #FDE68A;
+  }
+}
 @keyframes kbcLockSuspense {
   0%, 100% {
     box-shadow: 0 0 15px rgba(245, 158, 11, 0.7), inset 0 0 15px rgba(245, 158, 11, 0.5);
@@ -142,11 +160,20 @@
     border-color: #FDE68A;
   }
 }
+.bl-locked-glow,
 .kbc-locked-glow {
-  animation: kbcLockSuspense 1s infinite ease-in-out;
+  animation: blLockSuspense 1s infinite ease-in-out;
 }
 
-/* Correct Jade Green Celebration Glow */
+/* Correct Emerald Victory Glow */
+@keyframes blCorrectAura {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.8), inset 0 0 15px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(52, 211, 153, 1), inset 0 0 30px rgba(52, 211, 153, 0.9);
+  }
+}
 @keyframes kbcCorrectAura {
   0%, 100% {
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.8), inset 0 0 15px rgba(16, 185, 129, 0.5);
@@ -155,8 +182,9 @@
     box-shadow: 0 0 40px rgba(52, 211, 153, 1), inset 0 0 30px rgba(52, 211, 153, 0.9);
   }
 }
+.bl-correct-glow,
 .kbc-correct-glow {
-  animation: kbcCorrectAura 0.8s infinite ease-in-out;
+  animation: blCorrectAura 0.8s infinite ease-in-out;
 }
 
 /* Zero-Scrolling Landscape TV Studio Rules */
@@ -168,6 +196,7 @@
     touch-action: pan-x pan-y;
   }
   /* Ensure option buttons and question box stay compact in mobile landscape */
+  .bl-frame-inner,
   .kbc-frame-inner {
     padding-top: 0.25rem !important;
     padding-bottom: 0.25rem !important;

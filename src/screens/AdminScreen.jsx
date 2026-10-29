@@ -2130,7 +2130,7 @@ Ensure verified facts, correct answer validation, and zero repeated questions.`;
               <span>Direct File Path on your PC:</span>
             </div>
             <p className="font-mono text-[10px] text-slate-300 break-all select-all bg-black/40 p-1.5 rounded">
-              C:\Users\Admin\Documents\KBC app\src\services\storageService.js
+              src/services/storageService.js
             </p>
             <p className="text-[10px] text-slate-400">
               Lines 23-25 contain the default credentials. Any updates saved here are also securely stored in your browser session.

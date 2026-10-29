@@ -39,17 +39,17 @@ import {
 const TOUR_SLIDES = [
   {
     id: 'hotseat',
-    badge: '📺 Grand TV Studio Experience',
+    badge: '📺 Grand Champions Arena Experience',
     badgeColor: 'bg-amber-500/20 text-champGold border-champGold/40',
     icon: '🏆',
-    titleEn: 'Fastest Finger to the Hot Seat',
-    titleHi: 'फास्टेस्ट फिंगर से ₹1 करोड़ की हॉट सीट तक',
-    descEn: 'Experience the real TV studio thrill! Compete in the 10-player Fastest Finger First round. The fastest accurate player takes the Hot Seat for 15 questions to 1 Crore points!',
-    descHi: 'असली टीवी शो का रोमांच! 10 खिलाड़ियों की फास्टेस्ट फिंगर फर्स्ट राउंड में सबसे तेज़ खिलाड़ी हॉट सीट पर बैठता है और 15 सवालों के साथ 1 करोड़ पॉइंट्स तक पहुँचता है!',
+    titleEn: 'Rapid Round to the Hot Seat',
+    titleHi: 'रैपिड राउंड से 1 करोड़ पॉइंट्स की हॉट सीट तक',
+    descEn: 'Experience the real Champions Arena thrill! Compete in the 10-player Rapid Round qualifier. The fastest accurate player takes the Hot Seat for 15 questions to 1 Crore League Points!',
+    descHi: 'असली चैंपियनशिप का रोमांच! 10 खिलाड़ियों के रैपिड राउंड में सबसे तेज़ खिलाड़ी हॉट सीट पर बैठता है और 15 सवालों के साथ 1 करोड़ पॉइंट्स तक पहुँचता है!',
     bullets: [
-      { icon: '⚡', en: '15-Second Fastest Finger First with live millisecond leaderboard', hi: '15 सेकंड का फास्टेस्ट फिंगर फर्स्ट राउंड' },
-      { icon: '💡', en: '4 Lifelines: 50:50, Audience Poll, Guru Hint & Time Freeze', hi: '4 लाइफलाइन्स: 50:50, ऑडियंस पोल, गुरु संकेत और टाइम फ्रीज़' },
-      { icon: '📺', en: 'Zero-scrolling authentic TV studio landscape mode', hi: 'जीरो-स्क्रोलिंग टीवी स्टूडियो लैंडस्केप व्यू' }
+      { icon: '⚡', en: '15-Second Rapid Round with live millisecond leaderboard', hi: '15 सेकंड का रैपिड राउंड स्पीड क्वालीफ़ायर' },
+      { icon: '💡', en: '4 Lifelines: Duo Strike, Audience Poll, Guru Hint & Time Freeze', hi: '4 लाइफलाइन्स: डुओ स्ट्राइक, ऑडियंस पोल, गुरु संकेत और टाइम फ्रीज़' },
+      { icon: '📺', en: 'Zero-scrolling authentic arena landscape mode', hi: 'जीरो-स्क्रोलिंग एरीना लैंडस्केप व्यू' }
     ]
   },
   {

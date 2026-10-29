@@ -7,7 +7,7 @@
  * - Contestant victory badge, avatar, and winning stats (#1 Rank, completion time)
  * - 15-Question Point Ladder Roadmap (Padav 1: Q5, Padav 2: Q10, Jackpot: Q15 1 Crore)
  * - 4 Lifelines briefing (50:50, Audience Poll, Guru Hint, Time Freeze)
- * - Center KBC Countdown Clock (5 -> 4 -> 3 -> 2 -> 1 -> START!)
+ * - Center Countdown Clock (5 -> 4 -> 3 -> 2 -> 1 -> START!)
  * - Synchronized rising pitch tick and fanfare audio
  * - 1-tap "Enter Hot Seat Now" quick action
  */

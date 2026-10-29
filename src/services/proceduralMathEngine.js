@@ -118,7 +118,7 @@ export const proceduralMathEngine = {
     }
   },
 
-  // FFF: Fastest Finger First Ordering Question
+  // FFF: Rapid Round Ordering Question
   generateFFF(division = 'Junior', grade = null) {
     const count = 4;
     let items = [];

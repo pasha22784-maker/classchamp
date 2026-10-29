@@ -1,10 +1,10 @@
 /**
  * CountdownClockOverlay.jsx
- * High-Drama KBC Broadcast Center Countdown Clock.
+ * High-Drama BrainLeague Arena Center Countdown Clock.
  * Features:
  * - Radial rotating golden aura and circular progress stroke
  * - 5 -> 4 -> 3 -> 2 -> 1 -> GO! explosive scale animation
- * - Synchronized KBC studio audio cues on every tick
+ * - Synchronized arena audio cues on every tick
  * - Fully customizable badge, title, subtitle and callback
  */
 
@@ -14,7 +14,7 @@ import { Sparkles, Trophy, Gamepad2, Award } from 'lucide-react';
 
 export default function CountdownClockOverlay({
   initialCount = 5,
-  badge = 'FASTEST FINGER FIRST',
+  badge = 'RAPID ROUND QUALIFIER',
   badgeIcon = '⚡',
   title = 'Game Begins In',
   subtitle = 'Get Ready!',
@@ -73,7 +73,7 @@ export default function CountdownClockOverlay({
           {subtitle}
         </p>
 
-        {/* Big Circular KBC Clock Display */}
+        {/* Big Circular Clock Display */}
         <div className="relative w-36 h-36 flex items-center justify-center my-2">
           {/* Outer Pulsing Aura Ring */}
           <div className="absolute inset-0 rounded-full border-2 border-dashed border-champGold/30 animate-spin-slow pointer-events-none" />
@@ -130,7 +130,7 @@ export default function CountdownClockOverlay({
         {/* Bottom subtle indicator */}
         <div className="mt-4 flex items-center justify-center gap-1.5 text-[10px] text-slate-400 font-mono">
           <div className="w-1.5 h-1.5 rounded-full bg-champGold animate-pulse" />
-          <span>KBC Official Match Countdown</span>
+          <span>BrainLeague Arena Match Countdown</span>
         </div>
       </div>
     </div>

@@ -24,8 +24,8 @@ const TRANSLATIONS = {
     portrait: "Portrait",
     chooseLanguage: "Language",
 
-    // FFF Lobby
-    lobbyTitle: "Fastest Finger First Matchmaking",
+    // FFF / Rapid Round Lobby
+    lobbyTitle: "Rapid Round Matchmaking",
     lobbySubtitle: "Joining 10 Contenders in the Arena",
     selectLangPrompt: "Select Questions & Options Language:",
     langChangedNotice: "Questions & Options will appear in English.",
@@ -33,8 +33,8 @@ const TRANSLATIONS = {
     getReady: "Get Ready!",
     lobbyWaiting: "Waiting for contenders to enter arena...",
 
-    // Fastest Finger First (FFF)
-    fffTitle: "Fastest Finger First",
+    // Rapid Round (Speed Qualifier)
+    fffTitle: "Rapid Round Qualifier",
     fffSubtitle: "Arrange all 4 options in exact chronological / numerical sequence",
     lockMyOrder: "Lock My Order",
     reset: "Reset",
@@ -59,7 +59,7 @@ const TRANSLATIONS = {
     // Hot Seat Winner Modal
     winnerBadge: "HOT SEAT FINALIST • WINNER",
     winnerHeadline: "🎉 Congratulations! You have been selected for the Hot Seat!",
-    winnerSubtext: "You locked the fastest accurate sequence among all contenders. Now take on 15 questions to win 1 Crore Virtual Points!",
+    winnerSubtext: "You locked the fastest accurate sequence among all contenders. Now take on 15 questions to win 1 Crore League Points!",
     safePadavsChip: "Q5 & Q10: Safe Milestones",
     lifelinesChip: "4 Lifelines Ready",
     hotSeatBeginsIn: "Hot Seat Game Begins In",
@@ -78,7 +78,7 @@ const TRANSLATIONS = {
     walkAwayBtn: "Walk Away & Take Points",
     guaranteedSafe: "Guaranteed Safe:",
     ladderTitle: "15-Tier Point Ladder",
-    padavLegend: "Padav 1: Q5 (10K) • Padav 2: Q10 (3.2L) • Q15 (1 Crore)",
+    padavLegend: "Milestone 1: Q5 (10K) • Milestone 2: Q10 (3.2L) • Q15 (1 Crore)",
     backToQuestion: "Back to Question",
     close: "Close",
     lockedStatus: "Locked",
@@ -120,8 +120,8 @@ const TRANSLATIONS = {
     portrait: "📱 Portrait",
     chooseLanguage: "Language",
 
-    // FFF Lobby
-    lobbyTitle: "Fastest Finger First Matchmaking",
+    // Rapid Round Lobby
+    lobbyTitle: "Rapid Round Matchmaking",
     lobbySubtitle: "Joining 10 Contenders in the Arena",
     selectLangPrompt: "Select Match Language (प्रश्न व विकल्प किस भाषा में चाहिए):",
     langChangedNotice: "Questions aur Options ab Hindi (हिंदी) me aayenge.",
@@ -129,8 +129,8 @@ const TRANSLATIONS = {
     getReady: "Ready Ho Jayein!",
     lobbyWaiting: "Waiting for contenders to enter arena...",
 
-    // Fastest Finger First (FFF)
-    fffTitle: "Fastest Finger First",
+    // Rapid Round Qualifier
+    fffTitle: "Rapid Round Qualifier",
     fffSubtitle: "Arrange all 4 options in exact chronological / numerical sequence",
     lockMyOrder: "Lock My Order",
     reset: "Reset",
@@ -155,8 +155,8 @@ const TRANSLATIONS = {
     // Hot Seat Winner Modal
     winnerBadge: "HOT SEAT FINALIST • WINNER",
     winnerHeadline: "🎉 Badhaai Ho! Aap Hot Seat Ke Liye Select Ho Chuke Hain!",
-    winnerSubtext: "Aapne sabhi contenders me sabse tezi se sahi jawab diya hai! Ab samay hai 15 Sawalon ka samna karke ₹1 Crore Virtual Points jeetne ka!",
-    safePadavsChip: "Q5 & Q10: Safe Padav",
+    winnerSubtext: "Aapne sabhi contenders me sabse tezi se sahi jawab diya hai! Ab samay hai 15 Sawalon ka samna karke 1 Crore League Points jeetne ka!",
+    safePadavsChip: "Q5 & Q10: Safe Milestones",
     lifelinesChip: "4 Lifelines Ready",
     hotSeatBeginsIn: "Hot Seat Game Begins In",
     hotSeatHint: "Apna dhyan kendrit karein aur har sawal dhyan se padhein!",
@@ -166,7 +166,7 @@ const TRANSLATIONS = {
     hotSeatArena: "Hot Seat Arena",
     playingForPts: "Playing for {points} Points",
     questionLabel: "QUESTION",
-    safeMilestoneBanner: "SAFE PADAV MILESTONE",
+    safeMilestoneBanner: "SAFE MILESTONE REACHED",
     guaranteedPts: "Virtual Points Guaranteed",
     guruHintTitle: "AI Guru Lifeline Advice:",
     pollResultsTitle: "Live Audience & Spectator Poll Results",
@@ -174,7 +174,7 @@ const TRANSLATIONS = {
     walkAwayBtn: "Walk Away & Take Points",
     guaranteedSafe: "Guaranteed Safe:",
     ladderTitle: "15-Tier Point Ladder",
-    padavLegend: "Padav 1: Q5 (10K) • Padav 2: Q10 (3.2L) • Q15 (1 Crore)",
+    padavLegend: "Milestone 1: Q5 (10K) • Milestone 2: Q10 (3.2L) • Q15 (1 Crore)",
     backToQuestion: "Back to Question",
     close: "Close",
     lockedStatus: "Locked",
@@ -201,7 +201,7 @@ const TRANSLATIONS = {
     // Play Along Welcome Modal
     playAlongModalBadge: "LIVE AUDIENCE PLAY ALONG",
     playAlongModalTitle: "Aap Hain Play Along Arena Me!",
-    playAlongModalSubtext: "Fastest Finger First me aap select nahi huye, lekin game abhi baaki hai! Audience seat se har sawaal ka live jawab dein aur dhero prizes jeetein!",
+    playAlongModalSubtext: "Rapid Round me aap select nahi huye, lekin game abhi baaki hai! Audience seat se har sawaal ka live jawab dein aur dhero prizes jeetein!",
     gemsPerCorrect: "+5 Gems per correct",
     ptsPerCorrect: "+50 Points for Rank",
     firstQArrivesIn: "First Question Arrives In",
@@ -216,8 +216,8 @@ const TRANSLATIONS = {
     portrait: "📱 Portrait",
     chooseLanguage: "Language / भाषा",
 
-    // FFF Lobby
-    lobbyTitle: "Fastest Finger First Matchmaking",
+    // Rapid Round Lobby
+    lobbyTitle: "Rapid Round Matchmaking",
     lobbySubtitle: "Arena Me 10 Contenders Jud Rahe Hain",
     selectLangPrompt: "Select Questions & Options Language:",
     langChangedNotice: "Questions & Options dono bhashaon me (हिंदी + English) dikhenge.",
@@ -225,8 +225,8 @@ const TRANSLATIONS = {
     getReady: "Ready Ho Jayein!",
     lobbyWaiting: "Contenders ke judne ka intezar...",
 
-    // Fastest Finger First (FFF)
-    fffTitle: "Fastest Finger First",
+    // Rapid Round (Speed Qualifier)
+    fffTitle: "Rapid Round Qualifier",
     fffSubtitle: "Sabhi 4 options ko 1st se 4th sahi kram me arrange karein",
     lockMyOrder: "Lock My Order",
     reset: "Reset",
@@ -251,8 +251,8 @@ const TRANSLATIONS = {
     // Hot Seat Winner Modal
     winnerBadge: "HOT SEAT FINALIST • WINNER",
     winnerHeadline: "🎉 Badhaai Ho! Aap Hot Seat Ke Liye Select Ho Chuke Hain!",
-    winnerSubtext: "Aapne sabhi contenders me sabse tezi se sahi jawab diya hai! Ab samay hai 15 Sawalon ka samna karke ₹1 Crore Virtual Points jeetne ka!",
-    safePadavsChip: "Q5 & Q10: Safe Padav",
+    winnerSubtext: "Aapne sabhi contenders me sabse tezi se sahi jawab diya hai! Ab samay hai 15 Sawalon ka samna karke 1 Crore League Points jeetne ka!",
+    safePadavsChip: "Q5 & Q10: Safe Milestones",
     lifelinesChip: "4 Lifelines Ready",
     hotSeatBeginsIn: "Hot Seat Game Shuru Ho Rahi Hai In",
     hotSeatHint: "Apna dhyan kendrit karein aur har sawal dhyan se padhein!",
@@ -262,7 +262,7 @@ const TRANSLATIONS = {
     hotSeatArena: "Hot Seat Arena",
     playingForPts: "Playing for {points} Points",
     questionLabel: "QUESTION",
-    safeMilestoneBanner: "SAFE PADAV MILESTONE",
+    safeMilestoneBanner: "SAFE MILESTONE REACHED",
     guaranteedPts: "Virtual Points Guaranteed",
     guruHintTitle: "AI Guru Lifeline Advice:",
     pollResultsTitle: "Live Audience & Spectator Poll Results",
@@ -270,7 +270,7 @@ const TRANSLATIONS = {
     walkAwayBtn: "Walk Away & Take Points",
     guaranteedSafe: "Guaranteed Safe:",
     ladderTitle: "15-Tier Point Ladder",
-    padavLegend: "Padav 1: Q5 (10K) • Padav 2: Q10 (3.2L) • Q15 (1 Crore)",
+    padavLegend: "Milestone 1: Q5 (10K) • Milestone 2: Q10 (3.2L) • Q15 (1 Crore)",
     backToQuestion: "Back to Question",
     close: "Close",
     lockedStatus: "Locked",
@@ -297,7 +297,7 @@ const TRANSLATIONS = {
     // Play Along Welcome Modal
     playAlongModalBadge: "LIVE AUDIENCE PLAY ALONG",
     playAlongModalTitle: "Aap Hain Play Along Arena Me!",
-    playAlongModalSubtext: "Fastest Finger First me aap select nahi huye, lekin game abhi baaki hai! Audience seat se har sawaal ka live jawab dein aur dhero prizes jeetein!",
+    playAlongModalSubtext: "Rapid Round me aap select nahi huye, lekin game abhi baaki hai! Audience seat se har sawaal ka live jawab dein aur dhero prizes jeetein!",
     gemsPerCorrect: "+5 Gems per correct",
     ptsPerCorrect: "+50 Points for Rank",
     firstQArrivesIn: "Pehla Question Aa Raha Hai In",

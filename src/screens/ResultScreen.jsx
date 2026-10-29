@@ -279,7 +279,7 @@ export default function ResultScreen() {
 
           <h1 className="text-xl font-cinzel font-bold text-pearl tracking-wider">
             {matchResult.isWinner
-              ? 'CROREPATI CHAMPION!'
+              ? 'GRAND CHAMPION!'
               : matchResult.pointsWon >= 10000
                 ? 'OUTSTANDING RUN!'
                 : 'GOOD EFFORT!'}

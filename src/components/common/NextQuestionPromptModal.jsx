@@ -51,7 +51,7 @@ export default function NextQuestionPromptModal({
 
         {/* Current Result */}
         <span className="text-[11px] font-bold font-rajdhani text-emeraldGlow-light uppercase tracking-widest bg-emerald-500/15 border border-emerald-500/30 px-3 py-0.5 rounded-full mb-1">
-          ✓ Sahi Jawab! Correct Answer
+          ✓ Correct Answer
         </span>
         <h3 className="text-sm font-semibold text-slate-300 font-cinzel">
           Level {currentLevel} Completed • <strong className="text-emerald-400 font-mono">+{currentPoints} Pts</strong>
@@ -67,7 +67,7 @@ export default function NextQuestionPromptModal({
         {/* Next Question Announcement Card */}
         <div className="w-full rounded-2xl bg-gradient-to-b from-velvet-900/90 to-navy-900/90 border border-champGold/40 p-4 shadow-xl mb-4 relative">
           <p className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold mb-1">
-            Agla Prashn • Question {nextLevel} of 15
+            Question {nextLevel} of 15
           </p>
 
           <div className="my-1.5">
@@ -82,11 +82,11 @@ export default function NextQuestionPromptModal({
             </span>
           </div>
 
-          {/* Safe Padav Banner if applicable */}
+          {/* Safe Milestone Banner if applicable */}
           {isNextPadav && (
             <div className="mt-2.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500/25 via-champGold/30 to-amber-500/25 border border-champGold text-champGold text-[11px] font-bold flex items-center justify-center gap-1.5 shadow animate-pulse">
               <Shield size={14} className="text-champGold fill-champGold/30" />
-              <span>PADAV / SAFE HAVEN LEVEL ({nextPoints} Guaranteed!)</span>
+              <span>SAFE MILESTONE LEVEL ({nextPoints} Guaranteed!)</span>
             </div>
           )}
         </div>

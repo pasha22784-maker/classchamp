@@ -484,7 +484,7 @@ export function GameProvider({ children }) {
       friendService.recordRecentPlayers(currentUser.id, room.players, 'Private Room Game');
     }
 
-    // Start directly with Fastest Finger First round
+    // Start directly with Rapid Round qualifier
     setScreen('FFF');
   };
 
@@ -506,7 +506,7 @@ export function GameProvider({ children }) {
 
     // Record all match contenders into Recent Players list for social connecting
     if (currentUser?.id && lobbyPlayers?.length > 0) {
-      friendService.recordRecentPlayers(currentUser.id, lobbyPlayers, 'Fastest Finger First');
+      friendService.recordRecentPlayers(currentUser.id, lobbyPlayers, 'Rapid Round');
     }
 
     // Private Multiplayer Room: Broadcast submission so all devices see the unified leaderboard!

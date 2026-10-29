@@ -625,7 +625,7 @@ export default function HomeScreen() {
                   <div className="text-navy-900 font-semibold text-[11px] flex items-center gap-1.5">
                     <span>10-Player Pool</span>
                     <span>•</span>
-                    <span>Fastest Finger First</span>
+                    <span>Rapid Round</span>
                     <span>•</span>
                     <span>15-Tier Ladder</span>
                   </div>
