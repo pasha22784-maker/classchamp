@@ -13,6 +13,7 @@ import ncertMathsClass2 from './ncertClass2MathsQuestions.js';
 import ncertEnglishClass2 from './ncertClass2EnglishQuestions.js';
 import ncertHindiClass2 from './ncertClass2HindiQuestions.js';
 import ncertGIClass2 from './ncertClass2GeneralIntelligenceQuestions.js';
+import ncertMathsClass3 from './ncertClass3MathsQuestions.js';
 
 export const INITIAL_QUESTIONS = [
   // ==========================================
@@ -4678,5 +4679,39 @@ const formattedGI = ncertGIClass2.map(q => ({
 }));
 
 INITIAL_QUESTIONS.push(...formattedGI);
+
+// Append NCERT Class 3 Mathematics (Maths Mela) curriculum questions
+const formattedNcertMaths3 = ncertMathsClass3.map(q => ({
+  id: q.id,
+  division: "Junior",
+  grade: 3,
+  bracket: q.difficulty === "Easy" ? "1000-10000" : "10000-340000",
+  subject: "Mathematics",
+  chapter: `Chapter ${q.chapter_num}: ${q.chapter_title}`,
+  chapterCode: `C3_MATH_CH${q.chapter_num}`,
+  category: q.topic,
+  text: q.question_en,
+  text_hi: q.question_hi,
+  text_en: q.question_en,
+  options: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  options_hi: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  correctAnswer: q.correct_option,
+  guruHint: q.explanation_en,
+  guruHint_hi: q.explanation_hi,
+  guruHint_en: q.explanation_en,
+  explanation: `${q.explanation_en} | ${q.explanation_hi}`
+}));
+
+INITIAL_QUESTIONS.push(...formattedNcertMaths3);
 
 export default INITIAL_QUESTIONS;
