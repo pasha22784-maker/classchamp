@@ -15,6 +15,7 @@ import ncertHindiClass2 from './ncertClass2HindiQuestions.js';
 import ncertGIClass2 from './ncertClass2GeneralIntelligenceQuestions.js';
 import ncertMathsClass3 from './ncertClass3MathsQuestions.js';
 import ncertEnglishClass3 from './ncertClass3EnglishQuestions.js';
+import ncertHindiClass3 from './ncertClass3HindiQuestions.js';
 
 export const INITIAL_QUESTIONS = [
   // ==========================================
@@ -4748,5 +4749,39 @@ const formattedNcertEnglish3 = ncertEnglishClass3.map(q => ({
 }));
 
 INITIAL_QUESTIONS.push(...formattedNcertEnglish3);
+
+// Append NCERT Class 3 Hindi (Veena) grammar & language curriculum questions
+const formattedNcertHindi3 = ncertHindiClass3.map(q => ({
+  id: q.id,
+  division: "Junior",
+  grade: 3,
+  bracket: q.difficulty === "Easy" ? "1000-10000" : "10000-340000",
+  subject: "Hindi",
+  chapter: `पाठ ${q.chapter_num}: ${q.chapter_title}`,
+  chapterCode: `C3_HIN_CH${q.chapter_num}`,
+  category: q.topic,
+  text: q.question_hi,
+  text_hi: q.question_hi,
+  text_en: q.question_en,
+  options: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  options_hi: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  correctAnswer: q.correct_option,
+  guruHint: q.explanation_hi,
+  guruHint_hi: q.explanation_hi,
+  guruHint_en: q.explanation_en,
+  explanation: `${q.explanation_hi} | ${q.explanation_en}`
+}));
+
+INITIAL_QUESTIONS.push(...formattedNcertHindi3);
 
 export default INITIAL_QUESTIONS;
