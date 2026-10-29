@@ -37,3 +37,6 @@ android/app/*.iml
 
 # Local Study Books & Raw PDFs
 NCERT BOOKS/
+dumped_pages/
+dump_pages.cjs
+inspect_all_chapters.cjs

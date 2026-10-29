@@ -9,6 +9,8 @@
  * - Bracket 5: FFF (Rapid Round Chronological Ordering)
  */
 
+import ncertMathsClass2 from './ncertClass2MathsQuestions.js';
+
 export const INITIAL_QUESTIONS = [
   // ==========================================
   // 1. JUNIOR LEAGUE (Class 2 to 5 | Ages 7–10)
@@ -4541,5 +4543,37 @@ export const INITIAL_QUESTIONS = [
     explanation: "Paris hosted the 2024 Summer Olympics from July 26 to August 11, 2024."
   }
 ];
+
+// Append NCERT Class 2 Mathematics authentic textbook curriculum questions
+const formattedNcertMaths = ncertMathsClass2.map(q => ({
+  id: q.id,
+  division: "Junior",
+  grade: 2,
+  bracket: q.difficulty === "Easy" ? "1000-10000" : "10000-340000",
+  subject: "Mathematics",
+  chapter: `Chapter ${q.chapter_num}: ${q.chapter_title}`,
+  chapterCode: `C2_MATH_CH${q.chapter_num}`,
+  category: q.topic,
+  text: q.question_en,
+  text_hi: q.question_hi,
+  options: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  options_hi: {
+    A: q.option_a,
+    B: q.option_b,
+    C: q.option_c,
+    D: q.option_d
+  },
+  correctAnswer: q.correct_option,
+  guruHint: q.explanation_en,
+  guruHint_hi: q.explanation_hi,
+  explanation: `${q.explanation_en} | ${q.explanation_hi}`
+}));
+
+INITIAL_QUESTIONS.push(...formattedNcertMaths);
 
 export default INITIAL_QUESTIONS;
