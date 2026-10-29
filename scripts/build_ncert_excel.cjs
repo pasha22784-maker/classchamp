@@ -157,19 +157,11 @@ XLSX.utils.book_append_sheet(wb, wsQuestions, 'Questions');
 XLSX.utils.book_append_sheet(wb, wsPages, 'Page_Breakdown');
 XLSX.utils.book_append_sheet(wb, wsChapters, 'Chapter_Summary');
 
-// Paths to write
+// Paths to write (Strictly inside project workspace folder as requested)
 const projectExcelPath = path.join(process.cwd(), 'NCERT_Class2_Maths_Questions.xlsx');
-const desktopPath = path.join('C:', 'Users', 'Admin', 'Desktop', 'NCERT_Class2_Maths_Questions.xlsx');
 
 XLSX.writeFile(wb, projectExcelPath);
 console.log(`Saved workbook to: ${projectExcelPath}`);
-
-try {
-  XLSX.writeFile(wb, desktopPath);
-  console.log(`Saved workbook copy to Desktop: ${desktopPath}`);
-} catch (e) {
-  console.warn(`Could not save to desktop: ${e.message}`);
-}
 
 // Also save JSON for app integration
 const jsonPath = path.join(process.cwd(), 'src', 'data', 'ncert_class2_maths_questions.json');
