@@ -12,6 +12,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useAuth } from '../context/AuthContext';
 import { useGame } from '../context/GameContext';
 import soundService from '../services/soundService';
 import KbcQuestionBox from '../components/common/KbcQuestionBox';
@@ -33,7 +34,9 @@ import {
 } from 'lucide-react';
 
 export default function FFFScreen() {
+  const { currentUser } = useAuth();
   const {
+    activeRoom,
     fffQuestion,
     submitFFF,
     fffWinner,
@@ -53,6 +56,14 @@ export default function FFFScreen() {
   const [secondsRemaining, setSecondsRemaining] = useState(15);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [timeTaken, setTimeTaken] = useState(0);
+
+  // Determine whether current player is the single fastest winner
+  const isMeWinner = Boolean(
+    fffWinner && (
+      (currentUser?.id && fffWinner.id === currentUser.id) ||
+      (!activeRoom && fffWinner.isHuman)
+    )
+  );
 
   // Trust-building post-submit states
   const [showWinnerModal, setShowWinnerModal] = useState(false);
@@ -92,8 +103,12 @@ export default function FFFScreen() {
       setReviewCountdown(prev => {
         if (prev <= 1) {
           clearInterval(timer);
-          if (fffWinner?.isHuman) {
+          if (isMeWinner) {
             setShowWinnerModal(true);
+          } else {
+            setSpectatorPlayer(fffWinner);
+            setSpectatorLevel(1);
+            navigateTo('SPECTATOR');
           }
           return 0;
         }
@@ -102,7 +117,7 @@ export default function FFFScreen() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isSubmitted, fffWinner]);
+  }, [isSubmitted, fffWinner, isMeWinner]);
 
   const handleOptionClick = (key) => {
     if (isSubmitted) return;
@@ -426,7 +441,7 @@ export default function FFFScreen() {
           </div>
 
           {/* 3. Verification & Trust-Building Transition Banner */}
-          {fffWinner?.isHuman ? (
+          {isMeWinner ? (
             <div className="p-3 rounded-2xl bg-gradient-to-r from-amber-500/20 via-champGold/25 to-amber-500/20 border-2 border-champGold shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-2.5 text-center sm:text-left">
               <div>
                 <span className="text-xs sm:text-sm font-black text-champGold uppercase font-cinzel flex items-center justify-center sm:justify-start gap-1.5">
@@ -487,7 +502,7 @@ export default function FFFScreen() {
       {/* GRAND HOT SEAT FINALIST NOTIFICATION & COUNTDOWN MODAL   */}
       {/* Appears AFTER 4-second trust verification of results      */}
       {/* ========================================================= */}
-      {showWinnerModal && fffWinner?.isHuman && (
+      {showWinnerModal && isMeWinner && (
         <HotSeatWinnerModal
           player={fffWinner}
           timeTaken={timeTaken}

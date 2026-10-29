@@ -13,6 +13,7 @@ import botService from '../services/botService';
 import examCategoryService from '../services/examCategoryService';
 import fairPlayService from '../services/fairPlayService';
 import clanBattleService from '../services/clanBattleService';
+import roomService from '../services/roomService';
 import { getTranslation, LANGUAGES } from '../services/localizationService';
 
 const GameContext = createContext();
@@ -209,6 +210,48 @@ export function GameProvider({ children }) {
   // Private Room Match state
   const [activeRoom, setActiveRoom] = useState(null);
 
+  // Real-time synchronization subscription for Private Multiplayer Rooms
+  useEffect(() => {
+    if (!activeRoom?.code) return;
+    const cleanCode = activeRoom.code;
+
+    const unsub = roomService.subscribe(cleanCode, (updatedRoom) => {
+      if (!updatedRoom) return;
+
+      setActiveRoom(updatedRoom);
+
+      // Keep shared questions synchronized across devices
+      if (updatedRoom.fffQuestion) {
+        setFffQuestion(prev => (!prev || prev.id !== updatedRoom.fffQuestion.id ? updatedRoom.fffQuestion : prev));
+      }
+      if (updatedRoom.hotSeatQuestions && updatedRoom.hotSeatQuestions.length === 15) {
+        setHotSeatQuestions(prev => (!prev || prev.length !== 15 ? updatedRoom.hotSeatQuestions : prev));
+      }
+
+      // Synchronize live FFF submissions & determine single winner across all devices
+      if (updatedRoom.fffResults) {
+        const sortedResults = Object.values(updatedRoom.fffResults).sort((a, b) => {
+          if (a.isCorrect && !b.isCorrect) return -1;
+          if (!a.isCorrect && b.isCorrect) return 1;
+          return a.timeTaken - b.timeTaken;
+        });
+        setFffResults(sortedResults);
+        if (sortedResults.length > 0) {
+          setFffWinner(sortedResults[0]);
+        }
+      }
+
+      // Synchronize Hot Seat contender
+      if (updatedRoom.matchProgress?.hotSeatPlayer) {
+        setSpectatorPlayer(updatedRoom.matchProgress.hotSeatPlayer);
+      }
+    });
+
+    return () => {
+      if (unsub) unsub();
+    };
+  }, [activeRoom?.code]);
+
   // Navigate between screens
   const navigateTo = (newScreen) => {
     soundService.playClick();
@@ -333,10 +376,14 @@ export function GameProvider({ children }) {
     setSessionAnswers({});
     setHasSeenHotSeatIntro(false);
 
-    // Prepare questions
+    // Prepare questions: prioritize room's shared questions so all players see identical questions!
     const allQuestions = storageService.getQuestions();
-    const fff = questionEngine.getFFFQuestion(allQuestions, selectedDivision, currentUser?.id, examCategory, gradeToUse);
-    const hotSeat = questionEngine.getHotSeatMatchQuestions(allQuestions, selectedDivision, currentUser?.id, examCategory, gradeToUse);
+    const fff = (room?.fffQuestion)
+      ? room.fffQuestion
+      : questionEngine.getFFFQuestion(allQuestions, selectedDivision, currentUser?.id, examCategory, gradeToUse);
+    const hotSeat = (room?.hotSeatQuestions && room.hotSeatQuestions.length === 15)
+      ? room.hotSeatQuestions
+      : questionEngine.getHotSeatMatchQuestions(allQuestions, selectedDivision, currentUser?.id, examCategory, gradeToUse);
 
     setFffQuestion(fff);
     setHotSeatQuestions(hotSeat);
@@ -358,12 +405,27 @@ export function GameProvider({ children }) {
 
     const neededBots = Math.max(0, 10 - friends.length);
     let bots = [];
-    if (neededBots > 0) {
+    if (room?.bots && room.bots.length >= neededBots) {
+      bots = room.bots.slice(0, neededBots);
+    } else if (neededBots > 0) {
       bots = botService.generateBots(neededBots, selectedDivision, friends.map(f => f.name));
     }
 
     const finalPool = [...friends, ...bots];
     setLobbyPlayers(finalPool);
+
+    // Seed initial fffResults if room has pre-generated results
+    if (room?.fffResults) {
+      const sorted = Object.values(room.fffResults).sort((a, b) => {
+        if (a.isCorrect && !b.isCorrect) return -1;
+        if (!a.isCorrect && b.isCorrect) return 1;
+        return a.timeTaken - b.timeTaken;
+      });
+      setFffResults(sorted);
+      if (sorted.length > 0) {
+        setFffWinner(sorted[0]);
+      }
+    }
 
     // Start directly with Fastest Finger First round
     setScreen('FFF');
@@ -376,7 +438,7 @@ export function GameProvider({ children }) {
   };
 
   // Submit FFF sequence (e.g. 'B,D,C,A')
-  const submitFFF = (playerSequence, timeTakenSeconds) => {
+  const submitFFF = async (playerSequence, timeTakenSeconds) => {
     if (!fffQuestion) return;
 
     const isCorrect = playerSequence === fffQuestion.correctAnswer;
@@ -385,7 +447,36 @@ export function GameProvider({ children }) {
     // Record answer in 180-day zero-repeat tracker (User + Device)
     questionEngine.recordAnswer(currentUser?.id, fffQuestion.id, isCorrect);
 
-    // Evaluate bot completion times
+    // Private Multiplayer Room: Broadcast submission so all devices see the unified leaderboard!
+    if (activeRoom?.code) {
+      const playerResult = {
+        id: currentUser?.id,
+        name: currentUser?.name || 'Contender',
+        avatar: currentUser?.avatar || '🎮',
+        isHuman: true,
+        isFriend: true,
+        isCorrect,
+        timeTaken: timeTakenSeconds,
+        timeFormatted: `${timeTakenSeconds.toFixed(2)}s`
+      };
+      const updated = await roomService.submitPlayerFFF(activeRoom.code, playerResult);
+      if (updated?.fffResults) {
+        const sorted = Object.values(updated.fffResults).sort((a, b) => {
+          if (a.isCorrect && !b.isCorrect) return -1;
+          if (!a.isCorrect && b.isCorrect) return 1;
+          return a.timeTaken - b.timeTaken;
+        });
+        setFffResults(sorted);
+        const winner = sorted[0];
+        setFffWinner(winner);
+        if (winner?.id === currentUser?.id) {
+          soundService.playCorrect();
+        }
+      }
+      return;
+    }
+
+    // Evaluate bot completion times in solo mode
     const [minSpeed, maxSpeed] = activeDivision === 'Junior'
       ? botSettings.juniorBotSpeedRange
       : activeDivision === 'Senior'
@@ -453,6 +544,16 @@ export function GameProvider({ children }) {
     setSessionAnswers(prev => ({ ...prev, [currentQIndex]: optionKey }));
     soundService.playLock();
 
+    // Broadcast lock to all room spectators in real-time
+    if (activeRoom?.code) {
+      roomService.syncMatchProgress(activeRoom.code, {
+        currentLevel: currentQIndex + 1,
+        lockedOption: optionKey,
+        isAnswerLocked: true,
+        revealState: null
+      });
+    }
+
     const currentQ = hotSeatQuestions[currentQIndex];
     const isCorrect = optionKey === currentQ.correctAnswer;
 
@@ -464,6 +565,15 @@ export function GameProvider({ children }) {
       if (isCorrect) {
         soundService.playCorrect();
         setRevealState('CORRECT');
+
+        if (activeRoom?.code) {
+          roomService.syncMatchProgress(activeRoom.code, {
+            currentLevel: currentQIndex + 1,
+            lockedOption: optionKey,
+            isAnswerLocked: true,
+            revealState: 'CORRECT'
+          });
+        }
 
         // Check if won Crore (Q15)
         if (currentQIndex === 14) {
@@ -486,6 +596,16 @@ export function GameProvider({ children }) {
       } else {
         soundService.playWrong();
         setRevealState('WRONG');
+
+        if (activeRoom?.code) {
+          roomService.syncMatchProgress(activeRoom.code, {
+            currentLevel: currentQIndex + 1,
+            lockedOption: optionKey,
+            isAnswerLocked: true,
+            revealState: 'WRONG'
+          });
+        }
+
         setTimeout(() => {
           handleDropOut(currentQIndex);
         }, 2000);
@@ -507,7 +627,19 @@ export function GameProvider({ children }) {
     setIsTimerPaused(false);
 
     const nextQ = hotSeatQuestions[nextIdx];
-    setTimerRemaining(nextQ?.tierMeta?.timeLimit || 45);
+    const newTimer = nextQ?.tierMeta?.timeLimit || 45;
+    setTimerRemaining(newTimer);
+
+    if (activeRoom?.code) {
+      roomService.syncMatchProgress(activeRoom.code, {
+        currentLevel: nextIdx + 1,
+        lockedOption: null,
+        isAnswerLocked: false,
+        revealState: null,
+        timeRemaining: newTimer,
+        eliminatedOptions: []
+      });
+    }
   };
 
   const proceedToNextQuestion = () => {
@@ -559,6 +691,14 @@ export function GameProvider({ children }) {
   const finishMatch = ({ wonLevel, points, isWinner, wasWalkAway }) => {
     let finalPoints = points;
     let trophyDelta = 0;
+
+    if (activeRoom?.code) {
+      roomService.syncMatchProgress(activeRoom.code, {
+        isFinished: true,
+        wonLevel,
+        points: finalPoints
+      });
+    }
 
     const isDownward = matchFairPlay?.status === 'DOWNWARD_PRACTICE';
     const isUpward = matchFairPlay?.status === 'UPWARD_CHALLENGE';
@@ -622,6 +762,12 @@ export function GameProvider({ children }) {
 
     setEliminatedOptions(toEliminate);
     setLifelinesUsed(prev => ({ ...prev, fiftyFifty: true }));
+
+    if (activeRoom?.code) {
+      roomService.syncMatchProgress(activeRoom.code, {
+        eliminatedOptions: toEliminate
+      });
+    }
   };
 
   // Lifeline 2: Audience Poll

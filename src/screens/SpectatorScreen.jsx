@@ -15,6 +15,7 @@ import { useAuth } from '../context/AuthContext';
 import { useGame } from '../context/GameContext';
 import { LADDER_TIERS } from '../services/questionEngine';
 import soundService from '../services/soundService';
+import roomService from '../services/roomService';
 import confetti from 'canvas-confetti';
 import KbcQuestionBox from '../components/common/KbcQuestionBox';
 import KbcOptionButton from '../components/common/KbcOptionButton';
@@ -39,6 +40,7 @@ import {
 export default function SpectatorScreen() {
   const { currentUser, addGems, updateTrophies } = useAuth();
   const {
+    activeRoom,
     spectatorPlayer,
     spectatorLevel,
     setSpectatorLevel,
@@ -127,9 +129,86 @@ export default function SpectatorScreen() {
   }, [showPlayAlongWelcome]);
 
   // -------------------------------------------------------------
-  // HOT-SEAT SIMULATION CYCLE PER QUESTION
+  // REAL-TIME MULTIPLAYER ROOM SYNCHRONIZATION
   // -------------------------------------------------------------
   useEffect(() => {
+    if (!activeRoom?.code) return;
+    const cleanCode = activeRoom.code;
+
+    const unsub = roomService.subscribe(cleanCode, (updatedRoom) => {
+      if (!updatedRoom || !updatedRoom.matchProgress) return;
+      const mp = updatedRoom.matchProgress;
+
+      // 1. Sync level progression
+      if (mp.currentLevel && mp.currentLevel !== spectatorLevel) {
+        setSpectatorLevel(mp.currentLevel);
+        setContenderStatus('THINKING');
+        setContenderLockedOption(null);
+        setAudienceSelection(null);
+        audienceSelectionRef.current = null;
+        setPlayAlongLocked(false);
+        setPlayAlongResult(null);
+      }
+
+      // 2. Sync contender countdown timer
+      if (typeof mp.timeRemaining === 'number') {
+        setContenderTimer(mp.timeRemaining);
+      }
+
+      // 3. Sync contender locked option
+      if (mp.isAnswerLocked && mp.lockedOption) {
+        setContenderLockedOption(mp.lockedOption);
+        setContenderStatus(mp.revealState ? 'REVEALED' : 'LOCKED');
+      }
+
+      // 4. Sync reveal state (Correct / Wrong) & evaluate user's Play Along
+      if (mp.revealState) {
+        setContenderStatus('REVEALED');
+        if (mp.revealState === 'CORRECT') {
+          soundService.playCorrect();
+        } else if (mp.revealState === 'WRONG') {
+          soundService.playWrong();
+        }
+
+        const userGuess = audienceSelectionRef.current;
+        if (userGuess && !playAlongResult) {
+          const correct = currentQ?.correctAnswer;
+          setTotalQuestionsPlayed(prev => prev + 1);
+          if (userGuess === correct) {
+            setPlayAlongResult('CORRECT');
+            setPlayAlongScore(prev => prev + 50);
+            setCorrectAnswersCount(prev => prev + 1);
+            addGems(5);
+          } else {
+            setPlayAlongResult('WRONG');
+          }
+        }
+      }
+
+      // 5. Sync match completion
+      if (mp.isFinished) {
+        setMatchEnded(true);
+        try {
+          confetti({
+            particleCount: 100,
+            spread: 80,
+            origin: { y: 0.6 }
+          });
+        } catch {}
+      }
+    });
+
+    return () => {
+      if (unsub) unsub();
+    };
+  }, [activeRoom?.code, spectatorLevel, currentQ, playAlongResult]);
+
+  // -------------------------------------------------------------
+  // HOT-SEAT SIMULATION CYCLE PER QUESTION (SOLO BOT MATCH ONLY)
+  // -------------------------------------------------------------
+  useEffect(() => {
+    // In real private multiplayer rooms, progression is driven live by the real human contender!
+    if (activeRoom?.code) return;
     if (matchEnded || !currentQ || showPlayAlongWelcome) return;
 
     // Reset previous timers

@@ -9,6 +9,10 @@
  * 4. Safe URL generation that always points to https://play.bolchaall.com on mobile apps.
  */
 
+import storageService from './storageService';
+import questionEngine from './questionEngine';
+import botService from './botService';
+
 const STORAGE_PREFIX = 'bl_room_';
 const CHANNEL_NAME   = 'brainleague_room';
 const ACTIVE_HOST_KEY = 'bl_active_host_room_code';
@@ -194,10 +198,15 @@ const roomService = {
   /**
    * Create a new room (or return active waiting room if host already created one)
    */
-  async createRoom({ hostId, hostName, hostAvatar = '🎮', division = 'Junior', maxPlayers = 10 }) {
+  async createRoom({ hostId, hostName, hostAvatar = '🎮', division = 'Junior', maxPlayers = 10, grade = null }) {
     // Check if host already has an active waiting room
     const existing = this.getActiveHostRoom(hostId);
     if (existing) {
+      if (!existing.fffQuestion || !existing.hotSeatQuestions || existing.hotSeatQuestions.length < 15) {
+        const allQuestions = storageService.getQuestions();
+        existing.fffQuestion = questionEngine.getFFFQuestion(allQuestions, existing.division || division, hostId, null, grade);
+        existing.hotSeatQuestions = questionEngine.getHotSeatMatchQuestions(allQuestions, existing.division || division, hostId, null, grade);
+      }
       this.publishRoomState(existing);
       return existing;
     }
@@ -209,6 +218,29 @@ const roomService = {
       attempts++;
     } while (readLocal(code) && attempts < 10);
 
+    // Pre-generate shared match questions so all room players see the EXACT same questions!
+    const allQuestions = storageService.getQuestions();
+    const fffQuestion = questionEngine.getFFFQuestion(allQuestions, division, hostId, null, grade);
+    const hotSeatQuestions = questionEngine.getHotSeatMatchQuestions(allQuestions, division, hostId, null, grade);
+
+    // Pre-generate 9 bot players and their predetermined FFF times so all devices see identical bot roster and times
+    const bots = botService.generateBots(9, division, [hostName]);
+    const fffResults = {};
+    bots.forEach(b => {
+      const isCorrect = Math.random() > 0.25;
+      const timeTaken = +(Math.random() * 4.5 + 4.5).toFixed(2);
+      fffResults[b.id] = {
+        id: b.id,
+        name: b.name,
+        avatar: b.avatar,
+        city: b.city,
+        isHuman: false,
+        isCorrect,
+        timeTaken,
+        timeFormatted: `${timeTaken}s`
+      };
+    });
+
     const room = {
       code,
       hostId,
@@ -216,6 +248,10 @@ const roomService = {
       division,
       status: 'waiting',
       maxPlayers: Math.min(Math.max(maxPlayers, 2), 10),
+      fffQuestion,
+      hotSeatQuestions,
+      bots,
+      fffResults,
       players: [{
         id: hostId,
         name: hostName,
@@ -225,7 +261,15 @@ const roomService = {
       }],
       createdAt: Date.now(),
       updatedAt: Date.now(),
-      startCountdown: null
+      startCountdown: null,
+      matchProgress: {
+        currentLevel: 1,
+        lockedOption: null,
+        revealState: null,
+        isAnswerLocked: false,
+        timeRemaining: 30,
+        hotSeatPlayer: null
+      }
     };
 
     try {
@@ -297,12 +341,113 @@ const roomService = {
    * Host starts game (minimum 2 players)
    */
   async startRoom(code, hostId) {
-    const room = await this.fetchRoomOnline(code);
+    const room = (await this.fetchRoomOnline(code)) || readLocal(code);
     if (!room || room.hostId !== hostId) return null;
     if (room.players.length < 2) return null;
 
+    // Ensure shared questions exist
+    if (!room.fffQuestion || !room.hotSeatQuestions || room.hotSeatQuestions.length < 15) {
+      const allQuestions = storageService.getQuestions();
+      room.fffQuestion = questionEngine.getFFFQuestion(allQuestions, room.division, hostId);
+      room.hotSeatQuestions = questionEngine.getHotSeatMatchQuestions(allQuestions, room.division, hostId);
+    }
+
+    // Ensure filler bots and predetermined bot results match room player count (total 10)
+    const neededBots = Math.max(0, 10 - room.players.length);
+    if (!room.bots || room.bots.length !== neededBots) {
+      const bots = botService.generateBots(neededBots, room.division, room.players.map(p => p.name));
+      const botResults = {};
+      bots.forEach(b => {
+        const isCorrect = Math.random() > 0.25;
+        const timeTaken = +(Math.random() * 4.5 + 4.5).toFixed(2);
+        botResults[b.id] = {
+          id: b.id,
+          name: b.name,
+          avatar: b.avatar,
+          city: b.city,
+          isHuman: false,
+          isCorrect,
+          timeTaken,
+          timeFormatted: `${timeTaken}s`
+        };
+      });
+      room.bots = bots;
+      room.fffResults = { ...botResults };
+    }
+
     room.status = 'starting';
     room.startCountdown = Date.now() + 5000;
+    room.matchProgress = {
+      currentLevel: 1,
+      lockedOption: null,
+      revealState: null,
+      isAnswerLocked: false,
+      timeRemaining: 30,
+      hotSeatPlayer: null
+    };
+    await this.publishRoomState(room);
+    return room;
+  },
+
+  /**
+   * Sync real-time in-game match progress for Hot-Seat and Spectator play-along
+   */
+  async syncMatchProgress(code, progressData) {
+    const cleanCode = sanitizeCode(code);
+    if (!cleanCode) return;
+    let room = readLocal(cleanCode);
+    if (!room) {
+      room = await this.fetchRoomOnline(cleanCode);
+    }
+    if (!room) return;
+
+    room.matchProgress = {
+      ...(room.matchProgress || {}),
+      ...progressData,
+      updatedAt: Date.now()
+    };
+    room.updatedAt = Date.now();
+
+    // Instant local persistence & broadcast
+    writeLocal(room);
+    broadcastLocal(room);
+
+    // Relay to cloud (debounced to avoid rate limiting)
+    const now = Date.now();
+    if (!this._lastSyncPost || now - this._lastSyncPost > 400) {
+      this._lastSyncPost = now;
+      this.publishRoomState(room);
+    }
+  },
+
+  /**
+   * Sync real-time FFF results from human players across devices
+   */
+  async submitPlayerFFF(code, playerResult) {
+    const cleanCode = sanitizeCode(code);
+    if (!cleanCode) return null;
+    let room = (await this.fetchRoomOnline(cleanCode)) || readLocal(cleanCode);
+    if (!room) return null;
+
+    if (!room.fffResults) room.fffResults = {};
+    room.fffResults[playerResult.id] = playerResult;
+
+    // Evaluate fastest correct winner
+    const submissions = Object.values(room.fffResults);
+    submissions.sort((a, b) => {
+      if (a.isCorrect && !b.isCorrect) return -1;
+      if (!a.isCorrect && b.isCorrect) return 1;
+      return a.timeTaken - b.timeTaken;
+    });
+
+    const winner = submissions[0];
+    if (winner && winner.isCorrect) {
+      room.matchProgress = {
+        ...(room.matchProgress || {}),
+        hotSeatPlayer: winner
+      };
+    }
+
     await this.publishRoomState(room);
     return room;
   },
