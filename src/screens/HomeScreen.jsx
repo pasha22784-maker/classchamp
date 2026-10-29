@@ -41,7 +41,7 @@ import fairPlayService, { JUNIOR_GRADES, SENIOR_GRADES, MAX_DOWNWARD_PRACTICE_DA
 
 export default function HomeScreen() {
   const { currentUser, deductEnergy, isRegisterModalOpen, openRegisterModal, closeRegisterModal } = useAuth();
-  const { activeDivision, setActiveDivision, selectedGrade, setSelectedGrade, startMatch, startClanBattle, navigateTo, openSettings, examCategory } = useGame();
+  const { activeDivision, setActiveDivision, selectedGrade, setSelectedGrade, startMatch, startClanBattle, navigateTo, openSettings, openFriends, examCategory } = useGame();
   const categoryMeta = examCategoryService.getCategories().find(c => c.id === examCategory) || examCategoryService.getCategories()[0];
 
   const [championships, setChampionships] = useState(() => storageService.getChampionships());
@@ -677,6 +677,16 @@ export default function HomeScreen() {
               <span>Join with Code</span>
             </button>
           </div>
+
+          {/* PUBG-Style Squad & Online Friends Quick Launcher */}
+          <button
+            type="button"
+            onClick={openFriends}
+            className="w-full mt-2 py-2 px-3 rounded-xl bg-navy-950/90 hover:bg-navy-800/90 border border-champGold/30 hover:border-champGold text-champGold font-bold text-xs flex items-center justify-center gap-2 transition active:scale-95 font-rajdhani uppercase tracking-wider shadow"
+          >
+            <Users size={14} className="text-champGold" />
+            <span>👥 Squad & Online Friends (PUBG Style)</span>
+          </button>
         </div>
 
         {/* 4B. ⚔️ 4v4 Clan Battle Arena (Voice Chat & Clan Wars) */}

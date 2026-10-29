@@ -16,6 +16,7 @@ import { useGame } from '../context/GameContext';
 import { LADDER_TIERS } from '../services/questionEngine';
 import soundService from '../services/soundService';
 import roomService from '../services/roomService';
+import friendService from '../services/friendService';
 import confetti from 'canvas-confetti';
 import KbcQuestionBox from '../components/common/KbcQuestionBox';
 import KbcOptionButton from '../components/common/KbcOptionButton';
@@ -34,7 +35,8 @@ import {
   Flame,
   Check,
   Gift,
-  RotateCw
+  RotateCw,
+  UserPlus
 } from 'lucide-react';
 
 export default function SpectatorScreen() {
@@ -84,6 +86,14 @@ export default function SpectatorScreen() {
   // Match Conclusion / Finale Screen for Audience
   const [matchEnded, setMatchEnded] = useState(false);
   const [prizesClaimed, setPrizesClaimed] = useState(false);
+  const [hasSentContenderRequest, setHasSentContenderRequest] = useState(false);
+
+  // Automatically record contender into recent players for social play-along connecting
+  useEffect(() => {
+    if (currentUser?.id && spectatorPlayer) {
+      friendService.recordRecentPlayers(currentUser.id, [spectatorPlayer], 'Play Along Hot Seat');
+    }
+  }, [currentUser, spectatorPlayer]);
 
   const emojis = ['👏', '🔥', '💡', '🏆', '⭐', '🎉'];
 
@@ -680,6 +690,36 @@ export default function SpectatorScreen() {
               <span className="font-bold text-emeraldGlow-light">Studio Master VIP</span>
             </div>
           </div>
+
+          {/* Social Play Along Connection */}
+          {spectatorPlayer && (
+            <div className="p-2.5 rounded-xl bg-navy-950/80 border border-white/10 flex items-center justify-between gap-2 text-xs text-left">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-8 h-8 rounded-lg bg-navy-800 flex items-center justify-center text-sm shrink-0">
+                  {spectatorPlayer.avatar || '👦'}
+                </div>
+                <div className="min-w-0">
+                  <span className="font-bold text-pearl block leading-tight truncate">
+                    {spectatorPlayer.name}
+                  </span>
+                  <span className="text-[10px] text-slate-400">Played Together in Hot Seat</span>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={async () => {
+                  soundService.playClick();
+                  await friendService.sendFriendRequest(currentUser, spectatorPlayer);
+                  setHasSentContenderRequest(true);
+                }}
+                disabled={hasSentContenderRequest}
+                className="px-2.5 py-1 rounded-lg bg-champGold/20 hover:bg-champGold/30 border border-champGold/40 text-champGold font-bold text-[11px] shrink-0 transition flex items-center gap-1"
+              >
+                <UserPlus size={12} />
+                <span>{hasSentContenderRequest ? 'Request Sent' : 'Add Friend'}</span>
+              </button>
+            </div>
+          )}
 
           {!prizesClaimed ? (
             <button

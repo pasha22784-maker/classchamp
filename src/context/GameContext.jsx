@@ -14,6 +14,7 @@ import examCategoryService from '../services/examCategoryService';
 import fairPlayService from '../services/fairPlayService';
 import clanBattleService from '../services/clanBattleService';
 import roomService from '../services/roomService';
+import friendService from '../services/friendService';
 import { getTranslation, LANGUAGES } from '../services/localizationService';
 
 const GameContext = createContext();
@@ -88,6 +89,27 @@ export function GameProvider({ children }) {
   const closeSettings = () => {
     setIsSettingsOpen(false);
   };
+
+  // PUBG-Style Friends & Social Center modal state
+  const [isFriendsOpen, setIsFriendsOpen] = useState(false);
+  const openFriends = () => {
+    soundService.playClick();
+    setIsFriendsOpen(true);
+  };
+  const closeFriends = () => {
+    setIsFriendsOpen(false);
+  };
+
+  // PUBG-Style Presence Heartbeat across the app
+  useEffect(() => {
+    if (!currentUser?.id) return;
+    const unsub = friendService.startPresenceHeartbeat(currentUser, () => {
+      if (['HOTSEAT', 'FFF', 'CLAN_BATTLE_MATCH'].includes(screen)) return 'IN_MATCH';
+      if (['LOBBY', 'PRIVATE_ROOM', 'CLAN_BATTLE_LOBBY'].includes(screen)) return 'IN_LOBBY';
+      return 'ONLINE';
+    });
+    return unsub;
+  }, [currentUser, screen]);
 
   // Champion's / Open Division Competitive Exam Category
   const [examCategory, setExamCategoryState] = useState(() => examCategoryService.getActiveCategory());
@@ -427,6 +449,11 @@ export function GameProvider({ children }) {
       }
     }
 
+    // Record room players into Recent Players list for easy Friend adding
+    if (currentUser?.id && room?.players?.length > 0) {
+      friendService.recordRecentPlayers(currentUser.id, room.players, 'Private Room Game');
+    }
+
     // Start directly with Fastest Finger First round
     setScreen('FFF');
   };
@@ -446,6 +473,11 @@ export function GameProvider({ children }) {
 
     // Record answer in 180-day zero-repeat tracker (User + Device)
     questionEngine.recordAnswer(currentUser?.id, fffQuestion.id, isCorrect);
+
+    // Record all match contenders into Recent Players list for social connecting
+    if (currentUser?.id && lobbyPlayers?.length > 0) {
+      friendService.recordRecentPlayers(currentUser.id, lobbyPlayers, 'Fastest Finger First');
+    }
 
     // Private Multiplayer Room: Broadcast submission so all devices see the unified leaderboard!
     if (activeRoom?.code) {
@@ -902,6 +934,10 @@ export function GameProvider({ children }) {
         setIsSettingsOpen,
         openSettings,
         closeSettings,
+        isFriendsOpen,
+        setIsFriendsOpen,
+        openFriends,
+        closeFriends,
         examCategory,
         setExamCategory,
         selectedLiveMatch,

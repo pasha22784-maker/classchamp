@@ -66,7 +66,7 @@ const AVATARS = ['🎮','🦁','🚀','⭐','🔥','🧠','🏆','⚡','💎','�
 
 export default function PrivateRoomScreen() {
   const { currentUser } = useAuth();
-  const { navigateTo, activeDivision, startPrivateMatch } = useGame();
+  const { navigateTo, activeDivision, startPrivateMatch, openFriends } = useGame();
 
   const [room, setRoom]           = useState(null);
   const [copied, setCopied]       = useState(false);
@@ -264,6 +264,16 @@ export default function PrivateRoomScreen() {
             {copied ? 'Copied!' : 'Copy'}
           </button>
         </div>
+
+        {/* PUBG-Style Direct In-App Game Invite Button */}
+        <button
+          type="button"
+          onClick={openFriends}
+          className="w-full mb-3 py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500/20 via-champGold/25 to-amber-500/20 hover:from-amber-500/30 hover:to-amber-500/30 border border-champGold text-champGold font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition active:scale-95 font-rajdhani uppercase tracking-wider"
+        >
+          <Users size={15} />
+          <span>+ Invite Online Friends (PUBG Style)</span>
+        </button>
 
         {/* Share Buttons */}
         <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-2 text-center">

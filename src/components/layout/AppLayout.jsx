@@ -22,9 +22,13 @@ import {
   Award,
   RotateCw,
   RefreshCw,
-  Settings
+  Settings,
+  Users
 } from 'lucide-react';
 import SettingsModal from '../common/SettingsModal';
+import FriendsCenterModal from '../common/FriendsCenterModal';
+import GameInviteNotificationBanner from '../common/GameInviteNotificationBanner';
+import friendService from '../../services/friendService';
 import storageService from '../../services/storageService';
 
 export default function AppLayout({ children }) {
@@ -40,11 +44,28 @@ export default function AppLayout({ children }) {
     LANGUAGES,
     isSettingsOpen,
     closeSettings,
-    openSettings
+    openSettings,
+    isFriendsOpen,
+    closeFriends,
+    openFriends
   } = useGame();
   const [isMuted, setIsMuted] = useState(() => soundService.isMuted());
   const [isMobileFrame, setIsMobileFrame] = useState(true);
   const [updateInfo, setUpdateInfo] = useState({ updateAvailable: false, remoteInfo: null });
+  const [onlineFriendsCount, setOnlineFriendsCount] = useState(0);
+
+  // Periodic check of online friends count
+  useEffect(() => {
+    if (!currentUser?.id) return;
+    const updateCount = () => {
+      const friends = friendService.getFriends(currentUser.id);
+      const online = friends.filter(f => friendService.getFriendPresence(f).isOnline).length;
+      setOnlineFriendsCount(online);
+    };
+    updateCount();
+    const interval = setInterval(updateCount, 6000);
+    return () => clearInterval(interval);
+  }, [currentUser]);
 
   useEffect(() => {
     const unsub = updateService.addListener(setUpdateInfo);
@@ -103,6 +124,23 @@ export default function AppLayout({ children }) {
           >
             <span>{currentLangMeta?.icon || '🌐'}</span>
             <span className="font-mono text-[11px]">{currentLangMeta?.short || 'BIL'}</span>
+          </button>
+
+          {/* PUBG-Style Friends & Squad Hub Button */}
+          <button
+            type="button"
+            onClick={openFriends}
+            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-gradient-to-r from-velvet-950 via-navy-800 to-velvet-950 hover:border-champGold/60 border border-champGold/30 text-xs font-bold text-pearl hover:text-champGold transition shadow min-h-[36px] active:scale-95 touch-manipulation"
+            title="Friends & Squad: Online Players & Group Invites"
+          >
+            <Users size={14} className="text-champGold" />
+            <span className="font-rajdhani uppercase tracking-wider text-[11px] hidden xs:inline">Friends</span>
+            {onlineFriendsCount > 0 && (
+              <span className="flex items-center gap-1 px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-black border border-emerald-500/40">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping inline-block" />
+                <span>{onlineFriendsCount}</span>
+              </span>
+            )}
           </button>
 
           {/* In-Game Landscape / Portrait Mode Switcher */}
@@ -300,6 +338,12 @@ export default function AppLayout({ children }) {
 
           {/* Central Settings Modal */}
           <SettingsModal isOpen={isSettingsOpen} onClose={closeSettings} />
+
+          {/* PUBG-Style Squad & Online Friends Center Modal */}
+          <FriendsCenterModal isOpen={isFriendsOpen} onClose={closeFriends} />
+
+          {/* PUBG-Style In-App Real-Time Game Invite Banner */}
+          <GameInviteNotificationBanner />
         </div>
       </main>
 
